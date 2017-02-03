@@ -1,0 +1,27 @@
+﻿
+Функция getStockEntryListRequest(пФабрика, enterpriseIndex = 0, count = 100) Экспорт
+	
+	_Объект = пФабрика.Создать(URI(), "getStockEntryListRequest");
+	
+	_Объект.initiator          = ВетисArgusCommon.User(пФабрика, ВетисПараметрыСоединения.ЛогинХС());
+	//_Объект.enterpriseGuid     = ВетисПараметрыСоединения.issuerId();
+	_Объект.enterpriseGuid     = ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.listOptions        = ВетисBase.ListOptions(пФабрика, count);
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция getStockEntryListResponse(пОбъект) Экспорт
+	
+	Возврат пОбъект.stockEntryList;
+	
+КонецФункции
+
+
+Функция URI()
+	
+	Возврат "http://api.vetrf.ru/schema/cdm/mercury/applications";
+	
+КонецФункции

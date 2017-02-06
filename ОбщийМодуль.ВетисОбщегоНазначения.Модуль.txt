@@ -1,7 +1,7 @@
 ﻿// основано на исходниках http://infostart.ru/public/560823/
 // и форума http://vetrf.ru/vetrf-forum/posts/list/6955.page
 
-Функция ПолучитьФабрикуXDTOApplicationManagements() Экспорт
+Функция ПолучитьФабрикуXD() Экспорт
 	
 	ОпределениеWS = WSСсылки.ApplicationManagementsServiceTest.ПолучитьWSОпределения();
 	
@@ -13,7 +13,6 @@
 	
 	ФабрикаWS = Новый ФабрикаXDTO(ОпределениеWS.ФабрикаXDTO.ЭкспортМоделиXDTO(МассивURI), ФабрикаXDTO.Пакеты);  
 	
-	// добавим 2 пакета, которые нужны, но есть только локально  
 	Пакеты = Новый Массив;  
 	//Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/cerberus/enterprise"));
 	//Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/production"));
@@ -32,22 +31,28 @@
 	
 КонецФункции
 
-Функция ВыполнитьЗапрос(пФабрикаXD, пФункцияXD, пИмяФункции, ПоУмолчанию = Неопределено, пОтладка = Ложь, пОжидание = 5) Экспорт
+Функция ВыполнитьЗапрос(пФункцияXD, пИмяФункции, ПоУмолчанию = Неопределено, пОтладка = Ложь, пОжидание = 5) Экспорт
 	// возможные статусы:  
 	// ACCEPTED   Заявка принята.  
 	// IN_PROCESS Заявка обрабатывается.  
 	// COMPLETED  Заявка успешно обработана.  
 	// REJECTED   Заявка отклонена.  
 	
+	_ФабрикаXD = ПолучитьФабрикуXD();
+	//_ФабрикаXD = ФабрикаXDTO;
+	
 	_Соединение = ПолучитьСоединение();
 	
-	Application = ВетисApplication.Application(пФабрикаXD, пФункцияXD, пИмяФункции);
 	
-		SubmitRequest = ВетисApplication.submitApplicationRequest(пФабрикаXD, Application);
+	//запрос на создание заявки
+	
+	Application = ВетисApplication.Application(пФункцияXD, пИмяФункции);
+	
+		SubmitRequest = ВетисApplication.submitApplicationRequest(Application);
 		
-			Envelope = ВетисSoapEnvelope.Envelope(пФабрикаXD, SubmitRequest, "submitApplicationRequest");
+			Envelope = ВетисSoapEnvelope.Envelope(SubmitRequest, "submitApplicationRequest");
 			
-				_ТекстЗапроса = Сериализовать(пФабрикаXD, Envelope);
+				_ТекстЗапроса = Сериализовать(_ФабрикаXD, Envelope);
 				
 				Если пОтладка = Истина Тогда
 					ВывестиСообщение(_ТекстЗапроса);
@@ -63,26 +68,28 @@
 					Возврат ПоУмолчанию;
 				КонецЕсли;
 				
-			Envelope = Десериализовать(пФабрикаXD, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), Envelope.Тип());
+			Envelope = Десериализовать(_ФабрикаXD, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), Envelope.Тип());
 		
 		SubmitResponse = ВетисSoapEnvelope.Извлечь(Envelope).submitApplicationResponse;
 		
 		Если пОтладка = Истина Тогда
-			ВывестиСообщение(Сериализовать(пФабрикаXD, SubmitResponse.application));
+			ВывестиСообщение(Сериализовать(_ФабрикаXD, SubmitResponse.application));
 		КонецЕсли;
 		
 	//Application = SubmitResponse.Application;
 	
-	Если НЕ (SubmitResponse.Application.status = "ACCEPTED") Тогда 
-		ВывестиСообщение("Запрос вернулся со статусом " + Application.status);
+	Если НЕ (SubmitResponse.Application.status = ВетисApplication.Status_ACCEPTED()) Тогда 
+		ВывестиСообщение("Запрос вернулся со статусом " + SubmitResponse.Application.status);
 		Возврат ПоУмолчанию; 
 	КонецЕсли;
 	
-	receiveRequest = ВетисApplication.receiveApplicationResultRequest(пФабрикаXD, SubmitResponse.Application.applicationId);
+	//запрос на получение результатов обработки заявки
 	
-	Envelope = ВетисSoapEnvelope.Envelope(пФабрикаXD, receiveRequest, "receiveApplicationResultRequest");
+	receiveRequest = ВетисApplication.receiveApplicationResultRequest(SubmitResponse.Application.applicationId);
 	
-	_ТекстЗапроса = Сериализовать(пФабрикаXD, Envelope);
+	Envelope = ВетисSoapEnvelope.Envelope(receiveRequest, "receiveApplicationResultRequest");
+	
+	_ТекстЗапроса = Сериализовать(_ФабрикаXD, Envelope);
 	
 	Если пОтладка = Истина Тогда
 		ВывестиСообщение(_ТекстЗапроса);
@@ -100,19 +107,19 @@
 			Возврат ПоУмолчанию;
 		КонецЕсли;
 		
-		Envelope = Десериализовать(пФабрикаXD, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), Envelope.Тип());
+		Envelope = Десериализовать(_ФабрикаXD, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), Envelope.Тип());
 		
 		receiveResponse = ВетисSoapEnvelope.Извлечь(Envelope).receiveApplicationResultResponse;
 		
-		Если receiveResponse.Application.Status = "IN_PROCESS" Тогда
+		Если receiveResponse.Application.Status = ВетисApplication.Status_IN_PROCESS() Тогда
 			//ВывестиСообщение("Ждем ответа", 1);
 		Иначе
-			Если НЕ receiveResponse.Application.status = "COMPLETED" Тогда
-				ВывестиСообщение(Сериализовать(пФабрикаXD, receiveResponse.application.errors.error));
+			Если НЕ receiveResponse.Application.status = ВетисApplication.Status_COMPLETED() Тогда
+				ВывестиСообщение(Сериализовать(_ФабрикаXD, receiveResponse.application.errors.error));
 				Возврат ПоУмолчанию;
 			Иначе
 				Если пОтладка = Истина Тогда
-					ВывестиСообщение(Сериализовать(пФабрикаXD, receiveResponse.application));
+					ВывестиСообщение(Сериализовать(_ФабрикаXD, receiveResponse.application));
 				КонецЕсли;
 				Возврат ВетисApplication.ApplicationResult(receiveResponse.Application);
 			КонецЕсли;

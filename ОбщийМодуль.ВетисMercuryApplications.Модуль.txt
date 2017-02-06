@@ -1,18 +1,21 @@
 ﻿
-Функция getStockEntryListRequest(пФабрика, enterpriseIndex = 0, count = 100) Экспорт
+// Корневой элемент содержимого заявки на получение актуального списка записей складского журнала.
+Функция getStockEntryListRequest(enterpriseIndex = 0, count = 100) Экспорт
 	
-	_Объект = пФабрика.Создать(URI(), "getStockEntryListRequest");
+	_Фабрика = Фабрика();
 	
-	_Объект.initiator          = ВетисArgusCommon.User(пФабрика, ВетисПараметрыСоединения.ЛогинХС());
-	//_Объект.enterpriseGuid     = ВетисПараметрыСоединения.issuerId();
-	_Объект.enterpriseGuid     = ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
+	_Объект = _Фабрика.Создать(URI(), "getStockEntryListRequest");
+	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.listOptions        = ВетисBase.ListOptions(пФабрика, count);
+	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.enterpriseGuid     = ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
+	_Объект.listOptions        = ВетисBase.ListOptions(count);
 	
 	Возврат _Объект;
 	
 КонецФункции
 
+// Объект содержит сведения о результатах обработки запроса на получение актуального списка записей складского журнала.
 Функция getStockEntryListResponse(пОбъект) Экспорт
 	
 	Возврат пОбъект.stockEntryList;
@@ -20,8 +23,92 @@
 КонецФункции
 
 
+// Корневой элемент содержимого заявки на получение актуального списка записей складского журнала.
+Функция getStockEntryChangesListRequest(enterpriseIndex = 0, count = 100) Экспорт
+	
+	_Фабрика = Фабрика();
+	
+	_Объект = _Фабрика.Создать(URI(), "getStockEntryListRequest");
+	
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.enterpriseGuid     = ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
+	_Объект.listOptions        = ВетисBase.ListOptions(count);
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения о результатах обработки запроса на получение актуального списка записей складского журнала.
+Функция getStockEntryChangesListResponse(пОбъект) Экспорт
+	
+	Возврат пОбъект.stockEntryList;
+	
+КонецФункции
+
+
+// Корневой элемент содержимого заявки на получение записи складского журнала по идентификатору.
+Функция getStockEntryByGuidRequest(guid, enterpriseIndex = 0) Экспорт
+	
+	_Фабрика = Фабрика();
+	
+	_Объект = _Фабрика.Создать(URI(), "getStockEntryListRequest");
+	
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.enterpriseGuid     = ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
+	_Объект.GUID               = guid;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит результат обработки запроса на получение записи складского журнала по глобальному идентификатору.
+Функция getStockEntryByGuidResponse(пОбъект) Экспорт
+	
+	Возврат пОбъект.stockEntry;
+	
+КонецФункции
+
+
+//ModifyActivityLocationsRequest
+//ModifyActivityLocationsResponse
+
+//ModifyBusinessEntityRequest
+//ModifyBusinessEntityResponse
+
+//ModifyEnterpriseRequest
+//ModifyEnterpriseResponse
+
+//getVetDocumentListRequest
+//getVetDocumentListResponse
+
+Функция ModifyBusinessEntityRequest(type, affectedList, reason) Экспорт
+	
+	_Фабрика = Фабрика();
+	
+	_Объект = _Фабрика.Создать(URI(), "ModifyBusinessEntityRequest");
+	
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.modificationOperation = ВетисCerberusEnterprise.BEModificationOperation(type, affectedList, reason);
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
 Функция URI()
 	
 	Возврат "http://api.vetrf.ru/schema/cdm/mercury/applications";
+	
+КонецФункции
+
+Функция Фабрика()
+	
+	Пакеты = Новый Массив;  
+	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить(URI()));
+	
+	Возврат Новый ФабрикаXDTO(, Пакеты);
 	
 КонецФункции

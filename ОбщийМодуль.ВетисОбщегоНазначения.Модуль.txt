@@ -1,6 +1,4 @@
-﻿// основано на исходниках http://infostart.ru/public/560823/
-// и форума http://vetrf.ru/vetrf-forum/posts/list/6955.page
-
+﻿
 Функция ПолучитьФабрикуXD() Экспорт
 	
 	ОпределениеWS = WSСсылки.ApplicationManagementsServiceTest.ПолучитьWSОпределения();

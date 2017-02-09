@@ -2,9 +2,7 @@
 // Корневой элемент содержимого заявки на получение актуального списка записей складского журнала.
 Функция getStockEntryListRequest(enterpriseIndex = 0, count = 100) Экспорт
 	
-	_Фабрика = Фабрика();
-	
-	_Объект = _Фабрика.Создать(URI(), "getStockEntryListRequest");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "getStockEntryListRequest"));
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -24,15 +22,13 @@
 
 
 // Корневой элемент содержимого заявки на получение актуального списка записей складского журнала.
-Функция getStockEntryChangesListRequest(enterpriseIndex = 0, count = 100) Экспорт
+Функция getStockEntryChangesListRequest(enterpriseGuid = 0, count = 100) Экспорт
 	
-	_Фабрика = Фабрика();
-	
-	_Объект = _Фабрика.Создать(URI(), "getStockEntryListRequest");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "getStockEntryListRequest"));
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
+	_Объект.enterpriseGuid     = ВетисПараметрыСоединения.enterpriseGuid(enterpriseGuid);
 	_Объект.listOptions        = ВетисBase.ListOptions(count);
 	
 	Возврат _Объект;
@@ -50,9 +46,7 @@
 // Корневой элемент содержимого заявки на получение записи складского журнала по идентификатору.
 Функция getStockEntryByGuidRequest(guid, enterpriseIndex = 0) Экспорт
 	
-	_Фабрика = Фабрика();
-	
-	_Объект = _Фабрика.Создать(URI(), "getStockEntryListRequest");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "getStockEntryListRequest"));
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -74,9 +68,7 @@
 // Корневой элемент содержимого заявки. Определяет тип заявки и соответствие с описанием в библиотеке типов.
 Функция ProcessIncomingConsignmentRequest(enterpriseIndex = 0, count = 100) Экспорт
 	
-	_Фабрика = Фабрика();
-	
-	_Объект = _Фабрика.Создать(URI(), "getStockEntryListRequest");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "getStockEntryListRequest"));
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -84,7 +76,6 @@
 	_Объект.deliveryFacts      = 1;
 	//_Объект.discrepancyReport  = 1;// Акт несоответствия
 	//_Объект.returnedDelivery   = 1;// возврат
-	
 	
 	Возврат _Объект;
 	
@@ -97,23 +88,10 @@
 	
 КонецФункции
 
-//ModifyActivityLocationsRequest
-//ModifyActivityLocationsResponse
-
-//ModifyBusinessEntityRequest
-//ModifyBusinessEntityResponse
-
-//ModifyEnterpriseRequest
-//ModifyEnterpriseResponse
-
-//getVetDocumentListRequest
-//getVetDocumentListResponse
 
 Функция ModifyBusinessEntityRequest(type, affectedList, reason) Экспорт
 	
-	_Фабрика = Фабрика();
-	
-	_Объект = _Фабрика.Создать(URI(), "ModifyBusinessEntityRequest");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "ModifyBusinessEntityRequest"));
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -130,11 +108,3 @@
 	
 КонецФункции
 
-Функция Фабрика()
-	
-	Пакеты = Новый Массив;  
-	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить(URI()));
-	
-	Возврат Новый ФабрикаXDTO(, Пакеты);
-	
-КонецФункции

@@ -40,13 +40,10 @@
 КонецФункции
 
 // Тип, описывающий продукцию.
-Функция Product(name, code, productType = 1, guid = Неопределено) Экспорт
+Функция Product(name, code, productType = 1) Экспорт
 	
-	_Фабрика = Фабрика();
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Product"));
 	
-	_Объект = _Фабрика.Создать(URI(), "Product");
-	
-	_Объект.guid = guid;
 	_Объект.name = name;// Название продукции.
 	_Объект.code = code;// Код ТНВЭД.
 	_Объект.englishName = "";
@@ -58,9 +55,7 @@
 
 Функция Product_guid(guid) Экспорт
 	
-	_Фабрика = Фабрика();
-	
-	_Объект = _Фабрика.Создать(URI(), "Product");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Product"));
 	
 	_Объект.guid = guid;
 	
@@ -70,9 +65,7 @@
 
 Функция ProductItem(name, articul = "", productType = 1) Экспорт
 	
-	_Фабрика = Фабрика();
-	
-	_Объект = _Фабрика.Создать(URI(), "Product");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Product"));
 	
 	_Объект.name = name;// Название продукции.
 	_Объект.code = articul;// Артикул (код) продукции.
@@ -89,9 +82,7 @@
 // Тип, описывающий вид продукции.
 Функция SubProduct(name, code, guid) Экспорт
 	
-	_Фабрика = Фабрика();
-	
-	_Объект = _Фабрика.Создать(URI(), "SubProduct");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "SubProduct"));
 	
 	_Объект.name = name;// Название продукции.
 	_Объект.code = code;// Код ТНВЭД.
@@ -104,9 +95,7 @@
 
 Функция SubProduct_guid(name, code, guid) Экспорт
 	
-	_Фабрика = Фабрика();
-	
-	_Объект = _Фабрика.Создать(URI(), "SubProduct");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "SubProduct"));
 	
 	_Объект.guid = guid;
 	
@@ -123,7 +112,11 @@
 // в случае если параметры запроса не корректны, если запись по запросу не найдена или произошла иная ошибка выполнения запроса.
 Функция GetProductByTypeList(productType, ListOptions = Неопределено) Экспорт
 	
-	ListOptions = ?(ListOptions = Неопределено, ВетисBase.ListOptions(), ListOptions);
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
 	
 	Возврат Прокси().GetProductByTypeList(ListOptions, productType);
 	
@@ -136,7 +129,11 @@
 // в случае если параметры запроса не корректны, если запись по запросу не найдена или произошла иная ошибка выполнения запроса.
 Функция GetSubProductByProductList(productGuid, ListOptions = Неопределено) Экспорт
 	
-	ListOptions = ?(ListOptions = Неопределено, ВетисBase.ListOptions(), ListOptions);
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
 	
 	Возврат Прокси().GetSubProductByProductList(ListOptions, productGuid);
 	
@@ -158,14 +155,5 @@
 Функция URI()
 	
 	Возврат "http://api.vetrf.ru/schema/cdm/argus/production";
-	
-КонецФункции
-
-Функция Фабрика()
-	
-	Пакеты = Новый Массив;  
-	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить(URI()));
-	
-	Возврат Новый ФабрикаXDTO(, Пакеты);
 	
 КонецФункции

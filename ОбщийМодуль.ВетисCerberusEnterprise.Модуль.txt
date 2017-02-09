@@ -2,9 +2,7 @@
 // тип, описывающий хозяйствующий субъект (ХС)
 Функция BusinessEntity(fullName = Неопределено, inn = Неопределено, name = Неопределено, пПараметры = Неопределено) Экспорт
 	
-	_Фабрика = Фабрика();
-	
-	_Объект = _Фабрика.Создать(URI(), "BusinessEntity");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BusinessEntity"));
 	
 	_Объект.name = ?(name = Неопределено, "", name);
 	_Объект.fullName = ?(fullName = Неопределено, "", fullName);
@@ -22,7 +20,7 @@
 	
 	_Фабрика = Фабрика();
 	
-	_Объект = _Фабрика.Создать(URI(), "BusinessEntityList");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BusinessEntityList"));
 	
 	//Если НЕ пПараметры = Неопределено Тогда
 	//	ЗаполнитьЗначенияСвойств(_Объект, пПараметры);
@@ -37,7 +35,7 @@
 	
 	_Фабрика = Фабрика();
 	
-	_Объект = _Фабрика.Создать(URI(), "BusinessMember");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BusinessMember"));
 	
 	_Объект.businessEntity = businessEntity;
 	_Объект.enterprise = enterprise;
@@ -52,7 +50,7 @@
 	
 	_Фабрика = Фабрика();
 	
-	_Объект = _Фабрика.Создать(URI(), "Enterprise");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Enterprise"));
 	
 	_Объект.name = ?(name = Неопределено, "", name);
 	
@@ -68,7 +66,7 @@
 	
 	_Фабрика = Фабрика();
 	
-	_Объект = _Фабрика.Создать(URI(), "BEModificationOperation");
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BEModificationOperation"));
 	
 	_Объект.type = type;
 	_Объект.affectedList = affectedList;

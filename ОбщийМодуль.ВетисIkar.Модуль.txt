@@ -1,0 +1,386 @@
+﻿
+Функция Country(guid, пПараметры = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Country"));
+	
+	_Объект.guid = guid;
+	
+	Если НЕ пПараметры = Неопределено Тогда
+		ЗаполнитьЗначенияСвойств(_Объект, пПараметры);
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция District(guid, пПараметры = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "District"));
+	
+	_Объект.guid = guid;
+	
+	Если НЕ пПараметры = Неопределено Тогда
+		ЗаполнитьЗначенияСвойств(_Объект, пПараметры);
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция Locality(guid, пПараметры = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Locality"));
+	
+	_Объект.guid = guid;
+	
+	Если НЕ пПараметры = Неопределено Тогда
+		ЗаполнитьЗначенияСвойств(_Объект, пПараметры);
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция Region(guid, пПараметры = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Region"));
+	
+	_Объект.guid = guid;
+	
+	Если НЕ пПараметры = Неопределено Тогда
+		ЗаполнитьЗначенияСвойств(_Объект, пПараметры);
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция Street(guid, пПараметры = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Street"));
+	
+	_Объект.guid = guid;
+	
+	Если НЕ пПараметры = Неопределено Тогда
+		ЗаполнитьЗначенияСвойств(_Объект, пПараметры);
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
+Функция FederalDistrict(guid, пПараметры = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "FederalDistrict"));
+	
+	_Объект.guid = guid;
+	
+	Если НЕ пПараметры = Неопределено Тогда
+		ЗаполнитьЗначенияСвойств(_Объект, пПараметры);
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
+Функция Address(countryGuid, regionGuid, districtGuid, localityGuid, streetGuid, house, building) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Address"));
+	
+	_Объект.country      = Country(countryGuid);
+	_Объект.region       = District(regionGuid);
+	_Объект.localityGuid = Locality(localityGuid);
+	_Объект.streetGuid   = Street(streetGuid);
+	_Объект.house        = house;
+	_Объект.building     = building;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция AddressView(addressView, пПараметры = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Address"));
+	
+	_Объект.addressView = addressView;
+	
+	Если НЕ пПараметры = Неопределено Тогда
+		ЗаполнитьЗначенияСвойств(_Объект, пПараметры);
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
+Функция CountryList(guid = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "CountryList"));
+	
+	Если НЕ guid = Неопределено Тогда
+		_Объект.country.Добавить(ФормаXML.Элемент, URI(), "country", Country(guid));
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция DistrictList(guid = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "DistrictList"));
+	
+	Если НЕ guid = Неопределено Тогда
+		_Объект.district.Добавить(ФормаXML.Элемент, URI(), "district", Country(guid));
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция LocalityList(guid = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "LocalityList"));
+	
+	Если НЕ guid = Неопределено Тогда
+		_Объект.locality.Добавить(ФормаXML.Элемент, URI(), "locality", Country(guid));
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция RegionList(guid = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "RegionList"));
+	
+	Если НЕ guid = Неопределено Тогда
+		_Объект.region.Добавить(ФормаXML.Элемент, URI(), "region", Country(guid));
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция StreetList(guid = Неопределено) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "StreetList"));
+	
+	Если НЕ guid = Неопределено Тогда
+		_Объект.street.Добавить(ФормаXML.Элемент, URI(), "street", Country(guid));
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
+Функция CountryListИтератор(CountryList) Экспорт
+	
+	Возврат CountryList.country;
+	
+КонецФункции
+
+Функция DistrictListИтератор(DistrictList) Экспорт
+	
+	Возврат DistrictList.district;
+	
+КонецФункции
+
+Функция LocalityListИтератор(LocalityList) Экспорт
+	
+	Возврат LocalityList.locality;
+	
+КонецФункции
+
+Функция RegionListИтератор(RegionList) Экспорт
+	
+	Возврат RegionList.region;
+	
+КонецФункции
+
+Функция StreetListИтератор(StreetList) Экспорт
+	
+	Возврат StreetList.street;
+	
+КонецФункции
+
+
+#Область Service
+
+Функция GetCountryByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
+	
+	_объект = Прокси().GetCountryByGuid(guid);
+	
+	Если пИмяСвойства = Неопределено Тогда
+		Возврат _объект;
+	Иначе
+		Возврат ?(_объект.Свойства().Получить(пИмяСвойства) = Неопределено, ПоУмолчанию, _объект[пИмяСвойства]);
+	КонецЕсли;
+	
+КонецФункции
+
+Функция GetAllCountryList(ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetAllCountryList(ListOptions);
+	
+КонецФункции
+
+
+Функция GetRegionByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
+	
+	_объект = Прокси().GetRegionByGuid(guid);
+	
+	Если пИмяСвойства = Неопределено Тогда
+		Возврат _объект;
+	Иначе
+		Возврат ?(_объект.Свойства().Получить(пИмяСвойства) = Неопределено, ПоУмолчанию, _объект[пИмяСвойства]);
+	КонецЕсли;
+	
+КонецФункции
+
+Функция GetRegionListByCountry(countryGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetRegionListByCountry(ListOptions, countryGuid);
+	
+КонецФункции
+
+
+Функция GetDistrictByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
+	
+	_объект = Прокси().GetDistrictByGuid(guid);
+	
+	Если пИмяСвойства = Неопределено Тогда
+		Возврат _объект;
+	Иначе
+		Возврат ?(_объект.Свойства().Получить(пИмяСвойства) = Неопределено, ПоУмолчанию, _объект[пИмяСвойства]);
+	КонецЕсли;
+	
+КонецФункции
+
+Функция GetDistrictListByRegion(regionGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetDistrictListByRegion(ListOptions, regionGuid);
+	
+КонецФункции
+
+
+Функция GetLocalityListByRegion(regionGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetLocalityListByRegion(ListOptions, regionGuid);
+	
+КонецФункции
+
+Функция GetLocalityListByDistrict(districtGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetLocalityListByDistrict(ListOptions, districtGuid);
+	
+КонецФункции
+
+Функция GetLocalityListByLocality(localityGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetLocalityListByLocality(ListOptions, localityGuid);
+	
+КонецФункции
+
+Функция FindLocalityListByName(regionGuid, pattern, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().FindLocalityListByName(ListOptions, regionGuid, pattern);
+	
+КонецФункции
+
+
+Функция GetStreetListByLocality(localityGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetStreetListByLocality(ListOptions, localityGuid);
+	
+КонецФункции
+
+Функция FindStreetListByName(localityGuid, pattern, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().FindStreetListByName(ListOptions, localityGuid, pattern);
+	
+КонецФункции
+
+#КонецОбласти
+
+
+Функция Прокси()
+	
+	_Прокси = WSСсылки.IkarServiceTest.СоздатьWSПрокси("http://api.vetrf.ru/schema/cdm/registry/service", "IkarServiceBindingQSService", "IkarServiceBindingQSPort");
+	_Прокси.Пароль       = ВетисПараметрыСоединения.Пароль();
+	_Прокси.Пользователь = ВетисПараметрыСоединения.Логин();
+	
+	Возврат _Прокси;
+	
+КонецФункции
+
+Функция URI()
+	
+	Возврат "http://api.vetrf.ru/schema/cdm/ikar";
+	
+КонецФункции
+
+Функция Фабрика()
+	
+	Пакеты = Новый Массив;  
+	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить(URI()));
+	
+	Возврат Новый ФабрикаXDTO(, Пакеты);
+	
+КонецФункции

@@ -37,22 +37,22 @@
 КонецФункции
 
 // Тип, описывающий список форм упаковки.
-Функция PackingFormList(name = "коробки") Экспорт
+Функция PackingFormList(guid) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "PackingFormList"));
 	
-	_Объект.packingForm = packingForm(name); // Вид упаковки продукции.
+	_Объект.packingForm.Добавить(ФормаXML.Элемент, URI(), "packingForm", packingForm(guid));
 	
 	Возврат _Объект;
 	
 КонецФункции
 
 // Тип, описывающий упаковку.
-Функция packingForm(name = "коробки") Экспорт
+Функция packingForm(guid) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "packingForm"));
 	
-	_Объект.name = name;// Наименование упаковки.
+	_Объект.guid = guid;
 	
 	Возврат _Объект;
 	

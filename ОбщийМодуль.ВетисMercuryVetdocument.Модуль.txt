@@ -11,15 +11,16 @@
 КонецФункции
 
 // Тип, описывающий поставку.
-Функция Delivery(name, articul, code) Экспорт
+Функция Delivery(consignorBE, consignorE, consigneeBE, consigneeE,
+	productType, product, subProduct, productItem, volume, unit) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Delivery"));
 	
-	_Объект.deliveryDate = 1;//	Дата поставки.
-	_Объект.consignor = ВетисCerberusEnterprise.BusinessMember(1,1);// Сведения об отправителе (владельце).
-	_Объект.consignee = ВетисCerberusEnterprise.BusinessMember(1,1);// Сведения о получателе груза.
-	_Объект.consignment = Consignment(name, articul, code);// Сведения о транспортной партии.
-	_Объект.accompanyingForms = "";// Сопроводительные документы.
+	_Объект.deliveryDate = ТекущаяДата();//	Дата поставки.
+	_Объект.consignor = ВетисCerberusEnterprise.BusinessMember(consignorBE, consignorE);// Сведения об отправителе (владельце).
+	_Объект.consignee = ВетисCerberusEnterprise.BusinessMember(consigneeBE, consigneeE);// Сведения о получателе груза.
+	_Объект.consignment = Consignment(productType, product, subProduct, productItem, volume, unit);// Сведения о транспортной партии.
+	//_Объект.accompanyingForms = "";// Сопроводительные документы.
 	
 	Возврат _Объект;
 	
@@ -38,13 +39,31 @@
 КонецФункции
 
 // Тип, описывающий транспортную партию груза.
-Функция Consignment(name, articul, code, productType = 1) Экспорт
+Функция Consignment(productType, product, subProduct, productItem, volume, unit) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Consignment"));
 	
-	_Объект.productName = name;//	Наименование продукции в соответствии с оформленной товарной накладной.
-	_Объект.productCode = articul;// Артикул (код) продукции в соответствии с оформленной товарной накладной.
-	_Объект.sourceStockEntry = StockEntry(name, code, productType);// Запись журнала, из которой формируется транспортная партия.
+	//_Объект.productName = name;//	Наименование продукции в соответствии с оформленной товарной накладной.
+	//_Объект.productCode = articul;// Артикул (код) продукции в соответствии с оформленной товарной накладной.
+	//_Объект.sourceStockEntry = StockEntry(name, code, productType);// Запись журнала, из которой формируется транспортная партия.
+	
+	_Объект.productType      = productType;// Тип продукции.
+	_Объект.product          = ВетисArgusProduction.Product_guid(product);// Продукция.
+	_Объект.subProduct       = ВетисArgusProduction.SubProduct_guid(subProduct);// Вид продукции.
+	_Объект.productItem      = ВетисArgusProduction.ProductItem(productItem);// Наименование произведенной продукции в номенклатуре производителя.
+	_Объект.volume           = volume;// Объем произведенной продукции. Значение должно быть больше нуля.
+	_Объект.unit             = ВетисArgusCommon.Unit(unit);// Единица измерения объема произведенной продукции.
+	
+	//_Объект.packingList      = ВетисArgusCommon.PackingFormList(unit);// Список видов упаковки, которые используются для производственной партии.
+	//_Объект.packingAmount    = 0;// Общее количество единиц упаковки для производственной партии.
+	//_Объект.dateOfProduction = GoodsDate(ТекущаяДата());// Дата выработки продукции.
+	//_Объект.expiryDate       = GoodsDate(ДобавитьМесяц(ТекущаяДата(), 12));// Дата окончания срока годности продукции.
+	//_Объект.perishable       = false;// Описывает, является ли продукция скоропортящейся, true – скоропортящаяся, false – не скоропортящаяся.
+	
+	//_Объект.countryOfOrigin  = ;// Страна происхождения продукции.
+	//_Объект.producerList     = ;// Список производителей продукции.
+	//_Объект.productMarkingList = 1;// Список маркировки продукции, доступной для данного производителя.
+	//_Объект.lowGradeCargo    = 1;// Является ли продукция некачественной.
 	
 	//_Объект.id = "";// Идентификатор, определяющий consignment в запросе. Должен быть указан, если запрос содержит несколько элементов consignment.
 	//_Объект.partOf = "";// Ссылка на consignment в разделе delivery запроса. Должен быть указан, если запрос содержит несколько элементов consignment.

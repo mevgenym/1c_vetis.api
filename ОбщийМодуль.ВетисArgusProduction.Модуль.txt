@@ -79,6 +79,13 @@
 	
 КонецФункции
 
+Функция ProductListИтератор(ProductList) Экспорт
+	
+	Возврат ProductList.product;
+	
+КонецФункции
+
+
 // Тип, описывающий вид продукции.
 Функция SubProduct(name, code, guid) Экспорт
 	

@@ -66,14 +66,14 @@
 
 
 // Корневой элемент содержимого заявки. Определяет тип заявки и соответствие с описанием в библиотеке типов.
-Функция ProcessIncomingConsignmentRequest(enterpriseIndex = 0, count = 100) Экспорт
+Функция ProcessIncomingConsignmentRequest(пПараметры) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "getStockEntryListRequest"));
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.delivery           = 1;
-	_Объект.deliveryFacts      = 1;
+	_Объект.delivery           = ВетисMercuryVetdocument.Delivery();
+	//_Объект.deliveryFacts      = 1;
 	//_Объект.discrepancyReport  = 1;// Акт несоответствия
 	//_Объект.returnedDelivery   = 1;// возврат
 	

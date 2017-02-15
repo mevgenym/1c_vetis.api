@@ -18,8 +18,6 @@
 
 Функция BusinessEntityList(пПараметры = Неопределено) Экспорт
 	
-	_Фабрика = Фабрика();
-	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BusinessEntityList"));
 	
 	//Если НЕ пПараметры = Неопределено Тогда
@@ -33,12 +31,13 @@
 // тип, описывающий связку хозяйствующего субъекта и площадки (поднадзорного объекта)
 Функция BusinessMember(businessEntity, enterprise) Экспорт
 	
-	_Фабрика = Фабрика();
-	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BusinessMember"));
 	
-	_Объект.businessEntity = businessEntity;
-	_Объект.enterprise = enterprise;
+	_Объект.businessEntity = BusinessEntity();
+	_Объект.businessEntity.guid = businessEntity;
+	
+	_Объект.enterprise = Enterprise();
+	_Объект.enterprise.guid = enterprise;
 	
 	Возврат _Объект;
 	
@@ -47,8 +46,6 @@
 
 // тип, описывающий предприятие
 Функция Enterprise(name = Неопределено, пПараметры = Неопределено) Экспорт
-	
-	_Фабрика = Фабрика();
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Enterprise"));
 	
@@ -63,8 +60,6 @@
 КонецФункции
 
 Функция BEModificationOperation(type, affectedList, reason) Экспорт
-	
-	_Фабрика = Фабрика();
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BEModificationOperation"));
 	
@@ -99,9 +94,15 @@
 // Поддерживается возможность постраничного вывода и фильтрации по шаблону.
 // Выполнение операции заканчивается либо возвратом списка хозяйствующих субъектов, либо ошибкой,
 // в случае если параметры запроса не корректны или произошла иная ошибка выполнения запроса.
-Функция GetBusinessEntityList(fullName = Неопределено, inn = Неопределено, name = Неопределено) Экспорт
+Функция GetBusinessEntityList(fullName = Неопределено, inn = Неопределено, name = Неопределено, ListOptions = Неопределено) Экспорт
 	
-	Возврат Прокси().GetBusinessEntityList(ВетисBase.ListOptions(), BusinessEntity(fullName, inn, name));
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetBusinessEntityList(ListOptions, BusinessEntity(fullName, inn, name));
 	
 КонецФункции
 
@@ -109,9 +110,15 @@
 // по его глобальному идентификатору (active=true, last=true).
 // Выполнение операции заканчивается либо возвратом записи предприятия, либо ошибкой,
 // в случае если параметры запроса не корректны, если запись по запросу не найдена или произошла иная ошибка выполнения запроса.
-Функция GetEnterpriseByGuid(guid) Экспорт
+Функция GetEnterpriseByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
 	
-	Возврат Прокси().GetEnterpriseByGuid(guid);
+	_объект = Прокси().GetEnterpriseByGuid(guid);
+	
+	Если пИмяСвойства = Неопределено Тогда
+		Возврат _объект;
+	Иначе
+		Возврат ?(_объект.Свойства().Получить(пИмяСвойства) = Неопределено, ПоУмолчанию, _объект[пИмяСвойства]);
+	КонецЕсли;
 	
 КонецФункции
 
@@ -120,9 +127,15 @@
 // Операция поддерживает фильтрацию по полям предприятия и постраничный вывод.
 // Выполнение операции заканчивается либо возвратом списка предприятий, либо ошибкой,
 // в случае если параметры запроса не корректны или произошла иная ошибка выполнения запроса.
-Функция GetRussianEnterpriseList(name = Неопределено) Экспорт
+Функция GetRussianEnterpriseList(name = Неопределено, ListOptions = Неопределено) Экспорт
 	
-	Возврат Прокси().GetBusinessEntityList(ВетисBase.ListOptions(), Enterprise(name));
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetBusinessEntityList(ListOptions, Enterprise(name));
 	
 КонецФункции
 
@@ -142,14 +155,5 @@
 Функция URI()
 	
 	Возврат "http://api.vetrf.ru/schema/cdm/cerberus/enterprise";
-	
-КонецФункции
-
-Функция Фабрика()
-	
-	Пакеты = Новый Массив;  
-	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить(URI()));
-	
-	Возврат Новый ФабрикаXDTO(, Пакеты);
 	
 КонецФункции

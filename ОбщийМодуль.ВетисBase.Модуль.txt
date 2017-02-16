@@ -47,24 +47,31 @@
 КонецФункции
 
 
+#Область RegisterModificationType
+// тип, описывающий тип операции на изменение реестра
+
+// добавление новой записи
 Функция RegisterModificationType_CREATE() Экспорт
 	
 	Возврат "CREATE";
 	
 КонецФункции
 
+// Поиск существующей или добавление новой записи
 Функция RegisterModificationType_FIND_OR_CREATE() Экспорт
 	
 	Возврат "FIND_OR_CREATE";
 	
 КонецФункции
 
+// Внесение изменений в существующую запись
 Функция RegisterModificationType_UPDATE() Экспорт
 	
 	Возврат "UPDATE";
 	
 КонецФункции
 
+// Удаление существующей записи
 Функция RegisterModificationType_DELETE() Экспорт
 	
 	Возврат "DELETE";
@@ -94,6 +101,51 @@
 	Возврат "FORK";
 	
 КонецФункции
+
+// описание
+Функция RegisterModificationTypeОписание(nature) Экспорт
+	
+	Если nature = RegisterModificationType_CREATE() Тогда
+		Возврат "Добавление";
+	ИначеЕсли nature = RegisterModificationType_FIND_OR_CREATE() Тогда
+		Возврат "Поиск";
+	ИначеЕсли nature = RegisterModificationType_UPDATE() Тогда
+		Возврат "Внесение изменений";
+	ИначеЕсли nature = RegisterModificationType_DELETE() Тогда
+		Возврат "Удаление";
+	ИначеЕсли nature = RegisterModificationType_MERGE() Тогда
+		Возврат "Объединение";
+	ИначеЕсли nature = RegisterModificationType_ATTACH() Тогда
+		Возврат "Прикрепление";
+	ИначеЕсли nature = RegisterModificationType_SPLIT() Тогда
+		Возврат "Разделение";
+	ИначеЕсли nature = RegisterModificationType_FORK() Тогда
+		Возврат "Ответвление";
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+// список
+Функция RegisterModificationTypeСписок() Экспорт
+	
+	_Список = Новый СписокЗначений();
+	
+	_Список.Добавить(RegisterModificationType_CREATE(),         RegisterModificationTypeОписание(RegisterModificationType_CREATE()));
+	_Список.Добавить(RegisterModificationType_FIND_OR_CREATE(), RegisterModificationTypeОписание(RegisterModificationType_FIND_OR_CREATE()));
+	_Список.Добавить(RegisterModificationType_UPDATE(),         RegisterModificationTypeОписание(RegisterModificationType_UPDATE()));
+	_Список.Добавить(RegisterModificationType_DELETE(),         RegisterModificationTypeОписание(RegisterModificationType_DELETE()));
+	_Список.Добавить(RegisterModificationType_MERGE(),          RegisterModificationTypeОписание(RegisterModificationType_MERGE()));
+	_Список.Добавить(RegisterModificationType_ATTACH(),         RegisterModificationTypeОписание(RegisterModificationType_ATTACH()));
+	_Список.Добавить(RegisterModificationType_SPLIT(),          RegisterModificationTypeОписание(RegisterModificationType_SPLIT()));
+	_Список.Добавить(RegisterModificationType_FORK(),           RegisterModificationTypeОписание(RegisterModificationType_FORK()));
+	
+	Возврат _Список;
+	
+КонецФункции
+
+#КонецОбласти
 
 
 Функция URI() Экспорт

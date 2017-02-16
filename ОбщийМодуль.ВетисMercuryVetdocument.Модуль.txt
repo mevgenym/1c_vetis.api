@@ -1,5 +1,6 @@
 ﻿
-Функция VetDocument(name, articul, code) Экспорт
+// Тип, описывающий ветеринарно-сопроводительный документ (ВСД).
+Функция VetDocument() Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "VetDocument"));
 	
@@ -16,7 +17,7 @@
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Delivery"));
 	
-	_Объект.deliveryDate = ТекущаяДата();//	Дата поставки.
+	_Объект.deliveryDate = ТекущаяДата();// Дата поставки.
 	_Объект.consignor = ВетисCerberusEnterprise.BusinessMember(consignorBE, consignorE);// Сведения об отправителе (владельце).
 	_Объект.consignee = ВетисCerberusEnterprise.BusinessMember(consigneeBE, consigneeE);// Сведения о получателе груза.
 	_Объект.consignment = Consignment(productType, product, subProduct, productItem, volume, unit);// Сведения о транспортной партии.
@@ -26,13 +27,480 @@
 	
 КонецФункции
 
+// Объект содержит обобщенные сведения о результате приема партии продукции.
+Функция DeliveryFactList(presence, docInspection, vetInspection, decision) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "DeliveryFactList"));
+	
+	_Объект.vetCertificatePresence = presence;
+	_Объект.docInspection = docInspection;// Соответствуют ли сведения о партии, указанной в ВСД, фактическим.
+	_Объект.vetInspection = vetInspection;// Осуществлен ли контроль груза гос.ветврачом на соответствие требованиям.
+	_Объект.decision = decision;// Принятое решение о приёме входной партии.
+	
+	Возврат _Объект;
+	
+КонецФункции
+
 // Тип, описывающий контроль поставки (документарный, ветеринарный).
-Функция ConsignmentDocumentList(waybill) Экспорт
+Функция DeliveryInspection(result) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "DeliveryFactList"));
+	
+	_Объект.responsible = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());// Ответственный за контроль.
+	_Объект.result = result;// Результат контроля.
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
+#Область AnimalSpentPeriod
+// Тип, описывающий cколько времени животные находились на территории ТС.
+
+// Животные находились на территории ТС с рождения.
+Функция AnimalSpentPeriod_FROM_BIRTH() Экспорт
+	
+	Возврат "FROM_BIRTH";
+	
+КонецФункции
+
+// Животные находились на территории ТС не менее 6 месяцев.
+Функция AnimalSpentPeriod_NOT_LESS_SIX_MONTHS() Экспорт
+	
+	Возврат "NOT_LESS_SIX_MONTHS";
+	
+КонецФункции
+
+// Животные находились на территории ТС указанное кол-во месяцев.
+Функция AnimalSpentPeriod_IN_MONTHS() Экспорт
+	
+	Возврат "IN_MONTHS";
+	
+КонецФункции
+
+// Животные не находились на территории ТС.
+Функция AnimalSpentPeriod_ZERO() Экспорт
+	
+	Возврат "ZERO";
+	
+КонецФункции
+
+// описание
+Функция AnimalSpentPeriodОписание(status) Экспорт
+	
+	Если status = AnimalSpentPeriod_FROM_BIRTH() Тогда
+		Возврат "Животные находились на территории ТС с рождения";
+	ИначеЕсли status = AnimalSpentPeriod_NOT_LESS_SIX_MONTHS() Тогда
+		Возврат "Животные находились на территории ТС не менее 6 месяцев";
+	ИначеЕсли status = AnimalSpentPeriod_IN_MONTHS() Тогда
+		Возврат "Животные находились на территории ТС указанное кол-во месяцев";
+	ИначеЕсли status = AnimalSpentPeriod_ZERO() Тогда
+		Возврат "Животные не находились на территории ТС";
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+// список
+Функция AnimalSpentPeriodСписок() Экспорт
+	
+	_Список = Новый СписокЗначений();
+	
+	_Список.Добавить(AnimalSpentPeriod_FROM_BIRTH(),          AnimalSpentPeriodОписание(AnimalSpentPeriod_FROM_BIRTH()));
+	_Список.Добавить(AnimalSpentPeriod_NOT_LESS_SIX_MONTHS(), AnimalSpentPeriodОписание(AnimalSpentPeriod_NOT_LESS_SIX_MONTHS()));
+	_Список.Добавить(AnimalSpentPeriod_IN_MONTHS(),           AnimalSpentPeriodОписание(AnimalSpentPeriod_IN_MONTHS()));
+	_Список.Добавить(AnimalSpentPeriod_ZERO(),                AnimalSpentPeriodОписание(AnimalSpentPeriod_ZERO()));
+	
+	Возврат _Список;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область DeliveryDecision
+// Тип, описывающий контроль поставки (документарный, ветеринарный).
+
+// Принять всю поставку.
+Функция DeliveryDecision_ACCEPT_ALL() Экспорт
+	
+	Возврат "ACCEPT_ALL";
+	
+КонецФункции
+
+// Принять часть груза, на оставшуюся оформить возврат.
+Функция DeliveryDecision_PARTIALLY() Экспорт
+	
+	Возврат "PARTIALLY";
+	
+КонецФункции
+
+// Оформить возврат на всю поставку.
+Функция DeliveryDecision_RETURN_ALL() Экспорт
+	
+	Возврат "RETURN_ALL";
+	
+КонецФункции
+
+// описание
+Функция DeliveryDecisionОписание(decision) Экспорт
+	
+	Если decision = DeliveryDecision_ACCEPT_ALL() Тогда
+		Возврат "Принять всю поставку";
+	ИначеЕсли decision = DeliveryDecision_PARTIALLY() Тогда
+		Возврат "Принять часть груза, на оставшуюся оформить возврат";
+	ИначеЕсли decision = DeliveryDecision_RETURN_ALL() Тогда
+		Возврат "Оформить возврат на всю поставку";
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+// список
+Функция DeliveryDecisionСписок() Экспорт
+	
+	_Список = Новый СписокЗначений();
+	
+	_Список.Добавить(DeliveryDecision_ACCEPT_ALL(), DeliveryDecisionОписание(DeliveryDecision_ACCEPT_ALL()));
+	_Список.Добавить(DeliveryDecision_PARTIALLY(),  DeliveryDecisionОписание(DeliveryDecision_PARTIALLY()));
+	_Список.Добавить(DeliveryDecision_RETURN_ALL(), DeliveryDecisionОписание(DeliveryDecision_RETURN_ALL()));
+	
+	Возврат _Список;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область DeliveryInspectionResult
+// Тип, описывающий результат контроля поставки.
+
+// Груз соответствует сведениям, заявленным в документах.
+Функция DeliveryInspectionResult_CORRESPONDS() Экспорт
+	
+	Возврат "CORRESPONDS";
+	
+КонецФункции
+
+// Груз отличается от сведений, указанных в сопроводительных документах.
+Функция DeliveryInspectionResult_MISMATCH() Экспорт
+	
+	Возврат "MISMATCH";
+	
+КонецФункции
+
+// Контроль не проводился.
+Функция DeliveryInspectionResult_UNSUPERVISED() Экспорт
+	
+	Возврат "UNSUPERVISED";
+	
+КонецФункции
+
+// описание
+Функция DeliveryInspectionResultОписание(result) Экспорт
+	
+	Если result = DeliveryInspectionResult_CORRESPONDS() Тогда
+		Возврат "Груз соответствует сведениям, заявленным в документах";
+	ИначеЕсли result = DeliveryInspectionResult_MISMATCH() Тогда
+		Возврат "Груз отличается от сведений, указанных в сопроводительных документах";
+	ИначеЕсли result = DeliveryInspectionResult_UNSUPERVISED() Тогда
+		Возврат "Контроль не проводился";
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+// список
+Функция DeliveryInspectionResultСписок() Экспорт
+	
+	_Список = Новый СписокЗначений();
+	
+	_Список.Добавить(DeliveryInspectionResult_CORRESPONDS(),  DeliveryInspectionResultОписание(DeliveryInspectionResult_CORRESPONDS()));
+	_Список.Добавить(DeliveryInspectionResult_MISMATCH(),     DeliveryInspectionResultОписание(DeliveryInspectionResult_MISMATCH()));
+	_Список.Добавить(DeliveryInspectionResult_UNSUPERVISED(), DeliveryInspectionResultОписание(DeliveryInspectionResult_UNSUPERVISED()));
+	
+	Возврат _Список;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область VetDocumentForm
+// Тип, описывающий форму ветеринарно-сопроводительного докумнета (ВСД).
+
+// Форма 1 ветеринарного сертификата ТС
+Функция VetDocumentForm_CERTCU1() Экспорт
+	
+	Возврат "CERTCU1";
+	
+КонецФункции
+
+// Форма 1 ветеринарного свидетельства
+// Оформляется на живых животных, биологические объекты (генетически материал).
+Функция VetDocumentForm_LIC1() Экспорт
+	
+	Возврат "LIC1";
+	
+КонецФункции
+
+// Форма 2 ветеринарного сертификата ТС
+Функция VetDocumentForm_CERTCU2() Экспорт
+	
+	Возврат "CERTCU2";
+	
+КонецФункции
+
+// Форма 2 ветеринарного свидетельства
+// Оформляется на сырьё животного происхождения.
+Функция VetDocumentForm_LIC2() Экспорт
+	
+	Возврат "LIC2";
+	
+КонецФункции
+
+// Форма 3 ветеринарного сертификата ТС
+Функция VetDocumentForm_CERTCU3() Экспорт
+	
+	Возврат "CERTCU3";
+	
+КонецФункции
+
+// Форма 3 ветеринарного свидетельства
+// Оформляется на техническое сырьё; корма; биологические отходы.
+Функция VetDocumentForm_LIC3() Экспорт
+	
+	Возврат "LIC3";
+	
+КонецФункции
+
+// Форма 4 ветеринарной справки
+// Оформляется при перевозке любого вида продукции внутри одного района.
+Функция VetDocumentForm_NOTE4() Экспорт
+	
+	Возврат "NOTE4";
+	
+КонецФункции
+
+// Форма 5i ветеринарного сертификата
+Функция VetDocumentForm_CERT5I() Экспорт
+	
+	Возврат "CERT5I";
+	
+КонецФункции
+
+// Форма 6.1 ветеринарного сертификата
+Функция VetDocumentForm_CERT61() Экспорт
+	
+	Возврат "CERT61";
+	
+КонецФункции
+
+// Форма 6.2 ветеринарного сертификата
+Функция VetDocumentForm_CERT62() Экспорт
+	
+	Возврат "CERT62";
+	
+КонецФункции
+
+// Форма 6.3 ветеринарного сертификата
+Функция VetDocumentForm_CERT63() Экспорт
+	
+	Возврат "CERT63";
+	
+КонецФункции
+
+// Производственный сертификат
+Функция VetDocumentForm_PRODUCTIVE() Экспорт
+	
+	Возврат "PRODUCTIVE";
+	
+КонецФункции
+
+// описание
+Функция VetDocumentFormОписание(form) Экспорт
+	
+	Если form = VetDocumentForm_CERTCU1() Тогда
+		Возврат "Форма 1 ветеринарного сертификата ТС";
+	ИначеЕсли form = VetDocumentForm_LIC1() Тогда
+		Возврат "Форма 1 ветеринарного свидетельства";
+	ИначеЕсли form = VetDocumentForm_CERTCU2() Тогда
+		Возврат "Форма 2 ветеринарного сертификата ТС";
+	ИначеЕсли form = VetDocumentForm_LIC2() Тогда
+		Возврат "Форма 2 ветеринарного свидетельства";
+	ИначеЕсли form = VetDocumentForm_CERTCU3() Тогда
+		Возврат "Форма 3 ветеринарного сертификата ТС";
+	ИначеЕсли form = VetDocumentForm_LIC3() Тогда
+		Возврат "Форма 3 ветеринарного свидетельства";
+	ИначеЕсли form = VetDocumentForm_NOTE4() Тогда
+		Возврат "Форма 4 ветеринарной справки";
+	ИначеЕсли form = VetDocumentForm_CERT5I() Тогда
+		Возврат "Форма 5i ветеринарного сертификата";
+	ИначеЕсли form = VetDocumentForm_CERT61() Тогда
+		Возврат "Форма 6.1 ветеринарного сертификата";
+	ИначеЕсли form = VetDocumentForm_CERT62() Тогда
+		Возврат "Форма 6.2 ветеринарного сертификата";
+	ИначеЕсли form = VetDocumentForm_CERT63() Тогда
+		Возврат "Форма 6.3 ветеринарного сертификата";
+	ИначеЕсли form = VetDocumentForm_PRODUCTIVE() Тогда
+		Возврат "Производственный сертификат";
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+// список
+Функция VetDocumentFormСписок() Экспорт
+	
+	_Список = Новый СписокЗначений();
+	
+	_Список.Добавить(VetDocumentForm_CERTCU1(), VetDocumentFormОписание(VetDocumentForm_CERTCU1()));
+	_Список.Добавить(VetDocumentForm_LIC1(),    VetDocumentFormОписание(VetDocumentForm_LIC1()));
+	_Список.Добавить(VetDocumentForm_CERTCU2(), VetDocumentFormОписание(VetDocumentForm_CERTCU2()));
+	_Список.Добавить(VetDocumentForm_LIC2(),    VetDocumentFormОписание(VetDocumentForm_LIC2()));
+	_Список.Добавить(VetDocumentForm_CERTCU3(), VetDocumentFormОписание(VetDocumentForm_CERTCU3()));
+	_Список.Добавить(VetDocumentForm_LIC3(),    VetDocumentFormОписание(VetDocumentForm_LIC3()));
+	_Список.Добавить(VetDocumentForm_NOTE4(),   VetDocumentFormОписание(VetDocumentForm_NOTE4()));
+	_Список.Добавить(VetDocumentForm_CERT5I(),  VetDocumentFormОписание(VetDocumentForm_CERT5I()));
+	_Список.Добавить(VetDocumentForm_CERT61(),  VetDocumentFormОписание(VetDocumentForm_CERT61()));
+	_Список.Добавить(VetDocumentForm_CERT62(),  VetDocumentFormОписание(VetDocumentForm_CERT62()));
+	_Список.Добавить(VetDocumentForm_CERT63(),  VetDocumentFormОписание(VetDocumentForm_CERT63()));
+	_Список.Добавить(VetDocumentForm_PRODUCTIVE(), VetDocumentFormОписание(VetDocumentForm_PRODUCTIVE()));
+	
+	Возврат _Список;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область VetDocumentStatus
+// Тип, описывающий статус ветеринарно-сопроводительного докумнета (ВСД).
+
+// Оформлен. Действующий сертификат, по которому разрешено совершать транзакцию с грузом.
+Функция VetDocumentStatus_CONFIRMED() Экспорт
+	
+	Возврат "CONFIRMED";
+	
+КонецФункции
+
+// Аннулирован. Не действующий более сертификат.
+Функция VetDocumentStatus_WITHDRAWN() Экспорт
+	
+	Возврат "WITHDRAWN";
+	
+КонецФункции
+
+// Погашен. Действующий сертификат, по которому транзакция уже была совершена.
+Функция VetDocumentStatus_UTILIZED() Экспорт
+	
+	Возврат "UTILIZED";
+	
+КонецФункции
+
+// описание
+Функция VetDocumentStatusОписание(status) Экспорт
+	
+	Если status = VetDocumentStatus_CONFIRMED() Тогда
+		Возврат "Действующий сертификат, по которому разрешено совершать транзакцию с грузом";
+	ИначеЕсли status = VetDocumentStatus_WITHDRAWN() Тогда
+		Возврат "Не действующий более сертификат";
+	ИначеЕсли status = VetDocumentStatus_UTILIZED() Тогда
+		Возврат "Действующий сертификат, по которому транзакция уже была совершена";
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область VetDocumentType
+// Тип, описывающий тип ветеринарно-сопроводительного документа (ВСД).
+// Типы сертификатов в документации перечислены как для запросов, так и для ответов сервиса.
+// В запросе на список ветеринарных сертификатов можно указать только входящие или исходящие.
+// В ответе сервиса придут транспортные и возвратные сертификаты.
+// То есть в запросе можно указать направление отправки сертификата (от предприятия или на предприятие),
+// а в ответе придет информация о том какие из них были транспортными, а какие были оформлены как возвратными.
+	
+// Входящий
+Функция VetDocumentType_INCOMING() Экспорт
+	
+	Возврат "INCOMING";
+	
+КонецФункции
+
+// Исходящий
+Функция VetDocumentType_OUTGOING() Экспорт
+	
+	Возврат "OUTGOING";
+	
+КонецФункции
+
+// Производственный
+Функция VetDocumentType_PRODUCTIVE() Экспорт
+	
+	Возврат "PRODUCTIVE";
+	
+КонецФункции
+
+// Возвратный
+Функция VetDocumentType_RETURNABLE() Экспорт
+	
+	Возврат "RETURNABLE";
+	
+КонецФункции
+
+// Транспортный
+Функция VetDocumentType_TRANSPORT() Экспорт
+	
+	Возврат "TRANSPORT";
+	
+КонецФункции
+
+// описание
+Функция VetDocumentTypeОписание(type) Экспорт
+	
+	Если type = VetDocumentType_INCOMING() Тогда
+		Возврат "Входящий";
+	ИначеЕсли type = VetDocumentType_OUTGOING() Тогда
+		Возврат "Исходящий";
+	ИначеЕсли type = VetDocumentType_PRODUCTIVE() Тогда
+		Возврат "Производственный";
+	ИначеЕсли type = VetDocumentType_RETURNABLE() Тогда
+		Возврат "Возвратный";
+	ИначеЕсли type = VetDocumentType_TRANSPORT() Тогда
+		Возврат "Транспортный";
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+// список
+Функция VetDocumentTypeСписок() Экспорт
+	
+	_Список = Новый СписокЗначений();
+	
+	_Список.Добавить(VetDocumentType_INCOMING(),   VetDocumentTypeОписание(VetDocumentType_INCOMING()));
+	_Список.Добавить(VetDocumentType_OUTGOING(),   VetDocumentTypeОписание(VetDocumentType_OUTGOING()));
+	//_Список.Добавить(VetDocumentType_PRODUCTIVE(), VetDocumentTypeОписание(VetDocumentType_PRODUCTIVE()));
+	//_Список.Добавить(VetDocumentType_RETURNABLE(), VetDocumentTypeОписание(VetDocumentType_RETURNABLE()));
+	//_Список.Добавить(VetDocumentType_TRANSPORT(),  VetDocumentTypeОписание(VetDocumentType_TRANSPORT()));
+	
+	Возврат _Список;
+	
+КонецФункции
+
+#КонецОбласти
+
+// Тип, описывающий контроль поставки (документарный, ветеринарный).
+Функция ConsignmentDocumentList(waybill, VetDocument) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "ConsignmentDocumentList"));
 	
 	_Объект.waybill = waybill;// Сведения о товарно-транспортной накладной.
-	_Объект.VetDocument = 1;// Ветеринарно-сопроводительный документ (ВСД).
+	_Объект.VetDocument = VetDocument;// Ветеринарно-сопроводительный документ (ВСД).
 	
 	Возврат _Объект;
 	
@@ -45,17 +513,23 @@
 	
 	//_Объект.productName = name;//	Наименование продукции в соответствии с оформленной товарной накладной.
 	//_Объект.productCode = articul;// Артикул (код) продукции в соответствии с оформленной товарной накладной.
-	//_Объект.sourceStockEntry = StockEntry(name, code, productType);// Запись журнала, из которой формируется транспортная партия.
+	//_Объект.sourceStockEntry = StockEntry(stockEntry);// Запись журнала, из которой формируется транспортная партия.
+	
+	//_Объект.id = "";// Идентификатор, определяющий consignment в запросе. Должен быть указан, если запрос содержит несколько элементов consignment.
+	//_Объект.partOf = "";// Ссылка на consignment в разделе delivery запроса. Должен быть указан, если запрос содержит несколько элементов consignment.
+	
+	
+	//свойства базового типа bath:
 	
 	_Объект.productType      = productType;// Тип продукции.
-	_Объект.product          = ВетисArgusProduction.Product_guid(product);// Продукция.
-	_Объект.subProduct       = ВетисArgusProduction.SubProduct_guid(subProduct);// Вид продукции.
+	_Объект.product          = ВетисArgusProduction.Product(product);// Продукция.
+	_Объект.subProduct       = ВетисArgusProduction.SubProduct(subProduct);// Вид продукции.
 	_Объект.productItem      = ВетисArgusProduction.ProductItem(productItem);// Наименование произведенной продукции в номенклатуре производителя.
 	_Объект.volume           = volume;// Объем произведенной продукции. Значение должно быть больше нуля.
 	_Объект.unit             = ВетисArgusCommon.Unit(unit);// Единица измерения объема произведенной продукции.
 	
-	//_Объект.packingList      = ВетисArgusCommon.PackingFormList(unit);// Список видов упаковки, которые используются для производственной партии.
-	//_Объект.packingAmount    = 0;// Общее количество единиц упаковки для производственной партии.
+	//_Объект.packingList      = ВетисArgusCommon.PackingFormList(pack);// Список видов упаковки, которые используются для производственной партии.
+	//_Объект.packingAmount    = packAmount;// Общее количество единиц упаковки для производственной партии.
 	//_Объект.dateOfProduction = GoodsDate(ТекущаяДата());// Дата выработки продукции.
 	//_Объект.expiryDate       = GoodsDate(ДобавитьМесяц(ТекущаяДата(), 12));// Дата окончания срока годности продукции.
 	//_Объект.perishable       = false;// Описывает, является ли продукция скоропортящейся, true – скоропортящаяся, false – не скоропортящаяся.
@@ -64,31 +538,29 @@
 	//_Объект.producerList     = ;// Список производителей продукции.
 	//_Объект.productMarkingList = 1;// Список маркировки продукции, доступной для данного производителя.
 	//_Объект.lowGradeCargo    = 1;// Является ли продукция некачественной.
-	
-	//_Объект.id = "";// Идентификатор, определяющий consignment в запросе. Должен быть указан, если запрос содержит несколько элементов consignment.
-	//_Объект.partOf = "";// Ссылка на consignment в разделе delivery запроса. Должен быть указан, если запрос содержит несколько элементов consignment.
+	//_Объект.owner            = 1;// Собственник продукции.
 	
 	Возврат _Объект;
 	
 КонецФункции
 
 // Тип, описывающий cведения о записи журнала продукции.
-Функция StockEntry(name, code, productType = 1) Экспорт
+Функция StockEntry(guid) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "StockEntry"));
 	
-	_Объект.batch = productType;// Тип продукции.
-	_Объект.vetDocument = ВетисArgusProduction.Product(name, code, productType);// Продукция.
+	_Объект.guid = guid;
 	
 	Возврат _Объект;
 	
 КонецФункции
 
-Функция StockEntry_guid(guid) Экспорт
+Функция StockEntry_(productType, product) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "StockEntry"));
 	
-	_Объект.guid = guid;
+	_Объект.batch = productType;// Тип продукции.
+	_Объект.vetDocument = ВетисArgusProduction.Product(product);// Продукция.
 	
 	Возврат _Объект;
 	
@@ -115,21 +587,23 @@
 КонецФункции
 
 // Тип, описывающий партию груза.
-Функция Batch(name, code, volume, productType = 1) Экспорт
+Функция Batch(productType, product, subProduct, productItem, volume, unit) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Batch"));
 	
 	_Объект.productType      = productType;// Тип продукции.
-	_Объект.product          = ВетисArgusProduction.Product(name, code, productType);// Продукция.
-	//_Объект.subProduct       = ВетисArgusProduction.SubProduct(name, code, "");// Вид продукции.
-	//_Объект.productItem      = ВетисArgusProduction.ProductItem(name, code, productType);// Наименование произведенной продукции в номенклатуре производителя.
+	_Объект.product          = ВетисArgusProduction.Product(product);// Продукция.
+	_Объект.subProduct       = ВетисArgusProduction.SubProduct(subProduct);// Вид продукции.
+	_Объект.productItem      = ВетисArgusProduction.ProductItem(productItem);// Наименование произведенной продукции в номенклатуре производителя.
 	_Объект.volume           = volume;// Объем произведенной продукции. Значение должно быть больше нуля.
-	_Объект.unit             = ВетисArgusCommon.Unit("кг");// Единица измерения объема произведенной продукции.
+	_Объект.unit             = ВетисArgusCommon.Unit(unit);// Единица измерения объема произведенной продукции.
+	
 	//_Объект.packingList      = ВетисArgusCommon.PackingFormList();// Список видов упаковки, которые используются для производственной партии.
-	_Объект.packingAmount    = 0;// Общее количество единиц упаковки для производственной партии.
-	_Объект.dateOfProduction = GoodsDate(ТекущаяДата());// Дата выработки продукции.
-	_Объект.expiryDate       = GoodsDate(ДобавитьМесяц(ТекущаяДата(), 12));// Дата окончания срока годности продукции.
-	_Объект.perishable       = false;// Описывает, является ли продукция скоропортящейся, true – скоропортящаяся, false – не скоропортящаяся.
+	//_Объект.packingAmount    = 0;// Общее количество единиц упаковки для производственной партии.
+	//_Объект.dateOfProduction = GoodsDate(ТекущаяДата());// Дата выработки продукции.
+	//_Объект.expiryDate       = GoodsDate(ДобавитьМесяц(ТекущаяДата(), 12));// Дата окончания срока годности продукции.
+	//_Объект.perishable       = false;// Описывает, является ли продукция скоропортящейся, true – скоропортящаяся, false – не скоропортящаяся.
+	
 	//_Объект.countryOfOrigin  = 1;// Страна происхождения продукции.
 	//_Объект.producerList     = 1;// Список производителей продукции.
 	//_Объект.productMarkingList = 1;// Список маркировки продукции, доступной для данного производителя.
@@ -139,6 +613,7 @@
 	Возврат _Объект;
 	
 КонецФункции
+
 
 Функция URI()
 	

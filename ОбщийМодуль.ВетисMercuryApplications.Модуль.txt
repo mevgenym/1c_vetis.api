@@ -65,17 +65,19 @@
 КонецФункции
 
 
+#Область IncomingOperation
+
 // Корневой элемент содержимого заявки. Определяет тип заявки и соответствие с описанием в библиотеке типов.
-Функция ProcessIncomingConsignmentRequest(пПараметры) Экспорт
+Функция ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "getStockEntryListRequest"));
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "ProcessIncomingConsignmentRequest"));
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.delivery           = ВетисMercuryVetdocument.Delivery();
-	//_Объект.deliveryFacts      = 1;
-	//_Объект.discrepancyReport  = 1;// Акт несоответствия
-	//_Объект.returnedDelivery   = 1;// возврат
+	_Объект.delivery           = delivery;// Фактические сведения о принимаемой партии продукции и сопровождающих ее документах.
+	_Объект.deliveryFacts      = deliveryFacts;// Обобщенный результат приема партии продукции.
+	//_Объект.discrepancyReport  = discrepancyReport;// Акт несоответствия
+	//_Объект.returnedDelivery   = returnedDelivery;// Сведения о возвращаемой партии.
 	
 	Возврат _Объект;
 	
@@ -87,6 +89,8 @@
 	Возврат пОбъект;
 	
 КонецФункции
+
+#КонецОбласти
 
 
 Функция ModifyBusinessEntityRequest(type, affectedList, reason) Экспорт

@@ -13,7 +13,7 @@
 КонецФункции
 
 // Тип, описывающий единицу измерения.
-Функция Unit(name, fullName = "", commonUnitGuid = "", factor = 1) Экспорт
+Функция Unit_(name, fullName = "", commonUnitGuid = "", factor = 1) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Unit"));
 	
@@ -36,21 +36,72 @@
 	
 КонецФункции
 
+Функция Unit_uuid(uuid) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Unit"));
+	
+	_Объект.uuid = uuid;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
 // Тип, описывающий список форм упаковки.
-Функция PackingFormList(guid) Экспорт
+Функция PackingFormList(uuid) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "PackingFormList"));
 	
-	_Объект.packingForm.Добавить(ФормаXML.Элемент, URI(), "packingForm", packingForm(guid));
+	_Объект.packingForm.Добавить(ФормаXML.Элемент, URI(), "packingForm", packingForm(uuid));
 	
 	Возврат _Объект;
 	
 КонецФункции
 
 // Тип, описывающий упаковку.
-Функция packingForm(guid) Экспорт
+// http://help.vetrf.ru/wiki/PackingForm
+Функция packingForm(uuid) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "packingForm"));
+	
+	_Объект.uuid = uuid;
+	
+	Возврат _Объект;
+	//fedf3e32-053c-11e1-99b4-d8d385fbc9e8	банки
+	//fedf401c-053c-11e1-99b4-d8d385fbc9e8	биг бэги
+	//fedf412a-053c-11e1-99b4-d8d385fbc9e8	бочки
+	//fedf422e-053c-11e1-99b4-d8d385fbc9e8	жестяные банки
+	//fedf4328-053c-11e1-99b4-d8d385fbc9e8	картонные коробки
+	//fedf4422-053c-11e1-99b4-d8d385fbc9e8	крафтмешки
+	//fedf451c-053c-11e1-99b4-d8d385fbc9e8	мешки
+	//fedf4616-053c-11e1-99b4-d8d385fbc9e8	мешки полипропиленовые
+	//fedf46fc-053c-11e1-99b4-d8d385fbc9e8	навалом
+	//fedf47ec-053c-11e1-99b4-d8d385fbc9e8	насыпью
+	//fedf48dc-053c-11e1-99b4-d8d385fbc9e8	пакеты
+	//fedf49cc-053c-11e1-99b4-d8d385fbc9e8	полиблоки
+	//fedf55e8-053c-11e1-99b4-d8d385fbc9e8	пенопластовые ящики
+	//fedf56f6-053c-11e1-99b4-d8d385fbc9e8	паллеты
+	//fedf57f0-053c-11e1-99b4-d8d385fbc9e8	полиэтилен
+	//fedf58e0-053c-11e1-99b4-d8d385fbc9e8	картон
+	//fedf59da-053c-11e1-99b4-d8d385fbc9e8	стокинеты
+	//fedf5ad4-053c-11e1-99b4-d8d385fbc9e8	коробки
+	//fedf5bc4-053c-11e1-99b4-d8d385fbc9e8	прицеп
+	//fedf5cb4-053c-11e1-99b4-d8d385fbc9e8	корзины
+	//fedf5d9a-053c-11e1-99b4-d8d385fbc9e8	автоцистерна
+	//fedf5e80-053c-11e1-99b4-d8d385fbc9e8	мешки бумажные
+	//fedf5f70-053c-11e1-99b4-d8d385fbc9e8	пенопластовые коробки
+	//fedf606a-053c-11e1-99b4-d8d385fbc9e8	контейнер
+	//fedf615a-053c-11e1-99b4-d8d385fbc9e8	поддоны
+	//fedf6240-053c-11e1-99b4-d8d385fbc9e8	на подвесе
+	//fedf6344-053c-11e1-99b4-d8d385fbc9e8	кипы
+	//a99ecd22-d2e8-11e4-8109-d89d67148660	гофроящики
+	//dae4571f-d2e8-11e4-8109-d89d67148660	пластмассовые ящики
+	
+КонецФункции
+
+// Тип, описывающий назначение груза.
+Функция Purpose(guid) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Purpose"));
 	
 	_Объект.guid = guid;
 	
@@ -58,16 +109,109 @@
 	
 КонецФункции
 
+Функция Purpose_(name, forSubstandard) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Purpose"));
+	
+	_Объект.name = name;
+	_Объект.forSubstandard = forSubstandard;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция PurposeListИтератор(List) Экспорт
+	
+	Возврат List.purpose;
+	
+КонецФункции
+
+
+#Область DocumentNature
+// Тип, описывающий единицу измерения.
+
+// Электронный документ.
+Функция DocumentNature_ELECTRONIC() Экспорт
+	
+	Возврат "ELECTRONIC";
+	
+КонецФункции
+
+// Бумажный документ.
+Функция DocumentNature_PAPER() Экспорт
+	
+	Возврат "PAPER";
+	
+КонецФункции
+
+// описание
+Функция DocumentNatureОписание(nature) Экспорт
+	
+	Если nature = DocumentNature_ELECTRONIC() Тогда
+		Возврат "Электронный документ";
+	ИначеЕсли nature = DocumentNature_PAPER() Тогда
+		Возврат "Бумажный документ";
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+// список
+Функция DocumentNatureСписок() Экспорт
+	
+	_Список = Новый СписокЗначений();
+	
+	_Список.Добавить(DocumentNature_ELECTRONIC(), DocumentNatureОписание(DocumentNature_ELECTRONIC()));
+	_Список.Добавить(DocumentNature_PAPER(),  DocumentNatureОписание(DocumentNature_PAPER()));
+	
+	Возврат _Список;
+	
+КонецФункции
+
+#КонецОбласти
+
+
 #Область Service
 
 // предназначена для получения данных о единице измерения по её глобальному идентификатору.
 // Этот идентификатор используется при оформлении транспортных сертификатов.
-// Возвращается последняя актуальная запись (active=true, last=true).
-// Выполнение операции заканчивается либо возвратом записи единицы измерения, либо ошибкой,
-// в случае если параметры запроса не корректны, если запись по запросу не найдена или произошла иная ошибка выполнения запроса.
 Функция GetUnitByGuid(guid) Экспорт
 	
 	Возврат Прокси().GetUnitByGuid(guid);
+	
+КонецФункции
+
+// предназначена для получения списка актуальных версий единиц измерения
+Функция GetUnitList(ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetUnitList(ListOptions);
+	
+КонецФункции
+
+// предназначена для поиска сведений о назначении груза по глобальному идентификатору
+Функция GetPurposeByGuid(guid) Экспорт
+	
+	Возврат Прокси().GetPurposeByGuid(guid);
+	
+КонецФункции
+
+// предназначена для получения списка актуальных версий назначений груза
+Функция GetPurposeList(ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetPurposeList(ListOptions);
 	
 КонецФункции
 

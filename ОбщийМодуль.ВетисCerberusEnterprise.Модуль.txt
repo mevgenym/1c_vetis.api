@@ -84,7 +84,7 @@
 
 Функция BusinessEntityListИтератор(List) Экспорт
 	
-	Возврат List.businessEntity;
+	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "businessEntity");
 	
 КонецФункции
 

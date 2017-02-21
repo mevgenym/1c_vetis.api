@@ -119,14 +119,9 @@
 	
 КонецФункции
 
-Функция StockEntry_(productType, product) Экспорт
+Функция StockEntryListИтератор(List) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "StockEntry"));
-	
-	_Объект.batch = productType;// Тип продукции.
-	_Объект.vetDocument = ВетисArgusProduction.Product(product);// Продукция.
-	
-	Возврат _Объект;
+	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "stockEntry");
 	
 КонецФункции
 

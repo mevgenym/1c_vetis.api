@@ -2,7 +2,7 @@
 // Корневой элемент содержимого заявки на получение актуального списка записей складского журнала.
 Функция getStockEntryListRequest(enterpriseIndex = 0, count = 100) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "getStockEntryListRequest"));
+	_Объект = Фабрика().Создать(URI(), "getStockEntryListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -10,6 +10,16 @@
 	_Объект.listOptions        = ВетисBase.ListOptions(count);
 	
 	Возврат _Объект;
+	
+КонецФункции
+
+Функция getStockEntryListRequestСледующий(ListRequest, ListResponse) Экспорт
+	
+	Если ListRequest.listOptions.offset + ListRequest.ListOptions.count >= Число(ListResponse.Total) Тогда
+		Возврат Ложь;
+	Иначе
+		ListRequest.listOptions.offset = ListRequest.listOptions.offset + ListRequest.ListOptions.count;
+	КонецЕсли;
 	
 КонецФункции
 
@@ -24,7 +34,7 @@
 // Корневой элемент содержимого заявки на получение актуального списка записей складского журнала.
 Функция getStockEntryChangesListRequest(enterpriseGuid = 0, count = 100) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "getStockEntryListRequest"));
+	_Объект = Фабрика().Создать(URI(), "getStockEntryListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -46,7 +56,7 @@
 // Корневой элемент содержимого заявки на получение записи складского журнала по идентификатору.
 Функция getStockEntryByGuidRequest(guid, enterpriseIndex = 0) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "getStockEntryListRequest"));
+	_Объект = Фабрика().Создать(URI(), "getStockEntryListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -70,7 +80,7 @@
 // Корневой элемент содержимого заявки. Определяет тип заявки и соответствие с описанием в библиотеке типов.
 Функция ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "ProcessIncomingConsignmentRequest"));
+	_Объект = Фабрика().Создать(URI(), "ProcessIncomingConsignmentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -111,10 +121,14 @@
 	
 КонецФункции
 
-
 Функция URI()
 	
 	Возврат "http://api.vetrf.ru/schema/cdm/mercury/applications";
 	
 КонецФункции
 
+Функция Фабрика()
+	
+	Возврат ФабрикаXDTO;
+	
+КонецФункции

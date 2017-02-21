@@ -176,33 +176,33 @@
 КонецФункции
 
 
-Функция CountryListИтератор(CountryList) Экспорт
+Функция CountryListИтератор(List) Экспорт
 	
-	Возврат CountryList.country;
-	
-КонецФункции
-
-Функция DistrictListИтератор(DistrictList) Экспорт
-	
-	Возврат DistrictList.district;
+	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "country");
 	
 КонецФункции
 
-Функция LocalityListИтератор(LocalityList) Экспорт
+Функция DistrictListИтератор(List) Экспорт
 	
-	Возврат LocalityList.locality;
-	
-КонецФункции
-
-Функция RegionListИтератор(RegionList) Экспорт
-	
-	Возврат RegionList.region;
+	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "district");
 	
 КонецФункции
 
-Функция StreetListИтератор(StreetList) Экспорт
+Функция LocalityListИтератор(List) Экспорт
 	
-	Возврат StreetList.street;
+	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "locality");
+	
+КонецФункции
+
+Функция RegionListИтератор(List) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "region");
+	
+КонецФункции
+
+Функция StreetListИтератор(List) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "street");
 	
 КонецФункции
 

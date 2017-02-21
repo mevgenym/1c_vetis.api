@@ -9,45 +9,45 @@
 &НаСервере
 Процедура СписокВетисЗаполнитьСервер(пИмя = "", пИНН = "")
 	
-	Перем _ListOptions;
-	
 	СписокВетис.Очистить();
+	
+	_Item = Неопределено; _параметры = Неопределено;
+	
+	Если пИмя = "" И пИНН = "" Тогда
+		_сценарий = "_Продолжить = ВетисCerberusEnterprise.GetBusinessEntityListСледующий(ВетисСтрокаПоиска, , , _Item, _параметры);";
+	ИначеЕсли НЕ пИНН = "" Тогда
+		_сценарий = "_Продолжить = ВетисCerberusEnterprise.GetBusinessEntityListСледующий(, пИНН, , _Item, _параметры);";
+	ИначеЕсли НЕ пИмя = "" Тогда
+		_сценарий = "_Продолжить = ВетисCerberusEnterprise.GetBusinessEntityListСледующий(пИмя, , , _Item, _параметры);";
+	Иначе
+		_сценарий = "_Продолжить = ВетисCerberusEnterprise.GetBusinessEntityListСледующий(, , , _Item, _параметры);";
+	КонецЕсли;
 	
 	Пока Истина Цикл
 		
-		Попытка
-			Если пИмя = "" И пИНН = "" Тогда
-				_List = ВетисCerberusEnterprise.GetBusinessEntityList(ВетисСтрокаПоиска, , , _ListOptions);
-			ИначеЕсли НЕ пИНН = "" Тогда
-				_List = ВетисCerberusEnterprise.GetBusinessEntityList(, пИНН, , _ListOptions);
-			ИначеЕсли НЕ пИмя = "" Тогда
-				_List = ВетисCerberusEnterprise.GetBusinessEntityList(пИмя, , , _ListOptions);
-			Иначе
-				_List = ВетисCerberusEnterprise.GetBusinessEntityList(, , , _ListOptions);
-			КонецЕсли;
-		Исключение
-			Прервать;
-		КонецПопытки;
+		_Продолжить = Ложь;
 		
-		Для Каждого _Entity из ВетисCerberusEnterprise.BusinessEntityListИтератор(_List) Цикл
-			
-			_СписокВетисСтрока = СписокВетис.Добавить();
-			
-			ЗаполнитьЗначенияСвойств(_СписокВетисСтрока, _Entity);
-			
-			Если _Entity.type = 1 Тогда
-				Если ЗначениеЗаполнено(_Entity.fullName) Тогда
-					_СписокВетисСтрока.name = _Entity.fullName;
-				КонецЕсли;
-			Иначе
-				_СписокВетисСтрока.name = _Entity.fio;
+		Выполнить _сценарий;
+		
+		Если НЕ _Продолжить Тогда
+			Прервать;
+		КонецЕсли;
+		
+		_СписокВетисСтрока = СписокВетис.Добавить();
+		
+		ЗаполнитьЗначенияСвойств(_СписокВетисСтрока, _Item);
+		
+		Если _Item.type = 1 Тогда
+			Если ЗначениеЗаполнено(_Item.fullName) Тогда
+				_СписокВетисСтрока.name = _Item.fullName;
 			КонецЕсли;
-			
-			_СписокВетисСтрока.type = ВетисCerberusEnterprise.BusinessEntityTypeОписание(_Entity.type);
-			
-			_СписокВетисСтрока.address = _Entity.juridicalAddress.addressView;
-			
-		КонецЦикла;
+		Иначе
+			_СписокВетисСтрока.name = _Item.fio;
+		КонецЕсли;
+		
+		_СписокВетисСтрока.type = ВетисCerberusEnterprise.BusinessEntityTypeОписание(_Item.type);
+		
+		_СписокВетисСтрока.address = _Item.juridicalAddress.addressView;
 		
 	КонецЦикла;
 	

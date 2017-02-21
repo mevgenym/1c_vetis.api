@@ -228,7 +228,12 @@
 	
 	пПараметры.Вставить("ListResponse", ListResponse);
 	
-	Item = пПараметры.ListResponse.product[пПараметры.Индекс];
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		Item = пПараметры.ListResponse.product[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
 	
 	Возврат Истина;
 	
@@ -294,7 +299,12 @@
 	
 	пПараметры.Вставить("ListResponse", ListResponse);
 	
-	Item = пПараметры.ListResponse.subProduct[пПараметры.Индекс];
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		Item = пПараметры.ListResponse.subProduct[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
 	
 	Возврат Истина;
 	
@@ -349,7 +359,12 @@
 	
 	пПараметры.Вставить("ListResponse", ListResponse);
 	
-	Item = пПараметры.ListResponse.productItem[пПараметры.Индекс];
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		Item = пПараметры.ListResponse.productItem[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
 	
 	Возврат Истина;
 	

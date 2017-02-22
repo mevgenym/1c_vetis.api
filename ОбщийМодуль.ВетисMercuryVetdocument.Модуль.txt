@@ -271,35 +271,27 @@
 #Область DeliveryInspectionResult
 // Тип, описывающий результат контроля поставки.
 
-// Груз соответствует сведениям, заявленным в документах.
-Функция DeliveryInspectionResult_CORRESPONDS() Экспорт
+Функция DeliveryInspectionResult(result) Экспорт
 	
-	Возврат "CORRESPONDS";
-	
-КонецФункции
-
-// Груз отличается от сведений, указанных в сопроводительных документах.
-Функция DeliveryInspectionResult_MISMATCH() Экспорт
-	
-	Возврат "MISMATCH";
-	
-КонецФункции
-
-// Контроль не проводился.
-Функция DeliveryInspectionResult_UNSUPERVISED() Экспорт
-	
-	Возврат "UNSUPERVISED";
+	Если      result = 1 Тогда
+		Возврат ВетисКонстанты.DeliveryInspectionResult_CORRESPONDS();
+	ИначеЕсли result = 2 Тогда
+		Возврат ВетисКонстанты.DeliveryInspectionResult_MISMATCH();
+	ИначеЕсли result = 3 Тогда
+		Возврат ВетисКонстанты.DeliveryInspectionResult_UNSUPERVISED();
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
 	
 КонецФункции
 
-// описание
 Функция DeliveryInspectionResultОписание(result) Экспорт
 	
-	Если result = DeliveryInspectionResult_CORRESPONDS() Тогда
+	Если      result = ВетисКонстанты.DeliveryInspectionResult_CORRESPONDS()  ИЛИ result = 1 Тогда
 		Возврат "Груз соответствует сведениям, заявленным в документах";
-	ИначеЕсли result = DeliveryInspectionResult_MISMATCH() Тогда
+	ИначеЕсли result = ВетисКонстанты.DeliveryInspectionResult_MISMATCH()     ИЛИ result = 2 Тогда
 		Возврат "Груз отличается от сведений, указанных в сопроводительных документах";
-	ИначеЕсли result = DeliveryInspectionResult_UNSUPERVISED() Тогда
+	ИначеЕсли result = ВетисКонстанты.DeliveryInspectionResult_UNSUPERVISED() ИЛИ result = 3 Тогда
 		Возврат "Контроль не проводился";
 	Иначе
 		Возврат Неопределено;
@@ -307,14 +299,13 @@
 	
 КонецФункции
 
-// список
 Функция DeliveryInspectionResultСписок() Экспорт
 	
 	_Список = Новый СписокЗначений();
 	
-	_Список.Добавить(DeliveryInspectionResult_CORRESPONDS(),  DeliveryInspectionResultОписание(DeliveryInspectionResult_CORRESPONDS()));
-	_Список.Добавить(DeliveryInspectionResult_MISMATCH(),     DeliveryInspectionResultОписание(DeliveryInspectionResult_MISMATCH()));
-	_Список.Добавить(DeliveryInspectionResult_UNSUPERVISED(), DeliveryInspectionResultОписание(DeliveryInspectionResult_UNSUPERVISED()));
+	_Список.Добавить(DeliveryInspectionResult(1), DeliveryInspectionResultОписание(1));
+	_Список.Добавить(DeliveryInspectionResult(2), DeliveryInspectionResultОписание(2));
+	_Список.Добавить(DeliveryInspectionResult(3), DeliveryInspectionResultОписание(3));
 	
 	Возврат _Список;
 	
@@ -325,120 +316,63 @@
 #Область VetDocumentForm
 // Тип, описывающий форму ветеринарно-сопроводительного докумнета (ВСД).
 
-// Форма 1 ветеринарного сертификата ТС
-Функция VetDocumentForm_CERTCU1() Экспорт
+Функция VetDocumentForm(form) Экспорт
 	
-	Возврат "CERTCU1";
-	
-КонецФункции
-
-// Форма 1 ветеринарного свидетельства
-// Оформляется на живых животных, биологические объекты (генетически материал).
-Функция VetDocumentForm_LIC1() Экспорт
-	
-	Возврат "LIC1";
-	
-КонецФункции
-
-// Форма 2 ветеринарного сертификата ТС
-Функция VetDocumentForm_CERTCU2() Экспорт
-	
-	Возврат "CERTCU2";
-	
-КонецФункции
-
-// Форма 2 ветеринарного свидетельства
-// Оформляется на сырьё животного происхождения.
-Функция VetDocumentForm_LIC2() Экспорт
-	
-	Возврат "LIC2";
-	
-КонецФункции
-
-// Форма 3 ветеринарного сертификата ТС
-Функция VetDocumentForm_CERTCU3() Экспорт
-	
-	Возврат "CERTCU3";
+	Если      form = 1 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_CERTCU1();
+	ИначеЕсли form = 2 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_LIC1();
+	ИначеЕсли form = 3 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_CERTCU2();
+	ИначеЕсли form = 4 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_LIC2();
+	ИначеЕсли form = 5 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_CERTCU3();
+	ИначеЕсли form = 6 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_LIC3();
+	ИначеЕсли form = 7 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_NOTE4();
+	ИначеЕсли form = 8 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_CERT5I();
+	ИначеЕсли form = 9 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_CERT61();
+	ИначеЕсли form = 10 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_CERT62();
+	ИначеЕсли form = 11 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_CERT63();
+	ИначеЕсли form = 12 Тогда
+		Возврат ВетисКонстанты.VetDocumentForm_PRODUCTIVE();
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
 	
 КонецФункции
 
-// Форма 3 ветеринарного свидетельства
-// Оформляется на техническое сырьё; корма; биологические отходы.
-Функция VetDocumentForm_LIC3() Экспорт
-	
-	Возврат "LIC3";
-	
-КонецФункции
-
-// Форма 4 ветеринарной справки
-// Оформляется при перевозке любого вида продукции внутри одного района.
-Функция VetDocumentForm_NOTE4() Экспорт
-	
-	Возврат "NOTE4";
-	
-КонецФункции
-
-// Форма 5i ветеринарного сертификата
-Функция VetDocumentForm_CERT5I() Экспорт
-	
-	Возврат "CERT5I";
-	
-КонецФункции
-
-// Форма 6.1 ветеринарного сертификата
-Функция VetDocumentForm_CERT61() Экспорт
-	
-	Возврат "CERT61";
-	
-КонецФункции
-
-// Форма 6.2 ветеринарного сертификата
-Функция VetDocumentForm_CERT62() Экспорт
-	
-	Возврат "CERT62";
-	
-КонецФункции
-
-// Форма 6.3 ветеринарного сертификата
-Функция VetDocumentForm_CERT63() Экспорт
-	
-	Возврат "CERT63";
-	
-КонецФункции
-
-// Производственный сертификат
-Функция VetDocumentForm_PRODUCTIVE() Экспорт
-	
-	Возврат "PRODUCTIVE";
-	
-КонецФункции
-
-// описание
 Функция VetDocumentFormОписание(form) Экспорт
 	
-	Если form = VetDocumentForm_CERTCU1() Тогда
+	Если      form = ВетисКонстанты.VetDocumentForm_CERTCU1()    ИЛИ form = 1 Тогда
 		Возврат "Форма 1 ветеринарного сертификата ТС";
-	ИначеЕсли form = VetDocumentForm_LIC1() Тогда
+	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_LIC1()       ИЛИ form = 2 Тогда
 		Возврат "Форма 1 ветеринарного свидетельства";
-	ИначеЕсли form = VetDocumentForm_CERTCU2() Тогда
+	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERTCU2()    ИЛИ form = 3 Тогда
 		Возврат "Форма 2 ветеринарного сертификата ТС";
-	ИначеЕсли form = VetDocumentForm_LIC2() Тогда
+	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_LIC2()       ИЛИ form = 4 Тогда
 		Возврат "Форма 2 ветеринарного свидетельства";
-	ИначеЕсли form = VetDocumentForm_CERTCU3() Тогда
+	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERTCU3()    ИЛИ form = 5 Тогда
 		Возврат "Форма 3 ветеринарного сертификата ТС";
-	ИначеЕсли form = VetDocumentForm_LIC3() Тогда
+	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_LIC3()       ИЛИ form = 6 Тогда
 		Возврат "Форма 3 ветеринарного свидетельства";
-	ИначеЕсли form = VetDocumentForm_NOTE4() Тогда
+	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_NOTE4()      ИЛИ form = 7 Тогда
 		Возврат "Форма 4 ветеринарной справки";
-	ИначеЕсли form = VetDocumentForm_CERT5I() Тогда
+	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERT5I()     ИЛИ form = 8 Тогда
 		Возврат "Форма 5i ветеринарного сертификата";
-	ИначеЕсли form = VetDocumentForm_CERT61() Тогда
+	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERT61()     ИЛИ form = 9 Тогда
 		Возврат "Форма 6.1 ветеринарного сертификата";
-	ИначеЕсли form = VetDocumentForm_CERT62() Тогда
+	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERT62()     ИЛИ form = 10 Тогда
 		Возврат "Форма 6.2 ветеринарного сертификата";
-	ИначеЕсли form = VetDocumentForm_CERT63() Тогда
+	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERT63()     ИЛИ form = 11 Тогда
 		Возврат "Форма 6.3 ветеринарного сертификата";
-	ИначеЕсли form = VetDocumentForm_PRODUCTIVE() Тогда
+	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_PRODUCTIVE() ИЛИ form = 12 Тогда
 		Возврат "Производственный сертификат";
 	Иначе
 		Возврат Неопределено;
@@ -446,23 +380,13 @@
 	
 КонецФункции
 
-// список
 Функция VetDocumentFormСписок() Экспорт
 	
 	_Список = Новый СписокЗначений();
 	
-	_Список.Добавить(VetDocumentForm_CERTCU1(), VetDocumentFormОписание(VetDocumentForm_CERTCU1()));
-	_Список.Добавить(VetDocumentForm_LIC1(),    VetDocumentFormОписание(VetDocumentForm_LIC1()));
-	_Список.Добавить(VetDocumentForm_CERTCU2(), VetDocumentFormОписание(VetDocumentForm_CERTCU2()));
-	_Список.Добавить(VetDocumentForm_LIC2(),    VetDocumentFormОписание(VetDocumentForm_LIC2()));
-	_Список.Добавить(VetDocumentForm_CERTCU3(), VetDocumentFormОписание(VetDocumentForm_CERTCU3()));
-	_Список.Добавить(VetDocumentForm_LIC3(),    VetDocumentFormОписание(VetDocumentForm_LIC3()));
-	_Список.Добавить(VetDocumentForm_NOTE4(),   VetDocumentFormОписание(VetDocumentForm_NOTE4()));
-	_Список.Добавить(VetDocumentForm_CERT5I(),  VetDocumentFormОписание(VetDocumentForm_CERT5I()));
-	_Список.Добавить(VetDocumentForm_CERT61(),  VetDocumentFormОписание(VetDocumentForm_CERT61()));
-	_Список.Добавить(VetDocumentForm_CERT62(),  VetDocumentFormОписание(VetDocumentForm_CERT62()));
-	_Список.Добавить(VetDocumentForm_CERT63(),  VetDocumentFormОписание(VetDocumentForm_CERT63()));
-	_Список.Добавить(VetDocumentForm_PRODUCTIVE(), VetDocumentFormОписание(VetDocumentForm_PRODUCTIVE()));
+	Для _Индекс = 1 По 12 Цикл
+		_Список.Добавить(VetDocumentForm(_Индекс), VetDocumentFormОписание(_Индекс));
+	КонецЦикла;
 	
 	Возврат _Список;
 	
@@ -473,35 +397,13 @@
 #Область VetDocumentStatus
 // Тип, описывающий статус ветеринарно-сопроводительного докумнета (ВСД).
 
-// Оформлен. Действующий сертификат, по которому разрешено совершать транзакцию с грузом.
-Функция VetDocumentStatus_CONFIRMED() Экспорт
-	
-	Возврат "CONFIRMED";
-	
-КонецФункции
-
-// Аннулирован. Не действующий более сертификат.
-Функция VetDocumentStatus_WITHDRAWN() Экспорт
-	
-	Возврат "WITHDRAWN";
-	
-КонецФункции
-
-// Погашен. Действующий сертификат, по которому транзакция уже была совершена.
-Функция VetDocumentStatus_UTILIZED() Экспорт
-	
-	Возврат "UTILIZED";
-	
-КонецФункции
-
-// описание
 Функция VetDocumentStatusОписание(status) Экспорт
 	
-	Если status = VetDocumentStatus_CONFIRMED() Тогда
+	Если status = ВетисКонстанты.VetDocumentStatus_CONFIRMED() Тогда
 		Возврат "Действующий сертификат, по которому разрешено совершать транзакцию с грузом";
-	ИначеЕсли status = VetDocumentStatus_WITHDRAWN() Тогда
+	ИначеЕсли status = ВетисКонстанты.VetDocumentStatus_WITHDRAWN() Тогда
 		Возврат "Не действующий более сертификат";
-	ИначеЕсли status = VetDocumentStatus_UTILIZED() Тогда
+	ИначеЕсли status = ВетисКонстанты.VetDocumentStatus_UTILIZED() Тогда
 		Возврат "Действующий сертификат, по которому транзакция уже была совершена";
 	Иначе
 		Возврат Неопределено;
@@ -518,54 +420,36 @@
 // В ответе сервиса придут транспортные и возвратные сертификаты.
 // То есть в запросе можно указать направление отправки сертификата (от предприятия или на предприятие),
 // а в ответе придет информация о том какие из них были транспортными, а какие были оформлены как возвратными.
+
+Функция VetDocumentType(type) Экспорт
 	
-// Входящий
-Функция VetDocumentType_INCOMING() Экспорт
-	
-	Возврат "INCOMING";
+	Если      type = 1 Тогда
+		Возврат ВетисКонстанты.VetDocumentType_INCOMING();
+	ИначеЕсли type = 2 Тогда
+		Возврат ВетисКонстанты.VetDocumentType_OUTGOING();
+	ИначеЕсли type = 3 Тогда
+		Возврат ВетисКонстанты.VetDocumentType_PRODUCTIVE();
+	ИначеЕсли type = 4 Тогда
+		Возврат ВетисКонстанты.VetDocumentType_RETURNABLE();
+	ИначеЕсли type = 5 Тогда
+		Возврат ВетисКонстанты.VetDocumentType_TRANSPORT();
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
 	
 КонецФункции
 
-// Исходящий
-Функция VetDocumentType_OUTGOING() Экспорт
-	
-	Возврат "OUTGOING";
-	
-КонецФункции
-
-// Производственный
-Функция VetDocumentType_PRODUCTIVE() Экспорт
-	
-	Возврат "PRODUCTIVE";
-	
-КонецФункции
-
-// Возвратный
-Функция VetDocumentType_RETURNABLE() Экспорт
-	
-	Возврат "RETURNABLE";
-	
-КонецФункции
-
-// Транспортный
-Функция VetDocumentType_TRANSPORT() Экспорт
-	
-	Возврат "TRANSPORT";
-	
-КонецФункции
-
-// описание
 Функция VetDocumentTypeОписание(type) Экспорт
 	
-	Если type = VetDocumentType_INCOMING() Тогда
+	Если      type = ВетисКонстанты.VetDocumentType_INCOMING()   ИЛИ type = 1 Тогда
 		Возврат "Входящий";
-	ИначеЕсли type = VetDocumentType_OUTGOING() Тогда
+	ИначеЕсли type = ВетисКонстанты.VetDocumentType_OUTGOING()   ИЛИ type = 2 Тогда
 		Возврат "Исходящий";
-	ИначеЕсли type = VetDocumentType_PRODUCTIVE() Тогда
+	ИначеЕсли type = ВетисКонстанты.VetDocumentType_PRODUCTIVE() ИЛИ type = 3 Тогда
 		Возврат "Производственный";
-	ИначеЕсли type = VetDocumentType_RETURNABLE() Тогда
+	ИначеЕсли type = ВетисКонстанты.VetDocumentType_RETURNABLE() ИЛИ type = 4 Тогда
 		Возврат "Возвратный";
-	ИначеЕсли type = VetDocumentType_TRANSPORT() Тогда
+	ИначеЕсли type = ВетисКонстанты.VetDocumentType_TRANSPORT()  ИЛИ type = 5 Тогда
 		Возврат "Транспортный";
 	Иначе
 		Возврат Неопределено;
@@ -573,16 +457,12 @@
 	
 КонецФункции
 
-// список
 Функция VetDocumentTypeСписок() Экспорт
 	
 	_Список = Новый СписокЗначений();
 	
-	_Список.Добавить(VetDocumentType_INCOMING(),   VetDocumentTypeОписание(VetDocumentType_INCOMING()));
-	_Список.Добавить(VetDocumentType_OUTGOING(),   VetDocumentTypeОписание(VetDocumentType_OUTGOING()));
-	//_Список.Добавить(VetDocumentType_PRODUCTIVE(), VetDocumentTypeОписание(VetDocumentType_PRODUCTIVE()));
-	//_Список.Добавить(VetDocumentType_RETURNABLE(), VetDocumentTypeОписание(VetDocumentType_RETURNABLE()));
-	//_Список.Добавить(VetDocumentType_TRANSPORT(),  VetDocumentTypeОписание(VetDocumentType_TRANSPORT()));
+	_Список.Добавить(VetDocumentType(1), VetDocumentTypeОписание(1));
+	_Список.Добавить(VetDocumentType(2), VetDocumentTypeОписание(2));
 	
 	Возврат _Список;
 	

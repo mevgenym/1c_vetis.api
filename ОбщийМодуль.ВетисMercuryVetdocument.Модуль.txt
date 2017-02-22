@@ -177,44 +177,31 @@
 #Область AnimalSpentPeriod
 // Тип, описывающий cколько времени животные находились на территории ТС.
 
-// Животные находились на территории ТС с рождения.
-Функция AnimalSpentPeriod_FROM_BIRTH() Экспорт
+Функция AnimalSpentPeriod(period) Экспорт
 	
-	Возврат "FROM_BIRTH";
-	
-КонецФункции
-
-// Животные находились на территории ТС не менее 6 месяцев.
-Функция AnimalSpentPeriod_NOT_LESS_SIX_MONTHS() Экспорт
-	
-	Возврат "NOT_LESS_SIX_MONTHS";
-	
-КонецФункции
-
-// Животные находились на территории ТС указанное кол-во месяцев.
-Функция AnimalSpentPeriod_IN_MONTHS() Экспорт
-	
-	Возврат "IN_MONTHS";
+	Если      period = 1 Тогда
+		Возврат ВетисКонстанты.AnimalSpentPeriod_FROM_BIRTH();
+	ИначеЕсли period = 2 Тогда
+		Возврат ВетисКонстанты.AnimalSpentPeriod_NOT_LESS_SIX_MONTHS();
+	ИначеЕсли period = 3 Тогда
+		Возврат ВетисКонстанты.AnimalSpentPeriod_IN_MONTHS();
+	ИначеЕсли period = 4 Тогда
+		Возврат ВетисКонстанты.AnimalSpentPeriod_ZERO();
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
 	
 КонецФункции
 
-// Животные не находились на территории ТС.
-Функция AnimalSpentPeriod_ZERO() Экспорт
+Функция AnimalSpentPeriodОписание(period) Экспорт
 	
-	Возврат "ZERO";
-	
-КонецФункции
-
-// описание
-Функция AnimalSpentPeriodОписание(status) Экспорт
-	
-	Если status = AnimalSpentPeriod_FROM_BIRTH() Тогда
+	Если      period = ВетисКонстанты.AnimalSpentPeriod_FROM_BIRTH()          ИЛИ period = 1 Тогда
 		Возврат "Животные находились на территории ТС с рождения";
-	ИначеЕсли status = AnimalSpentPeriod_NOT_LESS_SIX_MONTHS() Тогда
+	ИначеЕсли period = ВетисКонстанты.AnimalSpentPeriod_NOT_LESS_SIX_MONTHS() ИЛИ period = 2 Тогда
 		Возврат "Животные находились на территории ТС не менее 6 месяцев";
-	ИначеЕсли status = AnimalSpentPeriod_IN_MONTHS() Тогда
+	ИначеЕсли period = ВетисКонстанты.AnimalSpentPeriod_IN_MONTHS()           ИЛИ period = 3 Тогда
 		Возврат "Животные находились на территории ТС указанное кол-во месяцев";
-	ИначеЕсли status = AnimalSpentPeriod_ZERO() Тогда
+	ИначеЕсли period = ВетисКонстанты.AnimalSpentPeriod_ZERO()                ИЛИ period = 4 Тогда
 		Возврат "Животные не находились на территории ТС";
 	Иначе
 		Возврат Неопределено;
@@ -222,15 +209,13 @@
 	
 КонецФункции
 
-// список
 Функция AnimalSpentPeriodСписок() Экспорт
 	
 	_Список = Новый СписокЗначений();
 	
-	_Список.Добавить(AnimalSpentPeriod_FROM_BIRTH(),          AnimalSpentPeriodОписание(AnimalSpentPeriod_FROM_BIRTH()));
-	_Список.Добавить(AnimalSpentPeriod_NOT_LESS_SIX_MONTHS(), AnimalSpentPeriodОписание(AnimalSpentPeriod_NOT_LESS_SIX_MONTHS()));
-	_Список.Добавить(AnimalSpentPeriod_IN_MONTHS(),           AnimalSpentPeriodОписание(AnimalSpentPeriod_IN_MONTHS()));
-	_Список.Добавить(AnimalSpentPeriod_ZERO(),                AnimalSpentPeriodОписание(AnimalSpentPeriod_ZERO()));
+	Для _Индекс = 1 По 4 Цикл
+		_Список.Добавить(AnimalSpentPeriod(_Индекс), AnimalSpentPeriodОписание(_Индекс));
+	КонецЦикла;
 	
 	Возврат _Список;
 	
@@ -241,35 +226,27 @@
 #Область DeliveryDecision
 // Тип, описывающий контроль поставки (документарный, ветеринарный).
 
-// Принять всю поставку.
-Функция DeliveryDecision_ACCEPT_ALL() Экспорт
+Функция DeliveryDecision(decision) Экспорт
 	
-	Возврат "ACCEPT_ALL";
-	
-КонецФункции
-
-// Принять часть груза, на оставшуюся оформить возврат.
-Функция DeliveryDecision_PARTIALLY() Экспорт
-	
-	Возврат "PARTIALLY";
-	
-КонецФункции
-
-// Оформить возврат на всю поставку.
-Функция DeliveryDecision_RETURN_ALL() Экспорт
-	
-	Возврат "RETURN_ALL";
+	Если      decision = 1 Тогда
+		Возврат ВетисКонстанты.DeliveryDecision_ACCEPT_ALL();
+	ИначеЕсли decision = 2 Тогда
+		Возврат ВетисКонстанты.DeliveryDecision_PARTIALLY();
+	ИначеЕсли decision = 3 Тогда
+		Возврат ВетисКонстанты.DeliveryDecision_RETURN_ALL();
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
 	
 КонецФункции
 
-// описание
 Функция DeliveryDecisionОписание(decision) Экспорт
 	
-	Если decision = DeliveryDecision_ACCEPT_ALL() Тогда
+	Если      decision = ВетисКонстанты.DeliveryDecision_ACCEPT_ALL() ИЛИ decision = 1 Тогда
 		Возврат "Принять всю поставку";
-	ИначеЕсли decision = DeliveryDecision_PARTIALLY() Тогда
+	ИначеЕсли decision = ВетисКонстанты.DeliveryDecision_PARTIALLY()  ИЛИ decision = 2 Тогда
 		Возврат "Принять часть груза, на оставшуюся оформить возврат";
-	ИначеЕсли decision = DeliveryDecision_RETURN_ALL() Тогда
+	ИначеЕсли decision = ВетисКонстанты.DeliveryDecision_RETURN_ALL() ИЛИ decision = 3 Тогда
 		Возврат "Оформить возврат на всю поставку";
 	Иначе
 		Возврат Неопределено;
@@ -277,14 +254,13 @@
 	
 КонецФункции
 
-// список
 Функция DeliveryDecisionСписок() Экспорт
 	
 	_Список = Новый СписокЗначений();
 	
-	_Список.Добавить(DeliveryDecision_ACCEPT_ALL(), DeliveryDecisionОписание(DeliveryDecision_ACCEPT_ALL()));
-	_Список.Добавить(DeliveryDecision_PARTIALLY(),  DeliveryDecisionОписание(DeliveryDecision_PARTIALLY()));
-	_Список.Добавить(DeliveryDecision_RETURN_ALL(), DeliveryDecisionОписание(DeliveryDecision_RETURN_ALL()));
+	Для _Индекс = 1 По 3 Цикл
+		_Список.Добавить(DeliveryDecision(_Индекс), DeliveryDecisionОписание(_Индекс));
+	КонецЦикла;
 	
 	Возврат _Список;
 	

@@ -50,76 +50,47 @@
 #Область RegisterModificationType
 // тип, описывающий тип операции на изменение реестра
 
-// добавление новой записи
-Функция RegisterModificationType_CREATE() Экспорт
+Функция RegisterModificationType(type) Экспорт
 	
-	Возврат "CREATE";
-	
-КонецФункции
-
-// Поиск существующей или добавление новой записи
-Функция RegisterModificationType_FIND_OR_CREATE() Экспорт
-	
-	Возврат "FIND_OR_CREATE";
-	
-КонецФункции
-
-// Внесение изменений в существующую запись
-Функция RegisterModificationType_UPDATE() Экспорт
-	
-	Возврат "UPDATE";
-	
-КонецФункции
-
-// Удаление существующей записи
-Функция RegisterModificationType_DELETE() Экспорт
-	
-	Возврат "DELETE";
+	Если      type = 1 Тогда
+		Возврат ВетисКонстанты.RegisterModificationType_FIND_OR_CREATE();
+	ИначеЕсли type = 2 Тогда
+		Возврат ВетисКонстанты.RegisterModificationType_FIND_OR_CREATE();
+	ИначеЕсли type = 3 Тогда
+		Возврат ВетисКонстанты.RegisterModificationType_UPDATE();
+	ИначеЕсли type = 4 Тогда
+		Возврат ВетисКонстанты.RegisterModificationType_DELETE();
+	ИначеЕсли type = 5 Тогда
+		Возврат ВетисКонстанты.RegisterModificationType_MERGE();
+	ИначеЕсли type = 6 Тогда
+		Возврат ВетисКонстанты.RegisterModificationType_ATTACH();
+	ИначеЕсли type = 7 Тогда
+		Возврат ВетисКонстанты.RegisterModificationType_SPLIT();
+	ИначеЕсли type = 8 Тогда
+		Возврат ВетисКонстанты.RegisterModificationType_FORK();
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
 	
 КонецФункции
 
-Функция RegisterModificationType_MERGE() Экспорт
+Функция RegisterModificationTypeОписание(type) Экспорт
 	
-	Возврат "MERGE";
-	
-КонецФункции
-
-Функция RegisterModificationType_ATTACH() Экспорт
-	
-	Возврат "ATTACH";
-	
-КонецФункции
-
-Функция RegisterModificationType_SPLIT() Экспорт
-	
-	Возврат "SPLIT";
-	
-КонецФункции
-
-Функция RegisterModificationType_FORK() Экспорт
-	
-	Возврат "FORK";
-	
-КонецФункции
-
-// описание
-Функция RegisterModificationTypeОписание(nature) Экспорт
-	
-	Если nature = RegisterModificationType_CREATE() Тогда
+	Если      type = ВетисКонстанты.RegisterModificationType_CREATE() ИЛИ type = 1 Тогда
 		Возврат "Добавление";
-	ИначеЕсли nature = RegisterModificationType_FIND_OR_CREATE() Тогда
+	ИначеЕсли type = ВетисКонстанты.RegisterModificationType_FIND_OR_CREATE() ИЛИ type = 2 Тогда
 		Возврат "Поиск";
-	ИначеЕсли nature = RegisterModificationType_UPDATE() Тогда
+	ИначеЕсли type = ВетисКонстанты.RegisterModificationType_UPDATE() ИЛИ type = 3 Тогда
 		Возврат "Внесение изменений";
-	ИначеЕсли nature = RegisterModificationType_DELETE() Тогда
+	ИначеЕсли type = ВетисКонстанты.RegisterModificationType_DELETE() ИЛИ type = 4 Тогда
 		Возврат "Удаление";
-	ИначеЕсли nature = RegisterModificationType_MERGE() Тогда
+	ИначеЕсли type = ВетисКонстанты.RegisterModificationType_MERGE()  ИЛИ type = 5 Тогда
 		Возврат "Объединение";
-	ИначеЕсли nature = RegisterModificationType_ATTACH() Тогда
+	ИначеЕсли type = ВетисКонстанты.RegisterModificationType_ATTACH() ИЛИ type = 6 Тогда
 		Возврат "Прикрепление";
-	ИначеЕсли nature = RegisterModificationType_SPLIT() Тогда
+	ИначеЕсли type = ВетисКонстанты.RegisterModificationType_SPLIT()  ИЛИ type = 7 Тогда
 		Возврат "Разделение";
-	ИначеЕсли nature = RegisterModificationType_FORK() Тогда
+	ИначеЕсли type = ВетисКонстанты.RegisterModificationType_FORK()   ИЛИ type = 8 Тогда
 		Возврат "Ответвление";
 	Иначе
 		Возврат Неопределено;
@@ -127,19 +98,13 @@
 	
 КонецФункции
 
-// список
 Функция RegisterModificationTypeСписок() Экспорт
 	
 	_Список = Новый СписокЗначений();
 	
-	_Список.Добавить(RegisterModificationType_CREATE(),         RegisterModificationTypeОписание(RegisterModificationType_CREATE()));
-	_Список.Добавить(RegisterModificationType_FIND_OR_CREATE(), RegisterModificationTypeОписание(RegisterModificationType_FIND_OR_CREATE()));
-	_Список.Добавить(RegisterModificationType_UPDATE(),         RegisterModificationTypeОписание(RegisterModificationType_UPDATE()));
-	_Список.Добавить(RegisterModificationType_DELETE(),         RegisterModificationTypeОписание(RegisterModificationType_DELETE()));
-	_Список.Добавить(RegisterModificationType_MERGE(),          RegisterModificationTypeОписание(RegisterModificationType_MERGE()));
-	_Список.Добавить(RegisterModificationType_ATTACH(),         RegisterModificationTypeОписание(RegisterModificationType_ATTACH()));
-	_Список.Добавить(RegisterModificationType_SPLIT(),          RegisterModificationTypeОписание(RegisterModificationType_SPLIT()));
-	_Список.Добавить(RegisterModificationType_FORK(),           RegisterModificationTypeОписание(RegisterModificationType_FORK()));
+	Для _Индекс = 1 По 8 Цикл
+		_Список.Добавить(RegisterModificationType(_Индекс), RegisterModificationTypeОписание(_Индекс));
+	КонецЦикла;
 	
 	Возврат _Список;
 	
@@ -182,90 +147,6 @@
 	Иначе
 		Возврат Неопределено;
 	КонецЕсли;
-	
-КонецФункции
-
-Функция VersionStatus_CREATED() Экспорт
-	
-	Возврат 100;
-	
-КонецФункции
-
-Функция VersionStatus_SENT() Экспорт
-	
-	Возврат 102;
-	
-КонецФункции
-
-Функция VersionStatus_CREATED_WHEN_MERGE() Экспорт
-	
-	Возврат 110;
-	
-КонецФункции
-
-Функция VersionStatus_CREATED_WHEN_SPLIT() Экспорт
-	
-	Возврат 120;
-	
-КонецФункции
-
-Функция VersionStatus_UPDATED() Экспорт
-	
-	Возврат 200;
-	
-КонецФункции
-
-Функция VersionStatus_WITHDRAWN() Экспорт
-	
-	Возврат 201;
-	
-КонецФункции
-
-Функция VersionStatus_Списано() Экспорт
-	
-	Возврат 202;
-	
-КонецФункции
-
-Функция VersionStatus_UPDATED_WHEN_ATTACH() Экспорт
-	
-	Возврат 230;
-	
-КонецФункции
-
-Функция VersionStatus_UPDATED_WHEN_FORK() Экспорт
-	
-	Возврат 240;
-	
-КонецФункции
-
-Функция VersionStatus_MOVED() Экспорт
-	
-	Возврат 300;
-	
-КонецФункции
-
-Функция VersionStatus_DELETED() Экспорт
-	
-	Возврат 400;
-	
-КонецФункции
-
-Функция VersionStatus_DELETED_WHEN_MERGE() Экспорт
-	
-	Возврат 410;
-	
-КонецФункции
-
-Функция VersionStatus_DELETED_WHEN_SPLIT() Экспорт
-	
-	Возврат 420;
-	
-КонецФункции
-
-Функция VersionStatus_DELETED_WHEN_ATTACH() Экспорт
-	
-	Возврат 430;
 	
 КонецФункции
 

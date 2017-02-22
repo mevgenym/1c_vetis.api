@@ -90,30 +90,6 @@
 
 #КонецОбласти
 
-Функция Status_ACCEPTED() Экспорт
-	
-	Возврат "ACCEPTED";
-	
-КонецФункции
-
-Функция Status_IN_PROCESS() Экспорт
-	
-	Возврат "IN_PROCESS";
-	
-КонецФункции
-
-Функция Status_COMPLETED() Экспорт
-	
-	Возврат "COMPLETED";
-	
-КонецФункции
-
-Функция Status_REJECTED() Экспорт
-	
-	Возврат "REJECTED";
-	
-КонецФункции
-
 
 Функция ServiceURI()
 	

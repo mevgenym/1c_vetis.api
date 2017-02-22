@@ -1,0 +1,251 @@
+﻿
+#Область ВетисArgusShipment
+
+Функция TransportationStorageType_FROZEN() Экспорт
+	
+	Возврат "FROZEN";
+	
+КонецФункции
+
+Функция TransportationStorageType_CHILLED() Экспорт
+	
+	Возврат "CHILLED";
+	
+КонецФункции
+
+Функция TransportationStorageType_COOLED() Экспорт
+	
+	Возврат "COOLED";
+	
+КонецФункции
+
+Функция TransportationStorageType_VENTILATED() Экспорт
+	
+	Возврат "VENTILATED";
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область ВетисApplication
+
+Функция Status_ACCEPTED() Экспорт
+	
+	Возврат "ACCEPTED";
+	
+КонецФункции
+
+Функция Status_IN_PROCESS() Экспорт
+	
+	Возврат "IN_PROCESS";
+	
+КонецФункции
+
+Функция Status_COMPLETED() Экспорт
+	
+	Возврат "COMPLETED";
+	
+КонецФункции
+
+Функция Status_REJECTED() Экспорт
+	
+	Возврат "REJECTED";
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область ВетисBase
+
+// добавление новой записи
+Функция RegisterModificationType_CREATE() Экспорт
+	
+	Возврат "CREATE";
+	
+КонецФункции
+
+// Поиск существующей или добавление новой записи
+Функция RegisterModificationType_FIND_OR_CREATE() Экспорт
+	
+	Возврат "FIND_OR_CREATE";
+	
+КонецФункции
+
+// Внесение изменений в существующую запись
+Функция RegisterModificationType_UPDATE() Экспорт
+	
+	Возврат "UPDATE";
+	
+КонецФункции
+
+// Удаление существующей записи
+Функция RegisterModificationType_DELETE() Экспорт
+	
+	Возврат "DELETE";
+	
+КонецФункции
+
+Функция RegisterModificationType_MERGE() Экспорт
+	
+	Возврат "MERGE";
+	
+КонецФункции
+
+Функция RegisterModificationType_ATTACH() Экспорт
+	
+	Возврат "ATTACH";
+	
+КонецФункции
+
+Функция RegisterModificationType_SPLIT() Экспорт
+	
+	Возврат "SPLIT";
+	
+КонецФункции
+
+Функция RegisterModificationType_FORK() Экспорт
+	
+	Возврат "FORK";
+	
+КонецФункции
+
+
+Функция VersionStatus_CREATED() Экспорт
+	
+	Возврат 100;
+	
+КонецФункции
+
+Функция VersionStatus_SENT() Экспорт
+	
+	Возврат 102;
+	
+КонецФункции
+
+Функция VersionStatus_CREATED_WHEN_MERGE() Экспорт
+	
+	Возврат 110;
+	
+КонецФункции
+
+Функция VersionStatus_CREATED_WHEN_SPLIT() Экспорт
+	
+	Возврат 120;
+	
+КонецФункции
+
+Функция VersionStatus_UPDATED() Экспорт
+	
+	Возврат 200;
+	
+КонецФункции
+
+Функция VersionStatus_WITHDRAWN() Экспорт
+	
+	Возврат 201;
+	
+КонецФункции
+
+Функция VersionStatus_Списано() Экспорт
+	
+	Возврат 202;
+	
+КонецФункции
+
+Функция VersionStatus_UPDATED_WHEN_ATTACH() Экспорт
+	
+	Возврат 230;
+	
+КонецФункции
+
+Функция VersionStatus_UPDATED_WHEN_FORK() Экспорт
+	
+	Возврат 240;
+	
+КонецФункции
+
+Функция VersionStatus_MOVED() Экспорт
+	
+	Возврат 300;
+	
+КонецФункции
+
+Функция VersionStatus_DELETED() Экспорт
+	
+	Возврат 400;
+	
+КонецФункции
+
+Функция VersionStatus_DELETED_WHEN_MERGE() Экспорт
+	
+	Возврат 410;
+	
+КонецФункции
+
+Функция VersionStatus_DELETED_WHEN_SPLIT() Экспорт
+	
+	Возврат 420;
+	
+КонецФункции
+
+Функция VersionStatus_DELETED_WHEN_ATTACH() Экспорт
+	
+	Возврат 430;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область ВетисMercuryVetdocument
+
+// Животные находились на территории ТС с рождения.
+Функция AnimalSpentPeriod_FROM_BIRTH() Экспорт
+	
+	Возврат "FROM_BIRTH";
+	
+КонецФункции
+
+// Животные находились на территории ТС не менее 6 месяцев.
+Функция AnimalSpentPeriod_NOT_LESS_SIX_MONTHS() Экспорт
+	
+	Возврат "NOT_LESS_SIX_MONTHS";
+	
+КонецФункции
+
+// Животные находились на территории ТС указанное кол-во месяцев.
+Функция AnimalSpentPeriod_IN_MONTHS() Экспорт
+	
+	Возврат "IN_MONTHS";
+	
+КонецФункции
+
+// Животные не находились на территории ТС.
+Функция AnimalSpentPeriod_ZERO() Экспорт
+	
+	Возврат "ZERO";
+	
+КонецФункции
+
+
+// Принять всю поставку.
+Функция DeliveryDecision_ACCEPT_ALL() Экспорт
+	
+	Возврат "ACCEPT_ALL";
+	
+КонецФункции
+
+// Принять часть груза, на оставшуюся оформить возврат.
+Функция DeliveryDecision_PARTIALLY() Экспорт
+	
+	Возврат "PARTIALLY";
+	
+КонецФункции
+
+// Оформить возврат на всю поставку.
+Функция DeliveryDecision_RETURN_ALL() Экспорт
+	
+	Возврат "RETURN_ALL";
+	
+КонецФункции
+
+#КонецОбласти

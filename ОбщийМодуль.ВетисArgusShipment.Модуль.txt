@@ -1,23 +1,83 @@
 ﻿
 // Тип, описывающий товарно-транспортную накладную.
-Функция Waybill(type) Экспорт
+Функция Waybill(type, issueNumber, issueDate, broker, transportInfo, transportStorageType) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Waybill"));
 	
 	_Объект.type                    = type;//Тип товарно-транспортной накладной.
 	//_Объект.issueSeries             = ;//Серия документа.
-	//_Объект.issueNumber             = ;//Номер документа.
-	//_Объект.issueDate               = ;//Дата документа.
+	_Объект.issueNumber             = issueNumber;//Номер документа.
+	_Объект.issueDate               = issueDate;//Дата документа.
 	//_Объект.consignor               = ;//Сведения об отправителе (владельце).
 	//_Объект.consignee               = ;//Сведения о получателе груза.
-	//_Объект.broker                  = ;//Сведения о фирме-посреднике.
-	//_Объект.transportInfo           = ;//Сведения о транспорте.
-	//_Объект.transportStorageType    = ;//Способ хранения при перевозке.
+	_Объект.broker                  = broker;//Сведения о фирме-посреднике.
+	_Объект.transportInfo           = transportInfo;//Сведения о транспорте.
+	_Объект.transportStorageType    = transportStorageType;//Способ хранения при перевозке.
 	//_Объект.cargoReloadingPointList = ;//Сведения о маршруте следования (пунктах перегрузки).
 	
 	Возврат _Объект;
 	
 КонецФункции
+
+Функция TransportInfo(transportType, transportNumber) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "TransportInfo"));
+	
+	_Объект.transportType   = transportType;  //Тип транспортного средства.
+	_Объект.transportNumber = transportNumber;//Номера транспортного средства.
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+#Область TransportationStorageType
+// Тип, описывающий cпособ хранения при перевозке.
+
+Функция TransportationStorageType(type) Экспорт
+	
+	Если      type = 1 Тогда
+		Возврат ВетисКонстанты.TransportationStorageType_FROZEN();
+	ИначеЕсли type = 2 Тогда
+		Возврат ВетисКонстанты.TransportationStorageType_CHILLED();
+	ИначеЕсли type = 3 Тогда
+		Возврат ВетисКонстанты.TransportationStorageType_COOLED();
+	ИначеЕсли type = 4 Тогда
+		Возврат ВетисКонстанты.TransportationStorageType_VENTILATED();
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+Функция TransportationStorageTypeОписание(type) Экспорт
+	
+	Если      type = ВетисКонстанты.TransportationStorageType_FROZEN()  ИЛИ type = 1 Тогда
+		Возврат "Замороженные";
+	ИначеЕсли type = ВетисКонстанты.TransportationStorageType_CHILLED() ИЛИ type = 2 Тогда
+		Возврат "Охлажденные";
+	ИначеЕсли type = ВетисКонстанты.TransportationStorageType_COOLED()  ИЛИ type = 3 Тогда
+		Возврат "Охлаждаемые";
+	ИначеЕсли type = ВетисКонстанты.TransportationStorageType_VENTILATED() ИЛИ type = 4 Тогда
+		Возврат "Вентилируемые";
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+Функция TransportationStorageTypeСписок() Экспорт
+	
+	_Список = Новый СписокЗначений();
+	
+	Для _Индекс = 1 По 8 Цикл
+		_Список.Добавить(TransportationStorageType(_Индекс), TransportationStorageTypeОписание(_Индекс));
+	КонецЦикла;
+	
+	Возврат _Список;
+	
+КонецФункции
+
+#КонецОбласти
 
 #Область WaybillType
 // Тип, описывающий тип товарно-транспортной накладной.

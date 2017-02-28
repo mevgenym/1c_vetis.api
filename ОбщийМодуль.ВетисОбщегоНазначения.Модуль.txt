@@ -71,7 +71,7 @@
 		
 	//Application = SubmitResponse.Application;
 	
-	Если НЕ (SubmitResponse.Application.status = ВетисApplication.Status_ACCEPTED()) Тогда 
+	Если НЕ (SubmitResponse.Application.status = ВетисКонстанты.Status_ACCEPTED()) Тогда 
 		ВывестиСообщение("Запрос вернулся со статусом " + SubmitResponse.Application.status);
 		Возврат ПоУмолчанию; 
 	КонецЕсли;
@@ -104,10 +104,10 @@
 		
 		receiveResponse = ВетисSoapEnvelope.Извлечь(Envelope).receiveApplicationResultResponse;
 		
-		Если receiveResponse.Application.Status = ВетисApplication.Status_IN_PROCESS() Тогда
+		Если receiveResponse.Application.Status = ВетисКонстанты.Status_IN_PROCESS() Тогда
 			//ВывестиСообщение("Ждем ответа", 1);
 		Иначе
-			Если НЕ receiveResponse.Application.status = ВетисApplication.Status_COMPLETED() Тогда
+			Если НЕ receiveResponse.Application.status = ВетисКонстанты.Status_COMPLETED() Тогда
 				ВывестиСообщение(Сериализовать(_Фабрика, receiveResponse.application.errors.error));
 				Возврат ПоУмолчанию;
 			Иначе
@@ -275,4 +275,16 @@
 	
 КонецФункции
 
+
+Функция ListRequestСледующий(ListRequest, ListResponse) Экспорт
+	
+	Если ListRequest.listOptions.offset + ListRequest.ListOptions.count >= Число(ListResponse.Total) Тогда
+		Возврат Ложь;
+	Иначе
+		ListRequest.listOptions.offset = ListRequest.listOptions.offset + ListRequest.ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
 

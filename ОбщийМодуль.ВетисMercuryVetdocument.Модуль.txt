@@ -1,53 +1,71 @@
 ﻿
 // Тип, описывающий ветеринарно-сопроводительный документ (ВСД).
-Функция VetDocument() Экспорт
+// Параметры:
+//  vetDocumentUuid - Идентификатор ВСД
+Функция VetDocument(vetDocumentUuid) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "VetDocument"));
 	
-	_Объект.cargoInspected = Истина;// Осуществлен контроль гос.ветврачом на соответствие требованиям.
-	_Объект.cargoExpertized = Ложь;// Проводилась ли ветсанэкспертиза.
+	_Объект.uuid = vetDocumentUuid;
 	
 	Возврат _Объект;
 	
 КонецФункции
 
 // Тип, описывающий поставку.
-Функция Delivery(consignorBE, consignorE, consigneeBE, consigneeE,
-	productType, product, subProduct, productItem, volume, unit) Экспорт
+// Параметры:
+//  consignor - ent:BusinessMember - Сведения об отправителе.
+//  consignee - ent:BusinessMember - Сведения о получателе.
+//  consignment - vetd:Consignment - Фактические сведения о входящей партии или группе животных.
+//  accompanyingForms - vetd:ConsignmentDocumentList - Сопроводительные документы.
+Функция Delivery(consignor, consignee, consignment, accompanyingForms) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Delivery"));
 	
 	_Объект.deliveryDate = ТекущаяДата();// Дата поставки.
-	_Объект.consignor = ВетисCerberusEnterprise.BusinessMember(consignorBE, consignorE);// Сведения об отправителе (владельце).
-	_Объект.consignee = ВетисCerberusEnterprise.BusinessMember(consigneeBE, consigneeE);// Сведения о получателе груза.
-	_Объект.consignment = Consignment(productType, product, subProduct, productItem, volume, unit);// Сведения о транспортной партии.
-	//_Объект.accompanyingForms = "";// Сопроводительные документы.
+	_Объект.consignor = consignor;
+	_Объект.consignee = consignee;
+	_Объект.consignment = consignment;
+	_Объект.accompanyingForms = accompanyingForms;
 	
 	Возврат _Объект;
 	
 КонецФункции
 
-// Объект содержит обобщенные сведения о результате приема партии продукции.
+// Обобщенные сведения о результате приема партии продукции.
+// Параметры:
+//  presence - argc:DocumentNature - Природа ВСД (электронный или бумажный)
+//  docInspection - vetd:DeliveryInspection - Соответствуют ли сведения о партии, указанной в ВСД, фактическим
+//  vetInspection - vetd:DeliveryInspection - Осуществлен ли контроль груза гос.ветврачом на соответствие требованиям.
+//  decision - vetd:DeliveryDecision - Принятое решение о приёме входной партии.
 Функция DeliveryFactList(presence, docInspection, vetInspection, decision) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "DeliveryFactList"));
 	
 	_Объект.vetCertificatePresence = presence;
-	_Объект.docInspection = docInspection;// Соответствуют ли сведения о партии, указанной в ВСД, фактическим.
-	_Объект.vetInspection = vetInspection;// Осуществлен ли контроль груза гос.ветврачом на соответствие требованиям.
-	_Объект.decision = decision;// Принятое решение о приёме входной партии.
+	_Объект.docInspection = docInspection;
+	_Объект.vetInspection = vetInspection;
+	_Объект.decision = decision;
 	
 	Возврат _Объект;
 	
 КонецФункции
 
 // Тип, описывающий контроль поставки (документарный, ветеринарный).
-Функция DeliveryInspection(result) Экспорт
+// Параметры:
+// 	result - vetd:DeliveryInspectionResult - Результат контроля.
+//  responsible - argc:User - Ответственный за контроль.
+Функция DeliveryInspection(result, responsible = Неопределено) Экспорт
 	
 	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "DeliveryFactList"));
 	
-	_Объект.responsible = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());// Ответственный за контроль.
-	_Объект.result = result;// Результат контроля.
+	_Объект.result = result;
+	
+	Если responsible = Неопределено Тогда
+		_Объект.responsible = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	Иначе
+		_Объект.responsible = responsible;
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
@@ -177,15 +195,15 @@
 #Область AnimalSpentPeriod
 // Тип, описывающий cколько времени животные находились на территории ТС.
 
-Функция AnimalSpentPeriod(period) Экспорт
+Функция AnimalSpentPeriod(value) Экспорт
 	
-	Если      period = 1 Тогда
+	Если      value = 1 Тогда
 		Возврат ВетисКонстанты.AnimalSpentPeriod_FROM_BIRTH();
-	ИначеЕсли period = 2 Тогда
+	ИначеЕсли value = 2 Тогда
 		Возврат ВетисКонстанты.AnimalSpentPeriod_NOT_LESS_SIX_MONTHS();
-	ИначеЕсли period = 3 Тогда
+	ИначеЕсли value = 3 Тогда
 		Возврат ВетисКонстанты.AnimalSpentPeriod_IN_MONTHS();
-	ИначеЕсли period = 4 Тогда
+	ИначеЕсли value = 4 Тогда
 		Возврат ВетисКонстанты.AnimalSpentPeriod_ZERO();
 	Иначе
 		Возврат Неопределено;
@@ -193,15 +211,15 @@
 	
 КонецФункции
 
-Функция AnimalSpentPeriodОписание(period) Экспорт
+Функция AnimalSpentPeriodОписание(value) Экспорт
 	
-	Если      period = ВетисКонстанты.AnimalSpentPeriod_FROM_BIRTH()          ИЛИ period = 1 Тогда
+	Если      value = ВетисКонстанты.AnimalSpentPeriod_FROM_BIRTH()          ИЛИ value = 1 Тогда
 		Возврат "Животные находились на территории ТС с рождения";
-	ИначеЕсли period = ВетисКонстанты.AnimalSpentPeriod_NOT_LESS_SIX_MONTHS() ИЛИ period = 2 Тогда
+	ИначеЕсли value = ВетисКонстанты.AnimalSpentPeriod_NOT_LESS_SIX_MONTHS() ИЛИ value = 2 Тогда
 		Возврат "Животные находились на территории ТС не менее 6 месяцев";
-	ИначеЕсли period = ВетисКонстанты.AnimalSpentPeriod_IN_MONTHS()           ИЛИ period = 3 Тогда
+	ИначеЕсли value = ВетисКонстанты.AnimalSpentPeriod_IN_MONTHS()           ИЛИ value = 3 Тогда
 		Возврат "Животные находились на территории ТС указанное кол-во месяцев";
-	ИначеЕсли period = ВетисКонстанты.AnimalSpentPeriod_ZERO()                ИЛИ period = 4 Тогда
+	ИначеЕсли value = ВетисКонстанты.AnimalSpentPeriod_ZERO()                ИЛИ value = 4 Тогда
 		Возврат "Животные не находились на территории ТС";
 	Иначе
 		Возврат Неопределено;
@@ -226,13 +244,13 @@
 #Область DeliveryDecision
 // Тип, описывающий контроль поставки (документарный, ветеринарный).
 
-Функция DeliveryDecision(decision) Экспорт
+Функция DeliveryDecision(value) Экспорт
 	
-	Если      decision = 1 Тогда
+	Если      value = 1 Тогда
 		Возврат ВетисКонстанты.DeliveryDecision_ACCEPT_ALL();
-	ИначеЕсли decision = 2 Тогда
+	ИначеЕсли value = 2 Тогда
 		Возврат ВетисКонстанты.DeliveryDecision_PARTIALLY();
-	ИначеЕсли decision = 3 Тогда
+	ИначеЕсли value = 3 Тогда
 		Возврат ВетисКонстанты.DeliveryDecision_RETURN_ALL();
 	Иначе
 		Возврат Неопределено;
@@ -240,13 +258,13 @@
 	
 КонецФункции
 
-Функция DeliveryDecisionОписание(decision) Экспорт
+Функция DeliveryDecisionОписание(value) Экспорт
 	
-	Если      decision = ВетисКонстанты.DeliveryDecision_ACCEPT_ALL() ИЛИ decision = 1 Тогда
+	Если      value = ВетисКонстанты.DeliveryDecision_ACCEPT_ALL() ИЛИ value = 1 Тогда
 		Возврат "Принять всю поставку";
-	ИначеЕсли decision = ВетисКонстанты.DeliveryDecision_PARTIALLY()  ИЛИ decision = 2 Тогда
+	ИначеЕсли value = ВетисКонстанты.DeliveryDecision_PARTIALLY()  ИЛИ value = 2 Тогда
 		Возврат "Принять часть груза, на оставшуюся оформить возврат";
-	ИначеЕсли decision = ВетисКонстанты.DeliveryDecision_RETURN_ALL() ИЛИ decision = 3 Тогда
+	ИначеЕсли value = ВетисКонстанты.DeliveryDecision_RETURN_ALL() ИЛИ value = 3 Тогда
 		Возврат "Оформить возврат на всю поставку";
 	Иначе
 		Возврат Неопределено;
@@ -271,13 +289,13 @@
 #Область DeliveryInspectionResult
 // Тип, описывающий результат контроля поставки.
 
-Функция DeliveryInspectionResult(result) Экспорт
+Функция DeliveryInspectionResult(value) Экспорт
 	
-	Если      result = 1 Тогда
+	Если      value = 1 Тогда
 		Возврат ВетисКонстанты.DeliveryInspectionResult_CORRESPONDS();
-	ИначеЕсли result = 2 Тогда
+	ИначеЕсли value = 2 Тогда
 		Возврат ВетисКонстанты.DeliveryInspectionResult_MISMATCH();
-	ИначеЕсли result = 3 Тогда
+	ИначеЕсли value = 3 Тогда
 		Возврат ВетисКонстанты.DeliveryInspectionResult_UNSUPERVISED();
 	Иначе
 		Возврат Неопределено;
@@ -285,13 +303,13 @@
 	
 КонецФункции
 
-Функция DeliveryInspectionResultОписание(result) Экспорт
+Функция DeliveryInspectionResultОписание(value) Экспорт
 	
-	Если      result = ВетисКонстанты.DeliveryInspectionResult_CORRESPONDS()  ИЛИ result = 1 Тогда
+	Если      value = ВетисКонстанты.DeliveryInspectionResult_CORRESPONDS()  ИЛИ value = 1 Тогда
 		Возврат "Груз соответствует сведениям, заявленным в документах";
-	ИначеЕсли result = ВетисКонстанты.DeliveryInspectionResult_MISMATCH()     ИЛИ result = 2 Тогда
+	ИначеЕсли value = ВетисКонстанты.DeliveryInspectionResult_MISMATCH()     ИЛИ value = 2 Тогда
 		Возврат "Груз отличается от сведений, указанных в сопроводительных документах";
-	ИначеЕсли result = ВетисКонстанты.DeliveryInspectionResult_UNSUPERVISED() ИЛИ result = 3 Тогда
+	ИначеЕсли value = ВетисКонстанты.DeliveryInspectionResult_UNSUPERVISED() ИЛИ value = 3 Тогда
 		Возврат "Контроль не проводился";
 	Иначе
 		Возврат Неопределено;
@@ -316,31 +334,31 @@
 #Область VetDocumentForm
 // Тип, описывающий форму ветеринарно-сопроводительного докумнета (ВСД).
 
-Функция VetDocumentForm(form) Экспорт
+Функция VetDocumentForm(value) Экспорт
 	
-	Если      form = 1 Тогда
+	Если      value = 1 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_CERTCU1();
-	ИначеЕсли form = 2 Тогда
+	ИначеЕсли value = 2 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_LIC1();
-	ИначеЕсли form = 3 Тогда
+	ИначеЕсли value = 3 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_CERTCU2();
-	ИначеЕсли form = 4 Тогда
+	ИначеЕсли value = 4 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_LIC2();
-	ИначеЕсли form = 5 Тогда
+	ИначеЕсли value = 5 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_CERTCU3();
-	ИначеЕсли form = 6 Тогда
+	ИначеЕсли value = 6 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_LIC3();
-	ИначеЕсли form = 7 Тогда
+	ИначеЕсли value = 7 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_NOTE4();
-	ИначеЕсли form = 8 Тогда
+	ИначеЕсли value = 8 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_CERT5I();
-	ИначеЕсли form = 9 Тогда
+	ИначеЕсли value = 9 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_CERT61();
-	ИначеЕсли form = 10 Тогда
+	ИначеЕсли value = 10 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_CERT62();
-	ИначеЕсли form = 11 Тогда
+	ИначеЕсли value = 11 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_CERT63();
-	ИначеЕсли form = 12 Тогда
+	ИначеЕсли value = 12 Тогда
 		Возврат ВетисКонстанты.VetDocumentForm_PRODUCTIVE();
 	Иначе
 		Возврат Неопределено;
@@ -348,31 +366,31 @@
 	
 КонецФункции
 
-Функция VetDocumentFormОписание(form) Экспорт
+Функция VetDocumentFormОписание(value) Экспорт
 	
-	Если      form = ВетисКонстанты.VetDocumentForm_CERTCU1()    ИЛИ form = 1 Тогда
+	Если      value = ВетисКонстанты.VetDocumentForm_CERTCU1()    ИЛИ value = 1 Тогда
 		Возврат "Форма 1 ветеринарного сертификата ТС";
-	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_LIC1()       ИЛИ form = 2 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentForm_LIC1()       ИЛИ value = 2 Тогда
 		Возврат "Форма 1 ветеринарного свидетельства";
-	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERTCU2()    ИЛИ form = 3 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERTCU2()    ИЛИ value = 3 Тогда
 		Возврат "Форма 2 ветеринарного сертификата ТС";
-	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_LIC2()       ИЛИ form = 4 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentForm_LIC2()       ИЛИ value = 4 Тогда
 		Возврат "Форма 2 ветеринарного свидетельства";
-	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERTCU3()    ИЛИ form = 5 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERTCU3()    ИЛИ value = 5 Тогда
 		Возврат "Форма 3 ветеринарного сертификата ТС";
-	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_LIC3()       ИЛИ form = 6 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentForm_LIC3()       ИЛИ value = 6 Тогда
 		Возврат "Форма 3 ветеринарного свидетельства";
-	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_NOTE4()      ИЛИ form = 7 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentForm_NOTE4()      ИЛИ value = 7 Тогда
 		Возврат "Форма 4 ветеринарной справки";
-	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERT5I()     ИЛИ form = 8 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERT5I()     ИЛИ value = 8 Тогда
 		Возврат "Форма 5i ветеринарного сертификата";
-	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERT61()     ИЛИ form = 9 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERT61()     ИЛИ value = 9 Тогда
 		Возврат "Форма 6.1 ветеринарного сертификата";
-	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERT62()     ИЛИ form = 10 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERT62()     ИЛИ value = 10 Тогда
 		Возврат "Форма 6.2 ветеринарного сертификата";
-	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_CERT63()     ИЛИ form = 11 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERT63()     ИЛИ value = 11 Тогда
 		Возврат "Форма 6.3 ветеринарного сертификата";
-	ИначеЕсли form = ВетисКонстанты.VetDocumentForm_PRODUCTIVE() ИЛИ form = 12 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentForm_PRODUCTIVE() ИЛИ value = 12 Тогда
 		Возврат "Производственный сертификат";
 	Иначе
 		Возврат Неопределено;
@@ -397,17 +415,43 @@
 #Область VetDocumentStatus
 // Тип, описывающий статус ветеринарно-сопроводительного докумнета (ВСД).
 
-Функция VetDocumentStatusОписание(status) Экспорт
+Функция VetDocumentStatus(value) Экспорт
 	
-	Если status = ВетисКонстанты.VetDocumentStatus_CONFIRMED() Тогда
+	Если      value = 1 Тогда
+		Возврат ВетисКонстанты.VetDocumentStatus_CONFIRMED();
+	ИначеЕсли value = 2 Тогда
+		Возврат ВетисКонстанты.VetDocumentStatus_WITHDRAWN();
+	ИначеЕсли value = 3 Тогда
+		Возврат ВетисКонстанты.VetDocumentStatus_UTILIZED();
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+Функция VetDocumentStatusОписание(value) Экспорт
+	
+	Если      value = ВетисКонстанты.VetDocumentStatus_CONFIRMED() ИЛИ value = 1 Тогда
 		Возврат "Действующий сертификат, по которому разрешено совершать транзакцию с грузом";
-	ИначеЕсли status = ВетисКонстанты.VetDocumentStatus_WITHDRAWN() Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentStatus_WITHDRAWN() ИЛИ value = 2 Тогда
 		Возврат "Не действующий более сертификат";
-	ИначеЕсли status = ВетисКонстанты.VetDocumentStatus_UTILIZED() Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentStatus_UTILIZED()  ИЛИ value = 3 Тогда
 		Возврат "Действующий сертификат, по которому транзакция уже была совершена";
 	Иначе
 		Возврат Неопределено;
 	КонецЕсли;
+	
+КонецФункции
+
+Функция VetDocumentStatusСписок() Экспорт
+	
+	_Список = Новый СписокЗначений();
+	
+	_Список.Добавить(VetDocumentStatus(1), VetDocumentStatusОписание(1));
+	_Список.Добавить(VetDocumentStatus(2), VetDocumentStatusОписание(2));
+	_Список.Добавить(VetDocumentStatus(3), VetDocumentStatusОписание(3));
+	
+	Возврат _Список;
 	
 КонецФункции
 
@@ -421,17 +465,17 @@
 // То есть в запросе можно указать направление отправки сертификата (от предприятия или на предприятие),
 // а в ответе придет информация о том какие из них были транспортными, а какие были оформлены как возвратными.
 
-Функция VetDocumentType(type) Экспорт
+Функция VetDocumentType(value) Экспорт
 	
-	Если      type = 1 Тогда
+	Если      value = 1 Тогда
 		Возврат ВетисКонстанты.VetDocumentType_INCOMING();
-	ИначеЕсли type = 2 Тогда
+	ИначеЕсли value = 2 Тогда
 		Возврат ВетисКонстанты.VetDocumentType_OUTGOING();
-	ИначеЕсли type = 3 Тогда
+	ИначеЕсли value = 3 Тогда
 		Возврат ВетисКонстанты.VetDocumentType_PRODUCTIVE();
-	ИначеЕсли type = 4 Тогда
+	ИначеЕсли value = 4 Тогда
 		Возврат ВетисКонстанты.VetDocumentType_RETURNABLE();
-	ИначеЕсли type = 5 Тогда
+	ИначеЕсли value = 5 Тогда
 		Возврат ВетисКонстанты.VetDocumentType_TRANSPORT();
 	Иначе
 		Возврат Неопределено;
@@ -439,17 +483,17 @@
 	
 КонецФункции
 
-Функция VetDocumentTypeОписание(type) Экспорт
+Функция VetDocumentTypeОписание(value) Экспорт
 	
-	Если      type = ВетисКонстанты.VetDocumentType_INCOMING()   ИЛИ type = 1 Тогда
+	Если      value = ВетисКонстанты.VetDocumentType_INCOMING()   ИЛИ value = 1 Тогда
 		Возврат "Входящий";
-	ИначеЕсли type = ВетисКонстанты.VetDocumentType_OUTGOING()   ИЛИ type = 2 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentType_OUTGOING()   ИЛИ value = 2 Тогда
 		Возврат "Исходящий";
-	ИначеЕсли type = ВетисКонстанты.VetDocumentType_PRODUCTIVE() ИЛИ type = 3 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentType_PRODUCTIVE() ИЛИ value = 3 Тогда
 		Возврат "Производственный";
-	ИначеЕсли type = ВетисКонстанты.VetDocumentType_RETURNABLE() ИЛИ type = 4 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentType_RETURNABLE() ИЛИ value = 4 Тогда
 		Возврат "Возвратный";
-	ИначеЕсли type = ВетисКонстанты.VetDocumentType_TRANSPORT()  ИЛИ type = 5 Тогда
+	ИначеЕсли value = ВетисКонстанты.VetDocumentType_TRANSPORT()  ИЛИ value = 5 Тогда
 		Возврат "Транспортный";
 	Иначе
 		Возврат Неопределено;
@@ -463,6 +507,7 @@
 	
 	_Список.Добавить(VetDocumentType(1), VetDocumentTypeОписание(1));
 	_Список.Добавить(VetDocumentType(2), VetDocumentTypeОписание(2));
+	_Список.Добавить(VetDocumentType(3), VetDocumentTypeОписание(3));
 	
 	Возврат _Список;
 	

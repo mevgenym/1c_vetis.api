@@ -1,12 +1,36 @@
 ﻿
-// Корневой элемент содержимого заявки на получение актуального списка записей складского журнала.
-Функция getStockEntryListRequest(enterpriseIndex = 0, count = 100) Экспорт
+// Получение записи складского журнала по идентификатору.
+Функция getStockEntryByGuidRequest(guid, enterpriseGuid) Экспорт
 	
 	_Объект = Фабрика().Создать(URI(), "getStockEntryListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
+	_Объект.enterpriseGuid     = enterpriseGuid;//ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
+	_Объект.GUID               = guid;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция getStockEntryByGuidResponse(пОбъект) Экспорт
+	
+	Возврат пОбъект.stockEntry;
+	
+КонецФункции
+
+
+// Получение актуального списка записей складского журнала.
+// Параметры:
+//  enterpriseGuid - Идентификатор предприятия
+//  count - Максимальное запрашиваемое количество объектов в списке
+Функция getStockEntryListRequest(enterpriseGuid, count = 100) Экспорт
+	
+	_Объект = Фабрика().Создать(URI(), "getStockEntryListRequest");
+	
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.enterpriseGuid     = enterpriseGuid;//ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
 	_Объект.listOptions        = ВетисBase.ListOptions(count);
 	
 	Возврат _Объект;
@@ -15,15 +39,10 @@
 
 Функция getStockEntryListRequestСледующий(ListRequest, ListResponse) Экспорт
 	
-	Если ListRequest.listOptions.offset + ListRequest.ListOptions.count >= Число(ListResponse.Total) Тогда
-		Возврат Ложь;
-	Иначе
-		ListRequest.listOptions.offset = ListRequest.listOptions.offset + ListRequest.ListOptions.count;
-	КонецЕсли;
+	Возврат ВетисОбщегоНазначения.ListRequestСледующий(ListRequest, ListResponse);
 	
 КонецФункции
 
-// Объект содержит сведения о результатах обработки запроса на получение актуального списка записей складского журнала.
 Функция getStockEntryListResponse(пОбъект) Экспорт
 	
 	Возврат пОбъект.stockEntryList;
@@ -31,63 +50,82 @@
 КонецФункции
 
 
-// Корневой элемент содержимого заявки на получение актуального списка записей складского журнала.
-Функция getStockEntryChangesListRequest(enterpriseGuid = 0, count = 100) Экспорт
+// Получение ВСД
+// Параметры:
+//  enterpriseGuid - Идентификатор предприятия
+//  vetDocumentUuid - Идентификатор ВСД
+Функция getVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid) Экспорт
 	
-	_Объект = Фабрика().Создать(URI(), "getStockEntryListRequest");
+	_Объект = Фабрика().Создать(URI(), "getVetDocumentByUuidRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = ВетисПараметрыСоединения.enterpriseGuid(enterpriseGuid);
-	_Объект.listOptions        = ВетисBase.ListOptions(count);
+	_Объект.enterpriseGuid     = enterpriseGuid;
+	_Объект.uuid               = vetDocumentUuid;
 	
 	Возврат _Объект;
 	
 КонецФункции
 
-// Объект содержит сведения о результатах обработки запроса на получение актуального списка записей складского журнала.
-Функция getStockEntryChangesListResponse(пОбъект) Экспорт
+Функция getVetDocumentByUuidResponse(пОбъект) Экспорт
+	
+	Возврат пОбъект;
+	
+КонецФункции
+
+
+// Получение всех ВСД предприятия
+// Параметры:
+//  enterpriseGuid - Идентификатор предприятия
+//  vetDocumentType - vetd:VetDocumentType - Тип ВСД
+//  vetDocumentStatus - vetd:VetDocumentStatus - Статус ВСД
+//  count - Максимальное запрашиваемое количество объектов в списке
+Функция getVetDocumentListRequest(enterpriseGuid, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, count = 100) Экспорт
+	
+	_Объект = Фабрика().Создать(URI(), "getVetDocumentListRequest");
+	
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.enterpriseGuid     = enterpriseGuid;
+	_Объект.listOptions        = ВетисBase.ListOptions(count);
+	_Объект.vetDocumentType    = vetDocumentType;
+	_Объект.vetDocumentStatus  = vetDocumentStatus;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция getVetDocumentListRequestСледующий(ListRequest, ListResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ListRequestСледующий(ListRequest, ListResponse);
+	
+КонецФункции
+
+Функция getVetDocumentListResponse(пОбъект) Экспорт
 	
 	Возврат пОбъект.stockEntryList;
 	
 КонецФункции
 
 
-// Корневой элемент содержимого заявки на получение записи складского журнала по идентификатору.
-Функция getStockEntryByGuidRequest(guid, enterpriseIndex = 0) Экспорт
-	
-	_Объект = Фабрика().Создать(URI(), "getStockEntryListRequest");
-	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
-	_Объект.GUID               = guid;
-	
-	Возврат _Объект;
-	
-КонецФункции
-
-// Объект содержит результат обработки запроса на получение записи складского журнала по глобальному идентификатору.
-Функция getStockEntryByGuidResponse(пОбъект) Экспорт
-	
-	Возврат пОбъект.stockEntry;
-	
-КонецФункции
-
-
 #Область IncomingOperation
 
-// Корневой элемент содержимого заявки. Определяет тип заявки и соответствие с описанием в библиотеке типов.
+// Операция предназначена для оформления входящей партии.
+// Параметры:
+//  delivery - vetd:Delivery - Фактические сведения о принимаемой партии продукции и сопровождающих ее документах
+//  deliveryFacts - vetd:DeliveryFactList - Обобщенный результат приема партии продукции
+//  discrepancyReport - vetd:DiscrepancyReport - Акт несоответствия
+//  returnedDelivery - vetd:Delivery - Сведения о возвращаемой партии
 Функция ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено) Экспорт
 	
 	_Объект = Фабрика().Создать(URI(), "ProcessIncomingConsignmentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.delivery           = delivery;// Фактические сведения о принимаемой партии продукции и сопровождающих ее документах.
-	_Объект.deliveryFacts      = deliveryFacts;// Обобщенный результат приема партии продукции.
-	//_Объект.discrepancyReport  = discrepancyReport;// Акт несоответствия
-	//_Объект.returnedDelivery   = returnedDelivery;// Сведения о возвращаемой партии.
+	_Объект.delivery           = delivery;
+	_Объект.deliveryFacts      = deliveryFacts;
+	//_Объект.discrepancyReport  = discrepancyReport;
+	//_Объект.returnedDelivery   = returnedDelivery;
 	
 	Возврат _Объект;
 	
@@ -108,18 +146,164 @@
 
 #КонецОбласти
 
+#Область TransportOperation
 
-Функция ModifyBusinessEntityRequest(type, affectedList, reason) Экспорт
+// Операция предназначена для оформления транспортной партии.
+// Параметры:
+//  delivery - vetd:Delivery - Сведения для оформления транспортного ВСД
+Функция PrepareOutcomingConsignmentRequest(delivery) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "ModifyBusinessEntityRequest"));
+	_Объект = Фабрика().Создать(URI(), "PrepareOutcomingConsignmentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.modificationOperation = ВетисCerberusEnterprise.BEModificationOperation(type, affectedList, reason);
+	_Объект.delivery           = delivery;
 	
 	Возврат _Объект;
 	
 КонецФункции
+
+Функция ProcessOutcomingConsignmentResponse(пОбъект) Экспорт
+	
+	Возврат пОбъект;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область ResolveDiscrepancyOperation
+
+// Операция предназначена для устранения возможных несоответствий сведений об объёмах в складском журнале продукции системы Меркурий
+// и фактических объёмов продукции на складе предприятия, выявленных по результатам проведенной инвентаризации.
+// Параметры:
+//  enterprise - ent:Enterprise - Площадка на которой осуществляется инвентаризация
+//  inventoryDate - xs:dateTime - Дата проведения инвентаризации
+//  responsible - argc:User - Ответственный за инвентаризацию
+//  stockDiscrepancy - vetd:StockDiscrepancy - Сведения о результате инвентаризации (по одному факту расхождения)
+//  discrepancyReport - vetd:DiscrepancyReport - Сведения об акте несоответствия
+Функция ResolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport) Экспорт
+	
+	_Объект = Фабрика().Создать(URI(), "ResolveDiscrepancyRequest");
+	
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.enterprise         = enterprise;
+	_Объект.inventoryDate      = inventoryDate;
+	_Объект.responsible        = responsible;
+	_Объект.stockDiscrepancy   = stockDiscrepancy;
+	_Объект.discrepancyReport  = discrepancyReport;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения о результатах обработки заявки на регистрацию несоответствий
+// в записях складского журнала, выявленных в результате инвентаризации.
+Функция ResolveDiscrepancyResponse(пОбъект) Экспорт
+	
+	Возврат пОбъект.stockEntryList;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область WithdrawVetDocumentOperation
+// Если ВСД содержит ошибки, либо фактические сведения отличаются от того, что указано в ВСД,
+// то такой документ может быть аннулирован, то есть такой документ становится недействительным.
+// 
+// Операция аннулирования через шлюз Ветис.API доступна ТОЛЬКО для транспортных сертификатов.
+// Производственные сертификаты нужно аннулировать через веб-интерфейс через запись журнала или транзакцию.
+// 
+// После того как ВСД был аннулирован, объем продукции, на которую был выдан данный ВСД, возвращается в журнал предприятия-отправителя
+// и взамен аннулированного врач может выдать новый ВСД на эту партию продукции, содержащий верные сведения.
+// 
+// Аннулировать ВСД может тот, кто его выписал, либо другой ветеринарный врач обслуживающий то предприятие, с которого данный ВСД был выписан.
+// Если ВСД был погашен, то его аннулировать уже нельзя, то есть для аннулирования ВСД должен быть в статусе "Оформлен".
+
+// Операция предназначена для аннулирования ВСД.
+// Параметры:
+//  vetDocumentId	- bs:UUID - Идентификатор ВСД, который аннулируется
+//  withdrawReason - vetd:WithdrawReason - Причина аннулирования ВСД
+//  withdrawDate - xs:dateTime - Дата аннулирования ВСД
+//  vetDoctor - argc:User - Ветеринарный врач, ответственный за аннулирование ВСД
+Функция WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, vetDoctor) Экспорт
+	
+	_Объект = Фабрика().Создать(URI(), "WithdrawVetDocumentRequest");
+	
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.vetDocumentId      = vetDocumentId;
+	_Объект.withdrawReason     = withdrawReason;
+	_Объект.withdrawDate       = withdrawDate;
+	_Объект.vetDoctor          = vetDoctor;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения об аннулированном ВСД.
+Функция WithdrawVetDocumentResponse(пОбъект) Экспорт
+	
+	Возврат пОбъект.stockEntryList;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область ModifyBusinessEntityOperation
+
+// Операция предназначена для регистрации новых ХС в реестре,
+// а также для изменения информации об уже зарегистрированных.
+// Параметры:
+//  modificationOperation - ent:BEModificationOperation - Описание операции добавления/изменения информации о ХС.
+Функция ModifyBusinessEntityRequest(modificationOperation) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "ModifyBusinessEntityRequest"));
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.modificationOperation = modificationOperation;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения о ХС, который был изменен или добавлен.
+Функция ModifyBusinessEntityResponse(пОбъект) Экспорт
+	
+	Возврат пОбъект.businessEntity;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область ModifyEnterpriseOperation
+
+// Операция предназначена для регистрации новых площадок (поднадзорных объектов) в реестре,
+// а также для изменения информации об уже зарегистрированных.
+// Параметры:
+//  modificationOperation - ent:ENTModificationOperation - Описание операции добавления/изменения информации о поднадзорном объекте.
+Функция ModifyEnterpriseRequest(modificationOperation) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "ModifyEnterpriseRequest"));
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.modificationOperation = modificationOperation;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения о поднадзорном объекте, который был изменен или добавлен.
+Функция ModifyEnterpriseResponse(пОбъект) Экспорт
+	
+	Возврат пОбъект.enterprise;
+	
+КонецФункции
+
+#КонецОбласти
+
 
 Функция URI()
 	

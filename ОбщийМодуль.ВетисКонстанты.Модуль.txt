@@ -1,4 +1,22 @@
 ﻿
+#Область ВетисArgusCommon
+
+// Электронный документ.
+Функция DocumentNature_ELECTRONIC() Экспорт
+	
+	Возврат "ELECTRONIC";
+	
+КонецФункции
+
+// Бумажный документ.
+Функция DocumentNature_PAPER() Экспорт
+	
+	Возврат "PAPER";
+	
+КонецФункции
+
+#КонецОбласти
+
 #Область ВетисArgusShipment
 
 Функция TransportationStorageType_FROZEN() Экспорт

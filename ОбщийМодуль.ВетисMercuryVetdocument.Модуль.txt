@@ -12,6 +12,12 @@
 	
 КонецФункции
 
+Функция VetDocumentListИтератор(List) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "vetDocument");
+	
+КонецФункции
+
 // Тип, описывающий поставку.
 // Параметры:
 //  consignor - ent:BusinessMember - Сведения об отправителе.
@@ -29,6 +35,21 @@
 	_Объект.accompanyingForms = accompanyingForms;
 	
 	Возврат _Объект;
+	
+	// http://vetrf.ru/vetrf-forum/posts/list/825/6855.page#41188
+	// В случае если вы передаете в запросе несколько объектов consignment ("..Request/delivery/consignment")
+	// и несколько объектов vetCertificate ("..Request/delivery/accompanyingForms/vetCertificate")
+	// то связь между ними должна быть установлена путем указания атрибутов "id" - у элемента consignment
+	// и "for" - для элемента vetCertificate.
+	// 
+	// В случае если вы передаете в запросе несколько объектов consignment и один объект vetCertificate,
+	// то атрибуты id и for могут быть не указаны,
+	// но в этом случае информация из единственного элемента vetCertificate будет распространяться на все ВСД,
+	// оформляемые в этом запросе.
+	//
+	// http://vetrf.ru/vetrf-forum/posts/list/825/6855.page#41192
+	// Возможно, что неверно указали значения для атрибутов id и for.
+	// Их типы ID и IDREF, соответственно, и должны начинаться с "_" или буквенного символа.
 	
 КонецФункции
 

@@ -6,7 +6,7 @@
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;//ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
+	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.GUID               = guid;
 	
 	Возврат _Объект;
@@ -30,7 +30,7 @@
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;//ВетисПараметрыСоединения.enterpriseGuid(enterpriseIndex);
+	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.listOptions        = ВетисBase.ListOptions(count);
 	
 	Возврат _Объект;
@@ -45,7 +45,11 @@
 
 Функция getStockEntryListResponse(пОбъект) Экспорт
 	
-	Возврат пОбъект.stockEntryList;
+	Если НЕ пОбъект.Свойства().Получить("stockEntryList") = Неопределено Тогда
+		Возврат пОбъект.stockEntryList;
+	ИначеЕсли НЕ пОбъект.Свойства().Получить("getStockEntryListResponse") = Неопределено Тогда
+		Возврат пОбъект.getVetDocumentListResponse.stockEntryList;
+	КонецЕсли;
 	
 КонецФункции
 
@@ -88,8 +92,9 @@
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.listOptions        = ВетисBase.ListOptions(count);
-	_Объект.vetDocumentType    = vetDocumentType;
-	_Объект.vetDocumentStatus  = vetDocumentStatus;
+	
+	ВетисОбщегоНазначения.УстановитьЗначениеXDTO(_Объект, "vetDocumentType", vetDocumentType);
+	ВетисОбщегоНазначения.УстановитьЗначениеXDTO(_Объект, "vetDocumentStatus", vetDocumentStatus);
 	
 	Возврат _Объект;
 	
@@ -103,7 +108,11 @@
 
 Функция getVetDocumentListResponse(пОбъект) Экспорт
 	
-	Возврат пОбъект.stockEntryList;
+	Если НЕ пОбъект.Свойства().Получить("vetDocumentList") = Неопределено Тогда
+		Возврат пОбъект.vetDocumentList;
+	ИначеЕсли НЕ пОбъект.Свойства().Получить("getVetDocumentListResponse") = Неопределено Тогда
+		Возврат пОбъект.getVetDocumentListResponse.vetDocumentList;
+	КонецЕсли;
 	
 КонецФункции
 

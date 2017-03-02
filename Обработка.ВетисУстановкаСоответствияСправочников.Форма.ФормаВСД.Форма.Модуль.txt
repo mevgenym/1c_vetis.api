@@ -37,49 +37,44 @@
 		
 		Для Каждого _Item из ВетисMercuryVetdocument.VetDocumentListИтератор(_ListResponse) Цикл
 			
-			transferPermit = ВетисОбщегоНазначения.ПолучитьЗначение(_Item, "transferPermit");
-			
-			transportInfo = ВетисОбщегоНазначения.ПолучитьЗначение(_Item, "transportInfo");
+			_Item = ВетисОбщегоНазначения.СтруктураИзОбъекта(_Item);
 			
 			ТаблицаСтрока = СписокВетис.Добавить();
 			
-			ТаблицаСтрока.cargoExpertized = ВетисBase.xsBoolean(_Item.cargoExpertized);
+			ЗаполнитьЗначенияСвойств(ТаблицаСтрока, _Item);
 			
-			ТаблицаСтрока.confirmedBy = _Item.confirmedBy.fio;
+			ТаблицаСтрока.cargoExpertized = ?(_Item.Свойство("cargoExpertized"), ВетисBase.xsBoolean(_Item.cargoExpertized), Ложь);
 			
-			// получатель
-			ТаблицаСтрока.consignee = ВетисСоответствие.ПолучитьСсылку(_Item.consignee.businessEntity.guid, "Справочник.Организации");
-			//ТаблицаСтрока.consignee = ВетисСоответствие.ПолучитьСсылку(_Item.consignee.businessEntity.guid, "Справочник.Контрагенты");
+			ТаблицаСтрока.cargoInspected = ?(_Item.Свойство("cargoInspected"), ВетисBase.xsBoolean(_Item.cargoInspected), Ложь);
 			
-			// отправитель
-			//ТаблицаСтрока.consignor = ВетисСоответствие.ПолучитьСсылку(_Item.consignor.businessEntity.guid, "Справочник.Организации");
-			ТаблицаСтрока.consignor = ВетисСоответствие.ПолучитьСсылку(_Item.consignor.businessEntity.guid, "Справочник.Контрагенты");
+			ТаблицаСтрока.confirmedBy = ?(_Item.Свойство("confirmedBy"), _Item.confirmedBy.fio, "");
 			
-			ТаблицаСтрока.expertiseInfo = ВетисОбщегоНазначения.ПолучитьЗначение(_Item, "expertiseInfo");
+			ТаблицаСтрока.consignee = ВетисCerberusEnterpriseСлой1с.BusinessEntityОрганизация(_Item.consignee.businessEntity.guid);
 			
-			ТаблицаСтрока.form = ВетисMercuryVetdocument.VetDocumentFormОписание(_Item.form);
+			ТаблицаСтрока.consignor = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_Item.consignor.businessEntity.guid);
+			
+			ТаблицаСтрока.form = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_Item.form);
 			
 			ТаблицаСтрока.issueDate = ВетисBase.xsDate(_Item.issueDate);
 			
-			ТаблицаСтрока.locationProsperity = _Item.locationProsperity;
+			ТаблицаСтрока.purpose = ВетисArgusCommonСлой1с.Purpose(_Item.purpose.guid);
 			
-			ТаблицаСтрока.purpose = ВетисСоответствие.ПолучитьСсылку(_Item.purpose.guid, "Справочник.ВетисPurpose");
+			ТаблицаСтрока.status = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_Item.status);
 			
-			ТаблицаСтрока.status = ВетисMercuryVetdocument.VetDocumentStatusОписание(_Item.status);
+			ТаблицаСтрока.transferPermit = ?(_Item.Свойство("transferPermit"), "№" + _Item.transferPermit.issueNumber + " от " + _Item.transferPermit.issueDate, "");
 			
-			ТаблицаСтрока.transferPermit = ?(transferPermit = Неопределено, "", "№" + _Item.transferPermit.issueNumber + " от " + _Item.transferPermit.issueDate);
+			ТаблицаСтрока.transportInfo = ?(_Item.Свойство("transportInfo"), "номер: " + _Item.transportInfo.transportNumber.vehicleNumber, "");
 			
-			ТаблицаСтрока.transportInfo = ?(transportInfo = Неопределено, "", "номер: " + _Item.transportInfo.transportNumber.vehicleNumber);
+			ТаблицаСтрока.transportType = ?(_Item.Свойство("transportInfo"), ВетисArgusShipmentСлой1с.TransportType(_Item.transportInfo.transportType), Неопределено);
 			
-			ТаблицаСтрока.transportType = ?(transportInfo = Неопределено, "", Перечисления.ВетисTransportType.Получить(Число(_Item.transportInfo.transportType)-1));
+			ТаблицаСтрока.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_Item.transportStorageType);
 			
-			ТаблицаСтрока.transportStorageType = Перечисления.ВетисTransportStorageType.Получить(ВетисArgusShipment.TransportationStorageTypeИндекс(_Item.transportStorageType)-1);
+			ТаблицаСтрока.type = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_Item.type);
 			
-			ТаблицаСтрока.type = ВетисMercuryVetdocument.VetDocumentTypeОписание(_Item.type) + " ВСД";
+			ТаблицаСтрока.waybillType = ВетисArgusShipmentСлой1с.WaybillType(_Item.waybillType);
 			
-			ТаблицаСтрока.waybill = ВетисArgusShipment.WaybillTypeОписание(_Item.waybillType, "ТТН") + " №" + _Item.waybillNumber + " от " + ВетисBase.xsDate(_Item.waybillDate);
+			ТаблицаСтрока.waybill = "№" + _Item.waybillNumber + " от " + ВетисBase.xsDate(_Item.waybillDate);
 			
-			ТаблицаСтрока.uuid = _Item.uuid;
 		КонецЦикла;
 		
 		Если НЕ ВетисMercuryApplications.getVetDocumentListRequestСледующий(_ListRequest, _ListResponse) Тогда

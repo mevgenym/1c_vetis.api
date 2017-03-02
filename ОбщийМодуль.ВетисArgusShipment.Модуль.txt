@@ -33,17 +33,17 @@
 #Область transportType
 // Тип, описывающий тип транспорта.
 
-Функция TransportTypeОписание(type) Экспорт
+Функция TransportTypeОписание(value) Экспорт
 	
-	Если      type = ВетисКонстанты.TransportType_Автомобильный() Тогда
+	Если      value = 1 ИЛИ value = "1" Тогда
 		Возврат "Автомобильный";
-	ИначеЕсли type = ВетисКонстанты.TransportType_Железнодорожный() Тогда
+	ИначеЕсли value = 2 ИЛИ value = "2" Тогда
 		Возврат "Железнодорожный";
-	ИначеЕсли type = ВетисКонстанты.TransportType_Авиатранспортный() Тогда
+	ИначеЕсли value = 3 ИЛИ value = "3" Тогда
 		Возврат "Авиатранспортный";
-	ИначеЕсли type = ВетисКонстанты.TransportType_МорскойКонтейнер() Тогда
+	ИначеЕсли value = 4 ИЛИ value = "4" Тогда
 		Возврат "Морской (контейнер)";
-	ИначеЕсли type = ВетисКонстанты.TransportType_МорскойТрюм() Тогда
+	ИначеЕсли value = 5 ИЛИ value = "5" Тогда
 		Возврат "Морской (трюм)";
 	Иначе
 		Возврат Неопределено;
@@ -55,7 +55,7 @@
 	
 	_Список = Новый СписокЗначений();
 	
-	Для _Индекс = 1 По 4 Цикл
+	Для _Индекс = 1 По 5 Цикл
 		_Список.Добавить(_Индекс, TransportTypeОписание(_Индекс));
 	КонецЦикла;
 	
@@ -68,15 +68,15 @@
 #Область TransportationStorageType
 // Тип, описывающий cпособ хранения при перевозке.
 
-Функция TransportationStorageType(type) Экспорт
+Функция TransportationStorageType(value) Экспорт
 	
-	Если      type = 1 Тогда
+	Если      value = 1 Тогда
 		Возврат ВетисКонстанты.TransportationStorageType_FROZEN();
-	ИначеЕсли type = 2 Тогда
+	ИначеЕсли value = 2 Тогда
 		Возврат ВетисКонстанты.TransportationStorageType_CHILLED();
-	ИначеЕсли type = 3 Тогда
+	ИначеЕсли value = 3 Тогда
 		Возврат ВетисКонстанты.TransportationStorageType_COOLED();
-	ИначеЕсли type = 4 Тогда
+	ИначеЕсли value = 4 Тогда
 		Возврат ВетисКонстанты.TransportationStorageType_VENTILATED();
 	Иначе
 		Возврат Неопределено;
@@ -84,32 +84,16 @@
 	
 КонецФункции
 
-Функция TransportationStorageTypeОписание(type) Экспорт
+Функция TransportationStorageTypeОписание(value) Экспорт
 	
-	Если      type = ВетисКонстанты.TransportationStorageType_FROZEN()  ИЛИ type = 1 Тогда
+	Если      value = ВетисКонстанты.TransportationStorageType_FROZEN()  ИЛИ value = 1 Тогда
 		Возврат "Замороженные";
-	ИначеЕсли type = ВетисКонстанты.TransportationStorageType_CHILLED() ИЛИ type = 2 Тогда
+	ИначеЕсли value = ВетисКонстанты.TransportationStorageType_CHILLED() ИЛИ value = 2 Тогда
 		Возврат "Охлажденные";
-	ИначеЕсли type = ВетисКонстанты.TransportationStorageType_COOLED()  ИЛИ type = 3 Тогда
+	ИначеЕсли value = ВетисКонстанты.TransportationStorageType_COOLED()  ИЛИ value = 3 Тогда
 		Возврат "Охлаждаемые";
-	ИначеЕсли type = ВетисКонстанты.TransportationStorageType_VENTILATED() ИЛИ type = 4 Тогда
+	ИначеЕсли value = ВетисКонстанты.TransportationStorageType_VENTILATED() ИЛИ value = 4 Тогда
 		Возврат "Вентилируемые";
-	Иначе
-		Возврат Неопределено;
-	КонецЕсли;
-	
-КонецФункции
-
-Функция TransportationStorageTypeИндекс(type) Экспорт
-	
-	Если      type = ВетисКонстанты.TransportationStorageType_FROZEN() Тогда
-		Возврат 1;
-	ИначеЕсли type = ВетисКонстанты.TransportationStorageType_CHILLED() Тогда
-		Возврат 2;
-	ИначеЕсли type = ВетисКонстанты.TransportationStorageType_COOLED() Тогда
-		Возврат 3;
-	ИначеЕсли type = ВетисКонстанты.TransportationStorageType_VENTILATED() Тогда
-		Возврат 4;
 	Иначе
 		Возврат Неопределено;
 	КонецЕсли;
@@ -133,15 +117,15 @@
 #Область WaybillType
 // Тип, описывающий тип товарно-транспортной накладной.
 
-Функция WaybillTypeОписание(type, ПоУмолчанию = Неопределено) Экспорт
+Функция WaybillTypeОписание(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Если      type = 1 ИЛИ type = "1" Тогда
+	Если      value = 1 ИЛИ value = "1" Тогда
 		Возврат "Товарно-транспортная накладная";
-	ИначеЕсли type = 2 ИЛИ type = "2" Тогда
+	ИначеЕсли value = 2 ИЛИ value = "2" Тогда
 		Возврат "Коносамент";
-	ИначеЕсли type = 3 ИЛИ type = "3" Тогда
+	ИначеЕсли value = 3 ИЛИ value = "3" Тогда
 		Возврат "CMR";
-	ИначеЕсли type = 4 ИЛИ type = "4" Тогда
+	ИначеЕсли value = 4 ИЛИ value = "4" Тогда
 		Возврат "Авианакладная";
 	Иначе
 		Возврат ПоУмолчанию;

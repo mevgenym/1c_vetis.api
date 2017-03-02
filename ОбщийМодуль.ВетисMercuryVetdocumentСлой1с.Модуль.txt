@@ -1,0 +1,123 @@
+﻿
+Функция VetDocumentForm(value) Экспорт
+	
+	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисVetDocumentForm") Тогда
+		Если      value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU1") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_CERTCU1();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.LIC1") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_LIC1();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU2") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_CERTCU2();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.LIC2") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_LIC2();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU3") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_CERTCU3();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.LIC3") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_LIC3();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.NOTE4") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_NOTE4();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU5I") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_CERT5I();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU61") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_CERT61();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU62") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_CERT62();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU63") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_CERT63();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.PRODUCTIVE") Тогда
+			Возврат ВетисКонстанты.VetDocumentForm_PRODUCTIVE();
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	Иначе
+		Если      value = ВетисКонстанты.VetDocumentForm_CERTCU1() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU1");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentForm_LIC1() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.LIC1");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERTCU2() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU2");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentForm_LIC2() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.LIC2");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERTCU3() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU3");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentForm_LIC3() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.LIC3");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentForm_NOTE4() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.NOTE4");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERT5I() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU5I");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERT61() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU61");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERT62() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU62");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentForm_CERT63() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.CERTCU63");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentForm_PRODUCTIVE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentForm.PRODUCTIVE");
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецФункции
+
+Функция VetDocumentStatus(value) Экспорт
+	
+	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисVetDocumentStatus") Тогда
+		Если      value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentStatus.ДействующийТранзакцияРазрешена") Тогда
+			Возврат ВетисКонстанты.VetDocumentStatus_CONFIRMED();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentStatus.НеДействующий") Тогда
+			Возврат ВетисКонстанты.VetDocumentStatus_WITHDRAWN();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentStatus.ДействующийТранзакцияСовершена") Тогда
+			Возврат ВетисКонстанты.VetDocumentStatus_UTILIZED();
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	Иначе
+		Если      value = ВетисКонстанты.VetDocumentStatus_CONFIRMED() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentStatus.ДействующийТранзакцияРазрешена");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentStatus_WITHDRAWN() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentStatus.НеДействующий");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentStatus_UTILIZED() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentStatus.ДействующийТранзакцияСовершена");
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецФункции
+
+Функция VetDocumentType(value) Экспорт
+	
+	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисVetDocumentStatus") Тогда
+		Если      value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Входящий") Тогда
+			Возврат ВетисКонстанты.VetDocumentType_INCOMING();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Исходящий") Тогда
+			Возврат ВетисКонстанты.VetDocumentType_OUTGOING();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Производственный") Тогда
+			Возврат ВетисКонстанты.VetDocumentType_PRODUCTIVE();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Возвратный") Тогда
+			Возврат ВетисКонстанты.VetDocumentType_RETURNABLE();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Транспортный") Тогда
+			Возврат ВетисКонстанты.VetDocumentType_TRANSPORT();
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	Иначе
+		Если      value = ВетисКонстанты.VetDocumentType_INCOMING() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Входящий");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentType_OUTGOING() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Исходящий");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentType_PRODUCTIVE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Производственный");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentType_RETURNABLE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Возвратный");
+		ИначеЕсли value = ВетисКонстанты.VetDocumentType_TRANSPORT() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Транспортный");
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецФункции
+

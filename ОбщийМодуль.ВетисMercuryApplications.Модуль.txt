@@ -48,7 +48,7 @@
 	Если НЕ пОбъект.Свойства().Получить("stockEntryList") = Неопределено Тогда
 		Возврат пОбъект.stockEntryList;
 	ИначеЕсли НЕ пОбъект.Свойства().Получить("getStockEntryListResponse") = Неопределено Тогда
-		Возврат пОбъект.getVetDocumentListResponse.stockEntryList;
+		Возврат пОбъект.getStockEntryListResponse.stockEntryList;
 	КонецЕсли;
 	
 КонецФункции

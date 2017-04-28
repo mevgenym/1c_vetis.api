@@ -1,6 +1,6 @@
 # vetis.api #
 
-1С доступ к Подсистеме обработки заявок через Ветис.API http://api.vetrf.ru
+1С доступ к ГИС Меркурий через Ветис.API http://api.vetrf.ru
 
 основано на исходниках http://infostart.ru/public/560823/
 

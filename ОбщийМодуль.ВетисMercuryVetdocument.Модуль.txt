@@ -31,8 +31,15 @@
 	_Объект.deliveryDate = ТекущаяДата();// Дата поставки.
 	_Объект.consignor = consignor;
 	_Объект.consignee = consignee;
-	_Объект.consignment = consignment;
 	_Объект.accompanyingForms = accompanyingForms;
+	
+	Если ТипЗнч(consignment) = Тип("Массив") Тогда
+		Для каждого _consignment Из consignment Цикл
+			_Объект.consignment.Добавить(_consignment);
+		КонецЦикла;
+	Иначе
+		_Объект.consignment.Добавить(consignment);
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
@@ -97,8 +104,15 @@
 	
 	_Объект = Создать("ConsignmentDocumentList");
 	
-	_Объект.waybill = waybill;// Сведения о товарно-транспортной накладной.
-	_Объект.VetDocument = VetDocument;// Ветеринарно-сопроводительный документ (ВСД).
+	_Объект.waybill = waybill;
+	
+	Если ТипЗнч(VetDocument) = Тип("Массив") Тогда
+		Для каждого _VetDocument Из VetDocument Цикл
+			_Объект.vetCertificate.Добавить(_VetDocument);
+		КонецЦикла;
+	Иначе
+		_Объект.vetCertificate.Добавить(VetDocument);
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
@@ -170,14 +184,20 @@
 	
 	_Объект = Создать("GoodsDate");
 	
-	Если ТипЗнч(firstDate) = Тип("Дата") Тогда
-		_Объект.firstDate = ВетисBase.ComplexDate(firstDate);
-	Иначе
-		_Объект.informalDate = firstDate;
+	Если ЗначениеЗаполнено(firstDate) Тогда
+		Если ТипЗнч(firstDate) = Тип("Дата") Тогда
+			_Объект.firstDate = ВетисBase.ComplexDate(firstDate);
+		Иначе
+			_Объект.firstDate = firstDate;
+		КонецЕсли;
 	КонецЕсли;
 	
-	Если НЕ secondDate = Неопределено Тогда
-		_Объект.secondDate = secondDate;
+	Если НЕ secondDate = Неопределено И ЗначениеЗаполнено(secondDate) Тогда
+		Если ТипЗнч(secondDate) = Тип("Дата") Тогда
+			_Объект.secondDate = ВетисBase.ComplexDate(secondDate);
+		Иначе
+			_Объект.secondDate = secondDate;
+		КонецЕсли;
 	КонецЕсли;
 	
 	Возврат _Объект;
@@ -227,7 +247,7 @@
 
 Функция ProductMarkingList(content) Экспорт
 	
-	_Объект = Создать("ProductMarking");
+	_Объект = Создать("ProductMarkingList");
 	
 	ProductMarkingДобавить(_Объект, content);
 	
@@ -239,10 +259,10 @@
 	
 	Если ТипЗнч(content) = Тип("Массив") Тогда
 		Для каждого _content Из content Цикл
-			List.productMarking.Добавить(ФормаXML.Элемент, URI(), "productMarking", ProductMarking(_content));
+			List.productMarking.Добавить(ProductMarking(_content));
 		КонецЦикла;
 	ИначеЕсли ТипЗнч(content) = Тип("Строка") Тогда
-		List.productMarking.Добавить(ФормаXML.Элемент, URI(), "productMarking", ProductMarking(content));
+		List.productMarking.Добавить(ProductMarking(content));
 	КонецЕсли;
 	
 КонецФункции
@@ -254,7 +274,7 @@
 	
 	_Объект.issueSeries = issueSeries;
 	_Объект.issueNumber = issueNumber;
-	_Объект.issueDate   = ?(ТипЗнч(issueDate) = Тип("Дата"), XMLСтрока(issueDate), issueDate);
+	_Объект.issueDate   = issueDate;
 	_Объект.reason      = DiscrepancyReason(reason);
 	_Объект.description = description;
 	

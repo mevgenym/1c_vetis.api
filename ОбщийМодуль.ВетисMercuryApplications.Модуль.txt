@@ -106,12 +106,12 @@
 	
 КонецФункции
 
-Функция getVetDocumentListResponse(пОбъект) Экспорт
+Функция getVetDocumentListResponse(пResponse) Экспорт
 	
-	Если НЕ пОбъект.Свойства().Получить("vetDocumentList") = Неопределено Тогда
-		Возврат пОбъект.vetDocumentList;
-	ИначеЕсли НЕ пОбъект.Свойства().Получить("getVetDocumentListResponse") = Неопределено Тогда
-		Возврат пОбъект.getVetDocumentListResponse.vetDocumentList;
+	Если НЕ пResponse.Свойства().Получить("vetDocumentList") = Неопределено Тогда
+		Возврат пResponse.vetDocumentList;
+	ИначеЕсли НЕ пResponse.Свойства().Получить("getVetDocumentListResponse") = Неопределено Тогда
+		Возврат пResponse.getVetDocumentListResponse.vetDocumentList;
 	КонецЕсли;
 	
 КонецФункции
@@ -125,7 +125,7 @@
 //  deliveryFacts - vetd:DeliveryFactList - Обобщенный результат приема партии продукции
 //  discrepancyReport - vetd:DiscrepancyReport - Акт несоответствия
 //  returnedDelivery - vetd:Delivery - Сведения о возвращаемой партии
-Функция ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено) Экспорт
+Функция processIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено) Экспорт
 	
 	_Объект = Создать("ProcessIncomingConsignmentRequest");
 	
@@ -133,15 +133,21 @@
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.delivery           = delivery;
 	_Объект.deliveryFacts      = deliveryFacts;
-	_Объект.discrepancyReport  = discrepancyReport;
-	_Объект.returnedDelivery   = returnedDelivery;
+	
+	Если НЕ discrepancyReport = Неопределено Тогда
+		_Объект.discrepancyReport  = discrepancyReport;
+	КонецЕсли;
+	
+	Если НЕ returnedDelivery = Неопределено Тогда
+		_Объект.returnedDelivery   = returnedDelivery;
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
 КонецФункции
 
 // Объект содержит сведения о записях в складском журнале продукции системы Меркурий.
-Функция ProcessIncomingConsignmentResponse(пОбъект) Экспорт
+Функция processIncomingConsignmentResponse(пResponse) Экспорт
 	
 // http://vetrf.ru/vetrf-forum/posts/list/315/6855.page#39749
 // В ответе processIncomingResponse будут отдельные ВСД.
@@ -149,7 +155,13 @@
 // также будут возвращены данные возвратного ВСД.
 // В случае полного возврата партии возвращаются только данные возвратного сертификата.	
 	
-	Возврат пОбъект;
+	Возврат пResponse;
+	
+КонецФункции
+
+Функция processIncomingConsignmentRequestСледующий(ListRequest, ListResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ListRequestСледующий(ListRequest, ListResponse);
 	
 КонецФункции
 

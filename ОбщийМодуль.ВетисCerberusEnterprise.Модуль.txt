@@ -49,10 +49,10 @@
 	
 	Если ТипЗнч(guid) = Тип("Массив") Тогда
 		Для каждого _guid Из guid Цикл
-			List.businessEntity.Добавить(ФормаXML.Элемент, URI(), "businessEntity", BusinessEntity(_guid));
+			List.businessEntity.Добавить(BusinessEntity(_guid));
 		КонецЦикла;
 	ИначеЕсли ТипЗнч(guid) = Тип("Строка") Тогда
-		List.businessEntity.Добавить(ФормаXML.Элемент, URI(), "businessEntity", BusinessEntity(guid));
+		List.businessEntity.Добавить(BusinessEntity(guid));
 	КонецЕсли;
 	
 КонецФункции

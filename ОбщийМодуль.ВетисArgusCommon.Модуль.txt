@@ -39,7 +39,7 @@
 // http://help.vetrf.ru/wiki/PackingForm
 Функция PackingForm(uuid = Неопределено) Экспорт
 	
-	_Объект = Создать("packingForm");
+	_Объект = Создать("PackingForm");
 	
 	Если ТипЗнч(uuid) = Тип("Структура") Тогда
 		Для каждого _uuid Из uuid Цикл
@@ -67,10 +67,10 @@
 	
 	Если ТипЗнч(uuid) = Тип("Массив") Тогда
 		Для каждого _uuid Из uuid Цикл
-			List.packingForm.Добавить(ФормаXML.Элемент, URI(), "packingForm", packingForm(_uuid));
+			List.packingForm.Добавить(packingForm(_uuid));
 		КонецЦикла;
 	ИначеЕсли ТипЗнч(uuid) = Тип("Строка") Тогда
-		List.packingForm.Добавить(ФормаXML.Элемент, URI(), "packingForm", packingForm(uuid));
+		List.packingForm.Добавить(packingForm(uuid));
 	КонецЕсли;
 	
 КонецФункции
@@ -124,7 +124,7 @@
 	_Объект.name        = name;
 	_Объект.issueSeries = issueSeries;
 	_Объект.issueNumber = issueNumber;
-	_Объект.issueDate   = ?(ТипЗнч(issueDate) = Тип("Дата"), XMLСтрока(issueDate), issueDate);
+	_Объект.issueDate   = issueDate;
 	
 	Возврат _Объект;
 	
@@ -326,4 +326,3 @@
 	Возврат "http://api.vetrf.ru/schema/cdm/argus/common";
 	
 КонецФункции
-

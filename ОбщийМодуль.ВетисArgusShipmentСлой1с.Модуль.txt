@@ -93,3 +93,23 @@
 	
 КонецФункции
 
+Функция TransportInfo(пТранспорт) Экспорт
+	
+	_Объект = ВетисArgusShipment.Создать("TransportInfo");
+	
+	_Объект.transportType = ВетисArgusShipmentСлой1с.TransportType(пТранспорт.ТипТранспорта);
+	
+	_Объект.transportNumber = ВетисArgusShipment.Создать("TransportNumber");
+	
+	Если пТранспорт.ТипТранспорта = Перечисления.ВетисTransportType.Автомобильный Тогда
+		_Объект.transportNumber.vehicleNumber = пТранспорт.ГосударственныйНомер;
+		_Объект.transportNumber.trailerNumber = пТранспорт.ГосударственныйНомерПрицепа;
+		
+	Иначе
+		_Объект.transportNumber.vehicleNumber = пТранспорт.ГосударственныйНомер;
+		
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции

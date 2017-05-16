@@ -1,25 +1,18 @@
 ﻿
 // тип, описывающий хозяйствующий субъект (ХС)
-Функция BusinessEntity(guid) Экспорт
+// Параметры:
+//  guid - Строка - собственно guid
+//       - Структура - структура со значениями свойств
+Функция BusinessEntity(guid = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BusinessEntity"));
+	_Объект = Создать("BusinessEntity");
 	
-	_Объект.guid = guid;
-	
-	Возврат _Объект;
-	
-КонецФункции
-
-Функция BusinessEntityНовый(fullName = Неопределено, inn = Неопределено, name = Неопределено, пПараметры = Неопределено) Экспорт
-	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BusinessEntity"));
-	
-	_Объект.name = ?(name = Неопределено, "", name);
-	_Объект.fullName = ?(fullName = Неопределено, "", fullName);
-	_Объект.inn  = ?(inn = Неопределено, "", inn);
-	
-	Если НЕ пПараметры = Неопределено Тогда
-		ЗаполнитьЗначенияСвойств(_Объект, пПараметры);
+	Если ТипЗнч(guid) = Тип("Структура") Тогда
+		Для каждого _guid Из guid Цикл
+			_Объект[_guid.Ключ] = _guid.Значение;
+		КонецЦикла;
+	ИначеЕсли НЕ guid = Неопределено Тогда
+		_Объект.guid = guid;
 	КонецЕсли;
 	
 	Возврат _Объект;
@@ -42,9 +35,11 @@
 
 Функция BusinessEntityList(guid = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BusinessEntityList"));
+	_Объект = Создать("BusinessEntityList");
 	
-	BusinessEntityListДобавить(_Объект, guid);
+	Если НЕ guid = Неопределено Тогда
+		BusinessEntityListДобавить(_Объект, guid);
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
@@ -77,7 +72,7 @@
 //  reason - xs:String - Основание добавления записи в реестр
 Функция BusinessEntityModificationOperation(type, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BEModificationOperation"));
+	_Объект = Создать("BEModificationOperation");
 	
 	_Объект.type = type;
 	_Объект.affectedList = affectedList;
@@ -92,7 +87,7 @@
 // тип, описывающий связку хозяйствующего субъекта и площадки (поднадзорного объекта)
 Функция BusinessMember(businessEntityGuid, enterpriseGuid) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "BusinessMember"));
+	_Объект = Создать("BusinessMember");
 	
 	_Объект.businessEntity = BusinessEntity(businessEntityGuid);
 	_Объект.enterprise     = Enterprise(enterpriseGuid);
@@ -103,24 +98,19 @@
 
 
 // тип, описывающий предприятие
-Функция Enterprise(guid) Экспорт
+// Параметры:
+//  guid - Строка - собственно guid
+//       - Структура - структура со значениями свойств
+Функция Enterprise(guid = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Enterprise"));
+	_Объект = Создать("Enterprise");
 	
-	_Объект.guid = guid;
-	
-	Возврат _Объект;
-	
-КонецФункции
-
-Функция EnterpriseНовый(name = Неопределено, пПараметры = Неопределено) Экспорт
-	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Enterprise"));
-	
-	_Объект.name = ?(name = Неопределено, "", name);
-	
-	Если НЕ пПараметры = Неопределено Тогда
-		ЗаполнитьЗначенияСвойств(_Объект, пПараметры);
+	Если ТипЗнч(guid) = Тип("Структура") Тогда
+		Для каждого _guid Из guid Цикл
+			_Объект[_guid.Ключ] = _guid.Значение;
+		КонецЦикла;
+	ИначеЕсли НЕ guid = Неопределено Тогда
+		_Объект.guid = guid;
 	КонецЕсли;
 	
 	Возврат _Объект;
@@ -141,7 +131,7 @@
 //  reason - xs:String - Основание добавления записи в реестр
 Функция EnterpriseModificationOperation(type, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "ENTModificationOperation"));
+	_Объект = Создать("ENTModificationOperation");
 	
 	_Объект.type = type;
 	_Объект.affectedList = affectedList;
@@ -152,6 +142,42 @@
 	
 КонецФункции
 
+
+// тип, описывающий производителя продукции
+Функция Producer(guid) Экспорт
+	
+	_Объект = Создать("Producer");
+	
+	_Объект.enterprise = Enterprise(guid);
+	
+	//_Объект.role = 
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Тип, описывающий список производителей продукции
+Функция ProducerList(guid) Экспорт
+	
+	_Объект = Создать("ProducerList");
+	
+	ProducerListДобавить(_Объект, guid);
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция ProducerListДобавить(List, guid) Экспорт
+	
+	Если ТипЗнч(guid) = Тип("Массив") Тогда
+		Для каждого _guid Из guid Цикл
+			List.producer.Добавить(ФормаXML.Элемент, URI(), "producer", Producer(_guid));
+		КонецЦикла;
+	ИначеЕсли ТипЗнч(guid) = Тип("Строка") Тогда
+		List.producer.Добавить(ФормаXML.Элемент, URI(), "producer", Producer(guid));
+	КонецЕсли;
+	
+КонецФункции
 
 Функция ProducerListИтератор(List) Экспорт
 	
@@ -164,56 +190,52 @@
 #Область Service
 
 // предназначена для получения последней в истории записи хозяйствующего субъекта
-Функция GetBusinessEntityByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
+Функция GetBusinessEntityByGuid(guid, ПоУмолчанию = Неопределено) Экспорт
 	
 	_объект = Прокси().GetBusinessEntityByGuid(guid);
 	
-	Если пИмяСвойства = Неопределено Тогда
-		Возврат _объект;
-	Иначе
-		Возврат ?(_объект.Свойства().Получить(пИмяСвойства) = Неопределено, ПоУмолчанию, _объект[пИмяСвойства]);
-	КонецЕсли;
+	Возврат _объект;
 	
 КонецФункции
 
 // предназначена для получения последней в истории записи предприятия
-Функция GetEnterpriseByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
+Функция GetEnterpriseByGuid(guid, ПоУмолчанию = Неопределено) Экспорт
 	
 	_объект = Прокси().GetEnterpriseByGuid(guid);
 	
-	Если пИмяСвойства = Неопределено Тогда
-		Возврат _объект;
-	Иначе
-		Возврат ?(_объект.Свойства().Получить(пИмяСвойства) = Неопределено, ПоУмолчанию, _объект[пИмяСвойства]);
-	КонецЕсли;
+	Возврат _объект;
 	
 КонецФункции
 
 
 // предназначена для получения списка хозяйствующих субъектов из реестра Россельхознадзора.
-Функция GetBusinessEntityList(fullName = Неопределено, inn = Неопределено, name = Неопределено, ListOptions = Неопределено) Экспорт
+//  пfiltr - Структура - отбор
+//  пListOptions - возвращаемый
+Функция GetBusinessEntityList(пfiltr = Неопределено, пListOptions = Неопределено) Экспорт
 	
-	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+	Если пListOptions = Неопределено Тогда
+		пListOptions = ВетисBase.ListOptions();
 	Иначе
-		ListOptions.offset = ListOptions.offset + ListOptions.count;
+		пListOptions.offset = пListOptions.offset + пListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetBusinessEntityList(ListOptions, BusinessEntityНовый(fullName, inn, name));
+	Если пfiltr = Неопределено Тогда
+		Возврат Прокси().GetBusinessEntityList(пListOptions);
+	Иначе
+		Возврат Прокси().GetBusinessEntityList(пListOptions, BusinessEntity(пfiltr));
+	КонецЕсли;
 	
 КонецФункции
 
 // Предназначена для выборки хозяйствующих субъектов из реестра Россельхознадзора.
 // Используется самостоятельно в цикле Пока.
 // Параметры:
-//  fullName - полное имя
-//  inn - ИНН
-//  name - имя
+//  filtr - Структура - отбор
 //  Item - элемент списка, возвращаемый параметр
 //  пПараметры - для внутреннего использования, начальное значение - Неопределено, обязательный
 // Возвращаемое значение:
 //	Булево - Ложь значит список пройден весь
-Функция GetBusinessEntityListСледующий(fullName = Неопределено, inn = Неопределено, name = Неопределено, Item, пПараметры = Неопределено) Экспорт
+Функция GetBusinessEntityListСледующий(пfiltr = Неопределено, пItem, пПараметры = Неопределено) Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
@@ -229,19 +251,23 @@
 				пПараметры.Индекс = 0;
 			КонецЕсли;
 		Иначе
-			Item = пПараметры.ListResponse.businessEntity[пПараметры.Индекс];
+			пItem = пПараметры.ListResponse.businessEntity[пПараметры.Индекс];
 			Возврат Истина;
 		КонецЕсли;
 	КонецЕсли;
 	
-	ListResponse = Прокси().GetBusinessEntityList(пПараметры.ListOptions, BusinessEntityНовый(fullName, inn, name));
+	Если пfiltr = Неопределено Тогда
+		_ListResponse = Прокси().GetBusinessEntityList(пПараметры.ListOptions);
+	Иначе
+		_ListResponse = Прокси().GetBusinessEntityList(пПараметры.ListOptions, BusinessEntity(пfiltr));
+	КонецЕсли;
 	
-	пПараметры.Вставить("ListResponse", ListResponse);
+	пПараметры.Вставить("ListResponse", _ListResponse);
 	
 	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
 		Возврат Ложь;
 	Иначе
-		Item = пПараметры.ListResponse.businessEntity[пПараметры.Индекс];
+		пItem = пПараметры.ListResponse.businessEntity[пПараметры.Индекс];
 		Возврат Истина;
 	КонецЕсли;
 	
@@ -249,27 +275,34 @@
 
 
 // предназначена для получения списка предприятий, зарегистрированных на территории Российской Федерации.
-Функция GetRussianEnterpriseList(name = Неопределено, ListOptions = Неопределено) Экспорт
+// Параметры:
+//  пfiltr - Структура - отбор
+//  пListOptions - возвращаемый
+Функция GetRussianEnterpriseList(пfiltr = Неопределено, пListOptions = Неопределено) Экспорт
 	
-	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+	Если пListOptions = Неопределено Тогда
+		пListOptions = ВетисBase.ListOptions();
 	Иначе
-		ListOptions.offset = ListOptions.offset + ListOptions.count;
+		пListOptions.offset = пListOptions.offset + пListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetBusinessEntityList(ListOptions, EnterpriseНовый(name));
+	Если пfiltr = Неопределено Тогда
+		Возврат Прокси().GetRussianEnterpriseList(пListOptions);
+	Иначе
+		Возврат Прокси().GetRussianEnterpriseList(пListOptions, Enterprise(пfiltr));
+	КонецЕсли;
 	
 КонецФункции
 
 // Предназначена для выборки предприятий, зарегистрированных на территории Российской Федерации.
 // Используется самостоятельно в цикле Пока.
 // Параметры:
-//  name - имя
+//  filtr - Структура - отбор
 //  Item - элемент списка, возвращаемый параметр
 //  пПараметры - для внутреннего использования, начальное значение - Неопределено, обязательный
 // Возвращаемое значение:
 //	Булево - Ложь значит список пройден весь
-Функция GetRussianEnterpriseListСледующий(name = Неопределено, Item, пПараметры = Неопределено) Экспорт
+Функция GetRussianEnterpriseListСледующий(пfiltr = Неопределено, пItem, пПараметры = Неопределено) Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
@@ -285,19 +318,23 @@
 				пПараметры.Индекс = 0;
 			КонецЕсли;
 		Иначе
-			Item = пПараметры.ListResponse.enterprise[пПараметры.Индекс];
+			пItem = пПараметры.ListResponse.enterprise[пПараметры.Индекс];
 			Возврат Истина;
 		КонецЕсли;
 	КонецЕсли;
 	
-	ListResponse = Прокси().GetRussianEnterpriseList(пПараметры.ListOptions, EnterpriseНовый(name));
+	Если пfiltr = Неопределено Тогда
+		_ListResponse = Прокси().GetRussianEnterpriseList(пПараметры.ListOptions);
+	Иначе
+		_ListResponse = Прокси().GetRussianEnterpriseList(пПараметры.ListOptions, Enterprise(пfiltr));
+	КонецЕсли;
 	
-	пПараметры.Вставить("ListResponse", ListResponse);
+	пПараметры.Вставить("ListResponse", _ListResponse);
 	
 	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
 		Возврат Ложь;
 	Иначе
-		Item = пПараметры.ListResponse.enterprise[пПараметры.Индекс];
+		пItem = пПараметры.ListResponse.enterprise[пПараметры.Индекс];
 		Возврат Истина;
 	КонецЕсли;
 	
@@ -307,6 +344,12 @@
 
 #КонецОбласти
 
+
+Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика);
+	
+КонецФункции
 
 Функция Прокси()
 	

@@ -89,7 +89,7 @@
 
 Функция VetDocumentType(value) Экспорт
 	
-	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисVetDocumentStatus") Тогда
+	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисVetDocumentType") Тогда
 		Если      value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Входящий") Тогда
 			Возврат ВетисКонстанты.VetDocumentType_INCOMING();
 		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Исходящий") Тогда
@@ -121,3 +121,54 @@
 	
 КонецФункции
 
+Функция DeliveryInspectionResult(value) Экспорт
+	
+	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисDeliveryInspectionResult") Тогда
+		Если      value = ПредопределенноеЗначение("Перечисление.ВетисDeliveryInspectionResult.CORRESPONDS") Тогда
+			Возврат ВетисКонстанты.DeliveryInspectionResult_CORRESPONDS();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисDeliveryInspectionResult.MISMATCH") Тогда
+			Возврат ВетисКонстанты.DeliveryInspectionResult_MISMATCH();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисDeliveryInspectionResult.UNSUPERVISED") Тогда
+			Возврат ВетисКонстанты.DeliveryInspectionResult_UNSUPERVISED();
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	Иначе
+		Если      value = ВетисКонстанты.DeliveryInspectionResult_CORRESPONDS() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисDeliveryInspectionResult.CORRESPONDS");
+		ИначеЕсли value = ВетисКонстанты.DeliveryInspectionResult_MISMATCH() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисDeliveryInspectionResult.MISMATCH");
+		ИначеЕсли value = ВетисКонстанты.DeliveryInspectionResult_UNSUPERVISED() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисDeliveryInspectionResult.UNSUPERVISED");
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецФункции
+
+Функция DeliveryDecision(value) Экспорт
+	
+	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисDeliveryDecision") Тогда
+		Если      value = ПредопределенноеЗначение("Перечисление.ВетисDeliveryDecision.ACCEPT_ALL") Тогда
+			Возврат ВетисКонстанты.DeliveryDecision_ACCEPT_ALL();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисDeliveryDecision.PARTIALLY") Тогда
+			Возврат ВетисКонстанты.DeliveryDecision_PARTIALLY();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисDeliveryDecision.RETURN_ALL") Тогда
+			Возврат ВетисКонстанты.DeliveryDecision_RETURN_ALL();
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	Иначе
+		Если      value = ВетисКонстанты.DeliveryDecision_ACCEPT_ALL() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисDeliveryDecision.ACCEPT_ALL");
+		ИначеЕсли value = ВетисКонстанты.DeliveryDecision_PARTIALLY() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисDeliveryDecision.PARTIALLY");
+		ИначеЕсли value = ВетисКонстанты.DeliveryDecision_RETURN_ALL() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисDeliveryDecision.RETURN_ALL");
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецФункции

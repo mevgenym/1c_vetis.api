@@ -38,11 +38,20 @@
 
 
 // Тип, описывающий продукцию.
-Функция Product(guid) Экспорт
+// Параметры:
+//  guid - Строка - собственно guid
+//       - Структура - структура со значениями свойств
+Функция Product(guid = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Product"));
+	_Объект = Создать("Product");
 	
-	_Объект.guid = guid;
+	Если ТипЗнч(guid) = Тип("Структура") Тогда
+		Для каждого _guid Из guid Цикл
+			_Объект[_guid.Ключ] = _guid.Значение;
+		КонецЦикла;
+	ИначеЕсли НЕ guid = Неопределено Тогда
+		_Объект.guid = guid;
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
@@ -54,23 +63,22 @@
 	
 КонецФункции
 
-Функция ProductListТаблица() Экспорт
-	
-	_Таблица = Новый ТаблицаЗначений;
-	_Таблица.Колонки.Добавить("name", Новый ОписаниеТипов("Строка"));
-	_Таблица.Колонки.Добавить("guid", Новый ОписаниеТипов("Строка"));
-	_Таблица.Колонки.Добавить("code", Новый ОписаниеТипов("Строка"));
-	_Таблица.Колонки.Добавить("ProductType", Новый ОписаниеТипов("Число"));
-	
-КонецФункции
-
 
 // Тип, описывающий вид продукции.
-Функция SubProduct(guid) Экспорт
+// Параметры:
+//  guid - Строка - собственно guid
+//       - Структура - структура со значениями свойств
+Функция SubProduct(guid = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "SubProduct"));
+	_Объект = Создать("SubProduct");
 	
-	_Объект.guid = guid;
+	Если ТипЗнч(guid) = Тип("Структура") Тогда
+		Для каждого _guid Из guid Цикл
+			_Объект[_guid.Ключ] = _guid.Значение;
+		КонецЦикла;
+	ИначеЕсли НЕ guid = Неопределено Тогда
+		_Объект.guid = guid;
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
@@ -82,30 +90,22 @@
 	
 КонецФункции
 
-Функция SubProductListТаблица() Экспорт
-	
-	_Таблица = Новый ТаблицаЗначений;
-	_Таблица.Колонки.Добавить("name", Новый ОписаниеТипов("Строка"));
-	_Таблица.Колонки.Добавить("guid", Новый ОписаниеТипов("Строка"));
-	_Таблица.Колонки.Добавить("code", Новый ОписаниеТипов("Строка"));
-	_Таблица.Колонки.Добавить("productGuid", Новый ОписаниеТипов("Строка"));
-	
-КонецФункции
-
 
 // Тип, описывающий наименование продукции.
-Функция ProductItem(guid) Экспорт
+// Параметры:
+//  guid - Строка - собственно guid
+//       - Структура - структура со значениями свойств
+Функция ProductItem(guid = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Product"));
+	_Объект = Создать("ProductItem");
 	
-	_Объект.guid = guid;
-	//_Объект.name = name;// Название продукции.
-	//_Объект.code = articul;// Артикул (код) продукции.
-	//_Объект.productType = productType;
-	//_Объект.product = "";
-	//_Объект.subProduct = "";
-	//_Объект.correspondToGost = Ложь;
-	//_Объект.gost = "";
+	Если ТипЗнч(guid) = Тип("Структура") Тогда
+		Для каждого _guid Из guid Цикл
+			_Объект[_guid.Ключ] = _guid.Значение;
+		КонецЦикла;
+	ИначеЕсли НЕ guid = Неопределено Тогда
+		_Объект.guid = guid;
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
@@ -114,22 +114,6 @@
 Функция ProductItemListИтератор(List) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "productItem");
-	
-КонецФункции
-
-Функция ProductItemListТаблица() Экспорт
-	
-	_Таблица = Новый ТаблицаЗначений;
-	_Таблица.Колонки.Добавить("name", Новый ОписаниеТипов("Строка"));
-	_Таблица.Колонки.Добавить("guid", Новый ОписаниеТипов("Строка"));
-	_Таблица.Колонки.Добавить("code", Новый ОписаниеТипов("Строка"));
-	
-	_Таблица.Колонки.Добавить("productType", Новый ОписаниеТипов("Строка"));
-	_Таблица.Колонки.Добавить("product"    , Новый ОписаниеТипов("Строка"));
-	_Таблица.Колонки.Добавить("subProduct" , Новый ОписаниеТипов("Строка"));
-	
-	_Таблица.Колонки.Добавить("correspondToGost", Новый ОписаниеТипов("Строка"));
-	_Таблица.Колонки.Добавить("gost"            , Новый ОписаниеТипов("Строка"));
 	
 КонецФункции
 
@@ -159,25 +143,25 @@
 
 
 // Предназначена для получения списка продукции по указанному типу.
-Функция GetProductByTypeList(productType, ListOptions = Неопределено) Экспорт
+Функция GetProductByTypeList(productType, пListOptions = Неопределено) Экспорт
 	
-	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+	Если пListOptions = Неопределено Тогда
+		пListOptions = ВетисBase.ListOptions();
 	Иначе
-		ListOptions.offset = ListOptions.offset + ListOptions.count;
+		пListOptions.offset = пListOptions.offset + пListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetProductByTypeList(ListOptions, productType);
+	Возврат Прокси().GetProductByTypeList(пListOptions, productType);
 	
 КонецФункции
 
-Функция GetProductByTypeListСледующий_(ListResponse, productType, ListOptions) Экспорт
+Функция GetProductByTypeListСледующий_(пListResponse, productType, пListOptions) Экспорт
 	
-	Если ListOptions.offset + ListOptions.count >= Число(ListResponse.Total) Тогда
+	Если пListOptions.offset + пListOptions.count >= Число(пListResponse.Total) Тогда
 		Возврат Ложь;
 	Иначе
-		ListOptions.offset = ListOptions.offset + ListOptions.count;
-		ListResponse = Прокси().GetProductByTypeList(ListOptions, productType);
+		пListOptions.offset = пListOptions.offset + пListOptions.count;
+		пListResponse = Прокси().GetProductByTypeList(пListOptions, productType);
 		Возврат Истина;
 	КонецЕсли;
 	
@@ -191,7 +175,7 @@
 //  пПараметры - для внутреннего использования, начальное значение - Неопределено, обязательный
 // Возвращаемое значение:
 //	Булево - Ложь значит список пройден весь
-Функция GetProductByTypeListСледующий(productType, Item, пПараметры = Неопределено) Экспорт
+Функция GetProductByTypeListСледующий(productType, пItem, пПараметры = Неопределено) Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
@@ -207,19 +191,19 @@
 				пПараметры.Индекс = 0;
 			КонецЕсли;
 		Иначе
-			Item = пПараметры.ListResponse.product[пПараметры.Индекс];
+			пItem = пПараметры.ListResponse.product[пПараметры.Индекс];
 			Возврат Истина;
 		КонецЕсли;
 	КонецЕсли;
 	
-	ListResponse = Прокси().GetProductByTypeList(пПараметры.ListOptions, productType);
+	_ListResponse = Прокси().GetProductByTypeList(пПараметры.ListOptions, productType);
 	
-	пПараметры.Вставить("ListResponse", ListResponse);
+	пПараметры.Вставить("ListResponse", _ListResponse);
 	
 	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
 		Возврат Ложь;
 	Иначе
-		Item = пПараметры.ListResponse.product[пПараметры.Индекс];
+		пItem = пПараметры.ListResponse.product[пПараметры.Индекс];
 		Возврат Истина;
 	КонецЕсли;
 	
@@ -229,26 +213,26 @@
 
 
 // Предназначена для получения списка видов продукции, отфильтрованного по указанному продукту.
-Функция GetSubProductByProductList(productGuid, ListOptions = Неопределено) Экспорт
+Функция GetSubProductByProductList(productGuid, пListOptions = Неопределено) Экспорт
 	
-	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+	Если пListOptions = Неопределено Тогда
+		пListOptions = ВетисBase.ListOptions();
 	Иначе
-		ListOptions.offset = ListOptions.offset + ListOptions.count;
+		пListOptions.offset = пListOptions.offset + пListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetSubProductByProductList(ListOptions, productGuid);
+	Возврат Прокси().GetSubProductByProductList(пListOptions, productGuid);
 	
 КонецФункции
 
 // Используется совместно с GetSubProductByProductList
-Функция GetSubProductByProductListСледующий_(ListResponse, productGuid, ListOptions) Экспорт
+Функция GetSubProductByProductListСледующий_(пListResponse, productGuid, пListOptions) Экспорт
 	
-	Если ListOptions.offset + ListOptions.count >= Число(ListResponse.Total) Тогда
+	Если пListOptions.offset + пListOptions.count >= Число(пListResponse.Total) Тогда
 		Возврат Ложь;
 	Иначе
-		ListOptions.offset = ListOptions.offset + ListOptions.count;
-		ListResponse = Прокси().GetSubProductByProductList(ListOptions, productGuid);
+		пListOptions.offset = пListOptions.offset + пListOptions.count;
+		пListResponse = Прокси().GetSubProductByProductList(пListOptions, productGuid);
 		Возврат Истина;
 	КонецЕсли;
 	
@@ -262,7 +246,7 @@
 //  пПараметры - для внутреннего использования, начальное значение - Неопределено, обязательный
 // Возвращаемое значение:
 //	Булево - Ложь значит список пройден весь
-Функция GetSubProductByProductListСледующий(productGuid, Item, пПараметры = Неопределено) Экспорт
+Функция GetSubProductByProductListСледующий(productGuid, пItem, пПараметры = Неопределено) Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
@@ -278,19 +262,19 @@
 				пПараметры.Индекс = 0;
 			КонецЕсли;
 		Иначе
-			Item = пПараметры.ListResponse.subProduct[пПараметры.Индекс];
+			пItem = пПараметры.ListResponse.subProduct[пПараметры.Индекс];
 			Возврат Истина;
 		КонецЕсли;
 	КонецЕсли;
 	
-	ListResponse = Прокси().GetSubProductByProductList(пПараметры.ListOptions, productGuid);
+	_ListResponse = Прокси().GetSubProductByProductList(пПараметры.ListOptions, productGuid);
 	
-	пПараметры.Вставить("ListResponse", ListResponse);
+	пПараметры.Вставить("ListResponse", _ListResponse);
 	
 	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
 		Возврат Ложь;
 	Иначе
-		Item = пПараметры.ListResponse.subProduct[пПараметры.Индекс];
+		пItem = пПараметры.ListResponse.subProduct[пПараметры.Индекс];
 		Возврат Истина;
 	КонецЕсли;
 	
@@ -360,6 +344,12 @@
 
 #КонецОбласти
 
+
+Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика);
+	
+КонецФункции
 
 Функция Прокси()
 	

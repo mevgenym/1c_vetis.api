@@ -2,7 +2,7 @@
 // Тип, описывающий товарно-транспортную накладную.
 Функция Waybill(type, issueNumber, issueDate, broker, transportInfo, transportStorageType) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Waybill"));
+	_Объект = Создать("Waybill");
 	
 	_Объект.type                    = type;//Тип товарно-транспортной накладной.
 	//_Объект.issueSeries             = ;//Серия документа.
@@ -21,7 +21,7 @@
 
 Функция TransportInfo(transportType, transportNumber) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "TransportInfo"));
+	_Объект = Создать("TransportInfo");
 	
 	_Объект.transportType   = transportType;  //Тип транспортного средства.
 	_Объект.transportNumber = transportNumber;//Номера транспортного средства.
@@ -146,6 +146,13 @@
 КонецФункции
 
 #КонецОбласти
+
+
+Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика);
+	
+КонецФункции
 
 Функция URI()
 	

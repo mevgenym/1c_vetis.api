@@ -2,7 +2,7 @@
 // Получение записи складского журнала по идентификатору.
 Функция getStockEntryByGuidRequest(guid, enterpriseGuid) Экспорт
 	
-	_Объект = Фабрика().Создать(URI(), "getStockEntryListRequest");
+	_Объект = Создать("getStockEntryListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -26,7 +26,7 @@
 //  count - Максимальное запрашиваемое количество объектов в списке
 Функция getStockEntryListRequest(enterpriseGuid, count = 100) Экспорт
 	
-	_Объект = Фабрика().Создать(URI(), "getStockEntryListRequest");
+	_Объект = Создать("getStockEntryListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -60,7 +60,7 @@
 //  vetDocumentUuid - Идентификатор ВСД
 Функция getVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid) Экспорт
 	
-	_Объект = Фабрика().Создать(URI(), "getVetDocumentByUuidRequest");
+	_Объект = Создать("getVetDocumentByUuidRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -86,7 +86,7 @@
 //  count - Максимальное запрашиваемое количество объектов в списке
 Функция getVetDocumentListRequest(enterpriseGuid, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, count = 100) Экспорт
 	
-	_Объект = Фабрика().Создать(URI(), "getVetDocumentListRequest");
+	_Объект = Создать("getVetDocumentListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -127,14 +127,14 @@
 //  returnedDelivery - vetd:Delivery - Сведения о возвращаемой партии
 Функция ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено) Экспорт
 	
-	_Объект = Фабрика().Создать(URI(), "ProcessIncomingConsignmentRequest");
+	_Объект = Создать("ProcessIncomingConsignmentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.delivery           = delivery;
 	_Объект.deliveryFacts      = deliveryFacts;
-	//_Объект.discrepancyReport  = discrepancyReport;
-	//_Объект.returnedDelivery   = returnedDelivery;
+	_Объект.discrepancyReport  = discrepancyReport;
+	_Объект.returnedDelivery   = returnedDelivery;
 	
 	Возврат _Объект;
 	
@@ -162,7 +162,7 @@
 //  delivery - vetd:Delivery - Сведения для оформления транспортного ВСД
 Функция PrepareOutcomingConsignmentRequest(delivery) Экспорт
 	
-	_Объект = Фабрика().Создать(URI(), "PrepareOutcomingConsignmentRequest");
+	_Объект = Создать("PrepareOutcomingConsignmentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -192,7 +192,7 @@
 //  discrepancyReport - vetd:DiscrepancyReport - Сведения об акте несоответствия
 Функция ResolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport) Экспорт
 	
-	_Объект = Фабрика().Создать(URI(), "ResolveDiscrepancyRequest");
+	_Объект = Создать("ResolveDiscrepancyRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -237,7 +237,7 @@
 //  vetDoctor - argc:User - Ветеринарный врач, ответственный за аннулирование ВСД
 Функция WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, vetDoctor) Экспорт
 	
-	_Объект = Фабрика().Создать(URI(), "WithdrawVetDocumentRequest");
+	_Объект = Создать("WithdrawVetDocumentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -267,7 +267,7 @@
 //  modificationOperation - ent:BEModificationOperation - Описание операции добавления/изменения информации о ХС.
 Функция ModifyBusinessEntityRequest(modificationOperation) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "ModifyBusinessEntityRequest"));
+	_Объект = Создать("ModifyBusinessEntityRequest");
 	
 	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator             = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -294,7 +294,7 @@
 //  modificationOperation - ent:ENTModificationOperation - Описание операции добавления/изменения информации о поднадзорном объекте.
 Функция ModifyEnterpriseRequest(modificationOperation) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "ModifyEnterpriseRequest"));
+	_Объект = Создать("ModifyEnterpriseRequest");
 	
 	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator             = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -313,6 +313,12 @@
 
 #КонецОбласти
 
+
+Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), ?(пФабрика = Неопределено, Фабрика(), пФабрика));
+	
+КонецФункции
 
 Функция URI()
 	

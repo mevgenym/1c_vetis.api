@@ -467,4 +467,22 @@
 КонецФункции
 
 
+Функция ProductMarkingClass_UNDEFINED() Экспорт
+	
+	Возврат "UNDEFINED";
+	
+КонецФункции
+
+Функция ProductMarkingClass_SSCC() Экспорт
+	
+	Возврат "SSCC";
+	
+КонецФункции
+
+Функция ProductMarkingClass_BN() Экспорт
+	
+	Возврат "BN";
+	
+КонецФункции
+
 #КонецОбласти

@@ -22,39 +22,28 @@
 &НаСервере
 Процедура СписокВетисЗаполнитьСервер()
 	
+	Перем _Product, _subProduct, _параметрыP;
+	
+	_ТипПродукции = ВетисArgusProductionСлой1с.ProductType(ТипПродукции);
+	
 	СписокВетис.Очистить();
-	
-	_ListOptionsP = Неопределено;
-	
-	_ТипПродукции = Перечисления.ВетисProductType.Индекс(ТипПродукции) + 1;
 	
 	Пока Истина Цикл
 		
-		Попытка
-			_ProductList = ВетисArgusProduction.GetProductByTypeList(_ТипПродукции, _ListOptionsP);
-		Исключение
+		Если НЕ ВетисArgusProduction.GetProductByTypeListСледующий(_ТипПродукции, _Product, _параметрыP) Тогда
 			Прервать;
-		КонецПопытки;
+		КонецЕсли;
 		
-		Для Каждого _Product из ВетисArgusProduction.ProductListИтератор(_ProductList) Цикл
+		_параметрыS = Неопределено;
+		Пока Истина Цикл
 			
-			_ListOptionsS = Неопределено;
+			Если НЕ ВетисArgusProduction.GetSubProductByProductListСледующий(_Product.guid, _subProduct, _параметрыS) Тогда
+				Прервать;
+			КонецЕсли;
 			
-			Пока Истина Цикл
-				
-				Попытка
-					_SubProductList = ВетисArgusProduction.GetSubProductByProductList(_Product.guid, _ListOptionsS);
-				Исключение
-					Прервать;
-				КонецПопытки;
-				
-				Для Каждого _subProduct из ВетисArgusProduction.SubProductListИтератор(_SubProductList) Цикл
-					ТаблицаСтрока = СписокВетис.Добавить();
-					ТаблицаСтрока.name = _subProduct.name;
-					ТаблицаСтрока.guid = _subProduct.guid;
-				КонецЦикла;
-				
-			КонецЦикла;
+			ТаблицаСтрока = СписокВетис.Добавить();
+			ТаблицаСтрока.name = _subProduct.name;
+			ТаблицаСтрока.guid = _subProduct.guid;
 			
 		КонецЦикла;
 		

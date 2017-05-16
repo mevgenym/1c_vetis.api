@@ -13,10 +13,12 @@
 	
 	СписокВетис.Очистить();
 	
+	_Отбор = Новый Структура("fullName",ВетисСтрокаПоиска);
+	
 	Пока Истина Цикл
 		
 		Попытка
-			_List = ВетисCerberusEnterprise.GetBusinessEntityList(ВетисСтрокаПоиска, , , _ListOptions);
+			_List = ВетисCerberusEnterprise.GetBusinessEntityList(_Отбор, _ListOptions);
 		Исключение
 			Прервать;
 		КонецПопытки;

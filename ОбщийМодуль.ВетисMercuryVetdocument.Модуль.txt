@@ -4,7 +4,7 @@
 //  vetDocumentUuid - Идентификатор ВСД
 Функция VetDocument(vetDocumentUuid) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "VetDocument"));
+	_Объект = Создать("VetDocument");
 	
 	_Объект.uuid = vetDocumentUuid;
 	
@@ -26,7 +26,7 @@
 //  accompanyingForms - vetd:ConsignmentDocumentList - Сопроводительные документы.
 Функция Delivery(consignor, consignee, consignment, accompanyingForms) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Delivery"));
+	_Объект = Создать("Delivery");
 	
 	_Объект.deliveryDate = ТекущаяДата();// Дата поставки.
 	_Объект.consignor = consignor;
@@ -61,7 +61,7 @@
 //  decision - vetd:DeliveryDecision - Принятое решение о приёме входной партии.
 Функция DeliveryFactList(presence, docInspection, vetInspection, decision) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "DeliveryFactList"));
+	_Объект = Создать("DeliveryFactList");
 	
 	_Объект.vetCertificatePresence = presence;
 	_Объект.docInspection = docInspection;
@@ -78,7 +78,7 @@
 //  responsible - argc:User - Ответственный за контроль.
 Функция DeliveryInspection(result, responsible = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "DeliveryFactList"));
+	_Объект = Создать("DeliveryInspection");
 	
 	_Объект.result = result;
 	
@@ -95,7 +95,7 @@
 // Тип, описывающий контроль поставки (документарный, ветеринарный).
 Функция ConsignmentDocumentList(waybill, VetDocument) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "ConsignmentDocumentList"));
+	_Объект = Создать("ConsignmentDocumentList");
 	
 	_Объект.waybill = waybill;// Сведения о товарно-транспортной накладной.
 	_Объект.VetDocument = VetDocument;// Ветеринарно-сопроводительный документ (ВСД).
@@ -105,9 +105,9 @@
 КонецФункции
 
 // Тип, описывающий транспортную партию груза.
-Функция Consignment(productType, product, subProduct, productItem, volume, unit) Экспорт
+Функция Consignment() Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Consignment"));
+	_Объект = Создать("Consignment");
 	
 	//_Объект.productName = name;//	Наименование продукции в соответствии с оформленной товарной накладной.
 	//_Объект.productCode = articul;// Артикул (код) продукции в соответствии с оформленной товарной накладной.
@@ -124,12 +124,12 @@
 	
 	//свойства базового типа bath:
 	
-	_Объект.productType      = productType;// Тип продукции.
-	_Объект.product          = ВетисArgusProduction.Product(product);// Продукция.
-	_Объект.subProduct       = ВетисArgusProduction.SubProduct(subProduct);// Вид продукции.
-	_Объект.productItem      = ВетисArgusProduction.ProductItem(productItem);// Наименование произведенной продукции в номенклатуре производителя.
-	_Объект.volume           = volume;// Объем произведенной продукции. Значение должно быть больше нуля.
-	_Объект.unit             = ВетисArgusCommon.Unit(unit);// Единица измерения объема произведенной продукции.
+	//_Объект.productType      = productType;// Тип продукции.
+	//_Объект.product          = ВетисArgusProduction.Product(product);// Продукция.
+	//_Объект.subProduct       = ВетисArgusProduction.SubProduct(subProduct);// Вид продукции.
+	//_Объект.productItem      = ВетисArgusProduction.ProductItem(productItem);// Наименование произведенной продукции в номенклатуре производителя.
+	//_Объект.volume           = volume;// Объем произведенной продукции. Значение должно быть больше нуля.
+	//_Объект.unit             = ВетисArgusCommon.Unit(unit);// Единица измерения объема произведенной продукции.
 	
 	//_Объект.packingList      = ВетисArgusCommon.PackingFormList(pack);// Список видов упаковки, которые используются для производственной партии.
 	//_Объект.packingAmount    = packAmount;// Общее количество единиц упаковки для производственной партии.
@@ -150,7 +150,7 @@
 // Тип, описывающий cведения о записи журнала продукции.
 Функция StockEntry(guid) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "StockEntry"));
+	_Объект = Создать("StockEntry");
 	
 	_Объект.guid = guid;
 	
@@ -168,7 +168,7 @@
 // Может указываться единичной датой, интервалом, либо строкой.
 Функция GoodsDate(firstDate, secondDate = Неопределено) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "GoodsDate"));
+	_Объект = Создать("GoodsDate");
 	
 	Если ТипЗнч(firstDate) = Тип("Дата") Тогда
 		_Объект.firstDate = ВетисBase.ComplexDate(firstDate);
@@ -176,7 +176,7 @@
 		_Объект.informalDate = firstDate;
 	КонецЕсли;
 	
-	Если secondDate = Неопределено Тогда
+	Если НЕ secondDate = Неопределено Тогда
 		_Объект.secondDate = secondDate;
 	КонецЕсли;
 	
@@ -187,7 +187,7 @@
 // Тип, описывающий партию груза.
 Функция Batch(productType, product, subProduct, productItem, volume, unit) Экспорт
 	
-	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), "Batch"));
+	_Объект = Создать("Batch");
 	
 	_Объект.productType      = productType;// Тип продукции.
 	_Объект.product          = ВетисArgusProduction.Product(product);// Продукция.
@@ -208,6 +208,66 @@
 	//_Объект.lowGradeCargo    = 1;// Является ли продукция некачественной.
 	//_Объект.owner            = 1;// Собственник продукции.
 
+	Возврат _Объект;
+	
+КонецФункции
+
+
+Функция ProductMarking(content) Экспорт
+	
+	_Объект = Создать("ProductMarking");
+	
+	_Объект.class = ВетисКонстанты.ProductMarkingClass_UNDEFINED();//пока только UNDEFINED
+	
+	_Объект.__content = content;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция ProductMarkingList(content) Экспорт
+	
+	_Объект = Создать("ProductMarking");
+	
+	ProductMarkingДобавить(_Объект, content);
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция ProductMarkingДобавить(List, content) Экспорт
+	
+	Если ТипЗнч(content) = Тип("Массив") Тогда
+		Для каждого _content Из content Цикл
+			List.productMarking.Добавить(ФормаXML.Элемент, URI(), "productMarking", ProductMarking(_content));
+		КонецЦикла;
+	ИначеЕсли ТипЗнч(content) = Тип("Строка") Тогда
+		List.productMarking.Добавить(ФормаXML.Элемент, URI(), "productMarking", ProductMarking(content));
+	КонецЕсли;
+	
+КонецФункции
+
+
+Функция DiscrepancyReport(issueSeries, issueNumber, issueDate, reason, description) Экспорт
+	
+	_Объект = Создать("DiscrepancyReport");
+	
+	_Объект.issueSeries = issueSeries;
+	_Объект.issueNumber = issueNumber;
+	_Объект.issueDate   = ?(ТипЗнч(issueDate) = Тип("Дата"), XMLСтрока(issueDate), issueDate);
+	_Объект.reason      = DiscrepancyReason(reason);
+	_Объект.description = description;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция DiscrepancyReason(name) Экспорт
+	
+	_Объект = Создать("DiscrepancyReason");
+	
+	_Объект.name = name;
+	
 	Возврат _Объект;
 	
 КонецФункции
@@ -536,6 +596,58 @@
 
 #КонецОбласти
 
+#Область ProductMarkingClass
+
+Функция ProductMarkingClass(value) Экспорт
+	
+	Если      value = 1 Тогда
+		Возврат ВетисКонстанты.ProductMarkingClass_UNDEFINED();
+	ИначеЕсли value = 2 Тогда
+		Возврат ВетисКонстанты.ProductMarkingClass_BN();
+	ИначеЕсли value = 3 Тогда
+		Возврат ВетисКонстанты.ProductMarkingClass_SSCC();
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+Функция ProductMarkingClassОписание(value) Экспорт
+	
+	Если      value = ВетисКонстанты.ProductMarkingClass_UNDEFINED() ИЛИ value = 1 Тогда
+		Возврат "";
+	ИначеЕсли value = ВетисКонстанты.ProductMarkingClass_BN()        ИЛИ value = 2 Тогда
+		Возврат "Номер партии";
+	ИначеЕсли value = ВетисКонстанты.ProductMarkingClass_SSCC()      ИЛИ value = 3 Тогда
+		Возврат "SSCC-код";
+	Иначе
+		Возврат Неопределено;
+	КонецЕсли;
+	
+КонецФункции
+
+Функция ProductMarkingClassСписок() Экспорт
+	
+	_Список = Новый СписокЗначений();
+	
+	_Список.Добавить(ProductMarkingClass(1), ProductMarkingClassОписание(1));
+	_Список.Добавить(ProductMarkingClass(2), ProductMarkingClassОписание(2));
+	_Список.Добавить(ProductMarkingClass(3), ProductMarkingClassОписание(3));
+	
+	Возврат _Список;
+	
+КонецФункции
+
+#КонецОбласти
+
+
+Функция Создать(Имя) Экспорт
+	
+	_Объект = ФабрикаXDTO.Создать(ФабрикаXDTO.Тип(URI(), Имя));
+	
+	Возврат _Объект;
+	
+КонецФункции
 
 Функция URI()
 	

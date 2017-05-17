@@ -12,11 +12,13 @@
 	ФабрикаWS = Новый ФабрикаXDTO(ОпределениеWS.ФабрикаXDTO.ЭкспортМоделиXDTO(МассивURI), ФабрикаXDTO.Пакеты);  
 	
 	Пакеты = Новый Массив;  
-	//Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/cerberus/enterprise"));
-	//Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/production"));
-	//Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/common"));
+	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/common"));
+	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/shipment"));
+	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/production"));
+	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/cerberus/enterprise"));
+	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/ikar"));
 	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/mercury/applications"));
-	//Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/mercury/vet-document"));
+	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/mercury/vet-document"));
 	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://schemas.xmlsoap.org/soap/envelope/"));
 	
 	Для Каждого Пакет Из ФабрикаWS.Пакеты Цикл  
@@ -108,7 +110,7 @@
 			//ВывестиСообщение("Ждем ответа", 1);
 		Иначе
 			Если НЕ receiveResponse.Application.status = ВетисКонстанты.Status_COMPLETED() Тогда
-				ВывестиСообщение(Сериализовать(_Фабрика, receiveResponse.application.errors.error));
+				ВывестиСообщение(Сериализовать(_Фабрика, receiveResponse.application.errors));
 				Возврат ПоУмолчанию;
 			Иначе
 				Если пОтладка = Истина Тогда

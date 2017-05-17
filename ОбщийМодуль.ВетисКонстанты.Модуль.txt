@@ -245,6 +245,46 @@
 
 #КонецОбласти
 
+#Область ВетисCerberusEnterprise
+
+Функция EnterpriseRole_UNKNOWN() Экспорт
+	
+	Возврат "UNKNOWN";
+	
+КонецФункции
+
+Функция EnterpriseRole_PRODUCER() Экспорт
+	
+	Возврат "PRODUCER";
+	
+КонецФункции
+
+Функция EnterpriseRole_SLAUGHTER_HOUSE() Экспорт
+	
+	Возврат "SLAUGHTER_HOUSE";
+	
+КонецФункции
+
+Функция EnterpriseRole_CUTTING_PLANT() Экспорт
+	
+	Возврат "CUTTING_PLANT";
+	
+КонецФункции
+
+Функция EnterpriseRole_COLD_STORE() Экспорт
+	
+	Возврат "COLD_STORE";
+	
+КонецФункции
+
+Функция EnterpriseRole_PACKAGING_PLANT() Экспорт
+	
+	Возврат "PACKAGING_PLANT";
+	
+КонецФункции
+
+#КонецОбласти
+
 #Область ВетисMercuryVetdocument
 
 // Животные находились на территории ТС с рождения.

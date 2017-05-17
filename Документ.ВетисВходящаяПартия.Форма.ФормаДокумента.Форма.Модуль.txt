@@ -60,6 +60,8 @@
 	
 	Элементы.ГруппаАктНесоответствияКолонка.Доступность = Объект.СоставитьАктНесоответствия;
 	
+	//Элементы.ГруппаВходнаяВСДСтраницы.Доступность = НЕ всдСтатус = Перечисления.ВетисVetDocumentStatus.Оформлен;
+	
 КонецПроцедуры
 
 &НаСервере
@@ -141,20 +143,6 @@
 	
 КонецПроцедуры
 
-&НаКлиенте
-Процедура ВСДПриИзменении(Элемент)
-	
-	Модифицированность = Истина;
-	
-КонецПроцедуры
-
-&НаКлиенте
-Процедура ТТНПриИзменении(Элемент)
-	
-	Модифицированность = Истина;
-	
-КонецПроцедуры
-
 &НаСервере
 Процедура СкладскойЖурналПриИзмененииНаСервере(ЭлементИмя)
 	
@@ -169,13 +157,93 @@
 КонецПроцедуры
 
 &НаКлиенте
-Процедура ОтправительПредприятиеНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
+Процедура ВСДПриИзменении(Элемент)
+	
+	Модифицированность = Истина;
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура ТТНПриИзменении(Элемент)
+	
+	Модифицированность = Истина;
+	
+КонецПроцедуры
+
+
+&НаКлиенте
+Процедура сжПроизводительНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
+	
+	СтандартнаяОбработка = Ложь;
+	
+	оо = Новый ОписаниеОповещения("сжПроизводительОбработкаОповещения", ЭтаФорма);
+	
+	ОткрытьФорму("Справочник.Контрагенты.Форма.ФормаВыбораУФ", Новый Структура("Ключ,Запрос", сжПроизводитель, ПолучитьТекстЗапросаСправочникКонтрагентыФормаВыбора()), ЭтаФорма,,,,оо);
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура сжПроизводительОбработкаОповещения(Результат, Параметр) Экспорт
+	
+	Если НЕ Результат = Неопределено Тогда
+		Модифицированность = Истина;
+		сжПроизводитель = Результат;
+	КонецЕсли;
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура сжПроизводительПредприятиеНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
 	
 	СтандартнаяОбработка = Ложь;
 	
 	оо = Новый ОписаниеОповещения("ПредприятиеОбработкаОповещения", ЭтаФорма, Элемент_ПутьКДанным(Элемент.Имя));
 	
-	ОткрытьФорму("Справочник.кпсПунктыНазначения.ФормаВыбора", Новый Структура("Владелец, Заголовок", ПолучитьСписок("Отправитель"), "Предприятия"), ,,,, оо);
+	ОткрытьФорму("Справочник.кпсПунктыНазначения.ФормаВыбора", Новый Структура("Владелец, Заголовок", ПолучитьСписок("сжПроизводитель"), "Предприятия"), ,,,, оо);
+	
+КонецПроцедуры
+
+
+&НаКлиенте
+Процедура сжСтранаПроисхожденияНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
+	
+	СтандартнаяОбработка = Ложь;
+	
+	оо = Новый ОписаниеОповещения("сжСтранаПроисхожденияОповещения", ЭтаФорма);
+	
+	ОткрытьФорму("Справочник.КлассификаторСтранМира.Форма.ФормаВыбораУФ", Новый Структура("Ключ, Запрос", сжСтранаПроисхождения, ПолучитьТекстЗапросаСправочникКлассификаторСтранМираФормаВыбора()), ЭтаФорма,,,,оо);
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура сжСтранаПроисхожденияОповещения(Результат, Параметр) Экспорт
+	
+	Если НЕ Результат = Неопределено Тогда
+		Модифицированность = Истина;
+		сжСтранаПроисхождения = Результат;
+	КонецЕсли;
+	
+КонецПроцедуры
+
+
+&НаКлиенте
+Процедура ПолучательНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
+	
+	СтандартнаяОбработка = Ложь;
+	
+	оо = Новый ОписаниеОповещения("ПолучательОбработкаОповещения", ЭтаФорма);
+	
+	ОткрытьФорму("Справочник.Контрагенты.Форма.ФормаВыбораУФ", Новый Структура("Ключ,Запрос", Объект.Получатель, ПолучитьТекстЗапросаСправочникКонтрагентыФормаВыбора()), ЭтаФорма,,,,оо);
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура ПолучательОбработкаОповещения(Результат, Параметр) Экспорт
+	
+	Если НЕ Результат = Неопределено Тогда
+		Модифицированность = Истина;
+		Объект.Получатель = Результат;
+	КонецЕсли;
 	
 КонецПроцедуры
 
@@ -186,17 +254,53 @@
 	
 	оо = Новый ОписаниеОповещения("ПредприятиеОбработкаОповещения", ЭтаФорма, Элемент_ПутьКДанным(Элемент.Имя));
 	
-	ОткрытьФорму("Справочник.кпсПунктыНазначения.ФормаВыбора", Новый Структура("Владелец, Заголовок", ПолучитьСписок("Получатель"), "Предприятия"), ,,,, оо);
+	ОткрытьФорму("Справочник.кпсПунктыНазначения.ФормаВыбора", Новый Структура("Владелец, Заголовок", ПолучитьСписок("Объект.Получатель"), "Предприятия"), ,,,, оо);
+	
+КонецПроцедуры
+
+
+&НаКлиенте
+Процедура ОтправительНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
+	
+	СтандартнаяОбработка = Ложь;
+	
+	оо = Новый ОписаниеОповещения("ОтправительОбработкаОповещения", ЭтаФорма);
+	
+	ОткрытьФорму("Справочник.Контрагенты.Форма.ФормаВыбораУФ", Новый Структура("Ключ,Запрос", Объект.Отправитель, ПолучитьТекстЗапросаСправочникКонтрагентыФормаВыбора()), ЭтаФорма,,,,оо);
 	
 КонецПроцедуры
 
 &НаКлиенте
-Процедура ПредприятиеОбработкаОповещения(пЗначение, пПараметр) Экспорт
+Процедура ОтправительОбработкаОповещения(Результат, Параметр) Экспорт
 	
-	Выполнить пПараметр + " = пЗначение;";
+	Если НЕ Результат = Неопределено Тогда
+		Модифицированность = Истина;
+		Объект.Отправитель = Результат;
+	КонецЕсли;
 	
 КонецПроцедуры
 
+&НаКлиенте
+Процедура ОтправительПредприятиеНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
+	
+	СтандартнаяОбработка = Ложь;
+	
+	оо = Новый ОписаниеОповещения("ПредприятиеОбработкаОповещения", ЭтаФорма, Элемент_ПутьКДанным(Элемент.Имя));
+	
+	ОткрытьФорму("Справочник.кпсПунктыНазначения.ФормаВыбора", Новый Структура("Владелец, Заголовок", ПолучитьСписок("Объект.Отправитель"), "Предприятия"), ,,,, оо);
+	
+КонецПроцедуры
+
+
+&НаКлиенте
+Процедура ПредприятиеОбработкаОповещения(пЗначение, пПараметр) Экспорт
+	
+	Если НЕ пЗначение = Неопределено Тогда
+		Модифицированность = Истина;
+		Выполнить пПараметр + " = пЗначение;";
+	КонецЕсли;
+	
+КонецПроцедуры
 
 &НаСервере
 Функция ПолучитьСписок(ИмяВладельца)
@@ -226,7 +330,7 @@
 	|			ГДЕ
 	|				РегистрСведений.СобственныеКонтрагенты.Контрагент = &Владелец)";
 	
-	Запрос.УстановитьПараметр("Владелец", Объект[ИмяВладельца]);
+	Запрос.УстановитьПараметр("Владелец", Вычислить(ИмяВладельца));
 	
 	Результат = Запрос.Выполнить();
 	Выборка = Результат.Выбрать();
@@ -240,8 +344,11 @@
 	
 КонецФункции
 
+&НаСервере
 Функция Элемент_ПутьКДанным(пЭлементИмя)
+	
 	Возврат Элементы[пЭлементИмя].ПутьКДанным;
+	
 КонецФункции
 
 
@@ -295,11 +402,14 @@
 	
 КонецПроцедуры
 
+&НаСервере
 Процедура ОтправитьСервер()
 	
-	Перем discrepancyReport, returnedDelivery;
+	Перем _discrepancyReport, _returnedDelivery;
 	
-	_врач = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинВрача());
+	_врач1 = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинВрача());
+	_врач2 = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинВрача());
+	
 	
 	#Область initiator
 	
@@ -308,110 +418,156 @@
 	#Область delivery
 	
 		#Область consignor
-			consignorBusinessEntity = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(Объект.Отправитель);
-			consignorEnterprise     = ВетисCerberusEnterpriseСлой1с.EnterpriseПунктНазначения(Объект.ОтправительПредприятие);
-			consignor               = ВетисCerberusEnterprise.BusinessMember(consignorBusinessEntity, consignorEnterprise);
+			_consignorBusinessEntity = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(Объект.Отправитель);
+			_consignorEnterprise     = ВетисCerberusEnterpriseСлой1с.EnterpriseПунктНазначения(Объект.ОтправительПредприятие);
+			_consignor1              = ВетисCerberusEnterprise.BusinessMember(_consignorBusinessEntity, _consignorEnterprise);
+			_consignor2              = ВетисCerberusEnterprise.BusinessMember(_consignorBusinessEntity, _consignorEnterprise);
+			_consignor3              = ВетисCerberusEnterprise.BusinessMember(_consignorBusinessEntity, _consignorEnterprise);
 		#КонецОбласти
 		
 		#Область consignee
-			consigneeBusinessEntity = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(Объект.Получатель);
-			consigneeEnterprise     = ВетисCerberusEnterpriseСлой1с.EnterpriseПунктНазначения(Объект.ПолучательПредприятие);
-			consignee               = ВетисCerberusEnterprise.BusinessMember(consigneeBusinessEntity, consigneeEnterprise);
+			_consigneeBusinessEntity = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(Объект.Получатель);
+			_consigneeEnterprise     = ВетисCerberusEnterpriseСлой1с.EnterpriseПунктНазначения(Объект.ПолучательПредприятие);
+			_consignee1              = ВетисCerberusEnterprise.BusinessMember(_consigneeBusinessEntity, _consigneeEnterprise);
+			_consignee2              = ВетисCerberusEnterprise.BusinessMember(_consigneeBusinessEntity, _consigneeEnterprise);
+			_consignee3              = ВетисCerberusEnterprise.BusinessMember(_consigneeBusinessEntity, _consigneeEnterprise);
 		#КонецОбласти
 		
 		#Область consignment
-			_сж = Объект.СкладскойЖурнал[0];
+			//_сж = Объект.СкладскойЖурнал[0];
 			
-			_subProduct = ВетисArgusProduction.GetSubProductByGuid(ВетисArgusProductionСлой1с.SubProduct(_сж.НоменклатурнаяГруппа));
+			_subProduct = ВетисArgusProduction.GetSubProductByGuid(ВетисArgusProductionСлой1с.SubProduct(сжНоменклатурнаяГруппа));
 			_product    = ВетисArgusProduction.GetProductByGuid(_subProduct.productGuid);
+			_unitGuid   = ВетисArgusCommonСлой1с.Unit(сжЕдиницаИзмерения);
+			_unitws     = ВетисArgusCommon.GetUnitByGuid(_unitGuid);
+			_unit       = ВетисArgusCommon.Unit(_unitGuid);
+			_unit.uuid  = _unitws.uuid;
 			
-			Consignment = ВетисMercuryVetdocument.Consignment();
+			_Consignment = ВетисMercuryVetdocument.Consignment();
 			
-			Consignment.subProduct       = ВетисArgusProduction.SubProduct(_subProduct.guid);
-			Consignment.product          = ВетисArgusProduction.Product(_subProduct.productGuid);
-			Consignment.productType      = _product.productType;
-			Consignment.volume           = _сж.Количество;
-			Consignment.unit             = ВетисArgusCommon.Unit(ВетисArgusCommonСлой1с.Unit(_сж.ЕдиницаИзмерения));
-			Consignment.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(_сж.Упаковка));
-			Consignment.packingAmount    = _сж.КоличествоМест;
-			Consignment.dateOfProduction = ВетисMercuryVetdocument.GoodsDate(_сж.ВыработкаНачало, _сж.ВыработкаКонец);
-			Consignment.expiryDate       = ВетисMercuryVetdocument.GoodsDate(_сж.СрокГодностиНачало, _сж.СрокГодностиКонец);
-			Consignment.perishable       = _сж.Скоропортящаяся;
-			Consignment.countryOfOrigin  = ВетисIkar.Country(ВетисIkarСлой1с.Country(_сж.СтранаПроисхождения));
-			Consignment.producerList     = ВетисCerberusEnterprise.ProducerList(ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_сж.Производитель));
-			Consignment.productMarkingList = ВетисMercuryVetdocument.ProductMarkingList(_сж.Маркировка);
-			Consignment.lowGradeCargo    = _сж.НекачественныйГруз;
+			_Consignment.subProduct       = ВетисArgusProduction.SubProduct(_subProduct.guid); //_Consignment.subProduct.uuid = _subProduct.uuid;
+			_Consignment.product          = ВетисArgusProduction.Product(_subProduct.productGuid); //_Consignment.product.uuid = _product.uuid;
+			_Consignment.productType      = _product.productType;
+			_Consignment.productItem      = ВетисArgusProduction.ProductItem(_subProduct.name);
+			_Consignment.volume           = сжКоличество;
+			_Consignment.unit             = _unit;//ВетисArgusCommon.Unit(ВетисArgusCommonСлой1с.Unit(сжЕдиницаИзмерения));
+			_Consignment.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(сжУпаковка));
+			_Consignment.packingAmount    = сжКоличествоМест;
+			_Consignment.dateOfProduction = ВетисMercuryVetdocument.GoodsDate(сжВыработкаНачало, сжВыработкаКонец);
+			_Consignment.expiryDate       = ВетисMercuryVetdocument.GoodsDate(сжСрокГодностиНачало, сжСрокГодностиКонец);
+			_Consignment.perishable       = сжСкоропортящаяся;
+			_Consignment.countryOfOrigin  = ВетисIkar.Country(ВетисIkarСлой1с.Country(сжСтранаПроисхождения));
+			_Consignment.producerList     = ВетисCerberusEnterprise.ProducerList(ВетисCerberusEnterpriseСлой1с.EnterpriseПунктНазначения(сжПроизводительПредприятие));
+			//_Consignment.productMarkingList = ВетисMercuryVetdocument.ProductMarkingList(сжМаркировка);
+			_Consignment.lowGradeCargo    = сжНекачественныйГруз;
 			
 		#КонецОбласти
 		
 		#Область accompanyingForms
 			
 			#Область waybill
-				_ттн = Объект.ТТН[0];
+				//_ттн = Объект.ТТН[0];
 				
-				waybill = ВетисArgusShipment.Создать("Waybill");
-				waybill.issueSeries   = _ттн.Серия;
-				waybill.issueNumber   = _ттн.Номер;
-				waybill.issueDate     = _ттн.Дата;
-				waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(_ттн.Тип);
-				waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_ттн.Посредник));
-				waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_ттн.Транспорт);
-				waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_ттн.СпособХранения);
+				_brokerGuid = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(ттнПосредник);
+				
+				_broker1 = ВетисCerberusEnterprise.BusinessEntity(_brokerGuid);
+				_broker2 = ВетисCerberusEnterprise.BusinessEntity(_brokerGuid);
+				
+				_waybill = ВетисArgusShipment.Создать("Waybill");
+				_waybill.issueSeries   = ттнСерия;
+				_waybill.issueNumber   = ттнНомер;
+				_waybill.issueDate     = ттнДата;
+				_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(ттнТип);
+				_waybill.broker        = _broker1;
+				_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(ттнТранспорт);
+				_waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(ттнСпособХранения);
 				
 			#КонецОбласти
 			
 			#Область vetCertificate
-				_всд = Объект.ВСД[0];
 				
-				vetCertificate = ВетисMercuryVetdocument.Создать("VetDocument");
-				vetCertificate.issueSeries        = _всд.Серия;
-				vetCertificate.issueNumber        = _всд.Номер;
-				vetCertificate.issueDate          = _всд.Дата;
-				vetCertificate.form               = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_всд.Форма);
-				//vetCertificate.type               = ВетисКонстанты.VetDocumentType_INCOMING();
-				vetCertificate.consignor          = consignor;
-				vetCertificate.consignee          = consignee;
-				vetCertificate.batch              = ВетисMercuryVetdocument.Создать("Batch");
-				                                    ЗаполнитьЗначенияСвойств(vetCertificate.batch, Consignment, "subProduct,product,productType,volume,unit,packingList,packingAmount,dateOfProduction,expiryDate,perishable,countryOfOrigin,producerList,productMarkingList,lowGradeCargo");
-				vetCertificate.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(_всд.НазначениеГруза));
-				vetCertificate.broker             = waybill.broker;
-				vetCertificate.transportInfo      = waybill.transportInfo;
-				vetCertificate.transportStorageType = waybill.transportStorageType;
-				vetCertificate.cargoInspected     = _всд.КонтрольГосВетврачем;
-				vetCertificate.cargoExpertized    = _всд.Ветсанэкспертиза;
-				vetCertificate.expertiseInfo      = _всд.ЛабораторныеИсследования;
-				vetCertificate.confirmedBy        = _врач;
-				vetCertificate.confirmedDate      = _всд.Дата;
-				vetCertificate.locationProsperity = _всд.БлагополучиеМестности;
-				vetCertificate.quarantinePlace    = _всд.КарантированиеМесто;
-				vetCertificate.quarantineDays     = _всд.КарантированиеДней;
-				vetCertificate.immunizationInfo   = _всд.Иммунизация;
-				vetCertificate.precedingVetDocuments = _всд.ПредыдущиеВСД;
-				vetCertificate.importPermit       = ВетисArgusCommon.Document(_всд.РазрешениеНаВвозНазвание, _всд.РазрешениеНаВвозСерия, _всд.РазрешениеНаВвозНомер, _всд.РазрешениеНаВвозДата);
-				vetCertificate.transferPermit     = ВетисArgusCommon.Document(_всд.РазрешениеНаВывозНазвание, _всд.РазрешениеНаВывозСерия, _всд.РазрешениеНаВывозНомер, _всд.РазрешениеНаВывозДата);
-				vetCertificate.specialMarks       = _всд.ОсобыеОтметки;
+				_vetCertificate = ВетисMercuryVetdocument.Создать("VetDocument");
+				
+				Если ЗначениеЗаполнено(всдСтатус) Тогда
+					
+					_vetCertificate.uuid = всдUuid;
+					
+				Иначе
+					
+					#Область batch
+						_unit = ВетисArgusCommon.Unit(_unitGuid);
+						_unit.uuid = _unitws.uuid;
+						
+						_batch = ВетисMercuryVetdocument.Создать("Batch");
+						
+						_batch.subProduct       = ВетисArgusProduction.SubProduct(_subProduct.guid);
+						_batch.product          = ВетисArgusProduction.Product(_subProduct.productGuid);
+						_batch.productType      = _product.productType;
+						_batch.productItem      = ВетисArgusProduction.ProductItem(_subProduct.name);
+						_batch.volume           = сжКоличество;
+						_batch.unit             = _unit;
+						_batch.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(сжУпаковка));
+						_batch.packingAmount    = сжКоличествоМест;
+						_batch.dateOfProduction = ВетисMercuryVetdocument.GoodsDate(сжВыработкаНачало, сжВыработкаКонец);
+						_batch.expiryDate       = ВетисMercuryVetdocument.GoodsDate(сжСрокГодностиНачало, сжСрокГодностиКонец);
+						_batch.perishable       = сжСкоропортящаяся;
+						_batch.countryOfOrigin  = ВетисIkar.Country(ВетисIkarСлой1с.Country(сжСтранаПроисхождения));
+						_batch.producerList     = ВетисCerberusEnterprise.ProducerList(ВетисCerberusEnterpriseСлой1с.EnterpriseПунктНазначения(сжПроизводительПредприятие));
+						//_batch.productMarkingList = ВетисMercuryVetdocument.ProductMarkingList(сжМаркировка);
+						_batch.lowGradeCargo    = сжНекачественныйГруз;
+					#КонецОбласти
+				
+					//_всд = Объект.ВСД[0];
+						
+					_vetCertificate.issueSeries        = всдСерия;
+					_vetCertificate.issueNumber        = всдНомер;
+					_vetCertificate.issueDate          = всдДата;
+					_vetCertificate.form               = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(всдФорма);
+					//_vetCertificate.type               = ВетисКонстанты.VetDocumentType_INCOMING();
+					_vetCertificate.consignor          = _consignor1;
+					_vetCertificate.consignee          = _consignee1;
+					_vetCertificate.batch              = _batch;
+					_vetCertificate.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(всдНазначениеГруза));
+					_vetCertificate.broker             = _broker2;
+					_vetCertificate.transportInfo      = ВетисArgusShipmentСлой1с.TransportInfo(ттнТранспорт);
+					_vetCertificate.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(ттнСпособХранения);
+					_vetCertificate.cargoInspected     = всдКонтрольГосВетврачем;
+					_vetCertificate.cargoExpertized    = всдВетсанэкспертиза;
+					_vetCertificate.expertiseInfo      = всдЛабораторныеИсследования;
+					_vetCertificate.confirmedBy        = _врач1;
+					_vetCertificate.confirmedDate      = всдДата;
+					_vetCertificate.locationProsperity = всдБлагополучиеМестности;
+					_vetCertificate.quarantinePlace    = всдКарантированиеМесто;
+					_vetCertificate.quarantineDays     = всдКарантированиеДней;
+					_vetCertificate.immunizationInfo   = всдИммунизация;
+					//_vetCertificate.precedingVetDocuments = всдПредыдущиеВСД;
+					//_vetCertificate.importPermit       = ВетисArgusCommon.Document(всдРазрешениеНаВвозНазвание, всдРазрешениеНаВвозСерия, всдРазрешениеНаВвозНомер, всдРазрешениеНаВвозДата);
+					//_vetCertificate.transferPermit     = ВетисArgusCommon.Document(всдРазрешениеНаВывозНазвание, всдРазрешениеНаВывозСерия, всдРазрешениеНаВывозНомер, всдРазрешениеНаВывозДата);
+					_vetCertificate.specialMarks       = всдОсобыеОтметки;
+					
+				КонецЕсли;
 				
 			#КонецОбласти
 			
-			accompanyingForms = ВетисMercuryVetdocument.ConsignmentDocumentList(waybill, vetCertificate);
+			_accompanyingForms = ВетисMercuryVetdocument.ConsignmentDocumentList(_waybill, _vetCertificate);
 			
 		#КонецОбласти
 		
-		delivery = ВетисMercuryVetdocument.Delivery(consignor, consignee, Consignment, accompanyingForms);
+		_delivery = ВетисMercuryVetdocument.Delivery(_consignor2, _consignee2, _Consignment, _accompanyingForms);
 		
 	#КонецОбласти
 	
 	#Область deliveryFacts
-		deliveryFacts = ВетисMercuryVetdocument.DeliveryFactList(
-		  ВетисArgusCommonСлой1с.DocumentNature(Объект.ПриродаВСД),
+		_deliveryFacts = ВетисMercuryVetdocument.DeliveryFactList(
+		  ВетисArgusCommonСлой1с.DocumentNature(?(ЗначениеЗаполнено(всдСтатус), Перечисления.ВетисDocumentNature.ELECTRONIC, Объект.ПриродаВСД)),
 		  ВетисMercuryVetdocument.DeliveryInspection(ВетисMercuryVetdocumentСлой1с.DeliveryInspectionResult(Объект.РезультатПриема)),
-		  ВетисMercuryVetdocument.DeliveryInspection(ВетисMercuryVetdocumentСлой1с.DeliveryInspectionResult(Объект.РезультатВетКонтроля), _врач),
+		  ВетисMercuryVetdocument.DeliveryInspection(ВетисMercuryVetdocumentСлой1с.DeliveryInspectionResult(Объект.РезультатВетКонтроля), _врач2),
 		  ВетисMercuryVetdocumentСлой1с.DeliveryDecision(Объект.РешениеОПриеме));
 	#КонецОбласти
 	
 	#Область discrepancyReport
 		Если Объект.СоставитьАктНесоответствия Тогда
-			discrepancyReport = ВетисMercuryVetdocument.DiscrepancyReport(
+			_discrepancyReport = ВетисMercuryVetdocument.DiscrepancyReport(
 			  Объект.АктНесоответствияСерия,
 				Объект.АктНесоответствияНомер,
 				Объект.АктНесоответствияДата,
@@ -422,25 +578,88 @@
 	
 	#Область returnedDelivery
 		Если Объект.СоздатьВозвратныйВСД Тогда
-			returnedDelivery = ВетисMercuryVetdocument.Delivery(consignee, consignor, Consignment, accompanyingForms);
+			_returnedDelivery = ВетисMercuryVetdocument.Delivery(_consignee3, _consignor3, _Consignment, _accompanyingForms);
 		КонецЕсли;
 	#КонецОбласти
 	
 	
 	_Отладка = кпс.РазрешенаОтладка();
 	
-	_Request = ВетисMercuryApplications.ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport, returnedDelivery);
+	_Request = ВетисMercuryApplications.ProcessIncomingConsignmentRequest(_delivery, _deliveryFacts, _discrepancyReport, _returnedDelivery);
 	
-	Пока Истина Цикл
+	//Пока Истина Цикл
 		
 		_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "processIncomingConsignmentRequest", Ложь, _Отладка);
 		
-		Если _Response = Ложь Тогда Прервать;	КонецЕсли;
-		
-		_stockEntry = ВетисОбщегоНазначения.ПолучитьЗначение(_Response, "stockEntry");
-		
-		_vetDocument = _Response.vetDocument;
-		
-	КонецЦикла;
+		Если НЕ _Response = Ложь Тогда
+			
+			_stockEntry = ВетисОбщегоНазначения.ПолучитьЗначение(_Response.processIncomingConsignmentResponse, "stockEntry");
+			
+			_vetDocument = ВетисОбщегоНазначения.ПолучитьЗначение(_Response.processIncomingConsignmentResponse, "vetDocument");
+			
+			всдUuid = _vetDocument.uuid;
+			
+			всдСтатус = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_vetDocument.status);
+			
+			сжGuid = _stockEntry.guid;
+			
+			Модифицированность = Истина;
+			
+		КонецЕсли;
+	//КонецЦикла;
 	
 КонецПроцедуры
+
+
+&НаСервере
+Функция ПолучитьТекстЗапросаСправочникКонтрагентыФормаВыбора()
+	
+	Возврат
+	"ВЫБРАТЬ
+	|	_Таблица.Ссылка,
+	|	_Таблица.ПометкаУдаления,
+	|	_Таблица.ЭтоГруппа,
+	|	_Таблица.Код,
+	|	_Таблица.Наименование,
+	|	_Таблица.ИНН,
+	|	_Таблица.КПП,
+	|	_Таблица.ОсновнойМенеджерПокупателя КАК Менеджер,
+	|	ВЫБОР
+	|		КОГДА _Ветис.Ссылка ЕСТЬ NULL
+	|			ТОГДА ЛОЖЬ
+	|		ИНАЧЕ ИСТИНА
+	|	КОНЕЦ КАК Подсветка
+	|ИЗ
+	|	Справочник.Контрагенты КАК _Таблица
+	|		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Ветис
+	|		ПО _Таблица.Ссылка = _Ветис.Ссылка
+	|ГДЕ
+	|	ИСТИНА
+	|	И НЕ _Таблица.ПометкаУдаления
+	|	И НЕ _Таблица.ЭтоГруппа";
+	
+КонецФункции
+
+&НаСервере
+Функция ПолучитьТекстЗапросаСправочникКлассификаторСтранМираФормаВыбора()
+	
+	Возврат
+	"ВЫБРАТЬ
+	|	_Таблица.Ссылка,
+	|	_Таблица.ПометкаУдаления,
+	|	_Таблица.Код,
+	|	_Таблица.Наименование,
+	|	ВЫБОР
+	|		КОГДА _Ветис.Ссылка ЕСТЬ NULL
+	|			ТОГДА ЛОЖЬ
+	|		ИНАЧЕ ИСТИНА
+	|	КОНЕЦ КАК Подсветка
+	|ИЗ
+	|	Справочник.КлассификаторСтранМира КАК _Таблица
+	|		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Ветис
+	|		ПО _Таблица.Ссылка = _Ветис.Ссылка
+	|ГДЕ
+	|	ИСТИНА
+	|	И НЕ _Таблица.ПометкаУдаления";
+		
+КонецФункции

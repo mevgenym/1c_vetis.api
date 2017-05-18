@@ -71,9 +71,9 @@
 	
 КонецФункции
 
-Функция getVetDocumentByUuidResponse(пОбъект) Экспорт
+Функция getVetDocumentByUuidResponse(пResponse) Экспорт
 	
-	Возврат пОбъект;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getVetDocumentByUuidResponse, "getVetDocumentByUuidResponse", URI()).vetDocument;
 	
 КонецФункции
 
@@ -83,18 +83,22 @@
 //  enterpriseGuid - Идентификатор предприятия
 //  vetDocumentType - vetd:VetDocumentType - Тип ВСД
 //  vetDocumentStatus - vetd:VetDocumentStatus - Статус ВСД
-//  count - Максимальное запрашиваемое количество объектов в списке
-Функция getVetDocumentListRequest(enterpriseGuid, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, count = 100) Экспорт
+Функция getVetDocumentListRequest(enterpriseGuid, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено) Экспорт
 	
 	_Объект = Создать("getVetDocumentListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.listOptions        = ВетисBase.ListOptions(count);
+	_Объект.listOptions        = ВетисBase.ListOptions();
 	
-	ВетисОбщегоНазначения.УстановитьЗначениеXDTO(_Объект, "vetDocumentType", vetDocumentType);
-	ВетисОбщегоНазначения.УстановитьЗначениеXDTO(_Объект, "vetDocumentStatus", vetDocumentStatus);
+	Если НЕ vetDocumentType = Неопределено Тогда
+		_Объект.vetDocumentType = vetDocumentType;
+	КонецЕсли;
+	
+	Если НЕ vetDocumentType = Неопределено Тогда
+		_Объект.vetDocumentStatus = vetDocumentStatus;
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
@@ -108,11 +112,7 @@
 
 Функция getVetDocumentListResponse(пResponse) Экспорт
 	
-	Если НЕ пResponse.Свойства().Получить("vetDocumentList") = Неопределено Тогда
-		Возврат пResponse.vetDocumentList;
-	ИначеЕсли НЕ пResponse.Свойства().Получить("getVetDocumentListResponse") = Неопределено Тогда
-		Возврат пResponse.getVetDocumentListResponse.vetDocumentList;
-	КонецЕсли;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getVetDocumentListResponse, "getVetDocumentListResponse", URI()).vetDocumentList;
 	
 КонецФункции
 
@@ -135,11 +135,11 @@
 	_Объект.deliveryFacts      = deliveryFacts;
 	
 	Если НЕ discrepancyReport = Неопределено Тогда
-		_Объект.discrepancyReport  = discrepancyReport;
+		_Объект.discrepancyReport = discrepancyReport;
 	КонецЕсли;
 	
 	Если НЕ returnedDelivery = Неопределено Тогда
-		_Объект.returnedDelivery   = returnedDelivery;
+		_Объект.returnedDelivery = returnedDelivery;
 	КонецЕсли;
 	
 	Возврат _Объект;
@@ -151,17 +151,11 @@
 	
 // http://vetrf.ru/vetrf-forum/posts/list/315/6855.page#39749
 // В ответе processIncomingResponse будут отдельные ВСД.
-// В случае полного или частичного гашения будут возвращены данные погашенного ВСД и в случае частичного гашения
-// также будут возвращены данные возвратного ВСД.
+// В случае полного или частичного гашения будут возвращены данные погашенного ВСД
+// и в случае частичного гашения также будут возвращены данные возвратного ВСД.
 // В случае полного возврата партии возвращаются только данные возвратного сертификата.	
 	
 	Возврат пResponse;
-	
-КонецФункции
-
-Функция processIncomingConsignmentRequestСледующий(ListRequest, ListResponse) Экспорт
-	
-	Возврат ВетисОбщегоНазначения.ListRequestСледующий(ListRequest, ListResponse);
 	
 КонецФункции
 

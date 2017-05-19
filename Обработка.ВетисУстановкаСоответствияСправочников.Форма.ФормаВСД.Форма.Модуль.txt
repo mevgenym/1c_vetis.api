@@ -81,7 +81,7 @@
 			
 			ТаблицаСтрока.ЕдиницаИзмерения = ВетисArgusCommonСлой1с.Unit(_Item.batch.unit.guid);
 			
-			ТаблицаСтрока.Упаковка = ВетисArgusCommonСлой1с.PackingForm(_Item.batch.packingList.packingForm[0].uuid);
+			ТаблицаСтрока.Упаковка = ВетисArgusCommonСлой1с.PackingForm(_Item.batch.packingList);
 			
 			ТаблицаСтрока.Скоропортящаяся = _Item.batch.perishable;
 			
@@ -122,14 +122,14 @@
 		Возврат;
 	КонецЕсли;
 	
-	СоздатьСвязьСервер(Элементы.СписокВетис.ТекущиеДанные.uuid);
+	СоздатьСвязьСервер(Элементы.СписокВетис.ТекущиеДанные.uuid, Элементы.СправочникСписок.ТекущиеДанные.Ссылка);
 	
 	Элементы.СправочникСписок.Обновить();
 	
 КонецПроцедуры
 
 &НаСервере
-Процедура СоздатьСвязьСервер(uuid) Экспорт
+Процедура СоздатьСвязьСервер(uuid, пСсылка) Экспорт
 	
 	_Отладка = кпс.РазрешенаОтладка();
 	
@@ -140,6 +140,82 @@
 	Если _Response = Ложь Тогда Возврат;	КонецЕсли;
 	
 	_Response = ВетисMercuryApplications.getVetDocumentByUuidResponse(_Response);
+	
+	_док = пСсылка.ПолучитьОбъект();
+	
+	_док.uuid     = _Response.uuid;
+	
+	_док.НомерВСД = _Response.issueNumber;
+	_док.ДатаВСД  = _Response.issueDate;
+	_док.Статус   = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_Response.status);
+	_док.Форма    = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_Response.form);
+	
+	_док.Отправитель = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_Response.consignor.businessEntity);
+	_док.Получатель  = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_Response.consignee.businessEntity);
+	
+	_док.ОтправительПредприятие = ВетисCerberusEnterpriseСлой1с.EnterpriseПунктНазначения(_Response.consignor.enterprise);
+	_док.ПолучательПредприятие  = ВетисCerberusEnterpriseСлой1с.EnterpriseПунктНазначения(_Response.consignee.enterprise);
+	
+	_всд = ?(_док.ВСД.Количество() = 0, _док.ВСД.Добавить(), _док.ВСД[0]);
+	
+	//Если _док.ВСД.Количество() = 2 Тогда _док.ВСД.Удалить(0); КонецЕсли;
+	
+	_всд.Серия    = _Response.issueSeries;
+	_всд.Номер    = _Response.issueNumber;
+	_всд.Дата     = _Response.issueDate;
+	_всд.Статус   = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_Response.status);
+	_всд.Форма    = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_Response.form);
+	_всд.Тип      = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_Response.type);
+	_всд.БлагополучиеМестности  = _Response.locationProsperity;
+	_всд.Ветсанэкспертиза       = _Response.cargoExpertized;
+	//_всд.ГосударственныйВетврач = _Response.confirmedBy.fio;
+	_всд.ГосударственныйВетврачДата = ?(_Response.confirmedDate = Неопределено, _всд.ГосударственныйВетврачДата, _Response.confirmedDate);
+	_всд.ДатаОбновления         = ?(_Response.lastUpdateDate = Неопределено, _всд.ДатаОбновления, _Response.lastUpdateDate);
+	_всд.Иммунизация            = ?(_Response.immunizationInfo = Неопределено, _всд.Иммунизация, _Response.immunizationInfo);
+	_всд.КарантированиеДней     = ?(_Response.quarantineDays = Неопределено, _всд.КарантированиеДней, _Response.quarantineDays);
+	_всд.КарантированиеМесто    = ?(_Response.quarantinePlace = Неопределено, _всд.КарантированиеДней, _Response.quarantinePlace);
+	_всд.КонтрольГосВетврачем   = ?(_Response.cargoInspected = Неопределено, _всд.КонтрольГосВетврачем, _Response.cargoInspected);
+	_всд.ЛабораторныеИсследования = _Response.expertiseInfo;
+	_всд.НазначениеГруза        = ВетисArgusCommonСлой1с.Purpose(_Response.purpose);
+	_всд.ОсобыеОтметки          = _Response.specialMarks;
+	_всд.ПредыдущиеВСД          = ?(_Response.precedingVetDocuments = Неопределено, _всд.ПредыдущиеВСД, _Response.precedingVetDocuments);
+	
+	_ттн = ?(_док.ТТН.Количество() = 0, _док.ТТН.Добавить(), _док.ТТН[0]);
+	
+	//Если _док.ТТН.Количество() = 2 Тогда _док.ТТН.Удалить(0); КонецЕсли;
+	
+	_ттн.Серия          = _Response.waybillSeries;
+	_ттн.Номер          = _Response.waybillNumber;
+	_ттн.Дата           = _Response.waybillDate;
+	_ттн.Тип            = ВетисArgusShipmentСлой1с.WaybillType(_Response.waybillType);
+	_ттн.Посредник      = ?(_Response.broker = Неопределено, _ттн.Посредник, ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_Response.broker));
+	_ттн.СпособХранения = ВетисArgusShipmentСлой1с.TransportationStorageType(_Response.transportStorageType);
+	_ттн.Транспорт      = ВетисArgusShipmentСлой1с.TransportInfo(_Response.transportInfo);
+	
+	_сж = ?(_док.СкладскойЖурнал.Количество() = 0, _док.СкладскойЖурнал.Добавить(), _док.СкладскойЖурнал[0]);
+	
+	//Если _док.СкладскойЖурнал.Количество() = 2 Тогда _док.СкладскойЖурнал.Удалить(0); КонецЕсли;
+	
+	_сж.НоменклатурнаяГруппа = ВетисArgusProductionСлой1с.SubProduct(_Response.batch.subProduct);
+	_сж.Количество           = _Response.batch.volume;
+	_сж.КоличествоМест       = _Response.batch.packingAmount;
+	_сж.ЕдиницаИзмерения     = ВетисArgusCommonСлой1с.Unit(_Response.batch.unit);
+	_сж.Упаковка             = ВетисArgusCommonСлой1с.PackingForm(_Response.batch.packingList);
+	_сж.Скоропортящаяся      = _Response.batch.perishable;
+	_сж.СтранаПроисхождения  = ВетисIkarСлой1с.Country(_Response.batch.countryOfOrigin);
+	_сж.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Producer(_Response.batch.producerList);
+	_сж.Производитель        = _сж.ПроизводительПредприятие.Владелец;
+	_сж.НекачественныйГруз   = _Response.batch.lowGradeCargo;
+	_сж.Собственник          = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_Response.batch.owner);
+	//_сж.Маркировка           = ВетисMercuryVetdocumentСлой1с.ProductMarking(_Response.batch.productMarkingList);
+	_сж.ВыработкаНачало      = ВетисBase.ComplexDate(_Response.batch.dateOfProduction.firstDate);
+	_сж.ВыработкаКонец       = ВетисBase.ComplexDate(_Response.batch.dateOfProduction.secondDate);
+	_сж.СрокГодностиНачало   = ВетисBase.ComplexDate(_Response.batch.expiryDate.firstDate);
+	_сж.СрокГодностиКонец    = ВетисBase.ComplexDate(_Response.batch.expiryDate.secondDate);
+	
+	_док.ОбменДанными.Загрузка = Истина;
+	
+	_док.Записать();
 	
 КонецПроцедуры
 
@@ -155,18 +231,18 @@
 &НаСервере
 Процедура УдалитьСвязьСервер()
 	
-	Если Элементы.СправочникСписок.ВыделенныеСтроки.Количество() > 0 Тогда
-		Для Каждого _ТекДанные из Элементы.СправочникСписок.ВыделенныеСтроки Цикл
-			
-			ВетисСоответствие.Удалить(_ТекДанные.Ссылка);
-			
-		КонецЦикла;
-	Иначе
-		_ТекДанные = Элементы.СправочникСписок.ТекущиеДанные;
-		
-		ВетисСоответствие.Удалить(_ТекДанные.Ссылка);
-		
-	КонецЕсли;
+	//Если Элементы.СправочникСписок.ВыделенныеСтроки.Количество() > 0 Тогда
+	//	Для Каждого _ТекДанные из Элементы.СправочникСписок.ВыделенныеСтроки Цикл
+	//		
+	//		ВетисСоответствие.Удалить(_ТекДанные.Ссылка);
+	//		
+	//	КонецЦикла;
+	//Иначе
+	//	_ТекДанные = Элементы.СправочникСписок.ТекущиеДанные;
+	//	
+	//	ВетисСоответствие.Удалить(_ТекДанные.Ссылка);
+	//	
+	//КонецЕсли;
 	
 КонецПроцедуры
 
@@ -190,7 +266,7 @@
 &НаКлиенте
 Процедура СправочникСписокВыбор(Элемент, ВыбраннаяСтрока, Поле, СтандартнаяОбработка)
 	
-	СтандартнаяОбработка = Ложь;
+	//СтандартнаяОбработка = Ложь;
 	
 	//_ТекДанные = Элементы.СправочникСписок.ТекущиеДанные;
 	//

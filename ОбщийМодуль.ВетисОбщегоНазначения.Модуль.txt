@@ -1,34 +1,31 @@
 ﻿
 Функция Фабрика() Экспорт
 	
-	ОпределениеWS = WSСсылки.ApplicationManagementsServiceTest.ПолучитьWSОпределения();
+	_Определения = WSСсылки.ApplicationManagementsServiceTest.ПолучитьWSОпределения();
 	
 	// создаем врем. фабрику на основе пакетов из конфиги и web сервиса
 	// нам нужны 2 пакета из ws, но пакет с application нужен локальный
-	МассивURI = Новый Массив;  
-	МассивURI.Добавить("http://api.vetrf.ru/schema/cdm/application/ws-definitions");  
-	МассивURI.Добавить("http://api.vetrf.ru/schema/cdm/base/ws-definitions");  
+	_URI = Новый Массив;  
+	_URI.Добавить("http://api.vetrf.ru/schema/cdm/application/ws-definitions");  
+	_URI.Добавить("http://api.vetrf.ru/schema/cdm/base/ws-definitions");  
 	
-	ФабрикаWS = Новый ФабрикаXDTO(ОпределениеWS.ФабрикаXDTO.ЭкспортМоделиXDTO(МассивURI), ФабрикаXDTO.Пакеты);  
+	_Фабрика = Новый ФабрикаXDTO(_Определения.ФабрикаXDTO.ЭкспортМоделиXDTO(_URI), ФабрикаXDTO.Пакеты);  
 	
-	Пакеты = Новый Массив;  
-	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/common"));
-	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/shipment"));
-	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/production"));
-	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/cerberus/enterprise"));
-	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/ikar"));
-	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/mercury/applications"));
-	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/mercury/vet-document"));
-	Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://schemas.xmlsoap.org/soap/envelope/"));
+	_Пакеты = Новый Массив;  
+	//_Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/common"));
+	//_Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/shipment"));
+	//_Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/argus/production"));
+	//_Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/cerberus/enterprise"));
+	//_Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/ikar"));
+	_Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/mercury/applications"));
+	//_Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://api.vetrf.ru/schema/cdm/mercury/vet-document"));
+	_Пакеты.Добавить(ФабрикаXDTO.Пакеты.Получить("http://schemas.xmlsoap.org/soap/envelope/"));
 	
-	Для Каждого Пакет Из ФабрикаWS.Пакеты Цикл  
-		Пакеты.Добавить(Пакет);
+	Для Каждого _Пакет Из _Фабрика.Пакеты Цикл  
+		_Пакеты.Добавить(_Пакет);
 	КонецЦикла;  
 	
-	// создаем общую фабрику  
-	ФабрикаXD = Новый ФабрикаXDTO(, Пакеты);
-	
-	Возврат ФабрикаXD;
+	Возврат Новый ФабрикаXDTO(, _Пакеты);
 	
 КонецФункции
 
@@ -41,13 +38,13 @@
 	
 	//запрос на создание заявки
 	
-	Application = ВетисApplication.Application(пRequest, пИмяФункции);
+	_Application = ВетисApplication.Application(пRequest, пИмяФункции);
 	
-		SubmitRequest = ВетисApplication.submitApplicationRequest(Application);
+		_SubmitRequest = ВетисApplication.submitApplicationRequest(_Application);
 		
-			Envelope = ВетисSoapEnvelope.Envelope(SubmitRequest, "submitApplicationRequest");
+			_Envelope = ВетисSoapEnvelope.Envelope(_SubmitRequest, "submitApplicationRequest");
 			
-				_ТекстЗапроса = Сериализовать(_Фабрика, Envelope);
+				_ТекстЗапроса = Сериализовать(_Фабрика, _Envelope);
 				
 				Если пОтладка = Истина Тогда
 					ВывестиСообщение(_ТекстЗапроса);
@@ -63,28 +60,28 @@
 					Возврат ПоУмолчанию;
 				КонецЕсли;
 				
-			Envelope = Десериализовать(_Фабрика, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), Envelope.Тип());
+			_Envelope = Десериализовать(_Фабрика, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), _Envelope.Тип());
 		
-		SubmitResponse = ВетисSoapEnvelope.Извлечь(Envelope).submitApplicationResponse;
+		_SubmitResponse = ВетисSoapEnvelope.Извлечь(_Envelope).submitApplicationResponse;
 		
 		Если пОтладка = Истина Тогда
-			ВывестиСообщение(Сериализовать(_Фабрика, SubmitResponse.application));
+			ВывестиСообщение(Сериализовать(_Фабрика, _SubmitResponse.application));
 		КонецЕсли;
 		
 	//Application = SubmitResponse.Application;
 	
-	Если НЕ (SubmitResponse.Application.status = ВетисКонстанты.Status_ACCEPTED()) Тогда 
-		ВывестиСообщение("Запрос вернулся со статусом " + SubmitResponse.Application.status);
+	Если НЕ (_SubmitResponse.Application.status = ВетисКонстанты.Status_ACCEPTED()) Тогда 
+		ВывестиСообщение("Запрос вернулся со статусом " + _SubmitResponse.Application.status);
 		Возврат ПоУмолчанию; 
 	КонецЕсли;
 	
 	//запрос на получение результатов обработки заявки
 	
-	receiveRequest = ВетисApplication.receiveApplicationResultRequest(SubmitResponse.Application.applicationId);
+	_receiveRequest = ВетисApplication.receiveApplicationResultRequest(_SubmitResponse.Application.applicationId);
 	
-	Envelope = ВетисSoapEnvelope.Envelope(receiveRequest, "receiveApplicationResultRequest");
+	_Envelope = ВетисSoapEnvelope.Envelope(_receiveRequest, "receiveApplicationResultRequest");
 	
-	_ТекстЗапроса = Сериализовать(_Фабрика, Envelope);
+	_ТекстЗапроса = Сериализовать(_Фабрика, _Envelope);
 	
 	Если пОтладка = Истина Тогда
 		ВывестиСообщение(_ТекстЗапроса);
@@ -102,22 +99,22 @@
 			Возврат ПоУмолчанию;
 		КонецЕсли;
 		
-		Envelope = Десериализовать(_Фабрика, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), Envelope.Тип());
+		_Envelope = Десериализовать(_Фабрика, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), _Envelope.Тип());
 		
-		receiveResponse = ВетисSoapEnvelope.Извлечь(Envelope).receiveApplicationResultResponse;
+		_receiveResponse = ВетисSoapEnvelope.Извлечь(_Envelope).receiveApplicationResultResponse;
 		
-		Если receiveResponse.Application.Status = ВетисКонстанты.Status_IN_PROCESS() Тогда
+		Если _receiveResponse.Application.Status = ВетисКонстанты.Status_IN_PROCESS() Тогда
 			//ВывестиСообщение("Ждем ответа", 1);
 		Иначе
-			Если НЕ receiveResponse.Application.status = ВетисКонстанты.Status_COMPLETED() Тогда
-				ВывестиСообщение(Сериализовать(_Фабрика, receiveResponse.application.errors));
+			Если НЕ _receiveResponse.Application.status = ВетисКонстанты.Status_COMPLETED() Тогда
+				ВывестиСообщение(Сериализовать(_Фабрика, _receiveResponse.application.errors));
 				Возврат ПоУмолчанию;
 			Иначе
 				Если пОтладка = Истина Тогда
-					ВывестиСообщение(Сериализовать(_Фабрика, receiveResponse.application));
+					ВывестиСообщение(Сериализовать(_Фабрика, _receiveResponse.application));
 				КонецЕсли;
 				
-				Возврат ВетисApplication.ApplicationResult(receiveResponse.Application);
+				Возврат ВетисApplication.ApplicationResult(_receiveResponse.Application);
 			КонецЕсли;
 		КонецЕсли;
 		

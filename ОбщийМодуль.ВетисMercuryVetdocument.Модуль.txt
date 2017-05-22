@@ -205,16 +205,16 @@
 КонецФункции
 
 // Тип, описывающий партию груза.
-Функция Batch(productType, product, subProduct, productItem, volume, unit) Экспорт
+Функция Batch() Экспорт
 	
 	_Объект = Создать("Batch");
 	
-	_Объект.productType      = productType;// Тип продукции.
-	_Объект.product          = ВетисArgusProduction.Product(product);// Продукция.
-	_Объект.subProduct       = ВетисArgusProduction.SubProduct(subProduct);// Вид продукции.
-	_Объект.productItem      = ВетисArgusProduction.ProductItem(productItem);// Наименование произведенной продукции в номенклатуре производителя.
-	_Объект.volume           = volume;// Объем произведенной продукции. Значение должно быть больше нуля.
-	_Объект.unit             = ВетисArgusCommon.Unit(unit);// Единица измерения объема произведенной продукции.
+	//_Объект.productType      = productType;// Тип продукции.
+	//_Объект.product          = ВетисArgusProduction.Product(product);// Продукция.
+	//_Объект.subProduct       = ВетисArgusProduction.SubProduct(subProduct);// Вид продукции.
+	//_Объект.productItem      = ВетисArgusProduction.ProductItem(productItem);// Наименование произведенной продукции в номенклатуре производителя.
+	//_Объект.volume           = volume;// Объем произведенной продукции. Значение должно быть больше нуля.
+	//_Объект.unit             = ВетисArgusCommon.Unit(unit);// Единица измерения объема произведенной продукции.
 	
 	//_Объект.packingList      = ВетисArgusCommon.PackingFormList();// Список видов упаковки, которые используются для производственной партии.
 	//_Объект.packingAmount    = 0;// Общее количество единиц упаковки для производственной партии.

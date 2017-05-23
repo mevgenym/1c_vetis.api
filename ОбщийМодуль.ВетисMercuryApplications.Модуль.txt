@@ -135,7 +135,13 @@
 	_Объект.deliveryFacts      = deliveryFacts;
 	
 	Если НЕ discrepancyReport = Неопределено Тогда
-		_Объект.discrepancyReport = discrepancyReport;
+		Если ТипЗнч(discrepancyReport) = Тип("Массив") Тогда
+			Для каждого _discrepancyReport Из discrepancyReport Цикл
+				_Объект.discrepancyReport.Добавить(_discrepancyReport);
+			КонецЦикла;
+		Иначе
+			_Объект.discrepancyReport.Добавить(discrepancyReport);
+		КонецЕсли;
 	КонецЕсли;
 	
 	Если НЕ returnedDelivery = Неопределено Тогда

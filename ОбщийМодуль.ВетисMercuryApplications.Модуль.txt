@@ -13,9 +13,9 @@
 	
 КонецФункции
 
-Функция getStockEntryByGuidResponse(пОбъект) Экспорт
+Функция getStockEntryByGuidResponse(пResponse) Экспорт
 	
-	Возврат пОбъект.stockEntry;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getStockEntryByGuidResponse, "getStockEntryByGuidResponse", URI()).stockEntry;
 	
 КонецФункции
 
@@ -43,13 +43,9 @@
 	
 КонецФункции
 
-Функция getStockEntryListResponse(пОбъект) Экспорт
+Функция getStockEntryListResponse(пResponse) Экспорт
 	
-	Если НЕ пОбъект.Свойства().Получить("stockEntryList") = Неопределено Тогда
-		Возврат пОбъект.stockEntryList;
-	ИначеЕсли НЕ пОбъект.Свойства().Получить("getStockEntryListResponse") = Неопределено Тогда
-		Возврат пОбъект.getStockEntryListResponse.stockEntryList;
-	КонецЕсли;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getStockEntryListResponse, "getStockEntryListResponse", URI()).stockEntryList;
 	
 КонецФункции
 
@@ -161,7 +157,7 @@
 // и в случае частичного гашения также будут возвращены данные возвратного ВСД.
 // В случае полного возврата партии возвращаются только данные возвратного сертификата.	
 	
-	Возврат пResponse;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.processIncomingConsignmentResponse, "ProcessIncomingConsignmentResponse", URI());
 	
 КонецФункции
 
@@ -184,9 +180,9 @@
 	
 КонецФункции
 
-Функция ProcessOutcomingConsignmentResponse(пОбъект) Экспорт
+Функция ProcessOutcomingConsignmentResponse(пResponse) Экспорт
 	
-	Возврат пОбъект;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.processIncomingConsignmentResponse, "ProcessOutcomingConsignmentResponse", URI());
 	
 КонецФункции
 
@@ -220,9 +216,9 @@
 
 // Объект содержит сведения о результатах обработки заявки на регистрацию несоответствий
 // в записях складского журнала, выявленных в результате инвентаризации.
-Функция ResolveDiscrepancyResponse(пОбъект) Экспорт
+Функция ResolveDiscrepancyResponse(пResponse) Экспорт
 	
-	Возврат пОбъект.stockEntryList;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ResolveDiscrepancyResponse, "ResolveDiscrepancyResponse", URI()).stockEntryList;
 	
 КонецФункции
 
@@ -263,9 +259,9 @@
 КонецФункции
 
 // Объект содержит сведения об аннулированном ВСД.
-Функция WithdrawVetDocumentResponse(пОбъект) Экспорт
+Функция WithdrawVetDocumentResponse(пResponse) Экспорт
 	
-	Возврат пОбъект.stockEntryList;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.WithdrawVetDocumentResponse, "WithdrawVetDocumentResponse", URI()).vetDocument;
 	
 КонецФункции
 
@@ -290,9 +286,9 @@
 КонецФункции
 
 // Объект содержит сведения о ХС, который был изменен или добавлен.
-Функция ModifyBusinessEntityResponse(пОбъект) Экспорт
+Функция ModifyBusinessEntityResponse(пResponse) Экспорт
 	
-	Возврат пОбъект.businessEntity;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyBusinessEntityResponse, "ModifyBusinessEntityResponse", URI()).businessEntity;
 	
 КонецФункции
 
@@ -317,9 +313,9 @@
 КонецФункции
 
 // Объект содержит сведения о поднадзорном объекте, который был изменен или добавлен.
-Функция ModifyEnterpriseResponse(пОбъект) Экспорт
+Функция ModifyEnterpriseResponse(пResponse) Экспорт
 	
-	Возврат пОбъект.enterprise;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyEnterpriseResponse, "ModifyEnterpriseResponse", URI()).enterprise;
 	
 КонецФункции
 

@@ -209,12 +209,12 @@
 		
 		_строкаВСД = ?(_док.ВСД.Количество() = 0, _док.ВСД.Добавить(), _док.ВСД[0]);
 		
-		_строкаВСД.Серия    = _всд.issueSeries;
-		_строкаВСД.Номер    = _всд.issueNumber;
-		_строкаВСД.Дата     = _всд.issueDate;
-		_строкаВСД.Тип      = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_всд.type);
-		_строкаВСД.Статус   = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_всд.status);
-		_строкаВСД.Форма    = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_всд.form);
+		//_строкаВСД.Серия    = _всд.issueSeries;
+		//_строкаВСД.Номер    = _всд.issueNumber;
+		//_строкаВСД.Дата     = _всд.issueDate;
+		//_строкаВСД.Тип      = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_всд.type);
+		//_строкаВСД.Статус   = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_всд.status);
+		//_строкаВСД.Форма    = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_всд.form);
 		_строкаВСД.БлагополучиеМестности  = _всд.locationProsperity;
 		_строкаВСД.Ветсанэкспертиза       = _всд.cargoExpertized;
 		//_строкаВСД.ГосударственныйВетврач = _всд.confirmedBy.fio;

@@ -216,12 +216,6 @@
 &НаКлиенте
 Процедура НомерСкладаПриИзменении(Элемент = Неопределено)
 	
-	//enterpriseGuid = ВетисПараметрыСоединения.enterpriseGuid(НомерСклада);
-	//
-	//_Склад = ВетисCerberusEnterprise.GetEnterpriseByGuid(enterpriseGuid);
-	//
-	//Склад = _Склад.address.addressView;
-	
 	enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
 	
 КонецПроцедуры

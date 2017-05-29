@@ -113,6 +113,29 @@
 КонецФункции
 
 
+#Область MergeOperation
+
+Функция mergeStockEntriesRequest(enterprise, mergeOperation) Экспорт
+	
+	_Объект = Создать("MergeStockEntriesRequest");
+	
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.enterprise         = enterprise;
+	_Объект.mergeOperation     = mergeOperation;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция mergeStockEntriesResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.mergeStockEntriesResponse, "MergeStockEntriesResponse", URI());
+	
+КонецФункции
+
+#КонецОбласти
+
 #Область IncomingOperation
 
 // Операция предназначена для оформления входящей партии.
@@ -243,7 +266,7 @@
 //  withdrawReason - vetd:WithdrawReason - Причина аннулирования ВСД
 //  withdrawDate - xs:dateTime - Дата аннулирования ВСД
 //  vetDoctor - argc:User - Ветеринарный врач, ответственный за аннулирование ВСД
-Функция WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, vetDoctor) Экспорт
+Функция withdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, vetDoctor) Экспорт
 	
 	_Объект = Создать("WithdrawVetDocumentRequest");
 	
@@ -259,7 +282,7 @@
 КонецФункции
 
 // Объект содержит сведения об аннулированном ВСД.
-Функция WithdrawVetDocumentResponse(пResponse) Экспорт
+Функция withdrawVetDocumentResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.WithdrawVetDocumentResponse, "WithdrawVetDocumentResponse", URI()).vetDocument;
 	

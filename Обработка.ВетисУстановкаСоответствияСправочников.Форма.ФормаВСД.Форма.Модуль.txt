@@ -7,8 +7,6 @@
 &НаКлиенте
 Процедура ПриОткрытии(Отказ)
 	
-	НомерСкладаПриИзменении();
-	
 КонецПроцедуры
 
 &НаКлиенте
@@ -23,13 +21,17 @@
 	
 	СписокВетис.Очистить();
 	
-	_ListRequest = ВетисMercuryApplications.getVetDocumentListRequest(enterpriseGuid);
+	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntityОрганизация(Организация);
+	
+	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
+	
+	_ListRequest = ВетисMercuryApplications.getVetDocumentListRequest(_enterpriseGuid);
 	
 	_Отладка = кпс.РазрешенаОтладка();
 	
 	Пока Истина Цикл
 		
-		_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_ListRequest, "getVetDocumentListRequest", Ложь, _Отладка);
+		_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_ListRequest, "getVetDocumentListRequest", _issuerId, Ложь, _Отладка);
 		
 		Если _Response = Ложь Тогда Прервать;	КонецЕсли;
 		
@@ -133,9 +135,13 @@
 	
 	_Отладка = кпс.РазрешенаОтладка();
 	
-	_Request = ВетисMercuryApplications.getVetDocumentByUuidRequest(uuid, enterpriseGuid);
+	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntityОрганизация(Организация);
 	
-	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "getVetDocumentByUuidRequest", Ложь, _Отладка);
+	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
+	
+	_Request = ВетисMercuryApplications.getVetDocumentByUuidRequest(uuid, _enterpriseGuid);
+	
+	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "getVetDocumentByUuidRequest", _issuerId, Ложь, _Отладка);
 	
 	Если _Response = Ложь Тогда Возврат;	КонецЕсли;
 	
@@ -188,12 +194,12 @@
 	
 КонецПроцедуры
 
+
 Функция СправочникСписокНайти(пНаименование)
 	
 	Возврат Справочники.КлассификаторЕдиницИзмерения.НайтиПоНаименованию(пНаименование);
 	
 КонецФункции
-
 
 &НаКлиенте
 Процедура СправочникСписокВыбор(Элемент, ВыбраннаяСтрока, Поле, СтандартнаяОбработка)
@@ -214,9 +220,9 @@
 
 
 &НаКлиенте
-Процедура НомерСкладаПриИзменении(Элемент = Неопределено)
+Процедура ОрганизацияПриИзменении(Элемент)
 	
-	enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
+	//issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntityОрганизация(Организация);
 	
 КонецПроцедуры
 
@@ -224,10 +230,9 @@
 &НаКлиенте
 Процедура СкладПриИзменении(Элемент)
 	
-	enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
+	//enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
 	
 КонецПроцедуры
-
 
 &НаКлиенте
 Процедура СкладНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
@@ -245,7 +250,7 @@
 	
 	Если НЕ Результат = Неопределено Тогда
 		Склад = Результат;
-		enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
+		//enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
 	КонецЕсли;
 	
 КонецПроцедуры
@@ -277,4 +282,5 @@
 	|	И ИСТИНА";
 	
 КонецФункции
+
 

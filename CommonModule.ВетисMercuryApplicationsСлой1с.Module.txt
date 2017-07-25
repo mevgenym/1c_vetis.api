@@ -18,15 +18,15 @@
 		Возврат;
 	КонецЕсли;
 	
-	_Отладка = кпс.РазрешенаОтладка();
+	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
 	
 	_всд = _СтрокаСЖ.ВСД.ПолучитьОбъект();
 	
-	_Отправитель = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_всд.Отправитель);
-	_Получатель = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_всд.Получатель);
+	_Отправитель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Отправитель);
+	_Получатель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Получатель);
 	
-	_ОтправительПредприятие = ВетисCerberusEnterpriseСлой1с.EnterpriseПунктНазначения(_всд.ОтправительПредприятие);
-	_ПолучательПредприятие = ВетисCerberusEnterpriseСлой1с.EnterpriseПунктНазначения(_всд.ПолучательПредприятие);
+	_ОтправительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ОтправительПредприятие);
+	_ПолучательПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ПолучательПредприятие);
 	
 	_delivery = ВетисMercuryVetdocument.Delivery(
 		ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
@@ -148,6 +148,46 @@
 	
 КонецПроцедуры
 
+Процедура TransportOperation(пСтрокаСЖ) Экспорт
+	
+	_СтрокаСЖ = пСтрокаСЖ;
+	
+	Если НЕ _СтрокаСЖ.ВСД.Проведен Тогда
+		Возврат;
+	КонецЕсли;
+	
+	Если ЗначениеЗаполнено(_СтрокаСЖ.ВСД.Статус) И НЕ _СтрокаСЖ.ВСД.Статус = Перечисления.ВетисVetDocumentStatus.Оформлен Тогда
+		Возврат;
+	КонецЕсли;
+	
+	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
+	
+	_всд = _СтрокаСЖ.ВСД.ПолучитьОбъект();
+	
+	_Отправитель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Отправитель);
+	_Получатель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Получатель);
+	
+	_ОтправительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ОтправительПредприятие);
+	_ПолучательПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ПолучательПредприятие);
+	
+	_delivery = ВетисMercuryVetdocument.Delivery(
+		ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
+		ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
+		ПолучитьBatch(_всд.СкладскойЖурнал[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест, ВетисMercuryVetdocument.Consignment()),
+		ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)));
+	
+	
+	_Request = ВетисMercuryApplications.prepareOutcomingConsignmentRequest(_delivery);
+	
+	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "prepareOutcomingConsignmentRequest", _Получатель, Ложь, _Отладка);
+	
+	Если _Response = Ложь Тогда Возврат; КонецЕсли;
+	
+	Модифицированность = Истина;
+	
+	_Response = ВетисMercuryApplications.processIncomingConsignmentResponse(_Response);
+	
+КонецПроцедуры
 
 Процедура WithdrawVetDocumentOperation(пСсылка, пПричина) Экспорт
 	
@@ -159,7 +199,7 @@
 		Возврат;
 	КонецЕсли;
 	
-	_Отладка = кпс.РазрешенаОтладка();
+	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
 	
 	_uuid = ВетисMercuryVetdocumentСлой1с.VetDocument(пСсылка);
 	
@@ -169,7 +209,7 @@
 	
 	_Request = ВетисMercuryApplications.withdrawVetDocumentRequest(_uuid, _Причина, ТекущаяДата(), _user);
 	
-	_Получатель = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(пСсылка.Получатель);
+	_Получатель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(пСсылка.Получатель);
 	
 	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "withdrawVetDocumentRequest", _Получатель, Ложь, _Отладка);
 	
@@ -246,7 +286,7 @@
 	_waybill.issueNumber   = _СтрокаТТН.Номер;
 	_waybill.issueDate     = _СтрокаТТН.Дата;
 	_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(_СтрокаТТН.Тип);
-	_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_СтрокаТТН.Посредник));
+	_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
 	_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
 	_waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
 	

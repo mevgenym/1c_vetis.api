@@ -191,7 +191,7 @@
 // Операция предназначена для оформления транспортной партии.
 // Параметры:
 //  delivery - vetd:Delivery - Сведения для оформления транспортного ВСД
-Функция PrepareOutcomingConsignmentRequest(delivery) Экспорт
+Функция prepareOutcomingConsignmentRequest(delivery) Экспорт
 	
 	_Объект = Создать("PrepareOutcomingConsignmentRequest");
 	
@@ -203,9 +203,9 @@
 	
 КонецФункции
 
-Функция ProcessOutcomingConsignmentResponse(пResponse) Экспорт
+Функция prepareOutcomingConsignmentResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.processIncomingConsignmentResponse, "ProcessOutcomingConsignmentResponse", URI());
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.processIncomingConsignmentResponse, "PrepareOutcomingConsignmentResponse", URI());
 	
 КонецФункции
 
@@ -221,7 +221,7 @@
 //  responsible - argc:User - Ответственный за инвентаризацию
 //  stockDiscrepancy - vetd:StockDiscrepancy - Сведения о результате инвентаризации (по одному факту расхождения)
 //  discrepancyReport - vetd:DiscrepancyReport - Сведения об акте несоответствия
-Функция ResolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport) Экспорт
+Функция resolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport) Экспорт
 	
 	_Объект = Создать("ResolveDiscrepancyRequest");
 	
@@ -239,7 +239,7 @@
 
 // Объект содержит сведения о результатах обработки заявки на регистрацию несоответствий
 // в записях складского журнала, выявленных в результате инвентаризации.
-Функция ResolveDiscrepancyResponse(пResponse) Экспорт
+Функция resolveDiscrepancyResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ResolveDiscrepancyResponse, "ResolveDiscrepancyResponse", URI()).stockEntryList;
 	

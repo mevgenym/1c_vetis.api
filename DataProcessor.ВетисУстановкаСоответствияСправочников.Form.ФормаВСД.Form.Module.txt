@@ -21,13 +21,13 @@
 	
 	СписокВетис.Очистить();
 	
-	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntityОрганизация(Организация);
+	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(ЗаполнениеДокументов.ПолучитьКонтрагентаПоОрганизации(Организация));
 	
 	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
 	
 	_ListRequest = ВетисMercuryApplications.getVetDocumentListRequest(_enterpriseGuid);
 	
-	_Отладка = кпс.РазрешенаОтладка();
+	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
 	
 	Пока Истина Цикл
 		
@@ -49,9 +49,9 @@
 			
 			ТаблицаСтрока.confirmedBy = _Item.confirmedBy.fio;
 			
-			ТаблицаСтрока.consignee = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_Item.consignee.businessEntity.guid);
+			ТаблицаСтрока.consignee = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignee.businessEntity.guid);
 			
-			ТаблицаСтрока.consignor = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_Item.consignor.businessEntity.guid);
+			ТаблицаСтрока.consignor = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignor.businessEntity.guid);
 			
 			ТаблицаСтрока.form = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_Item.form);
 			
@@ -89,7 +89,7 @@
 			
 			ТаблицаСтрока.СтранаПроисхождения = ВетисIkarСлой1с.Country(_Item.batch.countryOfOrigin.guid);
 			
-			ТаблицаСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.EnterpriseПунктНазначения(_Item.batch.producerList.producer[0].enterprise.guid);
+			ТаблицаСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise.guid);
 			
 			Если НЕ ЗначениеЗаполнено(ТаблицаСтрока.ПроизводительПредприятие) Тогда
 				ТаблицаСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(_Item.batch.producerList.producer[0].enterprise.guid);
@@ -99,7 +99,7 @@
 			
 			ТаблицаСтрока.НекачественныйГруз = _Item.batch.lowGradeCargo;
 			
-			ТаблицаСтрока.Собственник = ВетисCerberusEnterpriseСлой1с.BusinessEntityКонтрагент(_Item.batch.owner.guid);
+			ТаблицаСтрока.Собственник = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.batch.owner.guid);
 			
 		КонецЦикла;
 		
@@ -133,9 +133,9 @@
 &НаСервере
 Процедура СоздатьСвязьСервер(uuid, пСсылка) Экспорт
 	
-	_Отладка = кпс.РазрешенаОтладка();
+	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
 	
-	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntityОрганизация(Организация);
+	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(ЗаполнениеДокументов.ПолучитьКонтрагентаПоОрганизации(Организация));
 	
 	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
 	
@@ -222,17 +222,9 @@
 &НаКлиенте
 Процедура ОрганизацияПриИзменении(Элемент)
 	
-	//issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntityОрганизация(Организация);
 	
 КонецПроцедуры
 
-
-&НаКлиенте
-Процедура СкладПриИзменении(Элемент)
-	
-	//enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
-	
-КонецПроцедуры
 
 &НаКлиенте
 Процедура СкладНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
@@ -241,7 +233,7 @@
 	
 	оо = Новый ОписаниеОповещения("СкладыОбработкаОповещения", ЭтаФорма);
 	
-	ОткрытьФорму("Справочник.Склады.Форма.кпсФормаВыбораУФ", Новый Структура("Ключ,Запрос", Склад, ПолучитьТекстЗапросаСправочникСкладыФормаВыбора()), ,,,, оо);
+	ОткрытьФорму("Справочник.Склады.ФормаВыбора", Новый Структура("Ключ,Запрос", Склад, ПолучитьТекстЗапросаСправочникСкладыФормаВыбора()), ,,,, оо);
 	
 КонецПроцедуры
 
@@ -250,7 +242,6 @@
 	
 	Если НЕ Результат = Неопределено Тогда
 		Склад = Результат;
-		//enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
 	КонецЕсли;
 	
 КонецПроцедуры

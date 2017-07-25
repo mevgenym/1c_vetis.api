@@ -1,0 +1,99 @@
+﻿
+&НаСервере
+Процедура ПриСозданииНаСервере(Отказ, СтандартнаяОбработка)
+	
+	Параметры.Свойство("Склад", Склад);
+	
+	ЗаполнитьНаСервере();
+	
+КонецПроцедуры
+
+&НаСервере
+Процедура ЗаполнитьНаСервере()
+	
+	enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Склад);
+	
+	_ListRequest = ВетисMercuryApplications.getStockEntryListRequest(enterpriseGuid);
+	
+	СкладскойЖурнал.Очистить();
+	
+	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
+	
+	Пока Истина Цикл
+		
+		_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_ListRequest, "getStockEntryListRequest", Ложь, _Отладка);
+		
+		Если _Response = Ложь Тогда Прервать;	КонецЕсли;
+		
+		_ListResponse = ВетисMercuryApplications.getStockEntryListResponse(_Response);
+		
+		Для Каждого _Item из ВетисMercuryVetdocument.StockEntryListИтератор(_ListResponse) Цикл
+			ЗаполнитьСтроку(_Item);
+		КонецЦикла;
+		
+		Если НЕ ВетисMercuryApplications.getStockEntryListRequestСледующий(_ListRequest, _ListResponse) Тогда
+			Прервать;
+		КонецЕсли;
+		
+	КонецЦикла;
+	
+КонецПроцедуры
+
+&НаСервере
+Процедура ЗаполнитьСтроку(Item)
+	
+	//_batch = ВетисОбщегоНазначения.СтруктураИзОбъекта(Item.batch);
+	//
+	//_Строка = СкладскойЖурнал.Добавить();
+	//
+	//_Строка.guid = Item.guid;
+	//
+	//_Строка.Дата = ВетисBase.xsDate(Item.createDate);
+	//
+	//Если _batch.Свойство("expirydate") Тогда
+	//	_Строка.ГоденДо 		= ВетисBase.ComplexDate(_batch.expirydate.firstdate);
+	//КонецЕсли;
+	//
+	//Если _batch.Свойство("expirydate") Тогда
+	//	_Строка.ДатаВыпуска  = ВетисBase.ComplexDate(_batch.DateOfProduction.firstdate);
+	//КонецЕсли;
+	//
+	//_Строка.Страна       = ВетисIkarСлой1с.Country(_batch.countryOfOrigin);
+	//
+	//_Строка.Наименование = _batch.productItem.name;
+	//_Строка.НоменклатурнаяГруппа = ВетисArgusProductionСлой1с.SubProduct(_batch.subProduct);
+	//_Строка.Единица      = ВетисArgusCommonСлой1с.Unit(_batch.unit);
+	//_Строка.Количество   = Число(_batch.volume);
+	//_Строка.КоличествоМест = Число(_batch.packingAmount);
+	//
+	//Если _batch.Свойство("producerList") Тогда
+	//	Для каждого _Item Из ВетисCerberusEnterprise.ProducerListИтератор(_batch.producerList) Цикл
+	//		_Строка.Производитель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.enterprise);
+	//		Прервать;
+	//	КонецЦикла;
+	//КонецЕсли;
+	//
+	//Если _batch.Свойство("packingList") Тогда
+	//	Для каждого _Item Из ВетисArgusCommon.PackingFormListИтератор(_batch.packingList) Цикл
+	//		_Строка.Упаковка = ВетисArgusCommonСлой1с.PackingForm(_Item);
+	//		Прервать;
+	//	КонецЦикла;
+	//КонецЕсли;
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура Заполнить(Команда)
+	
+	ЗаполнитьНаСервере();
+	
+КонецПроцедуры
+
+
+&НаКлиенте
+Процедура Выбрать(Команда)
+	
+	ОповеститьОВыборе(Элементы.СкладскойЖурнал.ТекущиеДанные);
+	
+КонецПроцедуры
+

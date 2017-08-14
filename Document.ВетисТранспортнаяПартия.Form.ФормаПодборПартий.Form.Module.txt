@@ -4,6 +4,8 @@
 	
 	Параметры.Свойство("Склад", Склад);
 	
+	Параметры.Свойство("Организация", Организация);
+	
 	ЗаполнитьНаСервере();
 	
 КонецПроцедуры
@@ -11,29 +13,18 @@
 &НаСервере
 Процедура ЗаполнитьНаСервере()
 	
-	enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Склад);
+	Перем _Item, _Параметры;
 	
-	_ListRequest = ВетисMercuryApplications.getStockEntryListRequest(enterpriseGuid);
+	
+	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
+	
+	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(ЗаполнениеДокументов.ПолучитьКонтрагентаПоОрганизации(Организация));
 	
 	СкладскойЖурнал.Очистить();
 	
-	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
-	
-	Пока Истина Цикл
+	Пока ВетисMercuryApplications.getVetDocumentListСледующий(_enterpriseGuid, _issuerId, _Item, _Параметры) Цикл
 		
-		_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_ListRequest, "getStockEntryListRequest", Ложь, _Отладка);
-		
-		Если _Response = Ложь Тогда Прервать;	КонецЕсли;
-		
-		_ListResponse = ВетисMercuryApplications.getStockEntryListResponse(_Response);
-		
-		Для Каждого _Item из ВетисMercuryVetdocument.StockEntryListИтератор(_ListResponse) Цикл
-			ЗаполнитьСтроку(_Item);
-		КонецЦикла;
-		
-		Если НЕ ВетисMercuryApplications.getStockEntryListRequestСледующий(_ListRequest, _ListResponse) Тогда
-			Прервать;
-		КонецЕсли;
+		ЗаполнитьСтроку(_Item);
 		
 	КонецЦикла;
 	

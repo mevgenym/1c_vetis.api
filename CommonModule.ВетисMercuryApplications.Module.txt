@@ -1,4 +1,6 @@
 ﻿
+#Область StockEntry
+
 // Получение записи складского журнала по идентификатору.
 Функция getStockEntryByGuidRequest(guid, enterpriseGuid) Экспорт
 	
@@ -16,6 +18,18 @@
 Функция getStockEntryByGuidResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getStockEntryByGuidResponse, "getStockEntryByGuidResponse", URI()).stockEntry;
+	
+КонецФункции
+
+Функция getStockEntryByGuid(guid, enterpriseGuid, issuerId = Неопределено, Отказ = Ложь) Экспорт
+	
+	_Request = ВетисMercuryApplications.getStockEntryByGuidRequest(guid, enterpriseGuid);
+	
+	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "getStockEntryByGuidRequest", issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат ВетисMercuryApplications.getStockEntryByGuidResponse(_Response);
 	
 КонецФункции
 
@@ -49,6 +63,62 @@
 	
 КонецФункции
 
+// Предназначена для получения списка записей складского журнала
+// Используется самостоятельно в цикле Пока.
+// Параметры:
+//  enterpriseGuid - Идентификатор предприятия
+//  issuerId       - Идентификатор ХС
+//  пItem          - элемент списка, возвращаемый параметр
+//  пПараметры     - для внутреннего использования, начальное значение - Неопределено, обязательный
+// Возвращаемое значение:
+//	Булево         - Ложь значит список пройден весь
+Функция getStockEntryListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры = Неопределено) Экспорт
+	
+	Если пПараметры = Неопределено Тогда
+		пПараметры = Новый Структура;
+		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
+		пПараметры.Вставить("Индекс", 0);
+		
+		пПараметры.Вставить("ListRequest", ВетисMercuryApplications.getVetDocumentListRequest(enterpriseGuid));
+		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
+		
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListOptions.offset + пПараметры.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListOptions.offset = пПараметры.ListOptions.offset + пПараметры.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.stockEntry[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(пПараметры.ListRequest, "getStockEntryListRequest", issuerId, Ложь, пПараметры.Отладка);
+	
+	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
+	
+	_ListResponse = ВетисMercuryApplications.getStockEntryListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.stockEntry[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область VetDocument
 
 // Получение ВСД
 // Параметры:
@@ -70,6 +140,18 @@
 Функция getVetDocumentByUuidResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getVetDocumentByUuidResponse, "getVetDocumentByUuidResponse", URI()).vetDocument;
+	
+КонецФункции
+
+Функция getVetDocumentByUuid(vetDocumentUuid, enterpriseGuid, issuerId = Неопределено, Отказ = Ложь) Экспорт
+	
+	_Request = ВетисMercuryApplications.getVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid);
+	
+	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "getVetDocumentByUuidRequest", issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат ВетисMercuryApplications.getVetDocumentByUuidResponse(_Response);
 	
 КонецФункции
 
@@ -112,6 +194,60 @@
 	
 КонецФункции
 
+// Предназначена для получения всех ВСД предприятия
+// Используется самостоятельно в цикле Пока.
+// Параметры:
+//  enterpriseGuid - Идентификатор предприятия
+//  issuerId       - Идентификатор ХС
+//  пItem          - элемент списка, возвращаемый параметр
+//  пПараметры     - для внутреннего использования, начальное значение - Неопределено, обязательный
+// Возвращаемое значение:
+//	Булево         - Ложь значит список пройден весь
+Функция getVetDocumentListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры = Неопределено) Экспорт
+	
+	Если пПараметры = Неопределено Тогда
+		пПараметры = Новый Структура;
+		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
+		пПараметры.Вставить("Индекс", 0);
+		
+		пПараметры.Вставить("ListRequest", ВетисMercuryApplications.getVetDocumentListRequest(enterpriseGuid));
+		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
+		
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListOptions.offset + пПараметры.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListOptions.offset = пПараметры.ListOptions.offset + пПараметры.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(пПараметры.ListRequest, "getVetDocumentListRequest", issuerId, Ложь, пПараметры.Отладка);
+	
+	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
+	
+	_ListResponse = ВетисMercuryApplications.getVetDocumentListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+#КонецОбласти
 
 #Область MergeOperation
 

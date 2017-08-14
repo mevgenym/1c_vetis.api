@@ -262,7 +262,8 @@
 		Иначе
 			_СтрокаВСД = пВСД.ВСД[0];
 			_VetDocument.issueDate          = пВСД.Дата;
-			_VetDocument.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(Справочники.ВетисPurpose.НайтиПоНаименованию("возврат груза")));
+			//_VetDocument.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(Справочники[ВетисИмяСправочника.Purpose()].НайтиПоНаименованию("возврат груза")));
+			_VetDocument.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(ВетисПредопределенные.Получить("Purpose.ВозвратГруза")));
 			_VetDocument.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 			_VetDocument.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
 			_VetDocument.confirmedBy        = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинВрача());
@@ -279,24 +280,7 @@
 &НаСервере
 Функция ПолучитьWaybill(пВСД, пВозврат = Ложь)
 	
-	_СтрокаТТН = пВСД.ТТН[0];
-	
-	_waybill = ВетисArgusShipment.Создать("Waybill");
-	_waybill.issueSeries   = _СтрокаТТН.Серия;
-	_waybill.issueNumber   = _СтрокаТТН.Номер;
-	_waybill.issueDate     = _СтрокаТТН.Дата;
-	_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(_СтрокаТТН.Тип);
-	_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
-	_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
-	_waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
-	
-	Если пВозврат = Истина Тогда
-		_waybill.issueSeries   = "";
-		_waybill.issueNumber   = "";
-		_waybill.issueDate     = пВСД.Дата;
-	КонецЕсли;
-	
-	Возврат _waybill;
+	Возврат ВетисArgusShipmentСлой1с.WaybillКонвертировать(пВСД.ТТН[0], пВСД.Дата, пВозврат);
 	
 КонецФункции
 

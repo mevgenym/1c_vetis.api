@@ -1,19 +1,8 @@
 ﻿
 // Тип, описывающий товарно-транспортную накладную.
-Функция Waybill(type, issueNumber, issueDate, broker, transportInfo, transportStorageType) Экспорт
+Функция Waybill() Экспорт
 	
 	_Объект = Создать("Waybill");
-	
-	_Объект.type                    = type;//Тип товарно-транспортной накладной.
-	//_Объект.issueSeries             = ;//Серия документа.
-	_Объект.issueNumber             = issueNumber;//Номер документа.
-	_Объект.issueDate               = issueDate;//Дата документа.
-	//_Объект.consignor               = ;//Сведения об отправителе (владельце).
-	//_Объект.consignee               = ;//Сведения о получателе груза.
-	_Объект.broker                  = broker;//Сведения о фирме-посреднике.
-	_Объект.transportInfo           = transportInfo;//Сведения о транспорте.
-	_Объект.transportStorageType    = transportStorageType;//Способ хранения при перевозке.
-	//_Объект.cargoReloadingPointList = ;//Сведения о маршруте следования (пунктах перегрузки).
 	
 	Возврат _Объект;
 	
@@ -25,6 +14,14 @@
 	
 	_Объект.transportType   = transportType;  //Тип транспортного средства.
 	_Объект.transportNumber = transportNumber;//Номера транспортного средства.
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция TransportNumber() Экспорт
+	
+	_Объект = Создать("TransportNumber");
 	
 	Возврат _Объект;
 	

@@ -298,7 +298,8 @@
 		_СтрокаСЖ = value1;
 		_batch    = value2;
 		
-		_строкаСЖ.НоменклатурнаяГруппа = ВетисArgusProductionСлой1с.SubProduct(_batch.subProduct);
+		_строкаСЖ.Номенклатура         = ВетисArgusProductionСлой1с.ProductItem(_batch.productItem);
+		_строкаСЖ.НоменклатурнаяГруппа = _строкаСЖ.Номенклатура.НоменклатурнаяГруппа;
 		_строкаСЖ.Количество           = _batch.volume;
 		_строкаСЖ.КоличествоМест       = _batch.packingAmount;
 		_строкаСЖ.ЕдиницаИзмерения     = ВетисArgusCommonСлой1с.Unit(_batch.unit);
@@ -320,8 +321,7 @@
 		_batch    = value1;
 		_СтрокаСЖ = value2;
 		
-		_subProduct = ВетисArgusProduction.GetSubProductByGuid(ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа));
-		_product    = ВетисArgusProduction.GetProductByGuid(_subProduct.productGuid);
+		_productItem = ВетисArgusProduction.GetProductItemByGuid(ВетисArgusProductionСлой1с.ProductItem(_СтрокаСЖ.Номенклатура));
 		
 		_unitGuid = ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения);
 		_unit     = ВетисArgusCommon.Unit(_unitGuid);
@@ -329,10 +329,10 @@
 		_unitws    = ВетисArgusCommon.GetUnitByGuid(_unitGuid);
 		_unit.uuid = _unitws.uuid;
 		
-		_batch.subProduct       = ВетисArgusProduction.SubProduct(_subProduct.guid);
-		_batch.product          = ВетисArgusProduction.Product(_subProduct.productGuid);
-		_batch.productType      = _product.productType;
-		_batch.productItem      = ВетисArgusProduction.ProductItem(_subProduct.name);
+		_batch.productType      = _productItem.productType;
+		_batch.product          = ВетисArgusProduction.Product(_productItem.product);
+		_batch.subProduct       = ВетисArgusProduction.SubProduct(_productItem.subProduct);
+		_batch.productItem      = ВетисArgusProduction.ProductItem(_productItem);
 		_batch.volume           = _СтрокаСЖ.Количество;
 		_batch.unit             = _unit;
 		_batch.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
@@ -349,9 +349,9 @@
 	
 КонецФункции
 
-Процедура Синхронизировать(пСсылка = Неопределено) Экспорт
+Процедура Синхронизировать(пСсылка = Неопределено, пОрганизация = Неопределено, пПредприятие = Неопределено) Экспорт
 	
-	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
+	Перем _issuerId, _enterpriseGuid;
 	
 	Запрос = Новый Запрос;
 	Запрос.Текст =
@@ -369,68 +369,68 @@
 	
 	_Ветки = Запрос.Выполнить().Выгрузить();
 	
-	Запрос = Новый Запрос;
-	Запрос.Текст =
-	"ВЫБРАТЬ
-	|	_Таблица.Ссылка,
-	|	_Таблица.guid
-	|ИЗ
-	|	РегистрСведений.ВетисСоответствие КАК _Таблица
-	|ГДЕ
-	|	_Таблица.Ссылка ССЫЛКА Справочник.Склады";
-	
-	Результат = Запрос.Выполнить();
-	Выборка = Результат.Выбрать();
-	
-	Пока Выборка.Следующий() Цикл
+	Если пПредприятие = Неопределено Тогда
+		Запрос = Новый Запрос;
+		Запрос.Текст =
+		"ВЫБРАТЬ
+		|	_Таблица.Ссылка,
+		|	_Таблица.guid
+		|ИЗ
+		|	РегистрСведений.ВетисСоответствие КАК _Таблица
+		|ГДЕ
 		
-		_Request = ВетисMercuryApplications.getVetDocumentListRequest(Выборка.guid);
+		Результат = Запрос.Выполнить();
+		Выборка = Результат.Выбрать();
 		
-		Пока Истина Цикл
-			
-			_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "getVetDocumentListRequest", , Ложь, _Отладка);
-			
-			Если _Response = Ложь Тогда Прервать;	КонецЕсли;
-			
-			_Response = ВетисMercuryApplications.getVetDocumentListResponse(_Response);
-			
-			Для Каждого _VetDocument из ВетисMercuryVetdocument.VetDocumentListИтератор(_Response) Цикл
-				
-				_Строка = _Ветки.Найти(_VetDocument.uuid, "uuid");
-				
-				Если _Строка = Неопределено Тогда
-					_док = Документы.ВетисВетеринарноСопроводительныйДокумент.СоздатьДокумент();
-					_док.Дата = ТекущаяДата();
-				ИначеЕсли _Строка.Тип = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_VetDocument.type)
-					И _Строка.Статус = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_VetDocument.status) Тогда
-					//считаем что ничего не изменилось
-					_Ветки.Удалить(_Строка);
-					Продолжить;
-				Иначе
-					_док = _Строка.Ссылка.ПолучитьОбъект();
-					_Ветки.Удалить(_Строка);
-				КонецЕсли;
-				
-				ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _VetDocument);
-				
-				_док.ДатаОбновления = ТекущаяДата();
-				
-				_док.ДополнительныеСвойства.Вставить("Загрузка");
-				
-				_док.Записать(РежимЗаписиДокумента.Проведение);
-				
-			КонецЦикла;
-			
-			Если НЕ ВетисMercuryApplications.getVetDocumentListRequestСледующий(_Request, _Response) Тогда
-				Прервать;
-			КонецЕсли;
-			
-		КонецЦикла;//запрос к апи
+		Если НЕ пОрганизация = Неопределено Тогда
+			_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(ЗаполнениеДокументов.ПолучитьКонтрагентаПоОрганизации(пОрганизация));
+		КонецЕсли;
 		
-	КонецЦикла;// список предприятий
+		Пока Выборка.Следующий() Цикл
+			
+			СинхронизироватьОрганизацияПредприятие(Выборка.guid, _issuerId, _Ветки);
+			
+		КонецЦикла;// список предприятий
+	Иначе
+		СинхронизироватьОрганизацияПредприятие(ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие), _issuerId, _Ветки);
+		
+	КонецЕсли;
 	
 	Для каждого _Строка Из _Ветки Цикл
 		_Строка.Ссылка.ПолучитьОбъект().УстановитьПометкуУдаления(Истина);
+	КонецЦикла;
+	
+КонецПроцедуры
+
+Процедура СинхронизироватьОрганизацияПредприятие(enterpriseGuid, issuerId = Неопределено, пВетки) Экспорт
+	
+	Перем _VetDocument, _Параметры;
+	
+	Пока ВетисMercuryApplications.getVetDocumentListСледующий(enterpriseGuid, issuerId, _VetDocument, _Параметры) Цикл
+		
+		_Строка = пВетки.Найти(_VetDocument.uuid, "uuid");
+		
+		Если _Строка = Неопределено Тогда
+			_док = Документы.ВетисВетеринарноСопроводительныйДокумент.СоздатьДокумент();
+			_док.Дата = ТекущаяДата();
+		ИначеЕсли _Строка.Тип = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_VetDocument.type)
+			И _Строка.Статус = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_VetDocument.status) Тогда
+			//считаем что ничего не изменилось
+			пВетки.Удалить(_Строка);
+			Продолжить;
+		Иначе
+			_док = _Строка.Ссылка.ПолучитьОбъект();
+			пВетки.Удалить(_Строка);
+		КонецЕсли;
+		
+		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _VetDocument);
+		
+		_док.ДатаОбновления = ТекущаяДата();
+		
+		_док.ДополнительныеСвойства.Вставить("Загрузка");
+		
+		_док.Записать(РежимЗаписиДокумента.Проведение);
+		
 	КонецЦикла;
 	
 КонецПроцедуры

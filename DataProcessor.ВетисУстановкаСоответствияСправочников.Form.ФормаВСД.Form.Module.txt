@@ -19,9 +19,13 @@
 &НаСервере
 Процедура СписокВетисЗаполнитьСервер()
 	
+	Перем _Item, _Параметры;
+	
 	СписокВетис.Очистить();
 	
 	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(ЗаполнениеДокументов.ПолучитьКонтрагентаПоОрганизации(Организация));
+	
+	//_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Справочники[ВетисИмяСправочника.Enterprise()].НайтиПоРеквизиту("Склад", Склад));
 	
 	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
 	
@@ -29,83 +33,63 @@
 	
 	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
 	
-	Пока Истина Цикл
+	Пока ВетисMercuryApplications.getVetDocumentListСледующий(_enterpriseGuid, _issuerId, _Item, _Параметры) Цикл
 		
-		_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_ListRequest, "getVetDocumentListRequest", _issuerId, Ложь, _Отладка);
+		_ТаблицаСтрока = СписокВетис.Добавить();
 		
-		Если _Response = Ложь Тогда Прервать;	КонецЕсли;
+		ЗаполнитьЗначенияСвойств(_ТаблицаСтрока, _Item);
 		
-		_ListResponse = ВетисMercuryApplications.getVetDocumentListResponse(_Response);
+		_ТаблицаСтрока.confirmedBy = _Item.confirmedBy.fio;
 		
-		Для Каждого _Item из ВетисMercuryVetdocument.VetDocumentListИтератор(_ListResponse) Цикл
-			
-			ТаблицаСтрока = СписокВетис.Добавить();
-			
-			ЗаполнитьЗначенияСвойств(ТаблицаСтрока, _Item);
-			
-			ТаблицаСтрока.cargoExpertized = _Item.cargoExpertized;
-			
-			ТаблицаСтрока.cargoInspected = _Item.cargoInspected;
-			
-			ТаблицаСтрока.confirmedBy = _Item.confirmedBy.fio;
-			
-			ТаблицаСтрока.consignee = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignee.businessEntity.guid);
-			
-			ТаблицаСтрока.consignor = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignor.businessEntity.guid);
-			
-			ТаблицаСтрока.form = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_Item.form);
-			
-			ТаблицаСтрока.issueDate = _Item.issueDate;
-			
-			ТаблицаСтрока.purpose = ВетисArgusCommonСлой1с.Purpose(_Item.purpose.guid);
-			
-			ТаблицаСтрока.status = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_Item.status);
-			
-			//ТаблицаСтрока.transferPermit = ?(_Item.Свойство("transferPermit"), "№" + _Item.transferPermit.issueNumber + " от " + _Item.transferPermit.issueDate, "");
-			
-			ТаблицаСтрока.transportInfo = _Item.transportInfo.transportNumber.vehicleNumber;//?(_Item.Свойство("transportInfo"), "номер: " + _Item.transportInfo.transportNumber.vehicleNumber, "");
-			
-			ТаблицаСтрока.transportType = ВетисArgusShipmentСлой1с.TransportType(_Item.transportInfo.transportType);//?(_Item.Свойство("transportInfo"), ВетисArgusShipmentСлой1с.TransportType(_Item.transportInfo.transportType), Неопределено);
-			
-			ТаблицаСтрока.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_Item.transportStorageType);
-			
-			ТаблицаСтрока.type = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_Item.type);
-			
-			ТаблицаСтрока.waybillType = ВетисArgusShipmentСлой1с.WaybillType(_Item.waybillType);
-			
-			ТаблицаСтрока.waybill = "№" + _Item.waybillNumber + " от " + ВетисBase.xsDate(_Item.waybillDate);
-			
-			ТаблицаСтрока.НоменклатурнаяГруппа = ВетисArgusProductionСлой1с.SubProduct(_Item.batch.subProduct.guid);
-			
-			ТаблицаСтрока.Количество = _Item.batch.volume;
-			
-			ТаблицаСтрока.КоличествоМест = _Item.batch.packingAmount;
-			
-			ТаблицаСтрока.ЕдиницаИзмерения = ВетисArgusCommonСлой1с.Unit(_Item.batch.unit.guid);
-			
-			ТаблицаСтрока.Упаковка = ВетисArgusCommonСлой1с.PackingForm(_Item.batch.packingList);
-			
-			ТаблицаСтрока.Скоропортящаяся = _Item.batch.perishable;
-			
-			ТаблицаСтрока.СтранаПроисхождения = ВетисIkarСлой1с.Country(_Item.batch.countryOfOrigin.guid);
-			
-			ТаблицаСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise.guid);
-			
-			Если НЕ ЗначениеЗаполнено(ТаблицаСтрока.ПроизводительПредприятие) Тогда
-				ТаблицаСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(_Item.batch.producerList.producer[0].enterprise.guid);
-			КонецЕсли;
-			
-			//ТаблицаСтрока.Производитель = ;
-			
-			ТаблицаСтрока.НекачественныйГруз = _Item.batch.lowGradeCargo;
-			
-			ТаблицаСтрока.Собственник = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.batch.owner.guid);
-			
-		КонецЦикла;
+		_ТаблицаСтрока.consignee = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignee.businessEntity);
 		
-		Если НЕ ВетисMercuryApplications.getVetDocumentListRequestСледующий(_ListRequest, _ListResponse) Тогда
-			Прервать;
+		_ТаблицаСтрока.consignor = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignor.businessEntity);
+		
+		_ТаблицаСтрока.form = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_Item.form);
+		
+		_ТаблицаСтрока.purpose = ВетисArgusCommonСлой1с.Purpose(_Item.purpose);
+		
+		_ТаблицаСтрока.status = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_Item.status);
+		
+		_ТаблицаСтрока.transferPermit = ?(_Item.transferPermit = Неопределено, "", "№" + _Item.transferPermit.issueNumber + " от " + _Item.transferPermit.issueDate);
+		
+		_ТаблицаСтрока.transportInfo = _Item.transportInfo.transportNumber.vehicleNumber;
+		
+		_ТаблицаСтрока.transportType = ВетисArgusShipmentСлой1с.TransportType(_Item.transportInfo.transportType);
+		
+		_ТаблицаСтрока.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_Item.transportStorageType);
+		
+		_ТаблицаСтрока.type = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_Item.type);
+		
+		_ТаблицаСтрока.waybillType = ВетисArgusShipmentСлой1с.WaybillType(_Item.waybillType);
+		
+		_ТаблицаСтрока.waybill = "№" + _Item.waybillNumber + " от " + ВетисBase.xsDate(_Item.waybillDate);
+		
+		_ТаблицаСтрока.НоменклатурнаяГруппа = ВетисArgusProductionСлой1с.SubProduct(_Item.batch.subProduct);
+		
+		_ТаблицаСтрока.Количество = _Item.batch.volume;
+		
+		_ТаблицаСтрока.КоличествоМест = _Item.batch.packingAmount;
+		
+		_ТаблицаСтрока.ЕдиницаИзмерения = ВетисArgusCommonСлой1с.Unit(_Item.batch.unit);
+		
+		_ТаблицаСтрока.Упаковка = ВетисArgusCommonСлой1с.PackingForm(_Item.batch.packingList);
+		
+		_ТаблицаСтрока.Скоропортящаяся = _Item.batch.perishable;
+		
+		_ТаблицаСтрока.СтранаПроисхождения = ВетисIkarСлой1с.Country(_Item.batch.countryOfOrigin);
+		
+		_ТаблицаСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise);
+		
+		Если НЕ ЗначениеЗаполнено(_ТаблицаСтрока.ПроизводительПредприятие) Тогда
+			_ТаблицаСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(_Item.batch.producerList.producer[0].enterprise);
 		КонецЕсли;
+		
+		//ТаблицаСтрока.Производитель = ;
+		
+		_ТаблицаСтрока.НекачественныйГруз = _Item.batch.lowGradeCargo;
+		
+		_ТаблицаСтрока.Собственник = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.batch.owner);
 		
 	КонецЦикла;
 	
@@ -133,23 +117,19 @@
 &НаСервере
 Процедура СоздатьСвязьСервер(uuid, пСсылка) Экспорт
 	
-	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
+	Перем _Отказ;
 	
 	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(ЗаполнениеДокументов.ПолучитьКонтрагентаПоОрганизации(Организация));
 	
 	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.EnterpriseСклад(Склад);
 	
-	_Request = ВетисMercuryApplications.getVetDocumentByUuidRequest(uuid, _enterpriseGuid);
+	_VetDocument = ВетисMercuryApplications.getVetDocumentByUuid(uuid, _enterpriseGuid, _issuerId, _Отказ);
 	
-	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "getVetDocumentByUuidRequest", _issuerId, Ложь, _Отладка);
-	
-	Если _Response = Ложь Тогда Возврат;	КонецЕсли;
-	
-	_Response = ВетисMercuryApplications.getVetDocumentByUuidResponse(_Response);
+	Если _Отказ = Истина Тогда Возврат; КонецЕсли;
 	
 	_док = пСсылка.ПолучитьОбъект();
 	
-	ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _Response);
+	ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _VetDocument);
 	
 	_док.ОбменДанными.Загрузка = Истина;
 	
@@ -188,18 +168,8 @@
 &НаКлиенте
 Процедура СписокВетисВыбор(Элемент, ВыбраннаяСтрока, Поле, СтандартнаяОбработка)
 	
-	//_ТекДанные = Элементы.СписокВетис.ТекущиеДанные;
-	//
-	//Элементы.СправочникСписок.ТекущаяСтрока = СправочникСписокНайти(_ТекДанные.name)
-	
 КонецПроцедуры
 
-
-Функция СправочникСписокНайти(пНаименование)
-	
-	Возврат Справочники.КлассификаторЕдиницИзмерения.НайтиПоНаименованию(пНаименование);
-	
-КонецФункции
 
 &НаКлиенте
 Процедура СправочникСписокВыбор(Элемент, ВыбраннаяСтрока, Поле, СтандартнаяОбработка)

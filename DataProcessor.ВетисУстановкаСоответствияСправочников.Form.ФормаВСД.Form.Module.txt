@@ -23,9 +23,9 @@
 	
 	СписокВетис.Очистить();
 	
-	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(ХозяйствующийСубъект);
+	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект);
 	
-	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Предприятие);
+	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
 	
 	_ListRequest = ВетисMercuryApplications.getVetDocumentListRequest(_enterpriseGuid);
 	
@@ -117,9 +117,9 @@
 	
 	Перем _Отказ;
 	
-	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(ХозяйствующийСубъект);
+	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект);
 	
-	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Предприятие);
+	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
 	
 	_VetDocument = ВетисMercuryApplications.getVetDocumentByUuid(uuid, _enterpriseGuid, _issuerId, _Отказ);
 	
@@ -194,7 +194,7 @@
 	
 	оо = Новый ОписаниеОповещения("ПредприятиеОбработкаОповещения", ЭтаФорма);
 	
-	ОткрытьФорму(ВетисИмяСправочника.Enterprise("Справочник","ФормаВыбора"), Новый Структура("Ключ,Запрос", Предприятие, ПолучитьТекстЗапросаСправочникПредприятияФормаВыбора()), ,,,, оо);
+	ОткрытьФорму(ВетисИмяСправочника.Enterprise("Справочник","ФормаВыбора"), Новый Структура("Ключ,Запрос", Объект.Предприятие, ПолучитьТекстЗапросаСправочникПредприятияФормаВыбора()), ,,,, оо);
 	
 КонецПроцедуры
 
@@ -202,7 +202,7 @@
 Процедура ПредприятиеОбработкаОповещения(Результат, Параметр) Экспорт
 	
 	Если НЕ Результат = Неопределено Тогда
-		Предприятие = Результат;
+		Объект.Предприятие = Результат;
 	КонецЕсли;
 	
 КонецПроцедуры

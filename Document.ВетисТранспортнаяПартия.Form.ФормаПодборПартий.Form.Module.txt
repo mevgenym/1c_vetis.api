@@ -15,7 +15,7 @@
 	
 	Перем _Item, _Параметры;
 	
-	//_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Справочники[ВетисИмяСправочника.Enterprise()].НайтиПоРеквизиту("Склад", Склад));
+	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Предприятие);
 	
 	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(ХозяйствующийСубъект);
 	

@@ -4,7 +4,7 @@
 КонецПроцедуры
 
 
-Процедура IncomingOperation(пСтрокаСЖ) Экспорт
+Процедура IncomingOperation(пСтрокаСЖ, пОтказ) Экспорт
 	
 	Перем _discrepancyReport, _returnedDelivery;
 	
@@ -89,16 +89,9 @@
 			ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_всд, Истина), ПолучитьVetDocument(_всд, Истина)));
 	КонецЕсли;
 	
+	_Response = ВетисMercuryApplications.processIncomingConsignment(_delivery, _deliveryFacts, _discrepancyReport, _returnedDelivery, _Получатель, пОтказ);
 	
-	_Request = ВетисMercuryApplications.processIncomingConsignmentRequest(_delivery, _deliveryFacts, _discrepancyReport, _returnedDelivery);
-	
-	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "processIncomingConsignmentRequest", _Получатель, Ложь, _Отладка);
-	
-	Если _Response = Ложь Тогда Возврат; КонецЕсли;
-	
-	Модифицированность = Истина;
-	
-	_Response = ВетисMercuryApplications.processIncomingConsignmentResponse(_Response);
+	Если пОтказ = Истина Тогда Возврат; КонецЕсли;
 	
 	Для каждого _vetDocument Из _Response.vetDocument Цикл
 		Если _vetDocument.type = ВетисКонстанты.VetDocumentType_TRANSPORT() Тогда
@@ -148,7 +141,7 @@
 	
 КонецПроцедуры
 
-Процедура TransportOperation(пСтрокаСЖ) Экспорт
+Процедура TransportOperation(пСтрокаСЖ, пОтказ) Экспорт
 	
 	_СтрокаСЖ = пСтрокаСЖ;
 	
@@ -176,20 +169,11 @@
 		ПолучитьBatch(_всд.СкладскойЖурнал[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест, ВетисMercuryVetdocument.Consignment()),
 		ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)));
 	
-	
-	_Request = ВетисMercuryApplications.prepareOutcomingConsignmentRequest(_delivery);
-	
-	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "prepareOutcomingConsignmentRequest", _Получатель, Ложь, _Отладка);
-	
-	Если _Response = Ложь Тогда Возврат; КонецЕсли;
-	
-	Модифицированность = Истина;
-	
-	_Response = ВетисMercuryApplications.processIncomingConsignmentResponse(_Response);
+	_Response = ВетисMercuryApplications.processIncomingConsignment(_delivery, _Получатель, пОтказ);
 	
 КонецПроцедуры
 
-Процедура WithdrawVetDocumentOperation(пСсылка, пПричина) Экспорт
+Процедура WithdrawVetDocumentOperation(пСсылка, пПричина, пОтказ) Экспорт
 	
 	Если НЕ пСсылка.Статус = Перечисления.ВетисVetDocumentStatus.Оформлен Тогда
 		Возврат;
@@ -203,19 +187,13 @@
 	
 	_uuid = ВетисMercuryVetdocumentСлой1с.VetDocument(пСсылка);
 	
-	_user = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинВрача());
-	
 	_Причина = ВетисMercuryVetdocument.WithdrawReason(пПричина);
-	
-	_Request = ВетисMercuryApplications.withdrawVetDocumentRequest(_uuid, _Причина, ТекущаяДата(), _user);
 	
 	_Получатель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(пСсылка.Получатель);
 	
-	_Response = ВетисОбщегоНазначения.ВыполнитьЗапрос(_Request, "withdrawVetDocumentRequest", _Получатель, Ложь, _Отладка);
+	_Response = ВетисMercuryApplications.withdrawVetDocument(_uuid, _Причина, ТекущаяДата(), _Получатель, пОтказ);
 	
-	Если _Response = Ложь Тогда Возврат; КонецЕсли;
-	
-	_Response = ВетисMercuryApplications.withdrawVetDocumentResponse(_Response);
+	Если пОтказ = Истина Тогда Возврат; КонецЕсли;
 	
 	_док = пСсылка.ПолучитьОбъект();
 	

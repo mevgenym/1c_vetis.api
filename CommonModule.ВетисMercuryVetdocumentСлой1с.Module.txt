@@ -299,7 +299,6 @@
 		_batch    = value2;
 		
 		_строкаСЖ.Номенклатура         = ВетисArgusProductionСлой1с.ProductItem(_batch.productItem);
-		_строкаСЖ.НоменклатурнаяГруппа = _строкаСЖ.Номенклатура.НоменклатурнаяГруппа;
 		_строкаСЖ.Количество           = _batch.volume;
 		_строкаСЖ.КоличествоМест       = _batch.packingAmount;
 		_строкаСЖ.ЕдиницаИзмерения     = ВетисArgusCommonСлой1с.Unit(_batch.unit);

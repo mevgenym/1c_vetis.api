@@ -32,43 +32,6 @@
 &НаСервере
 Процедура ЗаполнитьСтроку(Item)
 	
-	//_batch = ВетисОбщегоНазначения.СтруктураИзОбъекта(Item.batch);
-	//
-	//_Строка = СкладскойЖурнал.Добавить();
-	//
-	//_Строка.guid = Item.guid;
-	//
-	//_Строка.Дата = ВетисBase.xsDate(Item.createDate);
-	//
-	//Если _batch.Свойство("expirydate") Тогда
-	//	_Строка.ГоденДо 		= ВетисBase.ComplexDate(_batch.expirydate.firstdate);
-	//КонецЕсли;
-	//
-	//Если _batch.Свойство("expirydate") Тогда
-	//	_Строка.ДатаВыпуска  = ВетисBase.ComplexDate(_batch.DateOfProduction.firstdate);
-	//КонецЕсли;
-	//
-	//_Строка.Страна       = ВетисIkarСлой1с.Country(_batch.countryOfOrigin);
-	//
-	//_Строка.Наименование = _batch.productItem.name;
-	//_Строка.НоменклатурнаяГруппа = ВетисArgusProductionСлой1с.SubProduct(_batch.subProduct);
-	//_Строка.Единица      = ВетисArgusCommonСлой1с.Unit(_batch.unit);
-	//_Строка.Количество   = Число(_batch.volume);
-	//_Строка.КоличествоМест = Число(_batch.packingAmount);
-	//
-	//Если _batch.Свойство("producerList") Тогда
-	//	Для каждого _Item Из ВетисCerberusEnterprise.ProducerListИтератор(_batch.producerList) Цикл
-	//		_Строка.Производитель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.enterprise);
-	//		Прервать;
-	//	КонецЦикла;
-	//КонецЕсли;
-	//
-	//Если _batch.Свойство("packingList") Тогда
-	//	Для каждого _Item Из ВетисArgusCommon.PackingFormListИтератор(_batch.packingList) Цикл
-	//		_Строка.Упаковка = ВетисArgusCommonСлой1с.PackingForm(_Item);
-	//		Прервать;
-	//	КонецЦикла;
-	//КонецЕсли;
 	
 КонецПроцедуры
 

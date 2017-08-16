@@ -33,61 +33,59 @@
 	
 	Пока ВетисMercuryApplications.getVetDocumentListСледующий(_enterpriseGuid, _issuerId, _Item, _Параметры) Цикл
 		
-		_ТаблицаСтрока = СписокВетис.Добавить();
+		_СписокВетисСтрока = СписокВетис.Добавить();
 		
-		ЗаполнитьЗначенияСвойств(_ТаблицаСтрока, _Item);
+		ЗаполнитьЗначенияСвойств(_СписокВетисСтрока, _Item);
 		
-		_ТаблицаСтрока.confirmedBy = _Item.confirmedBy.fio;
+		_СписокВетисСтрока.confirmedBy = _Item.confirmedBy.fio;
 		
-		_ТаблицаСтрока.consignee = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignee.businessEntity);
+		_СписокВетисСтрока.consignee = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignee.businessEntity);
 		
-		_ТаблицаСтрока.consignor = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignor.businessEntity);
+		_СписокВетисСтрока.consignor = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignor.businessEntity);
 		
-		_ТаблицаСтрока.form = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_Item.form);
+		_СписокВетисСтрока.form = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_Item.form);
 		
-		_ТаблицаСтрока.purpose = ВетисArgusCommonСлой1с.Purpose(_Item.purpose);
+		_СписокВетисСтрока.purpose = ВетисArgusCommonСлой1с.Purpose(_Item.purpose);
 		
-		_ТаблицаСтрока.status = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_Item.status);
+		_СписокВетисСтрока.status = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_Item.status);
 		
-		_ТаблицаСтрока.transferPermit = ?(_Item.transferPermit = Неопределено, "", "№" + _Item.transferPermit.issueNumber + " от " + _Item.transferPermit.issueDate);
+		_СписокВетисСтрока.transferPermit = ?(_Item.transferPermit = Неопределено, "", "№" + _Item.transferPermit.issueNumber + " от " + _Item.transferPermit.issueDate);
 		
-		_ТаблицаСтрока.transportInfo = _Item.transportInfo.transportNumber.vehicleNumber;
+		_СписокВетисСтрока.transportInfo = _Item.transportInfo.transportNumber.vehicleNumber;
 		
-		_ТаблицаСтрока.transportType = ВетисArgusShipmentСлой1с.TransportType(_Item.transportInfo.transportType);
+		_СписокВетисСтрока.transportType = ВетисArgusShipmentСлой1с.TransportType(_Item.transportInfo.transportType);
 		
-		_ТаблицаСтрока.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_Item.transportStorageType);
+		_СписокВетисСтрока.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_Item.transportStorageType);
 		
-		_ТаблицаСтрока.type = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_Item.type);
+		_СписокВетисСтрока.type = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_Item.type);
 		
-		_ТаблицаСтрока.waybillType = ВетисArgusShipmentСлой1с.WaybillType(_Item.waybillType);
+		_СписокВетисСтрока.waybillType = ВетисArgusShipmentСлой1с.WaybillType(_Item.waybillType);
 		
-		_ТаблицаСтрока.waybill = "№" + _Item.waybillNumber + " от " + ВетисBase.xsDate(_Item.waybillDate);
+		_СписокВетисСтрока.waybill = "№" + _Item.waybillNumber + " от " + ВетисBase.xsDate(_Item.waybillDate);
 		
-		_ТаблицаСтрока.НоменклатурнаяГруппа = ВетисArgusProductionСлой1с.SubProduct(_Item.batch.subProduct);
+		_СписокВетисСтрока.Номенклатура = ВетисArgusProductionСлой1с.ProductItem(_Item.batch.ProductItem);
 		
-		_ТаблицаСтрока.Количество = _Item.batch.volume;
+		_СписокВетисСтрока.Количество = _Item.batch.volume;
 		
-		_ТаблицаСтрока.КоличествоМест = _Item.batch.packingAmount;
+		_СписокВетисСтрока.КоличествоМест = _Item.batch.packingAmount;
 		
-		_ТаблицаСтрока.ЕдиницаИзмерения = ВетисArgusCommonСлой1с.Unit(_Item.batch.unit);
+		_СписокВетисСтрока.ЕдиницаИзмерения = ВетисArgusCommonСлой1с.Unit(_Item.batch.unit);
 		
-		_ТаблицаСтрока.Упаковка = ВетисArgusCommonСлой1с.PackingForm(_Item.batch.packingList);
+		_СписокВетисСтрока.Упаковка = ВетисArgusCommonСлой1с.PackingForm(_Item.batch.packingList);
 		
-		_ТаблицаСтрока.Скоропортящаяся = _Item.batch.perishable;
+		_СписокВетисСтрока.Скоропортящаяся = _Item.batch.perishable;
 		
-		_ТаблицаСтрока.СтранаПроисхождения = ВетисIkarСлой1с.Country(_Item.batch.countryOfOrigin);
+		_СписокВетисСтрока.СтранаПроисхождения = ВетисIkarСлой1с.Country(_Item.batch.countryOfOrigin);
 		
-		_ТаблицаСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise);
+		_СписокВетисСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise);
 		
-		Если НЕ ЗначениеЗаполнено(_ТаблицаСтрока.ПроизводительПредприятие) Тогда
-			_ТаблицаСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise);
+		Если НЕ ЗначениеЗаполнено(_СписокВетисСтрока.ПроизводительПредприятие) Тогда
+			_СписокВетисСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise);
 		КонецЕсли;
 		
-		//ТаблицаСтрока.Производитель = ;
+		_СписокВетисСтрока.НекачественныйГруз = _Item.batch.lowGradeCargo;
 		
-		_ТаблицаСтрока.НекачественныйГруз = _Item.batch.lowGradeCargo;
-		
-		_ТаблицаСтрока.Собственник = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.batch.owner);
+		_СписокВетисСтрока.Собственник = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.batch.owner);
 		
 	КонецЦикла;
 	

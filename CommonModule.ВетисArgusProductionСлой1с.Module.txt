@@ -1,11 +1,8 @@
 ﻿
 Функция ProductType(value, ПоУмолчанию = Неопределено) Экспорт
 	
-	Если ТипЗнч(value) = Тип(ВетисИмяСправочника.SubProduct("СправочникСсылка")) Тогда
-		_guid = SubProduct(value, ПоУмолчанию);
-		_SubProduct = ВетисArgusProduction.GetSubProductByGuid(_guid);
-		_Product = ВетисArgusProduction.GetProductByGuid(_SubProduct.productGuid);
-		Возврат _Product.productType;
+	Если ТипЗнч(value) = Тип(ВетисИмяСправочника.ProductItem("СправочникСсылка")) Тогда
+		Возврат ВетисArgusProduction.GetProductItemByGuid(value.guid).productType;
 		
 	ИначеЕсли ТипЗнч(value) = Тип(ВетисИмяСправочника.ProductType("ПеречислениеСсылка")) Тогда
 		Если      value = ПредопределенноеЗначение(ВетисИмяСправочника.ProductType("Перечисление","МясоИМясопродукты")) Тогда
@@ -54,12 +51,11 @@
 Функция Product(value, ПоУмолчанию = Неопределено) Экспорт
 	
 	Если ТипЗнч(value) = Тип(ВетисИмяСправочника.Product("СправочникСсылка")) Тогда
-		guid = SubProduct(value, ПоУмолчанию);
-		SubProduct = ВетисArgusProduction.GetSubProductByGuid(guid);
-		Возврат SubProduct.productGuid;
+		Возврат ВетисСоответствие.ПолучитьGuid(value, ПоУмолчанию);
+	ИначеЕсли ТипЗнч(value) = Тип("ОбъектXDTO") Тогда
+		Возврат ВетисСоответствие.ПолучитьСсылку(value.guid, ВетисИмяСправочника.SubProduct("Справочник"), ПоУмолчанию);
 	Иначе
-		//Product не хранится, обратная конверсия невозможна
-		Возврат Неопределено;
+		Возврат ВетисСоответствие.ПолучитьСсылку(value, ВетисИмяСправочника.SubProduct("Справочник"), ПоУмолчанию);
 	КонецЕсли;
 	
 КонецФункции
@@ -87,4 +83,3 @@
 	КонецЕсли;
 	
 КонецФункции
-

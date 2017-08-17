@@ -196,7 +196,7 @@
 		
 		_док.СерияВСД = _всд.issueSeries;
 		_док.НомерВСД = _всд.issueNumber;
-		_док.ДатаВСД  = _всд.issueDate;
+		_док.ДатаВСД  = ВетисОбщегоНазначения.ВремяБД(_всд.issueDate);
 		_док.Тип      = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_всд.type);
 		_док.Статус   = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_всд.status);
 		_док.Форма    = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_всд.form);
@@ -218,8 +218,8 @@
 		_строкаВСД.БлагополучиеМестности  = _всд.locationProsperity;
 		_строкаВСД.Ветсанэкспертиза       = _всд.cargoExpertized;
 		//_строкаВСД.ГосударственныйВетврач = _всд.confirmedBy.fio;
-		_строкаВСД.ГосударственныйВетврачДата = ?(_всд.confirmedDate = Неопределено, _строкаВСД.ГосударственныйВетврачДата, _всд.confirmedDate);
-		_строкаВСД.ДатаОбновления         = ?(_всд.lastUpdateDate = Неопределено, _строкаВСД.ДатаОбновления, _всд.lastUpdateDate);
+		_строкаВСД.ГосударственныйВетврачДата = ?(_всд.confirmedDate = Неопределено, _строкаВСД.ГосударственныйВетврачДата, ВетисОбщегоНазначения.ВремяБД(_всд.confirmedDate));
+		_строкаВСД.ДатаОбновления         = ?(_всд.lastUpdateDate = Неопределено, _строкаВСД.ДатаОбновления, ВетисОбщегоНазначения.ВремяБД(_всд.lastUpdateDate));
 		_строкаВСД.Иммунизация            = ?(_всд.immunizationInfo = Неопределено, _строкаВСД.Иммунизация, _всд.immunizationInfo);
 		_строкаВСД.КарантированиеДней     = ?(_всд.quarantineDays = Неопределено, _строкаВСД.КарантированиеДней, _всд.quarantineDays);
 		_строкаВСД.КарантированиеМесто    = ?(_всд.quarantinePlace = Неопределено, _строкаВСД.КарантированиеДней, _всд.quarantinePlace);
@@ -233,7 +233,7 @@
 		
 		_строкаТТН.Серия          = _всд.waybillSeries;
 		_строкаТТН.Номер          = _всд.waybillNumber;
-		_строкаТТН.Дата           = _всд.waybillDate;
+		_строкаТТН.Дата           = ВетисОбщегоНазначения.ВремяБД(_всд.waybillDate);
 		_строкаТТН.Тип            = ВетисArgusShipmentСлой1с.WaybillType(_всд.waybillType);
 		_строкаТТН.Посредник      = ?(_всд.broker = Неопределено, _строкаТТН.Посредник, ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.broker));
 		_строкаТТН.СпособХранения = ВетисArgusShipmentСлой1с.TransportationStorageType(_всд.transportStorageType);
@@ -260,7 +260,7 @@
 		
 		_всд.issueSeries        = _док.СерияВСД;
 		_всд.issueNumber        = _док.НомерВСД;
-		_всд.issueDate          = _док.ДатаВСД;
+		_всд.issueDate          = ВетисОбщегоНазначения.ВремяВетис(_док.ДатаВСД);
 		_всд.form               = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_док.Форма);
 		//_всд.type               = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_док.Тип);
 		_всд.consignor          = ВетисCerberusEnterprise.BusinessMember(_consignorBusinessEntity, _consignorEnterprise);
@@ -273,7 +273,7 @@
 		_всд.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
 		_всд.expertiseInfo      = _СтрокаВСД.ЛабораторныеИсследования;
 		_всд.confirmedBy        = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинВрача());
-		_всд.confirmedDate      = _док.ДатаВСД;
+		_всд.confirmedDate      = ВетисОбщегоНазначения.ВремяВетис(_док.ДатаВСД);
 		_всд.locationProsperity = _СтрокаВСД.БлагополучиеМестности;
 		_всд.quarantinePlace    = _СтрокаВСД.КарантированиеМесто;
 		_всд.quarantineDays     = _СтрокаВСД.КарантированиеДней;

@@ -49,7 +49,7 @@
 		
 		_СписокВетисСтрока.status = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_Item.status);
 		
-		_СписокВетисСтрока.transferPermit = ?(_Item.transferPermit = Неопределено, "", "№" + _Item.transferPermit.issueNumber + " от " + _Item.transferPermit.issueDate);
+		_СписокВетисСтрока.transferPermit = ?(_Item.transferPermit = Неопределено, "", "№" + _Item.transferPermit.issueNumber + " от " + ВетисОбщегоНазначения.ВремяБД(_Item.transferPermit.issueDate));
 		
 		_СписокВетисСтрока.transportInfo = _Item.transportInfo.transportNumber.vehicleNumber;
 		
@@ -61,7 +61,7 @@
 		
 		_СписокВетисСтрока.waybillType = ВетисArgusShipmentСлой1с.WaybillType(_Item.waybillType);
 		
-		_СписокВетисСтрока.waybill = "№" + _Item.waybillNumber + " от " + ВетисBase.xsDate(_Item.waybillDate);
+		_СписокВетисСтрока.waybill = "№" + _Item.waybillNumber + " от " + ВетисОбщегоНазначения.ВремяБД(_Item.waybillDate);
 		
 		_СписокВетисСтрока.Номенклатура = ВетисArgusProductionСлой1с.ProductItem(_Item.batch.ProductItem);
 		

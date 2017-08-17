@@ -72,10 +72,10 @@
 	КонецЕсли;
 	
 	Если ЗначениеЗаполнено(_reason) Тогда
-		_discrepancyReport = ВетисMercuryVetdocument.Создать("DiscrepancyReport");
-		_discrepancyReport.issueDate = _всд.Дата;
-		_discrepancyReport.reason = ВетисMercuryVetdocument.DiscrepancyReason("Количество " + _reason + ".");
-		_discrepancyReport.description = "В ВСД заявлено " + _description + ".";
+		_discrepancyReport = ВетисMercuryVetdocument.DiscrepancyReport(,,
+			_всд.Дата,
+			ВетисMercuryVetdocument.DiscrepancyReason("Количество " + _reason + "."),
+			"В ВСД заявлено " + _description + ".");
 	КонецЕсли;
 	
 	_СтрокаСЖ.АктПричина = _reason;
@@ -230,7 +230,7 @@
 &НаСервере
 Функция ПолучитьVetDocument(пВСД, пВозврат = Ложь)
 	
-	_VetDocument = ВетисMercuryVetdocument.Создать("VetDocument");
+	_VetDocument = ВетисMercuryVetdocument.VetDocument();
 	
 	Если пВСД.Статус = Перечисления.ВетисVetDocumentStatus.Оформлен Тогда
 		_VetDocument.uuid = пВСД.uuid;
@@ -239,13 +239,13 @@
 			ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_VetDocument, пВСД);
 		Иначе
 			_СтрокаВСД = пВСД.ВСД[0];
-			_VetDocument.issueDate          = пВСД.Дата;
+			_VetDocument.issueDate          = ВетисОбщегоНазначения.ВремяВетис(пВСД.Дата);
 			//_VetDocument.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(Справочники[ВетисИмяСправочника.Purpose()].НайтиПоНаименованию("возврат груза")));
 			_VetDocument.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(ВетисПредопределенные.Получить("Purpose.ВозвратГруза")));
 			_VetDocument.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 			_VetDocument.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
 			_VetDocument.confirmedBy        = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинВрача());
-			_VetDocument.confirmedDate      = пВСД.Дата;
+			_VetDocument.confirmedDate      = ВетисОбщегоНазначения.ВремяВетис(пВСД.Дата);
 			_VetDocument.locationProsperity = _СтрокаВСД.БлагополучиеМестности;
 			_VetDocument.specialMarks       = _СтрокаВСД.ОсобыеОтметки;
 		КонецЕсли;

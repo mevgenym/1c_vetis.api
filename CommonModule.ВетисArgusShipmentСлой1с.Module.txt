@@ -161,7 +161,7 @@
 	_waybill = ВетисArgusShipment.Waybill();
 	_waybill.issueSeries   = _СтрокаТТН.Серия;
 	_waybill.issueNumber   = _СтрокаТТН.Номер;
-	_waybill.issueDate     = _СтрокаТТН.Дата;
+	_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(_СтрокаТТН.Дата);
 	_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(_СтрокаТТН.Тип);
 	_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
 	_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
@@ -170,7 +170,7 @@
 	Если пВозврат = Истина Тогда
 		_waybill.issueSeries   = "";
 		_waybill.issueNumber   = "";
-		_waybill.issueDate     = пДата;
+		_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(пДата);
 	КонецЕсли;
 	
 	Возврат _waybill;

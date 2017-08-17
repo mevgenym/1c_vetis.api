@@ -388,7 +388,7 @@
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterprise         = enterprise;
-	_Объект.inventoryDate      = inventoryDate;
+	_Объект.inventoryDate      = ВетисОбщегоНазначения.ВремяВетис(inventoryDate);
 	_Объект.responsible        = responsible;
 	_Объект.stockDiscrepancy   = stockDiscrepancy;
 	_Объект.discrepancyReport  = discrepancyReport;
@@ -434,7 +434,7 @@
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.vetDocumentId      = vetDocumentId;
 	_Объект.withdrawReason     = withdrawReason;
-	_Объект.withdrawDate       = withdrawDate;
+	_Объект.withdrawDate       = ВетисОбщегоНазначения.ВремяВетис(withdrawDate);
 	_Объект.vetDoctor          = vetDoctor;
 	
 	Возврат _Объект;

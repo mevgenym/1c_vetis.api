@@ -415,6 +415,25 @@
 	
 КонецФункции
 
+
+Функция BusinessEntityType_JURIDICAL() Экспорт
+	
+	Возврат 1;
+	
+КонецФункции
+
+Функция BusinessEntityType_PHYSICAL() Экспорт
+	
+	Возврат 2;
+	
+КонецФункции
+
+Функция BusinessEntityType_SELF_EMPLOYED() Экспорт
+	
+	Возврат 3;
+	
+КонецФункции
+
 #КонецОбласти
 
 #Область ВетисMercuryVetdocument

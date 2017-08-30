@@ -97,20 +97,20 @@
 	
 	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисBusinessEntityType") Тогда
 		Если      value = ПредопределенноеЗначение("Перечисление.ВетисBusinessEntityType.ЮрЛицо") Тогда
-			Возврат 1;
+			Возврат ВетисКонстанты.BusinessEntityType_JURIDICAL();
 		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисBusinessEntityType.ФизЛицо") Тогда
-			Возврат 2;
+			Возврат ВетисКонстанты.BusinessEntityType_PHYSICAL();
 		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисBusinessEntityType.ИП") Тогда
-			Возврат 3;
+			Возврат ВетисКонстанты.BusinessEntityType_SELF_EMPLOYED();
 		Иначе
 			Возврат ПоУмолчанию;
 		КонецЕсли;
 	Иначе
-		Если      value = 1 Тогда
+		Если      value = ВетисКонстанты.BusinessEntityType_JURIDICAL() Тогда
 			Возврат ПредопределенноеЗначение("Перечисление.ВетисBusinessEntityType.ЮрЛицо");
-		ИначеЕсли value = 2 Тогда
+		ИначеЕсли value = ВетисКонстанты.BusinessEntityType_PHYSICAL() Тогда
 			Возврат ПредопределенноеЗначение("Перечисление.ВетисBusinessEntityType.ФизЛицо");
-		ИначеЕсли value = 3 Тогда
+		ИначеЕсли value = ВетисКонстанты.BusinessEntityType_SELF_EMPLOYED() Тогда
 			Возврат ПредопределенноеЗначение("Перечисление.ВетисBusinessEntityType.ИП");
 		Иначе
 			Возврат ПоУмолчанию;

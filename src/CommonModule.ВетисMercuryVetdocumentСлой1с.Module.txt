@@ -330,7 +330,34 @@
 		_batch    = value1;
 		_СтрокаСЖ = value2;
 		
-		_productItem = ВетисArgusProduction.GetProductItemByGuid(ВетисArgusProductionСлой1с.ProductItem(_СтрокаСЖ.Номенклатура));
+		//сделать: проверить конверсию номенклатуры
+		
+		_productItem = ВетисArgusProduction.ProductItem();
+		_subProduct  = ВетисArgusProduction.SubProduct();
+		_product     = ВетисArgusProduction.Product();
+		_productType = ВетисКонстанты.ProductType_МясоИМясопродукты();
+		
+		//номенклатура связана на уровне ВСД
+		//если нет ProductItemGuid, то ищем по SubProductGuid и затем по НоменклатурнаяГруппа
+		Если НЕ ПустаяСтрока(_СтрокаСЖ.ProductItemGuid) Тогда
+			_productItem = ВетисArgusProduction.GetProductItemByGuid(_СтрокаСЖ.ProductItemGuid);
+			
+		ИначеЕсли НЕ ПустаяСтрока(_СтрокаСЖ.SubProductGuid) Тогда
+			_subProduct = ВетисArgusProduction.GetSubProductByGuid(_СтрокаСЖ.SubProductGuid);
+			_product = ВетисArgusProduction.GetProductByGuid(_subProduct.productGuid);
+			_productItem.name = _subProduct.name;
+			_productType = _product.productType;
+			
+		ИначеЕсли ЗначениеЗаполнено(_СтрокаСЖ.НоменклатурнаяГруппа) Тогда
+			_subProduct = ВетисArgusProduction.GetSubProductByGuid(ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа));
+			_product = ВетисArgusProduction.GetProductByGuid(_subProduct.productGuid);
+			_productItem.name = _subProduct.name;
+			_productType = _product.productType;
+			
+		Иначе
+			//не заполнены ключевые поля, выходим
+			Возврат Неопределено;
+		КонецЕсли;
 		
 		_unitGuid = ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения);
 		_unit     = ВетисArgusCommon.Unit(_unitGuid);
@@ -338,10 +365,10 @@
 		_unitws    = ВетисArgusCommon.GetUnitByGuid(_unitGuid);
 		_unit.uuid = _unitws.uuid;
 		
-		_batch.productType      = _productItem.productType;
-		_batch.product          = ВетисArgusProduction.Product(_productItem.product);
-		_batch.subProduct       = ВетисArgusProduction.SubProduct(_productItem.subProduct);
-		_batch.productItem      = ВетисArgusProduction.ProductItem(_productItem);
+		_batch.productType      = _productType;
+		_batch.product          = ВетисArgusProduction.Product(_product);
+		_batch.subProduct       = ВетисArgusProduction.SubProduct(_subProduct);
+		_batch.productItem      = ВетисArgusProduction.ProductItem(Новый Структура("guid,name", _productItem.guid, _productItem.name));
 		_batch.volume           = _СтрокаСЖ.Количество;
 		_batch.unit             = _unit;
 		_batch.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));

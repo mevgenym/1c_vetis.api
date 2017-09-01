@@ -4,7 +4,7 @@
 КонецПроцедуры
 
 
-Процедура IncomingOperation(пСтрокаСЖ, пОтказ) Экспорт
+Процедура IncomingOperation(пСтрокаСЖ, пОтказ = Ложь) Экспорт
 	
 	Перем _discrepancyReport, _returnedDelivery;
 	
@@ -49,7 +49,7 @@
 	_deliveryFacts = ВетисMercuryVetdocument.DeliveryFactList(
 	  ВетисArgusCommonСлой1с.DocumentNature(Перечисления.ВетисDocumentNature[?(ЗначениеЗаполнено(_всд.Статус), "ELECTRONIC", "PAPER")]),
 	  ВетисMercuryVetdocument.DeliveryInspection(ВетисMercuryVetdocumentСлой1с.DeliveryInspectionResult(_СтрокаСЖ.РезультатПриема)),
-	  ВетисMercuryVetdocument.DeliveryInspection(ВетисMercuryVetdocumentСлой1с.DeliveryInspectionResult(_СтрокаСЖ.РезультатВетКонтроля), ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинВрача())),
+	  ВетисMercuryVetdocument.DeliveryInspection(ВетисMercuryVetdocumentСлой1с.DeliveryInspectionResult(_СтрокаСЖ.РезультатВетКонтроля), ВетисПараметрыСоединения.Врач()),
 	  ВетисMercuryVetdocumentСлой1с.DeliveryDecision(_СтрокаСЖ.РешениеОПриеме));
 	
 	_reason = "";
@@ -74,7 +74,7 @@
 	Если ЗначениеЗаполнено(_reason) Тогда
 		_discrepancyReport = ВетисMercuryVetdocument.DiscrepancyReport(,,
 			_всд.Дата,
-			ВетисMercuryVetdocument.DiscrepancyReason("Количество " + _reason + "."),
+			"Количество " + _reason + ".",
 			"В ВСД заявлено " + _description + ".");
 	КонецЕсли;
 	
@@ -279,11 +279,10 @@
 		Иначе
 			_СтрокаВСД = пВСД.ВСД[0];
 			_VetDocument.issueDate          = ВетисОбщегоНазначения.ВремяВетис(пВСД.Дата);
-			//_VetDocument.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(Справочники[ВетисИмяСправочника.Purpose()].НайтиПоНаименованию("возврат груза")));
 			_VetDocument.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(ВетисПредопределенные.Получить("Purpose.ВозвратГруза")));
 			_VetDocument.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 			_VetDocument.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
-			_VetDocument.confirmedBy        = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинВрача());
+			_VetDocument.confirmedBy        = ВетисПараметрыСоединения.Врач();
 			_VetDocument.confirmedDate      = ВетисОбщегоНазначения.ВремяВетис(пВСД.Дата);
 			_VetDocument.locationProsperity = _СтрокаВСД.БлагополучиеМестности;
 			_VetDocument.specialMarks       = _СтрокаВСД.ОсобыеОтметки;

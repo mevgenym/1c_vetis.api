@@ -273,7 +273,7 @@
 		_всд.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 		_всд.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
 		_всд.expertiseInfo      = _СтрокаВСД.ЛабораторныеИсследования;
-		_всд.confirmedBy        = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинВрача());
+		_всд.confirmedBy        = ВетисПараметрыСоединения.Врач();
 		_всд.confirmedDate      = ВетисОбщегоНазначения.ВремяВетис(_док.ДатаВСД);
 		_всд.locationProsperity = _СтрокаВСД.БлагополучиеМестности;
 		_всд.quarantinePlace    = _СтрокаВСД.КарантированиеМесто;
@@ -325,7 +325,8 @@
 		//_строкаСЖ.Маркировка           = ВетисMercuryVetdocumentСлой1с.ProductMarking(_batch.productMarkingList);
 		_строкаСЖ.НекачественныйГруз   = _batch.lowGradeCargo;
 		
-	ИначеЕсли ТипЗнч(value2) = Тип("ДокументТабличнаяЧастьСтрока.ВетисВетеринарноСопроводительныйДокумент.СкладскойЖурнал") Тогда
+	ИначеЕсли ТипЗнч(value2) = Тип("ДокументТабличнаяЧастьСтрока.ВетисВетеринарноСопроводительныйДокумент.СкладскойЖурнал")
+		ИЛИ ТипЗнч(value2) = Тип("ДанныеФормыЭлементКоллекции") Тогда
 		
 		_batch    = value1;
 		_СтрокаСЖ = value2;
@@ -333,26 +334,29 @@
 		//сделать: проверить конверсию номенклатуры
 		
 		_productItem = ВетисArgusProduction.ProductItem();
-		_subProduct  = ВетисArgusProduction.SubProduct();
-		_product     = ВетисArgusProduction.Product();
+		_subProduct  = "";
+		_product     = "";
 		_productType = ВетисКонстанты.ProductType_МясоИМясопродукты();
 		
 		//номенклатура связана на уровне ВСД
 		//если нет ProductItemGuid, то ищем по SubProductGuid и затем по НоменклатурнаяГруппа
 		Если НЕ ПустаяСтрока(_СтрокаСЖ.ProductItemGuid) Тогда
 			_productItem = ВетисArgusProduction.GetProductItemByGuid(_СтрокаСЖ.ProductItemGuid);
+			_subProduct  = _productItem.subProduct;
+			_product     = _productItem.product;
+			_productType = _productItem.productType;
 			
 		ИначеЕсли НЕ ПустаяСтрока(_СтрокаСЖ.SubProductGuid) Тогда
-			_subProduct = ВетисArgusProduction.GetSubProductByGuid(_СтрокаСЖ.SubProductGuid);
-			_product = ВетисArgusProduction.GetProductByGuid(_subProduct.productGuid);
-			_productItem.name = _subProduct.name;
+			_subProduct  = ВетисArgusProduction.GetSubProductByGuid(_СтрокаСЖ.SubProductGuid);
+			_product     = ВетисArgusProduction.GetProductByGuid(_subProduct.productGuid);
 			_productType = _product.productType;
+			_productItem.name = _subProduct.name;
 			
 		ИначеЕсли ЗначениеЗаполнено(_СтрокаСЖ.НоменклатурнаяГруппа) Тогда
-			_subProduct = ВетисArgusProduction.GetSubProductByGuid(ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа));
-			_product = ВетисArgusProduction.GetProductByGuid(_subProduct.productGuid);
-			_productItem.name = _subProduct.name;
+			_subProduct  = ВетисArgusProduction.GetSubProductByGuid(ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа));
+			_product     = ВетисArgusProduction.GetProductByGuid(_subProduct.productGuid);
 			_productType = _product.productType;
+			_productItem.name = _subProduct.name;
 			
 		Иначе
 			//не заполнены ключевые поля, выходим

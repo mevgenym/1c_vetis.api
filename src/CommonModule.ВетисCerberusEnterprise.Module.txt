@@ -117,6 +117,19 @@
 КонецФункции
 
 
+Функция IncorporationForm(shortName = "", name = "", code = "") Экспорт
+	
+	_Объект = Создать("IncorporationForm");
+	
+	_Объект.name = name;
+	_Объект.code = code;
+	_Объект.shortName = shortName;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+
 // тип, описывающий производителя продукции
 Функция Producer(guid) Экспорт
 	

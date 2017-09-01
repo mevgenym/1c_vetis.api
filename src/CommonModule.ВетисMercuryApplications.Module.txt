@@ -450,9 +450,7 @@
 
 Функция withdrawVetDocument(vetDocumentId, withdrawReason, withdrawDate, issuerId = Неопределено, пОтказ = Ложь) Экспорт
 	
-	_user = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинВрача());
-	
-	_Request = ВетисMercuryApplications.withdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, _user);
+	_Request = ВетисMercuryApplications.withdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, ВетисПараметрыСоединения.Врач());
 	
 	_Response = ВетисMercuryApplications.ВыполнитьЗапрос(_Request, "withdrawVetDocumentRequest", issuerId, Ложь);
 	

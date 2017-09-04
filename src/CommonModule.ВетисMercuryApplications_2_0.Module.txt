@@ -2,12 +2,12 @@
 #Область StockEntry
 
 // Получение записи складского журнала по идентификатору.
-Функция getStockEntryByGuidRequest(guid, enterpriseGuid) Экспорт
+Функция GetStockEntryByGuidRequest(guid, enterpriseGuid) Экспорт
 	
-	_Объект = Создать("getStockEntryListRequest");
+	_Объект = Создать("GetStockEntryListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.GUID               = guid;
 	
@@ -15,21 +15,21 @@
 	
 КонецФункции
 
-Функция getStockEntryByGuidResponse(пResponse) Экспорт
+Функция GetStockEntryByGuidResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getStockEntryByGuidResponse, "getStockEntryByGuidResponse", URI()).stockEntry;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryByGuidResponse, "GetStockEntryByGuidResponse", URI()).stockEntry;
 	
 КонецФункции
 
-Функция getStockEntryByGuid(guid, enterpriseGuid, issuerId = Неопределено, Отказ = Ложь) Экспорт
+Функция GetStockEntryByGuid(guid, enterpriseGuid, issuerId = Неопределено, Отказ = Ложь) Экспорт
 	
-	_Request = getStockEntryByGuidRequest(guid, enterpriseGuid);
+	_Request = GetStockEntryByGuidRequest(guid, enterpriseGuid);
 	
-	_Response = ВыполнитьЗапрос(_Request, "getStockEntryByGuidRequest", issuerId, Ложь);
+	_Response = ВыполнитьЗапрос(_Request, "GetStockEntryByGuidRequest", issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
-	Возврат getStockEntryByGuidResponse(_Response);
+	Возврат GetStockEntryByGuidResponse(_Response);
 	
 КонецФункции
 
@@ -38,12 +38,12 @@
 // Параметры:
 //  enterpriseGuid - Идентификатор предприятия
 //  count - Максимальное запрашиваемое количество объектов в списке
-Функция getStockEntryListRequest(enterpriseGuid, count = 100) Экспорт
+Функция GetStockEntryListRequest(enterpriseGuid, count = 100) Экспорт
 	
-	_Объект = Создать("getStockEntryListRequest");
+	_Объект = Создать("GetStockEntryListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.listOptions        = ВетисBase.ListOptions(count);
 	
@@ -51,15 +51,15 @@
 	
 КонецФункции
 
-Функция getStockEntryListRequestСледующий(ListRequest, ListResponse) Экспорт
+Функция GetStockEntryListRequestСледующий(ListRequest, ListResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ListRequestСледующий(ListRequest, ListResponse);
 	
 КонецФункции
 
-Функция getStockEntryListResponse(пResponse) Экспорт
+Функция GetStockEntryListResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getStockEntryListResponse, "getStockEntryListResponse", URI()).stockEntryList;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryListResponse, "GetStockEntryListResponse", URI()).stockEntryList;
 	
 КонецФункции
 
@@ -72,14 +72,14 @@
 //  пПараметры     - для внутреннего использования, начальное значение - Неопределено
 // Возвращаемое значение:
 //	Булево         - Ложь значит список пройден весь
-Функция getStockEntryListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры) Экспорт
+Функция GetStockEntryListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры) Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
 		
-		пПараметры.Вставить("ListRequest", getStockEntryListRequest(enterpriseGuid));
+		пПараметры.Вставить("ListRequest", GetStockEntryListRequest(enterpriseGuid));
 		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
 		
 	Иначе
@@ -97,11 +97,11 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "getStockEntryListRequest", issuerId, Ложь, пПараметры.Отладка);
+	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "GetStockEntryListRequest", issuerId, Ложь, пПараметры.Отладка);
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
-	_ListResponse = getStockEntryListResponse(_Response);
+	_ListResponse = GetStockEntryListResponse(_Response);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	
@@ -124,12 +124,12 @@
 // Параметры:
 //  enterpriseGuid - Идентификатор предприятия
 //  vetDocumentUuid - Идентификатор ВСД
-Функция getVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid) Экспорт
+Функция GetVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid) Экспорт
 	
-	_Объект = Создать("getVetDocumentByUuidRequest");
+	_Объект = Создать("GetVetDocumentByUuidRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.uuid               = vetDocumentUuid;
 	
@@ -137,21 +137,21 @@
 	
 КонецФункции
 
-Функция getVetDocumentByUuidResponse(пResponse) Экспорт
+Функция GetVetDocumentByUuidResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getVetDocumentByUuidResponse, "getVetDocumentByUuidResponse", URI()).vetDocument;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentByUuidResponse, "GetVetDocumentByUuidResponse", URI()).vetDocument;
 	
 КонецФункции
 
-Функция getVetDocumentByUuid(vetDocumentUuid, enterpriseGuid, issuerId = Неопределено, Отказ = Ложь) Экспорт
+Функция GetVetDocumentByUuid(vetDocumentUuid, enterpriseGuid, issuerId = Неопределено, Отказ = Ложь) Экспорт
 	
-	_Request = getVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid);
+	_Request = GetVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid);
 	
-	_Response = ВыполнитьЗапрос(_Request, "getVetDocumentByUuidRequest", issuerId, Ложь);
+	_Response = ВыполнитьЗапрос(_Request, "GetVetDocumentByUuidRequest", issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
-	Возврат getVetDocumentByUuidResponse(_Response);
+	Возврат GetVetDocumentByUuidResponse(_Response);
 	
 КонецФункции
 
@@ -161,12 +161,12 @@
 //  enterpriseGuid - Идентификатор предприятия
 //  vetDocumentType - vetd:VetDocumentType - Тип ВСД
 //  vetDocumentStatus - vetd:VetDocumentStatus - Статус ВСД
-Функция getVetDocumentListRequest(enterpriseGuid, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено) Экспорт
+Функция GetVetDocumentListRequest(enterpriseGuid, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено) Экспорт
 	
-	_Объект = Создать("getVetDocumentListRequest");
+	_Объект = Создать("GetVetDocumentListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.listOptions        = ВетисBase.ListOptions();
 	
@@ -182,15 +182,15 @@
 	
 КонецФункции
 
-Функция getVetDocumentListRequestСледующий(ListRequest, ListResponse) Экспорт
+Функция GetVetDocumentListRequestСледующий(ListRequest, ListResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ListRequestСледующий(ListRequest, ListResponse);
 	
 КонецФункции
 
-Функция getVetDocumentListResponse(пResponse) Экспорт
+Функция GetVetDocumentListResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getVetDocumentListResponse, "getVetDocumentListResponse", URI()).vetDocumentList;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentListResponse, "GetVetDocumentListResponse", URI()).vetDocumentList;
 	
 КонецФункции
 
@@ -203,14 +203,14 @@
 //  пПараметры     - для внутреннего использования, начальное значение - Неопределено
 // Возвращаемое значение:
 //	Булево         - Ложь значит список пройден весь
-Функция getVetDocumentListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры) Экспорт
+Функция GetVetDocumentListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры) Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
 		
-		пПараметры.Вставить("ListRequest", getVetDocumentListRequest(enterpriseGuid));
+		пПараметры.Вставить("ListRequest", GetVetDocumentListRequest(enterpriseGuid));
 		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
 		
 	Иначе
@@ -228,11 +228,11 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "getVetDocumentListRequest", issuerId, Ложь, пПараметры.Отладка);
+	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "GetVetDocumentListRequest", issuerId, Ложь, пПараметры.Отладка);
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
-	_ListResponse = getVetDocumentListResponse(_Response);
+	_ListResponse = GetVetDocumentListResponse(_Response);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	
@@ -251,12 +251,12 @@
 
 #Область MergeOperation
 
-Функция mergeStockEntriesRequest(enterprise, mergeOperation) Экспорт
+Функция MergeStockEntriesRequest(enterprise, mergeOperation) Экспорт
 	
 	_Объект = Создать("MergeStockEntriesRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterprise         = enterprise;
 	_Объект.mergeOperation     = mergeOperation;
 	
@@ -264,7 +264,7 @@
 	
 КонецФункции
 
-Функция mergeStockEntriesResponse(пResponse) Экспорт
+Функция MergeStockEntriesResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.mergeStockEntriesResponse, "MergeStockEntriesResponse", URI());
 	
@@ -272,7 +272,7 @@
 
 #КонецОбласти
 
-#Область IncomingOperation
+#Область ProcessIncomingConsignment
 
 // Операция предназначена для оформления входящей партии.
 // Параметры:
@@ -280,12 +280,12 @@
 //  deliveryFacts - vetd:DeliveryFactList - Обобщенный результат приема партии продукции
 //  discrepancyReport - vetd:DiscrepancyReport - Акт несоответствия
 //  returnedDelivery - vetd:Delivery - Сведения о возвращаемой партии
-Функция processIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено) Экспорт
+Функция ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено) Экспорт
 	
 	_Объект = Создать("ProcessIncomingConsignmentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.delivery           = delivery;
 	_Объект.deliveryFacts      = deliveryFacts;
 	
@@ -308,64 +308,64 @@
 КонецФункции
 
 // Объект содержит сведения о записях в складском журнале продукции системы Меркурий.
-Функция processIncomingConsignmentResponse(пResponse) Экспорт
+Функция ProcessIncomingConsignmentResponse(пResponse) Экспорт
 	
 // http://vetrf.ru/vetrf-forum/posts/list/315/6855.page#39749
-// В ответе processIncomingResponse будут отдельные ВСД.
+// В ответе ProcessIncomingResponse будут отдельные ВСД.
 // В случае полного или частичного гашения будут возвращены данные погашенного ВСД
 // и в случае частичного гашения также будут возвращены данные возвратного ВСД.
 // В случае полного возврата партии возвращаются только данные возвратного сертификата.	
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.processIncomingConsignmentResponse, "ProcessIncomingConsignmentResponse", URI());
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ProcessIncomingConsignmentResponse, "ProcessIncomingConsignmentResponse", URI());
 	
 КонецФункции
 
-Функция processIncomingConsignment(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция ProcessIncomingConsignment(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено, issuerId = Неопределено, пОтказ = Ложь) Экспорт
 	
-	_Request = processIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport, returnedDelivery);
+	_Request = ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport, returnedDelivery);
 	
-	_Response = ВыполнитьЗапрос(_Request, "processIncomingConsignmentRequest", issuerId, Ложь);
+	_Response = ВыполнитьЗапрос(_Request, "ProcessIncomingConsignmentRequest", issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
-	Возврат processIncomingConsignmentResponse(_Response);
+	Возврат ProcessIncomingConsignmentResponse(_Response);
 	
 КонецФункции
 
 #КонецОбласти
 
-#Область TransportOperation
+#Область PrepareOutgoingConsignmentOperation
 
 // Операция предназначена для оформления транспортной партии.
 // Параметры:
 //  delivery - vetd:Delivery - Сведения для оформления транспортного ВСД
-Функция prepareOutcomingConsignmentRequest(delivery) Экспорт
+Функция PrepareOutgoingConsignmentRequest(delivery) Экспорт
 	
-	_Объект = Создать("PrepareOutcomingConsignmentRequest");
+	_Объект = Создать("PrepareOutgoingConsignmentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.delivery           = delivery;
 	
 	Возврат _Объект;
 	
 КонецФункции
 
-Функция prepareOutcomingConsignmentResponse(пResponse) Экспорт
+Функция PrepareOutgoingConsignmentResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.prepareOutcomingConsignmentResponse, "PrepareOutcomingConsignmentResponse", URI());
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.PrepareOutgoingConsignmentResponse, "PrepareOutgoingConsignmentResponse", URI());
 	
 КонецФункции
 
-Функция prepareOutcomingConsignment(delivery, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция PrepareOutgoingConsignment(delivery, issuerId = Неопределено, пОтказ = Ложь) Экспорт
 	
-	_Request = prepareOutcomingConsignmentRequest(delivery);
+	_Request = PrepareOutgoingConsignmentRequest(delivery);
 	
-	_Response = ВыполнитьЗапрос(_Request, "prepareOutcomingConsignmentRequest", issuerId, Ложь);
+	_Response = ВыполнитьЗапрос(_Request, "PrepareOutgoingConsignmentRequest", issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
-	Возврат prepareOutcomingConsignmentResponse(_Response);
+	Возврат PrepareOutgoingConsignmentResponse(_Response);
 	
 КонецФункции
 
@@ -381,12 +381,12 @@
 //  responsible - argc:User - Ответственный за инвентаризацию
 //  stockDiscrepancy - vetd:StockDiscrepancy - Сведения о результате инвентаризации (по одному факту расхождения)
 //  discrepancyReport - vetd:DiscrepancyReport - Сведения об акте несоответствия
-Функция resolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport) Экспорт
+Функция ResolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport) Экспорт
 	
 	_Объект = Создать("ResolveDiscrepancyRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterprise         = enterprise;
 	_Объект.inventoryDate      = ВетисОбщегоНазначения.ВремяВетис(inventoryDate);
 	_Объект.responsible        = responsible;
@@ -399,7 +399,7 @@
 
 // Объект содержит сведения о результатах обработки заявки на регистрацию несоответствий
 // в записях складского журнала, выявленных в результате инвентаризации.
-Функция resolveDiscrepancyResponse(пResponse) Экспорт
+Функция ResolveDiscrepancyResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ResolveDiscrepancyResponse, "ResolveDiscrepancyResponse", URI()).stockEntryList;
 	
@@ -426,37 +426,37 @@
 //  withdrawReason - vetd:WithdrawReason - Причина аннулирования ВСД
 //  withdrawDate - xs:dateTime - Дата аннулирования ВСД
 //  vetDoctor - argc:User - Ветеринарный врач, ответственный за аннулирование ВСД
-Функция withdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, vetDoctor) Экспорт
+Функция WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, specifiedPerson) Экспорт
 	
 	_Объект = Создать("WithdrawVetDocumentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.vetDocumentId      = vetDocumentId;
 	_Объект.withdrawReason     = withdrawReason;
 	_Объект.withdrawDate       = ВетисОбщегоНазначения.ВремяВетис(withdrawDate);
-	_Объект.vetDoctor          = vetDoctor;
+	_Объект.specifiedPerson    = specifiedPerson;
 	
 	Возврат _Объект;
 	
 КонецФункции
 
 // Объект содержит сведения об аннулированном ВСД.
-Функция withdrawVetDocumentResponse(пResponse) Экспорт
+Функция WithdrawVetDocumentResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.WithdrawVetDocumentResponse, "WithdrawVetDocumentResponse", URI()).vetDocument;
 	
 КонецФункции
 
-Функция withdrawVetDocument(vetDocumentId, withdrawReason, withdrawDate, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция WithdrawVetDocument(vetDocumentId, withdrawReason, withdrawDate, issuerId = Неопределено, пОтказ = Ложь) Экспорт
 	
-	_Request = withdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, ВетисПараметрыСоединения.Врач());
+	_Request = WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, ВетисПараметрыСоединения.Врач());
 	
-	_Response = ВыполнитьЗапрос(_Request, "withdrawVetDocumentRequest", issuerId, Ложь);
+	_Response = ВыполнитьЗапрос(_Request, "WithdrawVetDocumentRequest", issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
-	Возврат withdrawVetDocumentResponse(_Response);
+	Возврат WithdrawVetDocumentResponse(_Response);
 	
 КонецФункции
 
@@ -473,7 +473,7 @@
 	_Объект = Создать("ModifyBusinessEntityRequest");
 	
 	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.modificationOperation = modificationOperation;
 	
 	Возврат _Объект;
@@ -500,7 +500,7 @@
 	_Объект = Создать("ModifyEnterpriseRequest");
 	
 	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.modificationOperation = modificationOperation;
 	
 	Возврат _Объект;
@@ -525,7 +525,7 @@
 
 Функция URI()
 	
-	Возврат "http://api.vetrf.ru/schema/cdm/mercury/applications";
+	Возврат "http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2";
 	
 КонецФункции
 
@@ -576,9 +576,9 @@
 	
 	//запрос на создание заявки
 	
-	_Application = ВетисApplication.Application(пRequest, пИмяФункции);
+	_Application = ВетисApplication_2_0.Application(пRequest, пИмяФункции);
 	
-		_SubmitRequest = ВетисApplication.submitApplicationRequest(_Application);
+		_SubmitRequest = ВетисApplication_2_0.submitApplicationRequest(_Application);
 		
 			_Envelope = ВетисSoapEnvelope.Envelope(_SubmitRequest, "submitApplicationRequest");
 			
@@ -609,7 +609,7 @@
 	
 	//запрос на получение результатов обработки заявки
 	
-	_receiveRequest = ВетисApplication.receiveApplicationResultRequest(_SubmitResponse.Application.applicationId);
+	_receiveRequest = ВетисApplication_2_0.receiveApplicationResultRequest(_SubmitResponse.Application.applicationId);
 	
 	_Envelope = ВетисSoapEnvelope.Envelope(_receiveRequest, "receiveApplicationResultRequest");
 	
@@ -642,7 +642,7 @@
 					ВетисЖурнал.Добавить(ВетисОбщегоНазначения.Сериализовать(_Фабрика, _receiveResponse.Application));
 				КонецЕсли;
 				
-				Возврат ВетисApplication.ApplicationResult(_receiveResponse.Application);
+				Возврат ВетисApplication_2_0.ApplicationResult(_receiveResponse.Application);
 			КонецЕсли;
 		КонецЕсли;
 		

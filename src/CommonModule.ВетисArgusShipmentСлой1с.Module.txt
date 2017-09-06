@@ -156,16 +156,22 @@
 
 Функция WaybillКонвертировать(пСтрокаТТН, пДата, пВозврат = Ложь) Экспорт
 	
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисArgusShipment = ?(_Версия20, ВетисDictionary, ВетисArgusShipment);
+	_ВетисArgusShipmentСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusShipmentСлой1с);
+	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary, ВетисCerberusEnterprise);
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	
 	_СтрокаТТН = пСтрокаТТН;
 	
-	_waybill = ВетисArgusShipment.Waybill();
+	_waybill = _ВетисArgusShipment.Waybill();
 	_waybill.issueSeries   = _СтрокаТТН.Серия;
 	_waybill.issueNumber   = _СтрокаТТН.Номер;
 	_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(_СтрокаТТН.Дата);
-	_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(_СтрокаТТН.Тип);
-	_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
-	_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
-	_waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
+	_waybill.type          = _ВетисArgusShipmentСлой1с.WaybillType(_СтрокаТТН.Тип);
+	_waybill.broker        = _ВетисCerberusEnterprise.BusinessEntity(_ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
+	_waybill.transportInfo = _ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
+	_waybill.transportStorageType = _ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
 	
 	Если пВозврат = Истина Тогда
 		_waybill.issueSeries   = "";

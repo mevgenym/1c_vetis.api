@@ -187,11 +187,12 @@
 
 Функция VetDocumentКонвертировать(value1, value2) Экспорт
 	
-	_ВетисArgusCommon = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionary, ВетисArgusCommon);
-	_ВетисArgusCommonСлой1с = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
-	_ВетисCerberusEnterprise = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionary, ВетисCerberusEnterprise);
-	_ВетисCerberusEnterpriseСлой1с = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
-	_ВетисArgusShipmentСлой1с = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionaryСлой1с, ВетисArgusShipmentСлой1с);
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисArgusCommon = ?(_Версия20, ВетисDictionary, ВетисArgusCommon);
+	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
+	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary, ВетисCerberusEnterprise);
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	_ВетисArgusShipmentСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusShipmentСлой1с);
 	
 	Если ТипЗнч(value1) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент")
 		ИЛИ ТипЗнч(value1) = Тип("ДанныеФормыСтруктура") Тогда
@@ -204,9 +205,9 @@
 		_док.СерияВСД = _всд.issueSeries;
 		_док.НомерВСД = _всд.issueNumber;
 		_док.ДатаВСД  = ВетисОбщегоНазначения.ВремяБД(_всд.issueDate);
-		_док.Тип      = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_всд.type);
-		_док.Статус   = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_всд.status);
-		_док.Форма    = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_всд.form);
+		_док.Тип      = VetDocumentType(_всд.type);
+		_док.Статус   = VetDocumentStatus(_всд.status);
+		_док.Форма    = VetDocumentForm(_всд.form);
 		
 		_док.Отправитель = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.consignor.businessEntity);
 		_док.Получатель  = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.consignee.businessEntity);
@@ -219,9 +220,9 @@
 		//_строкаВСД.Серия    = _всд.issueSeries;
 		//_строкаВСД.Номер    = _всд.issueNumber;
 		//_строкаВСД.Дата     = _всд.issueDate;
-		//_строкаВСД.Тип      = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_всд.type);
-		//_строкаВСД.Статус   = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_всд.status);
-		//_строкаВСД.Форма    = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_всд.form);
+		//_строкаВСД.Тип      = VetDocumentType(_всд.type);
+		//_строкаВСД.Статус   = VetDocumentStatus(_всд.status);
+		//_строкаВСД.Форма    = VetDocumentForm(_всд.form);
 		_строкаВСД.БлагополучиеМестности  = _всд.locationProsperity;
 		_строкаВСД.Ветсанэкспертиза       = _всд.cargoExpertized;
 		//_строкаВСД.ГосударственныйВетврач = _всд.confirmedBy.fio;
@@ -268,8 +269,8 @@
 		_всд.issueSeries        = _док.СерияВСД;
 		_всд.issueNumber        = _док.НомерВСД;
 		_всд.issueDate          = ВетисОбщегоНазначения.ВремяВетис(_док.ДатаВСД);
-		_всд.form               = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_док.Форма);
-		//_всд.type               = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_док.Тип);
+		_всд.form               = VetDocumentForm(_док.Форма);
+		//_всд.type               = VetDocumentType(_док.Тип);
 		_всд.consignor          = _ВетисCerberusEnterprise.BusinessMember(_consignorBusinessEntity, _consignorEnterprise);
 		_всд.consignee          = _ВетисCerberusEnterprise.BusinessMember(_consigneeBusinessEntity, _consigneeEnterprise);
 		_всд.purpose            = _ВетисArgusCommon.Purpose(_ВетисArgusCommonСлой1с.Purpose(_СтрокаВСД.НазначениеГруза));
@@ -290,7 +291,7 @@
 		//_всд.transferPermit     = _ВетисArgusCommon.Document(всдРазрешениеНаВывозНазвание, всдРазрешениеНаВывозСерия, всдРазрешениеНаВывозНомер, всдРазрешениеНаВывозДата);
 		_всд.specialMarks       = _СтрокаВСД.ОсобыеОтметки;
 		
-		_всд.batch = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument).Batch();
+		_всд.batch = ?(_Версия20, ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument).Batch();
 		
 		BatchКонвертировать(_всд.batch, _СтрокаСЖ);
 		
@@ -300,14 +301,16 @@
 
 Функция BatchКонвертировать(value1, value2) Экспорт
 	
-	_ВетисBase = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionary, ВетисBase);
-	_ВетисArgusProduction = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionary, ВетисArgusProduction);
-	_ВетисArgusProductionСлой1с = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
-	_ВетисArgusCommon = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionary, ВетисArgusCommon);
-	_ВетисArgusCommonСлой1с = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
-	_ВетисCerberusEnterprise = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionary, ВетисCerberusEnterprise);
-	_ВетисCerberusEnterpriseСлой1с = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
-	_ВетисIkarСлой1с = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionaryСлой1с, ВетисIkarСлой1с);
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисBase = ?(_Версия20, ВетисDictionary, ВетисBase);
+	_ВетисArgusProduction = ?(_Версия20, ВетисDictionary, ВетисArgusProduction);
+	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
+	_ВетисArgusCommon = ?(_Версия20, ВетисDictionary, ВетисArgusCommon);
+	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
+	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary, ВетисCerberusEnterprise);
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	_ВетисIkarСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисIkarСлой1с);
+	_ВетисProductService = ?(_Версия20, ВетисProductService_2_0, ВетисProductService);
 	
 	Если ТипЗнч(value1) = Тип("ДокументТабличнаяЧастьСтрока.ВетисВетеринарноСопроводительныйДокумент.СкладскойЖурнал")
 		ИЛИ ТипЗнч(value1) = Тип("ДанныеФормыЭлементКоллекции") Тогда
@@ -315,7 +318,7 @@
 		_СтрокаСЖ = value1;
 		_batch    = value2;
 		
-		_subProduct = _ВетисArgusProduction.GetSubProductByGuid(_batch.subProduct.guid);
+		_subProduct = _ВетисProductService.GetSubProductByGuid(_batch.subProduct.guid);
 		
 		_строкаСЖ.SubProductName       = _subProduct.name;
 		_строкаСЖ.SubProductGuid       = _subProduct.guid;
@@ -337,7 +340,7 @@
 		_строкаСЖ.ПроизводительПредприятие = _ВетисCerberusEnterpriseСлой1с.Producer(_batch.producerList);
 		_строкаСЖ.Производитель        = _строкаСЖ.ПроизводительПредприятие.Владелец;
 		_строкаСЖ.Собственник          = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_batch.owner);
-		//_строкаСЖ.Маркировка           = ВетисMercuryVetdocumentСлой1с.ProductMarking(_batch.productMarkingList);
+		//_строкаСЖ.Маркировка           = ProductMarking(_batch.productMarkingList);
 		_строкаСЖ.НекачественныйГруз   = _batch.lowGradeCargo;
 		
 	ИначеЕсли ТипЗнч(value2) = Тип("ДокументТабличнаяЧастьСтрока.ВетисВетеринарноСопроводительныйДокумент.СкладскойЖурнал")
@@ -356,20 +359,20 @@
 		//номенклатура связана на уровне ВСД
 		//если нет ProductItemGuid, то ищем по SubProductGuid и затем по НоменклатурнаяГруппа
 		Если НЕ ПустаяСтрока(_СтрокаСЖ.ProductItemGuid) Тогда
-			_productItem = _ВетисArgusProduction.GetProductItemByGuid(_СтрокаСЖ.ProductItemGuid);
+			_productItem = _ВетисProductService.GetProductItemByGuid(_СтрокаСЖ.ProductItemGuid);
 			_subProduct  = _productItem.subProduct;
 			_product     = _productItem.product;
 			_productType = _productItem.productType;
 			
 		ИначеЕсли НЕ ПустаяСтрока(_СтрокаСЖ.SubProductGuid) Тогда
-			_subProduct  = _ВетисArgusProduction.GetSubProductByGuid(_СтрокаСЖ.SubProductGuid);
-			_product     = _ВетисArgusProduction.GetProductByGuid(_subProduct.productGuid);
+			_subProduct  = _ВетисProductService.GetSubProductByGuid(_СтрокаСЖ.SubProductGuid);
+			_product     = _ВетисProductService.GetProductByGuid(_subProduct.productGuid);
 			_productType = _product.productType;
 			_productItem.name = _subProduct.name;
 			
 		ИначеЕсли ЗначениеЗаполнено(_СтрокаСЖ.НоменклатурнаяГруппа) Тогда
-			_subProduct  = _ВетисArgusProduction.GetSubProductByGuid(ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа));
-			_product     = _ВетисArgusProduction.GetProductByGuid(_subProduct.productGuid);
+			_subProduct  = _ВетисProductService.GetSubProductByGuid(_ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа));
+			_product     = _ВетисProductService.GetProductByGuid(_subProduct.productGuid);
 			_productType = _product.productType;
 			_productItem.name = _subProduct.name;
 			
@@ -381,7 +384,7 @@
 		_unitGuid = _ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения);
 		_unit     = _ВетисArgusCommon.Unit(_unitGuid);
 		
-		_unitws    = _ВетисArgusCommon.GetUnitByGuid(_unitGuid);
+		_unitws    = ?(_Версия20, ВетисDictionaryService_2_0, ВетисDictionaryService).GetUnitByGuid(_unitGuid);
 		_unit.uuid = _unitws.uuid;
 		
 		_batch.productType      = _productType;
@@ -408,7 +411,7 @@
 	
 	Перем _issuerId;
 	
-	_ВетисCerberusEnterpriseСлой1с = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	_ВетисCerberusEnterpriseСлой1с = ?(ВетисОбщегоНазначения.ВерсияРавно("2.0"), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
 	
 	Запрос = Новый Запрос;
 	Запрос.Текст =
@@ -467,15 +470,18 @@
 	
 	Перем _VetDocument, _Параметры;
 	
-	Пока ВетисMercuryApplications.getVetDocumentListСледующий(enterpriseGuid, issuerId, _VetDocument, _Параметры) Цикл
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
+	
+	Пока _ВетисMercuryApplications.getVetDocumentListСледующий(enterpriseGuid, issuerId, _VetDocument, _Параметры) Цикл
 		
 		_Строка = пВетки.Найти(_VetDocument.uuid, "uuid");
 		
 		Если _Строка = Неопределено Тогда
 			_док = Документы.ВетисВетеринарноСопроводительныйДокумент.СоздатьДокумент();
 			_док.Дата = ТекущаяДата();
-		ИначеЕсли _Строка.Тип = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_VetDocument.type)
-			И _Строка.Статус = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_VetDocument.status) Тогда
+		ИначеЕсли _Строка.Тип = VetDocumentType(_VetDocument.type)
+			И _Строка.Статус = VetDocumentStatus(_VetDocument.status) Тогда
 			//считаем что ничего не изменилось
 			пВетки.Удалить(_Строка);
 			Продолжить;
@@ -484,7 +490,7 @@
 			пВетки.Удалить(_Строка);
 		КонецЕсли;
 		
-		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _VetDocument);
+		VetDocumentКонвертировать(_док, _VetDocument);
 		
 		_док.ДатаОбновления = ТекущаяДата();
 		

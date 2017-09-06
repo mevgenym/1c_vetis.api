@@ -1,0 +1,198 @@
+﻿
+Функция GetCountryByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
+	
+	_объект = Прокси().GetCountryByGuid(guid);
+	
+	Если пИмяСвойства = Неопределено Тогда
+		Возврат _объект;
+	Иначе
+		Возврат ?(_объект.Свойства().Получить(пИмяСвойства) = Неопределено, ПоУмолчанию, _объект[пИмяСвойства]);
+	КонецЕсли;
+	
+КонецФункции
+
+Функция GetAllCountryList(ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetAllCountryList(ListOptions);
+	
+КонецФункции
+
+Функция GetAllCountryListСледующий(пItem, пПараметры) Экспорт
+	
+	Если пПараметры = Неопределено Тогда
+		пПараметры = Новый Структура;
+		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
+		пПараметры.Вставить("Индекс", 0);
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListOptions.offset + пПараметры.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListOptions.offset = пПараметры.ListOptions.offset + пПараметры.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.country[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	Попытка
+		_List = Прокси().GetAllCountryList(пПараметры.ListOptions);
+	Исключение
+		ВетисЖурнал.ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		ВызватьИсключение;
+	КонецПопытки;
+	
+	пПараметры.Вставить("ListResponse", _List);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.country[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+КонецФункции
+
+
+Функция GetRegionByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
+	
+	_объект = Прокси().GetRegionByGuid(guid);
+	
+	Если пИмяСвойства = Неопределено Тогда
+		Возврат _объект;
+	Иначе
+		Возврат ?(_объект.Свойства().Получить(пИмяСвойства) = Неопределено, ПоУмолчанию, _объект[пИмяСвойства]);
+	КонецЕсли;
+	
+КонецФункции
+
+Функция GetRegionListByCountry(countryGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetRegionListByCountry(ListOptions, countryGuid);
+	
+КонецФункции
+
+
+Функция GetDistrictByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
+	
+	_объект = Прокси().GetDistrictByGuid(guid);
+	
+	Если пИмяСвойства = Неопределено Тогда
+		Возврат _объект;
+	Иначе
+		Возврат ?(_объект.Свойства().Получить(пИмяСвойства) = Неопределено, ПоУмолчанию, _объект[пИмяСвойства]);
+	КонецЕсли;
+	
+КонецФункции
+
+Функция GetDistrictListByRegion(regionGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetDistrictListByRegion(ListOptions, regionGuid);
+	
+КонецФункции
+
+
+Функция GetLocalityListByRegion(regionGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetLocalityListByRegion(ListOptions, regionGuid);
+	
+КонецФункции
+
+Функция GetLocalityListByDistrict(districtGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetLocalityListByDistrict(ListOptions, districtGuid);
+	
+КонецФункции
+
+Функция GetLocalityListByLocality(localityGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetLocalityListByLocality(ListOptions, localityGuid);
+	
+КонецФункции
+
+Функция FindLocalityListByName(regionGuid, pattern, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().FindLocalityListByName(ListOptions, regionGuid, pattern);
+	
+КонецФункции
+
+
+Функция GetStreetListByLocality(localityGuid, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetStreetListByLocality(ListOptions, localityGuid);
+	
+КонецФункции
+
+Функция FindStreetListByName(localityGuid, pattern, ListOptions = Неопределено) Экспорт
+	
+	Если ListOptions = Неопределено Тогда
+		ListOptions = ВетисBase.ListOptions();
+	Иначе
+		ListOptions.offset = ListOptions.offset + ListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().FindStreetListByName(ListOptions, localityGuid, pattern);
+	
+КонецФункции
+
+
+Функция Прокси()
+	
+	_Прокси = WSСсылки.IkarServiceTest.СоздатьWSПрокси("http://api.vetrf.ru/schema/cdm/registry/ikar/service/v2", "IkarServiceBindingQSService", "IkarServiceBindingQSPort");
+	_Прокси.Пароль       = ВетисПараметрыСоединения.Пароль();
+	_Прокси.Пользователь = ВетисПараметрыСоединения.Логин();
+	
+	Возврат _Прокси;
+	
+КонецФункции

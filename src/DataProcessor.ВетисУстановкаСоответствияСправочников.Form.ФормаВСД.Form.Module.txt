@@ -21,17 +21,20 @@
 	
 	Перем _Item, _Параметры;
 	
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
+	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
+	_ВетисArgusShipmentСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusShipmentСлой1с);
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	_ВетисIkarСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисIkarСлой1с);
+	
 	СписокВетис.Очистить();
 	
-	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект);
+	_issuerId = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект);
 	
-	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
+	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
 	
-	_ListRequest = ВетисMercuryApplications.getVetDocumentListRequest(_enterpriseGuid);
-	
-	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
-	
-	Пока ВетисMercuryApplications.getVetDocumentListСледующий(_enterpriseGuid, _issuerId, _Item, _Параметры) Цикл
+	Пока ВетисMercuryApplicationsСлой1с.getVetDocumentListСледующий(_enterpriseGuid, _issuerId, _Item, _Параметры) Цикл
 		
 		_СписокВетисСтрока = СписокВетис.Добавить();
 		
@@ -39,13 +42,13 @@
 		
 		_СписокВетисСтрока.confirmedBy = _Item.confirmedBy.fio;
 		
-		_СписокВетисСтрока.consignee = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignee.businessEntity);
+		_СписокВетисСтрока.consignee = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignee.businessEntity);
 		
-		_СписокВетисСтрока.consignor = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignor.businessEntity);
+		_СписокВетисСтрока.consignor = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.consignor.businessEntity);
 		
 		_СписокВетисСтрока.form = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_Item.form);
 		
-		_СписокВетисСтрока.purpose = ВетисArgusCommonСлой1с.Purpose(_Item.purpose);
+		_СписокВетисСтрока.purpose = _ВетисArgusCommonСлой1с.Purpose(_Item.purpose);
 		
 		_СписокВетисСтрока.status = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_Item.status);
 		
@@ -53,39 +56,39 @@
 		
 		_СписокВетисСтрока.transportInfo = _Item.transportInfo.transportNumber.vehicleNumber;
 		
-		_СписокВетисСтрока.transportType = ВетисArgusShipmentСлой1с.TransportType(_Item.transportInfo.transportType);
+		_СписокВетисСтрока.transportType = _ВетисArgusShipmentСлой1с.TransportType(_Item.transportInfo.transportType);
 		
-		_СписокВетисСтрока.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_Item.transportStorageType);
+		_СписокВетисСтрока.transportStorageType = _ВетисArgusShipmentСлой1с.TransportationStorageType(_Item.transportStorageType);
 		
 		_СписокВетисСтрока.type = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_Item.type);
 		
-		_СписокВетисСтрока.waybillType = ВетисArgusShipmentСлой1с.WaybillType(_Item.waybillType);
+		_СписокВетисСтрока.waybillType = _ВетисArgusShipmentСлой1с.WaybillType(_Item.waybillType);
 		
 		_СписокВетисСтрока.waybill = "№" + _Item.waybillNumber + " от " + ВетисОбщегоНазначения.ВремяБД(_Item.waybillDate);
 		
-		_СписокВетисСтрока.Номенклатура = ВетисArgusProductionСлой1с.ProductItem(_Item.batch.ProductItem);
+		_СписокВетисСтрока.Номенклатура = _ВетисArgusProductionСлой1с.ProductItem(_Item.batch.ProductItem);
 		
 		_СписокВетисСтрока.Количество = _Item.batch.volume;
 		
 		_СписокВетисСтрока.КоличествоМест = _Item.batch.packingAmount;
 		
-		_СписокВетисСтрока.ЕдиницаИзмерения = ВетисArgusCommonСлой1с.Unit(_Item.batch.unit);
+		_СписокВетисСтрока.ЕдиницаИзмерения = _ВетисArgusCommonСлой1с.Unit(_Item.batch.unit);
 		
-		_СписокВетисСтрока.Упаковка = ВетисArgusCommonСлой1с.PackingForm(_Item.batch.packingList);
+		_СписокВетисСтрока.Упаковка = _ВетисArgusCommonСлой1с.PackingForm(_Item.batch.packingList);
 		
 		_СписокВетисСтрока.Скоропортящаяся = _Item.batch.perishable;
 		
-		_СписокВетисСтрока.СтранаПроисхождения = ВетисIkarСлой1с.Country(_Item.batch.countryOfOrigin);
+		_СписокВетисСтрока.СтранаПроисхождения = _ВетисIkarСлой1с.Country(_Item.batch.countryOfOrigin);
 		
-		_СписокВетисСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise);
+		_СписокВетисСтрока.ПроизводительПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise);
 		
 		Если НЕ ЗначениеЗаполнено(_СписокВетисСтрока.ПроизводительПредприятие) Тогда
-			_СписокВетисСтрока.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise);
+			_СписокВетисСтрока.ПроизводительПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise);
 		КонецЕсли;
 		
 		_СписокВетисСтрока.НекачественныйГруз = _Item.batch.lowGradeCargo;
 		
-		_СписокВетисСтрока.Собственник = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.batch.owner);
+		_СписокВетисСтрока.Собственник = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Item.batch.owner);
 		
 	КонецЦикла;
 	
@@ -115,9 +118,12 @@
 	
 	Перем _Отказ;
 	
-	_issuerId = ВетисCerberusEnterpriseСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект);
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
 	
-	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
+	_issuerId = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект);
+	
+	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
 	
 	_VetDocument = ВетисMercuryApplications.getVetDocumentByUuid(uuid, _enterpriseGuid, _issuerId, _Отказ);
 	

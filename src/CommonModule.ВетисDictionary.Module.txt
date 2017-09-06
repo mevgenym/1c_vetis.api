@@ -1,4 +1,20 @@
 ﻿
+Функция ActivityLocationList(BusinessMember) Экспорт
+	
+	_Объект = Создать("ActivityLocationList");
+	
+	Если ТипЗнч(BusinessMember) = Тип("Массив") Тогда
+		Для каждого _BusinessMember Из BusinessMember Цикл
+			_Объект.BusinessMember.Добавить(_BusinessMember);
+		КонецЦикла;
+	Иначе
+		_Объект.BusinessMember.Добавить(BusinessMember);
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
 Функция Address(countryGuid, regionGuid, districtGuid, localityGuid, streetGuid, house, building) Экспорт
 	
 	_Объект = Создать("Address");

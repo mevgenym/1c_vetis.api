@@ -18,11 +18,13 @@
 		Возврат;
 	КонецЕсли;
 	
-	_ВетисBase = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionary, ВетисBase);
-	_ВетисCerberusEnterprise = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionary, ВетисCerberusEnterprise);
-	_ВетисCerberusEnterpriseСлой1с = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
-	_ВетисMercuryVetdocument = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
-	_ВетисMercuryApplications = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисMercuryApplications_2_0, ВетисMercuryApplications);
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary, ВетисCerberusEnterprise);
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	_ВетисMercuryVetdocument = ?(_Версия20, ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
+	_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
+	_ВетисArgusCommon = ?(_Версия20, ВетисDictionary, ВетисArgusCommon);
+	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
 	
 	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
 	
@@ -53,7 +55,7 @@
 	_СтрокаСЖ.РешениеОПриеме = Перечисления.ВетисDeliveryDecision[?(_СтрокаСЖ.Количество = 0, "RETURN_ALL", ?(_СтрокаСЖ.КоличествоВозврат = 0, "ACCEPT_ALL", "PARTIALLY"))];
 	
 	_deliveryFacts = _ВетисMercuryVetdocument.DeliveryFactList(
-	  ВетисArgusCommonСлой1с.DocumentNature(Перечисления.ВетисDocumentNature[?(ЗначениеЗаполнено(_всд.Статус), "ELECTRONIC", "PAPER")]),
+	  _ВетисArgusCommonСлой1с.DocumentNature(Перечисления.ВетисDocumentNature[?(ЗначениеЗаполнено(_всд.Статус), "ELECTRONIC", "PAPER")]),
 	  _ВетисMercuryVetdocument.DeliveryInspection(ВетисMercuryVetdocumentСлой1с.DeliveryInspectionResult(_СтрокаСЖ.РезультатПриема)),
 	  _ВетисMercuryVetdocument.DeliveryInspection(ВетисMercuryVetdocumentСлой1с.DeliveryInspectionResult(_СтрокаСЖ.РезультатВетКонтроля), ВетисПараметрыСоединения.Врач()),
 	  ВетисMercuryVetdocumentСлой1с.DeliveryDecision(_СтрокаСЖ.РешениеОПриеме));
@@ -148,7 +150,7 @@
 	
 КонецПроцедуры
 
-Процедура TransportOperation(пСтрокаСЖ, пОтказ) Экспорт
+Процедура TransportOperation(пСтрокаСЖ, пПартии, пОтказ) Экспорт
 	
 	_СтрокаСЖ = пСтрокаСЖ;
 	
@@ -160,28 +162,41 @@
 		Возврат;
 	КонецЕсли;
 	
-	_ВетисCerberusEnterprise = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionary, ВетисCerberusEnterprise);
-	_ВетисCerberusEnterpriseСлой1с = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
-	_ВетисMercuryVetdocument = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
-	_ВетисMercuryApplications = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисMercuryApplications_2_0, ВетисMercuryApplications);
-	
 	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
 	
 	_всд = _СтрокаСЖ.ВСД.ПолучитьОбъект();
 	
-	_Отправитель = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Отправитель);
-	_Получатель = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Получатель);
-	
-	_ОтправительПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ОтправительПредприятие);
-	_ПолучательПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ПолучательПредприятие);
-	
-	_delivery = _ВетисMercuryVetdocument.Delivery(
-		_ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
-		_ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
-		ПолучитьBatch(_всд.СкладскойЖурнал[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест, _ВетисMercuryVetdocument.Consignment()),
-		_ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)));
-	
-	_Response = _ВетисMercuryApplications.processIncomingConsignment(_delivery, _Получатель, пОтказ);
+	Если ВетисОбщегоНазначения.ВерсияРавно("2.0") Тогда
+		_Отправитель = ВетисDictionaryСлой1с.BusinessEntity(_всд.Отправитель);
+		_Получатель = ВетисDictionaryСлой1с.BusinessEntity(_всд.Получатель);
+		
+		_ОтправительПредприятие = ВетисDictionaryСлой1с.Enterprise(_всд.ОтправительПредприятие);
+		_ПолучательПредприятие = ВетисDictionaryСлой1с.Enterprise(_всд.ПолучательПредприятие);
+		
+		_delivery = ВетисMercuryVetdocument_2_0.Delivery(
+			ВетисDictionary.BusinessMember(_Отправитель, _ОтправительПредприятие),
+			ВетисDictionary.BusinessMember(_Получатель, _ПолучательПредприятие),
+			ПолучитьBatch(_всд.СкладскойЖурнал[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест, ВетисMercuryVetdocument_2_0.Consignment()),
+			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)));
+		
+		_Response = ВетисMercuryApplications_2_0.PrepareOutgoingConsignment(_delivery, _Получатель, пОтказ);
+		
+	Иначе
+		_Отправитель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Отправитель);
+		_Получатель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Получатель);
+		
+		_ОтправительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ОтправительПредприятие);
+		_ПолучательПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ПолучательПредприятие);
+		
+		_delivery = ВетисMercuryVetdocument.Delivery(
+			ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
+			ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
+			ПолучитьBatch(_всд.СкладскойЖурнал[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест, ВетисMercuryVetdocument.Consignment()),
+			ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)));
+		
+		_Response = ВетисMercuryApplications.prepareOutcomingConsignment(_delivery, _Получатель, пОтказ);
+		
+	КонецЕсли;
 	
 КонецПроцедуры
 
@@ -199,7 +214,7 @@
 	
 	_vetDocumentId = ВетисMercuryVetdocumentСлой1с.VetDocument(пСсылка);
 	
-	Если ВетисОбщегоНазначения.Версия("2_0") Тогда
+	Если ВетисОбщегоНазначения.ВерсияРавно("2.0") Тогда
 		_Reason = ВетисMercuryVetdocument_2_0.VetDocumentStatusChangeReason(пПричина);
 		
 		_Получатель = ВетисDictionaryСлой1с.BusinessEntity(пСсылка.Получатель);
@@ -230,8 +245,8 @@
 
 Функция getVetDocumentByUuid(пВСД, пВСДОбъект = Неопределено) Экспорт
 	
-	_ВетисCerberusEnterpriseСлой1с = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
-	_ВетисMercuryApplications = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисMercuryApplications_2_0, ВетисMercuryApplications);
+	_ВетисCerberusEnterpriseСлой1с = ?(ВетисОбщегоНазначения.ВерсияРавно("2.0"), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	_ВетисMercuryApplications = ?(ВетисОбщегоНазначения.ВерсияРавно("2.0"), ВетисMercuryApplications_2_0, ВетисMercuryApplications);
 	
 	Если Ложь
 		ИЛИ пВСД.Тип = ПредопределенноеЗначение("Перечисление.ВетисVetDocumentType.Входящий")
@@ -271,10 +286,30 @@
 	
 КонецФункции
 
+// Предназначена для получения всех ВСД предприятия
+// Используется самостоятельно в цикле Пока.
+// Параметры:
+//  enterpriseGuid - Идентификатор предприятия
+//  issuerId       - Идентификатор ХС
+//  пItem          - элемент списка, возвращаемый параметр
+//  пПараметры     - для внутреннего использования, начальное значение - Неопределено
+// Возвращаемое значение:
+//	Булево         - Ложь значит список пройден весь
+Функция GetVetDocumentListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры) Экспорт
+	
+	Если ВетисОбщегоНазначения.ВерсияРавно("2.0") Тогда
+		Возврат ВетисMercuryApplications_2_0.GetVetDocumentListСледующий(enterpriseGuid, issuerId, пItem, пПараметры);
+	Иначе
+		Возврат ВетисMercuryApplications.GetVetDocumentListСледующий(enterpriseGuid, issuerId, пItem, пПараметры);
+	КонецЕсли;
+	
+	
+КонецФункции
+
 
 Функция ПолучитьBatch(пСтрокаСЖ, пКоличество = Неопределено, пКоличествоМест = Неопределено, пОбъект = Неопределено)
 	
-	_ВетисMercuryVetdocument = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
+	_ВетисMercuryVetdocument = ?(ВетисОбщегоНазначения.ВерсияРавно("2.0"), ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
 	
 	Если пОбъект = Неопределено Тогда
 		_batch = _ВетисMercuryVetdocument.Batch();
@@ -291,9 +326,38 @@
 	
 КонецФункции
 
+Функция ПолучитьConsignment(пСтрокаСЖ, пКоличество = Неопределено, пКоличествоМест = Неопределено, пSourceStockEntry = Неопределено)
+	
+	_ВетисMercuryVetdocument = ?(ВетисОбщегоНазначения.ВерсияРавно("2.0"), ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
+	
+	_Consignment = _ВетисMercuryVetdocument.Consignment();
+	
+	ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_Consignment, пСтрокаСЖ);
+	
+	Если пSourceStockEntry = Неопределено Тогда
+		_Consignment.volume           = ?(пКоличество     = Неопределено, пСтрокаСЖ.Количество, пКоличество);
+		_Consignment.packingAmount    = ?(пКоличествоМест = Неопределено, пСтрокаСЖ.КоличествоМест, пКоличествоМест);
+	Иначе
+		_Количество     = ?(пКоличество     = Неопределено, пСтрокаСЖ.Количество, пКоличество);
+		_КоличествоМест = ?(пКоличествоМест = Неопределено, пСтрокаСЖ.КоличествоМест, пКоличествоМест);
+		
+		Для каждого _StockEntry Из пSourceStockEntry Цикл
+			//_StockEntry.
+		КонецЦикла;
+		
+	КонецЕсли;
+	
+	//Возврат _batch;
+	
+КонецФункции
+
+
 Функция ПолучитьVetDocument(пВСД, пВозврат = Ложь)
 	
-	_ВетисMercuryVetdocument = ?(ВетисОбщегоНазначения.Версия("2_0"), ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисMercuryVetdocument = ?(_Версия20, ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
+	_ВетисArgusCommon = ?(_Версия20, ВетисDictionary, ВетисArgusCommon);
+	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
 	
 	_VetDocument = _ВетисMercuryVetdocument.VetDocument();
 	
@@ -305,7 +369,7 @@
 		Иначе
 			_СтрокаВСД = пВСД.ВСД[0];
 			_VetDocument.issueDate          = ВетисОбщегоНазначения.ВремяВетис(пВСД.Дата);
-			_VetDocument.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(ВетисПредопределенные.Получить("Purpose.ВозвратГруза")));
+			_VetDocument.purpose            = _ВетисArgusCommon.Purpose(_ВетисArgusCommonСлой1с.Purpose(ВетисПредопределенные.Получить("Purpose.ВозвратГруза")));
 			_VetDocument.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 			_VetDocument.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
 			_VetDocument.confirmedBy        = ВетисПараметрыСоединения.Врач();

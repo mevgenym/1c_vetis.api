@@ -16,9 +16,11 @@
 	
 	Перем _Item, _Параметры;
 	
+	_ВетисDictionaryService = ?(ВетисОбщегоНазначения.ВерсияРавно("2.0"), ВетисDictionaryService_2_0, ВетисDictionaryService);
+	
 	СписокВетис.Очистить();
-
-	Пока ВетисArgusCommon.GetUnitListСледующий(_Item, _Параметры) Цикл
+	
+	Пока _ВетисDictionaryService.GetUnitListСледующий(_Item, _Параметры) Цикл
 		
 		// только базовые
 		Если НЕ _Item.guid = _Item.commonUnitGuid Тогда

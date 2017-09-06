@@ -23,23 +23,29 @@
 	
 	Перем _product, _subProduct, _productItem, _параметрыP;
 	
-	_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(Предприятие);
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисProductService = ?(_Версия20, ВетисProductService_2_0, ВетисProductService);
+	//_ВетисArgusProduction = ?(_Версия20, ВетисDictionary, ВетисArgusProduction);
+	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
 	
-	_ТипПродукции = ВетисArgusProductionСлой1с.ProductType(ТипПродукции);
+	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(Предприятие);
+	
+	_ТипПродукции = _ВетисArgusProductionСлой1с.ProductType(ТипПродукции);
 	
 	СписокВетис.Очистить();
 	
-	Пока ВетисArgusProduction.GetProductByTypeListСледующий(_ТипПродукции, _product, _параметрыP) Цикл
+	Пока _ВетисProductService.GetProductByTypeListСледующий(_ТипПродукции, _product, _параметрыP) Цикл
 		
 		_параметрыS = Неопределено;
-		Пока ВетисArgusProduction.GetSubProductByProductListСледующий(_product.guid, _subProduct, _параметрыS) Цикл
+		Пока _ВетисProductService.GetSubProductByProductListСледующий(_product.guid, _subProduct, _параметрыS) Цикл
 			
 			_СписокСтрока = СписокSubProductВетис.Добавить();
 			_СписокСтрока.name = _subProduct.name;
 			_СписокСтрока.guid = _subProduct.guid;
 			
 			_параметрыPI = Неопределено;
-			Пока ВетисArgusProduction.GetProductItemListСледующий(_subProduct.guid, _enterpriseGuid, _productItem, _параметрыPI) Цикл
+			Пока _ВетисProductService.GetProductItemListСледующий(_subProduct.guid, _enterpriseGuid, _productItem, _параметрыPI) Цикл
 				
 				_СписокСтрока = СписокВетис.Добавить();
 				_СписокСтрока.name = _productItem.name;

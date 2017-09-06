@@ -24,14 +24,18 @@
 	
 	Перем _Product, _subProduct, _параметрыP;
 	
-	_ТипПродукции = ВетисArgusProductionСлой1с.ProductType(ТипПродукции);
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисProductService = ?(_Версия20, ВетисProductService_2_0, ВетисProductService);
+	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
+	
+	_ТипПродукции = _ВетисArgusProductionСлой1с.ProductType(ТипПродукции);
 	
 	СписокВетис.Очистить();
 	
-	Пока ВетисArgusProduction.GetProductByTypeListСледующий(_ТипПродукции, _Product, _параметрыP) Цикл
+	Пока _ВетисProductService.GetProductByTypeListСледующий(_ТипПродукции, _Product, _параметрыP) Цикл
 		
 		_параметрыS = Неопределено;
-		Пока ВетисArgusProduction.GetSubProductByProductListСледующий(_Product.guid, _subProduct, _параметрыS) Цикл
+		Пока _ВетисProductService.GetSubProductByProductListСледующий(_Product.guid, _subProduct, _параметрыS) Цикл
 			
 			_СписокВетисСтрока = СписокВетис.Добавить();
 			_СписокВетисСтрока.name = _subProduct.name;

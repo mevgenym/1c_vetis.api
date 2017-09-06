@@ -516,6 +516,32 @@
 
 #КонецОбласти
 
+#Область ModifyActivityLocationsOperation
+
+// Операция предназначена для создание связи между ХС и площадкой или удаление этой связи.
+// Параметры:
+//  modificationOperation - ent:BEActivityLocationsModificationOperation
+Функция ModifyActivityLocationsRequest(modificationOperation) Экспорт
+	
+	_Объект = Создать("ModifyActivityLocationsRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.modificationOperation = modificationOperation;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Объект содержит сведения о поднадзорном объекте, который был изменен или добавлен.
+Функция ModifyActivityLocationsResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyEnterpriseResponse, "ModifyActivityLocationsResponse", URI()).businessEntity;
+	
+КонецФункции
+
+#КонецОбласти
+
 
 Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
 	

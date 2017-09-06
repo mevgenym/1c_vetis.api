@@ -25,6 +25,52 @@
 	
 КонецФункции
 
+//Операция изменения связи между хозяйствующим субъектом и предприятиями. 
+//Параметры:
+// type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
+// businessEntity - ent:BusinessEntityList
+// enterprise - ent:Enterprise
+Функция BusinessEntityActivityLocationsModificationOperation(type, businessEntity, enterprise) Экспорт
+	
+	_Объект = Создать("BEActivityLocationsModificationOperation");
+	
+	_Объект.type = type;
+	
+	_Объект.businessEntity = businessEntity;
+	
+	Если ТипЗнч(enterprise) = Тип("Массив") Тогда
+		Для каждого _enterprise Из enterprise Цикл
+			_ОбъектЭлемент = _Объект.enterprise.Добавить();
+			_ОбъектЭлемент.enterprise = _enterprise;
+		КонецЦикла;
+	Иначе
+		_ОбъектЭлемент = _Объект.enterprise.Добавить();
+		_ОбъектЭлемент.enterprise = enterprise;
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Операция внесения изменений в реестр ХС
+//Параметры:
+// type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
+// affectedList - ent:BusinessEntityList - Входящий список ХС
+// resultingList - ent:BusinessEntityList - Получаемые в результате операции записи
+// reason - xs:String - Основание добавления записи в реестр
+Функция BusinessEntityModificationOperation(type, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
+	
+	_Объект = Создать("BEModificationOperation");
+	
+	_Объект.type = type;
+	_Объект.affectedList = affectedList;
+	_Объект.resultingList = resultingList;
+	_Объект.reason  = reason;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
 // Тип, описывающий транспортную партию груза.
 Функция Consignment() Экспорт
 	
@@ -162,6 +208,25 @@
 	_Объект.issueDate   = ВетисОбщегоНазначения.ВремяВетис(issueDate);
 	_Объект.reason      = DiscrepancyReason(reason);
 	_Объект.description = description;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+// Операция внесения изменений в реестр ХС
+// Параметры:
+//  type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
+//  affectedList - ent:EnterpriseList - Входящий список площадок
+//  resultingList - ent:EnterpriseList - Получаемые в результате операции записи
+//  reason - xs:String - Основание добавления записи в реестр
+Функция EnterpriseModificationOperation(type, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
+	
+	_Объект = Создать("ENTModificationOperation");
+	
+	_Объект.type = type;
+	_Объект.affectedList = affectedList;
+	_Объект.resultingList = resultingList;
+	_Объект.reason  = reason;
 	
 	Возврат _Объект;
 	

@@ -215,9 +215,7 @@
 
 Функция Прокси()
 	
-	_Прокси = WSСсылки.EnterpriseServiceTest.СоздатьWSПрокси("http://api.vetrf.ru/schema/cdm/registry/service", "EnterpriseServiceBindingQSService", "EnterpriseServiceBindingQSPort");
-	_Прокси.Пароль       = ВетисПараметрыСоединения.Пароль();
-	_Прокси.Пользователь = ВетисПараметрыСоединения.Логин();
+	_Прокси = ВетисXSD.Прокси("EnterpriseService");
 	
 	Возврат _Прокси;
 	

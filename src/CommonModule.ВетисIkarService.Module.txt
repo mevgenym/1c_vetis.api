@@ -189,9 +189,7 @@
 
 Функция Прокси()
 	
-	_Прокси = WSСсылки.IkarServiceTest.СоздатьWSПрокси("http://api.vetrf.ru/schema/cdm/registry/service", "IkarServiceBindingQSService", "IkarServiceBindingQSPort");
-	_Прокси.Пароль       = ВетисПараметрыСоединения.Пароль();
-	_Прокси.Пользователь = ВетисПараметрыСоединения.Логин();
+	_Прокси = ВетисXSD.Прокси("IkarService");
 	
 	Возврат _Прокси;
 	

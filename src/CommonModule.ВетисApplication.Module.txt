@@ -108,7 +108,7 @@
 
 Функция Фабрика()
 	
-	Возврат WSСсылки.ApplicationManagementsServiceTest.ПолучитьWSОпределения().ФабрикаXDTO;
+	Возврат ВетисXSD.Определения("ApplicationManagementService").ФабрикаXDTO;
 	
 КонецФункции
 

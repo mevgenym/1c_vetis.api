@@ -130,9 +130,7 @@
 
 Функция Прокси()
 	
-	_Прокси = WSСсылки.DictionaryServiceTest.СоздатьWSПрокси("http://api.vetrf.ru/schema/cdm/registry/dictionary/service/v2", "DictionaryServiceBindingQSService", "DictionaryServiceBindingQSPort");
-	_Прокси.Пароль       = ВетисПараметрыСоединения.Пароль();
-	_Прокси.Пользователь = ВетисПараметрыСоединения.Логин();
+	_Прокси = ВетисXSD.Прокси("DictionaryService", Перечисления.ВетисВерсияAPI.v2_0);
 	
 	Возврат _Прокси;
 	

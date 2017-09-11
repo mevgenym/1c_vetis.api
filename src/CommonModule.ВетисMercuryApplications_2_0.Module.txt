@@ -17,7 +17,7 @@
 
 Функция GetStockEntryByGuidResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryByGuidResponse, "GetStockEntryByGuidResponse", URI()).stockEntry;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryByGuidResponse, "GetStockEntryByGuidResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).stockEntry;
 	
 КонецФункции
 
@@ -59,7 +59,7 @@
 
 Функция GetStockEntryListResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryListResponse, "GetStockEntryListResponse", URI()).stockEntryList;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryListResponse, "GetStockEntryListResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).stockEntryList;
 	
 КонецФункции
 
@@ -139,7 +139,7 @@
 
 Функция GetVetDocumentByUuidResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentByUuidResponse, "GetVetDocumentByUuidResponse", URI()).vetDocument;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentByUuidResponse, "GetVetDocumentByUuidResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).vetDocument;
 	
 КонецФункции
 
@@ -190,7 +190,7 @@
 
 Функция GetVetDocumentListResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentListResponse, "GetVetDocumentListResponse", URI()).vetDocumentList;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentListResponse, "GetVetDocumentListResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).vetDocumentList;
 	
 КонецФункции
 
@@ -266,7 +266,7 @@
 
 Функция MergeStockEntriesResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.mergeStockEntriesResponse, "MergeStockEntriesResponse", URI());
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.mergeStockEntriesResponse, "MergeStockEntriesResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0);
 	
 КонецФункции
 
@@ -316,7 +316,7 @@
 // и в случае частичного гашения также будут возвращены данные возвратного ВСД.
 // В случае полного возврата партии возвращаются только данные возвратного сертификата.	
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ProcessIncomingConsignmentResponse, "ProcessIncomingConsignmentResponse", URI());
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ProcessIncomingConsignmentResponse, "ProcessIncomingConsignmentResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0);
 	
 КонецФункции
 
@@ -353,7 +353,7 @@
 
 Функция PrepareOutgoingConsignmentResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.PrepareOutgoingConsignmentResponse, "PrepareOutgoingConsignmentResponse", URI());
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.PrepareOutgoingConsignmentResponse, "PrepareOutgoingConsignmentResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0);
 	
 КонецФункции
 
@@ -401,7 +401,7 @@
 // в записях складского журнала, выявленных в результате инвентаризации.
 Функция ResolveDiscrepancyResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ResolveDiscrepancyResponse, "ResolveDiscrepancyResponse", URI()).stockEntryList;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ResolveDiscrepancyResponse, "ResolveDiscrepancyResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).stockEntryList;
 	
 КонецФункции
 
@@ -444,7 +444,7 @@
 // Объект содержит сведения об аннулированном ВСД.
 Функция WithdrawVetDocumentResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.WithdrawVetDocumentResponse, "WithdrawVetDocumentResponse", URI()).vetDocument;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.WithdrawVetDocumentResponse, "WithdrawVetDocumentResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).vetDocument;
 	
 КонецФункции
 
@@ -483,7 +483,7 @@
 // Объект содержит сведения о ХС, который был изменен или добавлен.
 Функция ModifyBusinessEntityResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyBusinessEntityResponse, "ModifyBusinessEntityResponse", URI()).businessEntity;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyBusinessEntityResponse, "ModifyBusinessEntityResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).businessEntity;
 	
 КонецФункции
 
@@ -510,7 +510,7 @@
 // Объект содержит сведения о поднадзорном объекте, который был изменен или добавлен.
 Функция ModifyEnterpriseResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyEnterpriseResponse, "ModifyEnterpriseResponse", URI()).enterprise;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyEnterpriseResponse, "ModifyEnterpriseResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).enterprise;
 	
 КонецФункции
 
@@ -519,7 +519,7 @@
 
 Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), ?(пФабрика = Неопределено, Фабрика(), пФабрика));
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика, Перечисления.ВетисВерсияAPI.v2_0);
 	
 КонецФункции
 
@@ -529,18 +529,12 @@
 	
 КонецФункции
 
-Функция Фабрика()
-	
-	Возврат ФабрикаXDTO;
-	
-КонецФункции
-
 
 Функция ФабрикаWS()
 	
 	_Кеш = ВетисПеременные.Получить("КешФабрики", Новый Соответствие);
 	
-	_фабрика = _Кеш.Получить("ApplicationManagementService_2_0");
+	_фабрика = _Кеш.Получить("ApplicationManagementService");
 	
 	Если НЕ _фабрика = Неопределено Тогда
 		Возврат _фабрика;
@@ -568,7 +562,11 @@
 	
 	_фабрика = Новый ФабрикаXDTO(, _Пакеты);
 	
-	_Кеш.Вставить("ApplicationManagementService_2_0", _фабрика);
+	_Кеш = ВетисПеременные.Получить("КешФабрики", Новый Соответствие);
+	
+	_Кеш.Вставить("ApplicationManagementService", _фабрика);
+	
+	ВетисПеременные.Установить("КешФабрики", _Кеш);
 	
 	Возврат _фабрика;
 	

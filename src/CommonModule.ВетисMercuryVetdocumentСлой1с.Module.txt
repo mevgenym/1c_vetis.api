@@ -188,9 +188,9 @@
 Функция VetDocumentКонвертировать(value1, value2) Экспорт
 	
 	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
-	_ВетисArgusCommon = ?(_Версия20, ВетисDictionary, ВетисArgusCommon);
+	_ВетисArgusCommon = ?(_Версия20, ВетисDictionary_2_0, ВетисArgusCommon);
 	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
-	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary, ВетисCerberusEnterprise);
+	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary_2_0, ВетисCerberusEnterprise);
 	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
 	_ВетисArgusShipmentСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusShipmentСлой1с);
 	
@@ -302,12 +302,12 @@
 Функция BatchКонвертировать(value1, value2) Экспорт
 	
 	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
-	_ВетисBase = ?(_Версия20, ВетисDictionary, ВетисBase);
-	_ВетисArgusProduction = ?(_Версия20, ВетисDictionary, ВетисArgusProduction);
+	_ВетисBase = ?(_Версия20, ВетисDictionary_2_0, ВетисBase);
+	_ВетисArgusProduction = ?(_Версия20, ВетисDictionary_2_0, ВетисArgusProduction);
 	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
-	_ВетисArgusCommon = ?(_Версия20, ВетисDictionary, ВетисArgusCommon);
+	_ВетисArgusCommon = ?(_Версия20, ВетисDictionary_2_0, ВетисArgusCommon);
 	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
-	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary, ВетисCerberusEnterprise);
+	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary_2_0, ВетисCerberusEnterprise);
 	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
 	_ВетисIkarСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисIkarСлой1с);
 	_ВетисProductService = ?(_Версия20, ВетисProductService_2_0, ВетисProductService);

@@ -17,7 +17,7 @@
 
 Функция GetStockEntryByGuidResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryByGuidResponse, "GetStockEntryByGuidResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).stockEntry;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryByGuidResponse, "GetStockEntryByGuidResponse", URI()).stockEntry;
 	
 КонецФункции
 
@@ -25,7 +25,7 @@
 	
 	_Request = GetStockEntryByGuidRequest(guid, enterpriseGuid);
 	
-	_Response = ВыполнитьЗапрос(_Request, "GetStockEntryByGuidRequest", issuerId, Ложь);
+	_Response = ВыполнитьЗапрос(_Request, "getStockEntryByGuidRequest", issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
@@ -45,7 +45,7 @@
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.listOptions        = ВетисBase.ListOptions(count);
+	_Объект.listOptions        = ВетисBase_2_0.ListOptions(count);
 	
 	Возврат _Объект;
 	
@@ -59,7 +59,7 @@
 
 Функция GetStockEntryListResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryListResponse, "GetStockEntryListResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).stockEntryList;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetStockEntryListResponse, "GetStockEntryListResponse", URI()).stockEntryList;
 	
 КонецФункции
 
@@ -76,7 +76,7 @@
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
-		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
+		пПараметры.Вставить("ListOptions", ВетисBase_2_0.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
 		
 		пПараметры.Вставить("ListRequest", GetStockEntryListRequest(enterpriseGuid));
@@ -97,7 +97,7 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "GetStockEntryListRequest", issuerId, Ложь, пПараметры.Отладка);
+	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "getStockEntryListRequest", issuerId, Ложь, пПараметры.Отладка);
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -139,7 +139,7 @@
 
 Функция GetVetDocumentByUuidResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentByUuidResponse, "GetVetDocumentByUuidResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).vetDocument;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentByUuidResponse, "GetVetDocumentByUuidResponse", URI()).vetDocument;
 	
 КонецФункции
 
@@ -147,7 +147,7 @@
 	
 	_Request = GetVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid);
 	
-	_Response = ВыполнитьЗапрос(_Request, "GetVetDocumentByUuidRequest", issuerId, Ложь);
+	_Response = ВыполнитьЗапрос(_Request, "getVetDocumentByUuidRequest", issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
@@ -168,7 +168,7 @@
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.listOptions        = ВетисBase.ListOptions();
+	_Объект.listOptions        = ВетисBase_2_0.ListOptions();
 	
 	Если НЕ vetDocumentType = Неопределено Тогда
 		_Объект.vetDocumentType = vetDocumentType;
@@ -190,7 +190,7 @@
 
 Функция GetVetDocumentListResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentListResponse, "GetVetDocumentListResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).vetDocumentList;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentListResponse, "GetVetDocumentListResponse", URI()).vetDocumentList;
 	
 КонецФункции
 
@@ -207,7 +207,7 @@
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
-		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
+		пПараметры.Вставить("ListOptions", ВетисBase_2_0.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
 		
 		пПараметры.Вставить("ListRequest", GetVetDocumentListRequest(enterpriseGuid));
@@ -228,7 +228,7 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "GetVetDocumentListRequest", issuerId, Ложь, пПараметры.Отладка);
+	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "getVetDocumentListRequest", issuerId, Ложь, пПараметры.Отладка);
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -266,7 +266,7 @@
 
 Функция MergeStockEntriesResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.mergeStockEntriesResponse, "MergeStockEntriesResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0);
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.mergeStockEntriesResponse, "MergeStockEntriesResponse", URI());
 	
 КонецФункции
 
@@ -316,7 +316,7 @@
 // и в случае частичного гашения также будут возвращены данные возвратного ВСД.
 // В случае полного возврата партии возвращаются только данные возвратного сертификата.	
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ProcessIncomingConsignmentResponse, "ProcessIncomingConsignmentResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0);
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ProcessIncomingConsignmentResponse, "ProcessIncomingConsignmentResponse", URI());
 	
 КонецФункции
 
@@ -324,7 +324,7 @@
 	
 	_Request = ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport, returnedDelivery);
 	
-	_Response = ВыполнитьЗапрос(_Request, "ProcessIncomingConsignmentRequest", issuerId, Ложь);
+	_Response = ВыполнитьЗапрос(_Request, "processIncomingConsignmentRequest", issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
@@ -353,7 +353,7 @@
 
 Функция PrepareOutgoingConsignmentResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.PrepareOutgoingConsignmentResponse, "PrepareOutgoingConsignmentResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0);
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.PrepareOutgoingConsignmentResponse, "PrepareOutgoingConsignmentResponse", URI());
 	
 КонецФункции
 
@@ -361,7 +361,7 @@
 	
 	_Request = PrepareOutgoingConsignmentRequest(delivery);
 	
-	_Response = ВыполнитьЗапрос(_Request, "PrepareOutgoingConsignmentRequest", issuerId, Ложь);
+	_Response = ВыполнитьЗапрос(_Request, "prepareOutgoingConsignmentRequest", issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
@@ -401,7 +401,7 @@
 // в записях складского журнала, выявленных в результате инвентаризации.
 Функция ResolveDiscrepancyResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ResolveDiscrepancyResponse, "ResolveDiscrepancyResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).stockEntryList;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ResolveDiscrepancyResponse, "ResolveDiscrepancyResponse", URI()).stockEntryList;
 	
 КонецФункции
 
@@ -444,7 +444,7 @@
 // Объект содержит сведения об аннулированном ВСД.
 Функция WithdrawVetDocumentResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.WithdrawVetDocumentResponse, "WithdrawVetDocumentResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).vetDocument;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.WithdrawVetDocumentResponse, "WithdrawVetDocumentResponse", URI()).vetDocument;
 	
 КонецФункции
 
@@ -452,7 +452,7 @@
 	
 	_Request = WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, ВетисПараметрыСоединения.Врач());
 	
-	_Response = ВыполнитьЗапрос(_Request, "WithdrawVetDocumentRequest", issuerId, Ложь);
+	_Response = ВыполнитьЗапрос(_Request, "withdrawVetDocumentRequest", issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
@@ -483,7 +483,7 @@
 // Объект содержит сведения о ХС, который был изменен или добавлен.
 Функция ModifyBusinessEntityResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyBusinessEntityResponse, "ModifyBusinessEntityResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).businessEntity;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyBusinessEntityResponse, "ModifyBusinessEntityResponse", URI()).businessEntity;
 	
 КонецФункции
 
@@ -510,7 +510,7 @@
 // Объект содержит сведения о поднадзорном объекте, который был изменен или добавлен.
 Функция ModifyEnterpriseResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyEnterpriseResponse, "ModifyEnterpriseResponse", URI(),,Перечисления.ВетисВерсияAPI.v2_0).enterprise;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyEnterpriseResponse, "ModifyEnterpriseResponse", URI()).enterprise;
 	
 КонецФункции
 
@@ -519,7 +519,7 @@
 
 Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика, Перечисления.ВетисВерсияAPI.v2_0);
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика);
 	
 КонецФункции
 
@@ -542,7 +542,7 @@
 	
 	_ФабрикаXDTO = ВетисXSD.ФабрикаОбщая();
 	
-	_Определения = ВетисXSD.Определения("ApplicationManagementService", Перечисления.ВетисВерсияAPI.v2_0);
+	_Определения = ВетисXSD.Определения("ApplicationManagementService");
 	
 	// создаем врем. фабрику на основе пакетов из конфиги и web сервиса
 	// нам нужны 2 пакета из ws, но пакет с application нужен локальный

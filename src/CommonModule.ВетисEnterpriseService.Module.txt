@@ -189,16 +189,11 @@
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("List", Новый Массив);
 		пПараметры.Вставить("Индекс", 0);
-		Попытка
-			_Entity = GetBusinessEntityByGuid(пGuid);
-			Для Каждого _Location из _Entity.activityLocation Цикл
-				_Enterprise = GetEnterpriseByGuid(_Location.enterprise.guid);
-				пПараметры.List.Добавить(_Enterprise);
-			КонецЦикла;
-		Исключение
-			ВетисЖурнал.ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
-			ВызватьИсключение;
-		КонецПопытки;
+		_Entity = GetBusinessEntityByGuid(пGuid);
+		Для Каждого _Location из _Entity.activityLocation Цикл
+			_Enterprise = GetEnterpriseByGuid(_Location.enterprise.guid);
+			пПараметры.List.Добавить(_Enterprise);
+		КонецЦикла;
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 	КонецЕсли;

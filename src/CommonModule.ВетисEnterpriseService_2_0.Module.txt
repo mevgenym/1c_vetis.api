@@ -30,7 +30,7 @@
 Функция GetBusinessEntityList(пfiltr = Неопределено, пListOptions = Неопределено) Экспорт
 	
 	Если пListOptions = Неопределено Тогда
-		пListOptions = ВетисBase.ListOptions();
+		пListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		пListOptions.offset = пListOptions.offset + пListOptions.count;
 	КонецЕсли;
@@ -38,7 +38,7 @@
 	Если пfiltr = Неопределено Тогда
 		Возврат Прокси().GetBusinessEntityList(пListOptions);
 	Иначе
-		Возврат Прокси().GetBusinessEntityList(пListOptions, ВетисCerberusEnterprise.BusinessEntity(пfiltr));
+		Возврат Прокси().GetBusinessEntityList(пListOptions, ВетисDictionary_2_0.BusinessEntity(пfiltr));
 	КонецЕсли;
 	
 КонецФункции
@@ -55,7 +55,7 @@
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
-		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
+		пПараметры.Вставить("ListOptions", ВетисBase_2_0.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
@@ -76,7 +76,7 @@
 		Если пfiltr = Неопределено Тогда
 			_List = Прокси().GetBusinessEntityList(пПараметры.ListOptions);
 		Иначе
-			_List = Прокси().GetBusinessEntityList(пПараметры.ListOptions, ВетисCerberusEnterprise.BusinessEntity(пfiltr));
+			_List = Прокси().GetBusinessEntityList(пПараметры.ListOptions, ВетисDictionary_2_0.BusinessEntity(пfiltr));
 		КонецЕсли;
 	Исключение
 		ВетисЖурнал.ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
@@ -102,7 +102,7 @@
 Функция GetRussianEnterpriseList(пfiltr = Неопределено, пListOptions = Неопределено) Экспорт
 	
 	Если пListOptions = Неопределено Тогда
-		пListOptions = ВетисBase.ListOptions();
+		пListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		пListOptions.offset = пListOptions.offset + пListOptions.count;
 	КонецЕсли;
@@ -111,7 +111,7 @@
 		Если пfiltr = Неопределено Тогда
 			Возврат Прокси().GetRussianEnterpriseList(пListOptions);
 		Иначе
-			Возврат Прокси().GetRussianEnterpriseList(пListOptions, ВетисCerberusEnterprise.Enterprise(пfiltr));
+			Возврат Прокси().GetRussianEnterpriseList(пListOptions, ВетисDictionary_2_0.Enterprise(пfiltr));
 		КонецЕсли;
 	Исключение
 		ВетисЖурнал.ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
@@ -132,7 +132,7 @@
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
-		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
+		пПараметры.Вставить("ListOptions", ВетисBase_2_0.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
@@ -153,7 +153,7 @@
 		Если пfiltr = Неопределено Тогда
 			_ListResponse = Прокси().GetRussianEnterpriseList(пПараметры.ListOptions);
 		Иначе
-			_ListResponse = Прокси().GetRussianEnterpriseList(пПараметры.ListOptions, ВетисCerberusEnterprise.Enterprise(пfiltr));
+			_ListResponse = Прокси().GetRussianEnterpriseList(пПараметры.ListOptions, ВетисDictionary_2_0.Enterprise(пfiltr));
 		КонецЕсли;
 	Исключение
 		ВетисЖурнал.ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
@@ -189,16 +189,11 @@
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("List", Новый Массив);
 		пПараметры.Вставить("Индекс", 0);
-		Попытка
-			_Entity = GetBusinessEntityByGuid(пGuid);
-			Для Каждого _Location из _Entity.activityLocation Цикл
-				_Enterprise = GetEnterpriseByGuid(_Location.enterprise.guid);
-				пПараметры.List.Добавить(_Enterprise);
-			КонецЦикла;
-		Исключение
-			ВетисЖурнал.ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
-			ВызватьИсключение;
-		КонецПопытки;
+		_Entity = GetBusinessEntityByGuid(пGuid);
+		Для Каждого _Location из _Entity.activityLocation Цикл
+			_Enterprise = GetEnterpriseByGuid(_Location.enterprise.guid);
+			пПараметры.List.Добавить(_Enterprise);
+		КонецЦикла;
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 	КонецЕсли;
@@ -215,7 +210,7 @@
 
 Функция Прокси()
 	
-	_Прокси = ВетисXSD.Прокси("EnterpriseService", Перечисления.ВетисВерсияAPI.v2_0);
+	_Прокси = ВетисXSD.Прокси("EnterpriseService");
 	
 	Возврат _Прокси;
 	

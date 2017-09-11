@@ -240,7 +240,7 @@
 	
 	Если ЗначениеЗаполнено(firstDate) Тогда
 		Если ТипЗнч(firstDate) = Тип("Дата") Тогда
-			_Объект.firstDate = ВетисBase.ComplexDate(firstDate);
+			_Объект.firstDate = ВетисDictionary_2_0.ComplexDate(firstDate);
 		Иначе
 			_Объект.firstDate = firstDate;
 		КонецЕсли;
@@ -248,7 +248,7 @@
 	
 	Если НЕ secondDate = Неопределено И ЗначениеЗаполнено(secondDate) Тогда
 		Если ТипЗнч(secondDate) = Тип("Дата") Тогда
-			_Объект.secondDate = ВетисBase.ComplexDate(secondDate);
+			_Объект.secondDate = ВетисDictionary_2_0.ComplexDate(secondDate);
 		Иначе
 			_Объект.secondDate = secondDate;
 		КонецЕсли;
@@ -520,7 +520,7 @@
 
 Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика, Перечисления.ВетисВерсияAPI.v2_0);
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика);
 	
 КонецФункции
 

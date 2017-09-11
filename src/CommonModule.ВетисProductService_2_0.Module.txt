@@ -40,7 +40,7 @@
 Функция GetProductByTypeList(productType, пListOptions = Неопределено) Экспорт
 	
 	Если пListOptions = Неопределено Тогда
-		пListOptions = ВетисBase.ListOptions();
+		пListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		пListOptions.offset = пListOptions.offset + пListOptions.count;
 	КонецЕсли;
@@ -83,7 +83,7 @@
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
-		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
+		пПараметры.Вставить("ListOptions", ВетисBase_2_0.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
@@ -125,7 +125,7 @@
 Функция GetSubProductByProductList(productGuid, пListOptions = Неопределено) Экспорт
 	
 	Если пListOptions = Неопределено Тогда
-		пListOptions = ВетисBase.ListOptions();
+		пListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		пListOptions.offset = пListOptions.offset + пListOptions.count;
 	КонецЕсли;
@@ -169,7 +169,7 @@
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
-		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
+		пПараметры.Вставить("ListOptions", ВетисBase_2_0.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
@@ -212,7 +212,7 @@
 Функция GetProductItemList(subProductGuid, enterpriseGuid, ListOptions = Неопределено) Экспорт
 	
 	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+		ListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
@@ -240,7 +240,7 @@
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
-		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
+		пПараметры.Вставить("ListOptions", ВетисBase_2_0.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
@@ -280,7 +280,7 @@
 
 Функция Прокси()
 	
-	_Прокси = ВетисXSD.Прокси("ProductService", Перечисления.ВетисВерсияAPI.v2_0);
+	_Прокси = ВетисXSD.Прокси("ProductService");
 	
 	Возврат _Прокси;
 	

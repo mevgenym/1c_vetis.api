@@ -1,55 +1,82 @@
 ﻿
 Процедура Инициализировать() Экспорт
 	
-	_таблица = Неопределено;
+	//вызывать при:
+	// после изменения тестовый - рабочий
+	// после изменения версии
 	
-	_имя = "http://api.vetrf.ru/schema/platform/";
-	_суф = "_v1.4_pilot.wsdl";
+	_версия = ВетисОбщегоНазначения.Версия();
 	
-	WSDLДобавить(_таблица, "ApplicationManagementService", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"services/ApplicationManagementService"+_суф, Истина);
+	Если _версия = Перечисления.ВетисВерсияAPI.v2_0 Тогда
+		_имя = "http://api.vetrf.ru/schema/platform/services/2.0-RC-last/";
+		_суф = "_v2.0_pilot.wsdl";
+		
+		_таблица = Неопределено;
+		
+		WSDLДобавить(_таблица, "ApplicationManagementService", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ApplicationManagementService_v1.1.wsdl");
+		
+		WSDLДобавить(_таблица, "DictionaryService", "http://api.vetrf.ru/schema/cdm/registry/dictionary/service/v2", "DictionaryServiceBindingQSService", "DictionaryServiceBindingQSPort", _Имя+"DictionaryService"+_суф);
+		WSDLДобавить(_таблица, "EnterpriseService", "http://api.vetrf.ru/schema/cdm/registry/enterprise/service/v2", "EnterpriseServiceBindingQSService", "EnterpriseServiceBindingQSPort", _Имя+"EnterpriseService"+_суф);
+		WSDLДобавить(_таблица, "IkarService",       "http://api.vetrf.ru/schema/cdm/registry/ikar/service/v2",       "IkarServiceBindingQSService",       "IkarServiceBindingQSPort",       _Имя+"IkarService"+_суф);
+		WSDLДобавить(_таблица, "ProductService",    "http://api.vetrf.ru/schema/cdm/registry/product/service/v2",    "ProductServiceBindingQSService",    "ProductServiceBindingQSPort",    _Имя+"ProductService"+_суф);
+		
+		ВетисПеременные.Установить("wsdl", _таблица);
+		
+		_имя = "http://api.vetrf.ru/schema/platform/services/2.0-RC-last/";
+		_суф = "_v2.0.xsd";
+		_версия = Перечисления.ВетисВерсияAPI.v2_0;
+		
+		_таблица = Неопределено;
+		
+		XSDДобавить(_таблица, _Имя+"application_v1.1.xsd",          "http://api.vetrf.ru/schema/cdm/application");
+		XSDДобавить(_таблица, _Имя+"base_v1.1.xsd",                 "http://api.vetrf.ru/schema/cdm/base");
+		XSDДобавить(_таблица, _Имя+"dictionary"+_суф,               "http://api.vetrf.ru/schema/cdm/dictionary/v2");
+		XSDДобавить(_таблица, _Имя+"document"+_суф,                 "http://api.vetrf.ru/schema/cdm/mercury/vet-document/v2");
+		XSDДобавить(_таблица, _Имя+"mercury_g2b_applications"+_суф, "http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2");
+		
+		ВетисПеременные.Установить("xsd", _таблица);
+		
+	Иначе
+		_имя = "http://api.vetrf.ru/schema/platform/";
+		_суф = "_v1.4_pilot.wsdl";
+		
+		_таблица = Неопределено;
+		
+		WSDLДобавить(_таблица, "ApplicationManagementService", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"services/ApplicationManagementService"+_суф);
+		
+		WSDLДобавить(_таблица, "DictionaryService", "http://api.vetrf.ru/schema/cdm/registry/service", "DictionaryServiceBindingQSService", "DictionaryServiceBindingQSPort", _Имя+"services/DictionaryService"+_суф);
+		WSDLДобавить(_таблица, "EnterpriseService", "http://api.vetrf.ru/schema/cdm/registry/service", "EnterpriseServiceBindingQSService", "EnterpriseServiceBindingQSPort", _Имя+"cerberus/services/EnterpriseService"+_суф);
+		WSDLДобавить(_таблица, "IkarService",       "http://api.vetrf.ru/schema/cdm/registry/service", "IkarServiceBindingQSService",       "IkarServiceBindingQSPort",       _Имя+"ikar/services/IkarService"+_суф);
+		WSDLДобавить(_таблица, "ProductService",    "http://api.vetrf.ru/schema/cdm/registry/service", "ProductServiceBindingQSService",    "ProductServiceBindingQSPort",    _Имя+"services/ProductService"+_суф);
+		
+		ВетисПеременные.Установить("wsdl", _таблица);
+		
+		_имя = "http://api.vetrf.ru/schema/platform/mercury/g2b/";
+		_суф = "_v1.4.xsd";
+		
+		_таблица = Неопределено;
+		
+		XSDДобавить(_таблица, _Имя+"application"+_суф,         "http://api.vetrf.ru/schema/cdm/application");
+		XSDДобавить(_таблица, _Имя+"argus_common"+_суф,        "http://api.vetrf.ru/schema/cdm/argus/common");
+		XSDДобавить(_таблица, _Имя+"production"+_суф,          "http://api.vetrf.ru/schema/cdm/argus/production");
+		XSDДобавить(_таблица, _Имя+"argus_shipment"+_суф,      "http://api.vetrf.ru/schema/cdm/argus/shipment");
+		XSDДобавить(_таблица, _Имя+"base"+_суф,                "http://api.vetrf.ru/schema/cdm/base");
+		XSDДобавить(_таблица, _Имя+"enterprise"+_суф,          "http://api.vetrf.ru/schema/cdm/cerberus/enterprise");
+		XSDДобавить(_таблица, _Имя+"ikar"+_суф,                "http://api.vetrf.ru/schema/cdm/ikar");
+		XSDДобавить(_таблица, _Имя+"applications"+_суф,        "http://api.vetrf.ru/schema/cdm/mercury/applications");
+		XSDДобавить(_таблица, _Имя+"veterinary_document"+_суф, "http://api.vetrf.ru/schema/cdm/mercury/vet-document");
+		
+		ВетисПеременные.Установить("xsd", _таблица);
+		
+	КонецЕсли;
 	
-	WSDLДобавить(_таблица, "DictionaryService", "http://api.vetrf.ru/schema/cdm/registry/service", "DictionaryServiceBindingQSService", "DictionaryServiceBindingQSPort", _Имя+"services/DictionaryService"+_суф, Истина);
-	WSDLДобавить(_таблица, "EnterpriseService", "http://api.vetrf.ru/schema/cdm/registry/service", "EnterpriseServiceBindingQSService", "EnterpriseServiceBindingQSPort", _Имя+"cerberus/services/EnterpriseService"+_суф, Истина);
-	WSDLДобавить(_таблица, "IkarService",       "http://api.vetrf.ru/schema/cdm/registry/service", "IkarServiceBindingQSService",       "IkarServiceBindingQSPort",       _Имя+"ikar/services/IkarService"+_суф, Истина);
-	WSDLДобавить(_таблица, "ProductService",    "http://api.vetrf.ru/schema/cdm/registry/service", "ProductServiceBindingQSService",    "ProductServiceBindingQSPort",    _Имя+"services/ProductService"+_суф, Истина);
+	СброситьКеш();
 	
-	_имя = "http://api.vetrf.ru/schema/platform/services/2.0-RC-last/";
-	_суф = "_v2.0_pilot.wsdl";
-	_версия = Перечисления.ВетисВерсияAPI.v2_0;
-	
-	WSDLДобавить(_таблица, "ApplicationManagementService", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ApplicationManagementService_v1.1.wsdl", Истина, _версия);
-	
-	WSDLДобавить(_таблица, "DictionaryService", "http://api.vetrf.ru/schema/cdm/registry/dictionary/service/v2", "DictionaryServiceBindingQSService", "DictionaryServiceBindingQSPort", _Имя+"DictionaryService"+_суф, Истина, _версия);
-	WSDLДобавить(_таблица, "EnterpriseService", "http://api.vetrf.ru/schema/cdm/registry/enterprise/service/v2", "EnterpriseServiceBindingQSService", "EnterpriseServiceBindingQSPort", _Имя+"EnterpriseService"+_суф, Истина, _версия);
-	WSDLДобавить(_таблица, "IkarService",       "http://api.vetrf.ru/schema/cdm/registry/ikar/service/v2",       "IkarServiceBindingQSService",       "IkarServiceBindingQSPort",       _Имя+"IkarService"+_суф, Истина, _версия);
-	WSDLДобавить(_таблица, "ProductService",    "http://api.vetrf.ru/schema/cdm/registry/product/service/v2",    "ProductServiceBindingQSService",    "ProductServiceBindingQSPort",    _Имя+"ProductService"+_суф, Истина, _версия);
-	
-	ВетисПеременные.Установить("wsdl", _таблица);
-	
-	_таблица = Неопределено;
-	
-	_имя = "http://api.vetrf.ru/schema/platform/mercury/g2b/";
-	_суф = "_v1.4.xsd";
-	
-	XSDДобавить(_таблица, _Имя+"application"+_суф,         "http://api.vetrf.ru/schema/cdm/application");
-	XSDДобавить(_таблица, _Имя+"argus_common"+_суф,        "http://api.vetrf.ru/schema/cdm/argus/common");
-	XSDДобавить(_таблица, _Имя+"production"+_суф,          "http://api.vetrf.ru/schema/cdm/argus/production");
-	XSDДобавить(_таблица, _Имя+"argus_shipment"+_суф,      "http://api.vetrf.ru/schema/cdm/argus/shipment");
-	XSDДобавить(_таблица, _Имя+"base"+_суф,                "http://api.vetrf.ru/schema/cdm/base");
-	XSDДобавить(_таблица, _Имя+"enterprise"+_суф,          "http://api.vetrf.ru/schema/cdm/cerberus/enterprise");
-	XSDДобавить(_таблица, _Имя+"ikar"+_суф,                "http://api.vetrf.ru/schema/cdm/ikar");
-	XSDДобавить(_таблица, _Имя+"applications"+_суф,        "http://api.vetrf.ru/schema/cdm/mercury/applications");
-	XSDДобавить(_таблица, _Имя+"veterinary_document"+_суф, "http://api.vetrf.ru/schema/cdm/mercury/vet-document");
-	
-	ВетисПеременные.Установить("xsd", _таблица);
+	ФабрикаОбщая();
 	
 КонецПроцедуры
 
-Процедура СброситьКеш() Экспорт
-	
-	//кеш надо сбрасывать:
-	// после изменения тестовый - рабочий
-	// после изменения версии
+Процедура СброситьКеш()
 	
 	ВетисПеременные.Установить("КешФабрики", Новый Соответствие);
 	ВетисПеременные.Установить("КешОпределения", Новый Соответствие);
@@ -57,7 +84,7 @@
 КонецПроцедуры
 
 
-Функция ФабрикаОбщая(пВерсия = Неопределено) Экспорт
+Функция ФабрикаОбщая() Экспорт
 	
 	_Кеш = ВетисПеременные.Получить("КешФабрики", Новый Соответствие);
 	
@@ -67,7 +94,7 @@
 		Возврат _фабрика;
 	КонецЕсли;
 	
-	_url = XSDПолучитьURL(пВерсия);
+	_url = XSDПолучитьURL();
 	
 	Если _url.Количество() = 0 Тогда
 		Возврат Неопределено;
@@ -83,14 +110,14 @@
 	
 КонецФункции
 
-Функция Прокси(пИмя, пВерсия = Неопределено) Экспорт
+Функция Прокси(пИмя) Экспорт
 	
 	_ТаймАутПрокси = 600;
 	_ЗащищенноеСоедиенение = Неопределено;
 	
 	Попытка
 		
-		_wsdl = WSDLПолучить(пИмя, пВерсия);
+		_wsdl = WSDLПолучить(пИмя);
 		
 		_Определение = ОпределенияПоURL(_wsdl.URL);
 		
@@ -112,9 +139,9 @@
 	
 КонецФункции
 
-Функция Определения(пИмя, пВерсия = Неопределено, пЗащищенноеСоедиенение = Неопределено) Экспорт
+Функция Определения(пИмя, пЗащищенноеСоедиенение = Неопределено) Экспорт
 	
-	Возврат ОпределенияПоURL(WSDLПолучить(пИмя, пВерсия).URL, пЗащищенноеСоедиенение);
+	Возврат ОпределенияПоURL(WSDLПолучить(пИмя).URL, пЗащищенноеСоедиенение);
 	
 КонецФункции
 
@@ -150,7 +177,7 @@
 КонецФункции
 
 
-Процедура WSDLДобавить(пТаблица, пИмя, пURI, пСервис, пПорт, пURL, пТестовый = Ложь, пВерсия = Неопределено)
+Процедура WSDLДобавить(пТаблица, пИмя, пURI, пСервис, пПорт, пURL)
 	
 	Если пТаблица = Неопределено Тогда
 		пТаблица = Новый ТаблицаЗначений;
@@ -159,8 +186,6 @@
 		пТаблица.Колонки.Добавить("Сервис");
 		пТаблица.Колонки.Добавить("Порт");
 		пТаблица.Колонки.Добавить("URL");
-		пТаблица.Колонки.Добавить("Версия");
-		пТаблица.Колонки.Добавить("Тестовый");
 	КонецЕсли;
 	
 	_строка = пТаблица.Добавить();
@@ -169,68 +194,48 @@
 	_строка.Сервис = пСервис;
 	_строка.Порт   = пПорт;
 	_строка.URL    = пURL;
-	_строка.Версия = ?(пВерсия = Неопределено, Перечисления.ВетисВерсияAPI.v1_4, пВерсия);
-	_строка.Тестовый = пТестовый;
 	
 КонецПроцедуры
 
-Функция WSDLПолучить(пИмя, пВерсия = Неопределено)
-	
-	_Версия = ?(пВерсия = Неопределено, Перечисления.ВетисВерсияAPI.v1_4, пВерсия);
+Функция WSDLПолучить(пИмя)
 	
 	_таблица = ВетисПеременные.Получить("wsdl");
 	
-	_строки = _таблица.НайтиСтроки(Новый Структура("Имя,Версия,Тестовый", пИмя, _Версия, ВетисПараметрыСоединения.Тестовый()));
-	
-	Если _строки.Количество() = 1 Тогда
-		Возврат _строки[0];
-	КонецЕсли;
-	
-	Возврат Неопределено;
+	Возврат _таблица.Найти(пИмя, "Имя");
 	
 КонецФункции
 
 
-Процедура XSDДобавить(пТаблица, пURL, пURI, пВерсия = Неопределено)
+Процедура XSDДобавить(пТаблица, пURL, пURI)
 	
 	Если пТаблица = Неопределено Тогда
 		пТаблица = Новый ТаблицаЗначений;
 		пТаблица.Колонки.Добавить("URI");
 		пТаблица.Колонки.Добавить("URL");
-		пТаблица.Колонки.Добавить("Версия");
 	КонецЕсли;
 	
 	_строка = пТаблица.Добавить();
 	_строка.URI    = пURI;
 	_строка.URL    = пURL;
-	_строка.Версия = ?(пВерсия = Неопределено, Перечисления.ВетисВерсияAPI.v1_4, пВерсия);
 	
 КонецПроцедуры
 
-Функция XSDПолучить(пВерсия = Неопределено)
-	
-	_Версия = ?(пВерсия = Неопределено, Перечисления.ВетисВерсияAPI.v1_4, пВерсия);
+Функция XSDПолучить()
 	
 	_таблица = ВетисПеременные.Получить("xsd");
 	
-	_строки = _таблица.НайтиСтроки(Новый Структура("Версия", _Версия));
-	
-	Возврат _строки;
+	Возврат _таблица;
 	
 КонецФункции
 
-Функция XSDПолучитьURL(пВерсия = Неопределено)
-	
-	_Версия = ?(пВерсия = Неопределено, Перечисления.ВетисВерсияAPI.v1_4, пВерсия);
+Функция XSDПолучитьURL()
 	
 	_таблица = ВетисПеременные.Получить("xsd");
 	
 	_список = Новый Массив;
 	
 	Для каждого _строка Из _таблица Цикл
-		Если _строка.Версия = _Версия Тогда
-			_список.Добавить(_строка.url);
-		КонецЕсли;
+		_список.Добавить(_строка.url);
 	КонецЦикла;
 	
 	Возврат _список;

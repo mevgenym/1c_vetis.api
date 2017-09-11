@@ -14,7 +14,7 @@
 Функция GetAllCountryList(ListOptions = Неопределено) Экспорт
 	
 	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+		ListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
@@ -27,7 +27,7 @@
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
-		пПараметры.Вставить("ListOptions", ВетисBase.ListOptions());
+		пПараметры.Вставить("ListOptions", ВетисBase_2_0.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
@@ -78,7 +78,7 @@
 Функция GetRegionListByCountry(countryGuid, ListOptions = Неопределено) Экспорт
 	
 	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+		ListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
@@ -103,7 +103,7 @@
 Функция GetDistrictListByRegion(regionGuid, ListOptions = Неопределено) Экспорт
 	
 	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+		ListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
@@ -116,7 +116,7 @@
 Функция GetLocalityListByRegion(regionGuid, ListOptions = Неопределено) Экспорт
 	
 	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+		ListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
@@ -128,7 +128,7 @@
 Функция GetLocalityListByDistrict(districtGuid, ListOptions = Неопределено) Экспорт
 	
 	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+		ListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
@@ -140,7 +140,7 @@
 Функция GetLocalityListByLocality(localityGuid, ListOptions = Неопределено) Экспорт
 	
 	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+		ListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
@@ -152,7 +152,7 @@
 Функция FindLocalityListByName(regionGuid, pattern, ListOptions = Неопределено) Экспорт
 	
 	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+		ListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
@@ -165,7 +165,7 @@
 Функция GetStreetListByLocality(localityGuid, ListOptions = Неопределено) Экспорт
 	
 	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+		ListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
@@ -177,7 +177,7 @@
 Функция FindStreetListByName(localityGuid, pattern, ListOptions = Неопределено) Экспорт
 	
 	Если ListOptions = Неопределено Тогда
-		ListOptions = ВетисBase.ListOptions();
+		ListOptions = ВетисBase_2_0.ListOptions();
 	Иначе
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
@@ -189,7 +189,7 @@
 
 Функция Прокси()
 	
-	_Прокси = ВетисXSD.Прокси("IkarService", Перечисления.ВетисВерсияAPI.v2_0);
+	_Прокси = ВетисXSD.Прокси("IkarService");
 	
 	Возврат _Прокси;
 	

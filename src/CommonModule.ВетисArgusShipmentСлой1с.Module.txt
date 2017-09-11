@@ -65,29 +65,29 @@
 
 Функция WaybillType(value) Экспорт
 	
-	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисWaybillType") Тогда
-		Если      value = ПредопределенноеЗначение("Перечисление.ВетисWaybillType.ТовароТранспортнаяНакладная") Тогда
+	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисDocumentType") Тогда
+		Если      value = ПредопределенноеЗначение("Перечисление.ВетисDocumentType.ТовароТранспортнаяНакладная") Тогда
 			Возврат ВетисКонстанты.WaybillType_ТоварноТранспортнаяНакладная();
-		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисWaybillType.Коносамент") Тогда
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисDocumentType.Коносамент") Тогда
 			Возврат ВетисКонстанты.WaybillType_Коносамент();
-		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисWaybillType.CMR") Тогда
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисDocumentType.CMR") Тогда
 			Возврат ВетисКонстанты.WaybillType_CMR();
-		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисWaybillType.Авианакладная") Тогда
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисDocumentType.Авианакладная") Тогда
 			Возврат ВетисКонстанты.WaybillType_Авианакладная();
 		Иначе
 			Возврат ВетисКонстанты.WaybillType_ТоварноТранспортнаяНакладная();
 		КонецЕсли;
 	Иначе
 		Если      value = ВетисКонстанты.WaybillType_ТоварноТранспортнаяНакладная() Тогда
-			Возврат ПредопределенноеЗначение("Перечисление.ВетисWaybillType.ТовароТранспортнаяНакладная");
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисDocumentType.ТовароТранспортнаяНакладная");
 		ИначеЕсли value = ВетисКонстанты.WaybillType_Коносамент() Тогда
-			Возврат ПредопределенноеЗначение("Перечисление.ВетисWaybillType.Коносамент");
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисDocumentType.Коносамент");
 		ИначеЕсли value = ВетисКонстанты.WaybillType_CMR() Тогда
-			Возврат ПредопределенноеЗначение("Перечисление.ВетисWaybillType.CMR");
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисDocumentType.CMR");
 		ИначеЕсли value = ВетисКонстанты.WaybillType_Авианакладная() Тогда
-			Возврат ПредопределенноеЗначение("Перечисление.ВетисWaybillType.Авианакладная");
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисDocumentType.Авианакладная");
 		Иначе
-			Возврат ПредопределенноеЗначение("Перечисление.ВетисWaybillType.ТовароТранспортнаяНакладная");
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисDocumentType.ТовароТранспортнаяНакладная");
 		КонецЕсли;
 	КонецЕсли;
 	
@@ -156,22 +156,27 @@
 
 Функция WaybillКонвертировать(пСтрокаТТН, пДата, пВозврат = Ложь) Экспорт
 	
-	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
-	_ВетисArgusShipment = ?(_Версия20, ВетисDictionary_2_0, ВетисArgusShipment);
-	_ВетисArgusShipmentСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusShipmentСлой1с);
-	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary_2_0, ВетисCerberusEnterprise);
-	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
-	
 	_СтрокаТТН = пСтрокаТТН;
 	
-	_waybill = _ВетисArgusShipment.Waybill();
-	_waybill.issueSeries   = _СтрокаТТН.Серия;
-	_waybill.issueNumber   = _СтрокаТТН.Номер;
-	_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(_СтрокаТТН.Дата);
-	_waybill.type          = _ВетисArgusShipmentСлой1с.WaybillType(_СтрокаТТН.Тип);
-	_waybill.broker        = _ВетисCerberusEnterprise.BusinessEntity(_ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
-	_waybill.transportInfo = _ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
-	_waybill.transportStorageType = _ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
+	Если ВетисОбщегоНазначения.ВерсияРавно("2.0") Тогда
+		_waybill = ВетисMercuryVetdocument_2_0.Waybill();
+		_waybill.issueSeries   = _СтрокаТТН.Серия;
+		_waybill.issueNumber   = _СтрокаТТН.Номер;
+		_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(_СтрокаТТН.Дата);
+		_waybill.broker        = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
+		_waybill.type          = ВетисDictionaryСлой1с.DocumentType(_СтрокаТТН.Тип);
+		_waybill.transportInfo = ВетисMercuryVetdocumentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
+		_waybill.transportStorageType = ВетисDictionaryСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
+	Иначе
+		_waybill = ВетисArgusShipment.Waybill();
+		_waybill.issueSeries   = _СтрокаТТН.Серия;
+		_waybill.issueNumber   = _СтрокаТТН.Номер;
+		_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(_СтрокаТТН.Дата);
+		_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
+		_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(_СтрокаТТН.Тип);
+		_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
+		_waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
+	КонецЕсли;
 	
 	Если пВозврат = Истина Тогда
 		_waybill.issueSeries   = "";

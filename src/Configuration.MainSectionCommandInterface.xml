@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CommandInterface xmlns="http://v8.1c.ru/8.3/xcf/extrnprops" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<CommandsOrder>
+		<Command name="CommonCommand.ВетисPackingForm">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+		</Command>
+		<Command name="CommonCommand.ВетисPurpose">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+		</Command>
+		<Command name="CommonCommand.КлассификаторЕдиницИзмерения">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+		</Command>
+		<Command name="CommonCommand.Контрагенты">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+		</Command>
+		<Command name="CommonCommand.Номенклатура">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+		</Command>
+		<Command name="0:fd192ee2-279e-4caf-8ab2-2f7594fcee3f">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+		</Command>
+		<Command name="0:25d2103c-01d8-43e3-92ab-49e130b9bcb8">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+		</Command>
+		<Command name="CommonCommand.Пользователи">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+		</Command>
+		<Command name="CommonCommand.ВетисПредприятия">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+		</Command>
+		<Command name="0:3b0bdbcc-34b4-43b7-ab03-0170fdac2e1c">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+		</Command>
+		<Command name="CommonCommand.Транспорт">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+		</Command>
+		<Command name="0:1d317f8f-56c9-402c-8e3a-4650be63a8f2">
+			<CommandGroup>5338cbeb-89a9-477f-8baf-d23a74439199</CommandGroup>
+		</Command>
+		<Command name="0:a20748e3-0c7c-4782-90d6-288374ef1e41">
+			<CommandGroup>5338cbeb-89a9-477f-8baf-d23a74439199</CommandGroup>
+		</Command>
+		<Command name="0:6992d34b-c106-47dc-a925-8541789b06bb">
+			<CommandGroup>5338cbeb-89a9-477f-8baf-d23a74439199</CommandGroup>
+		</Command>
+	</CommandsOrder>
+	<GroupsOrder>
+		<Group>NavigationPanelOrdinary</Group>
+		<Group>ActionsPanelTools</Group>
+		<Group>CommandGroup.ВетисСправочники</Group>
+		<Group>5338cbeb-89a9-477f-8baf-d23a74439199</Group>
+	</GroupsOrder>
+</CommandInterface>

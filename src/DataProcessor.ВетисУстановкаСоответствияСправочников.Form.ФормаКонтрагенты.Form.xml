@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Контрагенты</v8:content>
+		</v8:item>
+	</Title>
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="26">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="27"/>
+			<ChildItems>
+				<UsualGroup name="Группа2" id="28">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="29"/>
+					<ChildItems>
+						<UsualGroup name="Группа4" id="129">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="130"/>
+							<ChildItems>
+								<InputField name="ВетисСтрокаПоиска" id="105">
+									<DataPath>ВетисСтрокаПоиска</DataPath>
+									<ContextMenu name="ВетисСтрокаПоискаКонтекстноеМеню" id="106"/>
+									<ExtendedTooltip name="ВетисСтрокаПоискаРасширеннаяПодсказка" id="107"/>
+									<Events>
+										<Event name="OnChange">ВетисСтрокаПоискаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<Button name="ВетисЗаполнить" id="32">
+									<Type>UsualButton</Type>
+									<Representation>Picture</Representation>
+									<CommandName>Form.Command.ВетисЗаполнить</CommandName>
+									<ExtendedTooltip name="ВетисЗаполнитьРасширеннаяПодсказка" id="33"/>
+								</Button>
+								<InputField name="ВетисСтрокаПоискаИНН" id="131">
+									<DataPath>ВетисСтрокаПоискаИНН</DataPath>
+									<ContextMenu name="ВетисСтрокаПоискаИННКонтекстноеМеню" id="132"/>
+									<ExtendedTooltip name="ВетисСтрокаПоискаИННРасширеннаяПодсказка" id="133"/>
+								</InputField>
+								<Button name="ВетисНайтиПоИНН" id="134">
+									<Type>UsualButton</Type>
+									<Representation>Picture</Representation>
+									<CommandName>Form.Command.ВетисНайтиПоИНН</CommandName>
+									<ExtendedTooltip name="ВетисНайтиПоИННРасширеннаяПодсказка" id="135"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="СписокВетис" id="1">
+							<Representation>List</Representation>
+							<ReadOnly>true</ReadOnly>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>СписокВетис</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Change</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СписокВетисКонтекстноеМеню" id="2"/>
+							<AutoCommandBar name="СписокВетисКоманднаяПанель" id="3"/>
+							<ExtendedTooltip name="СписокВетисРасширеннаяПодсказка" id="4"/>
+							<SearchStringAddition name="СписокВетисСтрокаПоиска" id="5">
+								<AdditionSource>
+									<Item>СписокВетис</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВетисСтрокаПоискаКонтекстноеМеню" id="6"/>
+								<ExtendedTooltip name="СписокВетисСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокВетисСостояниеПросмотра" id="8">
+								<AdditionSource>
+									<Item>СписокВетис</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВетисСостояниеПросмотраКонтекстноеМеню" id="9"/>
+								<ExtendedTooltip name="СписокВетисСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокВетисУправлениеПоиском" id="11">
+								<AdditionSource>
+									<Item>СписокВетис</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВетисУправлениеПоискомКонтекстноеМеню" id="12"/>
+								<ExtendedTooltip name="СписокВетисУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокВетисВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="СписокВетисname" id="117">
+									<DataPath>СписокВетис.name</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="118"/>
+									<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="119"/>
+								</InputField>
+								<InputField name="СписокВетисinn" id="114">
+									<DataPath>СписокВетис.inn</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисinnКонтекстноеМеню" id="115"/>
+									<ExtendedTooltip name="СписокВетисinnРасширеннаяПодсказка" id="116"/>
+								</InputField>
+								<InputField name="СписокВетисtype" id="99">
+									<DataPath>СписокВетис.type</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисtypeКонтекстноеМеню" id="100"/>
+									<ExtendedTooltip name="СписокВетисtypeРасширеннаяПодсказка" id="101"/>
+								</InputField>
+								<InputField name="СписокВетисaddress" id="102">
+									<DataPath>СписокВетис.address</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисaddressКонтекстноеМеню" id="103"/>
+									<ExtendedTooltip name="СписокВетисaddressРасширеннаяПодсказка" id="104"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа3" id="30">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="31"/>
+					<ChildItems>
+						<InputField name="ПолеОтбор" id="126">
+							<DataPath>СправочникСписок.Filter[0].RightValue</DataPath>
+							<Visible>false</Visible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отбор</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПолеОтборКонтекстноеМеню" id="127"/>
+							<ExtendedTooltip name="ПолеОтборРасширеннаяПодсказка" id="128"/>
+						</InputField>
+						<Table name="СправочникСписок" id="34">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>СправочникСписок</DataPath>
+							<RowPictureDataPath>СправочникСписок.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>Top</SearchStringLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СправочникСписокКонтекстноеМеню" id="35"/>
+							<AutoCommandBar name="СправочникСписокКоманднаяПанель" id="36">
+								<ChildItems>
+									<Button name="СправочникСписокСоздатьСвязь" id="86">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СоздатьСвязь</CommandName>
+										<ExtendedTooltip name="СправочникСписокСоздатьСвязьРасширеннаяПодсказка" id="87"/>
+									</Button>
+									<Button name="СправочникСписокУдалитьСвязь" id="88">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.УдалитьСвязь</CommandName>
+										<ExtendedTooltip name="СправочникСписокУдалитьСвязьРасширеннаяПодсказка" id="89"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СправочникСписокРасширеннаяПодсказка" id="37"/>
+							<SearchStringAddition name="СправочникСписокСтрокаПоиска" id="38">
+								<AdditionSource>
+									<Item>СправочникСписок</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СправочникСписокСтрокаПоискаКонтекстноеМеню" id="39"/>
+								<ExtendedTooltip name="СправочникСписокСтрокаПоискаРасширеннаяПодсказка" id="40"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СправочникСписокСостояниеПросмотра" id="41">
+								<AdditionSource>
+									<Item>СправочникСписок</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СправочникСписокСостояниеПросмотраКонтекстноеМеню" id="42"/>
+								<ExtendedTooltip name="СправочникСписокСостояниеПросмотраРасширеннаяПодсказка" id="43"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СправочникСписокУправлениеПоиском" id="44">
+								<AdditionSource>
+									<Item>СправочникСписок</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СправочникСписокУправлениеПоискомКонтекстноеМеню" id="45"/>
+								<ExtendedTooltip name="СправочникСписокУправлениеПоискомРасширеннаяПодсказка" id="46"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СправочникСписокВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="СправочникСписокname" id="83">
+									<DataPath>СправочникСписок.name</DataPath>
+									<Width>20</Width>
+									<ContextMenu name="СправочникСписокnameКонтекстноеМеню" id="84"/>
+									<ExtendedTooltip name="СправочникСписокnameРасширеннаяПодсказка" id="85"/>
+								</LabelField>
+								<LabelField name="СправочникСписокВетисname" id="90">
+									<DataPath>СправочникСписок.Ветисname</DataPath>
+									<Width>15</Width>
+									<ContextMenu name="СправочникСписокВетисnameКонтекстноеМеню" id="91"/>
+									<ExtendedTooltip name="СправочникСписокВетисnameРасширеннаяПодсказка" id="92"/>
+								</LabelField>
+								<LabelField name="СправочникСписокinn" id="136">
+									<DataPath>СправочникСписок.inn</DataPath>
+									<ContextMenu name="СправочникСписокinnКонтекстноеМеню" id="137"/>
+									<ExtendedTooltip name="СправочникСписокinnРасширеннаяПодсказка" id="138"/>
+								</LabelField>
+								<InputField name="СправочникСписокОписание" id="139">
+									<DataPath>СправочникСписок.Описание</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="СправочникСписокОписаниеКонтекстноеМеню" id="140"/>
+									<ExtendedTooltip name="СправочникСписокОписаниеРасширеннаяПодсказка" id="141"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ВетисУстановкаСоответствияСправочников</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СписокВетис" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список ветис</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="name" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="type" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Type</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВетисBusinessEntityType</v8:Type>
+					</Type>
+				</Column>
+				<Column name="address" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Address</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="guid" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Guid</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="fullName" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Full name</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="fio" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Fio</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="inn" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Inn</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СправочникСписок" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Справочник список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СправочникСписок.Ссылка</Field>
+				<Field>СправочникСписок.guid</Field>
+				<Field>~СправочникСписок.Ref</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	_Таблица.Ссылка КАК Ссылка,
+	_Таблица.Код КАК Код,
+	_Таблица.Наименование КАК name,
+	_Таблица.ИНН КАК inn,
+	_Таблица.КПП КАК kpp,
+	_Ветис.guid КАК guid,
+	_Ветис.name КАК Ветисname,
+	_Ветис.Описание КАК Описание
+ИЗ
+	Справочник.Контрагенты КАК _Таблица
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Ветис
+		ПО _Таблица.Ссылка = _Ветис.Ссылка
+ГДЕ
+	ИСТИНА
+	И НЕ _Таблица.ПометкаУдаления
+	И НЕ _Таблица.ЭтоГруппа</QueryText>
+				<MainTable>Catalog.Контрагенты</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">name</dcsset:left>
+							<dcsset:comparisonType>Contains</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:string"/>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ВетисСтрокаПоиска" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВетисСтрокаПоискаИНН" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИНН</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СправочникСписокname</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СправочникСписокinn</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СправочникСписокВетисname</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СправочникСписокОписание</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СправочникСписок.guid</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ВетисЗаполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ветис заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокВетисЗаполнить</Action>
+		</Command>
+		<Command name="СоздатьСвязь" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать связь</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать связь</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьСвязь</Action>
+		</Command>
+		<Command name="УдалитьСвязь" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить связь</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить связь</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьСвязь</Action>
+		</Command>
+		<Command name="ВетисНайтиПоИНН" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИНН</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ветис найти по ИНН</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокВетисНайтиПоИНН</Action>
+		</Command>
+	</Commands>
+</Form>

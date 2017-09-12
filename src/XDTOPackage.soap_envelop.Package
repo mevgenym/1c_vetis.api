@@ -1,0 +1,27 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://schemas.xmlsoap.org/soap/envelope/">
+	<property xmlns:d2p1="http://schemas.xmlsoap.org/soap/envelope/" name="Header" type="d2p1:Header"/>
+	<property xmlns:d2p1="http://schemas.xmlsoap.org/soap/envelope/" name="Body" type="d2p1:Body"/>
+	<property xmlns:d2p1="http://schemas.xmlsoap.org/soap/envelope/" name="Envelope" type="d2p1:Envelope"/>
+	<property xmlns:d2p1="http://schemas.xmlsoap.org/soap/envelope/" name="Fault" type="d2p1:Fault"/>
+	<property name="actor" type="xs:anyURI" form="Attribute"/>
+	<property xmlns:d2p1="http://schemas.xmlsoap.org/soap/envelope/" name="encodingStyle" type="d2p1:encodingStyle" form="Attribute"/>
+	<property name="mustUnderstand" fixed="false" default="0" form="Attribute">
+		<typeDef xsi:type="ValueType" base="xs:boolean" variety="Atomic">
+			<pattern>0|1</pattern>
+		</typeDef>
+	</property>
+	<valueType name="encodingStyle" variety="List" itemType="xs:anyURI"/>
+	<objectType name="Body" open="true" sequenced="true"/>
+	<objectType name="Envelope" open="true" sequenced="true">
+		<property xmlns:d3p1="http://schemas.xmlsoap.org/soap/envelope/" ref="d3p1:Header" lowerBound="0"/>
+		<property xmlns:d3p1="http://schemas.xmlsoap.org/soap/envelope/" ref="d3p1:Body"/>
+	</objectType>
+	<objectType name="Fault">
+		<property name="faultcode" type="xs:QName"/>
+		<property name="faultstring" type="xs:string"/>
+		<property name="faultactor" type="xs:anyURI" lowerBound="0"/>
+		<property xmlns:d3p1="http://schemas.xmlsoap.org/soap/envelope/" name="detail" type="d3p1:detail" lowerBound="0"/>
+	</objectType>
+	<objectType name="Header" open="true" sequenced="true"/>
+	<objectType name="detail" open="true" sequenced="true"/>
+</package>

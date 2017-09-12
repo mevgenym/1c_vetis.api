@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<Button name="Контрагенты" id="11">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.Контрагенты</CommandName>
+			<ExtendedTooltip name="КонтрагентыРасширеннаяПодсказка" id="12"/>
+		</Button>
+		<Button name="ПунктыНазначения" id="17">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.Предприятия</CommandName>
+			<ExtendedTooltip name="ПунктыНазначенияРасширеннаяПодсказка" id="18"/>
+		</Button>
+		<Button name="ВСД" id="15">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.ВСД</CommandName>
+			<ExtendedTooltip name="ВСДРасширеннаяПодсказка" id="16"/>
+		</Button>
+		<Button name="Номенклатура" id="19">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.Номенклатура</CommandName>
+			<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="20"/>
+		</Button>
+		<Button name="НоменклатурныеГруппы" id="21">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.НоменклатурныеГруппы</CommandName>
+			<ExtendedTooltip name="НоменклатурныеГруппыРасширеннаяПодсказка" id="22"/>
+		</Button>
+		<Button name="ЕдиницыИзмерения" id="13">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.ЕдиницыИзмерения</CommandName>
+			<ExtendedTooltip name="ЕдиницыИзмеренияРасширеннаяПодсказка" id="14"/>
+		</Button>
+		<Button name="Страны" id="3">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.Страны</CommandName>
+			<ExtendedTooltip name="СтраныРасширеннаяПодсказка" id="4"/>
+		</Button>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ВетисУстановкаСоответствияСправочников</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Страны" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страны</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страны</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Страны</Action>
+		</Command>
+		<Command name="Контрагенты" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагенты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагенты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Контрагенты</Action>
+		</Command>
+		<Command name="ЕдиницыИзмерения" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Единицы измерения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Единицы измерения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЕдиницыИзмерения</Action>
+		</Command>
+		<Command name="ВСД" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ВСД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ВСД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВСД</Action>
+		</Command>
+		<Command name="Предприятия" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предприятия</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предприятия</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Предприятия</Action>
+		</Command>
+		<Command name="Номенклатура" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Номенклатура</Action>
+		</Command>
+		<Command name="НоменклатурныеГруппы" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатурные группы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатурные группы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НоменклатурныеГруппы</Action>
+		</Command>
+	</Commands>
+</Form>

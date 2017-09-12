@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Configuration uuid="bb10dab7-4aa6-448b-86af-a6c3e646616c">
+		<InternalInfo>
+			<xr:ContainedObject>
+				<xr:ClassId>9cd510cd-abfc-11d4-9434-004095e12fc7</xr:ClassId>
+				<xr:ObjectId>076831c9-c4e8-4d09-8e4e-aeded73734a9</xr:ObjectId>
+			</xr:ContainedObject>
+			<xr:ContainedObject>
+				<xr:ClassId>9fcd25a0-4822-11d4-9414-008048da11f9</xr:ClassId>
+				<xr:ObjectId>56229cec-1f22-4f3c-aedc-8bb4764d6111</xr:ObjectId>
+			</xr:ContainedObject>
+			<xr:ContainedObject>
+				<xr:ClassId>e3687481-0a87-462c-a166-9f34594f9bba</xr:ClassId>
+				<xr:ObjectId>5d56b3b2-53f4-4c86-94e4-5486dd028e6e</xr:ObjectId>
+			</xr:ContainedObject>
+			<xr:ContainedObject>
+				<xr:ClassId>9de14907-ec23-4a07-96f0-85521cb6b53b</xr:ClassId>
+				<xr:ObjectId>25e65ce3-2b17-447f-a68b-9b974c5cb638</xr:ObjectId>
+			</xr:ContainedObject>
+			<xr:ContainedObject>
+				<xr:ClassId>51f2d5d8-ea4d-4064-8892-82951750031e</xr:ClassId>
+				<xr:ObjectId>2a15d2b3-7d10-451a-a1d2-d741e8d4aa1a</xr:ObjectId>
+			</xr:ContainedObject>
+			<xr:ContainedObject>
+				<xr:ClassId>e68182ea-4237-4383-967f-90c1e3370bc7</xr:ClassId>
+				<xr:ObjectId>ae8097bb-899b-4710-a712-7386147c3690</xr:ObjectId>
+			</xr:ContainedObject>
+		</InternalInfo>
+		<Properties>
+			<Name>ВетеринарияМеркурийГИС</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ветеринария ГИС Меркурий</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<NamePrefix/>
+			<ConfigurationExtensionCompatibilityMode>Version8_3_10</ConfigurationExtensionCompatibilityMode>
+			<DefaultRunMode>ManagedApplication</DefaultRunMode>
+			<UsePurposes>
+				<v8:Value xsi:type="app:ApplicationUsePurpose">PersonalComputer</v8:Value>
+			</UsePurposes>
+			<ScriptVariant>Russian</ScriptVariant>
+			<DefaultRoles/>
+			<Vendor/>
+			<Version>1.0.0</Version>
+			<UpdateCatalogAddress/>
+			<IncludeHelpInContents>false</IncludeHelpInContents>
+			<UseManagedFormInOrdinaryApplication>false</UseManagedFormInOrdinaryApplication>
+			<UseOrdinaryFormInManagedApplication>false</UseOrdinaryFormInManagedApplication>
+			<AdditionalFullTextSearchDictionaries/>
+			<CommonSettingsStorage/>
+			<ReportsUserSettingsStorage/>
+			<ReportsVariantsStorage/>
+			<FormDataSettingsStorage/>
+			<DynamicListsUserSettingsStorage/>
+			<Content/>
+			<DefaultReportForm/>
+			<DefaultReportVariantForm/>
+			<DefaultReportSettingsForm/>
+			<DefaultDynamicListSettingsForm/>
+			<DefaultSearchForm/>
+			<RequiredMobileApplicationPermissions>
+				<v8:pair>
+					<v8:Key xsi:type="app:RequiredMobileApplicationPermissions">Multimedia</v8:Key>
+					<v8:Value xsi:type="xs:boolean">false</v8:Value>
+				</v8:pair>
+				<v8:pair>
+					<v8:Key xsi:type="app:RequiredMobileApplicationPermissions">Location</v8:Key>
+					<v8:Value xsi:type="xs:boolean">false</v8:Value>
+				</v8:pair>
+				<v8:pair>
+					<v8:Key xsi:type="app:RequiredMobileApplicationPermissions">Contacts</v8:Key>
+					<v8:Value xsi:type="xs:boolean">false</v8:Value>
+				</v8:pair>
+				<v8:pair>
+					<v8:Key xsi:type="app:RequiredMobileApplicationPermissions">Calendars</v8:Key>
+					<v8:Value xsi:type="xs:boolean">false</v8:Value>
+				</v8:pair>
+				<v8:pair>
+					<v8:Key xsi:type="app:RequiredMobileApplicationPermissions">Telephony</v8:Key>
+					<v8:Value xsi:type="xs:boolean">false</v8:Value>
+				</v8:pair>
+				<v8:pair>
+					<v8:Key xsi:type="app:RequiredMobileApplicationPermissions">PushNotification</v8:Key>
+					<v8:Value xsi:type="xs:boolean">false</v8:Value>
+				</v8:pair>
+				<v8:pair>
+					<v8:Key xsi:type="app:RequiredMobileApplicationPermissions">LocalNotification</v8:Key>
+					<v8:Value xsi:type="xs:boolean">false</v8:Value>
+				</v8:pair>
+				<v8:pair>
+					<v8:Key xsi:type="app:RequiredMobileApplicationPermissions">Print</v8:Key>
+					<v8:Value xsi:type="xs:boolean">false</v8:Value>
+				</v8:pair>
+				<v8:pair>
+					<v8:Key xsi:type="app:RequiredMobileApplicationPermissions">InAppPurchases</v8:Key>
+					<v8:Value xsi:type="xs:boolean">false</v8:Value>
+				</v8:pair>
+				<v8:pair>
+					<v8:Key xsi:type="app:RequiredMobileApplicationPermissions">Ads</v8:Key>
+					<v8:Value xsi:type="xs:boolean">false</v8:Value>
+				</v8:pair>
+			</RequiredMobileApplicationPermissions>
+			<MainClientApplicationWindowMode>Normal</MainClientApplicationWindowMode>
+			<DefaultInterface/>
+			<DefaultStyle/>
+			<DefaultLanguage>Language.Русский</DefaultLanguage>
+			<BriefInformation>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>API доступ к ГИС Меркурий</v8:content>
+				</v8:item>
+			</BriefInformation>
+			<DetailedInformation/>
+			<Copyright/>
+			<VendorInformationAddress/>
+			<ConfigurationInformationAddress/>
+			<DataLockControlMode>Managed</DataLockControlMode>
+			<ObjectAutonumerationMode>NotAutoFree</ObjectAutonumerationMode>
+			<ModalityUseMode>DontUse</ModalityUseMode>
+			<SynchronousPlatformExtensionAndAddInCallUseMode>DontUse</SynchronousPlatformExtensionAndAddInCallUseMode>
+			<InterfaceCompatibilityMode>Taxi</InterfaceCompatibilityMode>
+			<CompatibilityMode>Version8_3_9</CompatibilityMode>
+			<DefaultConstantsForm/>
+		</Properties>
+		<ChildObjects>
+			<Language>Русский</Language>
+			<Subsystem>Ветис</Subsystem>
+			<SessionParameter>ВетисПеременные</SessionParameter>
+			<Role>ВетисАдминистратор</Role>
+			<Role>ВетисОператор</Role>
+			<Role>ВетисПользователь</Role>
+			<CommonModule>ВетисApplication</CommonModule>
+			<CommonModule>ВетисApplication_2_0</CommonModule>
+			<CommonModule>ВетисArgusCommon</CommonModule>
+			<CommonModule>ВетисArgusCommonСлой1с</CommonModule>
+			<CommonModule>ВетисArgusProduction</CommonModule>
+			<CommonModule>ВетисArgusProductionСлой1с</CommonModule>
+			<CommonModule>ВетисArgusShipment</CommonModule>
+			<CommonModule>ВетисArgusShipmentСлой1с</CommonModule>
+			<CommonModule>ВетисBase</CommonModule>
+			<CommonModule>ВетисBase_2_0</CommonModule>
+			<CommonModule>ВетисCerberusEnterprise</CommonModule>
+			<CommonModule>ВетисCerberusEnterpriseСлой1с</CommonModule>
+			<CommonModule>ВетисDictionary_2_0</CommonModule>
+			<CommonModule>ВетисDictionaryService</CommonModule>
+			<CommonModule>ВетисDictionaryService_2_0</CommonModule>
+			<CommonModule>ВетисDictionaryСлой1с</CommonModule>
+			<CommonModule>ВетисEnterpriseService</CommonModule>
+			<CommonModule>ВетисEnterpriseService_2_0</CommonModule>
+			<CommonModule>ВетисIkar</CommonModule>
+			<CommonModule>ВетисIkarService</CommonModule>
+			<CommonModule>ВетисIkarService_2_0</CommonModule>
+			<CommonModule>ВетисIkarСлой1с</CommonModule>
+			<CommonModule>ВетисMercuryApplications</CommonModule>
+			<CommonModule>ВетисMercuryApplications_2_0</CommonModule>
+			<CommonModule>ВетисMercuryApplicationsСлой1с</CommonModule>
+			<CommonModule>ВетисMercuryVetdocument</CommonModule>
+			<CommonModule>ВетисMercuryVetdocument_2_0</CommonModule>
+			<CommonModule>ВетисMercuryVetdocumentСлой1с</CommonModule>
+			<CommonModule>ВетисProductService</CommonModule>
+			<CommonModule>ВетисProductService_2_0</CommonModule>
+			<CommonModule>ВетисSoapEnvelope</CommonModule>
+			<CommonModule>ВетисXSD</CommonModule>
+			<CommonModule>ВетисЖурнал</CommonModule>
+			<CommonModule>ВетисИмяСправочника</CommonModule>
+			<CommonModule>ВетисКонстанты</CommonModule>
+			<CommonModule>ВетисОбщегоНазначения</CommonModule>
+			<CommonModule>ВетисОбщегоНазначенияКлиентСервер</CommonModule>
+			<CommonModule>ВетисПараметрыСоединения</CommonModule>
+			<CommonModule>ВетисПеременные</CommonModule>
+			<CommonModule>ВетисПредопределенные</CommonModule>
+			<CommonModule>ВетисСоответствие</CommonModule>
+			<CommonModule>ВетисФормы</CommonModule>
+			<CommonModule>Пользователи</CommonModule>
+			<XDTOPackage>soap_envelop</XDTOPackage>
+			<DefinedType>ВетисBusinessEntity</DefinedType>
+			<DefinedType>ВетисCountry</DefinedType>
+			<DefinedType>ВетисEnterprise</DefinedType>
+			<DefinedType>ВетисPackingForm</DefinedType>
+			<DefinedType>ВетисProductItem</DefinedType>
+			<DefinedType>ВетисPurpose</DefinedType>
+			<DefinedType>ВетисSubProduct</DefinedType>
+			<DefinedType>ВетисTransport</DefinedType>
+			<DefinedType>ВетисUnit</DefinedType>
+			<DefinedType>ВетисПользователь</DefinedType>
+			<CommonCommand>ВетисPackingForm</CommonCommand>
+			<CommonCommand>ВетисPurpose</CommonCommand>
+			<CommonCommand>ВетисВетеринарноСопроводительныйДокумент</CommonCommand>
+			<CommonCommand>ВетисВходящаяПартияСводно</CommonCommand>
+			<CommonCommand>ВетисЖурнал</CommonCommand>
+			<CommonCommand>ВетисНастройки</CommonCommand>
+			<CommonCommand>ВетисПредопределенные</CommonCommand>
+			<CommonCommand>ВетисПредприятия</CommonCommand>
+			<CommonCommand>ВетисТранспортнаяПартия</CommonCommand>
+			<CommonCommand>ВетисУстановкаСоответствияСправочников</CommonCommand>
+			<CommonCommand>КлассификаторЕдиницИзмерения</CommonCommand>
+			<CommonCommand>Контрагенты</CommonCommand>
+			<CommonCommand>Номенклатура</CommonCommand>
+			<CommonCommand>Пользователи</CommonCommand>
+			<CommonCommand>Транспорт</CommonCommand>
+			<CommandGroup>ВетисДокументы</CommandGroup>
+			<CommandGroup>ВетисСправочники</CommandGroup>
+			<CommandGroup>ВетисСервис</CommandGroup>
+			<Constant>ВетисОсновнойХС</Constant>
+			<Constant>ВетисВерсия</Constant>
+			<CommonForm>ВетисРабочийСтол</CommonForm>
+			<CommonForm>ВетисФормаВыбора</CommonForm>
+			<CommonForm>ВетисНастройки</CommonForm>
+			<Catalog>ВетисPackingForm</Catalog>
+			<Catalog>ВетисPurpose</Catalog>
+			<Catalog>ВетисПредприятия</Catalog>
+			<Catalog>КлассификаторЕдиницИзмерения</Catalog>
+			<Catalog>КлассификаторСтранМира</Catalog>
+			<Catalog>Контрагенты</Catalog>
+			<Catalog>НоменклатурныеГруппы</Catalog>
+			<Catalog>Номенклатура</Catalog>
+			<Catalog>Пользователи</Catalog>
+			<Catalog>Транспорт</Catalog>
+			<Document>ВетисВетеринарноСопроводительныйДокумент</Document>
+			<Document>ВетисВходящаяПартияСводно</Document>
+			<Document>ВетисТранспортнаяПартия</Document>
+			<Enum>ВетисBusinessEntityType</Enum>
+			<Enum>ВетисDeliveryDecision</Enum>
+			<Enum>ВетисDeliveryInspectionResult</Enum>
+			<Enum>ВетисDocumentNature</Enum>
+			<Enum>ВетисDocumentType</Enum>
+			<Enum>ВетисProductMarkingClass</Enum>
+			<Enum>ВетисProductType</Enum>
+			<Enum>ВетисResearchResult</Enum>
+			<Enum>ВетисTransportStorageType</Enum>
+			<Enum>ВетисTransportType</Enum>
+			<Enum>ВетисVetDocumentForm</Enum>
+			<Enum>ВетисVetDocumentStatus</Enum>
+			<Enum>ВетисVetDocumentType</Enum>
+			<Enum>ВетисВерсияAPI</Enum>
+			<DataProcessor>ВетисУстановкаСоответствияСправочников</DataProcessor>
+			<InformationRegister>ВетисЖурнал</InformationRegister>
+			<InformationRegister>ВетисНастройкиХС</InformationRegister>
+			<InformationRegister>ВетисПользователи</InformationRegister>
+			<InformationRegister>ВетисПредопределенные</InformationRegister>
+			<InformationRegister>ВетисСоответствие</InformationRegister>
+			<AccumulationRegister>ВетисСкладскойЖурнал</AccumulationRegister>
+		</ChildObjects>
+	</Configuration>
+</MetaDataObject>

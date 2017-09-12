@@ -1,5 +1,5 @@
 ﻿
-// Тип, описывающий партию груза.
+//Тип, описывающий партию груза.
 Функция Batch() Экспорт
 	
 	_Объект = Создать("Batch");
@@ -19,7 +19,14 @@
 	
 	_Объект.productItem = productItem;
 	_Объект.country = country;
-	_Объект.producer = producer;
+	
+	Если ТипЗнч(producer) = Тип("Массив") Тогда
+		Для каждого _producer Из producer Цикл
+			_Объект.producer.Добавить(_producer);
+		КонецЦикла;
+	Иначе
+		_Объект.producer.Добавить(producer);
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
@@ -28,8 +35,8 @@
 //Операция изменения связи между хозяйствующим субъектом и предприятиями. 
 //Параметры:
 // type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
-// businessEntity - ent:BusinessEntityList
-// enterprise - ent:Enterprise
+// businessEntity - dt:BusinessEntityList
+// enterprise - dt:Enterprise
 Функция BusinessEntityActivityLocationsModificationOperation(type, businessEntity, enterprise) Экспорт
 	
 	_Объект = Создать("BEActivityLocationsModificationOperation");
@@ -55,8 +62,8 @@
 //Операция внесения изменений в реестр ХС
 //Параметры:
 // type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
-// affectedList - ent:BusinessEntityList - Входящий список ХС
-// resultingList - ent:BusinessEntityList - Получаемые в результате операции записи
+// affectedList - dt:BusinessEntityList - Входящий список ХС
+// resultingList - dt:BusinessEntityList - Получаемые в результате операции записи
 // reason - xs:String - Основание добавления записи в реестр
 Функция BusinessEntityModificationOperation(type, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
 	
@@ -71,7 +78,50 @@
 	
 КонецФункции
 
-// Тип, описывающий транспортную партию груза.
+//Тип, описывающий cертифицированную производственную партию продукции.
+//Параметры:
+// producer - dt:BusinessMember - Сведения о производителе продукции. Заполняется только для производственного вет.сертификата.
+// batch - vd:Batch - Сведения о партии продукции.
+Функция CertifiedBatch(batch, producer = Неопределено) Экспорт
+	
+	_Объект = Создать("CertifiedBatch");
+	
+	_Объект.batch = batch;
+	
+	Если НЕ producer = Неопределено Тогда
+		_Объект.producer = producer;
+	КонецЕсли;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Тип, описывающий сертифицированную транспортную партию.
+//Параметры:
+// consignor - dt:BusinessMember - Сведения об отправителе (владельце). Заполняется только для транспортного вет.сертификата.
+// consignee - dt:BusinessMember - Сведения о получателе груза. Заполняется только для транспортного вет.сертификата.
+// broker - dt:BusinessEntity - Сведения о фирме-посреднике (перевозчике).
+// transportInfo - vd:TransportInfo - Сведения о транспорте.
+// transportStorageType - dt:TransportationStorageType - Способ хранения при перевозке.
+// batch - vd:Batch - Сведения о партии продукции.
+// shipmentRoute - vd:ShipmentRoute - Сведения о маршруте следования (пунктах перегрузки).
+Функция CertifiedConsignment(consignor, consignee, batch, broker, transportInfo, transportStorageType) Экспорт
+	
+	_Объект = Создать("CertifiedConsignment");
+	
+	_Объект.consignor = consignor;
+	_Объект.consignee = consignee;
+	_Объект.broker = broker;
+	_Объект.transportInfo = transportInfo;
+	_Объект.transportStorageType = transportStorageType;
+	//_Объект.shipmentRoute = shipmentRoute;
+	_Объект.batch = batch;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Тип, описывающий транспортную партию груза.
 Функция Consignment() Экспорт
 	
 	_Объект = Создать("Consignment");
@@ -89,7 +139,7 @@
 	
 КонецФункции
 
-// Тип, описывающий контроль поставки (документарный, ветеринарный).
+//Тип, описывающий контроль поставки (документарный, ветеринарный).
 Функция ConsignmentDocumentList(waybill, VetDocument) Экспорт
 	
 	_Объект = Создать("ConsignmentDocumentList");
@@ -108,13 +158,17 @@
 	
 КонецФункции
 
-// Тип, описывающий поставку.
-// Параметры:
-//  consignor - ent:BusinessMember - Сведения об отправителе.
-//  consignee - ent:BusinessMember - Сведения о получателе.
-//  consignment - vetd:Consignment - Фактические сведения о входящей партии или группе животных.
-//  accompanyingForms - vetd:ConsignmentDocumentList - Сопроводительные документы.
-Функция Delivery(consignor, consignee, consignment, accompanyingForms) Экспорт
+//Тип, описывающий поставку.
+//Параметры:
+// consignor - dt:BusinessMember - Сведения об отправителе.
+// consignee - dt:BusinessMember - Сведения о получателе.
+// consignment - vd:Consignment - Фактические сведения о входящей партии или группе животных.
+// accompanyingForms - vd:ConsignmentDocumentList - Сопроводительные документы.
+// broker - dt:BusinessEntity - Сведения о фирме-посреднике.
+// transportInfo - vd:TransportInfo - Сведения о транспорте.
+// transportStorageType - dt:TransportationStorageType - Способ хранения при перевозке.
+// shipmentRoute - vd:ShipmentRoute - Сведения о маршруте следования (пунктах перегрузки).
+Функция Delivery(consignor, consignee, consignment, accompanyingForms, broker, transportInfo, transportStorageType) Экспорт
 	
 	_Объект = Создать("Delivery");
 	
@@ -122,6 +176,10 @@
 	_Объект.consignor = consignor;
 	_Объект.consignee = consignee;
 	_Объект.accompanyingForms = accompanyingForms;
+	_Объект.broker = broker;
+	_Объект.transportInfo = transportInfo;
+	_Объект.transportStorageType = transportStorageType;
+	//_Объект.shipmentRoute = shipmentRoute;
 	
 	Если ТипЗнч(consignment) = Тип("Массив") Тогда
 		Для каждого _consignment Из consignment Цикл
@@ -130,7 +188,7 @@
 	Иначе
 		_Объект.consignment.Добавить(consignment);
 	КонецЕсли;
-	
+
 	Возврат _Объект;
 	
 	// http://vetrf.ru/vetrf-forum/posts/list/825/6855.page#41188
@@ -150,12 +208,12 @@
 	
 КонецФункции
 
-// Обобщенные сведения о результате приема партии продукции.
-// Параметры:
-//  presence - argc:DocumentNature - Природа ВСД (электронный или бумажный)
-//  docInspection - vetd:DeliveryInspection - Соответствуют ли сведения о партии, указанной в ВСД, фактическим
-//  vetInspection - vetd:DeliveryInspection - Осуществлен ли контроль груза гос.ветврачом на соответствие требованиям.
-//  decision - vetd:DeliveryDecision - Принятое решение о приёме входной партии.
+//Обобщенные сведения о результате приема партии продукции.
+//Параметры:
+// presence - vd:DocumentNature - Природа ВСД (электронный или бумажный)
+// docInspection - vd:DeliveryInspection - Соответствуют ли сведения о партии, указанной в ВСД, фактическим
+// vetInspection - vd:DeliveryInspection - Осуществлен ли контроль груза гос.ветврачом на соответствие требованиям.
+// decision - vd:DeliveryDecision - Принятое решение о приёме входной партии.
 Функция DeliveryFactList(presence, docInspection, vetInspection, decision) Экспорт
 	
 	_Объект = Создать("DeliveryFactList");
@@ -169,10 +227,10 @@
 	
 КонецФункции
 
-// Тип, описывающий контроль поставки (документарный, ветеринарный).
-// Параметры:
-// 	result - vetd:DeliveryInspectionResult - Результат контроля.
-//  responsible - argc:User - Ответственный за контроль.
+//Тип, описывающий контроль поставки (документарный, ветеринарный).
+//Параметры:
+// result - vd:DeliveryInspectionResult - Результат контроля.
+// responsible - vd:User - Ответственный за контроль.
 Функция DeliveryInspection(result, responsible = Неопределено) Экспорт
 	
 	_Объект = Создать("DeliveryInspection");
@@ -180,7 +238,7 @@
 	_Объект.result = result;
 	
 	Если responsible = Неопределено Тогда
-		_Объект.responsible = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+		_Объект.responsible = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	Иначе
 		_Объект.responsible = responsible;
 	КонецЕсли;
@@ -213,12 +271,12 @@
 	
 КонецФункции
 
-// Операция внесения изменений в реестр ХС
-// Параметры:
-//  type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
-//  affectedList - ent:EnterpriseList - Входящий список площадок
-//  resultingList - ent:EnterpriseList - Получаемые в результате операции записи
-//  reason - xs:String - Основание добавления записи в реестр
+//Операция внесения изменений в реестр ХС
+//Параметры:
+// type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
+// affectedList - dt:EnterpriseList - Входящий список площадок
+// resultingList - dt:EnterpriseList - Получаемые в результате операции записи
+// reason - xs:String - Основание добавления записи в реестр
 Функция EnterpriseModificationOperation(type, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
 	
 	_Объект = Создать("ENTModificationOperation");
@@ -232,8 +290,8 @@
 	
 КонецФункции
 
-// Тип, описывающий дату производства, либо дату окончания срока годности продукции.
-// Может указываться единичной датой, интервалом, либо строкой.
+//Тип, описывающий дату производства, либо дату окончания срока годности продукции.
+//Может указываться единичной датой, интервалом, либо строкой.
 Функция GoodsDate(firstDate, secondDate = Неопределено) Экспорт
 	
 	_Объект = Создать("GoodsDate");
@@ -260,7 +318,7 @@
 
 //Создает объект, который содержит сведения об объединяемых складских записях журнала продукции
 //Параметры:
-// sourceStockEntry - Массив - vetd:StockEntry - Позиции в складском журнале системы Меркурий, не менее двух.
+// sourceStockEntry - Массив - vd:StockEntry - Позиции в складском журнале системы Меркурий, не менее двух.
 //                    Указанные позиции будут объединены в одну. Представляют собой идентификатор версии записи (uuid) в ИС Меркурий.
 //	Указанная версия записи складского журнала продукции в ИС Меркурий должна быть актуальной, неаннулированной и неудалённой.
 //	Объединяемые записи журнала должны быть в статусе "создана" или "отправлена".
@@ -286,7 +344,65 @@
 	
 КонецФункции
 
-// Тип, описывающий cведения о записи журнала продукции.
+//Тип, описывающий лабораторное исследование. Исследование выполняется на конкретный показатель/заболевание в лаборатории.
+//Параметры:
+// batchID - bs:Identifier - Уникальный идентификатор производственной партии продукции, для которой проводились лабораторные исследования.
+// expertiseID - bs:String255 - Номер экспертизы.
+// indicator - dt:Indicator - Показатель безопасности.
+// disease - dt:AnimalDisease - Заболевание.
+// method - dt:ResearchMethod - Метод исследования.
+// result - dt:ResearchResult - Результат исследования.
+// conclusion - 	bs:Text - Заключение.
+Функция LaboratoryResearchEvent(expertiseID, indicator, disease, method, result, conclusion) Экспорт
+	
+	_Объект = Создать("LaboratoryResearchEvent");
+	
+	_Объект.expertiseID = expertiseID;
+	_Объект.indicator = indicator;
+	_Объект.disease = disease;
+	_Объект.method = method;
+	_Объект.result = result;
+	_Объект.conclusion = conclusion;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Тип, описывающий подтверждение соблюдения условия перемещения продукции.
+//Параметры:
+// condition - dt:RegionalizationCondition - Cоблюдаемое условие перемещения партии.
+// text - bs:Text - Текст (точная формулировка) соблюдаемого условия перемещения партии.
+Функция RegionalizationClause(condition, text) Экспорт
+	
+	_Объект = Создать("RegionalizationClause");
+	
+	_Объект.condition = condition;
+	_Объект.text = text;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Тип, описывающий условие регионализации, соблюдаемое при перевозке груза.
+//Параметры:
+// referenceNumber - bs:Identifier - Номер условия.
+// text - xs:Text - Формулировка условия.
+// strict - xs:boolean - Обязательность соблюдения условия.
+// relatedDisease - dt:AnimalDisease - Заболевание, к которому относится данное условие.
+Функция RegionalizationCondition(referenceNumber, text, strict, relatedDisease) Экспорт
+	
+	_Объект = Создать("RegionalizationCondition");
+	
+	_Объект.referenceNumber = referenceNumber;
+	_Объект.text = text;
+	_Объект.strict = strict;
+	_Объект.relatedDisease = relatedDisease;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Тип, описывающий cведения о записи журнала продукции.
 Функция StockEntry(guid) Экспорт
 	
 	_Объект = Создать("StockEntry");
@@ -322,7 +438,7 @@
 	
 КонецФункции
 
-// Тип, описывающий пользователя. Наследуется от типа bs:GenericEntity.
+//Тип, описывающий пользователя. Наследуется от типа bs:GenericEntity.
 Функция User(login = Неопределено, fio = Неопределено, post = Неопределено) Экспорт
 	
 	_Объект = Создать("User");
@@ -343,9 +459,43 @@
 	
 КонецФункции
 
-// Тип, описывающий ветеринарно-сопроводительный документ (ВСД).
-// Параметры:
-//  uuid - Идентификатор ВСД
+//Тип, описывающий результаты осмотра/исследований партии. Заключение ветеринарного врача/специалиста.
+//Параметры:
+// purpose - dt:Purpose - Цель. Назначение груза.
+// cargoInspected - xs:boolean - Осуществлен контроль гос.ветврачом на соответствие требованиям.
+// cargoExpertized - dt:ResearchResult - Проводилась ли ветсанэкспертиза.
+// locationProsperity - bs:String255 - Благополучие местности.
+// specialMarks - bs:Text - Особые отметки.
+Функция VeterinaryAuthentication(purpose, cargoInspected, cargoExpertized, locationProsperity, specialMarks) Экспорт
+	
+	_Объект = Создать("VeterinaryAuthentication");
+	
+	_Объект.purpose = purpose;
+	_Объект.cargoInspected = cargoInspected;
+	_Объект.cargoExpertized = cargoExpertized;
+	_Объект.locationProsperity = locationProsperity;
+	_Объект.specialMarks = specialMarks;
+	
+	//_Объект.animalSpentPeriod
+	//_Объект.monthsSpent
+	//_Объект.laboratoryResearch = laboratoryResearch;
+	//_Объект.quarantine
+	//_Объект.immunization
+	//_Объект.veterinaryEvent
+	//_Объект.r13nClause = r13nClause;
+	
+	// laboratoryResearch - vd:LaboratoryResearchEvent - Сведения о проведенных лабораторных исследованиях.
+	// r13nClause - vd:RegionalizationClause - Подтверждение соблюдаемых условий перемещения продукции.
+	//              Если в соответствии с правилами регионализации перемещение продукции разрешено при выполнении определенных условий,
+	//              то условия, которые обязуется выполнить перевозчик передаются в данном поле.
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Тип, описывающий ветеринарно-сопроводительный документ (ВСД).
+//Параметры:
+// uuid - Идентификатор ВСД
 Функция VetDocument(uuid = Неопределено) Экспорт
 	
 	_Объект = Создать("VetDocument");
@@ -368,7 +518,7 @@
 // user - dt:User - пользователь, изменивший статус
 // date - xs:dateTime - дата и время изменения статуса
 // reason - vd:VetDocumentStatusChangeReason - основание
-Функция VetDocumentStatusChange(status, user, date, reason) Экспорт
+Функция VetDocumentStatusChange(status, user, date, reason = "") Экспорт
 	
 	_Объект = Создать("VetDocumentStatusChange");
 	
@@ -381,7 +531,7 @@
 	
 КонецФункции
 
-// Тип, описывающий товарно-транспортную накладную.
+//Тип, описывающий товарно-транспортную накладную.
 Функция Waybill() Экспорт
 	
 	_Объект = Создать("Waybill");
@@ -391,7 +541,7 @@
 КонецФункции
 
 
-// Тип, описывающий cколько времени животные находились на территории ТС.
+//Тип, описывающий cколько времени животные находились на территории ТС.
 Функция AnimalSpentPeriod(value) Экспорт
 	
 	Если      value = 1 Тогда
@@ -408,7 +558,7 @@
 	
 КонецФункции
 
-// Тип, описывающий контроль поставки (документарный, ветеринарный).
+//Тип, описывающий контроль поставки (документарный, ветеринарный).
 Функция DeliveryDecision(value) Экспорт
 	
 	Если      value = 1 Тогда
@@ -423,7 +573,7 @@
 	
 КонецФункции
 
-// Тип, описывающий результат контроля поставки.
+//Тип, описывающий результат контроля поставки.
 Функция DeliveryInspectionResult(value) Экспорт
 	
 	Если      value = 1 Тогда
@@ -438,7 +588,7 @@
 	
 КонецФункции
 
-// Тип, описывающий форму ветеринарно-сопроводительного докумнета (ВСД).
+//Тип, описывающий форму ветеринарно-сопроводительного докумнета (ВСД).
 Функция VetDocumentForm(value) Экспорт
 	
 	Если      value = 1 Тогда
@@ -471,7 +621,7 @@
 	
 КонецФункции
 
-// Тип, описывающий статус ветеринарно-сопроводительного докумнета (ВСД).
+//Тип, описывающий статус ветеринарно-сопроводительного докумнета (ВСД).
 Функция VetDocumentStatus(value) Экспорт
 	
 	Если      value = 1 Тогда
@@ -493,12 +643,12 @@
 	
 КонецФункции
 
-// Тип, описывающий тип ветеринарно-сопроводительного документа (ВСД).
-// Типы сертификатов в документации перечислены как для запросов, так и для ответов сервиса.
-// В запросе на список ветеринарных сертификатов можно указать только входящие или исходящие.
-// В ответе сервиса придут транспортные и возвратные сертификаты.
-// То есть в запросе можно указать направление отправки сертификата (от предприятия или на предприятие),
-// а в ответе придет информация о том какие из них были транспортными, а какие были оформлены как возвратными.
+//Тип, описывающий тип ветеринарно-сопроводительного документа (ВСД).
+//Типы сертификатов в документации перечислены как для запросов, так и для ответов сервиса.
+//В запросе на список ветеринарных сертификатов можно указать только входящие или исходящие.
+//В ответе сервиса придут транспортные и возвратные сертификаты.
+//То есть в запросе можно указать направление отправки сертификата (от предприятия или на предприятие),
+//а в ответе придет информация о том какие из них были транспортными, а какие были оформлены как возвратными.
 Функция VetDocumentType(value) Экспорт
 	
 	Если      value = 1 Тогда

@@ -97,6 +97,13 @@
 		</right>
 	</object>
 	<object>
+		<name>AccumulationRegister.ВетисСкладскойЖурнал.Command.ВетисСкладскойЖурнал</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>InformationRegister.ВетисПользователи</name>
 		<right>
 			<name>Read</name>
@@ -520,6 +527,13 @@
 		</right>
 		<right>
 			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисXSD</name>
+		<right>
+			<name>View</name>
 			<value>true</value>
 		</right>
 	</object>

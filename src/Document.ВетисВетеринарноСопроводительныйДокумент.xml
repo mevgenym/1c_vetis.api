@@ -385,7 +385,7 @@
 					<Type>
 						<v8:Type>xs:dateTime</v8:Type>
 						<v8:DateQualifiers>
-							<v8:DateFractions>Date</v8:DateFractions>
+							<v8:DateFractions>DateTime</v8:DateFractions>
 						</v8:DateQualifiers>
 					</Type>
 					<PasswordMode>false</PasswordMode>
@@ -856,21 +856,21 @@
 			<Form>ФормаВыбора</Form>
 			<TabularSection uuid="fa3fc64f-6c69-420f-a302-5f44b0bfb0f9">
 				<InternalInfo>
-					<xr:GeneratedType name="DocumentTabularSection.ВетисВетеринарноСопроводительныйДокумент.СкладскойЖурнал" category="TabularSection">
+					<xr:GeneratedType name="DocumentTabularSection.ВетисВетеринарноСопроводительныйДокумент.Товары" category="TabularSection">
 						<xr:TypeId>2a83e016-4e69-4a5a-a2c8-fe98066bf4c5</xr:TypeId>
 						<xr:ValueId>d8b376ae-96fa-452b-baba-79147b09f95b</xr:ValueId>
 					</xr:GeneratedType>
-					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисВетеринарноСопроводительныйДокумент.СкладскойЖурнал" category="TabularSectionRow">
+					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисВетеринарноСопроводительныйДокумент.Товары" category="TabularSectionRow">
 						<xr:TypeId>80e04291-de86-4713-82c8-66fa7b96bcd5</xr:TypeId>
 						<xr:ValueId>c8100fb7-2dc1-4abe-b4eb-b04098cc65d6</xr:ValueId>
 					</xr:GeneratedType>
 				</InternalInfo>
 				<Properties>
-					<Name>СкладскойЖурнал</Name>
+					<Name>Товары</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Складской журнал</v8:content>
+							<v8:content>Товары</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -1304,7 +1304,7 @@
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
-									<v8:DateFractions>Date</v8:DateFractions>
+									<v8:DateFractions>DateTime</v8:DateFractions>
 								</v8:DateQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
@@ -1343,7 +1343,7 @@
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
-									<v8:DateFractions>Date</v8:DateFractions>
+									<v8:DateFractions>DateTime</v8:DateFractions>
 								</v8:DateQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
@@ -1382,7 +1382,7 @@
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
-									<v8:DateFractions>Date</v8:DateFractions>
+									<v8:DateFractions>DateTime</v8:DateFractions>
 								</v8:DateQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
@@ -1421,7 +1421,7 @@
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
-									<v8:DateFractions>Date</v8:DateFractions>
+									<v8:DateFractions>DateTime</v8:DateFractions>
 								</v8:DateQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
@@ -1583,7 +1583,7 @@
 							<ChoiceParameterLinks>
 								<xr:Link>
 									<xr:Name>Отбор.Владелец</xr:Name>
-									<xr:DataPath xsi:type="xs:string">Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.СкладскойЖурнал.Attribute.Производитель</xr:DataPath>
+									<xr:DataPath xsi:type="xs:string">Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.Производитель</xr:DataPath>
 									<xr:ValueChange>Clear</xr:ValueChange>
 								</xr:Link>
 							</ChoiceParameterLinks>
@@ -1775,7 +1775,7 @@
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
-									<v8:DateFractions>Date</v8:DateFractions>
+									<v8:DateFractions>DateTime</v8:DateFractions>
 								</v8:DateQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
@@ -2034,7 +2034,7 @@
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
-									<v8:DateFractions>Date</v8:DateFractions>
+									<v8:DateFractions>DateTime</v8:DateFractions>
 								</v8:DateQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
@@ -2447,7 +2447,7 @@
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
-									<v8:DateFractions>Date</v8:DateFractions>
+									<v8:DateFractions>DateTime</v8:DateFractions>
 								</v8:DateQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
@@ -2799,7 +2799,7 @@
 							<Type>
 								<v8:Type>xs:dateTime</v8:Type>
 								<v8:DateQualifiers>
-									<v8:DateFractions>Date</v8:DateFractions>
+									<v8:DateFractions>DateTime</v8:DateFractions>
 								</v8:DateQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>

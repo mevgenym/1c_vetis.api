@@ -57,6 +57,12 @@
 					<ContextMenu name="ДатаКонтекстноеМеню" id="133"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="134"/>
 				</InputField>
+				<LabelField name="ДатаОбновления" id="482">
+					<DataPath>Объект.ДатаОбновления</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ContextMenu name="ДатаОбновленияКонтекстноеМеню" id="483"/>
+					<ExtendedTooltip name="ДатаОбновленияРасширеннаяПодсказка" id="484"/>
+				</LabelField>
 				<LabelField name="Статус" id="379">
 					<DataPath>Объект.Статус</DataPath>
 					<TitleLocation>None</TitleLocation>
@@ -517,6 +523,11 @@
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
+						<LabelField name="Тип" id="463">
+							<DataPath>Объект.Тип</DataPath>
+							<ContextMenu name="ТипКонтекстноеМеню" id="464"/>
+							<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="465"/>
+						</LabelField>
 						<InputField name="ФормаВСД" id="382">
 							<DataPath>Объект.Форма</DataPath>
 							<ContextMenu name="ФормаВСДКонтекстноеМеню" id="383"/>
@@ -685,18 +696,6 @@
 						</v8:item>
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="467"/>
-					<ChildItems>
-						<InputField name="Тип" id="463">
-							<DataPath>Объект.Тип</DataPath>
-							<ContextMenu name="ТипКонтекстноеМеню" id="464"/>
-							<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="465"/>
-						</InputField>
-						<InputField name="Статус1" id="460">
-							<DataPath>Объект.Статус</DataPath>
-							<ContextMenu name="Статус1КонтекстноеМеню" id="461"/>
-							<ExtendedTooltip name="Статус1РасширеннаяПодсказка" id="462"/>
-						</InputField>
-					</ChildItems>
 				</Page>
 			</ChildItems>
 		</Pages>
@@ -787,7 +786,7 @@
 			<Type>
 				<v8:Type>xs:dateTime</v8:Type>
 				<v8:DateQualifiers>
-					<v8:DateFractions>Date</v8:DateFractions>
+					<v8:DateFractions>DateTime</v8:DateFractions>
 				</v8:DateQualifiers>
 			</Type>
 		</Attribute>
@@ -801,7 +800,7 @@
 			<Type>
 				<v8:Type>xs:dateTime</v8:Type>
 				<v8:DateQualifiers>
-					<v8:DateFractions>Date</v8:DateFractions>
+					<v8:DateFractions>DateTime</v8:DateFractions>
 				</v8:DateQualifiers>
 			</Type>
 		</Attribute>
@@ -815,7 +814,7 @@
 			<Type>
 				<v8:Type>xs:dateTime</v8:Type>
 				<v8:DateQualifiers>
-					<v8:DateFractions>Date</v8:DateFractions>
+					<v8:DateFractions>DateTime</v8:DateFractions>
 				</v8:DateQualifiers>
 			</Type>
 		</Attribute>
@@ -829,7 +828,7 @@
 			<Type>
 				<v8:Type>xs:dateTime</v8:Type>
 				<v8:DateQualifiers>
-					<v8:DateFractions>Date</v8:DateFractions>
+					<v8:DateFractions>DateTime</v8:DateFractions>
 				</v8:DateQualifiers>
 			</Type>
 		</Attribute>
@@ -1000,7 +999,7 @@
 			<Type>
 				<v8:Type>xs:dateTime</v8:Type>
 				<v8:DateQualifiers>
-					<v8:DateFractions>Date</v8:DateFractions>
+					<v8:DateFractions>DateTime</v8:DateFractions>
 				</v8:DateQualifiers>
 			</Type>
 		</Attribute>

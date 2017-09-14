@@ -208,21 +208,21 @@
 			<Form>ФормаСписка</Form>
 			<TabularSection uuid="af67c035-0043-4ddf-8368-73c269bf1eb9">
 				<InternalInfo>
-					<xr:GeneratedType name="DocumentTabularSection.ВетисВходящаяПартияСводно.СкладскойЖурнал" category="TabularSection">
+					<xr:GeneratedType name="DocumentTabularSection.ВетисВходящаяПартияСводно.Товары" category="TabularSection">
 						<xr:TypeId>9f14cdfe-6165-4f4b-ae99-988eeab3f6d9</xr:TypeId>
 						<xr:ValueId>a3afb008-4de7-4371-b297-f8b435728fdb</xr:ValueId>
 					</xr:GeneratedType>
-					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисВходящаяПартияСводно.СкладскойЖурнал" category="TabularSectionRow">
+					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисВходящаяПартияСводно.Товары" category="TabularSectionRow">
 						<xr:TypeId>547eeeb5-ed93-430f-bc78-2a796749b4cb</xr:TypeId>
 						<xr:ValueId>cccb9332-2bc1-499a-afef-dfe1b73407cb</xr:ValueId>
 					</xr:GeneratedType>
 				</InternalInfo>
 				<Properties>
-					<Name>СкладскойЖурнал</Name>
+					<Name>Товары</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Складской журнал</v8:content>
+							<v8:content>Товары</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>

@@ -189,6 +189,7 @@
 			<DefinedType>ВетисПользователь</DefinedType>
 			<CommonCommand>ВетисPackingForm</CommonCommand>
 			<CommonCommand>ВетисPurpose</CommonCommand>
+			<CommonCommand>ВетисXSD</CommonCommand>
 			<CommonCommand>ВетисВетеринарноСопроводительныйДокумент</CommonCommand>
 			<CommonCommand>ВетисВходящаяПартияСводно</CommonCommand>
 			<CommonCommand>ВетисЖурнал</CommonCommand>

@@ -41,7 +41,7 @@
 		_delivery = ВетисMercuryVetdocument_2_0.Delivery(
 			ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
-			ПолучитьConsignment(_всд.СкладскойЖурнал[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
+			ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
 			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)),
 			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),
 			ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.Транспорт),
@@ -50,11 +50,11 @@
 		_delivery = ВетисMercuryVetdocument.Delivery(
 			_ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			_ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
-			ПолучитьConsignment(_всд.СкладскойЖурнал[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
+			ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
 			_ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)));
 	КонецЕсли;
 	
-	_всдСтрокаСЖ = _СтрокаСЖ.ВСД.СкладскойЖурнал[0];
+	_всдСтрокаСЖ = _СтрокаСЖ.ВСД.Товары[0];
 	
 	_КоличествоФакт     = _СтрокаСЖ.Количество + _СтрокаСЖ.КоличествоВозврат;
 	_КоличествоМестФакт = _СтрокаСЖ.КоличествоМест + _СтрокаСЖ.КоличествоМестВозврат;
@@ -106,7 +106,7 @@
 			_returnedDelivery = ВетисMercuryVetdocument_2_0.Delivery(
 				ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
 				ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
-				ПолучитьConsignment(_всд.СкладскойЖурнал[0], _СтрокаСЖ.КоличествоВозврат, _СтрокаСЖ.КоличествоМестВозврат),
+				ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.КоличествоВозврат, _СтрокаСЖ.КоличествоМестВозврат),
 				ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill(_всд, Истина), ПолучитьVetDocument(_всд, Истина)),
 				ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),//пока тот же который привез
 				ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.Транспорт),//пока тот же который привез
@@ -116,7 +116,7 @@
 			_returnedDelivery = ВетисMercuryVetdocument.Delivery(
 				ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
 				ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
-				ПолучитьConsignment(_всд.СкладскойЖурнал[0], _СтрокаСЖ.КоличествоВозврат, _СтрокаСЖ.КоличествоМестВозврат),
+				ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.КоличествоВозврат, _СтрокаСЖ.КоличествоМестВозврат),
 				ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_всд, Истина), ПолучитьVetDocument(_всд, Истина)));
 		КонецЕсли;
 	КонецЕсли;
@@ -200,7 +200,7 @@
 		_delivery = ВетисMercuryVetdocument_2_0.Delivery(
 			ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
-			ПолучитьConsignment(_всд.СкладскойЖурнал[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
+			ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
 			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)));
 		
 		_Response = ВетисMercuryApplications_2_0.PrepareOutgoingConsignment(_delivery, _Получатель, пОтказ);
@@ -215,7 +215,7 @@
 		_delivery = ВетисMercuryVetdocument.Delivery(
 			ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
-			ПолучитьConsignment(_всд.СкладскойЖурнал[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
+			ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
 			ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)));
 		
 		_Response = ВетисMercuryApplications.prepareOutcomingConsignment(_delivery, _Получатель, пОтказ);
@@ -357,6 +357,7 @@
 	
 	Если пВСД.Статус = Перечисления.ВетисVetDocumentStatus.Оформлен Тогда
 		_VetDocument.uuid = пВСД.uuid;
+		//__ = ВетисMercuryApplicationsСлой1с.getVetDocumentByUuid(пВСД);
 	Иначе
 		Если пВозврат = Ложь Тогда
 			ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_VetDocument, пВСД);

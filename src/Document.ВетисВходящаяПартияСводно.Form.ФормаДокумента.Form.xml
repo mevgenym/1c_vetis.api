@@ -124,204 +124,228 @@
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаВходящаяРасширеннаяПодсказка" id="30"/>
 					<ChildItems>
-						<Table name="СкладскойЖурнал" id="380">
+						<Table name="Товары" id="380">
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
-							<DataPath>Объект.СкладскойЖурнал</DataPath>
+							<DataPath>Объект.Товары</DataPath>
 							<CommandSet>
 								<ExcludedCommand>Copy</ExcludedCommand>
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="СкладскойЖурналКонтекстноеМеню" id="381"/>
-							<AutoCommandBar name="СкладскойЖурналКоманднаяПанель" id="382"/>
-							<ExtendedTooltip name="СкладскойЖурналРасширеннаяПодсказка" id="383"/>
-							<SearchStringAddition name="СкладскойЖурналСтрокаПоиска" id="384">
+							<ContextMenu name="ТоварыКонтекстноеМеню" id="381"/>
+							<AutoCommandBar name="ТоварыКоманднаяПанель" id="382"/>
+							<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="383"/>
+							<SearchStringAddition name="ТоварыСтрокаПоиска" id="384">
 								<AdditionSource>
-									<Item>СкладскойЖурнал</Item>
+									<Item>Товары</Item>
 									<Type>SearchStringRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="СкладскойЖурналСтрокаПоискаКонтекстноеМеню" id="385"/>
-								<ExtendedTooltip name="СкладскойЖурналСтрокаПоискаРасширеннаяПодсказка" id="386"/>
+								<ContextMenu name="ТоварыСтрокаПоискаКонтекстноеМеню" id="385"/>
+								<ExtendedTooltip name="ТоварыСтрокаПоискаРасширеннаяПодсказка" id="386"/>
 							</SearchStringAddition>
-							<ViewStatusAddition name="СкладскойЖурналСостояниеПросмотра" id="387">
+							<ViewStatusAddition name="ТоварыСостояниеПросмотра" id="387">
 								<AdditionSource>
-									<Item>СкладскойЖурнал</Item>
+									<Item>Товары</Item>
 									<Type>ViewStatusRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="СкладскойЖурналСостояниеПросмотраКонтекстноеМеню" id="388"/>
-								<ExtendedTooltip name="СкладскойЖурналСостояниеПросмотраРасширеннаяПодсказка" id="389"/>
+								<ContextMenu name="ТоварыСостояниеПросмотраКонтекстноеМеню" id="388"/>
+								<ExtendedTooltip name="ТоварыСостояниеПросмотраРасширеннаяПодсказка" id="389"/>
 							</ViewStatusAddition>
-							<SearchControlAddition name="СкладскойЖурналУправлениеПоиском" id="390">
+							<SearchControlAddition name="ТоварыУправлениеПоиском" id="390">
 								<AdditionSource>
-									<Item>СкладскойЖурнал</Item>
+									<Item>Товары</Item>
 									<Type>SearchControl</Type>
 								</AdditionSource>
-								<ContextMenu name="СкладскойЖурналУправлениеПоискомКонтекстноеМеню" id="391"/>
-								<ExtendedTooltip name="СкладскойЖурналУправлениеПоискомРасширеннаяПодсказка" id="392"/>
+								<ContextMenu name="ТоварыУправлениеПоискомКонтекстноеМеню" id="391"/>
+								<ExtendedTooltip name="ТоварыУправлениеПоискомРасширеннаяПодсказка" id="392"/>
 							</SearchControlAddition>
 							<Events>
-								<Event name="Selection">СкладскойЖурналВыбор</Event>
-								<Event name="BeforeAddRow">СкладскойЖурналПередНачаломДобавления</Event>
-								<Event name="BeforeDeleteRow">СкладскойЖурналПередУдалением</Event>
-								<Event name="OnActivateRow">СкладскойЖурналПриАктивизацииСтроки</Event>
+								<Event name="Selection">ТоварыВыбор</Event>
+								<Event name="BeforeAddRow">ТоварыПередНачаломДобавления</Event>
+								<Event name="BeforeDeleteRow">ТоварыПередУдалением</Event>
+								<Event name="OnActivateRow">ТоварыПриАктивизацииСтроки</Event>
 							</Events>
 							<ChildItems>
-								<LabelField name="СкладскойЖурналguid" id="407">
-									<DataPath>Объект.СкладскойЖурнал.guid</DataPath>
+								<LabelField name="Товарыguid" id="407">
+									<DataPath>Объект.Товары.guid</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<Width>10</Width>
-									<ContextMenu name="СкладскойЖурналguidКонтекстноеМеню" id="408"/>
-									<ExtendedTooltip name="СкладскойЖурналguidРасширеннаяПодсказка" id="409"/>
+									<ContextMenu name="ТоварыguidКонтекстноеМеню" id="408"/>
+									<ExtendedTooltip name="ТоварыguidРасширеннаяПодсказка" id="409"/>
 								</LabelField>
-								<CheckBoxField name="СкладскойЖурналВозврат" id="427">
-									<DataPath>Объект.СкладскойЖурнал.Возврат</DataPath>
+								<CheckBoxField name="ТоварыВозврат" id="427">
+									<DataPath>Объект.Товары.Возврат</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<CheckBoxType>Auto</CheckBoxType>
-									<ContextMenu name="СкладскойЖурналВозвратКонтекстноеМеню" id="428"/>
-									<ExtendedTooltip name="СкладскойЖурналВозвратРасширеннаяПодсказка" id="429"/>
+									<ContextMenu name="ТоварыВозвратКонтекстноеМеню" id="428"/>
+									<ExtendedTooltip name="ТоварыВозвратРасширеннаяПодсказка" id="429"/>
 								</CheckBoxField>
-								<ColumnGroup name="СкладскойЖурналГруппа2" id="482">
-									<ExtendedTooltip name="СкладскойЖурналГруппа2РасширеннаяПодсказка" id="483"/>
+								<ColumnGroup name="ТоварыГруппаНоменклатура" id="482">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа номенклатура</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа номенклатура</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ТоварыГруппаНоменклатураРасширеннаяПодсказка" id="483"/>
 									<ChildItems>
-										<LabelField name="СкладскойЖурналНоменклатура" id="479">
-											<DataPath>Объект.СкладскойЖурнал.Номенклатура</DataPath>
+										<LabelField name="ТоварыНоменклатура" id="479">
+											<DataPath>Объект.Товары.Номенклатура</DataPath>
 											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="СкладскойЖурналНоменклатураКонтекстноеМеню" id="480"/>
-											<ExtendedTooltip name="СкладскойЖурналНоменклатураРасширеннаяПодсказка" id="481"/>
+											<ContextMenu name="ТоварыНоменклатураКонтекстноеМеню" id="480"/>
+											<ExtendedTooltip name="ТоварыНоменклатураРасширеннаяПодсказка" id="481"/>
 										</LabelField>
-										<LabelField name="СкладскойЖурналНоменклатурнаяГруппа" id="484">
-											<DataPath>Объект.СкладскойЖурнал.НоменклатурнаяГруппа</DataPath>
+										<LabelField name="ТоварыНоменклатурнаяГруппа" id="484">
+											<DataPath>Объект.Товары.НоменклатурнаяГруппа</DataPath>
 											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="СкладскойЖурналНоменклатурнаяГруппаКонтекстноеМеню" id="485"/>
-											<ExtendedTooltip name="СкладскойЖурналНоменклатурнаяГруппаРасширеннаяПодсказка" id="486"/>
+											<ContextMenu name="ТоварыНоменклатурнаяГруппаКонтекстноеМеню" id="485"/>
+											<ExtendedTooltip name="ТоварыНоменклатурнаяГруппаРасширеннаяПодсказка" id="486"/>
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="СкладскойЖурналГруппа1" id="419">
+								<ColumnGroup name="ТоварыГруппа1" id="419">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа1</v8:content>
+										</v8:item>
+									</ToolTip>
 									<Group>Horizontal</Group>
-									<ExtendedTooltip name="СкладскойЖурналГруппа1РасширеннаяПодсказка" id="420"/>
+									<ExtendedTooltip name="ТоварыГруппа1РасширеннаяПодсказка" id="420"/>
 									<ChildItems>
-										<ColumnGroup name="СкладскойЖурналГруппаВСД" id="425">
+										<ColumnGroup name="ТоварыГруппаВСД" id="425">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Складской журнал группа ВСД</v8:content>
+													<v8:content>Товары группа ВСД</v8:content>
 												</v8:item>
 											</Title>
 											<ToolTip>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Складской журнал группа ВСД</v8:content>
+													<v8:content>Товары группа ВСД</v8:content>
 												</v8:item>
 											</ToolTip>
-											<ExtendedTooltip name="СкладскойЖурналГруппаВСДРасширеннаяПодсказка" id="426"/>
+											<ExtendedTooltip name="ТоварыГруппаВСДРасширеннаяПодсказка" id="426"/>
 											<ChildItems>
-												<InputField name="СкладскойЖурналВСД" id="402">
-													<DataPath>Объект.СкладскойЖурнал.ВСД</DataPath>
+												<InputField name="ТоварыВСД" id="402">
+													<DataPath>Объект.Товары.ВСД</DataPath>
 													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="СкладскойЖурналВСДКонтекстноеМеню" id="403"/>
-													<ExtendedTooltip name="СкладскойЖурналВСДРасширеннаяПодсказка" id="404"/>
+													<ContextMenu name="ТоварыВСДКонтекстноеМеню" id="403"/>
+													<ExtendedTooltip name="ТоварыВСДРасширеннаяПодсказка" id="404"/>
 													<Events>
-														<Event name="OnChange">СкладскойЖурналВСДПриИзменении</Event>
-														<Event name="StartChoice">СкладскойЖурналВСДНачалоВыбора</Event>
+														<Event name="OnChange">ТоварыВСДПриИзменении</Event>
+														<Event name="StartChoice">ТоварыВСДНачалоВыбора</Event>
 													</Events>
 												</InputField>
-												<InputField name="СкладскойЖурналВозвратныйВСД" id="410">
-													<DataPath>Объект.СкладскойЖурнал.ВозвратныйВСД</DataPath>
+												<InputField name="ТоварыВозвратныйВСД" id="410">
+													<DataPath>Объект.Товары.ВозвратныйВСД</DataPath>
 													<ReadOnly>true</ReadOnly>
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
-													<ContextMenu name="СкладскойЖурналВозвратныйВСДКонтекстноеМеню" id="411"/>
-													<ExtendedTooltip name="СкладскойЖурналВозвратныйВСДРасширеннаяПодсказка" id="412"/>
+													<ContextMenu name="ТоварыВозвратныйВСДКонтекстноеМеню" id="411"/>
+													<ExtendedTooltip name="ТоварыВозвратныйВСДРасширеннаяПодсказка" id="412"/>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
-										<ColumnGroup name="СкладскойЖурналГруппаКоличество" id="421">
+										<ColumnGroup name="ТоварыГруппаКоличество" id="421">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Складской журнал группа количество</v8:content>
+													<v8:content>Товары группа количество</v8:content>
 												</v8:item>
 											</Title>
 											<ToolTip>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Складской журнал группа количество</v8:content>
+													<v8:content>Товары группа количество</v8:content>
 												</v8:item>
 											</ToolTip>
-											<ExtendedTooltip name="СкладскойЖурналГруппаКоличествоРасширеннаяПодсказка" id="422"/>
+											<ExtendedTooltip name="ТоварыГруппаКоличествоРасширеннаяПодсказка" id="422"/>
 											<ChildItems>
-												<InputField name="СкладскойЖурналКоличество" id="396">
-													<DataPath>Объект.СкладскойЖурнал.Количество</DataPath>
+												<InputField name="ТоварыКоличество" id="396">
+													<DataPath>Объект.Товары.Количество</DataPath>
 													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="СкладскойЖурналКоличествоКонтекстноеМеню" id="397"/>
-													<ExtendedTooltip name="СкладскойЖурналКоличествоРасширеннаяПодсказка" id="398"/>
+													<ContextMenu name="ТоварыКоличествоКонтекстноеМеню" id="397"/>
+													<ExtendedTooltip name="ТоварыКоличествоРасширеннаяПодсказка" id="398"/>
 												</InputField>
-												<InputField name="СкладскойЖурналКоличествоВозврат" id="413">
-													<DataPath>Объект.СкладскойЖурнал.КоличествоВозврат</DataPath>
+												<InputField name="ТоварыКоличествоВозврат" id="413">
+													<DataPath>Объект.Товары.КоличествоВозврат</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
-													<ContextMenu name="СкладскойЖурналКоличествоВозвратКонтекстноеМеню" id="414"/>
-													<ExtendedTooltip name="СкладскойЖурналКоличествоВозвратРасширеннаяПодсказка" id="415"/>
+													<ContextMenu name="ТоварыКоличествоВозвратКонтекстноеМеню" id="414"/>
+													<ExtendedTooltip name="ТоварыКоличествоВозвратРасширеннаяПодсказка" id="415"/>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
-										<ColumnGroup name="СкладскойЖурналГруппаКоличествоМест" id="423">
+										<ColumnGroup name="ТоварыГруппаКоличествоМест" id="423">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Складской журнал группа количество мест</v8:content>
+													<v8:content>Товары группа количество мест</v8:content>
 												</v8:item>
 											</Title>
 											<ToolTip>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Складской журнал группа количество мест</v8:content>
+													<v8:content>Товары группа количество мест</v8:content>
 												</v8:item>
 											</ToolTip>
-											<ExtendedTooltip name="СкладскойЖурналГруппаКоличествоМестРасширеннаяПодсказка" id="424"/>
+											<ExtendedTooltip name="ТоварыГруппаКоличествоМестРасширеннаяПодсказка" id="424"/>
 											<ChildItems>
-												<InputField name="СкладскойЖурналКоличествоМест" id="399">
-													<DataPath>Объект.СкладскойЖурнал.КоличествоМест</DataPath>
+												<InputField name="ТоварыКоличествоМест" id="399">
+													<DataPath>Объект.Товары.КоличествоМест</DataPath>
 													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="СкладскойЖурналКоличествоМестКонтекстноеМеню" id="400"/>
-													<ExtendedTooltip name="СкладскойЖурналКоличествоМестРасширеннаяПодсказка" id="401"/>
+													<ContextMenu name="ТоварыКоличествоМестКонтекстноеМеню" id="400"/>
+													<ExtendedTooltip name="ТоварыКоличествоМестРасширеннаяПодсказка" id="401"/>
 												</InputField>
-												<InputField name="СкладскойЖурналКоличествоМестВозврат" id="416">
-													<DataPath>Объект.СкладскойЖурнал.КоличествоМестВозврат</DataPath>
+												<InputField name="ТоварыКоличествоМестВозврат" id="416">
+													<DataPath>Объект.Товары.КоличествоМестВозврат</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
-													<ContextMenu name="СкладскойЖурналКоличествоМестВозвратКонтекстноеМеню" id="417"/>
-													<ExtendedTooltip name="СкладскойЖурналКоличествоМестВозвратРасширеннаяПодсказка" id="418"/>
+													<ContextMenu name="ТоварыКоличествоМестВозвратКонтекстноеМеню" id="417"/>
+													<ExtendedTooltip name="ТоварыКоличествоМестВозвратРасширеннаяПодсказка" id="418"/>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
 									</ChildItems>
 								</ColumnGroup>
-								<LabelField name="СкладскойЖурналРезультатПриема" id="461">
-									<DataPath>Объект.СкладскойЖурнал.РезультатПриема</DataPath>
+								<LabelField name="ТоварыРезультатПриема" id="461">
+									<DataPath>Объект.Товары.РезультатПриема</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СкладскойЖурналРезультатПриемаКонтекстноеМеню" id="462"/>
-									<ExtendedTooltip name="СкладскойЖурналРезультатПриемаРасширеннаяПодсказка" id="463"/>
+									<ContextMenu name="ТоварыРезультатПриемаКонтекстноеМеню" id="462"/>
+									<ExtendedTooltip name="ТоварыРезультатПриемаРасширеннаяПодсказка" id="463"/>
 								</LabelField>
-								<LabelField name="СкладскойЖурналРешениеОПриеме" id="464">
-									<DataPath>Объект.СкладскойЖурнал.РешениеОПриеме</DataPath>
+								<LabelField name="ТоварыРешениеОПриеме" id="464">
+									<DataPath>Объект.Товары.РешениеОПриеме</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СкладскойЖурналРешениеОПриемеКонтекстноеМеню" id="465"/>
-									<ExtendedTooltip name="СкладскойЖурналРешениеОПриемеРасширеннаяПодсказка" id="466"/>
+									<ContextMenu name="ТоварыРешениеОПриемеКонтекстноеМеню" id="465"/>
+									<ExtendedTooltip name="ТоварыРешениеОПриемеРасширеннаяПодсказка" id="466"/>
 								</LabelField>
-								<LabelField name="СкладскойЖурналАктПричина" id="467">
-									<DataPath>Объект.СкладскойЖурнал.АктПричина</DataPath>
+								<LabelField name="ТоварыАктПричина" id="467">
+									<DataPath>Объект.Товары.АктПричина</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СкладскойЖурналАктПричинаКонтекстноеМеню" id="468"/>
-									<ExtendedTooltip name="СкладскойЖурналАктПричинаРасширеннаяПодсказка" id="469"/>
+									<ContextMenu name="ТоварыАктПричинаКонтекстноеМеню" id="468"/>
+									<ExtendedTooltip name="ТоварыАктПричинаРасширеннаяПодсказка" id="469"/>
 								</LabelField>
-								<LabelField name="СкладскойЖурналАктОписание" id="470">
-									<DataPath>Объект.СкладскойЖурнал.АктОписание</DataPath>
+								<LabelField name="ТоварыАктОписание" id="470">
+									<DataPath>Объект.Товары.АктОписание</DataPath>
 									<Visible>false</Visible>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СкладскойЖурналАктОписаниеКонтекстноеМеню" id="471"/>
-									<ExtendedTooltip name="СкладскойЖурналАктОписаниеРасширеннаяПодсказка" id="472"/>
+									<ContextMenu name="ТоварыАктОписаниеКонтекстноеМеню" id="471"/>
+									<ExtendedTooltip name="ТоварыАктОписаниеРасширеннаяПодсказка" id="472"/>
 								</LabelField>
 							</ChildItems>
 						</Table>
@@ -554,7 +578,7 @@
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">Объект.СкладскойЖурнал.guid</dcsset:left>
+						<dcsset:left xsi:type="dcscor:Field">Объект.Товары.guid</dcsset:left>
 						<dcsset:comparisonType>Filled</dcsset:comparisonType>
 					</dcsset:item>
 				</dcsset:filter>
@@ -583,7 +607,7 @@
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">Объект.СкладскойЖурнал.Возврат</dcsset:left>
+						<dcsset:left xsi:type="dcscor:Field">Объект.Товары.Возврат</dcsset:left>
 						<dcsset:comparisonType>Equal</dcsset:comparisonType>
 						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
 					</dcsset:item>

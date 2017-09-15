@@ -244,6 +244,7 @@
 			<InformationRegister>ВетисПользователи</InformationRegister>
 			<InformationRegister>ВетисПредопределенные</InformationRegister>
 			<InformationRegister>ВетисСоответствие</InformationRegister>
+			<InformationRegister>ВетисСкладскойЖурналРС</InformationRegister>
 			<AccumulationRegister>ВетисСкладскойЖурнал</AccumulationRegister>
 		</ChildObjects>
 	</Configuration>

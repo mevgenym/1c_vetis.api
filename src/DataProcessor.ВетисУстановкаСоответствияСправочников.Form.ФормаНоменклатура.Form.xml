@@ -479,7 +479,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисПредприятия</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
 			</Type>
 			<Save>
 				<Field>Предприятие</Field>

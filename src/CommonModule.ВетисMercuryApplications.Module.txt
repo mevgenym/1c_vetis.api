@@ -345,7 +345,14 @@
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.delivery           = delivery;
+	
+	Если ТипЗнч(delivery) = Тип("Массив") Тогда
+		Для каждого _delivery Из delivery Цикл
+			_Объект.delivery.Добавить(_delivery);
+		КонецЦикла;
+	Иначе
+		_Объект.delivery.Добавить(delivery);
+	КонецЕсли;
 	
 	Возврат _Объект;
 	

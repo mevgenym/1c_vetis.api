@@ -174,52 +174,73 @@
 	
 КонецПроцедуры
 
-Процедура TransportOperation(пСтрокаСЖ, пПартии, пОтказ = Ложь) Экспорт
+Процедура TransportOperation(пСтрокаСЖ, пОтказ = Ложь) Экспорт
+	
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисBase = ?(_Версия20, ВетисDictionary_2_0, ВетисBase);
+	_ВетисArgusProduction = ?(_Версия20, ВетисDictionary_2_0, ВетисArgusProduction);
+	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
+	_ВетисArgusCommon = ?(_Версия20, ВетисDictionary_2_0, ВетисArgusCommon);
+	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
+	_ВетисArgusShipmentСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusShipmentСлой1с);
+	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary_2_0, ВетисCerberusEnterprise);
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	_ВетисIkarСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисIkarСлой1с);
+	_ВетисProductService = ?(_Версия20, ВетисProductService_2_0, ВетисProductService);
+	_ВетисMercuryVetdocument = ?(_Версия20, ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
 	
 	_СтрокаСЖ = пСтрокаСЖ;
 	
-	Если НЕ _СтрокаСЖ.ВСД.Проведен Тогда
-		Возврат;
-	КонецЕсли;
-	
-	Если ЗначениеЗаполнено(_СтрокаСЖ.ВСД.Статус) И НЕ _СтрокаСЖ.ВСД.Статус = Перечисления.ВетисVetDocumentStatus.Оформлен Тогда
-		Возврат;
-	КонецЕсли;
-	
 	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
+	
+	_unitGuid = _ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения);
+	_unit     = _ВетисArgusCommon.Unit(_unitGuid);
+	
+	_unitws    = ?(_Версия20, ВетисDictionaryService_2_0, ВетисDictionaryService).GetUnitByGuid(_unitGuid);
+	_unit.uuid = _unitws.uuid;
 	
 	_всд = _СтрокаСЖ.ВСД.ПолучитьОбъект();
 	
-	Если ВетисОбщегоНазначения.ВерсияРавно("2.0") Тогда
-		_Отправитель = ВетисDictionaryСлой1с.BusinessEntity(_всд.Отправитель);
-		_Получатель = ВетисDictionaryСлой1с.BusinessEntity(_всд.Получатель);
-		
-		_ОтправительПредприятие = ВетисDictionaryСлой1с.Enterprise(_всд.ОтправительПредприятие);
-		_ПолучательПредприятие = ВетисDictionaryСлой1с.Enterprise(_всд.ПолучательПредприятие);
-		
-		_delivery = ВетисMercuryVetdocument_2_0.Delivery(
-			ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
-			ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
-			ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
-			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)));
-		
+	_СтрокаВСД = _всд.ВСД[0];
+	_СтрокаТТН = _всд.ТТН[0];
+	
+	_Отправитель = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Отправитель);
+	_Получатель = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Получатель);
+	
+	_ОтправительПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ОтправительПредприятие);
+	_ПолучательПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ПолучательПредприятие);
+	
+	_Consignment = _ВетисMercuryVetdocument.Consignment();
+	_Consignment.volume           = _СтрокаСЖ.Количество;
+	_Consignment.unit             = _unit;
+	_Consignment.packingList      = _ВетисArgusCommon.PackingFormList(_ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
+	_Consignment.packingAmount    = _СтрокаСЖ.КоличествоМест;
+	_Consignment.sourceStockEntry = ВетисMercuryVetdocument.StockEntry(_СтрокаСЖ.guid);
+	 
+	_VetDocument = ВетисMercuryVetdocument.VetDocument();
+	_VetDocument.issueSeries        = _всд.СерияВСД;
+	_VetDocument.issueNumber        = _всд.НомерВСД;
+	_VetDocument.issueDate          = ВетисОбщегоНазначения.ВремяВетис(_всд.ДатаВСД);
+	_VetDocument.purpose            = _ВетисArgusCommon.Purpose(_ВетисArgusCommonСлой1с.Purpose(_СтрокаВСД.НазначениеГруза));
+	_VetDocument.transportInfo      = _ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
+	_VetDocument.transportStorageType = _ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
+	_VetDocument.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
+	_VetDocument.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
+	_VetDocument.expertiseInfo      = _СтрокаВСД.ЛабораторныеИсследования;
+	_VetDocument.confirmedBy        = ВетисПараметрыСоединения.Врач();
+	_VetDocument.confirmedDate      = ВетисОбщегоНазначения.ВремяВетис(_всд.ДатаВСД);
+	_VetDocument.locationProsperity = _СтрокаВСД.БлагополучиеМестности;
+	
+	_delivery = ВетисMercuryVetdocument.Delivery(
+		_ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
+		_ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
+		_Consignment,
+		_ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_всд), _VetDocument));
+	
+	Если _Версия20 Тогда
 		_Response = ВетисMercuryApplications_2_0.PrepareOutgoingConsignment(_delivery, _Получатель, пОтказ);
-		
 	Иначе
-		_Отправитель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Отправитель);
-		_Получатель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Получатель);
-		
-		_ОтправительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ОтправительПредприятие);
-		_ПолучательПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ПолучательПредприятие);
-		
-		_delivery = ВетисMercuryVetdocument.Delivery(
-			ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
-			ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
-			ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
-			ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)));
-		
 		_Response = ВетисMercuryApplications.prepareOutcomingConsignment(_delivery, _Получатель, пОтказ);
-		
 	КонецЕсли;
 	
 	//http://vetrf.ru/vetrf-forum/posts/list/7130.page#44764
@@ -265,11 +286,53 @@
 	
 	ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _Response.VetDocument);
 	
-	_док.ДатаОбновления = ТекущаяДата();
+	//_док.ДатаОбновления = ТекущаяДата();
 	
 	_док.ДополнительныеСвойства.Вставить("Загрузка");
 	
 	_док.Записать();
+	
+КонецПроцедуры
+
+Процедура СинхронизироватьСкладскойЖурнал(ХС, Предприятие) Экспорт
+	
+	Перем _stockEntry, _параметры;
+	
+	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
+	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
+	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
+	
+	_issuerId = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(ХС);
+	
+	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(Предприятие);
+	
+	_нз = РегистрыСведений.ВетисСкладскойЖурналРС.СоздатьНаборЗаписей();
+	
+	Пока _ВетисMercuryApplications.getStockEntryListСледующий(_enterpriseGuid, _issuerId, _stockEntry, _параметры) Цикл
+		
+		Если _stockEntry.batch.volume = 0 Тогда
+			Продолжить;
+		КонецЕсли;
+		
+		_строка = _нз.Добавить();
+		
+		_строка.guid = _stockEntry.guid;
+		_строка.Номенклатура = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.productItem);
+		_строка.НоменклатурнаяГруппа = _ВетисArgusProductionСлой1с.SubProduct(_stockEntry.batch.subProduct);
+		_строка.Упаковка = _ВетисArgusCommonСлой1с.PackingForm(_stockEntry.batch.packingList);
+		_строка.ЕдиницаИзмерения = _ВетисArgusCommonСлой1с.Unit(_stockEntry.batch.unit);
+		
+		_строка.SubProductGuid = _stockEntry.batch.subProduct.guid;
+		_строка.ProductItemGuid = _stockEntry.batch.productItem.guid;
+		
+		_строка.Количество = _stockEntry.batch.volume;
+		_строка.КоличествоМест = _stockEntry.batch.packingAmount;
+		
+	КонецЦикла;
+	
+	_нз.Записать();
 	
 КонецПроцедуры
 
@@ -309,7 +372,7 @@
 		
 		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_ВСДОбъект, _vetDocument);
 		
-		_ВСДОбъект.ДатаОбновления = ТекущаяДата();
+		//_ВСДОбъект.ДатаОбновления = ТекущаяДата();
 		
 		Возврат _ВСДОбъект;
 		

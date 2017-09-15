@@ -125,6 +125,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисНастройки</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисResearchResult</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисXSD</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСкладскойЖурналРС</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

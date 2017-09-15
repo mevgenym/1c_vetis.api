@@ -1,9 +1,46 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<CommandBarLocation>None</CommandBarLocation>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<ChildItems>
+		<UsualGroup name="ГруппаХС" id="178">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ХС</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаХСРасширеннаяПодсказка" id="179"/>
+			<ChildItems>
+				<InputField name="ХС" id="172">
+					<DataPath>ХС</DataPath>
+					<ContextMenu name="ХСКонтекстноеМеню" id="173"/>
+					<ExtendedTooltip name="ХСРасширеннаяПодсказка" id="174"/>
+				</InputField>
+				<InputField name="Предприятие" id="175">
+					<DataPath>Предприятие</DataPath>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.Владелец</xr:Name>
+							<xr:DataPath xsi:type="xs:string">ХС</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="176"/>
+					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="177"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
 		<Pages name="Страницы" id="1">
 			<Title>
 				<v8:item>
@@ -327,6 +364,206 @@
 						</Table>
 					</ChildItems>
 				</Page>
+				<Page name="ГруппаСкладскойЖурнал" id="130">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Складской журнал</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа складской журнал</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСкладскойЖурналРасширеннаяПодсказка" id="131"/>
+					<ChildItems>
+						<Table name="СписокСкладскойЖурнал" id="132">
+							<ChangeRowSet>false</ChangeRowSet>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>СписокСкладскойЖурнал</DataPath>
+							<RowPictureDataPath>СписокСкладскойЖурнал.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СписокСкладскойЖурналКонтекстноеМеню" id="133"/>
+							<AutoCommandBar name="СписокСкладскойЖурналКоманднаяПанель" id="134">
+								<ChildItems>
+									<Button name="СписокСкладскойЖурналСинхронизироватьСкладскойЖурнал" id="180">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СинхронизироватьСкладскойЖурнал</CommandName>
+										<ExtendedTooltip name="СписокСкладскойЖурналСинхронизироватьСкладскойЖурналРасширеннаяПодсказка" id="181"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокСкладскойЖурналРасширеннаяПодсказка" id="135"/>
+							<SearchStringAddition name="СписокСкладскойЖурналСтрокаПоиска" id="136">
+								<AdditionSource>
+									<Item>СписокСкладскойЖурнал</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСкладскойЖурналСтрокаПоискаКонтекстноеМеню" id="137"/>
+								<ExtendedTooltip name="СписокСкладскойЖурналСтрокаПоискаРасширеннаяПодсказка" id="138"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокСкладскойЖурналСостояниеПросмотра" id="139">
+								<AdditionSource>
+									<Item>СписокСкладскойЖурнал</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСкладскойЖурналСостояниеПросмотраКонтекстноеМеню" id="140"/>
+								<ExtendedTooltip name="СписокСкладскойЖурналСостояниеПросмотраРасширеннаяПодсказка" id="141"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокСкладскойЖурналУправлениеПоиском" id="142">
+								<AdditionSource>
+									<Item>СписокСкладскойЖурнал</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСкладскойЖурналУправлениеПоискомКонтекстноеМеню" id="143"/>
+								<ExtendedTooltip name="СписокСкладскойЖурналУправлениеПоискомРасширеннаяПодсказка" id="144"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<ColumnGroup name="СписокСкладскойЖурналГруппаНоменклатура" id="182">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа номенклатура</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа номенклатура</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокСкладскойЖурналГруппаНоменклатураРасширеннаяПодсказка" id="183"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналНоменклатура" id="154">
+											<DataPath>СписокСкладскойЖурнал.Номенклатура</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналНоменклатураКонтекстноеМеню" id="155"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналНоменклатураРасширеннаяПодсказка" id="156"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналНоменклатурнаяГруппа" id="148">
+											<DataPath>СписокСкладскойЖурнал.НоменклатурнаяГруппа</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналНоменклатурнаяГруппаКонтекстноеМеню" id="149"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналНоменклатурнаяГруппаРасширеннаяПодсказка" id="150"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокСкладскойЖурналГруппаGuid" id="184">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа guid</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа guid</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокСкладскойЖурналГруппаGuidРасширеннаяПодсказка" id="185"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналProductItemGuid" id="157">
+											<DataPath>СписокСкладскойЖурнал.ProductItemGuid</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ProductItem</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="СписокСкладскойЖурналProductItemGuidКонтекстноеМеню" id="158"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналProductItemGuidРасширеннаяПодсказка" id="159"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналSubProductGuid" id="151">
+											<DataPath>СписокСкладскойЖурнал.SubProductGuid</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>SubProduct</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="СписокСкладскойЖурналSubProductGuidКонтекстноеМеню" id="152"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналSubProductGuidРасширеннаяПодсказка" id="153"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокСкладскойЖурналГруппаКоличество" id="188">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа количество</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа количество</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокСкладскойЖурналГруппаКоличествоРасширеннаяПодсказка" id="189"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналКоличество" id="166">
+											<DataPath>СписокСкладскойЖурнал.Количество</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналКоличествоКонтекстноеМеню" id="167"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналКоличествоРасширеннаяПодсказка" id="168"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналКоличествоМест" id="169">
+											<DataPath>СписокСкладскойЖурнал.КоличествоМест</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналКоличествоМестКонтекстноеМеню" id="170"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналКоличествоМестРасширеннаяПодсказка" id="171"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокСкладскойЖурналГруппаУпаковка" id="186">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа упаковка</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список складской журнал группа упаковка</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокСкладскойЖурналГруппаУпаковкаРасширеннаяПодсказка" id="187"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналЕдиницаИзмерения" id="160">
+											<DataPath>СписокСкладскойЖурнал.ЕдиницаИзмерения</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналЕдиницаИзмеренияКонтекстноеМеню" id="161"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналЕдиницаИзмеренияРасширеннаяПодсказка" id="162"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналУпаковка" id="163">
+											<DataPath>СписокСкладскойЖурнал.Упаковка</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналУпаковкаКонтекстноеМеню" id="164"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналУпаковкаРасширеннаяПодсказка" id="165"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<LabelField name="СписокСкладскойЖурналguid" id="145">
+									<DataPath>СписокСкладскойЖурнал.guid</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокСкладскойЖурналguidКонтекстноеМеню" id="146"/>
+									<ExtendedTooltip name="СписокСкладскойЖурналguidРасширеннаяПодсказка" id="147"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 			</ChildItems>
 		</Pages>
 	</ChildItems>
@@ -436,6 +673,66 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
+		<Attribute name="СписокСкладскойЖурнал" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список складской журнал</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.ВетисСкладскойЖурналРС</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Предприятие" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предприятие</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
+			</Type>
+			<Save>
+				<Field>Предприятие</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ХС" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ХС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
+			</Type>
+			<Save>
+				<Field>ХС</Field>
+			</Save>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ВСДАннулировать" id="1">
@@ -467,6 +764,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВСДСинхронизировать</Action>
+		</Command>
+		<Command name="СинхронизироватьСкладскойЖурнал" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Синхронизировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Синхронизировать складской журнал</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СинхронизироватьСкладскойЖурнал</Action>
 		</Command>
 	</Commands>
 </Form>

@@ -444,12 +444,18 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ПартииСписокКоличествоКонтекстноеМеню" id="149"/>
 													<ExtendedTooltip name="ПартииСписокКоличествоРасширеннаяПодсказка" id="150"/>
+													<Events>
+														<Event name="OnChange">ПартииСписокКоличествоПриИзменении</Event>
+													</Events>
 												</InputField>
 												<InputField name="ПартииСписокКоличествоМест" id="151">
 													<DataPath>ПартииСписок.КоличествоМест</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ПартииСписокКоличествоМестКонтекстноеМеню" id="152"/>
 													<ExtendedTooltip name="ПартииСписокКоличествоМестРасширеннаяПодсказка" id="153"/>
+													<Events>
+														<Event name="OnChange">ПартииСписокКоличествоМестПриИзменении</Event>
+													</Events>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>

@@ -291,13 +291,6 @@
 									<ChildItems>
 										<InputField name="сжНоменклатура" id="199">
 											<DataPath>сжНоменклатура</DataPath>
-											<ChoiceParameterLinks>
-												<xr:Link>
-													<xr:Name>Отбор.НоменклатурнаяГруппа</xr:Name>
-													<xr:DataPath xsi:type="xs:string">сжНоменклатурнаяГруппа</xr:DataPath>
-													<xr:ValueChange>Clear</xr:ValueChange>
-												</xr:Link>
-											</ChoiceParameterLinks>
 											<ContextMenu name="сжНоменклатураКонтекстноеМеню" id="200"/>
 											<ExtendedTooltip name="сжНоменклатураРасширеннаяПодсказка" id="201"/>
 											<Events>
@@ -719,7 +712,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисProductItem</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="сжЕдиницаИзмерения" id="3">
@@ -730,7 +723,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисUnit</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="сжУпаковка" id="4">
@@ -741,7 +734,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисPackingForm</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисPackingForm</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="сжКоличество" id="5">
@@ -851,7 +844,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.КлассификаторСтранМира</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисCountry</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="сжПроизводитель" id="13">
@@ -862,7 +855,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="всдБлагополучиеМестности" id="14">
@@ -971,7 +964,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисPurpose</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисPurpose</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="всдОсобыеОтметки" id="22">
@@ -1026,7 +1019,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="ттнСерия" id="27">
@@ -1074,7 +1067,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.Транспорт</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисTransport</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="сжНекачественныйГруз" id="31">
@@ -1096,7 +1089,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисПредприятия</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="сжProductItemName" id="34">
@@ -1137,7 +1130,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.НоменклатурныеГруппы</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисSubProduct</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="всдРезультатЛабораторногоИсследования" id="37">

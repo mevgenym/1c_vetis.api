@@ -905,7 +905,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:CatalogRef.ВетисPackingForm</v8:Type>
+								<v8:TypeSet>cfg:DefinedType.ВетисPackingForm</v8:TypeSet>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1381,7 +1381,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:CatalogRef.ВетисPackingForm</v8:Type>
+								<v8:TypeSet>cfg:DefinedType.ВетисPackingForm</v8:TypeSet>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>

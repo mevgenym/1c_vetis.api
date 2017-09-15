@@ -611,7 +611,6 @@
 				</Properties>
 			</Attribute>
 			<Form>ФормаДокумента</Form>
-			<Form>ФормаПодборПартий</Form>
 			<TabularSection uuid="f5f9771c-9962-444b-94a1-a2e72d832ef4">
 				<InternalInfo>
 					<xr:GeneratedType name="DocumentTabularSection.ВетисТранспортнаяПартия.Товары" category="TabularSection">

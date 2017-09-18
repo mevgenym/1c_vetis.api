@@ -4,7 +4,7 @@
 // Получение записи складского журнала по идентификатору.
 Функция GetStockEntryByGuidRequest(guid, enterpriseGuid) Экспорт
 	
-	_Объект = Создать("GetStockEntryListRequest");
+	_Объект = Создать("GetStockEntryByGuidRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
@@ -38,22 +38,16 @@
 // Параметры:
 //  enterpriseGuid - Идентификатор предприятия
 //  count - Максимальное запрашиваемое количество объектов в списке
-Функция GetStockEntryListRequest(enterpriseGuid, count = 100) Экспорт
+Функция GetStockEntryListRequest(enterpriseGuid) Экспорт
 	
 	_Объект = Создать("GetStockEntryListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.listOptions        = ВетисBase_2_0.ListOptions(count);
+	_Объект.listOptions        = ВетисBase.ListOptions();
 	
 	Возврат _Объект;
-	
-КонецФункции
-
-Функция GetStockEntryListRequestСледующий(ListRequest, ListResponse) Экспорт
-	
-	Возврат ВетисОбщегоНазначения.ListRequestСледующий(ListRequest, ListResponse);
 	
 КонецФункции
 
@@ -76,19 +70,16 @@
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
-		пПараметры.Вставить("ListOptions", ВетисBase_2_0.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
-		
 		пПараметры.Вставить("ListRequest", GetStockEntryListRequest(enterpriseGuid));
 		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
-		
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
-			Если пПараметры.ListOptions.offset + пПараметры.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
 				Возврат Ложь;
 			Иначе
-				пПараметры.ListOptions.offset = пПараметры.ListOptions.offset + пПараметры.ListOptions.count;
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
 				пПараметры.Индекс = 0;
 			КонецЕсли;
 		Иначе
@@ -102,6 +93,68 @@
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
 	_ListResponse = GetStockEntryListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.stockEntry[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+
+Функция GetStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено) Экспорт
+	
+	_Объект = Создать("GetStockEntryChangesListRequest");
+	
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.enterpriseGuid     = enterpriseGuid;
+	_Объект.updateDateInterval = ВетисBase_2_0.DataInterval(beginDate, endDate);
+	_Объект.listOptions        = ВетисBase_2_0.ListOptions();
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetStockEntryChangesListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getStockEntryChangesListResponse, "GetStockEntryChangesListResponse", URI()).stockEntryList;
+	
+КонецФункции
+
+Функция GetStockEntryChangesListСледующий(enterpriseGuid, issuerId = Неопределено, beginDate, endDate = Неопределено, пItem, пПараметры) Экспорт
+	
+	Если пПараметры = Неопределено Тогда
+		пПараметры = Новый Структура;
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", GetStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено));
+		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.stockEntry[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "getStockEntryChangesListRequest", issuerId, Ложь, пПараметры.Отладка);
+	
+	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
+	
+	_ListResponse = GetStockEntryChangesListResponse(_Response);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	
@@ -182,12 +235,6 @@
 	
 КонецФункции
 
-Функция GetVetDocumentListRequestСледующий(ListRequest, ListResponse) Экспорт
-	
-	Возврат ВетисОбщегоНазначения.ListRequestСледующий(ListRequest, ListResponse);
-	
-КонецФункции
-
 Функция GetVetDocumentListResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetVetDocumentListResponse, "GetVetDocumentListResponse", URI()).vetDocumentList;
@@ -207,19 +254,16 @@
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
-		пПараметры.Вставить("ListOptions", ВетисBase_2_0.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
-		
 		пПараметры.Вставить("ListRequest", GetVetDocumentListRequest(enterpriseGuid));
 		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
-		
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
-			Если пПараметры.ListOptions.offset + пПараметры.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
 				Возврат Ложь;
 			Иначе
-				пПараметры.ListOptions.offset = пПараметры.ListOptions.offset + пПараметры.ListOptions.count;
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
 				пПараметры.Индекс = 0;
 			КонецЕсли;
 		Иначе
@@ -233,6 +277,68 @@
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
 	_ListResponse = GetVetDocumentListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+
+Функция GetVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено) Экспорт
+	
+	_Объект = Создать("GetVetDocumentChangesListRequest");
+	
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.enterpriseGuid     = enterpriseGuid;
+	_Объект.updateDateInterval = ВетисBase_2_0.DataInterval(beginDate, endDate);
+	_Объект.listOptions        = ВетисBase_2_0.ListOptions();
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetVetDocumentChangesListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getVetDocumentChangesListResponse, "GetVetDocumentChangesListResponse", URI()).vetDocumentList;
+	
+КонецФункции
+
+Функция GetVetDocumentChangesListСледующий(enterpriseGuid, issuerId = Неопределено, beginDate, endDate = Неопределено, пItem, пПараметры) Экспорт
+	
+	Если пПараметры = Неопределено Тогда
+		пПараметры = Новый Структура;
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", getVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено));
+		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "getVetDocumentChangesListRequest", issuerId, Ложь, пПараметры.Отладка);
+	
+	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
+	
+	_ListResponse = getVetDocumentChangesListResponse(_Response);
 	
 	пПараметры.Вставить("ListResponse", _ListResponse);
 	

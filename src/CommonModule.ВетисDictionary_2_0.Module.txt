@@ -370,21 +370,15 @@
 	
 	_Объект = Создать("ProducerList");
 	
-	ProducerListДобавить(_Объект, guid);
-	
-	Возврат _Объект;
-	
-КонецФункции
-
-Функция ProducerListДобавить(List, guid) Экспорт
-	
 	Если ТипЗнч(guid) = Тип("Массив") Тогда
 		Для каждого _guid Из guid Цикл
-			List.producer.Добавить(Producer(_guid));
+			_Объект.producer.Добавить(Producer(_guid));
 		КонецЦикла;
 	ИначеЕсли ТипЗнч(guid) = Тип("Строка") Тогда
-		List.producer.Добавить(Producer(guid));
+		_Объект.producer.Добавить(Producer(guid));
 	КонецЕсли;
+	
+	Возврат _Объект;
 	
 КонецФункции
 

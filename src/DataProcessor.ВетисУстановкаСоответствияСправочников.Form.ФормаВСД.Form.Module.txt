@@ -67,7 +67,7 @@
 		
 		_СписокВетисСтрока.waybill = "№" + _Item.waybillNumber + " от " + ВетисОбщегоНазначения.ВремяБД(_Item.waybillDate);
 		
-		_СписокВетисСтрока.Номенклатура = _ВетисArgusProductionСлой1с.ProductItem(_Item.batch.ProductItem);
+		//_СписокВетисСтрока.Номенклатура = _ВетисArgusProductionСлой1с.ProductItem(_Item.batch.ProductItem);
 		
 		_СписокВетисСтрока.Количество = _Item.batch.volume;
 		
@@ -86,6 +86,10 @@
 		Если НЕ ЗначениеЗаполнено(_СписокВетисСтрока.ПроизводительПредприятие) Тогда
 			_СписокВетисСтрока.ПроизводительПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(_Item.batch.producerList.producer[0].enterprise);
 		КонецЕсли;
+		
+		_СписокВетисСтрока.Производитель = _СписокВетисСтрока.ПроизводительПредприятие.Владелец;
+		
+		_СписокВетисСтрока.Номенклатура = _ВетисArgusProductionСлой1с.ProductItem(_Item.batch.ProductItem, _СписокВетисСтрока.Производитель);
 		
 		_СписокВетисСтрока.НекачественныйГруз = _Item.batch.lowGradeCargo;
 		

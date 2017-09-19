@@ -497,7 +497,6 @@
 		_строкаСЖ.ProductItemName      = _batch.productItem.name;
 		_строкаСЖ.ProductItemGuid      = _batch.productItem.guid;
 		
-		_строкаСЖ.Номенклатура         = _ВетисArgusProductionСлой1с.ProductItem(_batch.productItem);
 		_строкаСЖ.НоменклатурнаяГруппа = _ВетисArgusProductionСлой1с.SubProduct(_batch.subProduct);
 		_строкаСЖ.Количество           = _batch.volume;
 		_строкаСЖ.ЕдиницаИзмерения     = _ВетисArgusCommonСлой1с.Unit(_batch.unit);
@@ -510,7 +509,9 @@
 		_строкаСЖ.НекачественныйГруз   = _batch.lowGradeCargo;
 		
 		Если _Версия20 Тогда
-			//_batch.origin
+			_строкаСЖ.ПроизводительПредприятие = _ВетисCerberusEnterpriseСлой1с.Producer(_batch.origin.producer);
+			_строкаСЖ.Производитель        = _строкаСЖ.ПроизводительПредприятие.Владелец;
+			_строкаСЖ.Номенклатура         = _ВетисArgusProductionСлой1с.ProductItem(_batch.origin.productItem, _строкаСЖ.Производитель);
 			//_batch.packageList
 		Иначе
 			_строкаСЖ.Упаковка             = _ВетисArgusCommonСлой1с.PackingForm(_batch.packingList);
@@ -518,6 +519,7 @@
 			_строкаСЖ.СтранаПроисхождения  = _ВетисIkarСлой1с.Country(_batch.countryOfOrigin);
 			_строкаСЖ.ПроизводительПредприятие = _ВетисCerberusEnterpriseСлой1с.Producer(_batch.producerList);
 			_строкаСЖ.Производитель        = _строкаСЖ.ПроизводительПредприятие.Владелец;
+			_строкаСЖ.Номенклатура         = _ВетисArgusProductionСлой1с.ProductItem(_batch.productItem, _строкаСЖ.Производитель);
 			//_строкаСЖ.Маркировка           = ProductMarking(_batch.productMarkingList);
 		КонецЕсли;
 		
@@ -529,27 +531,19 @@
 		
 		//сделать: проверить конверсию номенклатуры
 		
-		_productItem = _ВетисArgusProduction.ProductItem();
-		_subProduct  = "";
+		_productItem = _ВетисArgusProductionСлой1с.ProductItem(_СтрокаСЖ.Номенклатура, _СтрокаСЖ.Производитель);
+		_subProduct  = _ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
 		_product     = "";
 		_productType = ВетисКонстанты.ProductType_МясоИМясопродукты();
 		
-		//номенклатура связана на уровне ВСД
-		//если нет ProductItemGuid, то ищем по SubProductGuid и затем по НоменклатурнаяГруппа
-		Если НЕ ПустаяСтрока(_СтрокаСЖ.ProductItemGuid) Тогда
-			_productItem = _ВетисProductService.GetProductItemByGuid(_СтрокаСЖ.ProductItemGuid);
+		Если НЕ ПустаяСтрока(_productItem) Тогда
+			_productItem = _ВетисProductService.GetProductItemByGuid(_productItem);
 			_subProduct  = _productItem.subProduct;
 			_product     = _productItem.product;
 			_productType = _productItem.productType;
 			
-		ИначеЕсли НЕ ПустаяСтрока(_СтрокаСЖ.SubProductGuid) Тогда
-			_subProduct  = _ВетисProductService.GetSubProductByGuid(_СтрокаСЖ.SubProductGuid);
-			_product     = _ВетисProductService.GetProductByGuid(_subProduct.productGuid);
-			_productType = _product.productType;
-			_productItem.name = _subProduct.name;
-			
-		ИначеЕсли ЗначениеЗаполнено(_СтрокаСЖ.НоменклатурнаяГруппа) Тогда
-			_subProduct  = _ВетисProductService.GetSubProductByGuid(_ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа));
+		ИначеЕсли НЕ ПустаяСтрока(_subProduct) Тогда
+			_subProduct  = _ВетисProductService.GetSubProductByGuid(_subProduct);
 			_product     = _ВетисProductService.GetProductByGuid(_subProduct.productGuid);
 			_productType = _product.productType;
 			_productItem.name = _subProduct.name;
@@ -562,6 +556,11 @@
 		_unitGuid = _ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения);
 		_unit     = _ВетисArgusCommon.Unit(_unitGuid);
 		
+		//Unit не работает без uuid
+		//хотя по справке достаточно одного из них
+		//http://help.vetrf.ru/wiki/IncomingOperation#.D0.9E.D0.B1.D1.8A.D0.B5.D0.BA.D1.82_..Request.2FreturnedDelivery.2Fconsignment.2Funit
+		//http://help.vetrf.ru/wiki/TransportOperation#.D0.9E.D0.B1.D1.8A.D0.B5.D0.BA.D1.82_..Request.2Fdelivery.2Fconsignment.2Funit
+		//сделать: проверить без Unit uuid, возможно исправили
 		_unitws    = ?(_Версия20, ВетисDictionaryService_2_0, ВетисDictionaryService).GetUnitByGuid(_unitGuid);
 		_unit.uuid = _unitws.uuid;
 		
@@ -585,7 +584,7 @@
 				ВетисDictionary_2_0.Country(ВетисDictionaryСлой1с.Country(_СтрокаСЖ.СтранаПроисхождения)),
 				ВетисDictionary_2_0.Producer(ВетисDictionaryСлой1с.Producer(_СтрокаСЖ.ПроизводительПредприятие))
 				);
-			//сделать: добавить упаковки
+			//сделать: добавить упаковки для 2.0
 			//_batch.packageList = ВетисDictionary_2_0.PackageList(_СтрокаСЖ.Упаковка);
 		Иначе
 			_batch.packingList      = _ВетисArgusCommon.PackingFormList(_ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));

@@ -315,6 +315,7 @@
 										</InputField>
 										<InputField name="сжПроизводитель" id="351">
 											<DataPath>сжПроизводитель</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="сжПроизводительКонтекстноеМеню" id="352"/>
 											<ExtendedTooltip name="сжПроизводительРасширеннаяПодсказка" id="353"/>
 											<Events>

@@ -115,7 +115,7 @@
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.updateDateInterval = ВетисBase_2_0.DataInterval(beginDate, endDate);
+	_Объект.updateDateInterval = ВетисBase_2_0.DateInterval(beginDate, endDate);
 	_Объект.listOptions        = ВетисBase_2_0.ListOptions();
 	
 	Возврат _Объект;
@@ -133,7 +133,7 @@
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
-		пПараметры.Вставить("ListRequest", GetStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено));
+		пПараметры.Вставить("ListRequest", GetStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate));
 		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
@@ -299,7 +299,7 @@
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.updateDateInterval = ВетисBase_2_0.DataInterval(beginDate, endDate);
+	_Объект.updateDateInterval = ВетисBase_2_0.DateInterval(beginDate, endDate);
 	_Объект.listOptions        = ВетисBase_2_0.ListOptions();
 	
 	Возврат _Объект;
@@ -317,7 +317,7 @@
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
-		пПараметры.Вставить("ListRequest", getVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено));
+		пПараметры.Вставить("ListRequest", getVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate));
 		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;

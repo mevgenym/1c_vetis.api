@@ -308,31 +308,35 @@
 	
 	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(Предприятие);
 	
-	_нз = РегистрыСведений.ВетисСкладскойЖурналРС.СоздатьНаборЗаписей();
+	_запрос = Новый Запрос("ВЫБРАТЬ ЕСТЬNULL(МАКСИМУМ(updateDate), ДАТАВРЕМЯ(1,1,1)) КАК Период ИЗ РегистрСведений.ВетисСкладскойЖурналРС");
+	_выборка = _запрос.Выполнить().Выбрать();
+	_выборка.Следующий();
 	
-	Пока _ВетисMercuryApplications.getStockEntryListСледующий(_enterpriseGuid, _issuerId, _stockEntry, _параметры) Цикл
+	Пока _ВетисMercuryApplications.getStockEntryChangesListСледующий(_enterpriseGuid, _issuerId, _выборка.Период + 1, , _stockEntry, _параметры) Цикл
 		
-		Если _stockEntry.batch.volume = 0 Тогда
-			Продолжить;
-		КонецЕсли;
+		_мз = РегистрыСведений.ВетисСкладскойЖурналРС.СоздатьМенеджерЗаписи();
 		
-		_строка = _нз.Добавить();
+		_мз.guid = _stockEntry.guid;
+		_мз.uuid = _stockEntry.uuid;
+		_мз.last = _stockEntry.last;
 		
-		_строка.guid = _stockEntry.guid;
-		_строка.Номенклатура = _ВетисArgusProductionСлой1с.ProductItem(_stockEntry.batch.productItem);
-		_строка.НоменклатурнаяГруппа = _ВетисArgusProductionСлой1с.SubProduct(_stockEntry.batch.subProduct);
-		_строка.Упаковка = _ВетисArgusCommonСлой1с.PackingForm(_stockEntry.batch.packingList);
-		_строка.ЕдиницаИзмерения = _ВетисArgusCommonСлой1с.Unit(_stockEntry.batch.unit);
+		_мз.createDate = ВетисОбщегоНазначения.ВремяБД(_stockEntry.createDate);
+		_мз.updateDate = ВетисОбщегоНазначения.ВремяБД(_stockEntry.updateDate);
 		
-		_строка.SubProductGuid = _stockEntry.batch.subProduct.guid;
-		_строка.ProductItemGuid = _stockEntry.batch.productItem.guid;
+		_мз.ProductType = _stockEntry.batch.productType;
+		_мз.Product     = _stockEntry.batch.product.guid;
+		_мз.SubProduct  = _stockEntry.batch.subProduct.guid;
+		_мз.ProductItem = _stockEntry.batch.productItem.guid;
 		
-		_строка.Количество = _stockEntry.batch.volume;
-		_строка.КоличествоМест = _stockEntry.batch.packingAmount;
+		_мз.PackingForm = ?(_stockEntry.batch.packingList.packingForm.Количество()>0, _stockEntry.batch.packingList.packingForm[0].uuid, "");
+		_мз.Unit        = _stockEntry.batch.unit.guid;
+		
+		_мз.volume = _stockEntry.batch.volume;
+		_мз.packingAmount = _stockEntry.batch.packingAmount;
+		
+		_мз.Записать();
 		
 	КонецЦикла;
-	
-	_нз.Записать();
 	
 КонецПроцедуры
 
@@ -420,7 +424,6 @@
 	
 	Если пВСД.Статус = Перечисления.ВетисVetDocumentStatus.Оформлен Тогда
 		_VetDocument.uuid = пВСД.uuid;
-		//__ = ВетисMercuryApplicationsСлой1с.getVetDocumentByUuid(пВСД);
 	Иначе
 		Если пВозврат = Ложь Тогда
 			ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_VetDocument, пВСД);
@@ -430,7 +433,7 @@
 			//_VetDocument.certifiedConsignment.consignor = _VetDocument.certifiedConsignment.consignee;
 			//_VetDocument.certifiedConsignment.consignee = _consignor;
 			_СтрокаВСД = пВСД.ВСД[0];
-			_VetDocument.issueDate          = ВетисОбщегоНазначения.ВремяВетис(пВСД.Дата);
+			_VetDocument.issueDate      = ВетисОбщегоНазначения.ВремяВетис(пВСД.Дата);
 			_VetDocument.authentication = ВетисMercuryVetdocument_2_0.VeterinaryAuthentication(
 				ВетисDictionary_2_0.Purpose(ВетисDictionaryСлой1с.Purpose(_СтрокаВСД.НазначениеГруза)),
 				_СтрокаВСД.КонтрольГосВетврачем,
@@ -465,10 +468,11 @@
 	
 КонецФункции
 
-Функция Процент(Знач1, Знач2) Экспорт
+Функция Процент(Знач1, Знач2)
 	
 	_результат = ?(Знач2 = 0, 1, Знач1 / Знач2);
 	
 	Возврат ?(_результат > 1, _результат - 1, 1 - _результат) * 100;
 	
 КонецФункции
+

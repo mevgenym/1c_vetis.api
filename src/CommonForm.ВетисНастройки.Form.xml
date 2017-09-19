@@ -51,7 +51,15 @@
 			<AllowRootChoice>false</AllowRootChoice>
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<ContextMenu name="СписокНастройкиХСКонтекстноеМеню" id="69"/>
-			<AutoCommandBar name="СписокНастройкиХСКоманднаяПанель" id="70"/>
+			<AutoCommandBar name="СписокНастройкиХСКоманднаяПанель" id="70">
+				<ChildItems>
+					<Button name="СписокНастройкиХСКомандаОсновнойХС" id="110">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.КомандаОсновнойХС</CommandName>
+						<ExtendedTooltip name="СписокНастройкиХСКомандаОсновнойХСРасширеннаяПодсказка" id="111"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокНастройкиХСРасширеннаяПодсказка" id="71"/>
 			<SearchStringAddition name="СписокНастройкиХССтрокаПоиска" id="72">
 				<AdditionSource>
@@ -110,12 +118,12 @@
 					<ExtendedTooltip name="СписокНастройкиХСЛогинВрачаРасширеннаяПодсказка" id="98"/>
 				</LabelField>
 				<LabelField name="СписокНастройкиХСВрач" id="99">
-					<DataPath>СписокНастройкиХС.Врач</DataPath>
+					<DataPath>~СписокНастройкиХС.Врач</DataPath>
 					<ContextMenu name="СписокНастройкиХСВрачКонтекстноеМеню" id="100"/>
 					<ExtendedTooltip name="СписокНастройкиХСВрачРасширеннаяПодсказка" id="101"/>
 				</LabelField>
 				<LabelField name="СписокНастройкиХСДолжностьВрача" id="102">
-					<DataPath>СписокНастройкиХС.ДолжностьВрача</DataPath>
+					<DataPath>~СписокНастройкиХС.ДолжностьВрача</DataPath>
 					<ContextMenu name="СписокНастройкиХСДолжностьВрачаКонтекстноеМеню" id="103"/>
 					<ExtendedTooltip name="СписокНастройкиХСДолжностьВрачаРасширеннаяПодсказка" id="104"/>
 				</LabelField>
@@ -213,9 +221,27 @@
 			<Type>
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
+			<UseAlways>
+				<Field>СписокНастройкиХС.ОсновнойХС</Field>
+			</UseAlways>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	_Таблица.ХозяйствующийСубъект КАК ХозяйствующийСубъект,
+	_Таблица.Логин КАК Логин,
+	_Таблица.Пароль КАК Пароль,
+	_Таблица.КлючАПИ КАК КлючАПИ,
+	_Таблица.Тестовый КАК Тестовый,
+	_Таблица.ЛогинВрача КАК ЛогинВрача,
+	ВЫБОР
+		КОГДА _Таблица.ХозяйствующийСубъект = _Константы.ВетисОсновнойХС
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ОсновнойХС
+ИЗ
+	РегистрСведений.ВетисНастройкиХС КАК _Таблица,
+	Константы КАК _Константы</QueryText>
 				<MainTable>InformationRegister.ВетисНастройкиХС</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -278,6 +304,49 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокНастройкиХСХозяйствующийСубъект</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокНастройкиХСЛогин</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокНастройкиХСПароль</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокНастройкиХСКлючАПИ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокНастройкиХСТестовый</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокНастройкиХСЛогинВрача</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокНастройкиХСВрач</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокНастройкиХСДолжностьВрача</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокНастройкиХС.ОсновнойХС</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаГотово" id="1">
@@ -294,6 +363,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаГотово</Action>
+		</Command>
+		<Command name="КомандаОсновнойХС" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основной</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда основной ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОсновнойХС</Action>
 		</Command>
 	</Commands>
 </Form>

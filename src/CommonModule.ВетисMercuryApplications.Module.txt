@@ -115,7 +115,7 @@
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.updateDateInterval = ВетисBase.DataInterval(beginDate, endDate);
+	_Объект.updateDateInterval = ВетисBase.DateInterval(beginDate, endDate);
 	_Объект.listOptions        = ВетисBase.ListOptions();
 	
 	Возврат _Объект;
@@ -133,7 +133,7 @@
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
-		пПараметры.Вставить("ListRequest", getStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено));
+		пПараметры.Вставить("ListRequest", getStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate));
 		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
@@ -299,7 +299,7 @@
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
 	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.updateDateInterval = ВетисBase.DataInterval(beginDate, endDate);
+	_Объект.updateDateInterval = ВетисBase.DateInterval(beginDate, endDate);
 	_Объект.listOptions        = ВетисBase.ListOptions();
 	
 	Возврат _Объект;
@@ -317,7 +317,7 @@
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
-		пПараметры.Вставить("ListRequest", getVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено));
+		пПараметры.Вставить("ListRequest", getVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate));
 		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
@@ -649,7 +649,34 @@
 // Объект содержит сведения о поднадзорном объекте, который был изменен или добавлен.
 Функция ModifyActivityLocationsResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyEnterpriseResponse, "ModifyActivityLocationsResponse", URI()).businessEntity;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyActivityLocationsResponse, "ModifyActivityLocationsResponse", URI()).businessEntity;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область ModifyProducerStockListOperation
+
+//Операция предназнчена для изменения номенклатуры продукции предприятия.
+//Параметры:
+// modificationOperation - prod:PSLModificationOperation
+Функция ModifyProducerStockListRequest(modificationOperation) Экспорт
+	
+	_Объект = Создать("ModifyProducerStockListRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.modificationOperation = modificationOperation;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Объект содержит информацию о позиции номенклатуры производителя, внесённой в список.
+//Возвращает список продукции, в которую внесены изменения. На данный момент список может состоять только из одного элемента.
+Функция ModifyProducerStockListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyProducerStockListResponse, "ModifyProducerStockListResponse", URI()).productItemList;
 	
 КонецФункции
 

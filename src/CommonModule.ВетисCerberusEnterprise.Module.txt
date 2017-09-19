@@ -37,13 +37,6 @@
 	
 КонецФункции
 
-Функция BusinessEntityListИтератор(List) Экспорт
-	
-	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "businessEntity");
-	
-КонецФункции
-
-
 //Операция изменения связи между хозяйствующим субъектом и предприятиями. 
 //Параметры:
 // type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
@@ -116,12 +109,6 @@
 	
 КонецФункции
 
-Функция EnterpriseListИтератор(List) Экспорт
-	
-	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "enterprise");
-	
-КонецФункции
-
 // Операция внесения изменений в реестр ХС
 // Параметры:
 //  type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
@@ -173,27 +160,15 @@
 	
 	_Объект = Создать("ProducerList");
 	
-	ProducerListДобавить(_Объект, guid);
-	
-	Возврат _Объект;
-	
-КонецФункции
-
-Функция ProducerListДобавить(List, guid) Экспорт
-	
 	Если ТипЗнч(guid) = Тип("Массив") Тогда
 		Для каждого _guid Из guid Цикл
-			List.producer.Добавить(Producer(_guid));
+			_Объект.producer.Добавить(Producer(_guid));
 		КонецЦикла;
 	ИначеЕсли ТипЗнч(guid) = Тип("Строка") Тогда
-		List.producer.Добавить(Producer(guid));
+		_Объект.producer.Добавить(Producer(guid));
 	КонецЕсли;
 	
-КонецФункции
-
-Функция ProducerListИтератор(List) Экспорт
-	
-	Возврат ВетисОбщегоНазначения.ПолучитьИтератор(List, "producer");
+	Возврат _Объект;
 	
 КонецФункции
 

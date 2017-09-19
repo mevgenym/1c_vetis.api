@@ -330,18 +330,18 @@
 					<FullTextSearch>Use</FullTextSearch>
 				</Properties>
 			</Dimension>
-			<Dimension uuid="26fbc655-1cde-4150-aad5-906a6168c4ae">
+			<Dimension uuid="6351c429-5039-40b9-a581-f1de4b12e4ff">
 				<Properties>
-					<Name>Предприятие</Name>
+					<Name>ХозяйствующийСубъект</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Предприятие</v8:content>
+							<v8:content>Хозяйствующий субъект</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
+						<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>

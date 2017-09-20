@@ -140,7 +140,11 @@
 КонецФункции
 
 //Тип, описывающий контроль поставки (документарный, ветеринарный).
-Функция ConsignmentDocumentList(waybill, VetDocument) Экспорт
+//Параметры:
+// waybill - vd:Waybill - Сведения о товарно-транспортной накладной
+// vetCertificate - vd:VetDocument - Ветеринарно-сопроводительный документ
+// relatedDocument - vd:Document - Связанные документы
+Функция ConsignmentDocumentList(waybill, VetDocument, relatedDocument = Неопределено) Экспорт
 	
 	_Объект = Создать("ConsignmentDocumentList");
 	
@@ -152,6 +156,14 @@
 		КонецЦикла;
 	Иначе
 		_Объект.vetCertificate.Добавить(VetDocument);
+	КонецЕсли;
+	
+	Если ТипЗнч(relatedDocument) = Тип("Массив") Тогда
+		Для каждого _relatedDocument Из relatedDocument Цикл
+			_Объект.relatedDocument.Добавить(_relatedDocument);
+		КонецЦикла;
+	ИначеЕсли НЕ relatedDocument = Неопределено Тогда
+		_Объект.relatedDocument.Добавить(relatedDocument);
 	КонецЕсли;
 	
 	Возврат _Объект;

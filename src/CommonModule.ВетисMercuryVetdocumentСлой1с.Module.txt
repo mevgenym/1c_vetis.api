@@ -531,13 +531,13 @@
 		
 		//сделать: проверить конверсию номенклатуры
 		
-		_productItem = _ВетисArgusProductionСлой1с.ProductItem(_СтрокаСЖ.Номенклатура, _СтрокаСЖ.Производитель);
+		_productItem = _ВетисArgusProductionСлой1с.ProductItem(_СтрокаСЖ.Номенклатура, _СтрокаСЖ.Производитель);//Структура
 		_subProduct  = _ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
 		_product     = "";
 		_productType = ВетисКонстанты.ProductType_МясоИМясопродукты();
 		
-		Если НЕ ПустаяСтрока(_productItem) Тогда
-			_productItem = _ВетисProductService.GetProductItemByGuid(_productItem);
+		Если НЕ ПустаяСтрока(_productItem.guid) Тогда
+			_productItem = _ВетисProductService.GetProductItemByGuid(_productItem.guid);//ОбъектXDTO
 			_subProduct  = _productItem.subProduct;
 			_product     = _productItem.product;
 			_productType = _productItem.productType;

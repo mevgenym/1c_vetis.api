@@ -370,6 +370,13 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисСоответствие.Command.ВетисСоответствие</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>CommonCommand.ВетисНастройки</name>
 		<right>
 			<name>View</name>

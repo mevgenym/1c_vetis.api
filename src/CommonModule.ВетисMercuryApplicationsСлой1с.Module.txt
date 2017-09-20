@@ -174,7 +174,7 @@
 	
 КонецПроцедуры
 
-Процедура TransportOperation(пСтрокаСЖ, пОтказ = Ложь) Экспорт
+Процедура TransportOperation(пДокумент, пСтрокаПартии, пСтрокаВСД, пСтрокаТТН, пОтказ = Ложь) Экспорт
 	
 	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
 	_ВетисBase = ?(_Версия20, ВетисDictionary_2_0, ВетисBase);
@@ -182,6 +182,7 @@
 	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
 	_ВетисArgusCommon = ?(_Версия20, ВетисDictionary_2_0, ВетисArgusCommon);
 	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
+	_ВетисArgusShipment = ?(_Версия20, ВетисDictionary_2_0, ВетисArgusShipment);
 	_ВетисArgusShipmentСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusShipmentСлой1с);
 	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary_2_0, ВетисCerberusEnterprise);
 	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
@@ -189,38 +190,25 @@
 	_ВетисProductService = ?(_Версия20, ВетисProductService_2_0, ВетисProductService);
 	_ВетисMercuryVetdocument = ?(_Версия20, ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
 	
-	_СтрокаСЖ = пСтрокаСЖ;
-	
 	_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
 	
-	_unitGuid = _ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения);
-	_unit     = _ВетисArgusCommon.Unit(_unitGuid);
+	_СтрокаСЖ  = пСтрокаПартии;
+	_СтрокаВСД = пСтрокаВСД;
+	_СтрокаТТН = пСтрокаТТН;
 	
-	_unitws    = ?(_Версия20, ВетисDictionaryService_2_0, ВетисDictionaryService).GetUnitByGuid(_unitGuid);
-	_unit.uuid = _unitws.uuid;
+	_Отправитель = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(пДокумент.Отправитель);
+	_Получатель = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(пДокумент.Получатель);
 	
-	_всд = _СтрокаСЖ.ВСД.ПолучитьОбъект();
-	
-	_СтрокаВСД = _всд.ВСД[0];
-	_СтрокаТТН = _всд.ТТН[0];
-	
-	_Отправитель = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Отправитель);
-	_Получатель = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.Получатель);
-	
-	_ОтправительПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ОтправительПредприятие);
-	_ПолучательПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ПолучательПредприятие);
+	_ОтправительПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(пДокумент.ОтправительПредприятие);
+	_ПолучательПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(пДокумент.ПолучательПредприятие);
 	
 	_Consignment = _ВетисMercuryVetdocument.Consignment();
 	_Consignment.volume           = _СтрокаСЖ.Количество;
-	_Consignment.unit             = _unit;
 	_Consignment.packingList      = _ВетисArgusCommon.PackingFormList(_ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
 	_Consignment.packingAmount    = _СтрокаСЖ.КоличествоМест;
-	_Consignment.sourceStockEntry = ВетисMercuryVetdocument.StockEntry(_СтрокаСЖ.guid);
-	 
-	_VetDocument = ВетисMercuryVetdocument.VetDocument();
-	_VetDocument.issueSeries        = _всд.СерияВСД;
-	_VetDocument.issueNumber        = _всд.НомерВСД;
-	_VetDocument.issueDate          = ВетисОбщегоНазначения.ВремяВетис(_всд.ДатаВСД);
+	_Consignment.sourceStockEntry = _ВетисMercuryVetdocument.StockEntry(_СтрокаСЖ.guid);
+	
+	_VetDocument = _ВетисMercuryVetdocument.VetDocument();
 	_VetDocument.purpose            = _ВетисArgusCommon.Purpose(_ВетисArgusCommonСлой1с.Purpose(_СтрокаВСД.НазначениеГруза));
 	_VetDocument.transportInfo      = _ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
 	_VetDocument.transportStorageType = _ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
@@ -228,14 +216,21 @@
 	_VetDocument.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
 	_VetDocument.expertiseInfo      = _СтрокаВСД.ЛабораторныеИсследования;
 	_VetDocument.confirmedBy        = ВетисПараметрыСоединения.Врач();
-	_VetDocument.confirmedDate      = ВетисОбщегоНазначения.ВремяВетис(_всд.ДатаВСД);
 	_VetDocument.locationProsperity = _СтрокаВСД.БлагополучиеМестности;
+	
+	_waybill = _ВетисArgusShipment.Waybill();
+	_waybill.issueSeries   = _СтрокаТТН.Серия;
+	_waybill.issueNumber   = _СтрокаТТН.Номер;
+	_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(_СтрокаТТН.Дата);
+	_waybill.type          = _ВетисArgusShipmentСлой1с.WaybillType(_СтрокаТТН.Тип);
+	_waybill.transportInfo = _ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
+	_waybill.transportStorageType = _ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
 	
 	_delivery = ВетисMercuryVetdocument.Delivery(
 		_ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
 		_ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
 		_Consignment,
-		_ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_всд), _VetDocument));
+		_ВетисMercuryVetdocument.ConsignmentDocumentList(_waybill, _VetDocument));
 	
 	Если _Версия20 Тогда
 		_Response = ВетисMercuryApplications_2_0.PrepareOutgoingConsignment(_delivery, _Получатель, пОтказ);
@@ -248,7 +243,6 @@
 	//Упаковка по умолчанию "наследуется" из стока при формировании исходящего сертификата.
 	//Кроме того, упаковка содержит сведения о маркировке, по которой в том числе можно сопоставить физическую партию с записью в системе.
 	//При этом в момент отгрузки (оформления исходящего сертификата) сведения об упаковке можно изменить. 
-
 	
 КонецПроцедуры
 

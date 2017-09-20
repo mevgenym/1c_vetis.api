@@ -67,8 +67,6 @@
 		
 		_СписокВетисСтрока.waybill = "№" + _Item.waybillNumber + " от " + ВетисОбщегоНазначения.ВремяБД(_Item.waybillDate);
 		
-		//_СписокВетисСтрока.Номенклатура = _ВетисArgusProductionСлой1с.ProductItem(_Item.batch.ProductItem);
-		
 		_СписокВетисСтрока.Количество = _Item.batch.volume;
 		
 		_СписокВетисСтрока.КоличествоМест = _Item.batch.packingAmount;

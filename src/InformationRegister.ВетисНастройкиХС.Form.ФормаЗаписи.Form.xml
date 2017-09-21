@@ -41,12 +41,6 @@
 			<ContextMenu name="ЛогинВрачаКонтекстноеМеню" id="23"/>
 			<ExtendedTooltip name="ЛогинВрачаРасширеннаяПодсказка" id="24"/>
 		</InputField>
-		<CheckBoxField name="Тестовый" id="19">
-			<DataPath>Запись.Тестовый</DataPath>
-			<CheckBoxType>Auto</CheckBoxType>
-			<ContextMenu name="ТестовыйКонтекстноеМеню" id="20"/>
-			<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="21"/>
-		</CheckBoxField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Запись" id="1">

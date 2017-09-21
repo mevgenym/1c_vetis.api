@@ -23,9 +23,15 @@
 					<ContextMenu name="ВерсияКонтекстноеМеню" id="2"/>
 					<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="3"/>
 				</InputField>
+				<CheckBoxField name="Тестовый" id="112">
+					<DataPath>Тестовый</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТестовыйКонтекстноеМеню" id="113"/>
+					<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="114"/>
+				</CheckBoxField>
 				<CheckBoxField name="Отладка" id="105">
 					<DataPath>Отладка</DataPath>
-					<CheckBoxType>Tumbler</CheckBoxType>
+					<CheckBoxType>Auto</CheckBoxType>
 					<ContextMenu name="ОтладкаКонтекстноеМеню" id="106"/>
 					<ExtendedTooltip name="ОтладкаРасширеннаяПодсказка" id="107"/>
 				</CheckBoxField>
@@ -106,12 +112,6 @@
 					<ContextMenu name="СписокНастройкиХСКлючАПИКонтекстноеМеню" id="91"/>
 					<ExtendedTooltip name="СписокНастройкиХСКлючАПИРасширеннаяПодсказка" id="92"/>
 				</LabelField>
-				<CheckBoxField name="СписокНастройкиХСТестовый" id="93">
-					<DataPath>СписокНастройкиХС.Тестовый</DataPath>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="СписокНастройкиХСТестовыйКонтекстноеМеню" id="94"/>
-					<ExtendedTooltip name="СписокНастройкиХСТестовыйРасширеннаяПодсказка" id="95"/>
-				</CheckBoxField>
 				<LabelField name="СписокНастройкиХСЛогинВрача" id="96">
 					<DataPath>СписокНастройкиХС.ЛогинВрача</DataPath>
 					<ContextMenu name="СписокНастройкиХСЛогинВрачаКонтекстноеМеню" id="97"/>
@@ -298,6 +298,17 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Отладка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Тестовый" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тестовый</v8:content>
 				</v8:item>
 			</Title>
 			<Type>

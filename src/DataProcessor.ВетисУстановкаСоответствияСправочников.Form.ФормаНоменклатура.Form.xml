@@ -31,6 +31,7 @@
 				</InputField>
 				<InputField name="Предприятие" id="141">
 					<DataPath>Предприятие</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ChoiceParameterLinks>
 						<xr:Link>
 							<xr:Name>Отбор.Владелец</xr:Name>
@@ -60,6 +61,7 @@
 					<ChildItems>
 						<InputField name="ТипПродукции" id="73">
 							<DataPath>ТипПродукции</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="ТипПродукцииКонтекстноеМеню" id="74"/>
 							<ExtendedTooltip name="ТипПродукцииРасширеннаяПодсказка" id="75"/>
 						</InputField>

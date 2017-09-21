@@ -490,10 +490,10 @@
 		_СтрокаСЖ = value1;
 		_batch    = value2;
 		
-		_subProduct = _ВетисProductService.GetSubProductByGuid(_batch.subProduct.guid);
+		//_subProduct = _ВетисProductService.GetSubProductByGuid(_batch.subProduct.guid);
 		
-		_строкаСЖ.SubProductName       = _subProduct.name;
-		_строкаСЖ.SubProductGuid       = _subProduct.guid;
+		//_строкаСЖ.SubProductName       = _subProduct.name;
+		_строкаСЖ.SubProductGuid       = _batch.subProduct.guid;
 		_строкаСЖ.ProductItemName      = _batch.productItem.name;
 		_строкаСЖ.ProductItemGuid      = _batch.productItem.guid;
 		
@@ -708,7 +708,7 @@
 		ИначеЕсли Ложь
 			И _Строка.Тип = VetDocumentType(_VetDocument.type)
 			И _Строка.Статус = VetDocumentStatus(_VetDocument.status)
-			И _Строка.СерияВСД = _VetDocument.issueSeries
+			И (_Строка.СерияВСД = _VetDocument.issueSeries ИЛИ _VetDocument.issueSeries = Неопределено)
 			И _Строка.НомерВСД = _VetDocument.issueNumber
 			И _Строка.ДатаВСД = ВетисОбщегоНазначения.ВремяБД(_VetDocument.issueDate)
 			Тогда

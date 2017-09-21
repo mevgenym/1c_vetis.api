@@ -1499,6 +1499,13 @@
 		</right>
 	</object>
 	<object>
+		<name>Constant.ВетисТестовый</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары</name>
 		<right>
 			<name>View</name>

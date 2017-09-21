@@ -25,7 +25,7 @@
 	
 	_Request = getStockEntryByGuidRequest(guid, enterpriseGuid);
 	
-	_Response = ВыполнитьЗапрос(_Request, "getStockEntryByGuidRequest", issuerId, Ложь);
+	_Response = Прокси("getStockEntryByGuidRequest", _Request, issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
@@ -88,7 +88,7 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "getStockEntryListRequest", issuerId, Ложь, пПараметры.Отладка);
+	_Response = Прокси("getStockEntryListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -150,7 +150,7 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "getStockEntryChangesListRequest", issuerId, Ложь, пПараметры.Отладка);
+	_Response = Прокси("getStockEntryChangesListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -200,7 +200,7 @@
 	
 	_Request = getVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid);
 	
-	_Response = ВыполнитьЗапрос(_Request, "getVetDocumentByUuidRequest", issuerId, Ложь);
+	_Response = Прокси("getVetDocumentByUuidRequest", _Request, issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
@@ -272,7 +272,7 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "getVetDocumentListRequest", issuerId, Ложь, пПараметры.Отладка);
+	_Response = Прокси("getVetDocumentListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -334,7 +334,7 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = ВыполнитьЗапрос(пПараметры.ListRequest, "getVetDocumentChangesListRequest", issuerId, Ложь, пПараметры.Отладка);
+	_Response = Прокси("getVetDocumentChangesListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -430,7 +430,7 @@
 	
 	_Request = processIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport, returnedDelivery);
 	
-	_Response = ВыполнитьЗапрос(_Request, "processIncomingConsignmentRequest", issuerId, Ложь);
+	_Response = Прокси("processIncomingConsignmentRequest", _Request, issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
@@ -474,7 +474,7 @@
 	
 	_Request = prepareOutcomingConsignmentRequest(delivery);
 	
-	_Response = ВыполнитьЗапрос(_Request, "prepareOutcomingConsignmentRequest", issuerId, Ложь);
+	_Response = Прокси("prepareOutcomingConsignmentRequest", _Request, issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
@@ -565,7 +565,7 @@
 	
 	_Request = withdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, ВетисПараметрыСоединения.Врач());
 	
-	_Response = ВыполнитьЗапрос(_Request, "withdrawVetDocumentRequest", issuerId, Ложь);
+	_Response = Прокси("withdrawVetDocumentRequest", _Request, issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
@@ -738,138 +738,8 @@
 	
 КонецФункции
 
-Функция ВыполнитьЗапрос(пRequest, пИмяФункции, issuerId = Неопределено, ПоУмолчанию = Неопределено, пОтладка = Неопределено, пОжидание = 5)
+Функция Прокси(пИмяФункции, пRequest, issuerId = Неопределено, ПоУмолчанию = Неопределено, пОтладка = Неопределено, пОжидание = 5)
 	
-	Если пОтладка = Неопределено Тогда
-		_Отладка = ВетисОбщегоНазначения.РазрешенаОтладка();
-	Иначе
-		_Отладка = пОтладка;
-	КонецЕсли;
-	
-	ВетисПараметрыСоединения.ИнициализироватьНастройкиХС(issuerId);
-	
-	_Фабрика = ФабрикаWS();
-	
-	_Соединение = ПолучитьСоединение();
-	
-	//запрос на создание заявки
-	
-	_Application = ВетисApplication.Application(пRequest, пИмяФункции);
-	
-		_SubmitRequest = ВетисApplication.submitApplicationRequest(_Application);
-		
-			_Envelope = ВетисSoapEnvelope.Envelope(_SubmitRequest, "submitApplicationRequest");
-			
-				_ТекстЗапроса = ВетисОбщегоНазначения.Сериализовать(_Фабрика, _Envelope);
-				
-				Если _Отладка = Истина Тогда
-					ВетисЖурнал.Добавить(_ТекстЗапроса);
-				КонецЕсли;
-				
-				_Запрос = ПолучитьЗапрос(_ТекстЗапроса);  
-				
-				_Ответ = ПолучитьОтвет(_Запрос, _Соединение);  
-				
-				Если НЕ _Ответ.КодСостояния = 200 Тогда
-					ВетисЖурнал.Добавить("Ошибка при отправке запроса");
-					ВетисЖурнал.Добавить(_ТекстЗапроса);
-					Возврат ПоУмолчанию;
-				КонецЕсли;
-				
-			_Envelope = ВетисОбщегоНазначения.Десериализовать(_Фабрика, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), _Envelope.Тип());
-		
-		_SubmitResponse = ВетисSoapEnvelope.Извлечь(_Envelope).submitApplicationResponse;
-	
-	Если НЕ (_SubmitResponse.Application.status = ВетисКонстанты.Status_ACCEPTED()) Тогда 
-		ВетисЖурнал.Добавить("Запрос вернулся со статусом " + _SubmitResponse.Application.status);
-		Возврат ПоУмолчанию; 
-	КонецЕсли;
-	
-	//запрос на получение результатов обработки заявки
-	
-	_receiveRequest = ВетисApplication.receiveApplicationResultRequest(_SubmitResponse.Application.applicationId);
-	
-	_Envelope = ВетисSoapEnvelope.Envelope(_receiveRequest, "receiveApplicationResultRequest");
-	
-	_ТекстЗапроса = ВетисОбщегоНазначения.Сериализовать(_Фабрика, _Envelope);
-	
-	Если _Отладка = Истина Тогда
-		ВетисЖурнал.Добавить(_ТекстЗапроса);
-	КонецЕсли;
-	
-	_Запрос = ПолучитьЗапрос(_ТекстЗапроса);  
-	
-	Пока Истина Цикл
-		
-		_Ответ = ПолучитьОтвет(_Запрос, _Соединение);  
-		
-		Если НЕ _Ответ.КодСостояния = 200 Тогда
-			ВетисЖурнал.Добавить("Ошибка при отправке запроса");
-			ВетисЖурнал.Добавить(_ТекстЗапроса);
-			Возврат ПоУмолчанию;
-		КонецЕсли;
-		
-		_Envelope = ВетисОбщегоНазначения.Десериализовать(_Фабрика, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), _Envelope.Тип());
-		
-		_receiveResponse = ВетисSoapEnvelope.Извлечь(_Envelope).receiveApplicationResultResponse;
-		
-		Если _receiveResponse.Application.Status = ВетисКонстанты.Status_IN_PROCESS() Тогда
-			//ВетисЖурнал.Добавить("Ждем ответа");
-		Иначе
-			Если НЕ _receiveResponse.Application.status = ВетисКонстанты.Status_COMPLETED() Тогда
-				ВетисЖурнал.Добавить(ВетисОбщегоНазначения.Сериализовать(_Фабрика, _receiveResponse.Application.errors));
-				Возврат ПоУмолчанию;
-			Иначе
-				Если _Отладка = Истина Тогда
-					ВетисЖурнал.Добавить(ВетисОбщегоНазначения.Сериализовать(_Фабрика, _receiveResponse.Application));
-				КонецЕсли;
-				
-				Возврат ВетисApplication.ApplicationResult(_receiveResponse.Application);
-			КонецЕсли;
-		КонецЕсли;
-		
-	КонецЦикла;
-	
-КонецФункции
-
-Функция ПолучитьЗапрос(пТекстЗапроса)
-	
-	_Запрос = Новый HTTPЗапрос("platform/services/ApplicationManagementService");  
-	
-	_Запрос.УстановитьТелоИзСтроки(пТекстЗапроса);
-	
-	Возврат _Запрос;
-	
-КонецФункции
-
-Функция ПолучитьОтвет(пЗапрос, пСоединение = Неопределено)
-	
-	Если ТипЗнч(пЗапрос) = Тип("Строка") Тогда
-		_Запрос = ПолучитьЗапрос(пЗапрос);
-	Иначе
-		_Запрос = пЗапрос;
-	КонецЕсли;
-	
-	Если пСоединение = Неопределено Тогда
-		_Соединение = ПолучитьСоединение();
-	Иначе
-		_Соединение = пСоединение;
-	КонецЕсли;
-	
-	_Ответ = _Соединение.ОтправитьДляОбработки(_Запрос);
-	
-	//Если НЕ _Ответ.КодСостояния = 200 Тогда
-	//	ВетисЖурнал.Добавить("Ошибка при отправке запроса");
-	//КонецЕсли;
-	
-	Возврат _Ответ;
-	
-КонецФункции
-
-Функция ПолучитьСоединение()
-	
-	_пс = ВетисПараметрыСоединения;
-	
-	Возврат Новый HTTPСоединение(_пс.Адрес(), _пс.Порт(), _пс.Логин(), _пс.Пароль(), , Истина);  
+	Возврат ВетисXSD.ВыполнитьЗапрос("ApplicationManagementService", пИмяФункции, ФабрикаWS(), пRequest, issuerId, ПоУмолчанию, пОтладка, пОжидание);
 	
 КонецФункции

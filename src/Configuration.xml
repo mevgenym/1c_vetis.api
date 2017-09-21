@@ -163,6 +163,7 @@
 			<CommonModule>ВетисMercuryVetdocumentСлой1с</CommonModule>
 			<CommonModule>ВетисProductService</CommonModule>
 			<CommonModule>ВетисProductService_2_0</CommonModule>
+			<CommonModule>ВетисRegionalizationService_2_0</CommonModule>
 			<CommonModule>ВетисSoapEnvelope</CommonModule>
 			<CommonModule>ВетисXSD</CommonModule>
 			<CommonModule>ВетисЖурнал</CommonModule>
@@ -206,8 +207,9 @@
 			<CommandGroup>ВетисДокументы</CommandGroup>
 			<CommandGroup>ВетисСправочники</CommandGroup>
 			<CommandGroup>ВетисСервис</CommandGroup>
-			<Constant>ВетисОсновнойХС</Constant>
 			<Constant>ВетисВерсия</Constant>
+			<Constant>ВетисОсновнойХС</Constant>
+			<Constant>ВетисТестовый</Constant>
 			<CommonForm>ВетисРабочийСтол</CommonForm>
 			<CommonForm>ВетисФормаВыбора</CommonForm>
 			<CommonForm>ВетисНастройки</CommonForm>

@@ -126,7 +126,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисResearchResult</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисXSD</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСкладскойЖурналРС</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">3715d65f-30f2-4d80-8a7b-c49afdc80b33</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисRegionalizationService_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисТестовый</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

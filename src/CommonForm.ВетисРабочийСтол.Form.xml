@@ -4,6 +4,9 @@
 	<AutoTitle>false</AutoTitle>
 	<CommandBarLocation>None</CommandBarLocation>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаХС" id="178">
 			<Title>
@@ -182,6 +185,23 @@
 								</LabelField>
 							</ChildItems>
 						</Table>
+						<UsualGroup name="Группа1" id="232">
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="233"/>
+							<ChildItems>
+								<InputField name="ТипВСД" id="229">
+									<DataPath>ТипВСД</DataPath>
+									<ContextMenu name="ТипВСДКонтекстноеМеню" id="230"/>
+									<ExtendedTooltip name="ТипВСДРасширеннаяПодсказка" id="231"/>
+								</InputField>
+								<InputField name="СтатусВСД" id="226">
+									<DataPath>СтатусВСД</DataPath>
+									<ContextMenu name="СтатусВСДКонтекстноеМеню" id="227"/>
+									<ExtendedTooltip name="СтатусВСДРасширеннаяПодсказка" id="228"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 				<Page name="СтраницаВходящиеПартии" id="48">
@@ -406,6 +426,11 @@
 										<CommandName>Form.Command.СинхронизироватьСкладскойЖурнал</CommandName>
 										<ExtendedTooltip name="СписокСкладскойЖурналСинхронизироватьСкладскойЖурналРасширеннаяПодсказка" id="181"/>
 									</Button>
+									<Button name="СписокСкладскойЖурналСкладскойЖурналПоследние" id="224">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СкладскойЖурналПоследние</CommandName>
+										<ExtendedTooltip name="СписокСкладскойЖурналСкладскойЖурналПоследниеРасширеннаяПодсказка" id="225"/>
+									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокСкладскойЖурналРасширеннаяПодсказка" id="135"/>
@@ -436,6 +461,7 @@
 							<ChildItems>
 								<CheckBoxField name="СписокСкладскойЖурналlast" id="210">
 									<DataPath>СписокСкладскойЖурнал.last</DataPath>
+									<Visible>false</Visible>
 									<CheckBoxType>Auto</CheckBoxType>
 									<ContextMenu name="СписокСкладскойЖурналlastКонтекстноеМеню" id="211"/>
 									<ExtendedTooltip name="СписокСкладскойЖурналlastРасширеннаяПодсказка" id="212"/>
@@ -564,15 +590,15 @@
 									</ToolTip>
 									<ExtendedTooltip name="СписокСкладскойЖурналГруппаКоличествоРасширеннаяПодсказка" id="189"/>
 									<ChildItems>
-										<LabelField name="СписокСкладскойЖурналКоличество" id="166">
-											<DataPath>~СписокСкладскойЖурнал.Количество</DataPath>
-											<ContextMenu name="СписокСкладскойЖурналКоличествоКонтекстноеМеню" id="167"/>
-											<ExtendedTooltip name="СписокСкладскойЖурналКоличествоРасширеннаяПодсказка" id="168"/>
+										<LabelField name="СписокСкладскойЖурналvolume" id="237">
+											<DataPath>СписокСкладскойЖурнал.volume</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналvolumeКонтекстноеМеню" id="238"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналvolumeРасширеннаяПодсказка" id="239"/>
 										</LabelField>
-										<LabelField name="СписокСкладскойЖурналКоличествоМест" id="169">
-											<DataPath>~СписокСкладскойЖурнал.КоличествоМест</DataPath>
-											<ContextMenu name="СписокСкладскойЖурналКоличествоМестКонтекстноеМеню" id="170"/>
-											<ExtendedTooltip name="СписокСкладскойЖурналКоличествоМестРасширеннаяПодсказка" id="171"/>
+										<LabelField name="СписокСкладскойЖурналpackingAmount" id="234">
+											<DataPath>СписокСкладскойЖурнал.packingAmount</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналpackingAmountКонтекстноеМеню" id="235"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналpackingAmountРасширеннаяПодсказка" id="236"/>
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
@@ -776,6 +802,45 @@
 				<Field>ХС</Field>
 			</Save>
 		</Attribute>
+		<Attribute name="СкладскойЖурналПоследние" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Складской журнал последние</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипВСД" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип ВСД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВетисVetDocumentType</v8:Type>
+			</Type>
+			<Save>
+				<Field>ТипВСД</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="СтатусВСД" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус ВСД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВетисVetDocumentStatus</v8:Type>
+			</Type>
+			<Save>
+				<Field>СтатусВСД</Field>
+			</Save>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ВСДАннулировать" id="1">
@@ -822,6 +887,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СинхронизироватьСкладскойЖурнал</Action>
+		</Command>
+		<Command name="СкладскойЖурналПоследние" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Последние</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Складской журнал последние</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СкладскойЖурналПоследние</Action>
 		</Command>
 	</Commands>
 </Form>

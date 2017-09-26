@@ -322,11 +322,16 @@
 		_мз.SubProduct  = _stockEntry.batch.subProduct.guid;
 		_мз.ProductItem = _stockEntry.batch.productItem.guid;
 		
-		_мз.PackingForm = ?(_stockEntry.batch.packingList.packingForm.Количество()>0, _stockEntry.batch.packingList.packingForm[0].uuid, "");
 		_мз.Unit        = _stockEntry.batch.unit.guid;
+		_мз.volume      = _stockEntry.batch.volume;
 		
-		_мз.volume = _stockEntry.batch.volume;
-		_мз.packingAmount = _stockEntry.batch.packingAmount;
+		Если _Версия20 Тогда
+			_мз.PackingForm = ?(_stockEntry.batch.productItem.packaging = Неопределено, "", _stockEntry.batch.productItem.packaging.packagingType.guid);
+			_мз.packingAmount = ?(_stockEntry.batch.productItem.packaging = Неопределено, 0, _stockEntry.batch.productItem.packaging.quantity);
+		Иначе
+			_мз.PackingForm = ?(_stockEntry.batch.packingList = Неопределено, "", _stockEntry.batch.packingList.packingForm[0].uuid);
+			_мз.packingAmount = _stockEntry.batch.packingAmount;
+		КонецЕсли;
 		
 		_мз.Записать();
 		

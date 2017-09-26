@@ -227,7 +227,7 @@
 		_Объект.vetDocumentType = vetDocumentType;
 	КонецЕсли;
 	
-	Если НЕ vetDocumentType = Неопределено Тогда
+	Если НЕ vetDocumentStatus = Неопределено Тогда
 		_Объект.vetDocumentStatus = vetDocumentStatus;
 	КонецЕсли;
 	
@@ -250,12 +250,12 @@
 //  пПараметры     - для внутреннего использования, начальное значение - Неопределено
 // Возвращаемое значение:
 //	Булево         - Ложь значит список пройден весь
-Функция getVetDocumentListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры) Экспорт
+Функция getVetDocumentListСледующий(enterpriseGuid, issuerId = Неопределено, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, пItem, пПараметры) Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
-		пПараметры.Вставить("ListRequest", getVetDocumentListRequest(enterpriseGuid));
+		пПараметры.Вставить("ListRequest", getVetDocumentListRequest(enterpriseGuid, vetDocumentType, vetDocumentStatus));
 		пПараметры.Вставить("Отладка", ВетисОбщегоНазначения.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;

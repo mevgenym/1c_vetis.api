@@ -299,6 +299,7 @@
 										</InputField>
 										<InputField name="сжНоменклатурнаяГруппа" id="476">
 											<DataPath>сжНоменклатурнаяГруппа</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="сжНоменклатурнаяГруппаКонтекстноеМеню" id="477"/>
 											<ExtendedTooltip name="сжНоменклатурнаяГруппаРасширеннаяПодсказка" id="478"/>
 										</InputField>
@@ -339,6 +340,7 @@
 										</InputField>
 										<InputField name="сжСтранаПроисхождения" id="354">
 											<DataPath>сжСтранаПроисхождения</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="сжСтранаПроисхожденияКонтекстноеМеню" id="355"/>
 											<ExtendedTooltip name="сжСтранаПроисхожденияРасширеннаяПодсказка" id="356"/>
 											<Events>
@@ -382,12 +384,18 @@
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="сжProductItemNameКонтекстноеМеню" id="469"/>
 											<ExtendedTooltip name="сжProductItemNameРасширеннаяПодсказка" id="470"/>
+											<Events>
+												<Event name="Clearing">сжProductItemNameОчистка</Event>
+											</Events>
 										</InputField>
 										<InputField name="сжSubProductName" id="471">
 											<DataPath>сжSubProductName</DataPath>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="сжSubProductNameКонтекстноеМеню" id="472"/>
 											<ExtendedTooltip name="сжSubProductNameРасширеннаяПодсказка" id="473"/>
+											<Events>
+												<Event name="Clearing">сжSubProductNameОчистка</Event>
+											</Events>
 										</InputField>
 										<InputField name="сжЕдиницаИзмерения" id="208">
 											<DataPath>сжЕдиницаИзмерения</DataPath>
@@ -1143,6 +1151,24 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:EnumRef.ВетисResearchResult</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="сжSubProductGuid" id="38">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="сжProductItemGuid" id="39">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

@@ -511,6 +511,18 @@
 	
 КонецФункции
 
+Функция ResolveDiscrepancy(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = ResolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
+	
+	_Response = Прокси("resolveDiscrepancyRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат ResolveDiscrepancyResponse(_Response);
+	
+КонецФункции
+
 #КонецОбласти
 
 #Область WithdrawVetDocumentOperation

@@ -211,27 +211,70 @@
 	
 КонецФункции
 
-
-Функция DiscrepancyReport(issueSeries = "", issueNumber = "", issueDate, reason, description) Экспорт
+//Тип, описывающий сведения об акте несоответствия.
+//Параметры:
+// issueSeries - Серия документа. bs:String255
+// issueNumber - Номер документа. bs:String255
+// issueDate - Дата документа. xs:date
+// reason - Причина несоответствия. xs:string
+// description - Детальное описание. xs:string
+Функция DiscrepancyReport(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, reason = Неопределено, description = Неопределено) Экспорт
 	
 	_Объект = Создать("DiscrepancyReport");
 	
-	_Объект.issueSeries = issueSeries;
-	_Объект.issueNumber = issueNumber;
-	_Объект.issueDate   = ВетисОбщегоНазначения.ВремяВетис(issueDate);
-	_Объект.reason      = DiscrepancyReason(reason);
-	_Объект.description = description;
+	Если НЕ issueSeries = Неопределено Тогда
+		_Объект.issueSeries = issueSeries;
+	КонецЕсли;
+	
+	Если НЕ issueNumber = Неопределено Тогда
+		_Объект.issueNumber = issueNumber;
+	КонецЕсли;
+	
+	Если НЕ issueDate = Неопределено Тогда
+		_Объект.issueDate = ВетисОбщегоНазначения.ВремяВетис(issueDate);
+	КонецЕсли;
+	
+	Если НЕ reason = Неопределено Тогда
+		_Объект.reason = DiscrepancyReason(reason);
+	КонецЕсли;
+	
+	Если НЕ description = Неопределено Тогда
+		_Объект.issueSeries = description;
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
 КонецФункции
 
+//Тип, описывающий причину несоответствия в акте.
+//Параметры:
+// name - Название причины. - bs:String255
 Функция DiscrepancyReason(name) Экспорт
 	
 	_Объект = Создать("DiscrepancyReason");
 	
 	_Объект.name = name;
 	
+	Возврат _Объект;
+	
+КонецФункции
+
+
+//Тип, описывающий операцию оформления результатов инвентаризации.
+//Параметры:
+// stockEntry - Сведения о партии продукции. vetd:stockEntry
+Функция StockDiscrepancy(stockEntry) Экспорт
+	
+	_Объект = Создать("StockDiscrepancy");
+	
+	Если ТипЗнч(stockEntry) = Тип("Массив") Тогда
+		Для каждого _stockEntry Из stockEntry Цикл
+			_Объект.resultingList.Добавить(_stockEntry);
+		КонецЦикла;
+	ИначеЕсли ТипЗнч(stockEntry) = Тип("ОбъектXDTO") Тогда
+		_Объект.resultingList.Добавить(stockEntry);
+	КонецЕсли;
+		
 	Возврат _Объект;
 	
 КонецФункции

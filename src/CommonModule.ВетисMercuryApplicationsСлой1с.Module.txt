@@ -4,6 +4,33 @@
 КонецПроцедуры
 
 
+Функция ResolveDiscrepancy(пПредприятие, пСтрокаПартии, discrepancyReport = Неопределено, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	//сделать: тестировать ResolveDiscrepancy
+	
+	_enterprise = ВетисCerberusEnterprise.Enterprise(ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие));
+	
+	_inventoryDate = ТекущаяДата();
+	
+	_responsible = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
+	
+	_stockEntry = ВетисMercuryVetdocument.StockEntry(пСтрокаПартии.guid);
+	
+	_stockEntry.batch = ВетисMercuryVetdocument.Batch();
+	
+	ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_stockEntry.batch, пСтрокаПартии);
+	
+	_stockDiscrepancy = ВетисMercuryVetdocument.StockDiscrepancy(_stockEntry);
+	
+	Если discrepancyReport = Неопределено Тогда
+		_discrepancyReport = ВетисMercuryVetdocument.DiscrepancyReport();
+	Иначе
+		_discrepancyReport = discrepancyReport;
+	КонецЕсли;
+	
+	_Response = ВетисMercuryApplications.resolveDiscrepancy(_enterprise, _inventoryDate, _responsible, _stockDiscrepancy, _discrepancyReport, issuerId, пОтказ);
+	
+КонецФункции
+
 Процедура IncomingOperation(пСтрокаСЖ, пОтказ = Ложь) Экспорт
 	
 	Перем _discrepancyReport, _returnedDelivery;
@@ -260,7 +287,7 @@
 	
 	_vetDocumentId = ВетисMercuryVetdocumentСлой1с.VetDocument(пСсылка);
 	
-	Если ВетисОбщегоНазначения.ВерсияРавно("2.0") Тогда
+	Если ВетисОбщегоНазначения.ВерсияРавно(Перечисления.ВетисВерсияAPI.v2_0) Тогда
 		_Reason = ВетисMercuryVetdocument_2_0.VetDocumentStatusChangeReason(пПричина);
 		
 		_Получатель = ВетисDictionaryСлой1с.BusinessEntity(пСсылка.Получатель);
@@ -288,7 +315,7 @@
 	
 КонецПроцедуры
 
-Процедура СинхронизироватьСкладскойЖурнал(ХС, Предприятие) Экспорт
+Процедура СинхронизироватьСкладскойЖурнал(пХС, пПредприятие) Экспорт
 	
 	Перем _stockEntry, _параметры;
 	
@@ -298,9 +325,9 @@
 	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
 	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
 	
-	_issuerId = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(ХС);
+	_issuerId = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(пХС);
 	
-	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(Предприятие);
+	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие);
 	
 	_запрос = Новый Запрос("ВЫБРАТЬ ЕСТЬNULL(МАКСИМУМ(updateDate), ДАТАВРЕМЯ(1,1,1)) КАК Период ИЗ РегистрСведений.ВетисСкладскойЖурналРС");
 	_выборка = _запрос.Выполнить().Выбрать();

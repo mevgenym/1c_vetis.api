@@ -504,7 +504,14 @@
 	_Объект.inventoryDate      = ВетисОбщегоНазначения.ВремяВетис(inventoryDate);
 	_Объект.responsible        = responsible;
 	_Объект.stockDiscrepancy   = stockDiscrepancy;
-	_Объект.discrepancyReport  = discrepancyReport;
+	
+	Если ТипЗнч(discrepancyReport) = Тип("Массив") Тогда
+		Для каждого _discrepancyReport Из discrepancyReport Цикл
+			_Объект.discrepancyReport.Добавить(_discrepancyReport);
+		КонецЦикла;
+	Иначе
+		_Объект.discrepancyReport.Добавить(discrepancyReport);
+	КонецЕсли;
 	
 	Возврат _Объект;
 	
@@ -515,6 +522,18 @@
 Функция resolveDiscrepancyResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ResolveDiscrepancyResponse, "ResolveDiscrepancyResponse", URI()).stockEntryList;
+	
+КонецФункции
+
+Функция resolveDiscrepancy(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = ResolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
+	
+	_Response = Прокси("resolveDiscrepancyRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат ResolveDiscrepancyResponse(_Response);
 	
 КонецФункции
 

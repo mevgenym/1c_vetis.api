@@ -167,14 +167,14 @@
 		<Metadata name="CommonModule.ВетисIkarService_2_0.Module" id="7e053e3a-6f0d-438f-83c7-50cd5ff2189d.0" configVersion="5ce41f4312621e4285a5f6462f850b9800000000"/>
 		<Metadata name="CommonModule.ВетисIkarСлой1с" id="597cd387-5481-4e70-b6d4-71f60c801fec" configVersion="5f4e845af60b9a449ac42e3cd4755fb000000000"/>
 		<Metadata name="CommonModule.ВетисIkarСлой1с.Module" id="597cd387-5481-4e70-b6d4-71f60c801fec.0" configVersion="2cd7886471e0fb41bf9992dfa013629800000000"/>
-		<Metadata name="CommonModule.ВетисMercuryApplications" id="fe78fdac-59c1-48b4-8e3a-385b02c85a85" configVersion="9ecf80f16f957c4aa0cc06cc9160746f00000000"/>
-		<Metadata name="CommonModule.ВетисMercuryApplications.Module" id="fe78fdac-59c1-48b4-8e3a-385b02c85a85.0" configVersion="d8d296d331e13943aa6ea0769c1046fd00000000"/>
-		<Metadata name="CommonModule.ВетисMercuryApplications_2_0" id="fd53138f-b458-46a8-8a62-a12a70e03e40" configVersion="77c3d031672ff54d9fd91e3fb8405b0100000000"/>
-		<Metadata name="CommonModule.ВетисMercuryApplications_2_0.Module" id="fd53138f-b458-46a8-8a62-a12a70e03e40.0" configVersion="971f1b380dc82a4899bee09f8bee98f300000000"/>
-		<Metadata name="CommonModule.ВетисMercuryApplicationsСлой1с" id="d088152d-9a74-44b9-a910-eb9d395045e7" configVersion="d1e7e7a6115b07409881f1f40d70807100000000"/>
-		<Metadata name="CommonModule.ВетисMercuryApplicationsСлой1с.Module" id="d088152d-9a74-44b9-a910-eb9d395045e7.0" configVersion="80d30565d865e94593d3841cfe5b2dd400000000"/>
-		<Metadata name="CommonModule.ВетисMercuryVetdocument" id="8b390c43-b79d-478f-9e20-a1a0ac728991" configVersion="3b25a8299ebc7b44ab86c12fad9d708b00000000"/>
-		<Metadata name="CommonModule.ВетисMercuryVetdocument.Module" id="8b390c43-b79d-478f-9e20-a1a0ac728991.0" configVersion="68010f99929d1b4899f25b5bec119faf00000000"/>
+		<Metadata name="CommonModule.ВетисMercuryApplications" id="fe78fdac-59c1-48b4-8e3a-385b02c85a85" configVersion="b997f8698d6f974f819045ded7ec826400000000"/>
+		<Metadata name="CommonModule.ВетисMercuryApplications.Module" id="fe78fdac-59c1-48b4-8e3a-385b02c85a85.0" configVersion="7a2f269a9cc5bb448e7243d5fbc234f700000000"/>
+		<Metadata name="CommonModule.ВетисMercuryApplications_2_0" id="fd53138f-b458-46a8-8a62-a12a70e03e40" configVersion="9c2b636a0748ff489a3453bb722b51c600000000"/>
+		<Metadata name="CommonModule.ВетисMercuryApplications_2_0.Module" id="fd53138f-b458-46a8-8a62-a12a70e03e40.0" configVersion="bf94ae1debf4f94ea2a91a2730f5cc4900000000"/>
+		<Metadata name="CommonModule.ВетисMercuryApplicationsСлой1с" id="d088152d-9a74-44b9-a910-eb9d395045e7" configVersion="d1df631bf6fe21449e771383b7213aae00000000"/>
+		<Metadata name="CommonModule.ВетисMercuryApplicationsСлой1с.Module" id="d088152d-9a74-44b9-a910-eb9d395045e7.0" configVersion="28850f4a2835db43b83cd33d146775d400000000"/>
+		<Metadata name="CommonModule.ВетисMercuryVetdocument" id="8b390c43-b79d-478f-9e20-a1a0ac728991" configVersion="58626bef449f9049b166e1969e3d564900000000"/>
+		<Metadata name="CommonModule.ВетисMercuryVetdocument.Module" id="8b390c43-b79d-478f-9e20-a1a0ac728991.0" configVersion="4eba8908e3bb5c44835ce12205882b8400000000"/>
 		<Metadata name="CommonModule.ВетисMercuryVetdocument_2_0" id="469000a1-c416-4e12-8fe2-2593e78237ab" configVersion="45bc3a3d773b38468daecbe934c3b83f00000000"/>
 		<Metadata name="CommonModule.ВетисMercuryVetdocument_2_0.Module" id="469000a1-c416-4e12-8fe2-2593e78237ab.0" configVersion="df16f68dc129264a8eb73049fec6141300000000"/>
 		<Metadata name="CommonModule.ВетисMercuryVetdocumentСлой1с" id="71583619-82aa-42a1-a511-c36de71aad2c" configVersion="4eadfd2dd44379458b7eaebafc62103c00000000"/>
@@ -187,8 +187,8 @@
 		<Metadata name="CommonModule.ВетисRegionalizationService_2_0.Module" id="ce0c8c09-d23f-488e-951b-16ae90e9cb0c.0" configVersion="0d7016d09502be469b60e511b4f8094400000000"/>
 		<Metadata name="CommonModule.ВетисSoapEnvelope" id="2946b74f-0b75-4162-868a-b0b86f07efa0" configVersion="20bff0ce15065540b45d18f0c37a321000000000"/>
 		<Metadata name="CommonModule.ВетисSoapEnvelope.Module" id="2946b74f-0b75-4162-868a-b0b86f07efa0.0" configVersion="ddfc09d651d28c4fa243d0165b32ed1700000000"/>
-		<Metadata name="CommonModule.ВетисXSD" id="8045383f-c55d-4f10-b71f-a02516adce94" configVersion="d463c6928cad8946af28b80a116651fc00000000"/>
-		<Metadata name="CommonModule.ВетисXSD.Module" id="8045383f-c55d-4f10-b71f-a02516adce94.0" configVersion="e4c74eaccf459849b8392ec36d9b226500000000"/>
+		<Metadata name="CommonModule.ВетисXSD" id="8045383f-c55d-4f10-b71f-a02516adce94" configVersion="788ab8b4ed313741bc86f74ec0adc62b00000000"/>
+		<Metadata name="CommonModule.ВетисXSD.Module" id="8045383f-c55d-4f10-b71f-a02516adce94.0" configVersion="da6dfd7690005545a16fb6e185c6222b00000000"/>
 		<Metadata name="CommonModule.ВетисЖурнал" id="fc475750-e71e-4071-903c-e2dbc39fe8af" configVersion="f331a6ff973822469844ed302b9a340200000000"/>
 		<Metadata name="CommonModule.ВетисЖурнал.Module" id="fc475750-e71e-4071-903c-e2dbc39fe8af.0" configVersion="f1652f1439d81f4f90632f05d64d87c500000000"/>
 		<Metadata name="CommonModule.ВетисИмяСправочника" id="80b17773-0fae-41fe-8bc2-f6cfa505f997" configVersion="4cf840710ae7eb469d410cabdac66aea00000000"/>

@@ -180,16 +180,20 @@
 			<XDTOPackage>soap_envelop</XDTOPackage>
 			<DefinedType>ВетисBusinessEntity</DefinedType>
 			<DefinedType>ВетисCountry</DefinedType>
+			<DefinedType>ВетисDistrict</DefinedType>
 			<DefinedType>ВетисEnterprise</DefinedType>
 			<DefinedType>ВетисPackingForm</DefinedType>
 			<DefinedType>ВетисProductItem</DefinedType>
 			<DefinedType>ВетисPurpose</DefinedType>
+			<DefinedType>ВетисRegion</DefinedType>
 			<DefinedType>ВетисSubProduct</DefinedType>
 			<DefinedType>ВетисTransport</DefinedType>
 			<DefinedType>ВетисUnit</DefinedType>
 			<DefinedType>ВетисПользователь</DefinedType>
+			<CommonCommand>ВетисDistrict</CommonCommand>
 			<CommonCommand>ВетисPackingForm</CommonCommand>
 			<CommonCommand>ВетисPurpose</CommonCommand>
+			<CommonCommand>ВетисRegion</CommonCommand>
 			<CommonCommand>ВетисXSD</CommonCommand>
 			<CommonCommand>ВетисВетеринарноСопроводительныйДокумент</CommonCommand>
 			<CommonCommand>ВетисВходящаяПартияСводно</CommonCommand>
@@ -213,14 +217,16 @@
 			<CommonForm>ВетисРабочийСтол</CommonForm>
 			<CommonForm>ВетисФормаВыбора</CommonForm>
 			<CommonForm>ВетисНастройки</CommonForm>
+			<Catalog>ВетисDistrict</Catalog>
 			<Catalog>ВетисPackingForm</Catalog>
 			<Catalog>ВетисPurpose</Catalog>
+			<Catalog>ВетисRegion</Catalog>
 			<Catalog>ВетисПредприятия</Catalog>
 			<Catalog>КлассификаторЕдиницИзмерения</Catalog>
 			<Catalog>КлассификаторСтранМира</Catalog>
 			<Catalog>Контрагенты</Catalog>
-			<Catalog>НоменклатурныеГруппы</Catalog>
 			<Catalog>Номенклатура</Catalog>
+			<Catalog>НоменклатурныеГруппы</Catalog>
 			<Catalog>Пользователи</Catalog>
 			<Catalog>Транспорт</Catalog>
 			<Document>ВетисВетеринарноСопроводительныйДокумент</Document>

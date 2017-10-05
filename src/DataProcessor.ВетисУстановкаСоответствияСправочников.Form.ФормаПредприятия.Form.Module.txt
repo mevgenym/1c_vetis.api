@@ -13,20 +13,32 @@
 	
 	СписокВетис.Очистить();
 	
-	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
-	_ВетисEnterpriseService = ?(_Версия20, ВетисEnterpriseService_2_0, ВетисEnterpriseService);
-	
-	_businessEntityGuid = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с).BusinessEntity(пКонтрагент);
-	
-	Пока _ВетисEnterpriseService.GetBusinessEntityEnterpriseListСледующий(_businessEntityGuid, _Enterprise, _Параметры) Цикл
+	Если ВетисОбщегоНазначения.ВерсияРавно(ПредопределенноеЗначение("Перечисление.ВетисВерсияAPI.v2_0")) Тогда
+		_businessEntityGuid = ВетисDictionaryСлой1с.BusinessEntity(пКонтрагент);
 		
-		_СписокВетисСтрока = СписокВетис.Добавить();
+		Пока ВетисEnterpriseService_2_0.GetActivityLocationListСледующий(_businessEntityGuid, _Enterprise, _Параметры) Цикл
+			
+			_СписокВетисСтрока = СписокВетис.Добавить();
+			
+			ЗаполнитьЗначенияСвойств(_СписокВетисСтрока, _Enterprise);
+			
+			_СписокВетисСтрока.address = _Enterprise.address.addressView;
+			
+		КонецЦикла;
 		
-		ЗаполнитьЗначенияСвойств(_СписокВетисСтрока, _Enterprise);
+	Иначе
+		_businessEntityGuid = ВетисCerberusEnterpriseСлой1с.BusinessEntity(пКонтрагент);
 		
-		_СписокВетисСтрока.address = _Enterprise.address.addressView;
-		
-	КонецЦикла;
+		Пока ВетисEnterpriseService.GetBusinessEntityEnterpriseListСледующий(_businessEntityGuid, _Enterprise, _Параметры) Цикл
+			
+			_СписокВетисСтрока = СписокВетис.Добавить();
+			
+			ЗаполнитьЗначенияСвойств(_СписокВетисСтрока, _Enterprise);
+			
+			_СписокВетисСтрока.address = _Enterprise.address.addressView;
+			
+		КонецЦикла;
+	КонецЕсли;
 	
 КонецПроцедуры
 

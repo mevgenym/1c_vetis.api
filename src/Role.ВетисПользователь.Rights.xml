@@ -146,6 +146,21 @@
 		</right>
 	</object>
 	<object>
+		<name>Catalog.ВетисRegion</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>CommonCommand.ВетисВходящаяПартияСводно</name>
 		<right>
 			<name>View</name>
@@ -518,6 +533,13 @@
 		<right>
 			<name>Edit</name>
 			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисRegion</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
 		</right>
 	</object>
 	<object>
@@ -1400,6 +1422,21 @@
 		</right>
 	</object>
 	<object>
+		<name>Catalog.ВетисDistrict</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.АктОписание</name>
 		<right>
 			<name>View</name>
@@ -1485,6 +1522,13 @@
 		<right>
 			<name>Edit</name>
 			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисDistrict</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
 		</right>
 	</object>
 	<object>

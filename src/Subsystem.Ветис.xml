@@ -128,6 +128,12 @@
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСкладскойЖурналРС</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисRegionalizationService_2_0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисТестовый</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисRegion</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисDistrict</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисDistrict</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисRegion</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисRegion</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисDistrict</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

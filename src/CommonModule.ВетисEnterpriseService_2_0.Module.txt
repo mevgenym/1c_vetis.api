@@ -174,36 +174,77 @@
 КонецФункции
 
 
-// Предназначена для выборки предприятий, подчиненных ХС.
-// Этой функции нет в сервисе, название выдуманное
-// Используется самостоятельно в цикле Пока.
-// Параметры:
-//  пGuid - Структура - guid ХС
-//  пItem - элемент списка, возвращаемый параметр
-//  пПараметры - для внутреннего использования, начальное значение - Неопределено
-// Возвращаемое значение:
-//	Булево - Ложь значит список пройден весь
-Функция GetBusinessEntityEnterpriseListСледующий(пGuid, пItem, пПараметры) Экспорт
+//Запрос на получение пары ХС-площадка по глобальному идентификатору GLN
+//Параметры:
+// globalID - Глобальный идентификатор (GLN), по которому проводится поиск записи dt:GLNType
+//Возврат:
+// businessMember - dt:businessMember
+Функция GetBusinessMemberByGLN(globalID, ПоУмолчанию = Неопределено) Экспорт
+	
+	Попытка
+		Возврат Прокси().GetBusinessMemberByGLN(globalID);
+	Исключение
+		ВетисЖурнал.ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		ВызватьИсключение;
+	КонецПопытки;
+	
+КонецФункции
+
+
+Функция GetActivityLocationList(businessEntityGuid, пListOptions = Неопределено) Экспорт
+	
+	Если пListOptions = Неопределено Тогда
+		пListOptions = ВетисBase_2_0.ListOptions();
+	Иначе
+		пListOptions.offset = пListOptions.offset + пListOptions.count;
+	КонецЕсли;
+	
+	Возврат Прокси().GetActivityLocationList(пListOptions, ВетисDictionary_2_0.BusinessEntity(businessEntityGuid));
+	
+КонецФункции
+
+//Запрос на получение списка предприятий, связанных с указанным ХС.
+//Используется самостоятельно в цикле Пока.
+//Параметры:
+// businessEntityGuid - guid ХС
+// пItem - элемент списка, возвращаемый параметр
+// пПараметры - для внутреннего использования, начальное значение - Неопределено
+//Возврат:
+// Булево - Ложь значит список пройден весь
+Функция GetActivityLocationListСледующий(businessEntityGuid, пItem, пПараметры) Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
-		пПараметры.Вставить("List", Новый Массив);
+		пПараметры.Вставить("BusinessEntity", ВетисDictionary_2_0.BusinessEntity(businessEntityGuid));
+		пПараметры.Вставить("ListOptions", ВетисBase_2_0.ListOptions());
 		пПараметры.Вставить("Индекс", 0);
-		_Entity = GetBusinessEntityByGuid(пGuid);
-		Для Каждого _Location из _Entity.activityLocation Цикл
-			_Enterprise = GetEnterpriseByGuid(_Location.enterprise.guid);
-			пПараметры.List.Добавить(_Enterprise);
-		КонецЦикла;
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListOptions.offset + пПараметры.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListOptions.offset = пПараметры.ListOptions.offset + пПараметры.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.location[пПараметры.Индекс].enterprise;
+			Возврат Истина;
+		КонецЕсли;
 	КонецЕсли;
 	
-	Если пПараметры.Индекс >= пПараметры.List.Количество() Тогда
+	ListResponse = Прокси().GetActivityLocationList(пПараметры.ListOptions, пПараметры.BusinessEntity);
+	
+	пПараметры.Вставить("ListResponse", ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
 		Возврат Ложь;
 	Иначе
-		пItem = пПараметры.List[пПараметры.Индекс];
+		пItem = пПараметры.ListResponse.location[пПараметры.Индекс].enterprise;
 		Возврат Истина;
 	КонецЕсли;
+	
+	Возврат Истина;
 	
 КонецФункции
 

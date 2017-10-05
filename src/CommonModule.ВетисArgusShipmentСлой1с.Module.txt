@@ -153,26 +153,3 @@
 	Возврат _Объект;
 	
 КонецФункции
-
-Функция WaybillКонвертировать(пСтрокаТТН, пДата, пВозврат = Ложь) Экспорт
-	
-	_СтрокаТТН = пСтрокаТТН;
-	
-	_waybill = ВетисArgusShipment.Waybill();
-	_waybill.issueSeries   = _СтрокаТТН.Серия;
-	_waybill.issueNumber   = _СтрокаТТН.Номер;
-	_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(_СтрокаТТН.Дата);
-	_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
-	_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(_СтрокаТТН.Тип);
-	_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
-	_waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
-	
-	Если пВозврат = Истина Тогда
-		_waybill.issueSeries   = "";
-		_waybill.issueNumber   = "";
-		_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(пДата);
-	КонецЕсли;
-	
-	Возврат _waybill;
-	
-КонецФункции

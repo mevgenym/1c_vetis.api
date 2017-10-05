@@ -6,7 +6,7 @@
 	
 	_Объект = Создать("VetDocument");
 	
-	ВетисОбщегоНазначения.ЗаполнитьОбъект(_Объект, uuid, "uuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, uuid, "uuid");
 	
 	Возврат _Объект;
 	
@@ -22,18 +22,11 @@
 	
 	_Объект = Создать("Delivery");
 	
-	_Объект.deliveryDate = ВетисОбщегоНазначения.ВремяВетис();// Дата поставки.
-	_Объект.consignor = consignor;
-	_Объект.consignee = consignee;
-	_Объект.accompanyingForms = accompanyingForms;
-	
-	Если ТипЗнч(consignment) = Тип("Массив") Тогда
-		Для каждого _consignment Из consignment Цикл
-			_Объект.consignment.Добавить(_consignment);
-		КонецЦикла;
-	Иначе
-		_Объект.consignment.Добавить(consignment);
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисОбщегоНазначения.ВремяВетис(), "deliveryDate");// Дата поставки.
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, accompanyingForms, "accompanyingForms");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignment, "consignment");
 	
 	Возврат _Объект;
 	
@@ -82,12 +75,7 @@
 	_Объект = Создать("DeliveryInspection");
 	
 	_Объект.result = result;
-	
-	Если responsible = Неопределено Тогда
-		_Объект.responsible = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	Иначе
-		_Объект.responsible = responsible;
-	КонецЕсли;
+	_Объект.responsible = ?(responsible = Неопределено, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), responsible);
 	
 	Возврат _Объект;
 	
@@ -98,15 +86,8 @@
 	
 	_Объект = Создать("ConsignmentDocumentList");
 	
-	_Объект.waybill = waybill;
-	
-	Если ТипЗнч(VetDocument) = Тип("Массив") Тогда
-		Для каждого _VetDocument Из VetDocument Цикл
-			_Объект.vetCertificate.Добавить(_VetDocument);
-		КонецЦикла;
-	Иначе
-		_Объект.vetCertificate.Добавить(VetDocument);
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, waybill, "waybill");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, VetDocument, "VetDocument");
 	
 	Возврат _Объект;
 	
@@ -135,7 +116,7 @@
 	
 	_Объект = Создать("StockEntry");
 	
-	ВетисОбщегоНазначения.ЗаполнитьОбъект(_Объект, guid);
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
 	
 	Возврат _Объект;
 	
@@ -193,21 +174,9 @@
 	
 	_Объект = Создать("ProductMarkingList");
 	
-	ProductMarkingДобавить(_Объект, content);
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, content, "productMarking", "ВетисMercuryVetdocument.ProductMarking");
 	
 	Возврат _Объект;
-	
-КонецФункции
-
-Функция ProductMarkingДобавить(List, content) Экспорт
-	
-	Если ТипЗнч(content) = Тип("Массив") Тогда
-		Для каждого _content Из content Цикл
-			List.productMarking.Добавить(ProductMarking(_content));
-		КонецЦикла;
-	ИначеЕсли ТипЗнч(content) = Тип("Строка") Тогда
-		List.productMarking.Добавить(ProductMarking(content));
-	КонецЕсли;
 	
 КонецФункции
 
@@ -222,25 +191,11 @@
 	
 	_Объект = Создать("DiscrepancyReport");
 	
-	Если НЕ issueSeries = Неопределено Тогда
-		_Объект.issueSeries = issueSeries;
-	КонецЕсли;
-	
-	Если НЕ issueNumber = Неопределено Тогда
-		_Объект.issueNumber = issueNumber;
-	КонецЕсли;
-	
-	Если НЕ issueDate = Неопределено Тогда
-		_Объект.issueDate = ВетисОбщегоНазначения.ВремяВетис(issueDate);
-	КонецЕсли;
-	
-	Если НЕ reason = Неопределено Тогда
-		_Объект.reason = DiscrepancyReason(reason);
-	КонецЕсли;
-	
-	Если НЕ description = Неопределено Тогда
-		_Объект.issueSeries = description;
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисОбщегоНазначения.ВремяВетис(issueDate), "issueDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, description, "description");
 	
 	Возврат _Объект;
 	
@@ -262,18 +217,12 @@
 
 //Тип, описывающий операцию оформления результатов инвентаризации.
 //Параметры:
-// stockEntry - Сведения о партии продукции. vetd:stockEntry
+// stockEntry - записи складского журнала продукции, полученные, либо измененные в результате инвентаризации. vetd:stockEntry
 Функция StockDiscrepancy(stockEntry) Экспорт
 	
 	_Объект = Создать("StockDiscrepancy");
 	
-	Если ТипЗнч(stockEntry) = Тип("Массив") Тогда
-		Для каждого _stockEntry Из stockEntry Цикл
-			_Объект.resultingList.Добавить(_stockEntry);
-		КонецЦикла;
-	ИначеЕсли ТипЗнч(stockEntry) = Тип("ОбъектXDTO") Тогда
-		_Объект.resultingList.Добавить(stockEntry);
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, stockEntry, "resultingList");
 		
 	Возврат _Объект;
 	

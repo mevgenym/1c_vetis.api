@@ -377,26 +377,20 @@
 		_док.Статус   = VetDocumentStatus(_всд.vetDStatus);
 		_док.Форма    = VetDocumentForm(_всд.vetDForm);
 		
-		_док.Отправитель = ВетисDictionaryСлой1с.BusinessEntity(_всд.consignor.businessEntity);
-		_док.Получатель  = ВетисDictionaryСлой1с.BusinessEntity(_всд.consignee.businessEntity);
+		_док.Отправитель = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.consignor.businessEntity);
+		_док.Получатель  = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.consignee.businessEntity);
 		
-		_док.ОтправительПредприятие = ВетисDictionaryСлой1с.Enterprise(_всд.consignor.enterprise);
-		_док.ПолучательПредприятие  = ВетисDictionaryСлой1с.Enterprise(_всд.consignee.enterprise);
+		_док.ОтправительПредприятие = ВетисDictionaryСлой1с.Enterprise(_всд.certifiedConsignment.consignor.enterprise);
+		_док.ПолучательПредприятие  = ВетисDictionaryСлой1с.Enterprise(_всд.certifiedConsignment.consignee.enterprise);
 		
 		_строкаВСД = ?(_док.ВСД.Количество() = 0, _док.ВСД.Добавить(), _док.ВСД[0]);
 		
-		//_строкаВСД.Серия    = _всд.issueSeries;
-		//_строкаВСД.Номер    = _всд.issueNumber;
-		//_строкаВСД.Дата     = _всд.issueDate;
-		//_строкаВСД.Тип      = VetDocumentType(_всд.type);
-		//_строкаВСД.Статус   = VetDocumentStatus(_всд.status);
-		//_строкаВСД.Форма    = VetDocumentForm(_всд.form);
-		_строкаВСД.БлагополучиеМестности  = _всд.locationProsperity;
-		_строкаВСД.Ветсанэкспертиза       = _всд.cargoExpertized;
+		_строкаВСД.БлагополучиеМестности  = _всд.authentication.locationProsperity;
+		_строкаВСД.Ветсанэкспертиза       = _всд.authentication.cargoExpertized;
 		//_строкаВСД.ГосударственныйВетврач = _всд.confirmedBy.fio;
-		_строкаВСД.ГосударственныйВетврачДата = ?(_всд.confirmedDate = Неопределено, _строкаВСД.ГосударственныйВетврачДата, ВетисОбщегоНазначения.ВремяБД(_всд.confirmedDate));
-		_строкаВСД.ДатаОбновления         = ?(_всд.lastUpdateDate = Неопределено, _строкаВСД.ДатаОбновления, ВетисОбщегоНазначения.ВремяБД(_всд.lastUpdateDate));
-		_строкаВСД.Иммунизация            = ?(_всд.immunizationInfo = Неопределено, _строкаВСД.Иммунизация, _всд.immunizationInfo);
+		//_строкаВСД.ГосударственныйВетврачДата = ?(_всд.confirmedDate = Неопределено, _строкаВСД.ГосударственныйВетврачДата, ВетисОбщегоНазначения.ВремяБД(_всд.confirmedDate));
+		//_строкаВСД.ДатаОбновления         = ?(_всд.lastUpdateDate = Неопределено, _строкаВСД.ДатаОбновления, ВетисОбщегоНазначения.ВремяБД(_всд.lastUpdateDate));
+		_строкаВСД.Иммунизация            = ?(_всд.authentication.immunization = Неопределено, _строкаВСД.Иммунизация, _всд.immunizationInfo);
 		_строкаВСД.КарантированиеДней     = ?(_всд.quarantineDays = Неопределено, _строкаВСД.КарантированиеДней, _всд.quarantineDays);
 		_строкаВСД.КарантированиеМесто    = ?(_всд.quarantinePlace = Неопределено, _строкаВСД.КарантированиеДней, _всд.quarantinePlace);
 		_строкаВСД.КонтрольГосВетврачем   = ?(_всд.cargoInspected = Неопределено, _строкаВСД.КонтрольГосВетврачем, _всд.cargoInspected);
@@ -411,13 +405,13 @@
 		_строкаТТН.Номер          = _всд.waybillNumber;
 		_строкаТТН.Дата           = ВетисОбщегоНазначения.ВремяБД(_всд.waybillDate);
 		_строкаТТН.Тип            = ВетисDictionaryСлой1с.DocumentType(_всд.waybillType);
-		_строкаТТН.Посредник      = ?(_всд.broker = Неопределено, _строкаТТН.Посредник, ВетисDictionaryСлой1с.BusinessEntity(_всд.broker));
-		_строкаТТН.СпособХранения = ВетисDictionaryСлой1с.TransportationStorageType(_всд.transportStorageType);
-		_строкаТТН.Транспорт      = TransportInfo(_всд.transportInfo);
+		_строкаТТН.Посредник      = ?(_всд.broker = Неопределено, _строкаТТН.Посредник, ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.broker));
+		_строкаТТН.СпособХранения = ВетисDictionaryСлой1с.TransportationStorageType(_всд.certifiedConsignment.transportStorageType);
+		_строкаТТН.Транспорт      = TransportInfo(_всд.certifiedConsignment.transportInfo);
 		
 		_строкаСЖ = ?(_док.Товары.Количество() = 0, _док.Товары.Добавить(), _док.Товары[0]);
 		
-		BatchКонвертировать(_строкаСЖ, _всд.batch);
+		BatchКонвертировать(_строкаСЖ, _всд.certifiedConsignment.batch);
 		
 	ИначеЕсли ТипЗнч(value2) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент") Тогда
 		
@@ -509,9 +503,11 @@
 		_строкаСЖ.НекачественныйГруз   = _batch.lowGradeCargo;
 		
 		Если _Версия20 Тогда
+			_строкаСЖ.Упаковка             = ?(_batch.productItem.packaging = Неопределено, "", ВетисDictionaryСлой1с.PackingForm(_batch.productItem.packaging.packagingType));
+			_строкаСЖ.КоличествоМест       = ?(_batch.productItem.packaging = Неопределено, 0, _batch.productItem.packaging.quantity);
 			_строкаСЖ.ПроизводительПредприятие = _ВетисCerberusEnterpriseСлой1с.Producer(_batch.origin.producer);
 			_строкаСЖ.Производитель        = _строкаСЖ.ПроизводительПредприятие.Владелец;
-			_строкаСЖ.Номенклатура         = _ВетисArgusProductionСлой1с.ProductItem(_batch.origin.productItem, _строкаСЖ.Производитель);
+			_строкаСЖ.Номенклатура         = _ВетисArgusProductionСлой1с.ProductItem(_batch.productItem, _строкаСЖ.Производитель);
 			//_batch.packageList
 		Иначе
 			_строкаСЖ.Упаковка             = _ВетисArgusCommonСлой1с.PackingForm(_batch.packingList);
@@ -586,6 +582,7 @@
 				);
 			//сделать: добавить упаковки для 2.0
 			//_batch.packageList = ВетисDictionary_2_0.PackageList(_СтрокаСЖ.Упаковка);
+			//_batch.batchID
 		Иначе
 			_batch.packingList      = _ВетисArgusCommon.PackingFormList(_ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
 			_batch.packingAmount    = _СтрокаСЖ.КоличествоМест;
@@ -595,30 +592,6 @@
 		КонецЕсли;
 		
 	КонецЕсли;
-	
-КонецФункции
-
-//начиная с v2.0
-Функция WaybillКонвертировать(пСтрокаТТН, пДата, пВозврат = Ложь) Экспорт
-	
-	_СтрокаТТН = пСтрокаТТН;
-	
-	_waybill = ВетисMercuryVetdocument_2_0.Waybill();
-	_waybill.issueSeries   = _СтрокаТТН.Серия;
-	_waybill.issueNumber   = _СтрокаТТН.Номер;
-	_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(_СтрокаТТН.Дата);
-	_waybill.broker        = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
-	_waybill.type          = ВетисDictionaryСлой1с.DocumentType(_СтрокаТТН.Тип);
-	_waybill.transportInfo = ВетисMercuryVetdocumentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
-	_waybill.transportStorageType = ВетисDictionaryСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
-	
-	Если пВозврат = Истина Тогда
-		_waybill.issueSeries   = "";
-		_waybill.issueNumber   = "";
-		_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(пДата);
-	КонецЕсли;
-	
-	Возврат _waybill;
 	
 КонецФункции
 
@@ -699,11 +672,11 @@
 		
 	КонецЕсли;
 	
-	Для каждого _Строка Из _Ветки Цикл
-		_Док = _Строка.Ссылка.ПолучитьОбъект();
-		_Док.ДополнительныеСвойства.Вставить("Загрузка", Истина);
-		_Док.УстановитьПометкуУдаления(Истина);
-	КонецЦикла;
+	//Для каждого _Строка Из _Ветки Цикл
+	//	_Док = _Строка.Ссылка.ПолучитьОбъект();
+	//	_Док.ДополнительныеСвойства.Вставить("Загрузка", Истина);
+	//	_Док.УстановитьПометкуУдаления(Истина);
+	//КонецЦикла;
 	
 КонецПроцедуры
 

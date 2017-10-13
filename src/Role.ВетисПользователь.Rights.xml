@@ -146,6 +146,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисВходящаяПартияПоДокументам</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисRegion</name>
 		<right>
 			<name>Read</name>
@@ -242,17 +249,6 @@
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Разрешение.Attribute.Серия</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>Document.ВетисТранспортнаяПартия.Attribute.Транспорт</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -411,7 +407,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.ДатаОбновления</name>
+		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.РезультатВетКонтроля</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -422,14 +418,10 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.РезультатВетКонтроля</name>
+		<name>Document.ВетисВходящаяПартияПоДокументам</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
+			<name>Read</name>
+			<value>true</value>
 		</right>
 	</object>
 	<object>
@@ -854,18 +846,6 @@
 			<name>Read</name>
 			<value>true</value>
 		</right>
-		<right>
-			<name>Update</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>true</value>
-		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.Получатель</name>
@@ -1023,17 +1003,6 @@
 	</object>
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.КлючСтроки</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>Document.ВетисТранспортнаяПартия.Attribute.СпособХраненияПродукции</name>
 		<right>
 			<name>View</name>
 			<value>false</value>

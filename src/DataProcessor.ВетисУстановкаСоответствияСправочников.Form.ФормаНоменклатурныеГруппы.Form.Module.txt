@@ -24,7 +24,7 @@
 	
 	Перем _Product, _subProduct, _параметрыP;
 	
-	_Версия20 = ВетисОбщегоНазначения.ВерсияРавно("2.0");
+	_Версия20 = ВетисОбщегоНазначения.Версия_2_0();
 	_ВетисProductService = ?(_Версия20, ВетисProductService_2_0, ВетисProductService);
 	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
 	

@@ -43,7 +43,9 @@
 				<v8:Value xsi:type="app:ApplicationUsePurpose">PersonalComputer</v8:Value>
 			</UsePurposes>
 			<ScriptVariant>Russian</ScriptVariant>
-			<DefaultRoles/>
+			<DefaultRoles>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисПользователь</xr:Item>
+			</DefaultRoles>
 			<Vendor/>
 			<Version>1.0.0</Version>
 			<UpdateCatalogAddress/>
@@ -123,7 +125,7 @@
 			<ModalityUseMode>DontUse</ModalityUseMode>
 			<SynchronousPlatformExtensionAndAddInCallUseMode>DontUse</SynchronousPlatformExtensionAndAddInCallUseMode>
 			<InterfaceCompatibilityMode>Taxi</InterfaceCompatibilityMode>
-			<CompatibilityMode>Version8_3_9</CompatibilityMode>
+			<CompatibilityMode>Version8_3_8</CompatibilityMode>
 			<DefaultConstantsForm/>
 		</Properties>
 		<ChildObjects>
@@ -133,6 +135,7 @@
 			<Role>ВетисАдминистратор</Role>
 			<Role>ВетисОператор</Role>
 			<Role>ВетисПользователь</Role>
+			<Role>ВетисПолныеПрава</Role>
 			<CommonModule>ВетисApplication</CommonModule>
 			<CommonModule>ВетисApplication_2_0</CommonModule>
 			<CommonModule>ВетисArgusCommon</CommonModule>
@@ -143,6 +146,7 @@
 			<CommonModule>ВетисArgusShipmentСлой1с</CommonModule>
 			<CommonModule>ВетисBase</CommonModule>
 			<CommonModule>ВетисBase_2_0</CommonModule>
+			<CommonModule>ВетисBaseСлой1с</CommonModule>
 			<CommonModule>ВетисCerberusEnterprise</CommonModule>
 			<CommonModule>ВетисCerberusEnterpriseСлой1с</CommonModule>
 			<CommonModule>ВетисDictionary_2_0</CommonModule>
@@ -196,6 +200,7 @@
 			<CommonCommand>ВетисRegion</CommonCommand>
 			<CommonCommand>ВетисXSD</CommonCommand>
 			<CommonCommand>ВетисВетеринарноСопроводительныйДокумент</CommonCommand>
+			<CommonCommand>ВетисВходящаяПартияПоДокументам</CommonCommand>
 			<CommonCommand>ВетисВходящаяПартияСводно</CommonCommand>
 			<CommonCommand>ВетисЖурнал</CommonCommand>
 			<CommonCommand>ВетисНастройки</CommonCommand>
@@ -230,6 +235,7 @@
 			<Catalog>Пользователи</Catalog>
 			<Catalog>Транспорт</Catalog>
 			<Document>ВетисВетеринарноСопроводительныйДокумент</Document>
+			<Document>ВетисВходящаяПартияПоДокументам</Document>
 			<Document>ВетисВходящаяПартияСводно</Document>
 			<Document>ВетисТранспортнаяПартия</Document>
 			<Enum>ВетисBusinessEntityType</Enum>
@@ -242,6 +248,7 @@
 			<Enum>ВетисResearchResult</Enum>
 			<Enum>ВетисTransportStorageType</Enum>
 			<Enum>ВетисTransportType</Enum>
+			<Enum>ВетисVersionStatus</Enum>
 			<Enum>ВетисVetDocumentForm</Enum>
 			<Enum>ВетисVetDocumentStatus</Enum>
 			<Enum>ВетисVetDocumentType</Enum>

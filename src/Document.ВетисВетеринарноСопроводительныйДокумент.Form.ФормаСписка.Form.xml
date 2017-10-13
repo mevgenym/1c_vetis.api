@@ -12,6 +12,11 @@
 				<CommandName>Form.Command.Аннулировать</CommandName>
 				<ExtendedTooltip name="ФормаАннулироватьРасширеннаяПодсказка" id="66"/>
 			</Button>
+			<Button name="ФормаУдалитьПомеченные" id="76">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.УдалитьПомеченные</CommandName>
+				<ExtendedTooltip name="ФормаУдалитьПомеченныеРасширеннаяПодсказка" id="77"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<ChildItems>
@@ -139,11 +144,6 @@
 					<DataPath>Список.Форма</DataPath>
 					<ContextMenu name="ФормаВСДКонтекстноеМеню" id="49"/>
 					<ExtendedTooltip name="ФормаВСДРасширеннаяПодсказка" id="50"/>
-				</LabelField>
-				<LabelField name="ДатаОбновления" id="60">
-					<DataPath>Список.ДатаОбновления</DataPath>
-					<ContextMenu name="ДатаОбновленияКонтекстноеМеню" id="61"/>
-					<ExtendedTooltip name="ДатаОбновленияРасширеннаяПодсказка" id="62"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -372,6 +372,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Аннулировать</Action>
+		</Command>
+		<Command name="УдалитьПомеченные" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить помеченные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить помеченные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьПомеченные</Action>
 		</Command>
 	</Commands>
 </Form>

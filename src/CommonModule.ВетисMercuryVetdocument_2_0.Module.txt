@@ -124,9 +124,11 @@
 КонецФункции
 
 //Тип, описывающий транспортную партию груза.
-Функция Consignment() Экспорт
+Функция Consignment(value = Неопределено) Экспорт
 	
 	_Объект = Создать("Consignment");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, value);
 	
 	//_Объект.id = "";// Идентификатор, определяющий consignment в запросе. Должен быть указан, если запрос содержит несколько элементов consignment.
 	
@@ -182,7 +184,7 @@
 // transportInfo - vd:TransportInfo - Сведения о транспорте.
 // transportStorageType - dt:TransportationStorageType - Способ хранения при перевозке.
 // shipmentRoute - vd:ShipmentRoute - Сведения о маршруте следования (пунктах перегрузки).
-Функция Delivery(consignor, consignee, consignment, accompanyingForms, broker, transportInfo, transportStorageType) Экспорт
+Функция Delivery(consignor, consignee, consignment, accompanyingForms, broker, transportInfo, transportStorageType, shipmentRoute = Неопределено) Экспорт
 	
 	_Объект = Создать("Delivery");
 	
@@ -193,7 +195,7 @@
 	_Объект.broker = broker;
 	_Объект.transportInfo = transportInfo;
 	_Объект.transportStorageType = transportStorageType;
-	//_Объект.shipmentRoute = shipmentRoute;
+	_Объект.shipmentRoute = shipmentRoute;
 	
 	Если ТипЗнч(consignment) = Тип("Массив") Тогда
 		Для каждого _consignment Из consignment Цикл

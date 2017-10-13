@@ -1,0 +1,66 @@
+﻿
+Функция VersionStatus(value) Экспорт
+	
+	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисVersionStatus") Тогда
+		Если      value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.CREATED") Тогда
+			Возврат ВетисКонстанты.VersionStatus_CREATED();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.CREATED_WHEN_MERGE") Тогда
+			Возврат ВетисКонстанты.VersionStatus_CREATED_WHEN_MERGE();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.DELETED") Тогда
+			Возврат ВетисКонстанты.VersionStatus_DELETED();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.DELETED_WHEN_ATTACH") Тогда
+			Возврат ВетисКонстанты.VersionStatus_DELETED_WHEN_ATTACH();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.DELETED_WHEN_MERGE") Тогда
+			Возврат ВетисКонстанты.VersionStatus_DELETED_WHEN_MERGE();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.DELETED_WHEN_SPLIT") Тогда
+			Возврат ВетисКонстанты.VersionStatus_DELETED_WHEN_SPLIT();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.MOVED") Тогда
+			Возврат ВетисКонстанты.VersionStatus_MOVED();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.SENT") Тогда
+			Возврат ВетисКонстанты.VersionStatus_SENT();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.UPDATED") Тогда
+			Возврат ВетисКонстанты.VersionStatus_UPDATED();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.UPDATED_WHEN_ATTACH") Тогда
+			Возврат ВетисКонстанты.VersionStatus_UPDATED_WHEN_ATTACH();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.UPDATED_WHEN_FORK") Тогда
+			Возврат ВетисКонстанты.VersionStatus_UPDATED_WHEN_FORK();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.WITHDRAWN") Тогда
+			Возврат ВетисКонстанты.VersionStatus_WITHDRAWN();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.Списано") Тогда
+			Возврат ВетисКонстанты.VersionStatus_Списано();
+		Иначе
+			Возврат ВетисКонстанты.VersionStatus_CREATED();
+		КонецЕсли;
+	Иначе
+		Если      value = ВетисКонстанты.VersionStatus_CREATED() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.CREATED");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_CREATED_WHEN_MERGE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.CREATED_WHEN_MERGE");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_DELETED() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.DELETED");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_DELETED_WHEN_ATTACH() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.DELETED_WHEN_ATTACH");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_DELETED_WHEN_MERGE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.DELETED_WHEN_MERGE");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_DELETED_WHEN_SPLIT() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.DELETED_WHEN_SPLIT");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_MOVED() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.MOVED");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_SENT() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.SENT");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_UPDATED() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.UPDATED");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_UPDATED_WHEN_ATTACH() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.UPDATED_WHEN_ATTACH");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_UPDATED_WHEN_FORK() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.UPDATED_WHEN_FORK");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_WITHDRAWN() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.WITHDRAWN");
+		ИначеЕсли value = ВетисКонстанты.VersionStatus_Списано() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.Списано");
+		Иначе
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисVersionStatus.CREATED");
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецФункции

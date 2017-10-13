@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<ScalingMode>Compact</ScalingMode>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -57,12 +58,6 @@
 					<ContextMenu name="ДатаКонтекстноеМеню" id="133"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="134"/>
 				</InputField>
-				<LabelField name="ДатаОбновления" id="482">
-					<DataPath>Объект.ДатаОбновления</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<ContextMenu name="ДатаОбновленияКонтекстноеМеню" id="483"/>
-					<ExtendedTooltip name="ДатаОбновленияРасширеннаяПодсказка" id="484"/>
-				</LabelField>
 				<LabelField name="Статус" id="379">
 					<DataPath>Объект.Статус</DataPath>
 					<TitleLocation>None</TitleLocation>

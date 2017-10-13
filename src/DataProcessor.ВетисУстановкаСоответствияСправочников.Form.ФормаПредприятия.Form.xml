@@ -7,6 +7,7 @@
 		</v8:item>
 	</Title>
 	<CommandBarLocation>None</CommandBarLocation>
+	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -29,8 +30,7 @@
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<HeightInTableRows>3</HeightInTableRows>
+							<HeightInTableRows>1</HeightInTableRows>
 							<Header>false</Header>
 							<EnableStartDrag>true</EnableStartDrag>
 							<DataPath>СписокКонтрагенты</DataPath>
@@ -100,6 +100,7 @@
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<HeightInTableRows>1</HeightInTableRows>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -162,6 +163,7 @@
 						</Table>
 						<Table name="СправочникСписок" id="34">
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<HeightInTableRows>1</HeightInTableRows>
 							<EnableStartDrag>true</EnableStartDrag>
 							<DataPath>СправочникСписок</DataPath>
 							<RowPictureDataPath>СправочникСписок.DefaultPicture</RowPictureDataPath>

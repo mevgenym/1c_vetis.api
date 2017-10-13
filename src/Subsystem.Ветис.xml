@@ -134,6 +134,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисRegion</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисRegion</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисDistrict</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисВходящаяПартияПоДокументам</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

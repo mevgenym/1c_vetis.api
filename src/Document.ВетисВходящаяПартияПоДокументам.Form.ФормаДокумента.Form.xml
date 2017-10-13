@@ -8,7 +8,7 @@
 		<ChildItems>
 			<Button name="ФормаОтправить" id="349">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отправить</CommandName>
+				<CommandName>Form.Command.КомандаОтправить</CommandName>
 				<ExtendedTooltip name="ФормаОтправитьРасширеннаяПодсказка" id="350"/>
 			</Button>
 		</ChildItems>
@@ -31,36 +31,11 @@
 					<v8:content>Группа документ</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Group>Horizontal</Group>
+			<Group>Vertical</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаДокументРасширеннаяПодсказка" id="375"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаДокументКолонка1" id="376">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа документ колонка1</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа документ колонка1</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаДокументКолонка1РасширеннаяПодсказка" id="377"/>
-					<ChildItems>
-						<InputField name="Номер" id="9">
-							<DataPath>Объект.Number</DataPath>
-							<ContextMenu name="НомерКонтекстноеМеню" id="10"/>
-							<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="11"/>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
 				<UsualGroup name="ГруппаДокументКолонка2" id="378">
 					<Title>
 						<v8:item>
@@ -74,11 +49,15 @@
 							<v8:content>Группа документ колонка2</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>Vertical</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаДокументКолонка2РасширеннаяПодсказка" id="379"/>
 					<ChildItems>
+						<InputField name="Номер" id="9">
+							<DataPath>Объект.Number</DataPath>
+							<ContextMenu name="НомерКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="11"/>
+						</InputField>
 						<InputField name="Дата" id="12">
 							<DataPath>Объект.Date</DataPath>
 							<Title>
@@ -89,6 +68,121 @@
 							</Title>
 							<ContextMenu name="ДатаКонтекстноеМеню" id="13"/>
 							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="14"/>
+						</InputField>
+						<LabelField name="Статус" id="499">
+							<DataPath>Объект.Статус</DataPath>
+							<ContextMenu name="СтатусКонтекстноеМеню" id="500"/>
+							<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="501"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаДокументКолонка1" id="376">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа документ колонка1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа документ колонка1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДокументКолонка1РасширеннаяПодсказка" id="377"/>
+					<ChildItems>
+						<InputField name="ДокументОснование" id="502">
+							<DataPath>Объект.ДокументОснование</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="503"/>
+							<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="504"/>
+						</InputField>
+						<Button name="ФормаКомандаЗаполнитьПоДокументу" id="505">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаЗаполнитьПоДокументу</CommandName>
+							<ExtendedTooltip name="ФормаКомандаЗаполнитьПоДокументуРасширеннаяПодсказка" id="506"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаЗаголовок" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа заголовок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаЗаголовокКолонка1" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заголовок колонка1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заголовок колонка1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЗаголовокКолонка1РасширеннаяПодсказка" id="6"/>
+					<ChildItems>
+						<InputField name="Отправитель" id="487">
+							<DataPath>Объект.Отправитель</DataPath>
+							<ContextMenu name="ОтправительКонтекстноеМеню" id="488"/>
+							<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="489"/>
+						</InputField>
+						<InputField name="ОтправительПредприятие" id="496">
+							<DataPath>Объект.ОтправительПредприятие</DataPath>
+							<ContextMenu name="ОтправительПредприятиеКонтекстноеМеню" id="497"/>
+							<ExtendedTooltip name="ОтправительПредприятиеРасширеннаяПодсказка" id="498"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаЗаголовокКолонка2" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заголовок колонка2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заголовок колонка2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЗаголовокКолонка2РасширеннаяПодсказка" id="8"/>
+					<ChildItems>
+						<InputField name="Получатель" id="490">
+							<DataPath>Объект.Получатель</DataPath>
+							<ContextMenu name="ПолучательКонтекстноеМеню" id="491"/>
+							<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="492"/>
+						</InputField>
+						<InputField name="ПолучательПредприятие" id="493">
+							<DataPath>Объект.ПолучательПредприятие</DataPath>
+							<ContextMenu name="ПолучательПредприятиеКонтекстноеМеню" id="494"/>
+							<ExtendedTooltip name="ПолучательПредприятиеРасширеннаяПодсказка" id="495"/>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -134,7 +228,15 @@
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ТоварыКонтекстноеМеню" id="381"/>
-							<AutoCommandBar name="ТоварыКоманднаяПанель" id="382"/>
+							<AutoCommandBar name="ТоварыКоманднаяПанель" id="382">
+								<ChildItems>
+									<Button name="ТоварыКомандаЗаполнитьПоХС" id="507">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаПодобратьВСД</CommandName>
+										<ExtendedTooltip name="ТоварыКомандаЗаполнитьПоХСРасширеннаяПодсказка" id="508"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="383"/>
 							<SearchStringAddition name="ТоварыСтрокаПоиска" id="384">
 								<AdditionSource>
@@ -164,11 +266,11 @@
 								<Event name="Selection">ТоварыВыбор</Event>
 								<Event name="BeforeAddRow">ТоварыПередНачаломДобавления</Event>
 								<Event name="BeforeDeleteRow">ТоварыПередУдалением</Event>
-								<Event name="OnActivateRow">ТоварыПриАктивизацииСтроки</Event>
 							</Events>
 							<ChildItems>
 								<LabelField name="Товарыguid" id="407">
 									<DataPath>Объект.Товары.guid</DataPath>
+									<Visible>false</Visible>
 									<EditMode>EnterOnInput</EditMode>
 									<Width>10</Width>
 									<ContextMenu name="ТоварыguidКонтекстноеМеню" id="408"/>
@@ -354,101 +456,11 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<UsualGroup name="ГруппаЗаголовок" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа заголовок</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа заголовок</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Group>Horizontal</Group>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="2"/>
-			<ChildItems>
-				<UsualGroup name="ГруппаЗаголовокКолонка1" id="5">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа заголовок колонка1</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа заголовок колонка1</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаЗаголовокКолонка1РасширеннаяПодсказка" id="6"/>
-					<ChildItems>
-						<LabelField name="Отправитель" id="15">
-							<DataPath>Отправитель</DataPath>
-							<ContextMenu name="ОтправительКонтекстноеМеню" id="16"/>
-							<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="17"/>
-						</LabelField>
-						<LabelField name="ОтправительПредприятие" id="18">
-							<DataPath>ОтправительПредприятие</DataPath>
-							<ContextMenu name="ОтправительПредприятиеКонтекстноеМеню" id="19"/>
-							<ExtendedTooltip name="ОтправительПредприятиеРасширеннаяПодсказка" id="20"/>
-						</LabelField>
-						<LabelField name="Количество" id="473">
-							<DataPath>Количество</DataPath>
-							<ContextMenu name="КоличествоКонтекстноеМеню" id="474"/>
-							<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="475"/>
-						</LabelField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаЗаголовокКолонка2" id="7">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа заголовок колонка2</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа заголовок колонка2</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаЗаголовокКолонка2РасширеннаяПодсказка" id="8"/>
-					<ChildItems>
-						<LabelField name="Получатель" id="21">
-							<DataPath>Получатель</DataPath>
-							<ContextMenu name="ПолучательКонтекстноеМеню" id="22"/>
-							<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="23"/>
-						</LabelField>
-						<LabelField name="ПолучательПредприятие" id="24">
-							<DataPath>ПолучательПредприятие</DataPath>
-							<ContextMenu name="ПолучательПредприятиеКонтекстноеМеню" id="25"/>
-							<ExtendedTooltip name="ПолучательПредприятиеРасширеннаяПодсказка" id="26"/>
-						</LabelField>
-						<LabelField name="КоличествоМест" id="476">
-							<DataPath>КоличествоМест</DataPath>
-							<ContextMenu name="КоличествоМестКонтекстноеМеню" id="477"/>
-							<ExtendedTooltip name="КоличествоМестРасширеннаяПодсказка" id="478"/>
-						</LabelField>
-					</ChildItems>
-				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
 			<Type>
-				<v8:Type>cfg:DocumentObject.ВетисВходящаяПартияСводно</v8:Type>
+				<v8:Type>cfg:DocumentObject.ВетисВходящаяПартияПоДокументам</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
@@ -628,7 +640,37 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="ЗаполнитьВозвратный" id="1">
+		<Command name="КомандаОтправить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оформить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отправить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтправить</Action>
+		</Command>
+		<Command name="КомандаПодобратьВСД" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать ВСД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда подобрать ВСД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПодобратьВСД</Action>
+		</Command>
+		<Command name="КомандаЗаполнитьПоДокументу" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -638,25 +680,10 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить возвратный</v8:content>
+					<v8:content>Команда заполнить по документу</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ЗаполнитьВозвратный</Action>
-		</Command>
-		<Command name="Отправить" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отправить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отправить</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаОтправить</Action>
+			<Action>КомандаЗаполнитьПоДокументу</Action>
 		</Command>
 	</Commands>
 </Form>

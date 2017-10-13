@@ -16,7 +16,7 @@
 	
 	Перем _Item, _Параметры;
 	
-	_ВетисDictionaryService = ?(ВетисОбщегоНазначения.ВерсияРавно("2.0"), ВетисDictionaryService_2_0, ВетисDictionaryService);
+	_ВетисDictionaryService = ?(ВетисОбщегоНазначения.Версия_2_0(), ВетисDictionaryService_2_0, ВетисDictionaryService);
 	
 	СписокВетис.Очистить();
 	

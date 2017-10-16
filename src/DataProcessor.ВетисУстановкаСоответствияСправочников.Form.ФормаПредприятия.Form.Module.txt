@@ -13,7 +13,7 @@
 	
 	СписокВетис.Очистить();
 	
-	Если ВетисОбщегоНазначения.Версия_2_0() Тогда
+	Если ВетисXSD.Версия_2_0() Тогда
 		_businessEntityGuid = ВетисDictionaryСлой1с.BusinessEntity(пКонтрагент);
 		
 		Пока ВетисEnterpriseService_2_0.GetActivityLocationListСледующий(_businessEntityGuid, _Enterprise, _Параметры) Цикл

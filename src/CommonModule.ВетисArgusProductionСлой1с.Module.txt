@@ -2,7 +2,7 @@
 Функция ProductType(value, ПоУмолчанию = Неопределено) Экспорт
 	
 	Если ТипЗнч(value) = Тип(ВетисИмяСправочника.ProductItem("СправочникСсылка")) Тогда
-		Возврат ?(ВетисОбщегоНазначения.Версия_2_0(), ВетисProductService_2_0, ВетисProductService).GetProductItemByGuid(value.guid).productType;
+		Возврат ?(ВетисXSD.Версия_2_0(), ВетисProductService_2_0, ВетисProductService).GetProductItemByGuid(value.guid).productType;
 		
 	ИначеЕсли ТипЗнч(value) = Тип(ВетисИмяСправочника.ProductType("ПеречислениеСсылка")) Тогда
 		Если      value = ПредопределенноеЗначение(ВетисИмяСправочника.ProductType("Перечисление","МясоИМясопродукты")) Тогда

@@ -5,6 +5,7 @@
 		<ChildItems>
 			<Button name="ФормаКомандаГотово" id="4">
 				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.КомандаГотово</CommandName>
 				<ExtendedTooltip name="ФормаКомандаГотовоРасширеннаяПодсказка" id="5"/>
 			</Button>
@@ -39,11 +40,18 @@
 			</ChildItems>
 		</UsualGroup>
 		<Table name="СписокНастройкиХС" id="68">
+			<TitleLocation>Auto</TitleLocation>
 			<HeightInTableRows>1</HeightInTableRows>
 			<UseAlternationRowColor>true</UseAlternationRowColor>
 			<EnableStartDrag>true</EnableStartDrag>
 			<DataPath>СписокНастройкиХС</DataPath>
 			<RowPictureDataPath>СписокНастройкиХС.DefaultPicture</RowPictureDataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки ХС</v8:content>
+				</v8:item>
+			</Title>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -131,11 +139,18 @@
 			</ChildItems>
 		</Table>
 		<Table name="СписокПользователи" id="43">
+			<TitleLocation>Auto</TitleLocation>
 			<HeightInTableRows>1</HeightInTableRows>
 			<UseAlternationRowColor>true</UseAlternationRowColor>
 			<EnableStartDrag>true</EnableStartDrag>
 			<DataPath>СписокПользователи</DataPath>
 			<RowPictureDataPath>СписокПользователи.DefaultPicture</RowPictureDataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользователи</v8:content>
+				</v8:item>
+			</Title>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>

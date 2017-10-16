@@ -53,7 +53,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисDocumentNature</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисProductType</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисTransportStorageType</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисTransportType</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVetDocumentForm</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVetDocumentStatus</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVetDocumentType</xr:Item>
@@ -135,6 +134,13 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисRegion</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисDistrict</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисВходящаяПартияПоДокументам</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисПодразделения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисВходящаяПартияПоДокументам</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисXSD</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисBaseСлой1с</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисПолныеПрава</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисTransportType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVersionStatus</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

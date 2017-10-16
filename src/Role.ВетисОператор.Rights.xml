@@ -27,28 +27,6 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.ВетисПредприятия.Attribute.Адрес</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>Catalog.ВетисПредприятия.Attribute.Широта</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>Catalog.Транспорт.Attribute.ТипТранспорта</name>
 		<right>
 			<name>View</name>
@@ -61,17 +39,6 @@
 	</object>
 	<object>
 		<name>Catalog.Транспорт.Attribute.ГосударственныйНомер</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>Catalog.ВетисПредприятия.Attribute.Долгота</name>
 		<right>
 			<name>View</name>
 			<value>false</value>

@@ -23,7 +23,7 @@
 	
 	Перем _product, _subProduct, _productItem, _параметрыP;
 	
-	_Версия20 = ВетисОбщегоНазначения.Версия_2_0();
+	_Версия20 = ВетисXSD.Версия_2_0();
 	_ВетисProductService = ?(_Версия20, ВетисProductService_2_0, ВетисProductService);
 	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
 	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);

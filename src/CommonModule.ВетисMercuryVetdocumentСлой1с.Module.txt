@@ -249,7 +249,7 @@
 
 Функция VetDocumentКонвертировать(value1, value2) Экспорт
 	
-	Если ВетисОбщегоНазначения.Версия_2_0() Тогда
+	Если ВетисXSD.Версия_2_0() Тогда
 		VetDocumentКонвертировать_20(value1, value2);
 		Возврат Неопределено;
 	КонецЕсли;
@@ -466,7 +466,7 @@
 
 Функция BatchКонвертировать(value1, value2) Экспорт
 	
-	_Версия20 = ВетисОбщегоНазначения.Версия_2_0();
+	_Версия20 = ВетисXSD.Версия_2_0();
 	_ВетисBase = ?(_Версия20, ВетисDictionary_2_0, ВетисBase);
 	_ВетисArgusProduction = ?(_Версия20, ВетисDictionary_2_0, ВетисArgusProduction);
 	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
@@ -599,7 +599,7 @@
 	
 	Перем _issuerId;
 	
-	_ВетисCerberusEnterpriseСлой1с = ?(ВетисОбщегоНазначения.Версия_2_0(), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	_ВетисCerberusEnterpriseСлой1с = ?(ВетисXSD.Версия_2_0(), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
 	
 	Запрос = Новый Запрос;
 	Запрос.Текст =
@@ -687,7 +687,7 @@
 	_Тип = ВетисMercuryVetdocumentСлой1с.VetDocumentType(пТип);
 	_Статус = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(пСтатус);
 	
-	_Версия20 = ВетисОбщегоНазначения.Версия_2_0();
+	_Версия20 = ВетисXSD.Версия_2_0();
 	
 	_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
 	

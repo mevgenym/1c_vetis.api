@@ -95,7 +95,6 @@
 					<ChildItems>
 						<InputField name="ДокументОснование" id="502">
 							<DataPath>Объект.ДокументОснование</DataPath>
-							<AutoMaxWidth>false</AutoMaxWidth>
 							<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="503"/>
 							<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="504"/>
 						</InputField>
@@ -108,41 +107,41 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаЗаголовок" id="1">
+		<UsualGroup name="ГруппаРеквизиты" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа заголовок</v8:content>
+					<v8:content>Группа реквизиты</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа заголовок</v8:content>
+					<v8:content>Группа реквизиты</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Group>Horizontal</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="2"/>
+			<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="2"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаЗаголовокКолонка1" id="5">
+				<UsualGroup name="ГруппаОтправитель" id="5">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа заголовок колонка1</v8:content>
+							<v8:content>Группа отправитель</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа заголовок колонка1</v8:content>
+							<v8:content>Группа отправитель</v8:content>
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаЗаголовокКолонка1РасширеннаяПодсказка" id="6"/>
+					<ExtendedTooltip name="ГруппаОтправительРасширеннаяПодсказка" id="6"/>
 					<ChildItems>
 						<InputField name="Отправитель" id="487">
 							<DataPath>Объект.Отправитель</DataPath>
@@ -156,23 +155,23 @@
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаЗаголовокКолонка2" id="7">
+				<UsualGroup name="ГруппаПолучатель" id="7">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа заголовок колонка2</v8:content>
+							<v8:content>Группа получатель</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа заголовок колонка2</v8:content>
+							<v8:content>Группа получатель</v8:content>
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаЗаголовокКолонка2РасширеннаяПодсказка" id="8"/>
+					<ExtendedTooltip name="ГруппаПолучательРасширеннаяПодсказка" id="8"/>
 					<ChildItems>
 						<InputField name="Получатель" id="490">
 							<DataPath>Объект.Получатель</DataPath>

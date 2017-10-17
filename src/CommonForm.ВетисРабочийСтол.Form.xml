@@ -531,6 +531,11 @@
 										<CommandName>Form.Command.СкладскойЖурналПоследние</CommandName>
 										<ExtendedTooltip name="СписокСкладскойЖурналСкладскойЖурналПоследниеРасширеннаяПодсказка" id="225"/>
 									</Button>
+									<Button name="СписокСкладскойЖурналСкладскойЖурналПолучитьТекущий" id="305">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СкладскойЖурналПолучитьТекущий</CommandName>
+										<ExtendedTooltip name="СписокСкладскойЖурналСкладскойЖурналПолучитьТекущийРасширеннаяПодсказка" id="306"/>
+									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокСкладскойЖурналРасширеннаяПодсказка" id="135"/>
@@ -1116,6 +1121,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СкладскойЖурналПоследние</Action>
+		</Command>
+		<Command name="СкладскойЖурналПолучитьТекущий" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тест</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Складской журнал получить текущий</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СкладскойЖурналПолучитьТекущий</Action>
 		</Command>
 	</Commands>
 </Form>

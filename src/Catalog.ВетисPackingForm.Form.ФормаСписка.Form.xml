@@ -68,6 +68,12 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 			</SearchControlAddition>
 			<ChildItems>
+				<LabelField name="Значение" id="19">
+					<DataPath>Список.Значение</DataPath>
+					<Width>2</Width>
+					<ContextMenu name="ЗначениеКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ЗначениеРасширеннаяПодсказка" id="21"/>
+				</LabelField>
 				<LabelField name="Наименование" id="14">
 					<DataPath>Список.Description</DataPath>
 					<DefaultItem>true</DefaultItem>

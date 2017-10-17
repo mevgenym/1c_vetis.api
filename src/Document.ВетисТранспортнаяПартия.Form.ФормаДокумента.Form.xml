@@ -57,6 +57,23 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
+		<UsualGroup name="Группа1" id="322">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="323"/>
+			<ChildItems>
+				<InputField name="ДокументОснование" id="319">
+					<DataPath>Объект.ДокументОснование</DataPath>
+					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="320"/>
+					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="321"/>
+				</InputField>
+				<Button name="КомандаЗаполнитьПоДокументу" id="324">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.КомандаЗаполнитьПоДокументу</CommandName>
+					<ExtendedTooltip name="КомандаЗаполнитьПоДокументуРасширеннаяПодсказка" id="325"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 		<UsualGroup name="ГруппаРеквизиты" id="111">
 			<Title>
 				<v8:item>
@@ -578,6 +595,7 @@
 									</ChildItems>
 								</Table>
 								<Table name="Партии" id="190">
+									<Visible>false</Visible>
 									<HeightInTableRows>1</HeightInTableRows>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
@@ -1262,6 +1280,21 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>КомандаПартииПереместитьВверх</Action>
+		</Command>
+		<Command name="КомандаЗаполнитьПоДокументу" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда заполнить по документу</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗаполнитьПоДокументу</Action>
 		</Command>
 	</Commands>
 </Form>

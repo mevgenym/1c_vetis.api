@@ -66,6 +66,11 @@
 					<ContextMenu name="СтатусКонтекстноеМеню" id="380"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="381"/>
 				</LabelField>
+				<InputField name="uuid" id="482">
+					<DataPath>Объект.uuid</DataPath>
+					<ContextMenu name="uuidКонтекстноеМеню" id="483"/>
+					<ExtendedTooltip name="uuidРасширеннаяПодсказка" id="484"/>
+				</InputField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаЗаголовок" id="127">

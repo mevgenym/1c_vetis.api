@@ -479,7 +479,7 @@
 		Иначе
 			_СтрокаВСД = пВСД.ВСД[0];
 			_VetDocument.issueDate          = ВетисОбщегоНазначения.ВремяВетис(пВСД.Дата);
-			_VetDocument.purpose            = _ВетисArgusCommon.Purpose(_ВетисArgusCommonСлой1с.Purpose(ВетисПредопределенные.Получить("Purpose.ВозвратГруза")));
+			_VetDocument.purpose            = _ВетисArgusCommon.Purpose(_ВетисArgusCommonСлой1с.Purpose(ВетисПредопределенные.Получить("Purpose.Возврат")));
 			_VetDocument.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 			_VetDocument.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
 			_VetDocument.confirmedBy        = ВетисПараметрыСоединения.Врач();
@@ -532,6 +532,8 @@
 			_waybill.issueDate     = ВетисОбщегоНазначения.ВремяВетис(пВСД.Дата);
 		КонецЕсли;
 	КонецЕсли;
+	
+	Возврат _waybill;
 	
 КонецФункции
 

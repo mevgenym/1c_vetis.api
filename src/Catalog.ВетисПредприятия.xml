@@ -38,9 +38,7 @@
 			<LevelCount>2</LevelCount>
 			<FoldersOnTop>true</FoldersOnTop>
 			<UseStandardCommands>false</UseStandardCommands>
-			<Owners>
-				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Контрагенты</xr:Item>
-			</Owners>
+			<Owners/>
 			<SubordinationUse>ToItems</SubordinationUse>
 			<CodeLength>11</CodeLength>
 			<DescriptionLength>100</DescriptionLength>

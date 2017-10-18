@@ -239,7 +239,7 @@
 //  пПараметры - для внутреннего использования, начальное значение - Неопределено
 // Возвращаемое значение:
 //	Булево - Ложь значит список пройден весь
-Функция GetProductItemListСледующий(subProductGuid, enterpriseGuid, пItem, пПараметры) Экспорт
+Функция GetProductItemListСледующий(productType, product, subProduct, businessEntity, enterprise, пItem, пПараметры) Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
@@ -261,7 +261,7 @@
 	КонецЕсли;
 	
 	Попытка
-		ListResponse = Прокси().GetProductItemList(пПараметры.ListOptions, subProductGuid, enterpriseGuid);
+		ListResponse = Прокси().GetProductItemList(пПараметры.ListOptions, productType, product, subProduct, businessEntity, enterprise);
 	Исключение
 		ВетисЖурнал.ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
 		ВызватьИсключение;

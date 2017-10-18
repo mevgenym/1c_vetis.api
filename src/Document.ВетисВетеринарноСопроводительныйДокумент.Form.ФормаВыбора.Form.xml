@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -59,17 +60,6 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<LabelField name="Дата" id="14">
-					<DataPath>Список.Date</DataPath>
-					<DefaultItem>true</DefaultItem>
-					<ContextMenu name="ДатаКонтекстноеМеню" id="15"/>
-					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="16"/>
-				</LabelField>
-				<LabelField name="Номер" id="17">
-					<DataPath>Список.Number</DataPath>
-					<ContextMenu name="НомерКонтекстноеМеню" id="18"/>
-					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="19"/>
-				</LabelField>
 				<LabelField name="НомерВСД" id="20">
 					<DataPath>Список.НомерВСД</DataPath>
 					<ContextMenu name="НомерВСДКонтекстноеМеню" id="21"/>
@@ -80,42 +70,30 @@
 					<ContextMenu name="ДатаВСДКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="ДатаВСДРасширеннаяПодсказка" id="25"/>
 				</LabelField>
-				<LabelField name="Статус" id="26">
-					<DataPath>Список.Статус</DataPath>
-					<ContextMenu name="СтатусКонтекстноеМеню" id="27"/>
-					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="28"/>
-				</LabelField>
-				<LabelField name="Тип" id="44">
-					<DataPath>Список.Тип</DataPath>
-					<ContextMenu name="ТипКонтекстноеМеню" id="45"/>
-					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="46"/>
-				</LabelField>
 				<LabelField name="Отправитель" id="32">
 					<DataPath>Список.Отправитель</DataPath>
 					<ContextMenu name="ОтправительКонтекстноеМеню" id="33"/>
 					<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="34"/>
-				</LabelField>
-				<LabelField name="ОтправительПредприятие" id="35">
-					<DataPath>Список.ОтправительПредприятие</DataPath>
-					<Visible>false</Visible>
-					<ContextMenu name="ОтправительПредприятиеКонтекстноеМеню" id="36"/>
-					<ExtendedTooltip name="ОтправительПредприятиеРасширеннаяПодсказка" id="37"/>
 				</LabelField>
 				<LabelField name="Получатель" id="38">
 					<DataPath>Список.Получатель</DataPath>
 					<ContextMenu name="ПолучательКонтекстноеМеню" id="39"/>
 					<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="40"/>
 				</LabelField>
-				<LabelField name="ПолучательПредприятие" id="41">
-					<DataPath>Список.ПолучательПредприятие</DataPath>
-					<Visible>false</Visible>
-					<ContextMenu name="ПолучательПредприятиеКонтекстноеМеню" id="42"/>
-					<ExtendedTooltip name="ПолучательПредприятиеРасширеннаяПодсказка" id="43"/>
+				<LabelField name="НоменклатурнаяГруппа" id="50">
+					<DataPath>Список.НоменклатурнаяГруппа</DataPath>
+					<ContextMenu name="НоменклатурнаяГруппаКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="НоменклатурнаяГруппаРасширеннаяПодсказка" id="52"/>
 				</LabelField>
-				<LabelField name="Форма1" id="29">
-					<DataPath>Список.Форма</DataPath>
-					<ContextMenu name="Форма1КонтекстноеМеню" id="30"/>
-					<ExtendedTooltip name="Форма1РасширеннаяПодсказка" id="31"/>
+				<LabelField name="Номенклатура" id="47">
+					<DataPath>Список.Номенклатура</DataPath>
+					<ContextMenu name="НоменклатураКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="49"/>
+				</LabelField>
+				<LabelField name="Количество" id="53">
+					<DataPath>Список.Количество</DataPath>
+					<ContextMenu name="КоличествоКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="55"/>
 				</LabelField>
 			</ChildItems>
 		</Table>

@@ -25,10 +25,20 @@
 	
 	_Версия20 = ВетисXSD.Версия_2_0();
 	_ВетисProductService = ?(_Версия20, ВетисProductService_2_0, ВетисProductService);
+	//_ВетисEnterpriseService = ?(_Версия20, ВетисEnterpriseService_2_0, ВетисEnterpriseService);
 	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
 	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary_2_0, ВетисCerberusEnterprise);
 	
-	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(Предприятие);
+	_issuerId = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(Объект.ХозяйствующийСубъект);
+	
+	//_businessEntity = _ВетисEnterpriseService.GetBusinessEntityByGuid(_issuerId);
+	
+	_businessEntity = _ВетисCerberusEnterprise.BusinessEntity(_issuerId);
+	
+	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(Объект.Предприятие);
+	
+	_enterprise = _ВетисCerberusEnterprise.Enterprise(_enterpriseGuid);
 	
 	_ТипПродукции = _ВетисArgusProductionСлой1с.ProductType(ТипПродукции);
 	
@@ -44,14 +54,25 @@
 			_СписокСтрока.guid = _subProduct.guid;
 			
 			_параметрыPI = Неопределено;
-			Пока _ВетисProductService.GetProductItemListСледующий(_subProduct.guid, _enterpriseGuid, _productItem, _параметрыPI) Цикл
-				
-				_СписокСтрока = СписокВетис.Добавить();
-				_СписокСтрока.name = _productItem.name;
-				_СписокСтрока.guid = _productItem.guid;
-				_СписокСтрока.subProduct = _subProduct.guid;
-				
-			КонецЦикла;
+			Если _Версия20 Тогда
+				Пока ВетисProductService_2_0.GetProductItemListСледующий(_ТипПродукции, _product, _subProduct, _businessEntity, _enterprise, _productItem, _параметрыPI) Цикл
+					
+					_СписокСтрока = СписокВетис.Добавить();
+					_СписокСтрока.name = _productItem.name;
+					_СписокСтрока.guid = _productItem.guid;
+					_СписокСтрока.subProduct = _subProduct.guid;
+					
+				КонецЦикла;
+			Иначе
+				Пока ВетисProductService.GetProductItemListСледующий(_subProduct.guid, _enterpriseGuid, _productItem, _параметрыPI) Цикл
+					
+					_СписокСтрока = СписокВетис.Добавить();
+					_СписокСтрока.name = _productItem.name;
+					_СписокСтрока.guid = _productItem.guid;
+					_СписокСтрока.subProduct = _subProduct.guid;
+					
+				КонецЦикла;
+			КонецЕсли;
 			
 		КонецЦикла;
 		
@@ -125,7 +146,7 @@
 &НаКлиенте
 Процедура ХСНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
 	
-	ВетисФормы.BusinessEntityФормаВыбора(ЭтаФорма, "ХСОбработкаОповещения", СтандартнаяОбработка, ХС);
+	ВетисФормы.BusinessEntityФормаВыбора(ЭтаФорма, "ХСОбработкаОповещения", СтандартнаяОбработка, Объект.ХозяйствующийСубъект);
 	
 КонецПроцедуры
 
@@ -133,7 +154,7 @@
 Процедура ХСОбработкаОповещения(Результат, Параметр) Экспорт
 	
 	Если НЕ Результат = Неопределено Тогда
-		ХС = Результат;
+		Объект.ХозяйствующийСубъект = Результат;
 	КонецЕсли;
 	
 КонецПроцедуры
@@ -141,7 +162,7 @@
 &НаКлиенте
 Процедура ПредприятиеНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
 	
-	ВетисФормы.EnterpriseФормаВыбора(ЭтаФорма, "ПредприятиеОбработкаОповещения", СтандартнаяОбработка, ХС);
+	ВетисФормы.EnterpriseФормаВыбора(ЭтаФорма, "ПредприятиеОбработкаОповещения", СтандартнаяОбработка, Объект.ХозяйствующийСубъект);
 	
 КонецПроцедуры
 
@@ -149,7 +170,7 @@
 Процедура ПредприятиеОбработкаОповещения(Результат, Параметр) Экспорт
 	
 	Если НЕ Результат = Неопределено Тогда
-		Предприятие = Результат;
+		Объект.Предприятие = Результат;
 	КонецЕсли;
 	
 КонецПроцедуры

@@ -261,8 +261,9 @@
 			<InformationRegister>ВетисНастройкиХС</InformationRegister>
 			<InformationRegister>ВетисПользователи</InformationRegister>
 			<InformationRegister>ВетисПредопределенные</InformationRegister>
-			<InformationRegister>ВетисСоответствие</InformationRegister>
+			<InformationRegister>ВетисПредприятияХС</InformationRegister>
 			<InformationRegister>ВетисСкладскойЖурналРС</InformationRegister>
+			<InformationRegister>ВетисСоответствие</InformationRegister>
 			<AccumulationRegister>ВетисСкладскойЖурнал</AccumulationRegister>
 		</ChildObjects>
 	</Configuration>

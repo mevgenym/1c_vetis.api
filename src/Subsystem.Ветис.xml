@@ -141,6 +141,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисПолныеПрава</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисTransportType</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVersionStatus</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисПредприятияХС</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

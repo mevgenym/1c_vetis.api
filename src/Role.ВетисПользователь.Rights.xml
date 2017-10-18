@@ -317,6 +317,13 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисПредприятияХС</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.СтранаПроисхождения</name>
 		<right>
 			<name>View</name>

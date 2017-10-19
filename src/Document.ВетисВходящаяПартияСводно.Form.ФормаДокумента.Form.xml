@@ -544,37 +544,25 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
-						<dcsset:field>СкладскойЖурналНоменклатурнаяГруппа</dcsset:field>
+						<dcsset:field>ТоварыКоличество</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СкладскойЖурналКоличество</dcsset:field>
+						<dcsset:field>ТоварыКоличествоМест</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СкладскойЖурналКоличествоМест</dcsset:field>
+						<dcsset:field>ТоварыВСД</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СкладскойЖурналВСД</dcsset:field>
+						<dcsset:field>ТоварыКоличествоВозврат</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СкладскойЖурналКоличествоВозврат</dcsset:field>
+						<dcsset:field>ТоварыКоличествоМестВозврат</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СкладскойЖурналКоличествоМестВозврат</dcsset:field>
+						<dcsset:field>ТоварыВозврат</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СкладскойЖурналВозвратныйВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СкладскойЖурналВозврат</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СкладскойЖурналРезультатПриема</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СкладскойЖурналРешениеОПриеме</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СкладскойЖурналАктПричина</dcsset:field>
+						<dcsset:field>ТоварыВозвратныйВСД</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
@@ -602,13 +590,13 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
-						<dcsset:field>СкладскойЖурналКоличествоВозврат</dcsset:field>
+						<dcsset:field>ТоварыКоличествоВозврат</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СкладскойЖурналКоличествоМестВозврат</dcsset:field>
+						<dcsset:field>ТоварыКоличествоМестВозврат</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СкладскойЖурналВозвратныйВСД</dcsset:field>
+						<dcsset:field>ТоварыВозвратныйВСД</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>

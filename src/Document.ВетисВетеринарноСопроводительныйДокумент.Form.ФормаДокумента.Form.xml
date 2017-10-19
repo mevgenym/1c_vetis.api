@@ -515,11 +515,13 @@
 								<InputField name="НомерВСД" id="445">
 									<DataPath>Объект.НомерВСД</DataPath>
 									<HorizontalStretch>false</HorizontalStretch>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="НомерВСДКонтекстноеМеню" id="446"/>
 									<ExtendedTooltip name="НомерВСДРасширеннаяПодсказка" id="447"/>
 								</InputField>
 								<InputField name="ДатаВСД" id="448">
 									<DataPath>Объект.ДатаВСД</DataPath>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ДатаВСДКонтекстноеМеню" id="449"/>
 									<ExtendedTooltip name="ДатаВСДРасширеннаяПодсказка" id="450"/>
 								</InputField>

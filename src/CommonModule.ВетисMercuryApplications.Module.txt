@@ -268,6 +268,11 @@
 			КонецЕсли;
 		Иначе
 			пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
+			//по отбору приходят ВСД с другим типом, пока ставлю ограничение здесь
+			Если НЕ vetDocumentType = Неопределено И НЕ пItem.type = vetDocumentType
+				ИЛИ НЕ vetDocumentStatus = Неопределено И НЕ пItem.status = vetDocumentStatus Тогда
+				Возврат getVetDocumentListСледующий(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры);
+			КонецЕсли;
 			Возврат Истина;
 		КонецЕсли;
 	КонецЕсли;
@@ -284,6 +289,11 @@
 		Возврат Ложь;
 	Иначе
 		пItem = пПараметры.ListResponse.vetDocument[пПараметры.Индекс];
+		//по отбору приходят ВСД с другим типом, пока ставлю ограничение здесь
+		Если НЕ vetDocumentType = Неопределено И НЕ пItem.type = vetDocumentType
+			ИЛИ НЕ vetDocumentStatus = Неопределено И НЕ пItem.status = vetDocumentStatus Тогда
+			Возврат getVetDocumentListСледующий(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры);
+		КонецЕсли;
 		Возврат Истина;
 	КонецЕсли;
 	

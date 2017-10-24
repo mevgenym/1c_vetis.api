@@ -136,13 +136,6 @@
 		</right>
 	</object>
 	<object>
-		<name>AccumulationRegister.ВетисСкладскойЖурнал.Command.ВетисСкладскойЖурнал</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>InformationRegister.ВетисСкладскойЖурналРС</name>
 		<right>
 			<name>Read</name>
@@ -494,13 +487,6 @@
 		</right>
 		<right>
 			<name>TotalsControl</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>InformationRegister.ВетисСоответствие.Command.ВетисСоответствие</name>
-		<right>
-			<name>View</name>
 			<value>true</value>
 		</right>
 	</object>

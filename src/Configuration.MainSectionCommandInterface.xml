@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <CommandInterface xmlns="http://v8.1c.ru/8.3/xcf/extrnprops" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<CommandsVisibility>
+		<Command name="InformationRegister.ВетисПредприятияХС.Command.ВетисПредприятияХС">
+			<Visibility>
+				<xr:Common>false</xr:Common>
+			</Visibility>
+		</Command>
 		<Command name="AccumulationRegister.ВетисСкладскойЖурнал.Command.ВетисСкладскойЖурнал">
 			<Visibility>
 				<xr:Common>false</xr:Common>
@@ -11,28 +16,10 @@
 		<Command name="CommonCommand.ВетисPackingForm">
 			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
 		</Command>
-		<Command name="CommonCommand.ВетисPurpose">
-			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
-		</Command>
-		<Command name="CommonCommand.КлассификаторЕдиницИзмерения">
-			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
-		</Command>
 		<Command name="CommonCommand.Контрагенты">
 			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
 		</Command>
-		<Command name="CommonCommand.Номенклатура">
-			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
-		</Command>
 		<Command name="CommonCommand.Пользователи">
-			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
-		</Command>
-		<Command name="CommonCommand.ВетисПредприятия">
-			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
-		</Command>
-		<Command name="CommonCommand.Транспорт">
-			<CommandGroup>00000000-0000-0000-0000-000000000000</CommandGroup>
-		</Command>
-		<Command name="CommonCommand.ВетисDistrict">
 			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
 		</Command>
 		<Command name="CommonCommand.ВетисRegion">

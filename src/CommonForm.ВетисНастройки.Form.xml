@@ -39,181 +39,306 @@
 				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
-		<Table name="СписокНастройкиХС" id="68">
-			<TitleLocation>Auto</TitleLocation>
-			<HeightInTableRows>1</HeightInTableRows>
-			<UseAlternationRowColor>true</UseAlternationRowColor>
-			<EnableStartDrag>true</EnableStartDrag>
-			<DataPath>СписокНастройкиХС</DataPath>
-			<RowPictureDataPath>СписокНастройкиХС.DefaultPicture</RowPictureDataPath>
+		<Pages name="ГруппаСтраницы" id="115">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Настройки ХС</v8:content>
+					<v8:content>Группа страницы</v8:content>
 				</v8:item>
 			</Title>
-			<AutoRefresh>false</AutoRefresh>
-			<AutoRefreshPeriod>60</AutoRefreshPeriod>
-			<Period>
-				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
-			</Period>
-			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-			<RestoreCurrentRow>false</RestoreCurrentRow>
-			<TopLevelParent xsi:nil="true"/>
-			<ShowRoot>true</ShowRoot>
-			<AllowRootChoice>false</AllowRootChoice>
-			<UpdateOnDataChange>Auto</UpdateOnDataChange>
-			<ContextMenu name="СписокНастройкиХСКонтекстноеМеню" id="69"/>
-			<AutoCommandBar name="СписокНастройкиХСКоманднаяПанель" id="70">
-				<ChildItems>
-					<Button name="СписокНастройкиХСКомандаОсновнойХС" id="110">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.КомандаОсновнойХС</CommandName>
-						<ExtendedTooltip name="СписокНастройкиХСКомандаОсновнойХСРасширеннаяПодсказка" id="111"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
-			<ExtendedTooltip name="СписокНастройкиХСРасширеннаяПодсказка" id="71"/>
-			<SearchStringAddition name="СписокНастройкиХССтрокаПоиска" id="72">
-				<AdditionSource>
-					<Item>СписокНастройкиХС</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="СписокНастройкиХССтрокаПоискаКонтекстноеМеню" id="73"/>
-				<ExtendedTooltip name="СписокНастройкиХССтрокаПоискаРасширеннаяПодсказка" id="74"/>
-			</SearchStringAddition>
-			<ViewStatusAddition name="СписокНастройкиХССостояниеПросмотра" id="75">
-				<AdditionSource>
-					<Item>СписокНастройкиХС</Item>
-					<Type>ViewStatusRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="СписокНастройкиХССостояниеПросмотраКонтекстноеМеню" id="76"/>
-				<ExtendedTooltip name="СписокНастройкиХССостояниеПросмотраРасширеннаяПодсказка" id="77"/>
-			</ViewStatusAddition>
-			<SearchControlAddition name="СписокНастройкиХСУправлениеПоиском" id="78">
-				<AdditionSource>
-					<Item>СписокНастройкиХС</Item>
-					<Type>SearchControl</Type>
-				</AdditionSource>
-				<ContextMenu name="СписокНастройкиХСУправлениеПоискомКонтекстноеМеню" id="79"/>
-				<ExtendedTooltip name="СписокНастройкиХСУправлениеПоискомРасширеннаяПодсказка" id="80"/>
-			</SearchControlAddition>
-			<ChildItems>
-				<LabelField name="СписокНастройкиХСХозяйствующийСубъект" id="81">
-					<DataPath>СписокНастройкиХС.ХозяйствующийСубъект</DataPath>
-					<ContextMenu name="СписокНастройкиХСХозяйствующийСубъектКонтекстноеМеню" id="82"/>
-					<ExtendedTooltip name="СписокНастройкиХСХозяйствующийСубъектРасширеннаяПодсказка" id="83"/>
-				</LabelField>
-				<LabelField name="СписокНастройкиХСЛогин" id="84">
-					<DataPath>СписокНастройкиХС.Логин</DataPath>
-					<ContextMenu name="СписокНастройкиХСЛогинКонтекстноеМеню" id="85"/>
-					<ExtendedTooltip name="СписокНастройкиХСЛогинРасширеннаяПодсказка" id="86"/>
-				</LabelField>
-				<LabelField name="СписокНастройкиХСПароль" id="87">
-					<DataPath>СписокНастройкиХС.Пароль</DataPath>
-					<ContextMenu name="СписокНастройкиХСПарольКонтекстноеМеню" id="88"/>
-					<ExtendedTooltip name="СписокНастройкиХСПарольРасширеннаяПодсказка" id="89"/>
-				</LabelField>
-				<LabelField name="СписокНастройкиХСКлючАПИ" id="90">
-					<DataPath>СписокНастройкиХС.КлючАПИ</DataPath>
-					<ContextMenu name="СписокНастройкиХСКлючАПИКонтекстноеМеню" id="91"/>
-					<ExtendedTooltip name="СписокНастройкиХСКлючАПИРасширеннаяПодсказка" id="92"/>
-				</LabelField>
-				<LabelField name="СписокНастройкиХСЛогинВрача" id="96">
-					<DataPath>СписокНастройкиХС.ЛогинВрача</DataPath>
-					<ContextMenu name="СписокНастройкиХСЛогинВрачаКонтекстноеМеню" id="97"/>
-					<ExtendedTooltip name="СписокНастройкиХСЛогинВрачаРасширеннаяПодсказка" id="98"/>
-				</LabelField>
-				<LabelField name="СписокНастройкиХСВрач" id="99">
-					<DataPath>~СписокНастройкиХС.Врач</DataPath>
-					<ContextMenu name="СписокНастройкиХСВрачКонтекстноеМеню" id="100"/>
-					<ExtendedTooltip name="СписокНастройкиХСВрачРасширеннаяПодсказка" id="101"/>
-				</LabelField>
-				<LabelField name="СписокНастройкиХСДолжностьВрача" id="102">
-					<DataPath>~СписокНастройкиХС.ДолжностьВрача</DataPath>
-					<ContextMenu name="СписокНастройкиХСДолжностьВрачаКонтекстноеМеню" id="103"/>
-					<ExtendedTooltip name="СписокНастройкиХСДолжностьВрачаРасширеннаяПодсказка" id="104"/>
-				</LabelField>
-			</ChildItems>
-		</Table>
-		<Table name="СписокПользователи" id="43">
-			<TitleLocation>Auto</TitleLocation>
-			<HeightInTableRows>1</HeightInTableRows>
-			<UseAlternationRowColor>true</UseAlternationRowColor>
-			<EnableStartDrag>true</EnableStartDrag>
-			<DataPath>СписокПользователи</DataPath>
-			<RowPictureDataPath>СписокПользователи.DefaultPicture</RowPictureDataPath>
-			<Title>
+			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Пользователи</v8:content>
+					<v8:content>Группа страницы</v8:content>
 				</v8:item>
-			</Title>
-			<AutoRefresh>false</AutoRefresh>
-			<AutoRefreshPeriod>60</AutoRefreshPeriod>
-			<Period>
-				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
-			</Period>
-			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-			<RestoreCurrentRow>false</RestoreCurrentRow>
-			<TopLevelParent xsi:nil="true"/>
-			<ShowRoot>true</ShowRoot>
-			<AllowRootChoice>false</AllowRootChoice>
-			<UpdateOnDataChange>Auto</UpdateOnDataChange>
-			<ContextMenu name="СписокПользователиКонтекстноеМеню" id="44"/>
-			<AutoCommandBar name="СписокПользователиКоманднаяПанель" id="45"/>
-			<ExtendedTooltip name="СписокПользователиРасширеннаяПодсказка" id="46"/>
-			<SearchStringAddition name="СписокПользователиСтрокаПоиска" id="47">
-				<AdditionSource>
-					<Item>СписокПользователи</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="СписокПользователиСтрокаПоискаКонтекстноеМеню" id="48"/>
-				<ExtendedTooltip name="СписокПользователиСтрокаПоискаРасширеннаяПодсказка" id="49"/>
-			</SearchStringAddition>
-			<ViewStatusAddition name="СписокПользователиСостояниеПросмотра" id="50">
-				<AdditionSource>
-					<Item>СписокПользователи</Item>
-					<Type>ViewStatusRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="СписокПользователиСостояниеПросмотраКонтекстноеМеню" id="51"/>
-				<ExtendedTooltip name="СписокПользователиСостояниеПросмотраРасширеннаяПодсказка" id="52"/>
-			</ViewStatusAddition>
-			<SearchControlAddition name="СписокПользователиУправлениеПоиском" id="53">
-				<AdditionSource>
-					<Item>СписокПользователи</Item>
-					<Type>SearchControl</Type>
-				</AdditionSource>
-				<ContextMenu name="СписокПользователиУправлениеПоискомКонтекстноеМеню" id="54"/>
-				<ExtendedTooltip name="СписокПользователиУправлениеПоискомРасширеннаяПодсказка" id="55"/>
-			</SearchControlAddition>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="116"/>
 			<ChildItems>
-				<LabelField name="СписокПользователиХозяйствующийСубъект" id="59">
-					<DataPath>СписокПользователи.ХозяйствующийСубъект</DataPath>
-					<ContextMenu name="СписокПользователиХозяйствующийСубъектКонтекстноеМеню" id="60"/>
-					<ExtendedTooltip name="СписокПользователиХозяйствующийСубъектРасширеннаяПодсказка" id="61"/>
-				</LabelField>
-				<LabelField name="СписокПользователиПользователь" id="56">
-					<DataPath>СписокПользователи.Пользователь</DataPath>
-					<ContextMenu name="СписокПользователиПользовательКонтекстноеМеню" id="57"/>
-					<ExtendedTooltip name="СписокПользователиПользовательРасширеннаяПодсказка" id="58"/>
-				</LabelField>
-				<LabelField name="СписокПользователиЛогин" id="62">
-					<DataPath>СписокПользователи.Логин</DataPath>
-					<ContextMenu name="СписокПользователиЛогинКонтекстноеМеню" id="63"/>
-					<ExtendedTooltip name="СписокПользователиЛогинРасширеннаяПодсказка" id="64"/>
-				</LabelField>
-				<LabelField name="СписокПользователиПароль" id="65">
-					<DataPath>СписокПользователи.Пароль</DataPath>
-					<ContextMenu name="СписокПользователиПарольКонтекстноеМеню" id="66"/>
-					<ExtendedTooltip name="СписокПользователиПарольРасширеннаяПодсказка" id="67"/>
-				</LabelField>
+				<Page name="ГруппаНастройкиХС" id="117">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки ХС</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки ХС</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаНастройкиХСРасширеннаяПодсказка" id="118"/>
+					<ChildItems>
+						<Table name="СписокНастройкиХС" id="68">
+							<HeightInTableRows>1</HeightInTableRows>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>СписокНастройкиХС</DataPath>
+							<RowPictureDataPath>СписокНастройкиХС.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки ХС</v8:content>
+								</v8:item>
+							</Title>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СписокНастройкиХСКонтекстноеМеню" id="69"/>
+							<AutoCommandBar name="СписокНастройкиХСКоманднаяПанель" id="70">
+								<ChildItems>
+									<Button name="СписокНастройкиХСКомандаОсновнойХС" id="110">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаОсновнойХС</CommandName>
+										<ExtendedTooltip name="СписокНастройкиХСКомандаОсновнойХСРасширеннаяПодсказка" id="111"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокНастройкиХСРасширеннаяПодсказка" id="71"/>
+							<SearchStringAddition name="СписокНастройкиХССтрокаПоиска" id="72">
+								<AdditionSource>
+									<Item>СписокНастройкиХС</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНастройкиХССтрокаПоискаКонтекстноеМеню" id="73"/>
+								<ExtendedTooltip name="СписокНастройкиХССтрокаПоискаРасширеннаяПодсказка" id="74"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокНастройкиХССостояниеПросмотра" id="75">
+								<AdditionSource>
+									<Item>СписокНастройкиХС</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНастройкиХССостояниеПросмотраКонтекстноеМеню" id="76"/>
+								<ExtendedTooltip name="СписокНастройкиХССостояниеПросмотраРасширеннаяПодсказка" id="77"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокНастройкиХСУправлениеПоиском" id="78">
+								<AdditionSource>
+									<Item>СписокНастройкиХС</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНастройкиХСУправлениеПоискомКонтекстноеМеню" id="79"/>
+								<ExtendedTooltip name="СписокНастройкиХСУправлениеПоискомРасширеннаяПодсказка" id="80"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СписокНастройкиХСХозяйствующийСубъект" id="81">
+									<DataPath>СписокНастройкиХС.ХозяйствующийСубъект</DataPath>
+									<ContextMenu name="СписокНастройкиХСХозяйствующийСубъектКонтекстноеМеню" id="82"/>
+									<ExtendedTooltip name="СписокНастройкиХСХозяйствующийСубъектРасширеннаяПодсказка" id="83"/>
+								</LabelField>
+								<LabelField name="СписокНастройкиХСЛогин" id="84">
+									<DataPath>СписокНастройкиХС.Логин</DataPath>
+									<ContextMenu name="СписокНастройкиХСЛогинКонтекстноеМеню" id="85"/>
+									<ExtendedTooltip name="СписокНастройкиХСЛогинРасширеннаяПодсказка" id="86"/>
+								</LabelField>
+								<LabelField name="СписокНастройкиХСПароль" id="87">
+									<DataPath>СписокНастройкиХС.Пароль</DataPath>
+									<ContextMenu name="СписокНастройкиХСПарольКонтекстноеМеню" id="88"/>
+									<ExtendedTooltip name="СписокНастройкиХСПарольРасширеннаяПодсказка" id="89"/>
+								</LabelField>
+								<LabelField name="СписокНастройкиХСКлючАПИ" id="90">
+									<DataPath>СписокНастройкиХС.КлючАПИ</DataPath>
+									<ContextMenu name="СписокНастройкиХСКлючАПИКонтекстноеМеню" id="91"/>
+									<ExtendedTooltip name="СписокНастройкиХСКлючАПИРасширеннаяПодсказка" id="92"/>
+								</LabelField>
+								<LabelField name="СписокНастройкиХСЛогинВрача" id="96">
+									<DataPath>СписокНастройкиХС.ЛогинВрача</DataPath>
+									<ContextMenu name="СписокНастройкиХСЛогинВрачаКонтекстноеМеню" id="97"/>
+									<ExtendedTooltip name="СписокНастройкиХСЛогинВрачаРасширеннаяПодсказка" id="98"/>
+								</LabelField>
+								<LabelField name="СписокНастройкиХСВрач" id="99">
+									<DataPath>~СписокНастройкиХС.Врач</DataPath>
+									<ContextMenu name="СписокНастройкиХСВрачКонтекстноеМеню" id="100"/>
+									<ExtendedTooltip name="СписокНастройкиХСВрачРасширеннаяПодсказка" id="101"/>
+								</LabelField>
+								<LabelField name="СписокНастройкиХСДолжностьВрача" id="102">
+									<DataPath>~СписокНастройкиХС.ДолжностьВрача</DataPath>
+									<ContextMenu name="СписокНастройкиХСДолжностьВрачаКонтекстноеМеню" id="103"/>
+									<ExtendedTooltip name="СписокНастройкиХСДолжностьВрачаРасширеннаяПодсказка" id="104"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаНастройкиПользователей" id="119">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки пользователей</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки пользователей</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаНастройкиПользователейРасширеннаяПодсказка" id="120"/>
+					<ChildItems>
+						<Table name="СписокПользователи" id="43">
+							<HeightInTableRows>1</HeightInTableRows>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>СписокПользователи</DataPath>
+							<RowPictureDataPath>СписокПользователи.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пользователи</v8:content>
+								</v8:item>
+							</Title>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СписокПользователиКонтекстноеМеню" id="44"/>
+							<AutoCommandBar name="СписокПользователиКоманднаяПанель" id="45"/>
+							<ExtendedTooltip name="СписокПользователиРасширеннаяПодсказка" id="46"/>
+							<SearchStringAddition name="СписокПользователиСтрокаПоиска" id="47">
+								<AdditionSource>
+									<Item>СписокПользователи</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПользователиСтрокаПоискаКонтекстноеМеню" id="48"/>
+								<ExtendedTooltip name="СписокПользователиСтрокаПоискаРасширеннаяПодсказка" id="49"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокПользователиСостояниеПросмотра" id="50">
+								<AdditionSource>
+									<Item>СписокПользователи</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПользователиСостояниеПросмотраКонтекстноеМеню" id="51"/>
+								<ExtendedTooltip name="СписокПользователиСостояниеПросмотраРасширеннаяПодсказка" id="52"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокПользователиУправлениеПоиском" id="53">
+								<AdditionSource>
+									<Item>СписокПользователи</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПользователиУправлениеПоискомКонтекстноеМеню" id="54"/>
+								<ExtendedTooltip name="СписокПользователиУправлениеПоискомРасширеннаяПодсказка" id="55"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СписокПользователиХозяйствующийСубъект" id="59">
+									<DataPath>СписокПользователи.ХозяйствующийСубъект</DataPath>
+									<ContextMenu name="СписокПользователиХозяйствующийСубъектКонтекстноеМеню" id="60"/>
+									<ExtendedTooltip name="СписокПользователиХозяйствующийСубъектРасширеннаяПодсказка" id="61"/>
+								</LabelField>
+								<LabelField name="СписокПользователиПользователь" id="56">
+									<DataPath>СписокПользователи.Пользователь</DataPath>
+									<ContextMenu name="СписокПользователиПользовательКонтекстноеМеню" id="57"/>
+									<ExtendedTooltip name="СписокПользователиПользовательРасширеннаяПодсказка" id="58"/>
+								</LabelField>
+								<LabelField name="СписокПользователиЛогин" id="62">
+									<DataPath>СписокПользователи.Логин</DataPath>
+									<ContextMenu name="СписокПользователиЛогинКонтекстноеМеню" id="63"/>
+									<ExtendedTooltip name="СписокПользователиЛогинРасширеннаяПодсказка" id="64"/>
+								</LabelField>
+								<LabelField name="СписокПользователиПароль" id="65">
+									<DataPath>СписокПользователи.Пароль</DataPath>
+									<ContextMenu name="СписокПользователиПарольКонтекстноеМеню" id="66"/>
+									<ExtendedTooltip name="СписокПользователиПарольРасширеннаяПодсказка" id="67"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаПредприятия" id="121">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обслуживаемые предприятия</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа предприятия</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаПредприятияРасширеннаяПодсказка" id="122"/>
+					<ChildItems>
+						<Table name="СписокПредприятия" id="123">
+							<HeightInTableRows>1</HeightInTableRows>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>СписокПредприятия</DataPath>
+							<RowPictureDataPath>СписокПредприятия.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СписокПредприятияКонтекстноеМеню" id="124"/>
+							<AutoCommandBar name="СписокПредприятияКоманднаяПанель" id="125"/>
+							<ExtendedTooltip name="СписокПредприятияРасширеннаяПодсказка" id="126"/>
+							<SearchStringAddition name="СписокПредприятияСтрокаПоиска" id="127">
+								<AdditionSource>
+									<Item>СписокПредприятия</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПредприятияСтрокаПоискаКонтекстноеМеню" id="128"/>
+								<ExtendedTooltip name="СписокПредприятияСтрокаПоискаРасширеннаяПодсказка" id="129"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокПредприятияСостояниеПросмотра" id="130">
+								<AdditionSource>
+									<Item>СписокПредприятия</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПредприятияСостояниеПросмотраКонтекстноеМеню" id="131"/>
+								<ExtendedTooltip name="СписокПредприятияСостояниеПросмотраРасширеннаяПодсказка" id="132"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокПредприятияУправлениеПоиском" id="133">
+								<AdditionSource>
+									<Item>СписокПредприятия</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПредприятияУправлениеПоискомКонтекстноеМеню" id="134"/>
+								<ExtendedTooltip name="СписокПредприятияУправлениеПоискомРасширеннаяПодсказка" id="135"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СписокПредприятияХозяйствующийСубъект" id="136">
+									<DataPath>СписокПредприятия.ХозяйствующийСубъект</DataPath>
+									<ContextMenu name="СписокПредприятияХозяйствующийСубъектКонтекстноеМеню" id="137"/>
+									<ExtendedTooltip name="СписокПредприятияХозяйствующийСубъектРасширеннаяПодсказка" id="138"/>
+								</LabelField>
+								<LabelField name="СписокПредприятияПредприятие" id="139">
+									<DataPath>СписокПредприятия.Предприятие</DataPath>
+									<ContextMenu name="СписокПредприятияПредприятиеКонтекстноеМеню" id="140"/>
+									<ExtendedTooltip name="СписокПредприятияПредприятиеРасширеннаяПодсказка" id="141"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 			</ChildItems>
-		</Table>
+		</Pages>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ВерсияAPI" id="1">
@@ -330,6 +455,38 @@
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
+		</Attribute>
+		<Attribute name="СписокПредприятия" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список предприятия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.ВетисПредприятияХС</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>

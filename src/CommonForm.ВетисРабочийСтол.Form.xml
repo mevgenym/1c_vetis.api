@@ -32,6 +32,9 @@
 					<DataPath>ХС</DataPath>
 					<ContextMenu name="ХСКонтекстноеМеню" id="173"/>
 					<ExtendedTooltip name="ХСРасширеннаяПодсказка" id="174"/>
+					<Events>
+						<Event name="OnChange">ХСПриИзменении</Event>
+					</Events>
 				</InputField>
 				<InputField name="Предприятие" id="175">
 					<DataPath>Предприятие</DataPath>
@@ -44,6 +47,9 @@
 					</ChoiceParameterLinks>
 					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="176"/>
 					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="177"/>
+					<Events>
+						<Event name="OnChange">ПредприятиеПриИзменении</Event>
+					</Events>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>

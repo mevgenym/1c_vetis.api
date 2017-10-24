@@ -58,7 +58,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.ВыработкаНачало</name>
+		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.ДатаВыработкиНачало</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -579,7 +579,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт</name>
+		<name>Catalog.ВетисТранспорт</name>
 		<right>
 			<name>Read</name>
 			<value>true</value>
@@ -903,17 +903,6 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.ДатаОбновления</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>Document.ВетисТранспортнаяПартия.Attribute.Ответственный</name>
 		<right>
 			<name>View</name>
@@ -1031,7 +1020,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.ВыработкаКонец</name>
+		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.ДатаВыработкиКонец</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -1273,17 +1262,6 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.guid</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>CommonCommand.ВетисPackingForm</name>
 		<right>
 			<name>View</name>
@@ -1505,17 +1483,6 @@
 		<right>
 			<name>View</name>
 			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.Производитель</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
 		</right>
 	</object>
 	<object>

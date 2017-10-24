@@ -87,13 +87,7 @@
 					<MaxValue xsi:nil="true"/>
 					<FillChecking>DontCheck</FillChecking>
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-					<ChoiceParameterLinks>
-						<xr:Link>
-							<xr:Name>Отбор.Владелец</xr:Name>
-							<xr:DataPath xsi:type="xs:string">DataProcessor.ВетисУстановкаСоответствияСправочников.Attribute.ХозяйствующийСубъект</xr:DataPath>
-							<xr:ValueChange>Clear</xr:ValueChange>
-						</xr:Link>
-					</ChoiceParameterLinks>
+					<ChoiceParameterLinks/>
 					<ChoiceParameters/>
 					<QuickChoice>Auto</QuickChoice>
 					<CreateOnInput>Auto</CreateOnInput>
@@ -107,7 +101,6 @@
 			<Form>ФормаКонтрагенты</Form>
 			<Form>ФормаПредприятия</Form>
 			<Form>ФормаКлассификаторЕдиницИзмерения</Form>
-			<Form>ФормаВСД</Form>
 			<Form>ФормаНоменклатура</Form>
 			<Form>ФормаНоменклатурныеГруппы</Form>
 		</ChildObjects>

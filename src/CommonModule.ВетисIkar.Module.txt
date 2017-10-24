@@ -103,8 +103,8 @@
 	
 	_Объект.country      = Country(countryGuid);
 	_Объект.region       = District(regionGuid);
-	_Объект.localityGuid = Locality(localityGuid);
-	_Объект.streetGuid   = Street(streetGuid);
+	_Объект.locality     = Locality(localityGuid);
+	_Объект.street       = Street(streetGuid);
 	_Объект.house        = house;
 	_Объект.building     = building;
 	

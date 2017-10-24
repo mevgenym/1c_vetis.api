@@ -398,7 +398,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт</name>
+		<name>Catalog.ВетисТранспорт</name>
 		<right>
 			<name>Read</name>
 			<value>true</value>

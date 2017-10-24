@@ -13,11 +13,6 @@
 			<CommandName>Form.Command.Предприятия</CommandName>
 			<ExtendedTooltip name="ПунктыНазначенияРасширеннаяПодсказка" id="18"/>
 		</Button>
-		<Button name="ВСД" id="15">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.ВСД</CommandName>
-			<ExtendedTooltip name="ВСДРасширеннаяПодсказка" id="16"/>
-		</Button>
 		<Button name="Номенклатура" id="19">
 			<Type>UsualButton</Type>
 			<CommandName>Form.Command.Номенклатура</CommandName>
@@ -92,21 +87,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЕдиницыИзмерения</Action>
-		</Command>
-		<Command name="ВСД" id="8">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>ВСД</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>ВСД</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ВСД</Action>
 		</Command>
 		<Command name="Предприятия" id="9">
 			<Title>

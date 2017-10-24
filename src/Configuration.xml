@@ -230,13 +230,13 @@
 			<Catalog>ВетисPurpose</Catalog>
 			<Catalog>ВетисRegion</Catalog>
 			<Catalog>ВетисПредприятия</Catalog>
+			<Catalog>ВетисТранспорт</Catalog>
 			<Catalog>КлассификаторЕдиницИзмерения</Catalog>
 			<Catalog>КлассификаторСтранМира</Catalog>
 			<Catalog>Контрагенты</Catalog>
 			<Catalog>Номенклатура</Catalog>
 			<Catalog>НоменклатурныеГруппы</Catalog>
 			<Catalog>Пользователи</Catalog>
-			<Catalog>Транспорт</Catalog>
 			<Document>ВетисВетеринарноСопроводительныйДокумент</Document>
 			<Document>ВетисВходящаяПартияПоДокументам</Document>
 			<Document>ВетисВходящаяПартияСводно</Document>
@@ -246,6 +246,7 @@
 			<Enum>ВетисDeliveryInspectionResult</Enum>
 			<Enum>ВетисDocumentNature</Enum>
 			<Enum>ВетисDocumentType</Enum>
+			<Enum>ВетисPackageLevelType</Enum>
 			<Enum>ВетисProductMarkingClass</Enum>
 			<Enum>ВетисProductType</Enum>
 			<Enum>ВетисResearchResult</Enum>

@@ -8,8 +8,13 @@
 		<ChildItems>
 			<Button name="ФормаЗаполнитьИзСервиса" id="474">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ЗаполнитьИзСервиса</CommandName>
+				<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
 				<ExtendedTooltip name="ФормаЗаполнитьИзСервисаРасширеннаяПодсказка" id="475"/>
+			</Button>
+			<Button name="ФормаКомандаПогасить" id="485">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаПогасить</CommandName>
+				<ExtendedTooltip name="ФормаКомандаПогаситьРасширеннаяПодсказка" id="486"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -314,21 +319,12 @@
 											<ContextMenu name="сжКоличествоМестКонтекстноеМеню" id="206"/>
 											<ExtendedTooltip name="сжКоличествоМестРасширеннаяПодсказка" id="207"/>
 										</InputField>
-										<InputField name="сжПроизводитель" id="351">
-											<DataPath>сжПроизводитель</DataPath>
-											<AutoMarkIncomplete>true</AutoMarkIncomplete>
-											<ContextMenu name="сжПроизводительКонтекстноеМеню" id="352"/>
-											<ExtendedTooltip name="сжПроизводительРасширеннаяПодсказка" id="353"/>
-											<Events>
-												<Event name="StartChoice">сжПроизводительНачалоВыбора</Event>
-											</Events>
-										</InputField>
 										<InputField name="сжПроизводительПредприятие" id="439">
 											<DataPath>сжПроизводительПредприятие</DataPath>
 											<ChoiceParameterLinks>
 												<xr:Link>
 													<xr:Name>Отбор.Владелец</xr:Name>
-													<xr:DataPath xsi:type="xs:string">сжПроизводитель</xr:DataPath>
+													<xr:DataPath xsi:type="xs:string">13</xr:DataPath>
 													<xr:ValueChange>Clear</xr:ValueChange>
 												</xr:Link>
 											</ChoiceParameterLinks>
@@ -426,12 +422,12 @@
 											<ExtendedTooltip name="ГруппаВыработаноРасширеннаяПодсказка" id="333"/>
 											<ChildItems>
 												<InputField name="сжВыработкаНачало" id="334">
-													<DataPath>сжВыработкаНачало</DataPath>
+													<DataPath>сжДатаВыработкиНачало</DataPath>
 													<ContextMenu name="сжВыработкаНачалоКонтекстноеМеню" id="335"/>
 													<ExtendedTooltip name="сжВыработкаНачалоРасширеннаяПодсказка" id="336"/>
 												</InputField>
 												<InputField name="сжВыработкаКонец" id="337">
-													<DataPath>сжВыработкаКонец</DataPath>
+													<DataPath>сжДатаВыработкиКонец</DataPath>
 													<ContextMenu name="сжВыработкаКонецКонтекстноеМеню" id="338"/>
 													<ExtendedTooltip name="сжВыработкаКонецРасширеннаяПодсказка" id="339"/>
 												</InputField>
@@ -780,7 +776,7 @@
 				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="сжВыработкаНачало" id="7">
+		<Attribute name="сжДатаВыработкиНачало" id="7">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -794,7 +790,7 @@
 				</v8:DateQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="сжВыработкаКонец" id="8">
+		<Attribute name="сжДатаВыработкиКонец" id="8">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -858,17 +854,6 @@
 				<v8:TypeSet>cfg:DefinedType.ВетисCountry</v8:TypeSet>
 			</Type>
 		</Attribute>
-		<Attribute name="сжПроизводитель" id="13">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Производитель</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
-			</Type>
-		</Attribute>
 		<Attribute name="всдБлагополучиеМестности" id="14">
 			<Title>
 				<v8:item>
@@ -879,7 +864,7 @@
 			<Type>
 				<v8:Type>xs:string</v8:Type>
 				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
+					<v8:Length>255</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
@@ -1173,6 +1158,69 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
+		<Attribute name="осмНазначениеГруза" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначение груза</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисPurpose</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="осмКонтрольГосВетврачем" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контроль гос ветврачем</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="осмВетсанэкспертиза" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ветсанэкспертиза</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВетисResearchResult</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="осмБлагополучиеМестности" id="44">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Благополучие местности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="осмОсобыеОтметки" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Особые отметки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -1237,7 +1285,7 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="ЗаполнитьИзСервиса" id="1">
+		<Command name="КомандаЗаполнитьИзСервиса" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1247,10 +1295,25 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить из сервиса</v8:content>
+					<v8:content>Команда заполнить из сервиса</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ЗаполнитьИзСервиса</Action>
+			<Action>КомандаЗаполнитьИзСервиса</Action>
+		</Command>
+		<Command name="КомандаПогасить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Погасить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда погасить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПогасить</Action>
 		</Command>
 	</Commands>
 </Form>

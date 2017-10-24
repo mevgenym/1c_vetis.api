@@ -27,7 +27,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.Attribute.ТипТранспорта</name>
+		<name>Catalog.ВетисТранспорт.Attribute.ТипТранспорта</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -38,7 +38,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.Attribute.ГосударственныйНомер</name>
+		<name>Catalog.ВетисТранспорт.Attribute.ГосударственныйНомер</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -120,17 +120,6 @@
 		<right>
 			<name>InputByString</name>
 			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>Catalog.Пользователи.Attribute.ИдентификаторПользователяИБ</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -244,7 +233,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.StandardAttribute.PredefinedDataName</name>
+		<name>Catalog.ВетисТранспорт.StandardAttribute.PredefinedDataName</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -255,7 +244,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.StandardAttribute.Predefined</name>
+		<name>Catalog.ВетисТранспорт.StandardAttribute.Predefined</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -266,7 +255,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.StandardAttribute.Ref</name>
+		<name>Catalog.ВетисТранспорт.StandardAttribute.Ref</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -277,7 +266,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.StandardAttribute.DeletionMark</name>
+		<name>Catalog.ВетисТранспорт.StandardAttribute.DeletionMark</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -288,7 +277,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.StandardAttribute.IsFolder</name>
+		<name>Catalog.ВетисТранспорт.StandardAttribute.IsFolder</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -299,7 +288,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.StandardAttribute.Owner</name>
+		<name>Catalog.ВетисТранспорт.StandardAttribute.Owner</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -310,7 +299,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.StandardAttribute.Parent</name>
+		<name>Catalog.ВетисТранспорт.StandardAttribute.Parent</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -321,7 +310,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.StandardAttribute.Description</name>
+		<name>Catalog.ВетисТранспорт.StandardAttribute.Description</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -332,7 +321,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.StandardAttribute.Code</name>
+		<name>Catalog.ВетисТранспорт.StandardAttribute.Code</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -361,7 +350,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Транспорт.Attribute.ГосударственныйНомерПрицепа</name>
+		<name>Catalog.ВетисТранспорт.Attribute.ГосударственныйНомерПрицепа</name>
 		<right>
 			<name>View</name>
 			<value>false</value>

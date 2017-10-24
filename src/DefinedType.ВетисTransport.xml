@@ -17,7 +17,7 @@
 			</Synonym>
 			<Comment/>
 			<Type>
-				<v8:Type>cfg:CatalogRef.Транспорт</v8:Type>
+				<v8:Type>cfg:CatalogRef.ВетисТранспорт</v8:Type>
 			</Type>
 		</Properties>
 	</DefinedType>

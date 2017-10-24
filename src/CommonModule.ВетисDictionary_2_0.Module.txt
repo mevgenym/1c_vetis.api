@@ -19,12 +19,12 @@
 	
 	_Объект = Создать("Address");
 	
-	_Объект.country      = Country(countryGuid);
-	_Объект.region       = District(regionGuid);
-	_Объект.localityGuid = Locality(localityGuid);
-	_Объект.streetGuid   = Street(streetGuid);
-	_Объект.house        = house;
-	_Объект.building     = building;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Country(countryGuid), "country");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, District(regionGuid), "region");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Locality(localityGuid), "locality");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Street(streetGuid), "street");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, house, "house");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, building, "building");
 	
 	Возврат _Объект;
 	
@@ -62,12 +62,9 @@
 	
 	_Объект = Создать("BusinessMember");
 	
-	_Объект.businessEntity = BusinessEntity(businessEntityGuid);
-	_Объект.enterprise     = Enterprise(enterpriseGuid);
-	
-	Если НЕ globalID = Неопределено Тогда
-		_Объект.globalID = globalID;
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, BusinessEntity(businessEntityGuid), "businessEntity");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Enterprise(enterpriseGuid), "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, globalID, "globalID");
 	
 	Возврат _Объект;
 	
@@ -121,9 +118,7 @@
 	
 	_Объект = Создать("CountryList");
 	
-	Если НЕ guid = Неопределено Тогда
-		_Объект.country.Добавить(Country(guid));
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "country", "ВетисDictionary_2_0.Country");
 	
 	Возврат _Объект;
 	
@@ -143,9 +138,7 @@
 	
 	_Объект = Создать("DistrictList");
 	
-	Если НЕ guid = Неопределено Тогда
-		_Объект.district.Добавить(Country(guid));
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "district", "ВетисDictionary_2_0.District");
 	
 	Возврат _Объект;
 	
@@ -272,17 +265,10 @@
 	
 	_Объект = Создать("Package");
 	
-	_Объект.level = level;
-	
-	_Объект.packingType = packingType;
-	
-	Если НЕ quantity = Неопределено Тогда
-		_Объект.quantity = quantity;
-	КонецЕсли;
-	
-	Если НЕ productMarks = Неопределено Тогда
-		_Объект.productMarks = productMarks;
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, level, "level");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, packingType, "packingType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, quantity, "quantity");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, productMarks, "productMarks");
 	
 	Возврат _Объект;
 	
@@ -293,15 +279,9 @@
 	
 	_Объект = Создать("PackageList");
 	
-	PackageListДобавить(_Объект, level, packingType, quantity, productMarks);
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Package(level, PackingType(packingType), quantity, productMarks), "package");
 	
 	Возврат _Объект;
-	
-КонецФункции
-
-Функция PackageListДобавить(List, level, packingType, quantity = Неопределено, productMarks = Неопределено) Экспорт
-	
-	List.package.Добавить(Package(level, packingType, quantity, productMarks));
 	
 КонецФункции
 
@@ -316,37 +296,22 @@
 	
 	_Объект = Создать("Packaging");
 	
-	_Объект.packingType = packingType;
-	
-	Если НЕ quantity = Неопределено Тогда
-		_Объект.quantity = quantity;
-	КонецЕсли;
-	
-	Если НЕ volume = Неопределено Тогда
-		_Объект.volume = volume;
-	КонецЕсли;
-	
-	Если НЕ unit = Неопределено Тогда
-		_Объект.unit = unit;
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, packingType, "packingType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, quantity, "quantity");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, volume, "volume");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, unit, "unit");
 	
 	Возврат _Объект;
 	
 КонецФункции
 
 //Тип, описывающий вид упаковки.
-//Парметры:
-// globalID - dt:PackingCodeType - Уникальный идентификатор упаковки
-// name - Наименование упаковки
-Функция PackingType(globalID = Неопределено, name = "") Экспорт
+//по xsd это bs:GenericVersioningEntity, по справке bs:GenericEntity (24.10.2017), считаем что по xsd правильнее
+Функция PackingType(guid) Экспорт
 	
 	_Объект = Создать("PackingType");
 	
-	_Объект.name = name;
-	
-	Если НЕ globalID = Неопределено Тогда
-		_Объект.globalID = globalID;
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "guid");
 	
 	Возврат _Объект;
 	
@@ -357,7 +322,7 @@
 	
 	_Объект = Создать("Producer");
 	
-	_Объект.enterprise = Enterprise(guid);
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Enterprise(guid), "enterprise");
 	
 	_Объект.role = ВетисКонстанты.EnterpriseRole_PRODUCER();
 	
@@ -370,13 +335,7 @@
 	
 	_Объект = Создать("ProducerList");
 	
-	Если ТипЗнч(guid) = Тип("Массив") Тогда
-		Для каждого _guid Из guid Цикл
-			_Объект.producer.Добавить(Producer(_guid));
-		КонецЦикла;
-	ИначеЕсли ТипЗнч(guid) = Тип("Строка") Тогда
-		_Объект.producer.Добавить(Producer(guid));
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "producer", "ВетисDictionary_2_0.Producer");
 	
 	Возврат _Объект;
 	
@@ -394,11 +353,13 @@
 КонецФункции
 
 //Тип, описывающий cведения о наименовании продукции в соответствии с номенклатурой производителя.
-Функция ProductItem(guid = Неопределено) Экспорт
+Функция ProductItem(guid = Неопределено, name = Неопределено, packaging = Неопределено) Экспорт
 	
 	_Объект = Создать("ProductItem");
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "guid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, name, "name");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, packaging, "packaging");
 	
 	Возврат _Объект;
 	
@@ -407,13 +368,13 @@
 //Тип, описывающий список маркировок продукции.
 //Под маркировкой понимается всё, что может быть физически нанесено на упаковку или непосредственно на продукцию.
 //Для каждой маркировки может быть указан её тип (см. атрибут class), который также может определять формат маркировки.
-Функция ProductMarks(value = Неопределено) Экспорт
+//Параметры:
+// class - Описание упаковки. dt:ProductMarkingClass
+Функция ProductMarks(class) Экспорт
 	
 	_Объект = Создать("ProductMarks");
 	
-	Если НЕ value = Неопределено Тогда
-		_Объект.class.Добавить(value);
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, class, "class");
 	
 	Возврат _Объект;
 	
@@ -444,9 +405,7 @@
 	
 	_Объект = Создать("RegionList");
 	
-	Если НЕ guid = Неопределено Тогда
-		_Объект.region.Добавить(Country(guid));
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "region", "ВетисDictionary_2_0.Region");
 	
 	Возврат _Объект;
 	
@@ -457,10 +416,15 @@
 // referenceNumber - Номер условия
 // text - xs:Text - Формулировка условия
 // strict - xs:boolean - Обязательность соблюдения условия
-// relatedDisease - dt:AnimalDisease - Заболевание, к которому относится данное условие
-Функция RegionalizationCondition(referenceNumber, text, strict, relatedDisease) Экспорт
+// relatedDisease - xs:String - Заболевание, к которому относится данное условие
+Функция RegionalizationCondition(referenceNumber = Неопределено, text = Неопределено, strict = Неопределено, relatedDisease = Неопределено) Экспорт
 	
 	_Объект = Создать("RegionalizationCondition");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Лев(referenceNumber, 100), "referenceNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, text, "text");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, strict = Истина, "strict");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, AnimalDisease(relatedDisease), "relatedDisease");
 	
 	Возврат _Объект;
 	
@@ -473,7 +437,7 @@
 	
 	_Объект = Создать("ResearchMethod");
 	
-	_Объект.name = name;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Лев(name, 255), "name");
 	
 	Возврат _Объект;
 	

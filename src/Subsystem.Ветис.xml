@@ -117,7 +117,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисSubProduct</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисНастройки</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисПредприятия</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Транспорт</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисТранспорт</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисProductMarkingClass</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисXSD</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">XDTOPackage.soap_envelop</xr:Item>
@@ -142,6 +142,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисTransportType</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVersionStatus</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисПредприятияХС</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисPackageLevelType</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

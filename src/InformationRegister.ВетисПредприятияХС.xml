@@ -61,18 +61,18 @@
 			<Explanation/>
 		</Properties>
 		<ChildObjects>
-			<Dimension uuid="edbc8d8b-a1f0-4e11-bde9-455274f3684c">
+			<Dimension uuid="4a3cdaf7-c82b-4544-9b34-58dd77de5a58">
 				<Properties>
-					<Name>Предприятие</Name>
+					<Name>ХозяйствующийСубъект</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Предприятие</v8:content>
+							<v8:content>Хозяйствующий субъект</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
+						<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -102,18 +102,18 @@
 					<FullTextSearch>Use</FullTextSearch>
 				</Properties>
 			</Dimension>
-			<Dimension uuid="4a3cdaf7-c82b-4544-9b34-58dd77de5a58">
+			<Dimension uuid="edbc8d8b-a1f0-4e11-bde9-455274f3684c">
 				<Properties>
-					<Name>ХозяйствующийСубъект</Name>
+					<Name>Предприятие</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Хозяйствующий субъект</v8:content>
+							<v8:content>Предприятие</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
+						<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>

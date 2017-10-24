@@ -4,17 +4,17 @@
 		<ChildItems>
 			<Button name="ФормаСинхронизировать" id="63">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Синхронизировать</CommandName>
+				<CommandName>Form.Command.КомандаСинхронизировать</CommandName>
 				<ExtendedTooltip name="ФормаСинхронизироватьРасширеннаяПодсказка" id="64"/>
 			</Button>
 			<Button name="ФормаАннулировать" id="65">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Аннулировать</CommandName>
+				<CommandName>Form.Command.КомандаАннулировать</CommandName>
 				<ExtendedTooltip name="ФормаАннулироватьРасширеннаяПодсказка" id="66"/>
 			</Button>
 			<Button name="ФормаУдалитьПомеченные" id="76">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.УдалитьПомеченные</CommandName>
+				<CommandName>Form.Command.КомандаУдалитьПомеченные</CommandName>
 				<ExtendedTooltip name="ФормаУдалитьПомеченныеРасширеннаяПодсказка" id="77"/>
 			</Button>
 		</ChildItems>
@@ -216,9 +216,6 @@
 					<dcsset:item>
 						<dcsset:field>ФормаВСД</dcsset:field>
 					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ДатаОбновления</dcsset:field>
-					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -268,9 +265,6 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>ФормаВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ДатаОбновления</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
@@ -322,9 +316,6 @@
 					<dcsset:item>
 						<dcsset:field>ФормаВСД</dcsset:field>
 					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ДатаОбновления</dcsset:field>
-					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -343,7 +334,7 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="Синхронизировать" id="1">
+		<Command name="КомандаСинхронизировать" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -353,12 +344,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Синхронизировать</v8:content>
+					<v8:content>Команда синхронизировать</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Синхронизировать</Action>
+			<Action>КомандаСинхронизировать</Action>
 		</Command>
-		<Command name="Аннулировать" id="2">
+		<Command name="КомандаАннулировать" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -368,12 +359,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Аннулировать</v8:content>
+					<v8:content>Команда аннулировать</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Аннулировать</Action>
+			<Action>КомандаАннулировать</Action>
 		</Command>
-		<Command name="УдалитьПомеченные" id="3">
+		<Command name="КомандаУдалитьПомеченные" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -383,10 +374,10 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить помеченные</v8:content>
+					<v8:content>Команда удалить помеченные</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>УдалитьПомеченные</Action>
+			<Action>КомандаУдалитьПомеченные</Action>
 		</Command>
 	</Commands>
 </Form>

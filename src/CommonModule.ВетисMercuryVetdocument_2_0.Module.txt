@@ -447,15 +447,15 @@
 // cargoExpertized - dt:ResearchResult - Проводилась ли ветсанэкспертиза.
 // locationProsperity - bs:String255 - Благополучие местности.
 // specialMarks - bs:Text - Особые отметки.
-Функция VeterinaryAuthentication(purpose, cargoInspected, cargoExpertized, locationProsperity, specialMarks) Экспорт
+Функция VeterinaryAuthentication(purpose = Неопределено, cargoInspected = Неопределено, cargoExpertized = Неопределено, locationProsperity = Неопределено, specialMarks = Неопределено) Экспорт
 	
 	_Объект = Создать("VeterinaryAuthentication");
 	
-	_Объект.purpose = purpose;
-	_Объект.cargoInspected = cargoInspected;
-	_Объект.cargoExpertized = cargoExpertized;
-	_Объект.locationProsperity = locationProsperity;
-	_Объект.specialMarks = specialMarks;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, purpose, "purpose");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, cargoInspected, "cargoInspected");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, cargoExpertized, "cargoExpertized");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, locationProsperity, "locationProsperity");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, specialMarks, "specialMarks");
 	
 	//_Объект.animalSpentPeriod
 	//_Объект.monthsSpent

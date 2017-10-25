@@ -152,23 +152,9 @@
 	
 	_Объект = Создать("ConsignmentDocumentList");
 	
-	_Объект.waybill = waybill;
-	
-	Если ТипЗнч(VetDocument) = Тип("Массив") Тогда
-		Для каждого _VetDocument Из VetDocument Цикл
-			_Объект.vetCertificate.Добавить(_VetDocument);
-		КонецЦикла;
-	Иначе
-		_Объект.vetCertificate.Добавить(VetDocument);
-	КонецЕсли;
-	
-	Если ТипЗнч(relatedDocument) = Тип("Массив") Тогда
-		Для каждого _relatedDocument Из relatedDocument Цикл
-			_Объект.relatedDocument.Добавить(_relatedDocument);
-		КонецЦикла;
-	ИначеЕсли НЕ relatedDocument = Неопределено Тогда
-		_Объект.relatedDocument.Добавить(relatedDocument);
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, waybill, "waybill");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, VetDocument, "vetCertificate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, relatedDocument, "relatedDocument");
 	
 	Возврат _Объект;
 	
@@ -188,22 +174,15 @@
 	
 	_Объект = Создать("Delivery");
 	
-	_Объект.deliveryDate = ВетисОбщегоНазначения.ВремяВетис();// Дата поставки.
-	_Объект.consignor = consignor;
-	_Объект.consignee = consignee;
-	_Объект.accompanyingForms = accompanyingForms;
-	_Объект.broker = broker;
-	_Объект.transportInfo = transportInfo;
-	_Объект.transportStorageType = transportStorageType;
-	_Объект.shipmentRoute = shipmentRoute;
-	
-	Если ТипЗнч(consignment) = Тип("Массив") Тогда
-		Для каждого _consignment Из consignment Цикл
-			_Объект.consignment.Добавить(_consignment);
-		КонецЦикла;
-	Иначе
-		_Объект.consignment.Добавить(consignment);
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисОбщегоНазначения.ВремяВетис(), "deliveryDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, accompanyingForms, "accompanyingForms");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, broker, "broker");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportInfo, "transportInfo");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportStorageType, "transportStorageType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shipmentRoute, "shipmentRoute");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignment, "consignment");
 
 	Возврат _Объект;
 	
@@ -234,10 +213,10 @@
 	
 	_Объект = Создать("DeliveryFactList");
 	
-	_Объект.vetCertificatePresence = presence;
-	_Объект.docInspection = docInspection;
-	_Объект.vetInspection = vetInspection;
-	_Объект.decision = decision;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, presence, "vetCertificatePresence");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, docInspection, "docInspection");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetInspection, "vetInspection");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, decision, "decision");
 	
 	Возврат _Объект;
 	

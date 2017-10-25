@@ -490,6 +490,11 @@
 												</InputField>
 											</ChildItems>
 										</UsualGroup>
+										<InputField name="сжИДПартии" id="509">
+											<DataPath>сжИДПартии</DataPath>
+											<ContextMenu name="сжИДПартииКонтекстноеМеню" id="510"/>
+											<ExtendedTooltip name="сжИДПартииРасширеннаяПодсказка" id="511"/>
+										</InputField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -518,11 +523,13 @@
 						</LabelField>
 						<InputField name="осмНазначениеГруза" id="498">
 							<DataPath>осмНазначениеГруза</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="осмНазначениеГрузаКонтекстноеМеню" id="499"/>
 							<ExtendedTooltip name="осмНазначениеГрузаРасширеннаяПодсказка" id="500"/>
 						</InputField>
 						<InputField name="осмБлагополучиеМестности" id="489">
 							<DataPath>осмБлагополучиеМестности</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="осмБлагополучиеМестностиКонтекстноеМеню" id="490"/>
 							<ExtendedTooltip name="осмБлагополучиеМестностиРасширеннаяПодсказка" id="491"/>
 						</InputField>
@@ -566,6 +573,7 @@
 						</LabelField>
 						<InputField name="всдНазначениеГруза" id="415">
 							<DataPath>всдНазначениеГруза</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="всдНазначениеГрузаКонтекстноеМеню" id="416"/>
 							<ExtendedTooltip name="всдНазначениеГрузаРасширеннаяПодсказка" id="417"/>
 						</InputField>
@@ -576,6 +584,7 @@
 						</InputField>
 						<InputField name="всдБлагополучиеМестности" id="400">
 							<DataPath>всдБлагополучиеМестности</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="всдБлагополучиеМестностиКонтекстноеМеню" id="401"/>
 							<ExtendedTooltip name="всдБлагополучиеМестностиРасширеннаяПодсказка" id="402"/>
 						</InputField>
@@ -1252,6 +1261,36 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Особые отметки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="сжИДПартии" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИД партии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="сжМаркировка" id="47">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сж маркировка</v8:content>
 				</v8:item>
 			</Title>
 			<Type>

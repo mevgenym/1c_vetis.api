@@ -494,9 +494,6 @@
 	_ВетисProductService = ?(_Версия20, ВетисProductService_2_0, ВетисProductService);
 	_ВетисMercuryVetdocument = ?(_Версия20, ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
 	
-	//пока фиксированный (v2.0)
-	_уровеньУпаковки = ВетисПредопределенные.Получить("PackageLevelType", Перечисления.ВетисPackageLevelType.Потребительский);
-	
 	Если ТипЗнч(value1) = Тип("ДокументТабличнаяЧастьСтрока.ВетисВетеринарноСопроводительныйДокумент.Товары")
 		ИЛИ ТипЗнч(value1) = Тип("ДанныеФормыЭлементКоллекции") Тогда
 		
@@ -520,7 +517,7 @@
 		
 		Если _Версия20 Тогда
 			Если НЕ _batch.packageList = Неопределено Тогда
-				_package = ВетисDictionaryСлой1с.PackageList(_batch.packageList, _уровеньУпаковки);
+				_package = ВетисDictionaryСлой1с.PackageList(_batch.packageList);
 				_строкаСЖ.Упаковка             = ВетисDictionaryСлой1с.Package(_package);
 				_строкаСЖ.КоличествоМест       = _package.quantity;
 			КонецЕсли;
@@ -570,7 +567,7 @@
 		_batch.productType      = _productType;
 		_batch.product          = _ВетисArgusProduction.Product(_product.guid);
 		_batch.subProduct       = _ВетисArgusProduction.SubProduct(_subProduct.guid);
-		_batch.productItem      = _ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
+		//_batch.productItem      = _ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
 		_batch.volume           = _СтрокаСЖ.Количество;
 		_batch.unit             = _ВетисArgusCommon.Unit(_ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
 		_batch.dateOfProduction = _ВетисMercuryVetdocument.GoodsDate(_СтрокаСЖ.ДатаВыработкиНачало, _СтрокаСЖ.ДатаВыработкиКонец);
@@ -578,6 +575,11 @@
 		_batch.perishable       = _СтрокаСЖ.Скоропортящаяся;
 		_batch.lowGradeCargo    = _СтрокаСЖ.НекачественныйГруз;
 		_batch.owner            = _ВетисCerberusEnterprise.BusinessEntity(_ВетисCerberusEnterpriseСлой1с.BusinessEntity(_строкаСЖ.Собственник));
+		
+		//MERC13098 - Наименование продукции в ветеринарно-сопроводительном документе обязательно для заполнения.
+		Если ЗначениеЗаполнено(_productItem.guid) ИЛИ ЗначениеЗаполнено(_productItem.name) Тогда
+			_batch.productItem = _ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
+		КонецЕсли;
 		
 		Если _Версия20 Тогда
 			//_packingType = ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка));
@@ -591,10 +593,11 @@
 				ВетисDictionary_2_0.Producer(ВетисDictionaryСлой1с.Producer(_СтрокаСЖ.ПроизводительПредприятие))
 				);
 			//сделать: добавить упаковки для 2.0
-			_level = ВетисDictionaryСлой1с.PackageLevelType(_уровеньУпаковки);
+			_level = ВетисDictionaryСлой1с.PackageLevelType(ВетисDictionaryСлой1с.PackageLevelType());//пока фиксированный
 			_packingType = ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка);
 			_batch.packageList = ВетисDictionary_2_0.PackageList(_level, _packingType, _СтрокаСЖ.КоличествоМест);
-			_batch.batchID = _СтрокаСЖ.ИДПартии;
+			_batch.batchID.Очистить();
+			_batch.batchID.Добавить(_СтрокаСЖ.ИДПартии);
 		Иначе
 			//_batch.productItem      = ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
 			_batch.packingList      = ВетисArgusCommon.PackingFormList(_ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));

@@ -103,6 +103,11 @@
 					<ContextMenu name="ПользовательКонтекстноеМеню" id="28"/>
 					<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="29"/>
 				</LabelField>
+				<LabelField name="Контекст" id="42">
+					<DataPath>Список.Контекст</DataPath>
+					<ContextMenu name="КонтекстКонтекстноеМеню" id="43"/>
+					<ExtendedTooltip name="КонтекстРасширеннаяПодсказка" id="44"/>
+				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>

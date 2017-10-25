@@ -261,14 +261,14 @@
 // packingType  - dt:PackingType - Тип упаковки
 // quantity     - xs:integer - Количество единиц упаковки
 // productMarks - dt:ProductMarks - Маркировка партии продукции
-Функция Package(level, packingType, quantity = Неопределено, productMarks = Неопределено) Экспорт
+Функция Package(level = Неопределено, packingType = Неопределено, quantity = Неопределено, productMarks = Неопределено) Экспорт
 	
 	_Объект = Создать("Package");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, level, "level");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, packingType, "packingType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ?(packingType = Неопределено, PackingType(), packingType), "packingType");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, quantity, "quantity");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, productMarks, "productMarks");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ?(productMarks = Неопределено, ProductMarks(), productMarks), "productMarks");
 	
 	Возврат _Объект;
 	
@@ -307,7 +307,7 @@
 
 //Тип, описывающий вид упаковки.
 //по xsd это bs:GenericVersioningEntity, по справке bs:GenericEntity (24.10.2017), считаем что по xsd правильнее
-Функция PackingType(guid) Экспорт
+Функция PackingType(guid = Неопределено) Экспорт
 	
 	_Объект = Создать("PackingType");
 	
@@ -370,7 +370,7 @@
 //Для каждой маркировки может быть указан её тип (см. атрибут class), который также может определять формат маркировки.
 //Параметры:
 // class - Описание упаковки. dt:ProductMarkingClass
-Функция ProductMarks(class) Экспорт
+Функция ProductMarks(class = Неопределено) Экспорт
 	
 	_Объект = Создать("ProductMarks");
 	

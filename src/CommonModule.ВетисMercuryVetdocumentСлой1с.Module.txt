@@ -364,7 +364,6 @@
 	
 	Если ТипЗнч(value1) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент")
 		ИЛИ ТипЗнч(value1) = Тип("ДанныеФормыСтруктура") Тогда
-		//сделать: привести в порядок обратную конверсию VetDocument
 		_док = value1;
 		_всд = value2;
 		
@@ -416,13 +415,15 @@
 		_СтрокаТТН.Транспорт      = TransportInfo(_всд.certifiedConsignment.transportInfo);
 		
 		_док.МаршрутСледования.Очистить();
-		Для каждого _point Из _всд.certifiedConsignment.shipmentRoute Цикл
-			_Строка = _док.МаршрутСледования.Добавить();
-			_Строка.ПунктПерегрузки = _point.location.name;
-			_Строка.Предприятие     = ВетисDictionaryСлой1с.Enterprise(_point.enterprise);
-			_Строка.ЕстьПерегрузка  = _point.transshipment;
-			_Строка.Транспорт       = TransportInfo(_point.nextTransport);
-		КонецЦикла;
+		Если НЕ _всд.certifiedConsignment.shipmentRoute = Неопределено Тогда
+			Для каждого _point Из _всд.certifiedConsignment.shipmentRoute Цикл
+				_Строка = _док.МаршрутСледования.Добавить();
+				_Строка.ПунктПерегрузки = _point.location.name;
+				_Строка.Предприятие     = ВетисDictionaryСлой1с.Enterprise(_point.enterprise);
+				_Строка.ЕстьПерегрузка  = _point.transshipment;
+				_Строка.Транспорт       = TransportInfo(_point.nextTransport);
+			КонецЦикла;
+		КонецЕсли;
 		
 		_СтрокаСЖ = ?(_док.Товары.Количество() = 0, _док.Товары.Добавить(), _док.Товары[0]);
 		
@@ -518,11 +519,15 @@
 		_строкаСЖ.НекачественныйГруз   = _batch.lowGradeCargo;
 		
 		Если _Версия20 Тогда
-			_package = ВетисDictionaryСлой1с.PackageList(_batch.packageList, _уровеньУпаковки);
-			_строкаСЖ.Упаковка             = ВетисDictionaryСлой1с.Package(_package);
-			_строкаСЖ.КоличествоМест       = _package.quantity;
-			_строкаСЖ.ПроизводительПредприятие = _ВетисCerberusEnterpriseСлой1с.Producer(_batch.origin.producer);
-			_строкаСЖ.Номенклатура         = _ВетисArgusProductionСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
+			Если НЕ _batch.packageList = Неопределено Тогда
+				_package = ВетисDictionaryСлой1с.PackageList(_batch.packageList, _уровеньУпаковки);
+				_строкаСЖ.Упаковка             = ВетисDictionaryСлой1с.Package(_package);
+				_строкаСЖ.КоличествоМест       = _package.quantity;
+			КонецЕсли;
+			Если НЕ _batch.origin = Неопределено Тогда
+				_строкаСЖ.ПроизводительПредприятие = _ВетисCerberusEnterpriseСлой1с.Producer(_batch.origin.producer);
+				_строкаСЖ.Номенклатура         = _ВетисArgusProductionСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
+			КонецЕсли;
 		Иначе
 			_строкаСЖ.Упаковка             = _ВетисArgusCommonСлой1с.PackingForm(_batch.packingList);
 			_строкаСЖ.КоличествоМест       = _batch.packingAmount;

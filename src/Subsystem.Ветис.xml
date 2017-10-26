@@ -111,7 +111,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисProductService</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисProductService_2_0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисОбщегоНазначенияКлиентСервер</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.Пользователи</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисPackingForm</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисPurpose</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисSubProduct</xr:Item>
@@ -146,6 +145,9 @@
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисString255</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисGuid</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.КлассификаторСтранМира</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПредприятияХС</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСкладскойЖурнал</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСоответствие</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

@@ -7,6 +7,7 @@
 		</v8:item>
 	</Title>
 	<CommandBarLocation>None</CommandBarLocation>
+	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -29,6 +30,7 @@
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<HeightInTableRows>1</HeightInTableRows>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -36,13 +38,14 @@
 							<CommandSet>
 								<ExcludedCommand>Change</ExcludedCommand>
 							</CommandSet>
+							<SearchStringLocation>Top</SearchStringLocation>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="СписокВетисКонтекстноеМеню" id="2"/>
 							<AutoCommandBar name="СписокВетисКоманднаяПанель" id="3">
 								<ChildItems>
 									<Button name="СписокВетисЗаполнить" id="32">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СписокВетисЗаполнить</CommandName>
+										<CommandName>Form.Command.КомандаСписокВетисЗаполнить</CommandName>
 										<ExtendedTooltip name="СписокВетисЗаполнитьРасширеннаяПодсказка" id="33"/>
 									</Button>
 								</ChildItems>
@@ -105,11 +108,19 @@
 					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="31"/>
 					<ChildItems>
 						<Table name="СправочникСписок" id="34">
-							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<HeightInTableRows>1</HeightInTableRows>
+							<SearchOnInput>DontUse</SearchOnInput>
 							<EnableStartDrag>true</EnableStartDrag>
 							<DataPath>СправочникСписок</DataPath>
 							<RowPictureDataPath>СправочникСписок.DefaultPicture</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>CancelSearch</ExcludedCommand>
+								<ExcludedCommand>Find</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -128,12 +139,14 @@
 								<ChildItems>
 									<Button name="СправочникСписокСоздатьСвязь" id="86">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СоздатьСвязь</CommandName>
+										<OnlyInAllActions>true</OnlyInAllActions>
+										<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
 										<ExtendedTooltip name="СправочникСписокСоздатьСвязьРасширеннаяПодсказка" id="87"/>
 									</Button>
 									<Button name="СправочникСписокУдалитьСвязь" id="88">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.УдалитьСвязь</CommandName>
+										<OnlyInAllActions>true</OnlyInAllActions>
+										<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
 										<ExtendedTooltip name="СправочникСписокУдалитьСвязьРасширеннаяПодсказка" id="89"/>
 									</Button>
 								</ChildItems>
@@ -172,12 +185,6 @@
 									<Width>20</Width>
 									<ContextMenu name="СправочникСписокnameКонтекстноеМеню" id="84"/>
 									<ExtendedTooltip name="СправочникСписокnameРасширеннаяПодсказка" id="85"/>
-								</LabelField>
-								<LabelField name="СправочникСписокfullName" id="77">
-									<DataPath>СправочникСписок.fullName</DataPath>
-									<Width>15</Width>
-									<ContextMenu name="СправочникСписокfullNameКонтекстноеМеню" id="78"/>
-									<ExtendedTooltip name="СправочникСписокfullNameРасширеннаяПодсказка" id="79"/>
 								</LabelField>
 								<LabelField name="СправочникСписокcode" id="93">
 									<DataPath>СправочникСписок.code</DataPath>
@@ -308,12 +315,11 @@
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>false</DynamicDataRead>
+				<DynamicDataRead>true</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
 	_Таблица.Ссылка,
 	_Таблица.Код,
 	_Таблица.Наименование КАК name,
-	_Таблица.НаименованиеПолное КАК fullName,
 	_Таблица.КодАльфа2 КАК code,
 	_Ветис.guid КАК guid,
 	_Ветис.name КАК Ветисname
@@ -372,7 +378,7 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="СписокВетисЗаполнить" id="1">
+		<Command name="КомандаСписокВетисЗаполнить" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -382,12 +388,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Список ветис заполнить</v8:content>
+					<v8:content>Команда список ветис заполнить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>СписокВетисЗаполнить</Action>
+			<Action>КомандаСписокВетисЗаполнить</Action>
 		</Command>
-		<Command name="СоздатьСвязь" id="2">
+		<Command name="КомандаСоздатьСвязь" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -397,12 +403,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Создать связь</v8:content>
+					<v8:content>Команда создать связь</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>СоздатьСвязь</Action>
+			<Action>КомандаСоздатьСвязь</Action>
 		</Command>
-		<Command name="УдалитьСвязь" id="3">
+		<Command name="КомандаУдалитьСвязь" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -412,10 +418,10 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить связь</v8:content>
+					<v8:content>Команда удалить связь</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>УдалитьСвязь</Action>
+			<Action>КомандаУдалитьСвязь</Action>
 		</Command>
 	</Commands>
 </Form>

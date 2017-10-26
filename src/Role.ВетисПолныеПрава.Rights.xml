@@ -11,13 +11,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисСкладскойЖурналРС.Command.ВетисСкладскойЖурнал</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>Configuration.ВетеринарияМеркурийГИС</name>
 		<right>
 			<name>Administration</name>

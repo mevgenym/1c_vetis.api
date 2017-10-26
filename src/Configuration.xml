@@ -210,6 +210,9 @@
 			<CommonCommand>ВетисНастройки</CommonCommand>
 			<CommonCommand>ВетисПредопределенные</CommonCommand>
 			<CommonCommand>ВетисПредприятия</CommonCommand>
+			<CommonCommand>ВетисПредприятияХС</CommonCommand>
+			<CommonCommand>ВетисСкладскойЖурнал</CommonCommand>
+			<CommonCommand>ВетисСоответствие</CommonCommand>
 			<CommonCommand>ВетисТранспортнаяПартия</CommonCommand>
 			<CommonCommand>ВетисУстановкаСоответствияСправочников</CommonCommand>
 			<CommonCommand>КлассификаторЕдиницИзмерения</CommonCommand>

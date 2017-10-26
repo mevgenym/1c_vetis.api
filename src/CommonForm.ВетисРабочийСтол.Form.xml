@@ -507,7 +507,7 @@
 					<ChildItems>
 						<Table name="СписокСкладскойЖурнал" id="132">
 							<ChangeRowSet>false</ChangeRowSet>
-							<HeightInTableRows>1</HeightInTableRows>
+							<Height>1</Height>
 							<UseAlternationRowColor>true</UseAlternationRowColor>
 							<EnableStartDrag>true</EnableStartDrag>
 							<DataPath>СписокСкладскойЖурнал</DataPath>

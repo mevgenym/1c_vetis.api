@@ -207,6 +207,11 @@
 										<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
 										<ExtendedTooltip name="СправочникСписокУдалитьСвязьРасширеннаяПодсказка" id="89"/>
 									</Button>
+									<Button name="СправочникСписокКомандаСопоставитьАвтоматически" id="160">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаСопоставитьАвтоматически</CommandName>
+										<ExtendedTooltip name="СправочникСписокКомандаСопоставитьАвтоматическиРасширеннаяПодсказка" id="161"/>
+									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СправочникСписокРасширеннаяПодсказка" id="37"/>
@@ -238,11 +243,10 @@
 								<Event name="Selection">СправочникСписокВыбор</Event>
 							</Events>
 							<ChildItems>
-								<LabelField name="СправочникСписокname" id="83">
-									<DataPath>СправочникСписок.name</DataPath>
-									<Width>20</Width>
-									<ContextMenu name="СправочникСписокnameКонтекстноеМеню" id="84"/>
-									<ExtendedTooltip name="СправочникСписокnameРасширеннаяПодсказка" id="85"/>
+								<LabelField name="СправочникСписокНаименование" id="154">
+									<DataPath>СправочникСписок.Description</DataPath>
+									<ContextMenu name="СправочникСписокНаименованиеКонтекстноеМеню" id="155"/>
+									<ExtendedTooltip name="СправочникСписокНаименованиеРасширеннаяПодсказка" id="156"/>
 								</LabelField>
 								<LabelField name="СправочникСписокВетисname" id="90">
 									<DataPath>СправочникСписок.Ветисname</DataPath>
@@ -250,10 +254,10 @@
 									<ContextMenu name="СправочникСписокВетисnameКонтекстноеМеню" id="91"/>
 									<ExtendedTooltip name="СправочникСписокВетисnameРасширеннаяПодсказка" id="92"/>
 								</LabelField>
-								<LabelField name="СправочникСписокinn" id="136">
-									<DataPath>СправочникСписок.inn</DataPath>
-									<ContextMenu name="СправочникСписокinnКонтекстноеМеню" id="137"/>
-									<ExtendedTooltip name="СправочникСписокinnРасширеннаяПодсказка" id="138"/>
+								<LabelField name="СправочникСписокИНН" id="157">
+									<DataPath>СправочникСписок.ИНН</DataPath>
+									<ContextMenu name="СправочникСписокИННКонтекстноеМеню" id="158"/>
+									<ExtendedTooltip name="СправочникСписокИННРасширеннаяПодсказка" id="159"/>
 								</LabelField>
 								<InputField name="СправочникСписокОписание" id="139">
 									<DataPath>СправочникСписок.Описание</DataPath>
@@ -410,9 +414,9 @@
 				<QueryText>ВЫБРАТЬ
 	_Таблица.Ссылка КАК Ссылка,
 	_Таблица.Код КАК Код,
-	_Таблица.Наименование КАК name,
-	_Таблица.ИНН КАК inn,
-	_Таблица.КПП КАК kpp,
+	_Таблица.Наименование,
+	_Таблица.ИНН,
+	_Таблица.КПП,
 	_Ветис.guid КАК guid,
 	_Ветис.name КАК Ветисname,
 	_Ветис.Описание КАК Описание
@@ -427,11 +431,6 @@
 				<MainTable>Catalog.Контрагенты</MainTable>
 				<ListSettings>
 					<dcsset:filter>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:left xsi:type="dcscor:Field">name</dcsset:left>
-							<dcsset:comparisonType>Contains</dcsset:comparisonType>
-							<dcsset:right xsi:type="xs:string"/>
-						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
 					</dcsset:filter>
@@ -525,13 +524,13 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
-						<dcsset:field>СправочникСписокname</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СправочникСписокinn</dcsset:field>
+						<dcsset:field>СправочникСписокНаименование</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СправочникСписокВетисname</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СправочникСписокИНН</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СправочникСписокОписание</dcsset:field>
@@ -557,13 +556,13 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Имя</v8:content>
+					<v8:content>Найти по имени</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда найти по имени</v8:content>
+					<v8:content>Найти по имени</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -583,7 +582,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда создать связь</v8:content>
+					<v8:content>Создать связь</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаСоздатьСвязь</Action>
@@ -598,7 +597,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда удалить связь</v8:content>
+					<v8:content>Удалить связь</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаУдалитьСвязь</Action>
@@ -607,13 +606,13 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ИНН</v8:content>
+					<v8:content>Найти по ИНН</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда найти по ИНН</v8:content>
+					<v8:content>Найти по ИНН</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -633,7 +632,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда справочник добавить</v8:content>
+					<v8:content>Добавить</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаСправочникДобавить</Action>
@@ -642,13 +641,13 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда найти по guid</v8:content>
+					<v8:content>Найти по guid</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда найти по guid</v8:content>
+					<v8:content>Найти по guid</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -657,6 +656,21 @@
 			</Picture>
 			<Action>КомандаНайтиПоGuid</Action>
 			<Representation>Picture</Representation>
+		</Command>
+		<Command name="КомандаСопоставитьАвтоматически" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сопоставить автоматически</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сопоставить автоматически</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаСопоставитьАвтоматически</Action>
 		</Command>
 	</Commands>
 </Form>

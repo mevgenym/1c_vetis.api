@@ -109,7 +109,7 @@
 	КонецЕсли;
 	
 	Попытка
-		_List = Прокси().GetRegionListByCountry(пПараметры.ListOptions);
+		_List = Прокси().GetRegionListByCountry(пПараметры.ListOptions, countryGuid);
 	Исключение
 		ВетисЖурнал.ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
 		ВызватьИсключение;
@@ -173,7 +173,7 @@
 	КонецЕсли;
 	
 	Попытка
-		_List = Прокси().GetDistrictListByRegion(пПараметры.ListOptions);
+		_List = Прокси().GetDistrictListByRegion(пПараметры.ListOptions, regionGuid);
 	Исключение
 		ВетисЖурнал.ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
 		ВызватьИсключение;

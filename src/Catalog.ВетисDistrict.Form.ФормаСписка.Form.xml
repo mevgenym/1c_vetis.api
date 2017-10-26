@@ -27,6 +27,9 @@
 			<DataPath>Страна</DataPath>
 			<ContextMenu name="СтранаОтборКонтекстноеМеню" id="26"/>
 			<ExtendedTooltip name="СтранаОтборРасширеннаяПодсказка" id="27"/>
+			<Events>
+				<Event name="StartChoice">СтранаОтборНачалоВыбора</Event>
+			</Events>
 		</InputField>
 		<Table name="Список" id="28">
 			<CommandBarLocation>None</CommandBarLocation>

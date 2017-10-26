@@ -27,6 +27,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисТранспортнаяПартия</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>AccumulationRegister.ВетисСкладскойЖурнал</name>
 		<right>
 			<name>Read</name>
@@ -97,6 +104,20 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисПредопределенные</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисВходящаяПартияПоДокументам</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисRegion</name>
 		<right>
 			<name>Read</name>
@@ -136,6 +157,20 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисВходящаяПартияСводно</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисПредприятия</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>InformationRegister.ВетисСкладскойЖурналРС</name>
 		<right>
 			<name>Read</name>
@@ -156,6 +191,13 @@
 	</object>
 	<object>
 		<name>CommonForm.ВетисXSD</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.Транспорт</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -204,11 +246,32 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.Номенклатура</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>DataProcessor.ВетисУстановкаСоответствияСправочников</name>
 		<right>
 			<name>Use</name>
 			<value>true</value>
 		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисPurpose</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.Пользователи</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -344,6 +407,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисRegion</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.Контрагенты</name>
 		<right>
 			<name>Read</name>
@@ -438,6 +508,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисВетеринарноСопроводительныйДокумент</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Subsystem.Ветис</name>
 		<right>
 			<name>View</name>
@@ -464,6 +541,13 @@
 		</right>
 		<right>
 			<name>TotalsControl</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисУстановкаСоответствияСправочников</name>
+		<right>
+			<name>View</name>
 			<value>true</value>
 		</right>
 	</object>
@@ -557,6 +641,13 @@
 		</right>
 		<right>
 			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.КлассификаторЕдиницИзмерения</name>
+		<right>
+			<name>View</name>
 			<value>true</value>
 		</right>
 	</object>
@@ -667,6 +758,13 @@
 		</right>
 		<right>
 			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.КлассификаторСтранМира</name>
+		<right>
+			<name>View</name>
 			<value>true</value>
 		</right>
 	</object>
@@ -892,6 +990,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисPackingForm</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисPackingForm</name>
 		<right>
 			<name>Read</name>
@@ -1033,6 +1138,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисЖурнал</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисDistrict</name>
 		<right>
 			<name>Read</name>
@@ -1115,6 +1227,20 @@
 		</right>
 		<right>
 			<name>InteractiveClearDeletionMarkPredefinedData</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.Контрагенты</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисDistrict</name>
+		<right>
+			<name>View</name>
 			<value>true</value>
 		</right>
 	</object>

@@ -6,6 +6,7 @@
 			<v8:content>Контрагенты</v8:content>
 		</v8:item>
 	</Title>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<CommandBarLocation>None</CommandBarLocation>
 	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
@@ -39,11 +40,10 @@
 										<Event name="OnChange">ВетисСтрокаПоискаПриИзменении</Event>
 									</Events>
 								</InputField>
-								<Button name="ВетисЗаполнить" id="32">
+								<Button name="КомандаВетисНайтиПоИмени" id="152">
 									<Type>UsualButton</Type>
-									<Representation>Picture</Representation>
-									<CommandName>Form.Command.ВетисЗаполнить</CommandName>
-									<ExtendedTooltip name="ВетисЗаполнитьРасширеннаяПодсказка" id="33"/>
+									<CommandName>Form.Command.КомандаНайтиПоИмени</CommandName>
+									<ExtendedTooltip name="КомандаВетисНайтиПоИмениРасширеннаяПодсказка" id="153"/>
 								</Button>
 								<InputField name="ВетисСтрокаПоискаИНН" id="131">
 									<DataPath>ВетисСтрокаПоискаИНН</DataPath>
@@ -52,8 +52,7 @@
 								</InputField>
 								<Button name="ВетисНайтиПоИНН" id="134">
 									<Type>UsualButton</Type>
-									<Representation>Picture</Representation>
-									<CommandName>Form.Command.ВетисНайтиПоИНН</CommandName>
+									<CommandName>Form.Command.КомандаНайтиПоИНН</CommandName>
 									<ExtendedTooltip name="ВетисНайтиПоИННРасширеннаяПодсказка" id="135"/>
 								</Button>
 								<InputField name="guid" id="142">
@@ -63,6 +62,17 @@
 									<Events>
 										<Event name="OnChange">guidПриИзменении</Event>
 									</Events>
+								</InputField>
+								<Button name="КомандаНайтиПоGuid" id="150">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаНайтиПоGuid</CommandName>
+									<ExtendedTooltip name="КомандаНайтиПоGuidРасширеннаяПодсказка" id="151"/>
+								</Button>
+								<InputField name="МаксимальноеКоличество" id="147">
+									<DataPath>МаксимальноеКоличество</DataPath>
+									<Width>2</Width>
+									<ContextMenu name="МаксимальноеКоличествоКонтекстноеМеню" id="148"/>
+									<ExtendedTooltip name="МаксимальноеКоличествоРасширеннаяПодсказка" id="149"/>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
@@ -184,17 +194,17 @@
 								<ChildItems>
 									<Button name="СправочникСписокКомандаДобавить" id="145">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаДобавить</CommandName>
+										<CommandName>Form.Command.КомандаСправочникДобавить</CommandName>
 										<ExtendedTooltip name="СправочникСписокКомандаДобавитьРасширеннаяПодсказка" id="146"/>
 									</Button>
 									<Button name="СправочникСписокСоздатьСвязь" id="86">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СоздатьСвязь</CommandName>
+										<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
 										<ExtendedTooltip name="СправочникСписокСоздатьСвязьРасширеннаяПодсказка" id="87"/>
 									</Button>
 									<Button name="СправочникСписокУдалитьСвязь" id="88">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.УдалитьСвязь</CommandName>
+										<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
 										<ExtendedTooltip name="СправочникСписокУдалитьСвязьРасширеннаяПодсказка" id="89"/>
 									</Button>
 								</ChildItems>
@@ -452,6 +462,9 @@
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
+			<Save>
+				<Field>ВетисСтрокаПоиска</Field>
+			</Save>
 		</Attribute>
 		<Attribute name="ВетисСтрокаПоискаИНН" id="5">
 			<Title>
@@ -467,6 +480,9 @@
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
+			<Save>
+				<Field>ВетисСтрокаПоискаИНН</Field>
+			</Save>
 		</Attribute>
 		<Attribute name="guid" id="6">
 			<Title>
@@ -482,6 +498,28 @@
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
+			<Save>
+				<Field>guid</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="МаксимальноеКоличество" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Макс.</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<Save>
+				<Field>МаксимальноеКоличество</Field>
+			</Save>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
@@ -515,7 +553,7 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="ВетисЗаполнить" id="1">
+		<Command name="КомандаНайтиПоИмени" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -525,16 +563,17 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Ветис заполнить</v8:content>
+					<v8:content>Команда найти по имени</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
 				<xr:Ref>StdPicture.Find</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
-			<Action>СписокВетисЗаполнить</Action>
+			<Action>КомандаНайтиПоИмени</Action>
+			<Representation>Picture</Representation>
 		</Command>
-		<Command name="СоздатьСвязь" id="2">
+		<Command name="КомандаСоздатьСвязь" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -544,12 +583,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Создать связь</v8:content>
+					<v8:content>Команда создать связь</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>СоздатьСвязь</Action>
+			<Action>КомандаСоздатьСвязь</Action>
 		</Command>
-		<Command name="УдалитьСвязь" id="3">
+		<Command name="КомандаУдалитьСвязь" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -559,12 +598,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить связь</v8:content>
+					<v8:content>Команда удалить связь</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>УдалитьСвязь</Action>
+			<Action>КомандаУдалитьСвязь</Action>
 		</Command>
-		<Command name="ВетисНайтиПоИНН" id="4">
+		<Command name="КомандаНайтиПоИНН" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -574,16 +613,17 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Ветис найти по ИНН</v8:content>
+					<v8:content>Команда найти по ИНН</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
 				<xr:Ref>StdPicture.Find</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
-			<Action>СписокВетисНайтиПоИНН</Action>
+			<Action>КомандаНайтиПоИНН</Action>
+			<Representation>Picture</Representation>
 		</Command>
-		<Command name="КомандаДобавить" id="5">
+		<Command name="КомандаСправочникДобавить" id="5">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -593,10 +633,30 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда добавить</v8:content>
+					<v8:content>Команда справочник добавить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>КомандаДобавить</Action>
+			<Action>КомандаСправочникДобавить</Action>
+		</Command>
+		<Command name="КомандаНайтиПоGuid" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда найти по guid</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда найти по guid</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаНайтиПоGuid</Action>
+			<Representation>Picture</Representation>
 		</Command>
 	</Commands>
 </Form>

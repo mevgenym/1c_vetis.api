@@ -6,10 +6,12 @@
 			<v8:content>Предприятия</v8:content>
 		</v8:item>
 	</Title>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<CommandBarLocation>None</CommandBarLocation>
 	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -19,74 +21,135 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="27"/>
 			<ChildItems>
-				<UsualGroup name="Группа2" id="28">
+				<UsualGroup name="Группа4" id="159">
 					<Group>Vertical</Group>
-					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="29"/>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="160"/>
 					<ChildItems>
-						<Table name="СписокКонтрагенты" id="111">
-							<CommandBarLocation>None</CommandBarLocation>
-							<ReadOnly>true</ReadOnly>
-							<ChangeRowSet>false</ChangeRowSet>
-							<ChangeRowOrder>false</ChangeRowOrder>
-							<HeightInTableRows>1</HeightInTableRows>
-							<Header>false</Header>
-							<EnableStartDrag>true</EnableStartDrag>
-							<DataPath>СписокКонтрагенты</DataPath>
-							<RowPictureDataPath>СписокКонтрагенты.DefaultPicture</RowPictureDataPath>
-							<SearchStringLocation>Top</SearchStringLocation>
-							<AutoRefresh>false</AutoRefresh>
-							<AutoRefreshPeriod>60</AutoRefreshPeriod>
-							<Period>
-								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
-							</Period>
-							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<RestoreCurrentRow>false</RestoreCurrentRow>
-							<TopLevelParent xsi:nil="true"/>
-							<ShowRoot>true</ShowRoot>
-							<AllowRootChoice>false</AllowRootChoice>
-							<UpdateOnDataChange>Auto</UpdateOnDataChange>
-							<ContextMenu name="СписокКонтрагентыКонтекстноеМеню" id="112"/>
-							<AutoCommandBar name="СписокКонтрагентыКоманднаяПанель" id="113"/>
-							<ExtendedTooltip name="СписокКонтрагентыРасширеннаяПодсказка" id="114"/>
-							<SearchStringAddition name="СписокКонтрагентыСтрокаПоиска" id="115">
-								<AdditionSource>
-									<Item>СписокКонтрагенты</Item>
-									<Type>SearchStringRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="СписокКонтрагентыСтрокаПоискаКонтекстноеМеню" id="116"/>
-								<ExtendedTooltip name="СписокКонтрагентыСтрокаПоискаРасширеннаяПодсказка" id="117"/>
-							</SearchStringAddition>
-							<ViewStatusAddition name="СписокКонтрагентыСостояниеПросмотра" id="118">
-								<AdditionSource>
-									<Item>СписокКонтрагенты</Item>
-									<Type>ViewStatusRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="СписокКонтрагентыСостояниеПросмотраКонтекстноеМеню" id="119"/>
-								<ExtendedTooltip name="СписокКонтрагентыСостояниеПросмотраРасширеннаяПодсказка" id="120"/>
-							</ViewStatusAddition>
-							<SearchControlAddition name="СписокКонтрагентыУправлениеПоиском" id="121">
-								<AdditionSource>
-									<Item>СписокКонтрагенты</Item>
-									<Type>SearchControl</Type>
-								</AdditionSource>
-								<ContextMenu name="СписокКонтрагентыУправлениеПоискомКонтекстноеМеню" id="122"/>
-								<ExtendedTooltip name="СписокКонтрагентыУправлениеПоискомРасширеннаяПодсказка" id="123"/>
-							</SearchControlAddition>
-							<Events>
-								<Event name="Selection">СписокКонтрагентыВыбор</Event>
-							</Events>
+						<UsualGroup name="ГруппаОтборХС" id="161">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор ХС</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор ХС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтборХСРасширеннаяПодсказка" id="162"/>
 							<ChildItems>
-								<LabelField name="СписокКонтрагентыСсылка" id="130">
-									<DataPath>СписокКонтрагенты.Ссылка</DataPath>
-									<ContextMenu name="СписокКонтрагентыСсылкаКонтекстноеМеню" id="131"/>
-									<ExtendedTooltip name="СписокКонтрагентыСсылкаРасширеннаяПодсказка" id="132"/>
-								</LabelField>
+								<InputField name="ХозяйствующийСубъект" id="142">
+									<DataPath>Объект.ХозяйствующийСубъект</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ХС</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="143"/>
+									<ExtendedTooltip name="ХозяйствующийСубъектРасширеннаяПодсказка" id="144"/>
+								</InputField>
+								<Button name="КомандаНайтиПоХС" id="182">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаНайтиПоХС</CommandName>
+									<ExtendedTooltip name="КомандаНайтиПоХСРасширеннаяПодсказка" id="183"/>
+								</Button>
+								<InputField name="businessEntityGuid" id="173">
+									<DataPath>businessEntityGuid</DataPath>
+									<ContextMenu name="businessEntityGuidКонтекстноеМеню" id="174"/>
+									<ExtendedTooltip name="businessEntityGuidРасширеннаяПодсказка" id="175"/>
+								</InputField>
+								<Button name="КомандаНайтиПоGuid" id="178">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаНайтиПоGuid</CommandName>
+									<ExtendedTooltip name="КомандаНайтиПоGuidРасширеннаяПодсказка" id="179"/>
+								</Button>
+								<InputField name="МаксимальноеКоличество1" id="170">
+									<DataPath>МаксимальноеКоличество</DataPath>
+									<Width>3</Width>
+									<ContextMenu name="МаксимальноеКоличество1КонтекстноеМеню" id="171"/>
+									<ExtendedTooltip name="МаксимальноеКоличество1РасширеннаяПодсказка" id="172"/>
+								</InputField>
+								<Button name="КомандаОтборПоХС" id="163">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаОтборПоХС</CommandName>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отбор по имени</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="КомандаОтборПоХСРасширеннаяПодсказка" id="164"/>
+								</Button>
 							</ChildItems>
-						</Table>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОтборИмя" id="28">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор имя</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор имя</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтборИмяРасширеннаяПодсказка" id="29"/>
+							<ChildItems>
+								<InputField name="Наименование" id="150">
+									<DataPath>Наименование</DataPath>
+									<ContextMenu name="НаименованиеКонтекстноеМеню" id="151"/>
+									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="152"/>
+								</InputField>
+								<InputField name="Район" id="153">
+									<DataPath>Район</DataPath>
+									<ContextMenu name="РайонКонтекстноеМеню" id="154"/>
+									<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="155"/>
+								</InputField>
+								<InputField name="Регион" id="156">
+									<DataPath>Регион</DataPath>
+									<ContextMenu name="РегионКонтекстноеМеню" id="157"/>
+									<ExtendedTooltip name="РегионРасширеннаяПодсказка" id="158"/>
+								</InputField>
+								<Button name="КомандаНайтиПоИмени" id="176">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаНайтиПоИмени</CommandName>
+									<ExtendedTooltip name="КомандаНайтиПоИмениРасширеннаяПодсказка" id="177"/>
+								</Button>
+								<InputField name="guid" id="147">
+									<DataPath>guid</DataPath>
+									<ContextMenu name="guidКонтекстноеМеню" id="148"/>
+									<ExtendedTooltip name="guidРасширеннаяПодсказка" id="149"/>
+								</InputField>
+								<Button name="КомандаНайтиПоGuid1" id="180">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаНайтиПоGuid</CommandName>
+									<ExtendedTooltip name="КомандаНайтиПоGuid1РасширеннаяПодсказка" id="181"/>
+								</Button>
+								<InputField name="МаксимальноеКоличество" id="167">
+									<DataPath>МаксимальноеКоличество</DataPath>
+									<Width>3</Width>
+									<ContextMenu name="МаксимальноеКоличествоКонтекстноеМеню" id="168"/>
+									<ExtendedTooltip name="МаксимальноеКоличествоРасширеннаяПодсказка" id="169"/>
+								</InputField>
+								<Button name="КомандаОтборПоХС1" id="165">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаОтборПоХС</CommandName>
+									<ExtendedTooltip name="КомандаОтборПоХС1РасширеннаяПодсказка" id="166"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="Группа3" id="30">
@@ -110,7 +173,17 @@
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="СписокВетисКонтекстноеМеню" id="2"/>
-							<AutoCommandBar name="СписокВетисКоманднаяПанель" id="3"/>
+							<AutoCommandBar name="СписокВетисКоманднаяПанель" id="3">
+								<ChildItems>
+									<Button name="СписокВетисСписокВетисЗаполнить" id="145">
+										<Type>CommandBarButton</Type>
+										<Visible>false</Visible>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.КомандаСписокВетисЗаполнить</CommandName>
+										<ExtendedTooltip name="СписокВетисСписокВетисЗаполнитьРасширеннаяПодсказка" id="146"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="СписокВетисРасширеннаяПодсказка" id="4"/>
 							<SearchStringAddition name="СписокВетисСтрокаПоиска" id="5">
 								<AdditionSource>
@@ -185,12 +258,12 @@
 								<ChildItems>
 									<Button name="СправочникСписокСоздатьСвязь" id="86">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СоздатьСвязь</CommandName>
+										<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
 										<ExtendedTooltip name="СправочникСписокСоздатьСвязьРасширеннаяПодсказка" id="87"/>
 									</Button>
 									<Button name="СправочникСписокУдалитьСвязь" id="88">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.УдалитьСвязь</CommandName>
+										<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
 										<ExtendedTooltip name="СправочникСписокУдалитьСвязьРасширеннаяПодсказка" id="89"/>
 									</Button>
 								</ChildItems>
@@ -255,6 +328,9 @@
 				<v8:Type>cfg:DataProcessorObject.ВетисУстановкаСоответствияСправочников</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>Объект.ХозяйствующийСубъект</Field>
+			</Save>
 		</Attribute>
 		<Attribute name="СписокВетис" id="2">
 			<Title>
@@ -361,48 +437,113 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
-		<Attribute name="СписокКонтрагенты" id="5">
+		<Attribute name="guid" id="6">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Список контрагенты</v8:content>
+					<v8:content>Guid</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:DynamicList</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисGuid</v8:TypeSet>
 			</Type>
-			<Settings xsi:type="DynamicList">
-				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
-				<QueryText>ВЫБРАТЬ
-	_Таблица.Ссылка
-ИЗ
-	РегистрСведений.ВетисСоответствие КАК _Таблица
-ГДЕ
-	_Таблица.Ссылка ССЫЛКА Справочник.Контрагенты
-	И НЕ _Таблица.guid = ""</QueryText>
-				<MainTable>InformationRegister.ВетисСоответствие</MainTable>
-				<ListSettings>
-					<dcsset:filter>
-						<dcsset:viewMode>Normal</dcsset:viewMode>
-						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
-					</dcsset:filter>
-					<dcsset:order>
-						<dcsset:item xsi:type="dcsset:OrderItemField">
-							<dcsset:field>Ссылка</dcsset:field>
-							<dcsset:orderType>Asc</dcsset:orderType>
-						</dcsset:item>
-						<dcsset:viewMode>Normal</dcsset:viewMode>
-						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
-					</dcsset:order>
-					<dcsset:conditionalAppearance>
-						<dcsset:viewMode>Normal</dcsset:viewMode>
-						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
-					</dcsset:conditionalAppearance>
-					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
-					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
-				</ListSettings>
-			</Settings>
+			<Save>
+				<Field>guid</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Наименование" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисString255</v8:TypeSet>
+			</Type>
+			<Save>
+				<Field>Наименование</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Регион" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регион</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисRegion</v8:TypeSet>
+			</Type>
+			<Save>
+				<Field>Регион</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Район" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Район</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисDistrict</v8:TypeSet>
+			</Type>
+			<Save>
+				<Field>Район</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборПоХС" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по ХС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<Save>
+				<Field>ОтборПоХС</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="МаксимальноеКоличество" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Макс.</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<Save>
+				<Field>МаксимальноеКоличество</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="businessEntityGuid" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>guid</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисGuid</v8:TypeSet>
+			</Type>
+			<Save>
+				<Field>businessEntityGuid</Field>
+			</Save>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
@@ -433,22 +574,26 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="СписокВетисЗаполнить" id="1">
+		<Command name="КомандаСписокВетисЗаполнить" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить</v8:content>
+					<v8:content>Найти</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Список ветис заполнить</v8:content>
+					<v8:content>Команда список ветис заполнить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>СписокВетисЗаполнить</Action>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаСписокВетисЗаполнить</Action>
 		</Command>
-		<Command name="СоздатьСвязь" id="2">
+		<Command name="КомандаСоздатьСвязь" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -458,12 +603,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Создать связь</v8:content>
+					<v8:content>Команда создать связь</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>СоздатьСвязь</Action>
+			<Action>КомандаСоздатьСвязь</Action>
 		</Command>
-		<Command name="УдалитьСвязь" id="3">
+		<Command name="КомандаУдалитьСвязь" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -473,10 +618,85 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить связь</v8:content>
+					<v8:content>Команда удалить связь</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>УдалитьСвязь</Action>
+			<Action>КомандаУдалитьСвязь</Action>
+		</Command>
+		<Command name="КомандаОтборПоХС" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по ХС</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отбор по ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтборПоХС</Action>
+		</Command>
+		<Command name="КомандаНайтиПоGuid" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда найти по guid</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда найти по guid</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаНайтиПоGuid</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="КомандаНайтиПоИмени" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда найти по имени</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаНайтиПоИмени</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="КомандаНайтиПоХС" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда найти по ХС</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда найти по ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаНайтиПоХС</Action>
+			<Representation>Picture</Representation>
 		</Command>
 	</Commands>
 </Form>

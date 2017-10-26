@@ -187,10 +187,12 @@
 			<DefinedType>ВетисCountry</DefinedType>
 			<DefinedType>ВетисDistrict</DefinedType>
 			<DefinedType>ВетисEnterprise</DefinedType>
+			<DefinedType>ВетисGuid</DefinedType>
 			<DefinedType>ВетисPackingForm</DefinedType>
 			<DefinedType>ВетисProductItem</DefinedType>
 			<DefinedType>ВетисPurpose</DefinedType>
 			<DefinedType>ВетисRegion</DefinedType>
+			<DefinedType>ВетисString255</DefinedType>
 			<DefinedType>ВетисSubProduct</DefinedType>
 			<DefinedType>ВетисTransport</DefinedType>
 			<DefinedType>ВетисUnit</DefinedType>
@@ -211,6 +213,7 @@
 			<CommonCommand>ВетисТранспортнаяПартия</CommonCommand>
 			<CommonCommand>ВетисУстановкаСоответствияСправочников</CommonCommand>
 			<CommonCommand>КлассификаторЕдиницИзмерения</CommonCommand>
+			<CommonCommand>КлассификаторСтранМира</CommonCommand>
 			<CommonCommand>Контрагенты</CommonCommand>
 			<CommonCommand>Номенклатура</CommonCommand>
 			<CommonCommand>Пользователи</CommonCommand>

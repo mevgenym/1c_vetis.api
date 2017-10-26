@@ -117,13 +117,6 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисПредопределенные</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.Количество</name>
 		<right>
 			<name>View</name>
@@ -241,13 +234,6 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисПредприятия</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Разрешение.Attribute.Серия</name>
 		<right>
 			<name>View</name>
@@ -310,13 +296,6 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.Транспорт</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>InformationRegister.ВетисПредприятияХС</name>
 		<right>
 			<name>Read</name>
@@ -372,27 +351,6 @@
 		<right>
 			<name>Edit</name>
 			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonCommand.Номенклатура</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonCommand.ВетисPurpose</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonCommand.Пользователи</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
 		</right>
 	</object>
 	<object>
@@ -535,13 +493,6 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисRegion</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Catalog.Контрагенты</name>
 		<right>
 			<name>Read</name>
@@ -655,13 +606,6 @@
 		<name>InformationRegister.ВетисСоответствие</name>
 		<right>
 			<name>Read</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonCommand.ВетисУстановкаСоответствияСправочников</name>
-		<right>
-			<name>View</name>
 			<value>true</value>
 		</right>
 	</object>
@@ -838,13 +782,6 @@
 		<right>
 			<name>Edit</name>
 			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonCommand.КлассификаторЕдиницИзмерения</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
 		</right>
 	</object>
 	<object>
@@ -1262,13 +1199,6 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисPackingForm</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ТТН.Attribute.Транспорт</name>
 		<right>
 			<name>View</name>
@@ -1358,13 +1288,6 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисЖурнал</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.СрокГодностиКонец</name>
 		<right>
 			<name>View</name>
@@ -1439,13 +1362,6 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.Контрагенты</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.ПредыдущиеВСД</name>
 		<right>
 			<name>View</name>
@@ -1476,13 +1392,6 @@
 		<right>
 			<name>Edit</name>
 			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonCommand.ВетисDistrict</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
 		</right>
 	</object>
 	<object>

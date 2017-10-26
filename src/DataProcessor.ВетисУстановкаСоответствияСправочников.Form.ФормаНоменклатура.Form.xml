@@ -66,56 +66,6 @@
 							<ContextMenu name="ТипПродукцииКонтекстноеМеню" id="74"/>
 							<ExtendedTooltip name="ТипПродукцииРасширеннаяПодсказка" id="75"/>
 						</InputField>
-						<Table name="СписокSubProductВетис" id="119">
-							<Representation>List</Representation>
-							<Visible>false</Visible>
-							<AutoInsertNewRow>true</AutoInsertNewRow>
-							<EnableStartDrag>true</EnableStartDrag>
-							<EnableDrag>true</EnableDrag>
-							<DataPath>СписокSubProductВетис</DataPath>
-							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="СписокSubProductВетисКонтекстноеМеню" id="120"/>
-							<AutoCommandBar name="СписокSubProductВетисКоманднаяПанель" id="121"/>
-							<ExtendedTooltip name="СписокSubProductВетисРасширеннаяПодсказка" id="122"/>
-							<SearchStringAddition name="СписокSubProductВетисСтрокаПоиска" id="123">
-								<AdditionSource>
-									<Item>СписокSubProductВетис</Item>
-									<Type>SearchStringRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="СписокSubProductВетисСтрокаПоискаКонтекстноеМеню" id="124"/>
-								<ExtendedTooltip name="СписокSubProductВетисСтрокаПоискаРасширеннаяПодсказка" id="125"/>
-							</SearchStringAddition>
-							<ViewStatusAddition name="СписокSubProductВетисСостояниеПросмотра" id="126">
-								<AdditionSource>
-									<Item>СписокSubProductВетис</Item>
-									<Type>ViewStatusRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="СписокSubProductВетисСостояниеПросмотраКонтекстноеМеню" id="127"/>
-								<ExtendedTooltip name="СписокSubProductВетисСостояниеПросмотраРасширеннаяПодсказка" id="128"/>
-							</ViewStatusAddition>
-							<SearchControlAddition name="СписокSubProductВетисУправлениеПоиском" id="129">
-								<AdditionSource>
-									<Item>СписокSubProductВетис</Item>
-									<Type>SearchControl</Type>
-								</AdditionSource>
-								<ContextMenu name="СписокSubProductВетисУправлениеПоискомКонтекстноеМеню" id="130"/>
-								<ExtendedTooltip name="СписокSubProductВетисУправлениеПоискомРасширеннаяПодсказка" id="131"/>
-							</SearchControlAddition>
-							<ChildItems>
-								<InputField name="СписокSubProductВетисname" id="132">
-									<DataPath>СписокSubProductВетис.name</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СписокSubProductВетисnameКонтекстноеМеню" id="133"/>
-									<ExtendedTooltip name="СписокSubProductВетисnameРасширеннаяПодсказка" id="134"/>
-								</InputField>
-								<InputField name="СписокSubProductВетисguid" id="135">
-									<DataPath>СписокSubProductВетис.guid</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СписокSubProductВетисguidКонтекстноеМеню" id="136"/>
-									<ExtendedTooltip name="СписокSubProductВетисguidРасширеннаяПодсказка" id="137"/>
-								</InputField>
-							</ChildItems>
-						</Table>
 						<Table name="СписокВетис" id="100">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
@@ -302,28 +252,23 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<UseAlways>
+				<Field>СправочникСписок.Ссылка</Field>
+				<Field>СправочникСписок.Описание</Field>
+				<Field>СправочникСписок.Наименование</Field>
+				<Field>СправочникСписок.name</Field>
 				<Field>~СправочникСписок.ЕстьНК</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
+				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
-	_Таблица.Ссылка КАК Ссылка,
-	_Таблица.Код КАК Код,
-	_Таблица.Наименование КАК Наименование,
-	_Ветис.guid КАК guid,
-	_Ветис.name КАК name,
-	_Ветис.Описание КАК Описание
-ИЗ
-	Справочник.Номенклатура КАК _Таблица
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Ветис
-		ПО _Таблица.Ссылка = _Ветис.Ссылка
-ГДЕ
-	ИСТИНА
-	И НЕ _Таблица.ЭтоГруппа
-	И НЕ _Таблица.ПометкаУдаления
-	И НЕ _Таблица.Услуга</QueryText>
-				<MainTable>Catalog.Номенклатура</MainTable>
+	NULL КАК Ссылка,
+	NULL КАК Код,
+	NULL КАК Наименование,
+	NULL КАК guid,
+	NULL КАК name,
+	NULL КАК Описание
+</QueryText>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -407,49 +352,6 @@
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Sub product</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
-			</Columns>
-		</Attribute>
-		<Attribute name="СписокSubProductВетис" id="6">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Список sub product ветис</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>v8:ValueTable</v8:Type>
-			</Type>
-			<Columns>
-				<Column name="name" id="1">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Name</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="guid" id="5">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Guid</v8:content>
 						</v8:item>
 					</Title>
 					<Type>

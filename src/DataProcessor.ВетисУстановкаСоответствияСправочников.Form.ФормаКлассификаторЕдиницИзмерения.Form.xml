@@ -178,7 +178,6 @@
 								</LabelField>
 								<LabelField name="СправочникСписокВетисОписание" id="127">
 									<DataPath>СправочникСписок.ВетисОписание</DataPath>
-									<Visible>false</Visible>
 									<Width>20</Width>
 									<ContextMenu name="СправочникСписокВетисОписаниеКонтекстноеМеню" id="128"/>
 									<ExtendedTooltip name="СправочникСписокВетисОписаниеРасширеннаяПодсказка" id="129"/>
@@ -251,28 +250,25 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<UseAlways>
+				<Field>СправочникСписок.Ссылка</Field>
+				<Field>СправочникСписок.ВетисОписание</Field>
+				<Field>СправочникСписок.Ветисname</Field>
+				<Field>СправочникСписок.name</Field>
 				<Field>СправочникСписок.guid</Field>
-				<Field>СправочникСписок.Ref</Field>
+				<Field>~СправочникСписок.Наименование</Field>
+				<Field>~СправочникСписок.Ref</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
-	_Таблица.Ссылка,
-	_Таблица.Код,
-	_Таблица.Наименование КАК name,
-	_Ветис.guid КАК guid,
-	_Ветис.name КАК Ветисname,
-	_Ветис.Описание ВетисОписание
-ИЗ
-	Справочник.КлассификаторЕдиницИзмерения КАК _Таблица
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Ветис
-		ПО _Таблица.Ссылка = _Ветис.Ссылка
-ГДЕ
-	ИСТИНА
-	И НЕ _Таблица.ПометкаУдаления
-	</QueryText>
-				<MainTable>Catalog.КлассификаторЕдиницИзмерения</MainTable>
+	NULL КАК Ссылка,
+	NULL КАК Код,
+	NULL КАК name,
+	NULL КАК guid,
+	NULL КАК Ветисname,
+	NULL КАК ВетисОписание
+</QueryText>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>

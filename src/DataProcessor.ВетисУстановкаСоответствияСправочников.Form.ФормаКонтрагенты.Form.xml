@@ -244,7 +244,7 @@
 							</Events>
 							<ChildItems>
 								<LabelField name="СправочникСписокНаименование" id="154">
-									<DataPath>СправочникСписок.Description</DataPath>
+									<DataPath>СправочникСписок.Наименование</DataPath>
 									<ContextMenu name="СправочникСписокНаименованиеКонтекстноеМеню" id="155"/>
 									<ExtendedTooltip name="СправочникСписокНаименованиеРасширеннаяПодсказка" id="156"/>
 								</LabelField>
@@ -260,8 +260,7 @@
 									<ExtendedTooltip name="СправочникСписокИННРасширеннаяПодсказка" id="159"/>
 								</LabelField>
 								<InputField name="СправочникСписокОписание" id="139">
-									<DataPath>СправочникСписок.Описание</DataPath>
-									<Visible>false</Visible>
+									<DataPath>СправочникСписок.ВетисОписание</DataPath>
 									<ContextMenu name="СправочникСписокОписаниеКонтекстноеМеню" id="140"/>
 									<ExtendedTooltip name="СправочникСписокОписаниеРасширеннаяПодсказка" id="141"/>
 								</InputField>
@@ -405,30 +404,24 @@
 			</Type>
 			<UseAlways>
 				<Field>СправочникСписок.Ссылка</Field>
+				<Field>СправочникСписок.Наименование</Field>
+				<Field>СправочникСписок.ВетисОписание</Field>
 				<Field>СправочникСписок.guid</Field>
 				<Field>~СправочникСписок.Ref</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
-				<QueryText>ВЫБРАТЬ
-	_Таблица.Ссылка КАК Ссылка,
-	_Таблица.Код КАК Код,
-	_Таблица.Наименование,
-	_Таблица.ИНН,
-	_Таблица.КПП,
-	_Ветис.guid КАК guid,
-	_Ветис.name КАК Ветисname,
-	_Ветис.Описание КАК Описание
-ИЗ
-	Справочник.Контрагенты КАК _Таблица
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Ветис
-		ПО _Таблица.Ссылка = _Ветис.Ссылка
-ГДЕ
-	ИСТИНА
-	И НЕ _Таблица.ПометкаУдаления
-	И НЕ _Таблица.ЭтоГруппа</QueryText>
-				<MainTable>Catalog.Контрагенты</MainTable>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>	ВЫБРАТЬ
+	NULL КАК Ссылка,
+	NULL КАК Код,
+	NULL КАК Наименование,
+	NULL КАК ИНН,
+	NULL КАК КПП,
+	NULL КАК guid,
+	NULL КАК Ветисname,
+	NULL КАК ВетисОписание
+</QueryText>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>

@@ -187,7 +187,7 @@
 									<ExtendedTooltip name="СправочникСписокnameРасширеннаяПодсказка" id="85"/>
 								</LabelField>
 								<LabelField name="СправочникСписокcode" id="93">
-									<DataPath>СправочникСписок.code</DataPath>
+									<DataPath>~СправочникСписок.Code</DataPath>
 									<ContextMenu name="СправочникСписокcodeКонтекстноеМеню" id="94"/>
 									<ExtendedTooltip name="СправочникСписокcodeРасширеннаяПодсказка" id="95"/>
 								</LabelField>
@@ -311,23 +311,18 @@
 			</Type>
 			<UseAlways>
 				<Field>СправочникСписок.guid</Field>
-				<Field>СправочникСписок.Ref</Field>
+				<Field>~СправочникСписок.Ref</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
+				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
-	_Таблица.Ссылка,
-	_Таблица.Код,
-	_Таблица.Наименование КАК name,
-	_Таблица.КодАльфа2 КАК code,
-	_Ветис.guid КАК guid,
-	_Ветис.name КАК Ветисname
-ИЗ
-	Справочник.КлассификаторСтранМира КАК _Таблица
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Ветис
-		ПО _Таблица.Ссылка = _Ветис.Ссылка</QueryText>
-				<MainTable>Catalog.КлассификаторСтранМира</MainTable>
+	NULL КАК Ссылка,
+	NULL КАК Код,
+	NULL КАК name,
+	NULL КАК guid,
+	NULL КАК Ветисname,
+	NULL КАК ВетисОписание</QueryText>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>

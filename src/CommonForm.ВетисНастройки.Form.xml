@@ -296,7 +296,20 @@
 							<AllowRootChoice>false</AllowRootChoice>
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
 							<ContextMenu name="СписокПредприятияКонтекстноеМеню" id="124"/>
-							<AutoCommandBar name="СписокПредприятияКоманднаяПанель" id="125"/>
+							<AutoCommandBar name="СписокПредприятияКоманднаяПанель" id="125">
+								<ChildItems>
+									<Button name="СписокПредприятияКомандаПривязатьХСПредприятие" id="142">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаПривязатьХСПредприятие</CommandName>
+										<ExtendedTooltip name="СписокПредприятияКомандаПривязатьХСПредприятиеРасширеннаяПодсказка" id="143"/>
+									</Button>
+									<Button name="СписокПредприятияКомандаОбновитьХСПредприятие" id="147">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаОбновитьХСПредприятие</CommandName>
+										<ExtendedTooltip name="СписокПредприятияКомандаОбновитьХСПредприятиеРасширеннаяПодсказка" id="148"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="СписокПредприятияРасширеннаяПодсказка" id="126"/>
 							<SearchStringAddition name="СписокПредприятияСтрокаПоиска" id="127">
 								<AdditionSource>
@@ -333,6 +346,13 @@
 									<ContextMenu name="СписокПредприятияПредприятиеКонтекстноеМеню" id="140"/>
 									<ExtendedTooltip name="СписокПредприятияПредприятиеРасширеннаяПодсказка" id="141"/>
 								</LabelField>
+								<CheckBoxField name="СписокПредприятияВСервисе" id="144">
+									<DataPath>СписокПредприятия.ВСервисе</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СписокПредприятияВСервисеКонтекстноеМеню" id="145"/>
+									<ExtendedTooltip name="СписокПредприятияВСервисеРасширеннаяПодсказка" id="146"/>
+								</CheckBoxField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
@@ -562,6 +582,36 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОсновнойХС</Action>
+		</Command>
+		<Command name="КомандаПривязатьХСПредприятие" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Привязать/отвязать ХС-Предприятие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда привязать ХСПредприятие</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПривязатьХСПредприятие</Action>
+		</Command>
+		<Command name="КомандаОбновитьХСПредприятие" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить связи ХС-Предприятие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда обновить ХСПредприятие</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОбновитьХСПредприятие</Action>
 		</Command>
 	</Commands>
 </Form>

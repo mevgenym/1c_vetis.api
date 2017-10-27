@@ -39,24 +39,16 @@
 
 //Операция изменения связи между хозяйствующим субъектом и предприятиями. 
 //Параметры:
-// type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
-// businessEntity - ent:BusinessEntityList
-// enterprise - ent:Enterprise
-Функция BusinessEntityActivityLocationsModificationOperation(type, businessEntity, enterprise) Экспорт
+// type - Тип операции (CREATE, DELETE) bs:RegisterModificationType 1
+// businessEntityGuid - Строка 1
+// enterpriseGuid - Строка 1..*
+Функция BusinessEntityActivityLocationsModificationOperation(type, businessEntityGuid, enterpriseGuid) Экспорт
 	
 	_Объект = Создать("BEActivityLocationsModificationOperation");
 	
-	_Объект.type = type;
-	
-	_Объект.businessEntity = businessEntity;
-	
-	Если ТипЗнч(enterprise) = Тип("Массив") Тогда
-		Для каждого _enterprise Из enterprise Цикл
-			_Объект.enterprise.Добавить(_enterprise);
-		КонецЦикла;
-	Иначе
-		_Объект.enterprise.Добавить(enterprise);
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, BusinessEntity(businessEntityGuid), "businessEntity");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, EnterpriseList(enterpriseGuid), "enterpriseList");
 	
 	Возврат _Объект;
 	
@@ -104,6 +96,20 @@
 	_Объект = Создать("Enterprise");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция EnterpriseList(enterpriseGuid = Неопределено) Экспорт
+	
+	_Объект = Создать("EnterpriseList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterprise", "ВетисCerberusEnterprise.Enterprise");
+	
+	_Объект.count = _Объект.enterprise.Количество();
+	_Объект.offset = 0;
+	_Объект.total = 0;
 	
 	Возврат _Объект;
 	

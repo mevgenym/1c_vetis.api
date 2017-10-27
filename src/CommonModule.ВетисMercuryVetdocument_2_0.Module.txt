@@ -46,16 +46,23 @@
 
 //Операция изменения связи между хозяйствующим субъектом и предприятиями. 
 //Параметры:
-// type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
-// businessEntity - dt:BusinessEntityList
-// enterprise - dt:Enterprise
-Функция BusinessEntityActivityLocationsModificationOperation(type, businessEntity, enterprise) Экспорт
+// type - Тип операции (CREATE, DELETE) bs:RegisterModificationType 1
+// businessEntityGuid - Хозяйствующий субъект, к которому прикрепляется предприятие (поднадзорный объект) Строка 1
+// enterpriseGuid - Строка 1..*
+Функция BusinessEntityActivityLocationsModificationOperation(type, businessEntityGuid, enterpriseGuid) Экспорт
+	
+	_фабрика = ВетисXSD.ФабрикаОбщая();
+	
+	_тип = _фабрика.Тип(URI(), "BEActivityLocationsModificationOperation");
+	
+	_activityLocation = _фабрика.Создать(_тип.Свойства.Получить("activityLocation").Тип);
+	_activityLocation.enterprise = ВетисDictionary_2_0.Enterprise(enterpriseGuid);
 	
 	_Объект = Создать("BEActivityLocationsModificationOperation");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, businessEntity, "businessEntity");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисDictionary_2_0.BusinessEntity(businessEntityGuid), "businessEntity");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, _activityLocation, "activityLocation");
 	
 	Возврат _Объект;
 	

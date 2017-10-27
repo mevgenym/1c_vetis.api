@@ -682,6 +682,18 @@
 	
 КонецФункции
 
+Функция ModifyActivityLocations(modificationOperation, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = ModifyActivityLocationsRequest(modificationOperation);
+	
+	_Response = Прокси("modifyActivityLocationsRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат ModifyActivityLocationsResponse(_Response);
+	
+КонецФункции
+
 #КонецОбласти
 
 #Область ModifyProducerStockListOperation

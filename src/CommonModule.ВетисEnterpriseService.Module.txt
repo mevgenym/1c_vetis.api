@@ -192,18 +192,18 @@
 // Этой функции нет в сервисе, название выдуманное
 // Используется самостоятельно в цикле Пока.
 // Параметры:
-//  пGuid - guid ХС
+//  businessEntityGuid - guid ХС
 //  пItem - элемент списка, возвращаемый параметр
 //  пПараметры - для внутреннего использования, начальное значение - Неопределено
 // Возвращаемое значение:
 //	Булево - Ложь значит список пройден весь
-Функция GetBusinessEntityEnterpriseListСледующий(пGuid, пItem, пПараметры) Экспорт
+Функция GetBusinessEntityEnterpriseListСледующий(businessEntityGuid, пItem, пПараметры) Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("List", Новый Массив);
 		пПараметры.Вставить("Индекс", 0);
-		_Entity = GetBusinessEntityByGuid(пGuid);
+		_Entity = GetBusinessEntityByGuid(businessEntityGuid);
 		Для Каждого _Location из _Entity.activityLocation Цикл
 			_Enterprise = GetEnterpriseByGuid(_Location.enterprise.guid);
 			пПараметры.List.Добавить(_Enterprise);

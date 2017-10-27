@@ -215,6 +215,7 @@
 												</LabelField>
 												<LabelField name="СправочникСписокОписание" id="94">
 													<DataPath>СправочникСписок.Описание</DataPath>
+													<Visible>false</Visible>
 													<ContextMenu name="СправочникСписокОписаниеКонтекстноеМеню" id="95"/>
 													<ExtendedTooltip name="СправочникСписокОписаниеРасширеннаяПодсказка" id="96"/>
 												</LabelField>

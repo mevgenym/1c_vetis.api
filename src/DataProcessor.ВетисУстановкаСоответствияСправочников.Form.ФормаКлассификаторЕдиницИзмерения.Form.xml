@@ -178,6 +178,7 @@
 								</LabelField>
 								<LabelField name="СправочникСписокВетисОписание" id="127">
 									<DataPath>СправочникСписок.ВетисОписание</DataPath>
+									<Visible>false</Visible>
 									<Width>20</Width>
 									<ContextMenu name="СправочникСписокВетисОписаниеКонтекстноеМеню" id="128"/>
 									<ExtendedTooltip name="СправочникСписокВетисОписаниеРасширеннаяПодсказка" id="129"/>

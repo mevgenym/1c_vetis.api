@@ -248,19 +248,20 @@
 									<ContextMenu name="СправочникСписокНаименованиеКонтекстноеМеню" id="155"/>
 									<ExtendedTooltip name="СправочникСписокНаименованиеРасширеннаяПодсказка" id="156"/>
 								</LabelField>
+								<LabelField name="СправочникСписокИНН" id="157">
+									<DataPath>СправочникСписок.ИНН</DataPath>
+									<ContextMenu name="СправочникСписокИННКонтекстноеМеню" id="158"/>
+									<ExtendedTooltip name="СправочникСписокИННРасширеннаяПодсказка" id="159"/>
+								</LabelField>
 								<LabelField name="СправочникСписокВетисname" id="90">
 									<DataPath>СправочникСписок.Ветисname</DataPath>
 									<Width>15</Width>
 									<ContextMenu name="СправочникСписокВетисnameКонтекстноеМеню" id="91"/>
 									<ExtendedTooltip name="СправочникСписокВетисnameРасширеннаяПодсказка" id="92"/>
 								</LabelField>
-								<LabelField name="СправочникСписокИНН" id="157">
-									<DataPath>СправочникСписок.ИНН</DataPath>
-									<ContextMenu name="СправочникСписокИННКонтекстноеМеню" id="158"/>
-									<ExtendedTooltip name="СправочникСписокИННРасширеннаяПодсказка" id="159"/>
-								</LabelField>
 								<InputField name="СправочникСписокОписание" id="139">
 									<DataPath>СправочникСписок.ВетисОписание</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="СправочникСписокОписаниеКонтекстноеМеню" id="140"/>
 									<ExtendedTooltip name="СправочникСписокОписаниеРасширеннаяПодсказка" id="141"/>
 								</InputField>

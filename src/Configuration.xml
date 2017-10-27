@@ -179,10 +179,10 @@
 			<CommonModule>ВетисПараметрыСоединения</CommonModule>
 			<CommonModule>ВетисПеременные</CommonModule>
 			<CommonModule>ВетисПредопределенные</CommonModule>
+			<CommonModule>ВетисПредприятияХС</CommonModule>
 			<CommonModule>ВетисСоответствие</CommonModule>
 			<CommonModule>ВетисФормы</CommonModule>
 			<CommonModule>Пользователи</CommonModule>
-			<CommonModule>ВетисПредприятияХС</CommonModule>
 			<XDTOPackage>soap_envelop</XDTOPackage>
 			<DefinedType>ВетисBusinessEntity</DefinedType>
 			<DefinedType>ВетисCountry</DefinedType>

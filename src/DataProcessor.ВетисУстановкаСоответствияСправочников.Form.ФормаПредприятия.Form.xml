@@ -113,15 +113,22 @@
 									<ContextMenu name="НаименованиеКонтекстноеМеню" id="151"/>
 									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="152"/>
 								</InputField>
-								<InputField name="Район" id="153">
-									<DataPath>Район</DataPath>
-									<ContextMenu name="РайонКонтекстноеМеню" id="154"/>
-									<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="155"/>
-								</InputField>
 								<InputField name="Регион" id="156">
 									<DataPath>Регион</DataPath>
 									<ContextMenu name="РегионКонтекстноеМеню" id="157"/>
 									<ExtendedTooltip name="РегионРасширеннаяПодсказка" id="158"/>
+								</InputField>
+								<InputField name="Район" id="153">
+									<DataPath>Район</DataPath>
+									<ChoiceParameterLinks>
+										<xr:Link>
+											<xr:Name>Отбор.Регион</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Регион</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+									</ChoiceParameterLinks>
+									<ContextMenu name="РайонКонтекстноеМеню" id="154"/>
+									<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="155"/>
 								</InputField>
 								<Button name="КомандаНайтиПоИмени" id="176">
 									<Type>UsualButton</Type>

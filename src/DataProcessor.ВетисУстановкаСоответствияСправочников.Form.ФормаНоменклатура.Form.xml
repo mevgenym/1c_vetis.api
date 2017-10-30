@@ -16,36 +16,138 @@
 	</Events>
 	<ChildItems>
 		<UsualGroup name="Группа2" id="144">
-			<Group>Horizontal</Group>
+			<Group>Vertical</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="145"/>
 			<ChildItems>
-				<InputField name="ХС" id="138">
-					<DataPath>Объект.ХозяйствующийСубъект</DataPath>
-					<ContextMenu name="ХСКонтекстноеМеню" id="139"/>
-					<ExtendedTooltip name="ХСРасширеннаяПодсказка" id="140"/>
-					<Events>
-						<Event name="OnChange">ХСПриИзменении</Event>
-						<Event name="StartChoice">ХСНачалоВыбора</Event>
-					</Events>
-				</InputField>
-				<InputField name="Предприятие" id="141">
-					<DataPath>Объект.Предприятие</DataPath>
-					<AutoMarkIncomplete>true</AutoMarkIncomplete>
-					<ChoiceParameterLinks>
-						<xr:Link>
-							<xr:Name>Отбор.Владелец</xr:Name>
-							<xr:DataPath xsi:type="xs:string">7</xr:DataPath>
-							<xr:ValueChange>Clear</xr:ValueChange>
-						</xr:Link>
-					</ChoiceParameterLinks>
-					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="142"/>
-					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="143"/>
-					<Events>
-						<Event name="StartChoice">ПредприятиеНачалоВыбора</Event>
-					</Events>
-				</InputField>
+				<UsualGroup name="Группа5" id="167">
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="168"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборХС" id="149">
+							<DataPath>ОтборХС</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборХСКонтекстноеМеню" id="150"/>
+							<ExtendedTooltip name="ОтборХСРасширеннаяПодсказка" id="151"/>
+						</CheckBoxField>
+						<InputField name="ХС" id="138">
+							<DataPath>Объект.ХозяйствующийСубъект</DataPath>
+							<ContextMenu name="ХСКонтекстноеМеню" id="139"/>
+							<ExtendedTooltip name="ХСРасширеннаяПодсказка" id="140"/>
+							<Events>
+								<Event name="OnChange">ХСПриИзменении</Event>
+								<Event name="StartChoice">ХСНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<CheckBoxField name="ОтборПредприятие" id="152">
+							<DataPath>ОтборПредприятие</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборПредприятиеКонтекстноеМеню" id="153"/>
+							<ExtendedTooltip name="ОтборПредприятиеРасширеннаяПодсказка" id="154"/>
+						</CheckBoxField>
+						<InputField name="Предприятие" id="141">
+							<DataPath>Объект.Предприятие</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ПредприятиеКонтекстноеМеню" id="142"/>
+							<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="143"/>
+							<Events>
+								<Event name="StartChoice">ПредприятиеНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа6" id="169">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="170"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборТипПродукции" id="155">
+							<DataPath>ОтборТипПродукции</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборТипПродукцииКонтекстноеМеню" id="156"/>
+							<ExtendedTooltip name="ОтборТипПродукцииРасширеннаяПодсказка" id="157"/>
+						</CheckBoxField>
+						<InputField name="ТипПродукции" id="73">
+							<DataPath>ТипПродукции</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ТипПродукцииКонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="ТипПродукцииРасширеннаяПодсказка" id="75"/>
+							<Events>
+								<Event name="OnChange">ТипПродукцииПриИзменении</Event>
+							</Events>
+						</InputField>
+						<CheckBoxField name="ОтборПродукция" id="158">
+							<DataPath>ОтборПродукция</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборПродукцияКонтекстноеМеню" id="159"/>
+							<ExtendedTooltip name="ОтборПродукцияРасширеннаяПодсказка" id="160"/>
+						</CheckBoxField>
+						<UsualGroup name="Группа7" id="177">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="178"/>
+							<ChildItems>
+								<InputField name="Продукция" id="146">
+									<DataPath>Продукция</DataPath>
+									<DropListButton>true</DropListButton>
+									<ContextMenu name="ПродукцияКонтекстноеМеню" id="147"/>
+									<ExtendedTooltip name="ПродукцияРасширеннаяПодсказка" id="148"/>
+									<Events>
+										<Event name="OnChange">ПродукцияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<LabelField name="ПродукцияПредставление" id="171">
+									<DataPath>ПродукцияПредставление</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<TextColor>#008080</TextColor>
+									<Font bold="true" kind="AutoFont"/>
+									<ContextMenu name="ПродукцияПредставлениеКонтекстноеМеню" id="172"/>
+									<ExtendedTooltip name="ПродукцияПредставлениеРасширеннаяПодсказка" id="173"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="ОтборВидПродукции" id="161">
+							<DataPath>ОтборВидПродукции</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборВидПродукцииКонтекстноеМеню" id="162"/>
+							<ExtendedTooltip name="ОтборВидПродукцииРасширеннаяПодсказка" id="163"/>
+						</CheckBoxField>
+						<UsualGroup name="Группа8" id="179">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="180"/>
+							<ChildItems>
+								<InputField name="ВидПродукции" id="164">
+									<DataPath>ВидПродукции</DataPath>
+									<DropListButton>true</DropListButton>
+									<ContextMenu name="ВидПродукцииКонтекстноеМеню" id="165"/>
+									<ExtendedTooltip name="ВидПродукцииРасширеннаяПодсказка" id="166"/>
+									<Events>
+										<Event name="OnChange">ВидПродукцииПриИзменении</Event>
+									</Events>
+								</InputField>
+								<LabelField name="ВидПродукцииПредставление" id="174">
+									<DataPath>ВидПродукцииПредставление</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<TextColor>#008080</TextColor>
+									<Font bold="true" kind="AutoFont"/>
+									<ContextMenu name="ВидПродукцииПредставлениеКонтекстноеМеню" id="175"/>
+									<ExtendedTooltip name="ВидПродукцииПредставлениеРасширеннаяПодсказка" id="176"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="Группа1" id="26">
@@ -60,12 +162,6 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="91"/>
 					<ChildItems>
-						<InputField name="ТипПродукции" id="73">
-							<DataPath>ТипПродукции</DataPath>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="ТипПродукцииКонтекстноеМеню" id="74"/>
-							<ExtendedTooltip name="ТипПродукцииРасширеннаяПодсказка" id="75"/>
-						</InputField>
 						<Table name="СписокВетис" id="100">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
@@ -83,7 +179,7 @@
 									<Button name="ТаблицаНоменклатурыЗаполнить" id="76">
 										<Type>CommandBarButton</Type>
 										<Representation>PictureAndText</Representation>
-										<CommandName>Form.Command.ВетисНоменклатураЗаполнить</CommandName>
+										<CommandName>Form.Command.КомандаНайти</CommandName>
 										<ExtendedTooltip name="ТаблицаНоменклатурыЗаполнитьРасширеннаяПодсказка" id="77"/>
 									</Button>
 								</ChildItems>
@@ -164,12 +260,12 @@
 								<ChildItems>
 									<Button name="СправочникСписокСоздатьСвязь" id="78">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СоздатьСвязь</CommandName>
+										<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
 										<ExtendedTooltip name="СправочникСписокСоздатьСвязьРасширеннаяПодсказка" id="79"/>
 									</Button>
 									<Button name="СправочникСписокУдалитьСвязь" id="86">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.УдалитьСвязь</CommandName>
+										<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
 										<ExtendedTooltip name="СправочникСписокУдалитьСвязьРасширеннаяПодсказка" id="87"/>
 									</Button>
 								</ChildItems>
@@ -241,6 +337,14 @@
 				<v8:Type>cfg:DataProcessorObject.ВетисУстановкаСоответствияСправочников</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Объект.ХозяйствующийСубъект</Field>
+				<Field>Объект.Предприятие</Field>
+			</UseAlways>
+			<Save>
+				<Field>Объект.ХозяйствующийСубъект</Field>
+				<Field>Объект.Предприятие</Field>
+			</Save>
 		</Attribute>
 		<Attribute name="СправочникСписок" id="2">
 			<Title>
@@ -365,6 +469,148 @@
 				</Column>
 			</Columns>
 		</Attribute>
+		<Attribute name="Продукция" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продукция</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>Продукция</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВидПродукции" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид продукции</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ВидПродукции</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборХС" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор ХС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборХС</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборПредприятие" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор предприятие</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборПредприятие</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборТипПродукции" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор тип продукции</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборТипПродукции</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборПродукция" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор продукция</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборПродукция</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборВидПродукции" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор вид продукции</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборВидПродукции</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВидПродукцииПредставление" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид продукции</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ВидПродукцииПредставление</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПродукцияПредставление" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продукция</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ПродукцияПредставление</Field>
+			</Save>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -404,26 +650,26 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="ВетисНоменклатураЗаполнить" id="1">
+		<Command name="КомандаНайти" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить</v8:content>
+					<v8:content>Найти</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Ветис номенклатура заполнить</v8:content>
+					<v8:content>Команда найти</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
-				<xr:Ref>StdPicture.DataCompositionOrder</xr:Ref>
+				<xr:Ref>StdPicture.Find</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
-			<Action>ВетисНоменклатураЗаполнить</Action>
+			<Action>КомандаНайти</Action>
 		</Command>
-		<Command name="СоздатьСвязь" id="2">
+		<Command name="КомандаСоздатьСвязь" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -433,12 +679,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Создать связь</v8:content>
+					<v8:content>Команда создать связь</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>СоздатьСвязь</Action>
+			<Action>КомандаСоздатьСвязь</Action>
 		</Command>
-		<Command name="УдалитьСвязь" id="3">
+		<Command name="КомандаУдалитьСвязь" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -448,10 +694,10 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить связь</v8:content>
+					<v8:content>Команда удалить связь</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>УдалитьСвязь</Action>
+			<Action>КомандаУдалитьСвязь</Action>
 		</Command>
 	</Commands>
 </Form>

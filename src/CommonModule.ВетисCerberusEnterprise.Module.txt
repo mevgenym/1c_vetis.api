@@ -56,18 +56,18 @@
 
 // Операция внесения изменений в реестр ХС
 // Параметры:
-//  type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
-//  affectedList - ent:BusinessEntityList - Входящий список ХС
-//  resultingList - ent:BusinessEntityList - Получаемые в результате операции записи
-//  reason - xs:String - Основание добавления записи в реестр
-Функция BusinessEntityModificationOperation(type, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
+//  registerModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE) bs:RegisterModificationType
+//  affectedList - Входящий список ХС ent:BusinessEntity
+//  resultingList - Получаемые в результате операции записи ent:BusinessEntity
+//  reason - Основание добавления записи в реестр xs:String
+Функция BusinessEntityModificationOperation(registerModificationType, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
 	
 	_Объект = Создать("BEModificationOperation");
 	
-	_Объект.type = type;
-	_Объект.affectedList = affectedList;
-	_Объект.resultingList = resultingList;
-	_Объект.reason  = reason;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, registerModificationType, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, affectedList, "affectedList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, resultingList, "resultingList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
 	
 	Возврат _Объект;
 	
@@ -135,13 +135,13 @@
 КонецФункции
 
 
-Функция IncorporationForm(shortName = "", name = "", code = "") Экспорт
+Функция IncorporationForm(code, shortName = "", name = "") Экспорт
 	
 	_Объект = Создать("IncorporationForm");
 	
-	_Объект.name = name;
-	_Объект.code = code;
-	_Объект.shortName = shortName;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, code, "code");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, name, "name");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shortName, "shortName");
 	
 	Возврат _Объект;
 	

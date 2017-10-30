@@ -3,7 +3,6 @@
 	
 КонецПроцедуры
 
-
 Функция ResolveDiscrepancy(пПредприятие, пСтрокаПартии, discrepancyReport = Неопределено, issuerId = Неопределено, пОтказ = Ложь) Экспорт
 	//сделать: тестировать ResolveDiscrepancy
 	
@@ -329,65 +328,6 @@
 	
 КонецПроцедуры
 
-Процедура СинхронизироватьСкладскойЖурнал(пХС, пПредприятие) Экспорт
-	
-	Перем _stockEntry, _параметры;
-	
-	_Версия20 = ВетисXSD.Версия_2_0();
-	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
-	_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
-	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
-	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
-	
-	_issuerId = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(пХС);
-	
-	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие);
-	
-	_запрос = Новый Запрос("ВЫБРАТЬ ЕСТЬNULL(МАКСИМУМ(updateDate), ДАТАВРЕМЯ(1,1,1)) КАК Период ИЗ РегистрСведений.ВетисСкладскойЖурналРС");
-	_выборка = _запрос.Выполнить().Выбрать();
-	_выборка.Следующий();
-	
-	Пока _ВетисMercuryApplications.getStockEntryChangesListСледующий(_enterpriseGuid, _issuerId, _выборка.Период + 1, , _stockEntry, _параметры) Цикл
-		
-		_мз = РегистрыСведений.ВетисСкладскойЖурналРС.СоздатьМенеджерЗаписи();
-		
-		_мз.guid = _stockEntry.guid;
-		_мз.uuid = _stockEntry.uuid;
-		_мз.last = _stockEntry.last;
-		
-		_мз.status = _stockEntry.status;
-		_мз._active = _stockEntry.active;
-		_мз.entryNumber = _stockEntry.entryNumber;
-		
-		_мз.createDate = ВетисОбщегоНазначения.ВремяБД(_stockEntry.createDate);
-		_мз.updateDate = ВетисОбщегоНазначения.ВремяБД(_stockEntry.updateDate);
-		
-		_мз.ProductType = _stockEntry.batch.productType;
-		_мз.Product     = _stockEntry.batch.product.guid;
-		_мз.SubProduct  = _stockEntry.batch.subProduct.guid;
-		_мз.ProductItem = _stockEntry.batch.productItem.guid;
-		
-		_мз.Unit        = _stockEntry.batch.unit.guid;
-		_мз.volume      = _stockEntry.batch.volume;
-		
-		Если _Версия20 Тогда
-			//_мз.PackingForm = ?(_stockEntry.batch.productItem.packaging = Неопределено, "", _stockEntry.batch.productItem.packaging.packagingType.guid);
-			//_мз.packingAmount = ?(_stockEntry.batch.productItem.packaging = Неопределено, 0, _stockEntry.batch.productItem.packaging.quantity);
-			_package = ВетисDictionaryСлой1с.PackageList(_stockEntry.batch.packageList);
-			_мз.PackingForm   = _package.packingType.guid;
-			_мз.packingAmount = _package.quantity;
-		Иначе
-			_мз.PackingForm = ?(_stockEntry.batch.packingList = Неопределено, "", _stockEntry.batch.packingList.packingForm[0].uuid);
-			_мз.packingAmount = _stockEntry.batch.packingAmount;
-		КонецЕсли;
-		
-		_мз.Записать();
-		
-	КонецЦикла;
-	
-КонецПроцедуры
-
-
 Функция getVetDocumentByUuid(пВСД, пВСДОбъект = Неопределено) Экспорт
 	
 	_ВетисCerberusEnterpriseСлой1с = ?(ВетисXSD.Версия_2_0(), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
@@ -423,11 +363,107 @@
 		
 		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_ВСДОбъект, _vetDocument);
 		
-		//_ВСДОбъект.ДатаОбновления = ТекущаяДата();
-		
 		Возврат _ВСДОбъект;
 		
 	КонецЕсли;
+	
+КонецФункции
+
+Функция ModifyActivityLocations(пХС, пПредприятие, ModificationTypeCREATE = Истина) Экспорт
+	
+	_ModificationType = ?(ModificationTypeCREATE, ВетисКонстанты.RegisterModificationType_CREATE(), ВетисКонстанты.RegisterModificationType_DELETE());
+	
+	Если ВетисXSD.Версия_2_0() Тогда
+		
+		_BusinessEntityGuid = ВетисDictionaryСлой1с.BusinessEntity(пХС);
+		
+		_EnterpriseGuid     = ВетисDictionaryСлой1с.Enterprise(пПредприятие);
+		
+		_Operation = ВетисMercuryVetdocument_2_0.BusinessEntityActivityLocationsModificationOperation(_ModificationType, _BusinessEntityGuid, _EnterpriseGuid);
+		
+		_BusinessEntityResponse = ВетисMercuryApplications_2_0.ModifyActivityLocations(_Operation, _BusinessEntityGuid);
+		
+	Иначе
+		
+		_BusinessEntityGuid = ВетисCerberusEnterpriseСлой1с.BusinessEntity(пХС);
+		
+		_EnterpriseGuid     = ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие);
+		
+		_Operation = ВетисCerberusEnterprise.BusinessEntityActivityLocationsModificationOperation(_ModificationType, _BusinessEntityGuid, _EnterpriseGuid);
+		
+		_BusinessEntityResponse = ВетисMercuryApplications.ModifyActivityLocations(_Operation, _BusinessEntityGuid);
+		
+	КонецЕсли;
+	
+	Возврат _BusinessEntityResponse;
+	
+КонецФункции
+
+Функция ModifyBusinessEntity(пХС, пПричина = Неопределено, RegisterModificationType_FIND_OR_CREATE = Истина) Экспорт
+	
+	_type = ?(RegisterModificationType_FIND_OR_CREATE = Истина, ВетисКонстанты.RegisterModificationType_FIND_OR_CREATE(), ВетисКонстанты.RegisterModificationType_UPDATE());
+	
+	Если пПричина = Неопределено Тогда
+		Если _type = ВетисКонстанты.RegisterModificationType_FIND_OR_CREATE() Тогда
+			_Причина = "Создание";
+		Иначе
+			_Причина = "Обновление";
+		КонецЕсли;
+	Иначе
+		_Причина = пПричина;
+	КонецЕсли;
+	
+	Если ВетисXSD.Версия_2_0() Тогда
+		
+		_businessEntityGuid = ВетисDictionaryСлой1с.BusinessEntity(пХС);
+		
+		_businessEntity = ВетисDictionary_2_0.BusinessEntity(_businessEntityGuid);
+		
+		_businessEntity.type = ?(пХС.ЮрФизЛицо = Перечисления.ЮрФизЛицо.ЮрЛицо, ВетисКонстанты.BusinessEntityType_JURIDICAL(), ВетисКонстанты.BusinessEntityType_SELF_EMPLOYED());
+		
+		_businessEntity.name = пХС.Наименование;
+		
+		_businessEntity.fullName = пХС.НаименованиеПолное;
+		
+		_businessEntity.inn = пХС.ИНН;
+		
+		_businessEntity.incorporationForm = ВетисDictionary_2_0.IncorporationForm(?(пХС.ЮрФизЛицо, "12300", "50102"));
+		
+		//_businessEntity.ogrn = ;
+		
+		//_businessEntity.juridicalAddress = ВетисDictionary_2_0.Address();
+		
+		_modificationOperation = ВетисMercuryVetdocument_2_0.BusinessEntityModificationOperation(_type, , _businessEntity, _Причина);
+		
+		_Response = ВетисMercuryApplications_2_0.ModifyBusinessEntity(_modificationOperation, _businessEntityGuid);
+		
+	Иначе
+		
+		_businessEntityGuid = ВетисCerberusEnterpriseСлой1с.BusinessEntity(пХС);
+		
+		_businessEntity = ВетисCerberusEnterprise.BusinessEntity(_businessEntityGuid);
+		
+		_businessEntity.type = ?(пХС.ЮрФизЛицо = Перечисления.ЮрФизЛицо.ЮрЛицо, ВетисКонстанты.BusinessEntityType_JURIDICAL(), ВетисКонстанты.BusinessEntityType_SELF_EMPLOYED());
+		
+		_businessEntity.name = пХС.Наименование;
+		
+		_businessEntity.fullName = пХС.НаименованиеПолное;
+		
+		_businessEntity.inn = пХС.ИНН;
+		
+		_businessEntity.incorporationForm = ВетисDictionary_2_0.IncorporationForm(?(пХС.ЮрФизЛицо, "12300", "50102"));
+		
+		//_businessEntity.juridicalAddress = ВетисDictionary_2_0.Address();
+		
+		//_businessEntity.ogrn = ;
+		
+		_modificationOperation = ВетисCerberusEnterprise.BusinessEntityModificationOperation(_type, , _businessEntity, _Причина);
+		
+		_Response = ВетисMercuryApplications.ModifyBusinessEntity(_modificationOperation, _businessEntityGuid);
+		
+	КонецЕсли;
+	
+	Возврат _Response;
 	
 КонецФункции
 

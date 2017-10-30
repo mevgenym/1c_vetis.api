@@ -3,19 +3,13 @@
 	
 	_Объект = Создать("ActivityLocationList");
 	
-	Если ТипЗнч(BusinessMember) = Тип("Массив") Тогда
-		Для каждого _BusinessMember Из BusinessMember Цикл
-			_Объект.BusinessMember.Добавить(_BusinessMember);
-		КонецЦикла;
-	Иначе
-		_Объект.BusinessMember.Добавить(BusinessMember);
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, BusinessMember, "businessMember");
 	
 	Возврат _Объект;
 	
 КонецФункции
 
-Функция Address(countryGuid, regionGuid, districtGuid, localityGuid, streetGuid, house, building) Экспорт
+Функция Address(countryGuid = Неопределено, regionGuid = Неопределено, districtGuid = Неопределено, localityGuid = Неопределено, streetGuid = Неопределено, house = Неопределено, building = Неопределено, addressView = Неопределено) Экспорт
 	
 	_Объект = Создать("Address");
 	
@@ -25,6 +19,7 @@
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Street(streetGuid), "street");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, house, "house");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, building, "building");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, addressView, "addressView");
 	
 	Возврат _Объект;
 	
@@ -168,13 +163,13 @@
 	
 КонецФункции
 
-Функция IncorporationForm(shortName = "", name = "", code = "") Экспорт
+Функция IncorporationForm(code, shortName = "", name = "") Экспорт
 	
 	_Объект = Создать("IncorporationForm");
 	
-	_Объект.name = name;
-	_Объект.code = code;
-	_Объект.shortName = shortName;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, code, "code");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, name, "name");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shortName, "shortName");
 	
 	Возврат _Объект;
 	

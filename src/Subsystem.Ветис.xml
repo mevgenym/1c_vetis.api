@@ -148,7 +148,9 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПредприятияХС</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСкладскойЖурнал</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСоответствие</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">653cc872-b651-43ae-bfa9-ca1c0e3548c6</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисIncorporationForm</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисIncorporationForm</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисIncorporationForm</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

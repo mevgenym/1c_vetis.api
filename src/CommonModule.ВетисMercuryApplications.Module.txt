@@ -629,6 +629,18 @@
 	
 КонецФункции
 
+Функция ModifyBusinessEntity(modificationOperation, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = ModifyBusinessEntityRequest(modificationOperation);
+	
+	_Response = Прокси("modifyBusinessEntityRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат ModifyBusinessEntityResponse(_Response);
+	
+КонецФункции
+
 #КонецОбласти
 
 #Область ModifyEnterpriseOperation
@@ -653,6 +665,18 @@
 Функция ModifyEnterpriseResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyEnterpriseResponse, "ModifyEnterpriseResponse", URI()).enterprise;
+	
+КонецФункции
+
+Функция ModifyEnterprise(modificationOperation, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = ModifyEnterpriseRequest(modificationOperation);
+	
+	_Response = Прокси("modifyEnterpriseRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат ModifyEnterpriseResponse(_Response);
 	
 КонецФункции
 

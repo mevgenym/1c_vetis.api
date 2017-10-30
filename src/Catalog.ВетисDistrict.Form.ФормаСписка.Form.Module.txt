@@ -18,9 +18,9 @@
 	_ТаблицаВетис.Колонки.Добавить("regionGuid", Новый ОписаниеТипов("Строка"));
 	
 	_region = Неопределено; _параметрыР = Неопределено;
-	Пока _Service.GetRegionListСледующий(_countryGuid, _region, _параметрыР) Цикл
+	Пока _Service.GetRegionListByCountryСледующий(_countryGuid, _region, _параметрыР) Цикл
 		_district = Неопределено; _параметры = Неопределено;
-		Пока _Service.GetDistrictListСледующий(_region.guid, _district, _параметры) Цикл
+		Пока _Service.GetDistrictListByRegionСледующий(_region.guid, _district, _параметры) Цикл
 			ЗаполнитьЗначенияСвойств(_ТаблицаВетис.Добавить(), _district);
 		КонецЦикла;
 	КонецЦикла;

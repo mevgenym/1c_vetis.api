@@ -752,6 +752,21 @@
 		</right>
 	</object>
 	<object>
+		<name>Catalog.ВетисIncorporationForm</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Разрешение.Attribute.НаВвоз</name>
 		<right>
 			<name>View</name>

@@ -51,14 +51,11 @@
 // enterpriseGuid - Строка 1..*
 Функция BusinessEntityActivityLocationsModificationOperation(type, businessEntityGuid, enterpriseGuid) Экспорт
 	
-	_фабрика = ВетисXSD.ФабрикаОбщая();
-	
-	_тип = _фабрика.Тип(URI(), "BEActivityLocationsModificationOperation");
-	
-	_activityLocation = _фабрика.Создать(_тип.Свойства.Получить("activityLocation").Тип);
-	_activityLocation.enterprise = ВетисDictionary_2_0.Enterprise(enterpriseGuid);
-	
 	_Объект = Создать("BEActivityLocationsModificationOperation");
+	
+	_activityLocation = Создать(_Объект.Тип().Свойства.Получить("activityLocation").Тип);
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_activityLocation, ВетисDictionary_2_0.Enterprise(enterpriseGuid), "enterprise");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисDictionary_2_0.BusinessEntity(businessEntityGuid), "businessEntity");
@@ -70,18 +67,19 @@
 
 //Операция внесения изменений в реестр ХС
 //Параметры:
-// type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
-// affectedList - dt:BusinessEntityList - Входящий список ХС
-// resultingList - dt:BusinessEntityList - Получаемые в результате операции записи
-// reason - xs:String - Основание добавления записи в реестр
-Функция BusinessEntityModificationOperation(type, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
+// type - Тип операции (CREATE, FIND_OR_CREATE, UPDATE) bs:RegisterModificationType
+// affectedList - Входящий список ХС dt:BusinessEntity
+// resultingList - Список, который содержит сведения о добавляемых хозяйствующих субъектах.
+//                 На данный момент поддерживается добавление только одного субъекта в рамках одной заявки. dt:BusinessEntity
+// reason - Основание добавления записи в реестр xs:String
+Функция BusinessEntityModificationOperation(registerModificationType, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
 	
 	_Объект = Создать("BEModificationOperation");
 	
-	_Объект.type = type;
-	_Объект.affectedList = affectedList;
-	_Объект.resultingList = resultingList;
-	_Объект.reason  = reason;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, registerModificationType, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, affectedList, "affectedList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, resultingList, "resultingList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
 	
 	Возврат _Объект;
 	
@@ -95,11 +93,8 @@
 	
 	_Объект = Создать("CertifiedBatch");
 	
-	_Объект.batch = batch;
-	
-	Если НЕ producer = Неопределено Тогда
-		_Объект.producer = producer;
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, batch, "batch");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, producer, "producer");
 	
 	Возврат _Объект;
 	
@@ -109,22 +104,22 @@
 //Параметры:
 // consignor - dt:BusinessMember - Сведения об отправителе (владельце). Заполняется только для транспортного вет.сертификата.
 // consignee - dt:BusinessMember - Сведения о получателе груза. Заполняется только для транспортного вет.сертификата.
+// batch - vd:Batch - Сведения о партии продукции.
 // broker - dt:BusinessEntity - Сведения о фирме-посреднике (перевозчике).
 // transportInfo - vd:TransportInfo - Сведения о транспорте.
 // transportStorageType - dt:TransportationStorageType - Способ хранения при перевозке.
-// batch - vd:Batch - Сведения о партии продукции.
 // shipmentRoute - vd:ShipmentRoute - Сведения о маршруте следования (пунктах перегрузки).
-Функция CertifiedConsignment(consignor, consignee, batch, broker, transportInfo, transportStorageType) Экспорт
+Функция CertifiedConsignment(consignor, consignee, batch, broker, transportInfo, transportStorageType, shipmentRoute = Неопределено) Экспорт
 	
 	_Объект = Создать("CertifiedConsignment");
 	
-	_Объект.consignor = consignor;
-	_Объект.consignee = consignee;
-	_Объект.broker = broker;
-	_Объект.transportInfo = transportInfo;
-	_Объект.transportStorageType = transportStorageType;
-	//_Объект.shipmentRoute = shipmentRoute;
-	_Объект.batch = batch;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, batch, "batch");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, broker, "broker");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportInfo, "transportInfo");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportStorageType, "transportStorageType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shipmentRoute, "shipmentRoute");
 	
 	Возврат _Объект;
 	
@@ -237,13 +232,8 @@
 	
 	_Объект = Создать("DeliveryInspection");
 	
-	_Объект.result = result;
-	
-	Если responsible = Неопределено Тогда
-		_Объект.responsible = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
-	Иначе
-		_Объект.responsible = responsible;
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, result, "result");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ?(responsible = Неопределено, ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС()), responsible), "responsible");
 	
 	Возврат _Объект;
 	
@@ -283,10 +273,10 @@
 	
 	_Объект = Создать("ENTModificationOperation");
 	
-	_Объект.type = type;
-	_Объект.affectedList = affectedList;
-	_Объект.resultingList = resultingList;
-	_Объект.reason  = reason;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, affectedList, "affectedList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, resultingList, "resultingList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
 	
 	Возврат _Объект;
 	
@@ -410,6 +400,23 @@
 	_Объект = Создать("StockEntry");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid);
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Тип, описывающий операцию оформления результатов инвентаризации
+//Параметры:
+// affectedList - Входящие записи для операции. vd:StockEntryList 0..1
+// resultingList - Получаемые в результате операции записи. vd:StockEntryList 0..1
+// reason - Причина несоответствия. xs:string 0..1
+Функция StockDiscrepancy(affectedList, resultingList, reason) Экспорт
+	
+	_Объект = Создать("StockDiscrepancy");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, affectedList, "affectedList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, resultingList, "resultingList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
 	
 	Возврат _Объект;
 	

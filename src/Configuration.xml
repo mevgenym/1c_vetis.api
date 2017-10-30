@@ -179,7 +179,7 @@
 			<CommonModule>ВетисПараметрыСоединения</CommonModule>
 			<CommonModule>ВетисПеременные</CommonModule>
 			<CommonModule>ВетисПредопределенные</CommonModule>
-			<CommonModule>ВетисПредприятияХС</CommonModule>
+			<CommonModule>ВетисХозяйственныеОперации</CommonModule>
 			<CommonModule>ВетисСоответствие</CommonModule>
 			<CommonModule>ВетисФормы</CommonModule>
 			<CommonModule>Пользователи</CommonModule>
@@ -189,6 +189,7 @@
 			<DefinedType>ВетисDistrict</DefinedType>
 			<DefinedType>ВетисEnterprise</DefinedType>
 			<DefinedType>ВетисGuid</DefinedType>
+			<DefinedType>ВетисIncorporationForm</DefinedType>
 			<DefinedType>ВетисPackingForm</DefinedType>
 			<DefinedType>ВетисProductItem</DefinedType>
 			<DefinedType>ВетисPurpose</DefinedType>
@@ -200,6 +201,7 @@
 			<DefinedType>ВетисПодразделения</DefinedType>
 			<DefinedType>ВетисПользователь</DefinedType>
 			<CommonCommand>ВетисDistrict</CommonCommand>
+			<CommonCommand>ВетисIncorporationForm</CommonCommand>
 			<CommonCommand>ВетисPackingForm</CommonCommand>
 			<CommonCommand>ВетисPurpose</CommonCommand>
 			<CommonCommand>ВетисRegion</CommonCommand>
@@ -233,6 +235,7 @@
 			<CommonForm>ВетисНастройки</CommonForm>
 			<CommonForm>ВетисXSD</CommonForm>
 			<Catalog>ВетисDistrict</Catalog>
+			<Catalog>ВетисIncorporationForm</Catalog>
 			<Catalog>ВетисPackingForm</Catalog>
 			<Catalog>ВетисPurpose</Catalog>
 			<Catalog>ВетисRegion</Catalog>
@@ -264,6 +267,7 @@
 			<Enum>ВетисVetDocumentStatus</Enum>
 			<Enum>ВетисVetDocumentType</Enum>
 			<Enum>ВетисВерсияAPI</Enum>
+			<Enum>ЮрФизЛицо</Enum>
 			<DataProcessor>ВетисУстановкаСоответствияСправочников</DataProcessor>
 			<InformationRegister>ВетисЖурнал</InformationRegister>
 			<InformationRegister>ВетисНастройкиХС</InformationRegister>

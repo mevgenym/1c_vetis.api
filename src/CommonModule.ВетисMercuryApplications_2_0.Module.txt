@@ -492,9 +492,9 @@
 // Операция предназначена для устранения возможных несоответствий сведений об объёмах в складском журнале продукции системы Меркурий
 // и фактических объёмов продукции на складе предприятия, выявленных по результатам проведенной инвентаризации.
 // Параметры:
-//  enterprise - ent:Enterprise - Площадка на которой осуществляется инвентаризация
+//  enterprise - dt:Enterprise - Площадка на которой осуществляется инвентаризация
 //  inventoryDate - xs:dateTime - Дата проведения инвентаризации
-//  responsible - argc:User - Ответственный за инвентаризацию
+//  responsible - dt:User - Ответственный за инвентаризацию
 //  stockDiscrepancy - vetd:StockDiscrepancy - Сведения о результате инвентаризации (по одному факту расхождения)
 //  discrepancyReport - vetd:DiscrepancyReport - Сведения об акте несоответствия
 Функция ResolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport) Экспорт
@@ -595,7 +595,7 @@
 // Операция предназначена для регистрации новых ХС в реестре,
 // а также для изменения информации об уже зарегистрированных.
 // Параметры:
-//  modificationOperation - ent:BEModificationOperation - Описание операции добавления/изменения информации о ХС.
+//  modificationOperation - vd:BEModificationOperation - Описание операции добавления/изменения информации о ХС.
 Функция ModifyBusinessEntityRequest(modificationOperation) Экспорт
 	
 	_Объект = Создать("ModifyBusinessEntityRequest");
@@ -615,6 +615,18 @@
 	
 КонецФункции
 
+Функция ModifyBusinessEntity(modificationOperation, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = ModifyBusinessEntityRequest(modificationOperation);
+	
+	_Response = Прокси("modifyBusinessEntityRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат ModifyBusinessEntityResponse(_Response);
+	
+КонецФункции
+
 #КонецОбласти
 
 #Область ModifyEnterpriseOperation
@@ -622,7 +634,7 @@
 // Операция предназначена для регистрации новых площадок (поднадзорных объектов) в реестре,
 // а также для изменения информации об уже зарегистрированных.
 // Параметры:
-//  modificationOperation - ent:ENTModificationOperation - Описание операции добавления/изменения информации о поднадзорном объекте.
+//  modificationOperation - vd:ENTModificationOperation - Описание операции добавления/изменения информации о поднадзорном объекте.
 Функция ModifyEnterpriseRequest(modificationOperation) Экспорт
 	
 	_Объект = Создать("ModifyEnterpriseRequest");
@@ -642,13 +654,25 @@
 	
 КонецФункции
 
+Функция ModifyEnterprise(modificationOperation, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = ModifyEnterpriseRequest(modificationOperation);
+	
+	_Response = Прокси("modifyEnterpriseRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат ModifyEnterpriseResponse(_Response);
+	
+КонецФункции
+
 #КонецОбласти
 
 #Область ModifyActivityLocationsOperation
 
 //Операция предназначена для создание связи между ХС и площадкой или удаление этой связи.
 // Параметры:
-//  modificationOperation - ent:BEActivityLocationsModificationOperation
+//  modificationOperation - vd:BEActivityLocationsModificationOperation
 Функция ModifyActivityLocationsRequest(modificationOperation) Экспорт
 	
 	_Объект = Создать("ModifyActivityLocationsRequest");

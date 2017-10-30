@@ -467,6 +467,75 @@
 	
 КонецФункции
 
+Функция ModifyEnterprise(пПредприятие, пПричина = Неопределено, RegisterModificationType_CREATE = Истина) Экспорт
+	
+	_type = ?(RegisterModificationType_CREATE = Истина, ВетисКонстанты.RegisterModificationType_CREATE(), ВетисКонстанты.RegisterModificationType_UPDATE());
+	
+	Если пПричина = Неопределено Тогда
+		Если _type = ВетисКонстанты.RegisterModificationType_FIND_OR_CREATE() Тогда
+			_Причина = "Создание";
+		Иначе
+			_Причина = "Обновление";
+		КонецЕсли;
+	Иначе
+		_Причина = пПричина;
+	КонецЕсли;
+	
+	_issuerId = ВетисХозяйственныеОперации.ОсновнойХС();
+	
+	_Предприятие = пПредприятие.ПолучитьОбъект();
+	
+	Если ВетисXSD.Версия_2_0() Тогда
+		
+		_enterpriseGuid = ВетисDictionaryСлой1с.Enterprise(пПредприятие);
+		
+		_enterprise = ВетисDictionary_2_0.BusinessEntity(_enterpriseGuid);
+		
+		_enterprise.name = _Предприятие.Наименование;
+		
+		_enterprise.type = ВетисКонстанты.EnterpriseType_Предприятие();
+		
+		_enterprise.address = ВетисDictionary_2_0.Address(ВетисDictionaryСлой1с.Country(_Предприятие.Страна), ВетисDictionaryСлой1с.Region(_Предприятие.Регион), ВетисDictionaryСлой1с.Region(_Предприятие.Район), ВетисDictionaryСлой1с.Locality(_Предприятие.НаселенныйПункт));
+		
+		Для каждого _ВидыДеятельностиСтрока Из _Предприятие.ВидыДеятельности Цикл
+			_enterprise.activityList.Добавить(ВетисDictionary_2_0.EnterpriseActivity(_ВидыДеятельностиСтрока.Наименование));
+		КонецЦикла;
+		
+		_enterprise.owner = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_Предприятие.Собственник));
+		
+		//_enterprise.officialRegistration = 
+		
+		_modificationOperation = ВетисMercuryVetdocument_2_0.EnterpriseModificationOperation(_type, , _enterprise, _Причина);
+		
+		_Response = ВетисMercuryApplications_2_0.ModifyEnterprise(_modificationOperation, _issuerId);
+		
+	Иначе
+		
+		_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие);
+		
+		_enterprise = ВетисCerberusEnterprise.BusinessEntity(_enterpriseGuid);
+		
+		_enterprise.name = _Предприятие.Наименование;
+		
+		_enterprise.type = ВетисКонстанты.EnterpriseType_Предприятие();
+		
+		_enterprise.address = ВетисIkar.Address(ВетисIkarСлой1с.Country(_Предприятие.Страна), ВетисIkarСлой1с.Region(_Предприятие.Регион), ВетисIkarСлой1с.Region(_Предприятие.Район), ВетисIkarСлой1с.Locality(_Предприятие.НаселенныйПункт));
+		
+		Для каждого _ВидыДеятельностиСтрока Из _Предприятие.ВидыДеятельности Цикл
+			_enterprise.activityList.Добавить(ВетисDictionary_2_0.EnterpriseActivity(_ВидыДеятельностиСтрока.Наименование));
+		КонецЦикла;
+		
+		_enterprise.owner = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Предприятие.Собственник));
+		
+		_modificationOperation = ВетисCerberusEnterprise.EnterpriseModificationOperation(_type, , _enterprise, _Причина);
+		
+		_Response = ВетисMercuryApplications.ModifyEnterprise(_modificationOperation, _issuerId);
+		
+	КонецЕсли;
+	
+	Возврат _Response;
+	
+КонецФункции
 
 Функция ПолучитьConsignment(пСтрокаСЖ, пКоличество = Неопределено, пКоличествоМест = Неопределено, пSourceStockEntry = Неопределено)
 	

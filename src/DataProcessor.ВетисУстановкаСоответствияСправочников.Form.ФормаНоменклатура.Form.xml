@@ -27,7 +27,7 @@
 					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="168"/>
 					<ChildItems>
 						<CheckBoxField name="ОтборХС" id="149">
-							<DataPath>ОтборХС</DataPath>
+							<DataPath>ОтборХСИспользование</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
 							<ContextMenu name="ОтборХСКонтекстноеМеню" id="150"/>
@@ -43,7 +43,7 @@
 							</Events>
 						</InputField>
 						<CheckBoxField name="ОтборПредприятие" id="152">
-							<DataPath>ОтборПредприятие</DataPath>
+							<DataPath>ОтборПредприятиеИспользование</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
 							<ContextMenu name="ОтборПредприятиеКонтекстноеМеню" id="153"/>
@@ -67,14 +67,14 @@
 					<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="170"/>
 					<ChildItems>
 						<CheckBoxField name="ОтборТипПродукции" id="155">
-							<DataPath>ОтборТипПродукции</DataPath>
+							<DataPath>ОтборТипПродукцииИспользование</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
 							<ContextMenu name="ОтборТипПродукцииКонтекстноеМеню" id="156"/>
 							<ExtendedTooltip name="ОтборТипПродукцииРасширеннаяПодсказка" id="157"/>
 						</CheckBoxField>
 						<InputField name="ТипПродукции" id="73">
-							<DataPath>ТипПродукции</DataPath>
+							<DataPath>ОтборТипПродукции</DataPath>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="ТипПродукцииКонтекстноеМеню" id="74"/>
 							<ExtendedTooltip name="ТипПродукцииРасширеннаяПодсказка" id="75"/>
@@ -83,7 +83,7 @@
 							</Events>
 						</InputField>
 						<CheckBoxField name="ОтборПродукция" id="158">
-							<DataPath>ОтборПродукция</DataPath>
+							<DataPath>ОтборПродукцияИспользование</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
 							<ContextMenu name="ОтборПродукцияКонтекстноеМеню" id="159"/>
@@ -96,7 +96,7 @@
 							<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="178"/>
 							<ChildItems>
 								<InputField name="Продукция" id="146">
-									<DataPath>Продукция</DataPath>
+									<DataPath>ОтборПродукция</DataPath>
 									<DropListButton>true</DropListButton>
 									<ContextMenu name="ПродукцияКонтекстноеМеню" id="147"/>
 									<ExtendedTooltip name="ПродукцияРасширеннаяПодсказка" id="148"/>
@@ -105,7 +105,7 @@
 									</Events>
 								</InputField>
 								<LabelField name="ПродукцияПредставление" id="171">
-									<DataPath>ПродукцияПредставление</DataPath>
+									<DataPath>ОтборПродукцияПредставление</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<TextColor>#008080</TextColor>
 									<Font bold="true" kind="AutoFont"/>
@@ -115,7 +115,7 @@
 							</ChildItems>
 						</UsualGroup>
 						<CheckBoxField name="ОтборВидПродукции" id="161">
-							<DataPath>ОтборВидПродукции</DataPath>
+							<DataPath>ОтборВидПродукцииИспользование</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
 							<ContextMenu name="ОтборВидПродукцииКонтекстноеМеню" id="162"/>
@@ -128,7 +128,7 @@
 							<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="180"/>
 							<ChildItems>
 								<InputField name="ВидПродукции" id="164">
-									<DataPath>ВидПродукции</DataPath>
+									<DataPath>ОтборВидПродукции</DataPath>
 									<DropListButton>true</DropListButton>
 									<ContextMenu name="ВидПродукцииКонтекстноеМеню" id="165"/>
 									<ExtendedTooltip name="ВидПродукцииРасширеннаяПодсказка" id="166"/>
@@ -137,7 +137,7 @@
 									</Events>
 								</InputField>
 								<LabelField name="ВидПродукцииПредставление" id="174">
-									<DataPath>ВидПродукцииПредставление</DataPath>
+									<DataPath>ОтборВидПродукцииПредставление</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<TextColor>#008080</TextColor>
 									<Font bold="true" kind="AutoFont"/>
@@ -397,7 +397,7 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
-		<Attribute name="ТипПродукции" id="3">
+		<Attribute name="ОтборТипПродукции" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -408,7 +408,7 @@
 				<v8:Type>cfg:EnumRef.ВетисProductType</v8:Type>
 			</Type>
 			<Save>
-				<Field>ТипПродукции</Field>
+				<Field>ОтборТипПродукции</Field>
 			</Save>
 		</Attribute>
 		<Attribute name="СписокВетис" id="5">
@@ -469,7 +469,7 @@
 				</Column>
 			</Columns>
 		</Attribute>
-		<Attribute name="Продукция" id="6">
+		<Attribute name="ОтборПродукция" id="6">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -482,100 +482,12 @@
 					<v8:Length>0</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
-			</Type>
-			<Save>
-				<Field>Продукция</Field>
-			</Save>
-		</Attribute>
-		<Attribute name="ВидПродукции" id="7">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Вид продукции</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-			<Save>
-				<Field>ВидПродукции</Field>
-			</Save>
-		</Attribute>
-		<Attribute name="ОтборХС" id="8">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор ХС</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-			<Save>
-				<Field>ОтборХС</Field>
-			</Save>
-		</Attribute>
-		<Attribute name="ОтборПредприятие" id="9">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор предприятие</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-			<Save>
-				<Field>ОтборПредприятие</Field>
-			</Save>
-		</Attribute>
-		<Attribute name="ОтборТипПродукции" id="10">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор тип продукции</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-			<Save>
-				<Field>ОтборТипПродукции</Field>
-			</Save>
-		</Attribute>
-		<Attribute name="ОтборПродукция" id="11">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор продукция</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 			<Save>
 				<Field>ОтборПродукция</Field>
 			</Save>
 		</Attribute>
-		<Attribute name="ОтборВидПродукции" id="12">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор вид продукции</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-			<Save>
-				<Field>ОтборВидПродукции</Field>
-			</Save>
-		</Attribute>
-		<Attribute name="ВидПродукцииПредставление" id="14">
+		<Attribute name="ОтборВидПродукции" id="7">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -590,10 +502,98 @@
 				</v8:StringQualifiers>
 			</Type>
 			<Save>
-				<Field>ВидПродукцииПредставление</Field>
+				<Field>ОтборВидПродукции</Field>
 			</Save>
 		</Attribute>
-		<Attribute name="ПродукцияПредставление" id="15">
+		<Attribute name="ОтборХСИспользование" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор ХСИспользование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборХСИспользование</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборПредприятиеИспользование" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор предприятие использование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборПредприятиеИспользование</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборТипПродукцииИспользование" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор тип продукции использование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборТипПродукцииИспользование</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборПродукцияИспользование" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор продукция использование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборПродукцияИспользование</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборВидПродукцииИспользование" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор вид продукции использование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборВидПродукцииИспользование</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборВидПродукцииПредставление" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид продукции</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОтборВидПродукцииПредставление</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборПродукцияПредставление" id="15">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -608,7 +608,7 @@
 				</v8:StringQualifiers>
 			</Type>
 			<Save>
-				<Field>ПродукцияПредставление</Field>
+				<Field>ОтборПродукцияПредставление</Field>
 			</Save>
 		</Attribute>
 		<ConditionalAppearance>

@@ -151,6 +151,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисIncorporationForm</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисIncorporationForm</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисIncorporationForm</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисLocality</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

@@ -190,6 +190,7 @@
 			<DefinedType>ВетисEnterprise</DefinedType>
 			<DefinedType>ВетисGuid</DefinedType>
 			<DefinedType>ВетисIncorporationForm</DefinedType>
+			<DefinedType>ВетисLocality</DefinedType>
 			<DefinedType>ВетисPackingForm</DefinedType>
 			<DefinedType>ВетисProductItem</DefinedType>
 			<DefinedType>ВетисPurpose</DefinedType>
@@ -236,6 +237,7 @@
 			<CommonForm>ВетисXSD</CommonForm>
 			<Catalog>ВетисDistrict</Catalog>
 			<Catalog>ВетисIncorporationForm</Catalog>
+			<Catalog>ВетисLocality</Catalog>
 			<Catalog>ВетисPackingForm</Catalog>
 			<Catalog>ВетисPurpose</Catalog>
 			<Catalog>ВетисRegion</Catalog>

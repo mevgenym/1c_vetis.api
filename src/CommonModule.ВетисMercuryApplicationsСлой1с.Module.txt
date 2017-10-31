@@ -413,21 +413,23 @@
 		_Причина = пПричина;
 	КонецЕсли;
 	
+	_ХС = пХС.ПолучитьОбъект();
+	
 	Если ВетисXSD.Версия_2_0() Тогда
 		
 		_businessEntityGuid = ВетисDictionaryСлой1с.BusinessEntity(пХС);
 		
 		_businessEntity = ВетисDictionary_2_0.BusinessEntity(_businessEntityGuid);
 		
-		_businessEntity.type = ?(пХС.ЮрФизЛицо = Перечисления.ЮрФизЛицо.ЮрЛицо, ВетисКонстанты.BusinessEntityType_JURIDICAL(), ВетисКонстанты.BusinessEntityType_SELF_EMPLOYED());
+		_businessEntity.type = ?(_ХС.ЮрФизЛицо = Перечисления.ЮрФизЛицо.ЮрЛицо, ВетисКонстанты.BusinessEntityType_JURIDICAL(), ВетисКонстанты.BusinessEntityType_SELF_EMPLOYED());
 		
-		_businessEntity.name = пХС.Наименование;
+		_businessEntity.name = _ХС.Наименование;
 		
-		_businessEntity.fullName = пХС.НаименованиеПолное;
+		_businessEntity.fullName = _ХС.НаименованиеПолное;
 		
-		_businessEntity.inn = пХС.ИНН;
+		_businessEntity.inn = _ХС.ИНН;
 		
-		_businessEntity.incorporationForm = ВетисDictionary_2_0.IncorporationForm(?(пХС.ЮрФизЛицо, "12300", "50102"));
+		_businessEntity.incorporationForm = ВетисDictionary_2_0.IncorporationForm(?(_ХС.ЮрФизЛицо, "12300", "50102"));
 		
 		//_businessEntity.ogrn = ;
 		
@@ -443,15 +445,15 @@
 		
 		_businessEntity = ВетисCerberusEnterprise.BusinessEntity(_businessEntityGuid);
 		
-		_businessEntity.type = ?(пХС.ЮрФизЛицо = Перечисления.ЮрФизЛицо.ЮрЛицо, ВетисКонстанты.BusinessEntityType_JURIDICAL(), ВетисКонстанты.BusinessEntityType_SELF_EMPLOYED());
+		_businessEntity.type = ?(_ХС.ЮрФизЛицо = Перечисления.ЮрФизЛицо.ЮрЛицо, ВетисКонстанты.BusinessEntityType_JURIDICAL(), ВетисКонстанты.BusinessEntityType_SELF_EMPLOYED());
 		
-		_businessEntity.name = пХС.Наименование;
+		_businessEntity.name = _ХС.Наименование;
 		
-		_businessEntity.fullName = пХС.НаименованиеПолное;
+		_businessEntity.fullName = _ХС.НаименованиеПолное;
 		
-		_businessEntity.inn = пХС.ИНН;
+		_businessEntity.inn = _ХС.ИНН;
 		
-		_businessEntity.incorporationForm = ВетисDictionary_2_0.IncorporationForm(?(пХС.ЮрФизЛицо, "12300", "50102"));
+		_businessEntity.incorporationForm = ВетисDictionary_2_0.IncorporationForm(?(_ХС.ЮрФизЛицо, "12300", "50102"));
 		
 		//_businessEntity.juridicalAddress = ВетисDictionary_2_0.Address();
 		
@@ -472,7 +474,7 @@
 	_type = ?(RegisterModificationType_CREATE = Истина, ВетисКонстанты.RegisterModificationType_CREATE(), ВетисКонстанты.RegisterModificationType_UPDATE());
 	
 	Если пПричина = Неопределено Тогда
-		Если _type = ВетисКонстанты.RegisterModificationType_FIND_OR_CREATE() Тогда
+		Если _type = ВетисКонстанты.RegisterModificationType_CREATE() Тогда
 			_Причина = "Создание";
 		Иначе
 			_Причина = "Обновление";
@@ -493,9 +495,9 @@
 		
 		_enterprise.name = _Предприятие.Наименование;
 		
-		_enterprise.type = ВетисКонстанты.EnterpriseType_Предприятие();
+		_enterprise.type = ВетисDictionaryСлой1с.EnterpriseType(_Предприятие.Тип);
 		
-		_enterprise.address = ВетисDictionary_2_0.Address(ВетисDictionaryСлой1с.Country(_Предприятие.Страна), ВетисDictionaryСлой1с.Region(_Предприятие.Регион), ВетисDictionaryСлой1с.Region(_Предприятие.Район), ВетисDictionaryСлой1с.Locality(_Предприятие.НаселенныйПункт));
+		_enterprise.address = ВетисDictionary_2_0.Address(ВетисDictionaryСлой1с.Country(_Предприятие.Страна), ВетисDictionaryСлой1с.Region(_Предприятие.Регион), ВетисDictionaryСлой1с.District(_Предприятие.Район), ВетисDictionaryСлой1с.Locality(_Предприятие.НаселенныйПункт));
 		
 		Для каждого _ВидыДеятельностиСтрока Из _Предприятие.ВидыДеятельности Цикл
 			_enterprise.activityList.Добавить(ВетисDictionary_2_0.EnterpriseActivity(_ВидыДеятельностиСтрока.Наименование));
@@ -517,9 +519,9 @@
 		
 		_enterprise.name = _Предприятие.Наименование;
 		
-		_enterprise.type = ВетисКонстанты.EnterpriseType_Предприятие();
+		_enterprise.type = ВетисCerberusEnterpriseСлой1с.EnterpriseType(_Предприятие.Тип);
 		
-		_enterprise.address = ВетисIkar.Address(ВетисIkarСлой1с.Country(_Предприятие.Страна), ВетисIkarСлой1с.Region(_Предприятие.Регион), ВетисIkarСлой1с.Region(_Предприятие.Район), ВетисIkarСлой1с.Locality(_Предприятие.НаселенныйПункт));
+		_enterprise.address = ВетисIkar.Address(ВетисIkarСлой1с.Country(_Предприятие.Страна), ВетисIkarСлой1с.Region(_Предприятие.Регион), ВетисIkarСлой1с.District(_Предприятие.Район), ВетисIkarСлой1с.Locality(_Предприятие.НаселенныйПункт));
 		
 		Для каждого _ВидыДеятельностиСтрока Из _Предприятие.ВидыДеятельности Цикл
 			_enterprise.activityList.Добавить(ВетисDictionary_2_0.EnterpriseActivity(_ВидыДеятельностиСтрока.Наименование));

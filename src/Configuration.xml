@@ -184,6 +184,7 @@
 			<CommonModule>ВетисФормы</CommonModule>
 			<CommonModule>Пользователи</CommonModule>
 			<XDTOPackage>soap_envelop</XDTOPackage>
+			<DefinedType>ВетисAddress</DefinedType>
 			<DefinedType>ВетисBusinessEntity</DefinedType>
 			<DefinedType>ВетисCountry</DefinedType>
 			<DefinedType>ВетисDistrict</DefinedType>
@@ -201,6 +202,7 @@
 			<DefinedType>ВетисUnit</DefinedType>
 			<DefinedType>ВетисПодразделения</DefinedType>
 			<DefinedType>ВетисПользователь</DefinedType>
+			<CommonCommand>ВетисAddress</CommonCommand>
 			<CommonCommand>ВетисDistrict</CommonCommand>
 			<CommonCommand>ВетисIncorporationForm</CommonCommand>
 			<CommonCommand>ВетисPackingForm</CommonCommand>
@@ -235,6 +237,7 @@
 			<CommonForm>ВетисФормаВыбора</CommonForm>
 			<CommonForm>ВетисНастройки</CommonForm>
 			<CommonForm>ВетисXSD</CommonForm>
+			<Catalog>ВетисAddress</Catalog>
 			<Catalog>ВетисDistrict</Catalog>
 			<Catalog>ВетисIncorporationForm</Catalog>
 			<Catalog>ВетисLocality</Catalog>
@@ -258,6 +261,7 @@
 			<Enum>ВетисDeliveryInspectionResult</Enum>
 			<Enum>ВетисDocumentNature</Enum>
 			<Enum>ВетисDocumentType</Enum>
+			<Enum>ВетисEnterpriseType</Enum>
 			<Enum>ВетисPackageLevelType</Enum>
 			<Enum>ВетисProductMarkingClass</Enum>
 			<Enum>ВетисProductType</Enum>
@@ -269,8 +273,10 @@
 			<Enum>ВетисVetDocumentStatus</Enum>
 			<Enum>ВетисVetDocumentType</Enum>
 			<Enum>ВетисВерсияAPI</Enum>
+			<Enum>ВетисТипАдреса</Enum>
 			<Enum>ЮрФизЛицо</Enum>
 			<DataProcessor>ВетисУстановкаСоответствияСправочников</DataProcessor>
+			<InformationRegister>ВетисАдреса</InformationRegister>
 			<InformationRegister>ВетисЖурнал</InformationRegister>
 			<InformationRegister>ВетисНастройкиХС</InformationRegister>
 			<InformationRegister>ВетисПользователи</InformationRegister>

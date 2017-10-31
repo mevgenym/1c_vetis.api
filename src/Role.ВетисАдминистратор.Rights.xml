@@ -64,6 +64,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисAddress</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.КлассификаторЕдиницИзмерения</name>
 		<right>
 			<name>Read</name>
@@ -880,6 +887,25 @@
 		<name>CommonCommand.КлассификаторСтранМира</name>
 		<right>
 			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисАдреса</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
 			<value>true</value>
 		</right>
 	</object>

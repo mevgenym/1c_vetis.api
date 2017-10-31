@@ -61,22 +61,16 @@
 									<CommandName>Form.Command.КомандаНайтиПоХС</CommandName>
 									<ExtendedTooltip name="КомандаНайтиПоХСРасширеннаяПодсказка" id="183"/>
 								</Button>
-								<InputField name="businessEntityGuid" id="173">
-									<DataPath>businessEntityGuid</DataPath>
-									<ContextMenu name="businessEntityGuidКонтекстноеМеню" id="174"/>
-									<ExtendedTooltip name="businessEntityGuidРасширеннаяПодсказка" id="175"/>
+								<InputField name="ОтборBusinessEntityGuid" id="173">
+									<DataPath>ОтборBusinessEntityGuid</DataPath>
+									<ContextMenu name="ОтборBusinessEntityGuidКонтекстноеМеню" id="174"/>
+									<ExtendedTooltip name="ОтборBusinessEntityGuidРасширеннаяПодсказка" id="175"/>
 								</InputField>
 								<Button name="КомандаНайтиПоGuid" id="178">
 									<Type>UsualButton</Type>
 									<CommandName>Form.Command.КомандаНайтиПоGuid</CommandName>
 									<ExtendedTooltip name="КомандаНайтиПоGuidРасширеннаяПодсказка" id="179"/>
 								</Button>
-								<InputField name="МаксимальноеКоличество1" id="170">
-									<DataPath>МаксимальноеКоличество</DataPath>
-									<Width>3</Width>
-									<ContextMenu name="МаксимальноеКоличество1КонтекстноеМеню" id="171"/>
-									<ExtendedTooltip name="МаксимальноеКоличество1РасширеннаяПодсказка" id="172"/>
-								</InputField>
 								<Button name="КомандаОтборПоХС" id="163">
 									<Type>UsualButton</Type>
 									<CommandName>Form.Command.КомандаОтборПоХС</CommandName>
@@ -114,11 +108,14 @@
 									<CheckBoxType>Auto</CheckBoxType>
 									<ContextMenu name="ОтборНаименованиеИспользованиеКонтекстноеМеню" id="191"/>
 									<ExtendedTooltip name="ОтборНаименованиеИспользованиеРасширеннаяПодсказка" id="192"/>
+									<Events>
+										<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+									</Events>
 								</CheckBoxField>
-								<InputField name="Наименование" id="150">
+								<InputField name="ОтборНаименование" id="150">
 									<DataPath>ОтборНаименование</DataPath>
-									<ContextMenu name="НаименованиеКонтекстноеМеню" id="151"/>
-									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="152"/>
+									<ContextMenu name="ОтборНаименованиеКонтекстноеМеню" id="151"/>
+									<ExtendedTooltip name="ОтборНаименованиеРасширеннаяПодсказка" id="152"/>
 								</InputField>
 								<CheckBoxField name="ОтборРайонИспользование" id="184">
 									<DataPath>ОтборРайонИспользование</DataPath>
@@ -126,11 +123,14 @@
 									<CheckBoxType>Auto</CheckBoxType>
 									<ContextMenu name="ОтборРайонИспользованиеКонтекстноеМеню" id="185"/>
 									<ExtendedTooltip name="ОтборРайонИспользованиеРасширеннаяПодсказка" id="186"/>
+									<Events>
+										<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+									</Events>
 								</CheckBoxField>
-								<InputField name="Регион" id="156">
+								<InputField name="ОтборРегион" id="156">
 									<DataPath>ОтборРегион</DataPath>
-									<ContextMenu name="РегионКонтекстноеМеню" id="157"/>
-									<ExtendedTooltip name="РегионРасширеннаяПодсказка" id="158"/>
+									<ContextMenu name="ОтборРегионКонтекстноеМеню" id="157"/>
+									<ExtendedTooltip name="ОтборРегионРасширеннаяПодсказка" id="158"/>
 								</InputField>
 								<CheckBoxField name="ОтборРегионИспользование" id="187">
 									<DataPath>ОтборРегионИспользование</DataPath>
@@ -138,8 +138,11 @@
 									<CheckBoxType>Auto</CheckBoxType>
 									<ContextMenu name="ОтборРегионИспользованиеКонтекстноеМеню" id="188"/>
 									<ExtendedTooltip name="ОтборРегионИспользованиеРасширеннаяПодсказка" id="189"/>
+									<Events>
+										<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+									</Events>
 								</CheckBoxField>
-								<InputField name="Район" id="153">
+								<InputField name="ОтборРайон" id="153">
 									<DataPath>ОтборРайон</DataPath>
 									<ChoiceParameterLinks>
 										<xr:Link>
@@ -148,18 +151,18 @@
 											<xr:ValueChange>Clear</xr:ValueChange>
 										</xr:Link>
 									</ChoiceParameterLinks>
-									<ContextMenu name="РайонКонтекстноеМеню" id="154"/>
-									<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="155"/>
+									<ContextMenu name="ОтборРайонКонтекстноеМеню" id="154"/>
+									<ExtendedTooltip name="ОтборРайонРасширеннаяПодсказка" id="155"/>
 								</InputField>
 								<Button name="КомандаНайтиПоИмени" id="176">
 									<Type>UsualButton</Type>
 									<CommandName>Form.Command.КомандаНайтиПоИмени</CommandName>
 									<ExtendedTooltip name="КомандаНайтиПоИмениРасширеннаяПодсказка" id="177"/>
 								</Button>
-								<InputField name="guid" id="147">
+								<InputField name="ОтборGuid" id="147">
 									<DataPath>ОтборGuid</DataPath>
-									<ContextMenu name="guidКонтекстноеМеню" id="148"/>
-									<ExtendedTooltip name="guidРасширеннаяПодсказка" id="149"/>
+									<ContextMenu name="ОтборGuidКонтекстноеМеню" id="148"/>
+									<ExtendedTooltip name="ОтборGuidРасширеннаяПодсказка" id="149"/>
 								</InputField>
 								<Button name="КомандаНайтиПоGuid1" id="180">
 									<Type>UsualButton</Type>
@@ -202,7 +205,20 @@
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="СписокВетисКонтекстноеМеню" id="2"/>
-							<AutoCommandBar name="СписокВетисКоманднаяПанель" id="3"/>
+							<AutoCommandBar name="СписокВетисКоманднаяПанель" id="3">
+								<ChildItems>
+									<Button name="СправочникСписокКомандаДобавитьИзСервиса" id="195">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаДобавитьИзСервиса</CommandName>
+										<ExtendedTooltip name="СправочникСписокКомандаДобавитьИзСервисаРасширеннаяПодсказка" id="196"/>
+									</Button>
+									<Button name="СправочникСписокКомандаЗаполнитьИзСервиса" id="193">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
+										<ExtendedTooltip name="СправочникСписокКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="194"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="СписокВетисРасширеннаяПодсказка" id="4"/>
 							<SearchStringAddition name="СписокВетисСтрокаПоиска" id="5">
 								<AdditionSource>
@@ -259,6 +275,7 @@
 							<EnableStartDrag>true</EnableStartDrag>
 							<DataPath>СправочникСписок</DataPath>
 							<RowPictureDataPath>СправочникСписок.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -401,11 +418,100 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
+						<v8:TypeSet>cfg:DefinedType.ВетисGuid</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="country" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Country</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.ВетисGuid</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="region" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>region</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.ВетисGuid</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="district" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>district</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.ВетисGuid</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="locality" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>locality</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.ВетисGuid</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="street" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>street</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.ВетисGuid</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="numberList" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Number list</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+					</Type>
+				</Column>
+				<Column name="owner" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Owner</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.ВетисGuid</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="type" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Type</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
 					</Type>
 				</Column>
 			</Columns>
@@ -546,18 +652,18 @@
 				<Field>МаксимальноеКоличество</Field>
 			</Save>
 		</Attribute>
-		<Attribute name="businessEntityGuid" id="12">
+		<Attribute name="ОтборBusinessEntityGuid" id="12">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>guid</v8:content>
+					<v8:content>guid ХС</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
 				<v8:TypeSet>cfg:DefinedType.ВетисGuid</v8:TypeSet>
 			</Type>
 			<Save>
-				<Field>businessEntityGuid</Field>
+				<Field>ОтборBusinessEntityGuid</Field>
 			</Save>
 		</Attribute>
 		<Attribute name="ОтборРайонИспользование" id="13">
@@ -735,6 +841,36 @@
 			</Picture>
 			<Action>КомандаНайтиПоХС</Action>
 			<Representation>Picture</Representation>
+		</Command>
+		<Command name="КомандаДобавитьИзСервиса" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить из сервиса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда добавить из сервиса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаДобавитьИзСервиса</Action>
+		</Command>
+		<Command name="КомандаЗаполнитьИзСервиса" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить из сервиса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда заполнить из сервиса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗаполнитьИзСервиса</Action>
 		</Command>
 	</Commands>
 </Form>

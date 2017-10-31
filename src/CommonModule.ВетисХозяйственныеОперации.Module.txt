@@ -88,7 +88,7 @@
 				_список.Добавить(_Enterprise.guid);
 			КонецЦикла;
 		Иначе
-			Пока ВетисEnterpriseService.GetBusinessEntityEnterpriseListСледующий(ВыборкаХС.BusinessEntityGuid, _Enterprise, _параметры) Цикл
+			Пока ВетисEnterpriseService.GetActivityLocationListСледующий(ВыборкаХС.BusinessEntityGuid, _Enterprise, _параметры) Цикл
 				_список.Добавить(_Enterprise.guid);
 			КонецЦикла;
 		КонецЕсли;

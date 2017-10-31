@@ -976,6 +976,17 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисАдреса</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.ДатаВСД</name>
 		<right>
 			<name>View</name>

@@ -152,6 +152,12 @@
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисIncorporationForm</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисIncorporationForm</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисLocality</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисАдреса</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисEnterpriseType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисAddress</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисТипАдреса</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисAddress</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисAddress</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

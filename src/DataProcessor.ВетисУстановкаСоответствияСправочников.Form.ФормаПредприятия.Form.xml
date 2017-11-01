@@ -117,12 +117,12 @@
 									<ContextMenu name="ОтборНаименованиеКонтекстноеМеню" id="151"/>
 									<ExtendedTooltip name="ОтборНаименованиеРасширеннаяПодсказка" id="152"/>
 								</InputField>
-								<CheckBoxField name="ОтборРайонИспользование" id="184">
-									<DataPath>ОтборРайонИспользование</DataPath>
+								<CheckBoxField name="ОтборРегионИспользование" id="187">
+									<DataPath>ОтборРегионИспользование</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<CheckBoxType>Auto</CheckBoxType>
-									<ContextMenu name="ОтборРайонИспользованиеКонтекстноеМеню" id="185"/>
-									<ExtendedTooltip name="ОтборРайонИспользованиеРасширеннаяПодсказка" id="186"/>
+									<ContextMenu name="ОтборРегионИспользованиеКонтекстноеМеню" id="188"/>
+									<ExtendedTooltip name="ОтборРегионИспользованиеРасширеннаяПодсказка" id="189"/>
 									<Events>
 										<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
 									</Events>
@@ -132,12 +132,12 @@
 									<ContextMenu name="ОтборРегионКонтекстноеМеню" id="157"/>
 									<ExtendedTooltip name="ОтборРегионРасширеннаяПодсказка" id="158"/>
 								</InputField>
-								<CheckBoxField name="ОтборРегионИспользование" id="187">
-									<DataPath>ОтборРегионИспользование</DataPath>
+								<CheckBoxField name="ОтборРайонИспользование" id="184">
+									<DataPath>ОтборРайонИспользование</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<CheckBoxType>Auto</CheckBoxType>
-									<ContextMenu name="ОтборРегионИспользованиеКонтекстноеМеню" id="188"/>
-									<ExtendedTooltip name="ОтборРегионИспользованиеРасширеннаяПодсказка" id="189"/>
+									<ContextMenu name="ОтборРайонИспользованиеКонтекстноеМеню" id="185"/>
+									<ExtendedTooltip name="ОтборРайонИспользованиеРасширеннаяПодсказка" id="186"/>
 									<Events>
 										<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
 									</Events>

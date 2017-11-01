@@ -11,6 +11,7 @@
 	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -26,34 +27,40 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="168"/>
 					<ChildItems>
-						<CheckBoxField name="ОтборХС" id="149">
+						<CheckBoxField name="ОтборХСИспользование" id="149">
 							<DataPath>ОтборХСИспользование</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="ОтборХСКонтекстноеМеню" id="150"/>
-							<ExtendedTooltip name="ОтборХСРасширеннаяПодсказка" id="151"/>
+							<ContextMenu name="ОтборХСИспользованиеКонтекстноеМеню" id="150"/>
+							<ExtendedTooltip name="ОтборХСИспользованиеРасширеннаяПодсказка" id="151"/>
+							<Events>
+								<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+							</Events>
 						</CheckBoxField>
-						<InputField name="ХС" id="138">
+						<InputField name="ОтборХС" id="138">
 							<DataPath>Объект.ХозяйствующийСубъект</DataPath>
-							<ContextMenu name="ХСКонтекстноеМеню" id="139"/>
-							<ExtendedTooltip name="ХСРасширеннаяПодсказка" id="140"/>
+							<ContextMenu name="ОтборХСКонтекстноеМеню" id="139"/>
+							<ExtendedTooltip name="ОтборХСРасширеннаяПодсказка" id="140"/>
 							<Events>
 								<Event name="OnChange">ХСПриИзменении</Event>
 								<Event name="StartChoice">ХСНачалоВыбора</Event>
 							</Events>
 						</InputField>
-						<CheckBoxField name="ОтборПредприятие" id="152">
+						<CheckBoxField name="ОтборПредприятиеИспользование" id="152">
 							<DataPath>ОтборПредприятиеИспользование</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="ОтборПредприятиеКонтекстноеМеню" id="153"/>
-							<ExtendedTooltip name="ОтборПредприятиеРасширеннаяПодсказка" id="154"/>
+							<ContextMenu name="ОтборПредприятиеИспользованиеКонтекстноеМеню" id="153"/>
+							<ExtendedTooltip name="ОтборПредприятиеИспользованиеРасширеннаяПодсказка" id="154"/>
+							<Events>
+								<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+							</Events>
 						</CheckBoxField>
-						<InputField name="Предприятие" id="141">
+						<InputField name="ОтборПредприятие" id="141">
 							<DataPath>Объект.Предприятие</DataPath>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="ПредприятиеКонтекстноеМеню" id="142"/>
-							<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="143"/>
+							<ContextMenu name="ОтборПредприятиеКонтекстноеМеню" id="142"/>
+							<ExtendedTooltip name="ОтборПредприятиеРасширеннаяПодсказка" id="143"/>
 							<Events>
 								<Event name="StartChoice">ПредприятиеНачалоВыбора</Event>
 							</Events>
@@ -66,28 +73,34 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="170"/>
 					<ChildItems>
-						<CheckBoxField name="ОтборТипПродукции" id="155">
+						<CheckBoxField name="ОтборТипПродукцииИспользование" id="155">
 							<DataPath>ОтборТипПродукцииИспользование</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="ОтборТипПродукцииКонтекстноеМеню" id="156"/>
-							<ExtendedTooltip name="ОтборТипПродукцииРасширеннаяПодсказка" id="157"/>
+							<ContextMenu name="ОтборТипПродукцииИспользованиеКонтекстноеМеню" id="156"/>
+							<ExtendedTooltip name="ОтборТипПродукцииИспользованиеРасширеннаяПодсказка" id="157"/>
+							<Events>
+								<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+							</Events>
 						</CheckBoxField>
-						<InputField name="ТипПродукции" id="73">
+						<InputField name="ОтборТипПродукции" id="73">
 							<DataPath>ОтборТипПродукции</DataPath>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="ТипПродукцииКонтекстноеМеню" id="74"/>
-							<ExtendedTooltip name="ТипПродукцииРасширеннаяПодсказка" id="75"/>
+							<ContextMenu name="ОтборТипПродукцииКонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="ОтборТипПродукцииРасширеннаяПодсказка" id="75"/>
 							<Events>
 								<Event name="OnChange">ТипПродукцииПриИзменении</Event>
 							</Events>
 						</InputField>
-						<CheckBoxField name="ОтборПродукция" id="158">
+						<CheckBoxField name="ОтборПродукцияИспользование" id="158">
 							<DataPath>ОтборПродукцияИспользование</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="ОтборПродукцияКонтекстноеМеню" id="159"/>
-							<ExtendedTooltip name="ОтборПродукцияРасширеннаяПодсказка" id="160"/>
+							<ContextMenu name="ОтборПродукцияИспользованиеКонтекстноеМеню" id="159"/>
+							<ExtendedTooltip name="ОтборПродукцияИспользованиеРасширеннаяПодсказка" id="160"/>
+							<Events>
+								<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+							</Events>
 						</CheckBoxField>
 						<UsualGroup name="Группа7" id="177">
 							<Group>Vertical</Group>
@@ -95,31 +108,34 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="178"/>
 							<ChildItems>
-								<InputField name="Продукция" id="146">
+								<InputField name="ОтборПродукция" id="146">
 									<DataPath>ОтборПродукция</DataPath>
 									<DropListButton>true</DropListButton>
-									<ContextMenu name="ПродукцияКонтекстноеМеню" id="147"/>
-									<ExtendedTooltip name="ПродукцияРасширеннаяПодсказка" id="148"/>
+									<ContextMenu name="ОтборПродукцияКонтекстноеМеню" id="147"/>
+									<ExtendedTooltip name="ОтборПродукцияРасширеннаяПодсказка" id="148"/>
 									<Events>
 										<Event name="OnChange">ПродукцияПриИзменении</Event>
 									</Events>
 								</InputField>
-								<LabelField name="ПродукцияПредставление" id="171">
+								<LabelField name="ОтборПродукцияПредставление" id="171">
 									<DataPath>ОтборПродукцияПредставление</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<TextColor>#008080</TextColor>
 									<Font bold="true" kind="AutoFont"/>
-									<ContextMenu name="ПродукцияПредставлениеКонтекстноеМеню" id="172"/>
-									<ExtendedTooltip name="ПродукцияПредставлениеРасширеннаяПодсказка" id="173"/>
+									<ContextMenu name="ОтборПродукцияПредставлениеКонтекстноеМеню" id="172"/>
+									<ExtendedTooltip name="ОтборПродукцияПредставлениеРасширеннаяПодсказка" id="173"/>
 								</LabelField>
 							</ChildItems>
 						</UsualGroup>
-						<CheckBoxField name="ОтборВидПродукции" id="161">
+						<CheckBoxField name="ОтборВидПродукцииИспользование" id="161">
 							<DataPath>ОтборВидПродукцииИспользование</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="ОтборВидПродукцииКонтекстноеМеню" id="162"/>
-							<ExtendedTooltip name="ОтборВидПродукцииРасширеннаяПодсказка" id="163"/>
+							<ContextMenu name="ОтборВидПродукцииИспользованиеКонтекстноеМеню" id="162"/>
+							<ExtendedTooltip name="ОтборВидПродукцииИспользованиеРасширеннаяПодсказка" id="163"/>
+							<Events>
+								<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+							</Events>
 						</CheckBoxField>
 						<UsualGroup name="Группа8" id="179">
 							<Group>Vertical</Group>
@@ -127,22 +143,22 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="180"/>
 							<ChildItems>
-								<InputField name="ВидПродукции" id="164">
+								<InputField name="ОтборВидПродукции" id="164">
 									<DataPath>ОтборВидПродукции</DataPath>
 									<DropListButton>true</DropListButton>
-									<ContextMenu name="ВидПродукцииКонтекстноеМеню" id="165"/>
-									<ExtendedTooltip name="ВидПродукцииРасширеннаяПодсказка" id="166"/>
+									<ContextMenu name="ОтборВидПродукцииКонтекстноеМеню" id="165"/>
+									<ExtendedTooltip name="ОтборВидПродукцииРасширеннаяПодсказка" id="166"/>
 									<Events>
 										<Event name="OnChange">ВидПродукцииПриИзменении</Event>
 									</Events>
 								</InputField>
-								<LabelField name="ВидПродукцииПредставление" id="174">
+								<LabelField name="ОтборВидПродукцииПредставление" id="174">
 									<DataPath>ОтборВидПродукцииПредставление</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<TextColor>#008080</TextColor>
 									<Font bold="true" kind="AutoFont"/>
-									<ContextMenu name="ВидПродукцииПредставлениеКонтекстноеМеню" id="175"/>
-									<ExtendedTooltip name="ВидПродукцииПредставлениеРасширеннаяПодсказка" id="176"/>
+									<ContextMenu name="ОтборВидПродукцииПредставлениеКонтекстноеМеню" id="175"/>
+									<ExtendedTooltip name="ОтборВидПродукцииПредставлениеРасширеннаяПодсказка" id="176"/>
 								</LabelField>
 							</ChildItems>
 						</UsualGroup>
@@ -210,6 +226,18 @@
 								<ExtendedTooltip name="СписокВетисУправлениеПоискомРасширеннаяПодсказка" id="112"/>
 							</SearchControlAddition>
 							<ChildItems>
+								<InputField name="СписокВетисproduct" id="184">
+									<DataPath>СписокВетис.product</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисproductКонтекстноеМеню" id="185"/>
+									<ExtendedTooltip name="СписокВетисproductРасширеннаяПодсказка" id="186"/>
+								</InputField>
+								<InputField name="СписокВетисsubProduct" id="181">
+									<DataPath>СписокВетис.subProduct</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисsubProductКонтекстноеМеню" id="182"/>
+									<ExtendedTooltip name="СписокВетисsubProductРасширеннаяПодсказка" id="183"/>
+								</InputField>
 								<InputField name="СписокВетисname" id="113">
 									<DataPath>СписокВетис.name</DataPath>
 									<EditMode>EnterOnInput</EditMode>
@@ -218,6 +246,7 @@
 								</InputField>
 								<InputField name="СписокВетисguid" id="116">
 									<DataPath>СписокВетис.guid</DataPath>
+									<Visible>false</Visible>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="117"/>
 									<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="118"/>
@@ -358,9 +387,6 @@
 			</Type>
 			<UseAlways>
 				<Field>СправочникСписок.Ссылка</Field>
-				<Field>СправочникСписок.Описание</Field>
-				<Field>СправочникСписок.Наименование</Field>
-				<Field>СправочникСписок.name</Field>
 				<Field>~СправочникСписок.ЕстьНК</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
@@ -376,11 +402,6 @@
 </QueryText>
 				<ListSettings>
 					<dcsset:filter>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:left xsi:type="dcscor:Field">Наименование</dcsset:left>
-							<dcsset:comparisonType>Contains</dcsset:comparisonType>
-							<dcsset:right xsi:type="xs:string"/>
-						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
 					</dcsset:filter>
@@ -457,6 +478,21 @@
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Sub product</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="product" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Product</v8:content>
 						</v8:item>
 					</Title>
 					<Type>

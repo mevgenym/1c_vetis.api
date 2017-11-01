@@ -252,9 +252,6 @@
 			</Type>
 			<UseAlways>
 				<Field>СправочникСписок.Ссылка</Field>
-				<Field>СправочникСписок.ВетисОписание</Field>
-				<Field>СправочникСписок.Ветисname</Field>
-				<Field>СправочникСписок.name</Field>
 				<Field>СправочникСписок.guid</Field>
 				<Field>~СправочникСписок.Наименование</Field>
 				<Field>~СправочникСписок.Ref</Field>

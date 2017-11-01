@@ -11,6 +11,7 @@
 	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -50,6 +51,9 @@
 													<CheckBoxType>Auto</CheckBoxType>
 													<ContextMenu name="ОтборИмяИспользованиеКонтекстноеМеню" id="172"/>
 													<ExtendedTooltip name="ОтборИмяИспользованиеРасширеннаяПодсказка" id="173"/>
+													<Events>
+														<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+													</Events>
 												</CheckBoxField>
 												<InputField name="ОтборИмя" id="165">
 													<DataPath>ОтборИмя</DataPath>
@@ -62,6 +66,9 @@
 													<CheckBoxType>Auto</CheckBoxType>
 													<ContextMenu name="ОтборПолноеИмяИспользованиеКонтекстноеМеню" id="178"/>
 													<ExtendedTooltip name="ОтборПолноеИмяИспользованиеРасширеннаяПодсказка" id="179"/>
+													<Events>
+														<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+													</Events>
 												</CheckBoxField>
 												<InputField name="ОтборПолноеИмя" id="206">
 													<DataPath>ОтборПолноеИмя</DataPath>
@@ -74,6 +81,9 @@
 													<CheckBoxType>Auto</CheckBoxType>
 													<ContextMenu name="ОтборФИОИспользованиеКонтекстноеМеню" id="181"/>
 													<ExtendedTooltip name="ОтборФИОИспользованиеРасширеннаяПодсказка" id="182"/>
+													<Events>
+														<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+													</Events>
 												</CheckBoxField>
 												<InputField name="ОтборФИО" id="162">
 													<DataPath>ОтборФИО</DataPath>
@@ -94,6 +104,9 @@
 													<CheckBoxType>Auto</CheckBoxType>
 													<ContextMenu name="ОтборИННИспользованиеКонтекстноеМеню" id="175"/>
 													<ExtendedTooltip name="ОтборИННИспользованиеРасширеннаяПодсказка" id="176"/>
+													<Events>
+														<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+													</Events>
 												</CheckBoxField>
 												<InputField name="ОтборИНН" id="203">
 													<DataPath>ОтборИНН</DataPath>
@@ -106,6 +119,9 @@
 													<CheckBoxType>Auto</CheckBoxType>
 													<ContextMenu name="ОтборРегионИспользованиеКонтекстноеМеню" id="201"/>
 													<ExtendedTooltip name="ОтборРегионИспользованиеРасширеннаяПодсказка" id="202"/>
+													<Events>
+														<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+													</Events>
 												</CheckBoxField>
 												<InputField name="ОтборРегион" id="197">
 													<DataPath>ОтборРегион</DataPath>
@@ -118,6 +134,9 @@
 													<CheckBoxType>Auto</CheckBoxType>
 													<ContextMenu name="ОтборРайонИспользованиеКонтекстноеМеню" id="195"/>
 													<ExtendedTooltip name="ОтборРайонИспользованиеРасширеннаяПодсказка" id="196"/>
+													<Events>
+														<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+													</Events>
 												</CheckBoxField>
 												<InputField name="ОтборРайон" id="191">
 													<DataPath>ОтборРайон</DataPath>

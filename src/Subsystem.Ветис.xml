@@ -158,6 +158,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисТипАдреса</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисAddress</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисAddress</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисХозяйственныеОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисLocality</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

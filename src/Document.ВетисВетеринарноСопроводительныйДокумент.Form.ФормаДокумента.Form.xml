@@ -172,6 +172,7 @@
 											<v8:content>Группа отправитель</v8:content>
 										</v8:item>
 									</ToolTip>
+									<Group>Vertical</Group>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаОтправительРасширеннаяПодсказка" id="154"/>
@@ -186,6 +187,8 @@
 										</InputField>
 										<InputField name="ОтправительПредприятие" id="158">
 											<DataPath>Объект.ОтправительПредприятие</DataPath>
+											<DropListButton>false</DropListButton>
+											<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 											<ContextMenu name="ОтправительПредприятиеКонтекстноеМеню" id="159"/>
 											<ExtendedTooltip name="ОтправительПредприятиеРасширеннаяПодсказка" id="160"/>
 											<Events>
@@ -227,6 +230,7 @@
 											<v8:content>Группа получатель</v8:content>
 										</v8:item>
 									</ToolTip>
+									<Group>Vertical</Group>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаПолучательРасширеннаяПодсказка" id="162"/>
@@ -241,6 +245,8 @@
 										</InputField>
 										<InputField name="ПолучательПредприятие" id="166">
 											<DataPath>Объект.ПолучательПредприятие</DataPath>
+											<DropListButton>false</DropListButton>
+											<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 											<ContextMenu name="ПолучательПредприятиеКонтекстноеМеню" id="167"/>
 											<ExtendedTooltip name="ПолучательПредприятиеРасширеннаяПодсказка" id="168"/>
 											<Events>

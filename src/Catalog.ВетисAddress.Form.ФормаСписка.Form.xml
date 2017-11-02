@@ -62,6 +62,8 @@
 				</CheckBoxField>
 				<InputField name="ОтборСтрана" id="27">
 					<DataPath>ОтборСтрана</DataPath>
+					<DropListButton>false</DropListButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 					<ContextMenu name="ОтборСтранаКонтекстноеМеню" id="28"/>
 					<ExtendedTooltip name="ОтборСтранаРасширеннаяПодсказка" id="29"/>
 					<Events>
@@ -80,6 +82,8 @@
 				</CheckBoxField>
 				<InputField name="ОтборРегион" id="33">
 					<DataPath>ОтборРегион</DataPath>
+					<DropListButton>false</DropListButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 					<ContextMenu name="ОтборРегионКонтекстноеМеню" id="34"/>
 					<ExtendedTooltip name="ОтборРегионРасширеннаяПодсказка" id="35"/>
 					<Events>
@@ -98,8 +102,13 @@
 				</CheckBoxField>
 				<InputField name="ОтборРайон" id="39">
 					<DataPath>ОтборРайон</DataPath>
+					<DropListButton>false</DropListButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 					<ContextMenu name="ОтборРайонКонтекстноеМеню" id="40"/>
 					<ExtendedTooltip name="ОтборРайонРасширеннаяПодсказка" id="41"/>
+					<Events>
+						<Event name="StartChoice">ОтборРайонНачалоВыбора</Event>
+					</Events>
 				</InputField>
 				<CheckBoxField name="ОтборНаселенныйПунктИспользование" id="42">
 					<DataPath>ОтборНаселенныйПунктИспользование</DataPath>
@@ -113,8 +122,13 @@
 				</CheckBoxField>
 				<InputField name="ОтборНаселенныйПункт" id="45">
 					<DataPath>ОтборНаселенныйПункт</DataPath>
+					<DropListButton>false</DropListButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 					<ContextMenu name="ОтборНаселенныйПунктКонтекстноеМеню" id="46"/>
 					<ExtendedTooltip name="ОтборНаселенныйПунктРасширеннаяПодсказка" id="47"/>
+					<Events>
+						<Event name="StartChoice">ОтборНаселенныйПунктНачалоВыбора</Event>
+					</Events>
 				</InputField>
 				<CheckBoxField name="ОтборВсеУровни" id="52">
 					<DataPath>ОтборВсеУровни</DataPath>
@@ -181,6 +195,9 @@
 				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
 			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+			</Events>
 			<ChildItems>
 				<LabelField name="Наименование" id="16">
 					<DataPath>Список.Description</DataPath>

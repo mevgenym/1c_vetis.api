@@ -217,6 +217,16 @@
 										<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
 										<ExtendedTooltip name="СправочникСписокКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="194"/>
 									</Button>
+									<Button name="СписокВетисКомандаПривязатьПредприятиеХС" id="197">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаПривязатьПредприятиеХС</CommandName>
+										<ExtendedTooltip name="СписокВетисКомандаПривязатьПредприятиеХСРасширеннаяПодсказка" id="198"/>
+									</Button>
+									<Button name="СписокВетисКомандаОтвязатьПредприятиеХС1" id="199">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаОтвязатьПредприятиеХС1</CommandName>
+										<ExtendedTooltip name="СписокВетисКомандаОтвязатьПредприятиеХС1РасширеннаяПодсказка" id="200"/>
+									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокВетисРасширеннаяПодсказка" id="4"/>
@@ -333,17 +343,27 @@
 								<Event name="Selection">СправочникСписокВыбор</Event>
 							</Events>
 							<ChildItems>
-								<LabelField name="СправочникСписокname" id="83">
-									<DataPath>СправочникСписок.name</DataPath>
-									<Width>20</Width>
-									<ContextMenu name="СправочникСписокnameКонтекстноеМеню" id="84"/>
-									<ExtendedTooltip name="СправочникСписокnameРасширеннаяПодсказка" id="85"/>
-								</LabelField>
 								<LabelField name="СправочникСписокВетисname" id="90">
 									<DataPath>СправочникСписок.Ветисname</DataPath>
+									<Visible>false</Visible>
 									<Width>15</Width>
 									<ContextMenu name="СправочникСписокВетисnameКонтекстноеМеню" id="91"/>
 									<ExtendedTooltip name="СправочникСписокВетисnameРасширеннаяПодсказка" id="92"/>
+								</LabelField>
+								<LabelField name="СправочникСписокНаименование" id="201">
+									<DataPath>СправочникСписок.Наименование</DataPath>
+									<ContextMenu name="СправочникСписокНаименованиеКонтекстноеМеню" id="202"/>
+									<ExtendedTooltip name="СправочникСписокНаименованиеРасширеннаяПодсказка" id="203"/>
+								</LabelField>
+								<LabelField name="СправочникСписокАдрес" id="210">
+									<DataPath>СправочникСписок.Адрес</DataPath>
+									<ContextMenu name="СправочникСписокАдресКонтекстноеМеню" id="211"/>
+									<ExtendedTooltip name="СправочникСписокАдресРасширеннаяПодсказка" id="212"/>
+								</LabelField>
+								<LabelField name="СправочникСписокВСервисе" id="204">
+									<DataPath>СправочникСписок.ВСервисе</DataPath>
+									<ContextMenu name="СправочникСписокВСервисеКонтекстноеМеню" id="205"/>
+									<ExtendedTooltip name="СправочникСписокВСервисеРасширеннаяПодсказка" id="206"/>
 								</LabelField>
 								<LabelField name="СправочникСписокВетисОписание" id="127">
 									<DataPath>СправочникСписок.ВетисОписание</DataPath>
@@ -351,6 +371,11 @@
 									<Width>20</Width>
 									<ContextMenu name="СправочникСписокВетисОписаниеКонтекстноеМеню" id="128"/>
 									<ExtendedTooltip name="СправочникСписокВетисОписаниеРасширеннаяПодсказка" id="129"/>
+								</LabelField>
+								<LabelField name="СправочникСписокХозяйствующийСубъект" id="207">
+									<DataPath>СправочникСписок.ХозяйствующийСубъект</DataPath>
+									<ContextMenu name="СправочникСписокХозяйствующийСубъектКонтекстноеМеню" id="208"/>
+									<ExtendedTooltip name="СправочникСписокХозяйствующийСубъектРасширеннаяПодсказка" id="209"/>
 								</LabelField>
 							</ChildItems>
 						</Table>
@@ -527,6 +552,7 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<UseAlways>
+				<Field>СправочникСписок.Ссылка</Field>
 				<Field>СправочникСписок.guid</Field>
 				<Field>~СправочникСписок.Ref</Field>
 			</UseAlways>
@@ -536,7 +562,10 @@
 				<QueryText>ВЫБРАТЬ
 	NULL КАК Ссылка,
 	NULL КАК Код,
-	NULL КАК name,
+	NULL КАК Наименование,
+	NULL КАК Адрес,
+	NULL КАК ВСервисе,
+	NULL КАК ХозяйствующийСубъект,
 	NULL КАК guid,
 	NULL КАК Ветисname,
 	NULL КАК ВетисОписание</QueryText>
@@ -712,13 +741,22 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
-						<dcsset:field>СправочникСписокname</dcsset:field>
+						<dcsset:field>СправочникСписокНаименование</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СправочникСписокВетисname</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СправочникСписокВетисОписание</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СправочникСписокВСервисе</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СправочникСписокХозяйствующийСубъект</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СправочникСписокАдрес</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
@@ -871,6 +909,36 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнитьИзСервиса</Action>
+		</Command>
+		<Command name="КомандаПривязатьПредприятиеХС" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Привязать предприятие-ХС</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда привязать предприятие ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПривязатьПредприятиеХС</Action>
+		</Command>
+		<Command name="КомандаОтвязатьПредприятиеХС1" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отвязать предприятие-ХС</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда привязать предприятие ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтвязатьПредприятиеХС1</Action>
 		</Command>
 	</Commands>
 </Form>

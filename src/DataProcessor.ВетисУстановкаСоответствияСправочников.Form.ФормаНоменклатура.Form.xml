@@ -39,6 +39,12 @@
 						</CheckBoxField>
 						<InputField name="ОтборХС" id="138">
 							<DataPath>Объект.ХозяйствующийСубъект</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ХС</v8:content>
+								</v8:item>
+							</Title>
 							<ContextMenu name="ОтборХСКонтекстноеМеню" id="139"/>
 							<ExtendedTooltip name="ОтборХСРасширеннаяПодсказка" id="140"/>
 							<Events>
@@ -56,14 +62,42 @@
 								<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
 							</Events>
 						</CheckBoxField>
-						<InputField name="ОтборПредприятие" id="141">
-							<DataPath>Объект.Предприятие</DataPath>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="ОтборПредприятиеКонтекстноеМеню" id="142"/>
-							<ExtendedTooltip name="ОтборПредприятиеРасширеннаяПодсказка" id="143"/>
-							<Events>
-								<Event name="StartChoice">ПредприятиеНачалоВыбора</Event>
-							</Events>
+						<UsualGroup name="Группа9" id="193">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа9РасширеннаяПодсказка" id="194"/>
+							<ChildItems>
+								<InputField name="ОтборПредприятие" id="141">
+									<DataPath>Объект.Предприятие</DataPath>
+									<ContextMenu name="ОтборПредприятиеКонтекстноеМеню" id="142"/>
+									<ExtendedTooltip name="ОтборПредприятиеРасширеннаяПодсказка" id="143"/>
+									<Events>
+										<Event name="OnChange">ОтборПредприятиеПриИзменении</Event>
+										<Event name="StartChoice">ПредприятиеНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<InputField name="ОтборПредприятиеGuid" id="195">
+									<DataPath>ОтборПредприятиеGuid</DataPath>
+									<ContextMenu name="ОтборПредприятиеGuidКонтекстноеМеню" id="196"/>
+									<ExtendedTooltip name="ОтборПредприятиеGuidРасширеннаяПодсказка" id="197"/>
+									<Events>
+										<Event name="OnChange">ОтборПредприятиеGuidПриИзменении</Event>
+									</Events>
+								</InputField>
+								<LabelField name="ОтборПредприятиеПредставление" id="198">
+									<DataPath>ОтборПредприятиеПредставление</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ОтборПредприятиеПредставлениеКонтекстноеМеню" id="199"/>
+									<ExtendedTooltip name="ОтборПредприятиеПредставлениеРасширеннаяПодсказка" id="200"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="МаксимальноеКоличество" id="190">
+							<DataPath>МаксимальноеКоличество</DataPath>
+							<ContextMenu name="МаксимальноеКоличествоКонтекстноеМеню" id="191"/>
+							<ExtendedTooltip name="МаксимальноеКоличествоРасширеннаяПодсказка" id="192"/>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -85,7 +119,6 @@
 						</CheckBoxField>
 						<InputField name="ОтборТипПродукции" id="73">
 							<DataPath>ОтборТипПродукции</DataPath>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="ОтборТипПродукцииКонтекстноеМеню" id="74"/>
 							<ExtendedTooltip name="ОтборТипПродукцииРасширеннаяПодсказка" id="75"/>
 							<Events>
@@ -225,25 +258,40 @@
 								<ContextMenu name="СписокВетисУправлениеПоискомКонтекстноеМеню" id="111"/>
 								<ExtendedTooltip name="СписокВетисУправлениеПоискомРасширеннаяПодсказка" id="112"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокВетисВыбор</Event>
+							</Events>
 							<ChildItems>
-								<InputField name="СписокВетисproduct" id="184">
+								<LabelField name="СписокВетисenterprise" id="187">
+									<DataPath>СписокВетис.enterprise</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисenterpriseКонтекстноеМеню" id="188"/>
+									<ExtendedTooltip name="СписокВетисenterpriseРасширеннаяПодсказка" id="189"/>
+								</LabelField>
+								<InputField name="СписокВетисproductType" id="201">
+									<DataPath>СписокВетис.productType</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисproductTypeКонтекстноеМеню" id="202"/>
+									<ExtendedTooltip name="СписокВетисproductTypeРасширеннаяПодсказка" id="203"/>
+								</InputField>
+								<LabelField name="СписокВетисproduct" id="184">
 									<DataPath>СписокВетис.product</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="СписокВетисproductКонтекстноеМеню" id="185"/>
 									<ExtendedTooltip name="СписокВетисproductРасширеннаяПодсказка" id="186"/>
-								</InputField>
-								<InputField name="СписокВетисsubProduct" id="181">
+								</LabelField>
+								<LabelField name="СписокВетисsubProduct" id="181">
 									<DataPath>СписокВетис.subProduct</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="СписокВетисsubProductКонтекстноеМеню" id="182"/>
 									<ExtendedTooltip name="СписокВетисsubProductРасширеннаяПодсказка" id="183"/>
-								</InputField>
-								<InputField name="СписокВетисname" id="113">
+								</LabelField>
+								<LabelField name="СписокВетисname" id="113">
 									<DataPath>СписокВетис.name</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="114"/>
 									<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="115"/>
-								</InputField>
+								</LabelField>
 								<InputField name="СписокВетисguid" id="116">
 									<DataPath>СписокВетис.guid</DataPath>
 									<Visible>false</Visible>
@@ -503,6 +551,51 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
+				<Column name="enterprise" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Enterprise</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="enterpriseguid" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Enterprise</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="productType" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Type</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ОтборПродукция" id="6">
@@ -556,12 +649,6 @@
 			</Save>
 		</Attribute>
 		<Attribute name="ОтборПредприятиеИспользование" id="9">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор предприятие использование</v8:content>
-				</v8:item>
-			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
@@ -645,6 +732,55 @@
 			</Type>
 			<Save>
 				<Field>ОтборПродукцияПредставление</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="МаксимальноеКоличество" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Макс.</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<Save>
+				<Field>МаксимальноеКоличество</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборПредприятиеGuid" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>guid</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОтборПредприятиеGuid</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборПредприятиеПредставление" id="18">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОтборПредприятиеПредставление</Field>
 			</Save>
 		</Attribute>
 		<ConditionalAppearance>

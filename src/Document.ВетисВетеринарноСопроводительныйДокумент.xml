@@ -1739,7 +1739,7 @@
 							<v8:content>ВСД</v8:content>
 						</v8:item>
 					</Synonym>
-					<Comment>v1.4</Comment>
+					<Comment>VetDocument {vetd:VetDocument} v1.4</Comment>
 					<ToolTip/>
 					<FillChecking>DontCheck</FillChecking>
 					<StandardAttributes>
@@ -2572,7 +2572,7 @@
 							<v8:content>Разрешение</v8:content>
 						</v8:item>
 					</Synonym>
-					<Comment/>
+					<Comment>VetDocument.importPermit + transferPermit {argc:Document} v1.4</Comment>
 					<ToolTip/>
 					<FillChecking>DontCheck</FillChecking>
 					<StandardAttributes>
@@ -3702,7 +3702,7 @@
 							<v8:content>Маршрут следования</v8:content>
 						</v8:item>
 					</Synonym>
-					<Comment>certifiedConsignment.shipmentRoute</Comment>
+					<Comment>certifiedConsignment.shipmentRoute {	vd:ShipmentRoute} v2.0</Comment>
 					<ToolTip/>
 					<FillChecking>DontCheck</FillChecking>
 				</Properties>
@@ -3723,6 +3723,42 @@
 									<v8:Length>255</v8:Length>
 									<v8:AllowedLength>Variable</v8:AllowedLength>
 								</v8:StringQualifiers>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="ee0b4986-c3ca-4005-b95b-e53bf092eb00">
+						<Properties>
+							<Name>Адрес</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Адрес</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>location.address {dt:Address}</Comment>
+							<Type>
+								<v8:Type>cfg:CatalogRef.ВетисAddress</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -3831,6 +3867,181 @@
 							<Comment>nextTransport {vd:TransportInfo}</Comment>
 							<Type>
 								<v8:TypeSet>cfg:DefinedType.ВетисTransport</v8:TypeSet>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+				</ChildObjects>
+			</TabularSection>
+			<TabularSection uuid="8be33d86-564e-4aef-81f2-6bb67c82510b">
+				<InternalInfo>
+					<xr:GeneratedType name="DocumentTabularSection.ВетисВетеринарноСопроводительныйДокумент.Упаковка" category="TabularSection">
+						<xr:TypeId>9512adee-60b8-4064-9bba-feafdf183a25</xr:TypeId>
+						<xr:ValueId>05f99f87-0039-4fda-8cc8-581c24b2c583</xr:ValueId>
+					</xr:GeneratedType>
+					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисВетеринарноСопроводительныйДокумент.Упаковка" category="TabularSectionRow">
+						<xr:TypeId>e8fe5eda-9187-4354-8dae-0b69d426b319</xr:TypeId>
+						<xr:ValueId>82af5b04-25e5-47f2-a4db-6171eff3e1f7</xr:ValueId>
+					</xr:GeneratedType>
+				</InternalInfo>
+				<Properties>
+					<Name>Упаковка</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Упаковка</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Batch.packageList v2.0</Comment>
+					<ToolTip/>
+					<FillChecking>DontCheck</FillChecking>
+				</Properties>
+				<ChildObjects>
+					<Attribute uuid="80996c5d-c7ff-4523-8bb6-3a95cf4551fc">
+						<Properties>
+							<Name>Уровень</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Уровень</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>level {dt:PackageLevelType}</Comment>
+							<Type>
+								<v8:Type>cfg:EnumRef.ВетисPackageLevelType</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>ShowError</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="d0da4eb5-be3d-4857-bf7a-97736f8308eb">
+						<Properties>
+							<Name>ТипУпаковки</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Тип упаковки</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>packingType {dt:PackingType}</Comment>
+							<Type>
+								<v8:Type>cfg:CatalogRef.ВетисPackingForm</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>ShowError</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="eaa77f25-e4a5-4451-ac1d-7c1758e82669">
+						<Properties>
+							<Name>Количество</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Количество</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>quantity {xs:integer}</Comment>
+							<Type>
+								<v8:Type>xs:decimal</v8:Type>
+								<v8:NumberQualifiers>
+									<v8:Digits>15</v8:Digits>
+									<v8:FractionDigits>0</v8:FractionDigits>
+									<v8:AllowedSign>Any</v8:AllowedSign>
+								</v8:NumberQualifiers>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="53c40dad-e309-4860-9669-d2058221e815">
+						<Properties>
+							<Name>Маркировка</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Маркировка</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>productMarks {dt:ProductMarks}</Comment>
+							<Type>
+								<v8:Type>cfg:EnumRef.ВетисProductMarkingClass</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>

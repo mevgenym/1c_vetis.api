@@ -351,6 +351,9 @@
 											<ChoiceButton>true</ChoiceButton>
 											<ContextMenu name="сжКоличествоМестКонтекстноеМеню" id="206"/>
 											<ExtendedTooltip name="сжКоличествоМестРасширеннаяПодсказка" id="207"/>
+											<Events>
+												<Event name="OnChange">сжКоличествоМестПриИзменении</Event>
+											</Events>
 										</InputField>
 										<InputField name="сжПроизводительПредприятие" id="439">
 											<DataPath>сжПроизводительПредприятие</DataPath>
@@ -498,6 +501,7 @@
 										</UsualGroup>
 										<InputField name="сжИДПартии" id="509">
 											<DataPath>сжИДПартии</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="сжИДПартииКонтекстноеМеню" id="510"/>
 											<ExtendedTooltip name="сжИДПартииРасширеннаяПодсказка" id="511"/>
 										</InputField>
@@ -505,6 +509,88 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаУпаковка" id="542">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Упаковка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа упаковка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаУпаковкаРасширеннаяПодсказка" id="543"/>
+					<ChildItems>
+						<Table name="Упаковка" id="544">
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Упаковка</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="УпаковкаКонтекстноеМеню" id="545"/>
+							<AutoCommandBar name="УпаковкаКоманднаяПанель" id="546"/>
+							<ExtendedTooltip name="УпаковкаРасширеннаяПодсказка" id="547"/>
+							<SearchStringAddition name="УпаковкаСтрокаПоиска" id="548">
+								<AdditionSource>
+									<Item>Упаковка</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УпаковкаСтрокаПоискаКонтекстноеМеню" id="549"/>
+								<ExtendedTooltip name="УпаковкаСтрокаПоискаРасширеннаяПодсказка" id="550"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="УпаковкаСостояниеПросмотра" id="551">
+								<AdditionSource>
+									<Item>Упаковка</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УпаковкаСостояниеПросмотраКонтекстноеМеню" id="552"/>
+								<ExtendedTooltip name="УпаковкаСостояниеПросмотраРасширеннаяПодсказка" id="553"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="УпаковкаУправлениеПоиском" id="554">
+								<AdditionSource>
+									<Item>Упаковка</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="УпаковкаУправлениеПоискомКонтекстноеМеню" id="555"/>
+								<ExtendedTooltip name="УпаковкаУправлениеПоискомРасширеннаяПодсказка" id="556"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="УпаковкаНомерСтроки" id="557">
+									<DataPath>Объект.Упаковка.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаНомерСтрокиКонтекстноеМеню" id="558"/>
+									<ExtendedTooltip name="УпаковкаНомерСтрокиРасширеннаяПодсказка" id="559"/>
+								</LabelField>
+								<InputField name="УпаковкаУровень" id="560">
+									<DataPath>Объект.Упаковка.Уровень</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаУровеньКонтекстноеМеню" id="561"/>
+									<ExtendedTooltip name="УпаковкаУровеньРасширеннаяПодсказка" id="562"/>
+								</InputField>
+								<InputField name="УпаковкаТипУпаковки" id="563">
+									<DataPath>Объект.Упаковка.ТипУпаковки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаТипУпаковкиКонтекстноеМеню" id="564"/>
+									<ExtendedTooltip name="УпаковкаТипУпаковкиРасширеннаяПодсказка" id="565"/>
+								</InputField>
+								<InputField name="УпаковкаКоличество" id="566">
+									<DataPath>Объект.Упаковка.Количество</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаКоличествоКонтекстноеМеню" id="567"/>
+									<ExtendedTooltip name="УпаковкаКоличествоРасширеннаяПодсказка" id="568"/>
+								</InputField>
+								<InputField name="УпаковкаМаркировка" id="569">
+									<DataPath>Объект.Упаковка.Маркировка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаМаркировкаКонтекстноеМеню" id="570"/>
+									<ExtendedTooltip name="УпаковкаМаркировкаРасширеннаяПодсказка" id="571"/>
+								</InputField>
+							</ChildItems>
+						</Table>
 					</ChildItems>
 				</Page>
 				<Page name="ГруппаРезультатыОсмотра" id="487">
@@ -721,6 +807,95 @@
 							<ContextMenu name="ттнСпособХраненияКонтекстноеМеню" id="428"/>
 							<ExtendedTooltip name="ттнСпособХраненияРасширеннаяПодсказка" id="429"/>
 						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаМаршрутСледования" id="512">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Маршрут следования</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа маршрут следования</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаМаршрутСледованияРасширеннаяПодсказка" id="513"/>
+					<ChildItems>
+						<Table name="МаршрутСледования" id="514">
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.МаршрутСледования</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="МаршрутСледованияКонтекстноеМеню" id="515"/>
+							<AutoCommandBar name="МаршрутСледованияКоманднаяПанель" id="516"/>
+							<ExtendedTooltip name="МаршрутСледованияРасширеннаяПодсказка" id="517"/>
+							<SearchStringAddition name="МаршрутСледованияСтрокаПоиска" id="518">
+								<AdditionSource>
+									<Item>МаршрутСледования</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МаршрутСледованияСтрокаПоискаКонтекстноеМеню" id="519"/>
+								<ExtendedTooltip name="МаршрутСледованияСтрокаПоискаРасширеннаяПодсказка" id="520"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="МаршрутСледованияСостояниеПросмотра" id="521">
+								<AdditionSource>
+									<Item>МаршрутСледования</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МаршрутСледованияСостояниеПросмотраКонтекстноеМеню" id="522"/>
+								<ExtendedTooltip name="МаршрутСледованияСостояниеПросмотраРасширеннаяПодсказка" id="523"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="МаршрутСледованияУправлениеПоиском" id="524">
+								<AdditionSource>
+									<Item>МаршрутСледования</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="МаршрутСледованияУправлениеПоискомКонтекстноеМеню" id="525"/>
+								<ExtendedTooltip name="МаршрутСледованияУправлениеПоискомРасширеннаяПодсказка" id="526"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="МаршрутСледованияНомерСтроки" id="527">
+									<DataPath>Объект.МаршрутСледования.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаршрутСледованияНомерСтрокиКонтекстноеМеню" id="528"/>
+									<ExtendedTooltip name="МаршрутСледованияНомерСтрокиРасширеннаяПодсказка" id="529"/>
+								</LabelField>
+								<InputField name="МаршрутСледованияПунктПерегрузки" id="530">
+									<DataPath>Объект.МаршрутСледования.ПунктПерегрузки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаршрутСледованияПунктПерегрузкиКонтекстноеМеню" id="531"/>
+									<ExtendedTooltip name="МаршрутСледованияПунктПерегрузкиРасширеннаяПодсказка" id="532"/>
+								</InputField>
+								<InputField name="МаршрутСледованияАдрес" id="572">
+									<DataPath>Объект.МаршрутСледования.Адрес</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаршрутСледованияАдресКонтекстноеМеню" id="573"/>
+									<ExtendedTooltip name="МаршрутСледованияАдресРасширеннаяПодсказка" id="574"/>
+								</InputField>
+								<InputField name="МаршрутСледованияПредприятие" id="533">
+									<DataPath>Объект.МаршрутСледования.Предприятие</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаршрутСледованияПредприятиеКонтекстноеМеню" id="534"/>
+									<ExtendedTooltip name="МаршрутСледованияПредприятиеРасширеннаяПодсказка" id="535"/>
+								</InputField>
+								<CheckBoxField name="МаршрутСледованияЕстьПерегрузка" id="536">
+									<DataPath>Объект.МаршрутСледования.ЕстьПерегрузка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="МаршрутСледованияЕстьПерегрузкаКонтекстноеМеню" id="537"/>
+									<ExtendedTooltip name="МаршрутСледованияЕстьПерегрузкаРасширеннаяПодсказка" id="538"/>
+								</CheckBoxField>
+								<InputField name="МаршрутСледованияТранспорт" id="539">
+									<DataPath>Объект.МаршрутСледования.Транспорт</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаршрутСледованияТранспортКонтекстноеМеню" id="540"/>
+									<ExtendedTooltip name="МаршрутСледованияТранспортРасширеннаяПодсказка" id="541"/>
+								</InputField>
+							</ChildItems>
+						</Table>
 					</ChildItems>
 				</Page>
 				<Page name="ГруппаДополнительно" id="466">

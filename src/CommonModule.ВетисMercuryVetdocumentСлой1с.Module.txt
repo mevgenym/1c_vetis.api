@@ -311,7 +311,8 @@
 		
 		BatchКонвертировать(_строкаСЖ, _всд.batch);
 		
-	ИначеЕсли ТипЗнч(value2) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент") Тогда
+	ИначеЕсли ТипЗнч(value2) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент")
+		ИЛИ ТипЗнч(value2) = Тип("ДанныеФормыСтруктура") Тогда
 		
 		_всд = value1;
 		_док = value2;
@@ -429,7 +430,8 @@
 		
 		BatchКонвертировать(_СтрокаСЖ, _всд.certifiedConsignment.batch);
 		
-	ИначеЕсли ТипЗнч(value2) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент") Тогда
+	ИначеЕсли ТипЗнч(value2) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент")
+		ИЛИ ТипЗнч(value2) = Тип("ДанныеФормыСтруктура") Тогда
 		
 		_всд = value1;
 		_док = value2;
@@ -460,6 +462,7 @@
 			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_СтрокаТТН.Посредник)),
 			TransportInfo(_СтрокаТТН.Транспорт),
 			ВетисDictionaryСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения)
+			//сделать: добавить маршрут
 			);
 		
 		_всд.authentication = ВетисMercuryVetdocument_2_0.VeterinaryAuthentication(
@@ -593,9 +596,11 @@
 				ВетисDictionary_2_0.Producer(ВетисDictionaryСлой1с.Producer(_СтрокаСЖ.ПроизводительПредприятие))
 				);
 			//сделать: добавить упаковки для 2.0
-			_level = ВетисDictionaryСлой1с.PackageLevelType(ВетисDictionaryСлой1с.PackageLevelType());//пока фиксированный
-			_packingType = ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка);
-			_batch.packageList = ВетисDictionary_2_0.PackageList(_level, _packingType, _СтрокаСЖ.КоличествоМест);
+			Если ЗначениеЗаполнено(_СтрокаСЖ.Упаковка) Тогда
+				_level = ВетисDictionaryСлой1с.PackageLevelType(ВетисDictionaryСлой1с.PackageLevelType());//пока фиксированный
+				_packingType = ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка);
+				_batch.packageList = ВетисDictionary_2_0.PackageList(_level, _packingType, _СтрокаСЖ.КоличествоМест);
+			КонецЕсли;
 			_batch.batchID.Очистить();
 			_batch.batchID.Добавить(_СтрокаСЖ.ИДПартии);
 		Иначе

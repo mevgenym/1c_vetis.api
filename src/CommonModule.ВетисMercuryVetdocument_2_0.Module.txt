@@ -405,6 +405,28 @@
 	
 КонецФункции
 
+//Тип, описывающий cведения о точке маршрута следования.
+//Наследуется от типа bs:GenericEntity.
+//Параметры:
+// sqnId - Пункт. bs:SequenceNumber 0..1
+// location - Пункт. dt:Location 0..1
+// enterprise - Пункт. dt:Enterprise 0..1
+// transshipment - Пункт. xs:boolean 0..1
+// nextTransport - Пункт. vd:TransportInfo 0..1
+Функция ShipmentRoutePoint(sqnId = Неопределено, location = Неопределено, enterprise = Неопределено, transshipment = Неопределено, nextTransport = Неопределено) Экспорт
+	
+	_Объект = Создать("ShipmentRoutePoint");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, sqnId, "sqnId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, location, "location");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transshipment, "transshipment");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, nextTransport, "nextTransport");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
 //Тип, описывающий операцию оформления результатов инвентаризации
 //Параметры:
 // affectedList - Входящие записи для операции. vd:StockEntryList 0..1

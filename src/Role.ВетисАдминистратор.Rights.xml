@@ -627,6 +627,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисСоответствие</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>InformationRegister.ВетисНастройкиХС</name>
 		<right>
 			<name>Read</name>

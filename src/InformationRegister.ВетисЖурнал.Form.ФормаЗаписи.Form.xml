@@ -5,6 +5,14 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<InputField name="РасшифровкаМП" id="29">
+			<DataPath>Запись.Расшифровка</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="РасшифровкаМПКонтекстноеМеню" id="30"/>
+			<ExtendedTooltip name="РасшифровкаМПРасширеннаяПодсказка" id="31"/>
+		</InputField>
 		<TextDocumentField name="Расшифровка" id="15">
 			<DataPath>Запись.Расшифровка</DataPath>
 			<ReadOnly>true</ReadOnly>
@@ -46,11 +54,6 @@
 					<TitleLocation>None</TitleLocation>
 					<ContextMenu name="ПользовательКонтекстноеМеню" id="11"/>
 					<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="12"/>
-				</InputField>
-				<InputField name="Компьютер" id="26">
-					<TitleLocation>None</TitleLocation>
-					<ContextMenu name="КомпьютерКонтекстноеМеню" id="27"/>
-					<ExtendedTooltip name="КомпьютерРасширеннаяПодсказка" id="28"/>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>

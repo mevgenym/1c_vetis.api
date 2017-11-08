@@ -24,6 +24,9 @@
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
@@ -80,41 +83,78 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<LabelField name="Период" id="39">
-					<DataPath>Список.Period</DataPath>
-					<ContextMenu name="ПериодКонтекстноеМеню" id="40"/>
-					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="41"/>
-				</LabelField>
-				<LabelField name="Миллисекунды" id="36">
-					<DataPath>Список.Миллисекунды</DataPath>
-					<ContextMenu name="МиллисекундыКонтекстноеМеню" id="37"/>
-					<ExtendedTooltip name="МиллисекундыРасширеннаяПодсказка" id="38"/>
-				</LabelField>
-				<LabelField name="Расшифровка" id="22">
-					<DataPath>Список.Расшифровка</DataPath>
-					<DefaultItem>true</DefaultItem>
-					<ContextMenu name="РасшифровкаКонтекстноеМеню" id="23"/>
-					<ExtendedTooltip name="РасшифровкаРасширеннаяПодсказка" id="24"/>
-				</LabelField>
-				<LabelField name="Пользователь" id="27">
-					<DataPath>Список.Пользователь</DataPath>
-					<Width>1</Width>
-					<HorizontalStretch>false</HorizontalStretch>
-					<ContextMenu name="ПользовательКонтекстноеМеню" id="28"/>
-					<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="29"/>
-				</LabelField>
-				<LabelField name="Контекст" id="42">
-					<DataPath>Список.Контекст</DataPath>
-					<Width>2</Width>
-					<ContextMenu name="КонтекстКонтекстноеМеню" id="43"/>
-					<ExtendedTooltip name="КонтекстРасширеннаяПодсказка" id="44"/>
-				</LabelField>
-				<LabelField name="Версия" id="45">
-					<DataPath>Список.Версия</DataPath>
-					<Width>2</Width>
-					<ContextMenu name="ВерсияКонтекстноеМеню" id="46"/>
-					<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="47"/>
-				</LabelField>
+				<ColumnGroup name="Группа1" id="48">
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="49"/>
+					<ChildItems>
+						<ColumnGroup name="Группа2" id="50">
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="51"/>
+							<ChildItems>
+								<LabelField name="Период" id="39">
+									<DataPath>Список.Period</DataPath>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ПериодКонтекстноеМеню" id="40"/>
+									<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="41"/>
+								</LabelField>
+								<LabelField name="Миллисекунды" id="36">
+									<DataPath>Список.Миллисекунды</DataPath>
+									<Width>3</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="МиллисекундыКонтекстноеМеню" id="37"/>
+									<ExtendedTooltip name="МиллисекундыРасширеннаяПодсказка" id="38"/>
+								</LabelField>
+								<LabelField name="ВерсияМП" id="56">
+									<DataPath>Список.Версия</DataPath>
+									<Width>2</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ВерсияМПКонтекстноеМеню" id="57"/>
+									<ExtendedTooltip name="ВерсияМПРасширеннаяПодсказка" id="58"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="Группа3" id="52">
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="53"/>
+							<ChildItems>
+								<LabelField name="Расшифровка" id="22">
+									<DataPath>Список.Расшифровка</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="РасшифровкаКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="РасшифровкаРасширеннаяПодсказка" id="24"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="Группа4" id="54">
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="55"/>
+							<ChildItems>
+								<LabelField name="Пользователь" id="27">
+									<DataPath>Список.Пользователь</DataPath>
+									<Width>5</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ПользовательКонтекстноеМеню" id="28"/>
+									<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="29"/>
+								</LabelField>
+								<LabelField name="Контекст" id="42">
+									<DataPath>Список.Контекст</DataPath>
+									<Width>2</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="КонтекстКонтекстноеМеню" id="43"/>
+									<ExtendedTooltip name="КонтекстРасширеннаяПодсказка" id="44"/>
+								</LabelField>
+								<LabelField name="Версия" id="45">
+									<DataPath>Список.Версия</DataPath>
+									<Width>2</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ВерсияКонтекстноеМеню" id="46"/>
+									<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="47"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</ColumnGroup>
 			</ChildItems>
 		</Table>
 	</ChildItems>

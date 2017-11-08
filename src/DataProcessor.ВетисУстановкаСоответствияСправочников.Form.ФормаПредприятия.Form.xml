@@ -395,25 +395,25 @@
 								<Event name="Selection">СписокВетисВыбор</Event>
 							</Events>
 							<ChildItems>
-								<InputField name="СписокВетисname" id="96">
-									<DataPath>СписокВетис.name</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="97"/>
-									<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="98"/>
-								</InputField>
-								<InputField name="СписокВетисaddress" id="102">
-									<DataPath>СписокВетис.address</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СписокВетисaddressКонтекстноеМеню" id="103"/>
-									<ExtendedTooltip name="СписокВетисaddressРасширеннаяПодсказка" id="104"/>
-								</InputField>
-								<InputField name="СписокВетисguid" id="139">
-									<DataPath>СписокВетис.guid</DataPath>
-									<Visible>false</Visible>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="140"/>
-									<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="141"/>
-								</InputField>
+								<ColumnGroup name="СписокВетисГруппа1" id="246">
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="СписокВетисГруппа1РасширеннаяПодсказка" id="247"/>
+									<ChildItems>
+										<InputField name="СписокВетисname" id="96">
+											<DataPath>СписокВетис.name</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="97"/>
+											<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="98"/>
+										</InputField>
+										<InputField name="СписокВетисaddress" id="102">
+											<DataPath>СписокВетис.address</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoCellHeight>true</AutoCellHeight>
+											<ContextMenu name="СписокВетисaddressКонтекстноеМеню" id="103"/>
+											<ExtendedTooltip name="СписокВетисaddressРасширеннаяПодсказка" id="104"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
 							</ChildItems>
 						</Table>
 						<Table name="СправочникСписок" id="34">

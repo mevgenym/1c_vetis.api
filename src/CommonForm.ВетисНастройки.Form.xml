@@ -94,7 +94,15 @@
 							<ShowRoot>true</ShowRoot>
 							<AllowRootChoice>false</AllowRootChoice>
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
-							<ContextMenu name="СписокНастройкиХСКонтекстноеМеню" id="69"/>
+							<ContextMenu name="СписокНастройкиХСКонтекстноеМеню" id="69">
+								<ChildItems>
+									<Button name="СписокНастройкиХСКонтекстноеМенюКомандаОсновнойХС" id="147">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаОсновнойХС</CommandName>
+										<ExtendedTooltip name="СписокНастройкиХСКонтекстноеМенюКомандаОсновнойХСРасширеннаяПодсказка" id="148"/>
+									</Button>
+								</ChildItems>
+							</ContextMenu>
 							<AutoCommandBar name="СписокНастройкиХСКоманднаяПанель" id="70">
 								<ChildItems>
 									<Button name="СписокНастройкиХСКомандаОсновнойХС" id="110">
@@ -510,9 +518,6 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокНастройкиХСКлючАПИ</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокНастройкиХСТестовый</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокНастройкиХСЛогинВрача</dcsset:field>

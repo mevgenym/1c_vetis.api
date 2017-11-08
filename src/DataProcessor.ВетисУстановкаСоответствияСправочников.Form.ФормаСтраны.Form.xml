@@ -6,21 +6,184 @@
 			<v8:content>Страны</v8:content>
 		</v8:item>
 	</Title>
-	<CommandBarLocation>None</CommandBarLocation>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<ScalingMode>Compact</ScalingMode>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаКомандаОтбор" id="137">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаОтбор</CommandName>
+				<ExtendedTooltip name="ФормаКомандаОтборРасширеннаяПодсказка" id="138"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<UsualGroup name="Группа1" id="26">
-			<Group>Horizontal</Group>
+			<Group>Vertical</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="27"/>
 			<ChildItems>
+				<UsualGroup name="ГруппаОтбор" id="109">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборРасширеннаяПодсказка" id="110"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаОтбор1" id="111">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор1</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор1</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтбор1РасширеннаяПодсказка" id="112"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаОтборИмя" id="113">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор имя</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор имя</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборИмяРасширеннаяПодсказка" id="114"/>
+									<ChildItems>
+										<CheckBoxField name="ОтборИмяИспользование" id="115">
+											<DataPath>ОтборИмяИспользование</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОтборИмяИспользованиеКонтекстноеМеню" id="116"/>
+											<ExtendedTooltip name="ОтборИмяИспользованиеРасширеннаяПодсказка" id="117"/>
+											<Events>
+												<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="ОтборИмя" id="118">
+											<DataPath>ОтборИмя</DataPath>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Имя</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ОтборИмяКонтекстноеМеню" id="119"/>
+											<ExtendedTooltip name="ОтборИмяРасширеннаяПодсказка" id="120"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаОтборПолноеИмя" id="121">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор полное имя</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор полное имя</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборПолноеИмяРасширеннаяПодсказка" id="122"/>
+									<ChildItems>
+										<CheckBoxField name="ОтборПолноеИмяИспользование" id="123">
+											<DataPath>ОтборПолноеИмяИспользование</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОтборПолноеИмяИспользованиеКонтекстноеМеню" id="124"/>
+											<ExtendedTooltip name="ОтборПолноеИмяИспользованиеРасширеннаяПодсказка" id="125"/>
+											<Events>
+												<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="ОтборПолноеИмя" id="126">
+											<DataPath>ОтборПолноеИмя</DataPath>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Полное имя</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ОтборПолноеИмяКонтекстноеМеню" id="127"/>
+											<ExtendedTooltip name="ОтборПолноеИмяРасширеннаяПодсказка" id="128"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаОтборКод" id="129">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор код</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор код</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборКодРасширеннаяПодсказка" id="130"/>
+									<ChildItems>
+										<CheckBoxField name="ОтборКодИспользование" id="131">
+											<DataPath>ОтборКодИспользование</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОтборКодИспользованиеКонтекстноеМеню" id="132"/>
+											<ExtendedTooltip name="ОтборКодИспользованиеРасширеннаяПодсказка" id="133"/>
+											<Events>
+												<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="ОтборКод" id="134">
+											<DataPath>ОтборКод</DataPath>
+											<ContextMenu name="ОтборКодКонтекстноеМеню" id="135"/>
+											<ExtendedTooltip name="ОтборКодРасширеннаяПодсказка" id="136"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
 				<UsualGroup name="Группа2" id="28">
-					<Group>Vertical</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="29"/>
@@ -30,7 +193,7 @@
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
-							<HeightInTableRows>1</HeightInTableRows>
+							<HeightControlVariant>UseContentHeight</HeightControlVariant>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -40,7 +203,30 @@
 							</CommandSet>
 							<SearchStringLocation>Top</SearchStringLocation>
 							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="СписокВетисКонтекстноеМеню" id="2"/>
+							<ContextMenu name="СписокВетисКонтекстноеМеню" id="2">
+								<ChildItems>
+									<Button name="СписокВетисКонтекстноеМенюКомандаСоздатьСвязь" id="105">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
+										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаСоздатьСвязьРасширеннаяПодсказка" id="106"/>
+									</Button>
+									<Button name="СписокВетисКонтекстноеМенюКомандаУдалитьСвязь" id="107">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
+										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаУдалитьСвязьРасширеннаяПодсказка" id="108"/>
+									</Button>
+									<Button name="СписокВетисКонтекстноеМенюКомандаДобавитьИзСервиса" id="139">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаДобавитьИзСервиса</CommandName>
+										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаДобавитьИзСервисаРасширеннаяПодсказка" id="140"/>
+									</Button>
+									<Button name="СписокВетисКонтекстноеМенюКомандаЗаполнитьИзСервиса" id="141">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
+										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="142"/>
+									</Button>
+								</ChildItems>
+							</ContextMenu>
 							<AutoCommandBar name="СписокВетисКоманднаяПанель" id="3">
 								<ChildItems>
 									<Button name="СписокВетисЗаполнить" id="32">
@@ -99,14 +285,6 @@
 								</InputField>
 							</ChildItems>
 						</Table>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="Группа3" id="30">
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="31"/>
-					<ChildItems>
 						<Table name="СправочникСписок" id="34">
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<HeightInTableRows>1</HeightInTableRows>
@@ -341,6 +519,96 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
+		<Attribute name="ОтборИмя" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОтборИмя</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборИмяИспользование" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборИмяИспользование</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборПолноеИмя" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полное имя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОтборПолноеИмя</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборПолноеИмяИспользование" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полное имя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборПолноеИмяИспользование</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборКод" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>2</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОтборКод</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборКодИспользование" id="9">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборКодИспользование</Field>
+			</Save>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -377,7 +645,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить</v8:content>
+					<v8:content>Найти</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -386,7 +654,12 @@
 					<v8:content>Команда список ветис заполнить</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>КомандаСписокВетисЗаполнить</Action>
+			<Representation>TextPicture</Representation>
 		</Command>
 		<Command name="КомандаСоздатьСвязь" id="2">
 			<Title>
@@ -417,6 +690,51 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаУдалитьСвязь</Action>
+		</Command>
+		<Command name="КомандаОтбор" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отбор</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтбор</Action>
+		</Command>
+		<Command name="КомандаДобавитьИзСервиса" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда добавить из сервиса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаДобавитьИзСервиса</Action>
+		</Command>
+		<Command name="КомандаЗаполнитьИзСервиса" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда заполнить из сервиса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗаполнитьИзСервиса</Action>
 		</Command>
 	</Commands>
 </Form>

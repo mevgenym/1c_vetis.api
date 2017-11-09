@@ -18,6 +18,7 @@
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -100,6 +101,9 @@
 											</InputHint>
 											<ContextMenu name="ОтборИмяКонтекстноеМеню" id="119"/>
 											<ExtendedTooltip name="ОтборИмяРасширеннаяПодсказка" id="120"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -141,6 +145,9 @@
 											</InputHint>
 											<ContextMenu name="ОтборПолноеИмяКонтекстноеМеню" id="127"/>
 											<ExtendedTooltip name="ОтборПолноеИмяРасширеннаяПодсказка" id="128"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -176,6 +183,9 @@
 											<DataPath>ОтборКод</DataPath>
 											<ContextMenu name="ОтборКодКонтекстноеМеню" id="135"/>
 											<ExtendedTooltip name="ОтборКодРасширеннаяПодсказка" id="136"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -184,121 +194,108 @@
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="Группа2" id="28">
+					<Group>Horizontal</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="29"/>
 					<ChildItems>
-						<Table name="СписокВетис" id="1">
+						<Table name="СписокВетис" id="169">
 							<Representation>List</Representation>
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
-							<HeightControlVariant>UseContentHeight</HeightControlVariant>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>СписокВетис</DataPath>
-							<CommandSet>
-								<ExcludedCommand>Change</ExcludedCommand>
-							</CommandSet>
-							<SearchStringLocation>Top</SearchStringLocation>
 							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="СписокВетисКонтекстноеМеню" id="2">
+							<ContextMenu name="СписокВетисКонтекстноеМеню" id="170">
 								<ChildItems>
-									<Button name="СписокВетисКонтекстноеМенюКомандаСоздатьСвязь" id="105">
+									<Button name="СписокВетисКонтекстноеМенюКомандаСоздатьСвязь" id="193">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
-										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаСоздатьСвязьРасширеннаяПодсказка" id="106"/>
+										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаСоздатьСвязьРасширеннаяПодсказка" id="194"/>
 									</Button>
-									<Button name="СписокВетисКонтекстноеМенюКомандаУдалитьСвязь" id="107">
+									<Button name="СписокВетисКонтекстноеМенюКомандаУдалитьСвязь" id="195">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
-										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаУдалитьСвязьРасширеннаяПодсказка" id="108"/>
+										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаУдалитьСвязьРасширеннаяПодсказка" id="196"/>
 									</Button>
-									<Button name="СписокВетисКонтекстноеМенюКомандаДобавитьИзСервиса" id="139">
+									<Button name="СписокВетисКонтекстноеМенюКомандаДобавитьИзСервиса" id="197">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаДобавитьИзСервиса</CommandName>
-										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаДобавитьИзСервисаРасширеннаяПодсказка" id="140"/>
+										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаДобавитьИзСервисаРасширеннаяПодсказка" id="198"/>
 									</Button>
-									<Button name="СписокВетисКонтекстноеМенюКомандаЗаполнитьИзСервиса" id="141">
+									<Button name="СписокВетисКонтекстноеМенюКомандаЗаполнитьИзСервиса" id="199">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
-										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="142"/>
+										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="200"/>
 									</Button>
 								</ChildItems>
 							</ContextMenu>
-							<AutoCommandBar name="СписокВетисКоманднаяПанель" id="3">
+							<AutoCommandBar name="СписокВетисКоманднаяПанель" id="171">
 								<ChildItems>
-									<Button name="СписокВетисЗаполнить" id="32">
+									<Button name="СписокВетисКомандаНайти" id="191">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаСписокВетисЗаполнить</CommandName>
-										<ExtendedTooltip name="СписокВетисЗаполнитьРасширеннаяПодсказка" id="33"/>
+										<CommandName>Form.Command.КомандаНайти</CommandName>
+										<ExtendedTooltip name="СписокВетисКомандаНайтиРасширеннаяПодсказка" id="192"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
-							<ExtendedTooltip name="СписокВетисРасширеннаяПодсказка" id="4"/>
-							<SearchStringAddition name="СписокВетисСтрокаПоиска" id="5">
+							<ExtendedTooltip name="СписокВетисРасширеннаяПодсказка" id="172"/>
+							<SearchStringAddition name="СписокВетисСтрокаПоиска" id="173">
 								<AdditionSource>
 									<Item>СписокВетис</Item>
 									<Type>SearchStringRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="СписокВетисСтрокаПоискаКонтекстноеМеню" id="6"/>
-								<ExtendedTooltip name="СписокВетисСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+								<ContextMenu name="СписокВетисСтрокаПоискаКонтекстноеМеню" id="174"/>
+								<ExtendedTooltip name="СписокВетисСтрокаПоискаРасширеннаяПодсказка" id="175"/>
 							</SearchStringAddition>
-							<ViewStatusAddition name="СписокВетисСостояниеПросмотра" id="8">
+							<ViewStatusAddition name="СписокВетисСостояниеПросмотра" id="176">
 								<AdditionSource>
 									<Item>СписокВетис</Item>
 									<Type>ViewStatusRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="СписокВетисСостояниеПросмотраКонтекстноеМеню" id="9"/>
-								<ExtendedTooltip name="СписокВетисСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+								<ContextMenu name="СписокВетисСостояниеПросмотраКонтекстноеМеню" id="177"/>
+								<ExtendedTooltip name="СписокВетисСостояниеПросмотраРасширеннаяПодсказка" id="178"/>
 							</ViewStatusAddition>
-							<SearchControlAddition name="СписокВетисУправлениеПоиском" id="11">
+							<SearchControlAddition name="СписокВетисУправлениеПоиском" id="179">
 								<AdditionSource>
 									<Item>СписокВетис</Item>
 									<Type>SearchControl</Type>
 								</AdditionSource>
-								<ContextMenu name="СписокВетисУправлениеПоискомКонтекстноеМеню" id="12"/>
-								<ExtendedTooltip name="СписокВетисУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+								<ContextMenu name="СписокВетисУправлениеПоискомКонтекстноеМеню" id="180"/>
+								<ExtendedTooltip name="СписокВетисУправлениеПоискомРасширеннаяПодсказка" id="181"/>
 							</SearchControlAddition>
 							<Events>
 								<Event name="Selection">СписокВетисВыбор</Event>
 							</Events>
 							<ChildItems>
-								<InputField name="СписокВетисname" id="96">
+								<InputField name="СписокВетисname" id="182">
 									<DataPath>СписокВетис.name</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="97"/>
-									<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="98"/>
+									<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="183"/>
+									<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="184"/>
 								</InputField>
-								<InputField name="СписокВетисfullName" id="99">
+								<InputField name="СписокВетисfullName" id="185">
 									<DataPath>СписокВетис.fullName</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СписокВетисfullNameКонтекстноеМеню" id="100"/>
-									<ExtendedTooltip name="СписокВетисfullNameРасширеннаяПодсказка" id="101"/>
+									<ContextMenu name="СписокВетисfullNameКонтекстноеМеню" id="186"/>
+									<ExtendedTooltip name="СписокВетисfullNameРасширеннаяПодсказка" id="187"/>
 								</InputField>
-								<InputField name="СписокВетисcode" id="102">
+								<InputField name="СписокВетисcode" id="188">
 									<DataPath>СписокВетис.code</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="СписокВетисcodeКонтекстноеМеню" id="103"/>
-									<ExtendedTooltip name="СписокВетисcodeРасширеннаяПодсказка" id="104"/>
+									<ContextMenu name="СписокВетисcodeКонтекстноеМеню" id="189"/>
+									<ExtendedTooltip name="СписокВетисcodeРасширеннаяПодсказка" id="190"/>
 								</InputField>
 							</ChildItems>
 						</Table>
-						<Table name="СправочникСписок" id="34">
-							<ChangeRowOrder>false</ChangeRowOrder>
-							<HeightInTableRows>1</HeightInTableRows>
-							<SearchOnInput>DontUse</SearchOnInput>
+						<Table name="СправочникСписок" id="143">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
 							<EnableStartDrag>true</EnableStartDrag>
 							<DataPath>СправочникСписок</DataPath>
 							<RowPictureDataPath>СправочникСписок.DefaultPicture</RowPictureDataPath>
-							<CommandSet>
-								<ExcludedCommand>CancelSearch</ExcludedCommand>
-								<ExcludedCommand>Find</ExcludedCommand>
-							</CommandSet>
-							<SearchStringLocation>None</SearchStringLocation>
-							<ViewStatusLocation>None</ViewStatusLocation>
-							<SearchControlLocation>None</SearchControlLocation>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -312,68 +309,56 @@
 							<ShowRoot>true</ShowRoot>
 							<AllowRootChoice>false</AllowRootChoice>
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
-							<ContextMenu name="СправочникСписокКонтекстноеМеню" id="35"/>
-							<AutoCommandBar name="СправочникСписокКоманднаяПанель" id="36">
+							<ContextMenu name="СправочникСписокКонтекстноеМеню" id="144"/>
+							<AutoCommandBar name="СправочникСписокКоманднаяПанель" id="145">
 								<ChildItems>
-									<Button name="СправочникСписокСоздатьСвязь" id="86">
+									<Button name="СправочникСписокКомандаСоздатьСвязь" id="165">
 										<Type>CommandBarButton</Type>
-										<OnlyInAllActions>true</OnlyInAllActions>
 										<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
-										<ExtendedTooltip name="СправочникСписокСоздатьСвязьРасширеннаяПодсказка" id="87"/>
+										<ExtendedTooltip name="СправочникСписокКомандаСоздатьСвязьРасширеннаяПодсказка" id="166"/>
 									</Button>
-									<Button name="СправочникСписокУдалитьСвязь" id="88">
+									<Button name="СправочникСписокКомандаУдалитьСвязь" id="167">
 										<Type>CommandBarButton</Type>
-										<OnlyInAllActions>true</OnlyInAllActions>
 										<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
-										<ExtendedTooltip name="СправочникСписокУдалитьСвязьРасширеннаяПодсказка" id="89"/>
+										<ExtendedTooltip name="СправочникСписокКомандаУдалитьСвязьРасширеннаяПодсказка" id="168"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
-							<ExtendedTooltip name="СправочникСписокРасширеннаяПодсказка" id="37"/>
-							<SearchStringAddition name="СправочникСписокСтрокаПоиска" id="38">
+							<ExtendedTooltip name="СправочникСписокРасширеннаяПодсказка" id="146"/>
+							<SearchStringAddition name="СправочникСписокСтрокаПоиска" id="147">
 								<AdditionSource>
 									<Item>СправочникСписок</Item>
 									<Type>SearchStringRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="СправочникСписокСтрокаПоискаКонтекстноеМеню" id="39"/>
-								<ExtendedTooltip name="СправочникСписокСтрокаПоискаРасширеннаяПодсказка" id="40"/>
+								<ContextMenu name="СправочникСписокСтрокаПоискаКонтекстноеМеню" id="148"/>
+								<ExtendedTooltip name="СправочникСписокСтрокаПоискаРасширеннаяПодсказка" id="149"/>
 							</SearchStringAddition>
-							<ViewStatusAddition name="СправочникСписокСостояниеПросмотра" id="41">
+							<ViewStatusAddition name="СправочникСписокСостояниеПросмотра" id="150">
 								<AdditionSource>
 									<Item>СправочникСписок</Item>
 									<Type>ViewStatusRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="СправочникСписокСостояниеПросмотраКонтекстноеМеню" id="42"/>
-								<ExtendedTooltip name="СправочникСписокСостояниеПросмотраРасширеннаяПодсказка" id="43"/>
+								<ContextMenu name="СправочникСписокСостояниеПросмотраКонтекстноеМеню" id="151"/>
+								<ExtendedTooltip name="СправочникСписокСостояниеПросмотраРасширеннаяПодсказка" id="152"/>
 							</ViewStatusAddition>
-							<SearchControlAddition name="СправочникСписокУправлениеПоиском" id="44">
+							<SearchControlAddition name="СправочникСписокУправлениеПоиском" id="153">
 								<AdditionSource>
 									<Item>СправочникСписок</Item>
 									<Type>SearchControl</Type>
 								</AdditionSource>
-								<ContextMenu name="СправочникСписокУправлениеПоискомКонтекстноеМеню" id="45"/>
-								<ExtendedTooltip name="СправочникСписокУправлениеПоискомРасширеннаяПодсказка" id="46"/>
+								<ContextMenu name="СправочникСписокУправлениеПоискомКонтекстноеМеню" id="154"/>
+								<ExtendedTooltip name="СправочникСписокУправлениеПоискомРасширеннаяПодсказка" id="155"/>
 							</SearchControlAddition>
-							<Events>
-								<Event name="Selection">СправочникСписокВыбор</Event>
-							</Events>
 							<ChildItems>
-								<LabelField name="СправочникСписокname" id="83">
+								<LabelField name="СправочникСписокname" id="159">
 									<DataPath>СправочникСписок.name</DataPath>
-									<Width>20</Width>
-									<ContextMenu name="СправочникСписокnameКонтекстноеМеню" id="84"/>
-									<ExtendedTooltip name="СправочникСписокnameРасширеннаяПодсказка" id="85"/>
+									<ContextMenu name="СправочникСписокnameКонтекстноеМеню" id="160"/>
+									<ExtendedTooltip name="СправочникСписокnameРасширеннаяПодсказка" id="161"/>
 								</LabelField>
-								<LabelField name="СправочникСписокcode" id="93">
-									<DataPath>~СправочникСписок.Code</DataPath>
-									<ContextMenu name="СправочникСписокcodeКонтекстноеМеню" id="94"/>
-									<ExtendedTooltip name="СправочникСписокcodeРасширеннаяПодсказка" id="95"/>
-								</LabelField>
-								<LabelField name="СправочникСписокВетисname" id="90">
+								<LabelField name="СправочникСписокВетисname" id="162">
 									<DataPath>СправочникСписок.Ветисname</DataPath>
-									<Width>15</Width>
-									<ContextMenu name="СправочникСписокВетисnameКонтекстноеМеню" id="91"/>
-									<ExtendedTooltip name="СправочникСписокВетисnameРасширеннаяПодсказка" id="92"/>
+									<ContextMenu name="СправочникСписокВетисnameКонтекстноеМеню" id="163"/>
+									<ExtendedTooltip name="СправочникСписокВетисnameРасширеннаяПодсказка" id="164"/>
 								</LabelField>
 							</ChildItems>
 						</Table>
@@ -473,6 +458,17 @@
 							<v8:Length>0</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="link" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Link</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
 			</Columns>
@@ -641,7 +637,7 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="КомандаСписокВетисЗаполнить" id="1">
+		<Command name="КомандаНайти" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -651,14 +647,14 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда список ветис заполнить</v8:content>
+					<v8:content>Команда найти</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
 				<xr:Ref>StdPicture.Find</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
-			<Action>КомандаСписокВетисЗаполнить</Action>
+			<Action>КомандаНайти</Action>
 			<Representation>TextPicture</Representation>
 		</Command>
 		<Command name="КомандаСоздатьСвязь" id="2">

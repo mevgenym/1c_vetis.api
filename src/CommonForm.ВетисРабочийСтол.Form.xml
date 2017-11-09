@@ -83,6 +83,8 @@
 							<v8:content>ХС</v8:content>
 						</v8:item>
 					</Title>
+					<DropListButton>false</DropListButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 					<InputHint>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -92,7 +94,8 @@
 					<ContextMenu name="ОтборХСКонтекстноеМеню" id="173"/>
 					<ExtendedTooltip name="ОтборХСРасширеннаяПодсказка" id="174"/>
 					<Events>
-						<Event name="OnChange">ХСПриИзменении</Event>
+						<Event name="OnChange">ОтборХСПриИзменении</Event>
+						<Event name="StartChoice">ОтборХСНачалоВыбора</Event>
 					</Events>
 				</InputField>
 				<InputField name="ОтборПредприятие" id="175">
@@ -103,6 +106,9 @@
 							<v8:content>Предприятие</v8:content>
 						</v8:item>
 					</Title>
+					<DropListButton>false</DropListButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+					<ChooseType>false</ChooseType>
 					<ChoiceParameterLinks>
 						<xr:Link>
 							<xr:Name>Отбор.Владелец</xr:Name>
@@ -119,7 +125,8 @@
 					<ContextMenu name="ОтборПредприятиеКонтекстноеМеню" id="176"/>
 					<ExtendedTooltip name="ОтборПредприятиеРасширеннаяПодсказка" id="177"/>
 					<Events>
-						<Event name="OnChange">ПредприятиеПриИзменении</Event>
+						<Event name="OnChange">ОтборПредприятиеПриИзменении</Event>
+						<Event name="StartChoice">ОтборПредприятиеНачалоВыбора</Event>
 					</Events>
 				</InputField>
 			</ChildItems>
@@ -852,6 +859,7 @@
 					<v8:content>Группа версия</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Group>Horizontal</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаВерсияРасширеннаяПодсказка" id="241"/>
@@ -871,6 +879,15 @@
 					<ExtendedTooltip name="ОтладкаРасширеннаяПодсказка" id="247"/>
 					<Events>
 						<Event name="OnChange">ОтладкаПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="Тестовый" id="324">
+					<DataPath>Тестовый</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТестовыйКонтекстноеМеню" id="325"/>
+					<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="326"/>
+					<Events>
+						<Event name="OnChange">ТестовыйПриИзменении</Event>
 					</Events>
 				</CheckBoxField>
 			</ChildItems>
@@ -1156,6 +1173,17 @@
 			<Save>
 				<Field>ВСДОтборСтатус</Field>
 			</Save>
+		</Attribute>
+		<Attribute name="Тестовый" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тестовый</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>

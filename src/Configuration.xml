@@ -184,7 +184,6 @@
 			<CommonModule>ВетисСоответствие</CommonModule>
 			<CommonModule>ВетисФормы</CommonModule>
 			<CommonModule>Пользователи</CommonModule>
-			<XDTOPackage>soap_envelop</XDTOPackage>
 			<DefinedType>ВетисAddress</DefinedType>
 			<DefinedType>ВетисBusinessEntity</DefinedType>
 			<DefinedType>ВетисCountry</DefinedType>
@@ -234,10 +233,10 @@
 			<Constant>ВетисВерсия</Constant>
 			<Constant>ВетисОсновнойХС</Constant>
 			<Constant>ВетисТестовый</Constant>
+			<CommonForm>ВетисXSD</CommonForm>
+			<CommonForm>ВетисНастройки</CommonForm>
 			<CommonForm>ВетисРабочийСтол</CommonForm>
 			<CommonForm>ВетисФормаВыбора</CommonForm>
-			<CommonForm>ВетисНастройки</CommonForm>
-			<CommonForm>ВетисXSD</CommonForm>
 			<Catalog>ВетисAddress</Catalog>
 			<Catalog>ВетисDistrict</Catalog>
 			<Catalog>ВетисIncorporationForm</Catalog>

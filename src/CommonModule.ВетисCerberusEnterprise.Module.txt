@@ -195,7 +195,7 @@
 	
 КонецФункции
 
-Функция URI()
+Функция URI() Экспорт
 	
 	Возврат "http://api.vetrf.ru/schema/cdm/cerberus/enterprise";
 	

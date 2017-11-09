@@ -97,6 +97,9 @@
 							</InputHint>
 							<ContextMenu name="ОтборХозяйствующийСубъектКонтекстноеМеню" id="143"/>
 							<ExtendedTooltip name="ОтборХозяйствующийСубъектРасширеннаяПодсказка" id="144"/>
+							<Events>
+								<Event name="StartChoice">ОтборХозяйствующийСубъектНачалоВыбора</Event>
+							</Events>
 						</InputField>
 						<InputField name="ОтборBusinessEntityGuid" id="173">
 							<DataPath>ОтборBusinessEntityGuid</DataPath>
@@ -175,6 +178,9 @@
 											</InputHint>
 											<ContextMenu name="ОтборНаименованиеКонтекстноеМеню" id="151"/>
 											<ExtendedTooltip name="ОтборНаименованиеРасширеннаяПодсказка" id="152"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -216,6 +222,9 @@
 											</InputHint>
 											<ContextMenu name="ОтборРегионКонтекстноеМеню" id="157"/>
 											<ExtendedTooltip name="ОтборРегионРасширеннаяПодсказка" id="158"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -264,6 +273,9 @@
 											</InputHint>
 											<ContextMenu name="ОтборРайонКонтекстноеМеню" id="154"/>
 											<ExtendedTooltip name="ОтборРайонРасширеннаяПодсказка" id="155"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -295,6 +307,7 @@
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<HeightInTableRows>1</HeightInTableRows>
+							<Header>false</Header>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>

@@ -7,12 +7,16 @@
 	
 	_версия = Версия();
 	
-	//пока только тестовый
 	_тестовый = Тестовый();
 	
 	Если _версия = Перечисления.ВетисВерсияAPI.v2_0 Тогда
-		_имя = "http://api.vetrf.ru/schema/platform/services/2.0-RC-last/";
-		_суф = "_v2.0_pilot.wsdl";
+		Если _тестовый Тогда
+			_имя = "http://api.vetrf.ru/schema/platform/services/2.0-RC-last/";
+			_суф = "_v2.0_pilot.wsdl";
+		Иначе
+			_имя = "http://api.vetrf.ru/schema/platform/services/2.0-last/";
+			_суф = "_v2.0_production.wsdl";
+		КонецЕсли;
 		
 		_таблица = Неопределено;
 		
@@ -27,22 +31,34 @@
 		
 		ВетисПеременные.Установить("wsdl", _таблица);
 		
-		_имя = "http://api.vetrf.ru/schema/platform/services/2.0-RC-last/";
-		_суф = "_v2.0.xsd";
+		Если _тестовый Тогда
+			_имя = "http://api.vetrf.ru/schema/platform/services/2.0-RC-last/";
+			_суф = "_v2.0.xsd";
+		Иначе
+			_имя = "http://api.vetrf.ru/schema/platform/services/2.0-last/";
+			_суф = "_v2.0.xsd";
+		КонецЕсли;
 		
 		_таблица = Неопределено;
 		
-		XSDДобавить(_таблица, _Имя+"application_v1.1.xsd",          "http://api.vetrf.ru/schema/cdm/application");
-		XSDДобавить(_таблица, _Имя+"base_v1.1.xsd",                 "http://api.vetrf.ru/schema/cdm/base");
-		XSDДобавить(_таблица, _Имя+"dictionary"+_суф,               "http://api.vetrf.ru/schema/cdm/dictionary/v2");
-		XSDДобавить(_таблица, _Имя+"document"+_суф,                 "http://api.vetrf.ru/schema/cdm/mercury/vet-document/v2");
-		XSDДобавить(_таблица, _Имя+"mercury_g2b_applications"+_суф, "http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2");
+		XSDДобавить(_таблица, _Имя+"application_v1.1.xsd",          ВетисApplication_2_0.URI());
+		XSDДобавить(_таблица, _Имя+"base_v1.1.xsd",                 ВетисBase_2_0.URI());
+		XSDДобавить(_таблица, _Имя+"dictionary"+_суф,               ВетисDictionary_2_0.URI());
+		XSDДобавить(_таблица, _Имя+"document"+_суф,                 ВетисMercuryVetdocument_2_0.URI());
+		XSDДобавить(_таблица, _Имя+"mercury_g2b_applications"+_суф, ВетисMercuryApplications_2_0.URI());
+		
+		XSDДобавить(_таблица, ВетисSoapEnvelope.xsd_url(), ВетисSoapEnvelope.URI());
 		
 		ВетисПеременные.Установить("xsd", _таблица);
 		
 	Иначе
 		_имя = "http://api.vetrf.ru/schema/platform/";
-		_суф = "_v1.4_pilot.wsdl";
+		
+		Если _тестовый Тогда
+			_суф = "_v1.4_pilot.wsdl";
+		Иначе
+			_суф = "_v1.4_production.wsdl";
+		КонецЕсли;
 		
 		_таблица = Неопределено;
 		
@@ -60,15 +76,17 @@
 		
 		_таблица = Неопределено;
 		
-		XSDДобавить(_таблица, _Имя+"application"+_суф,         "http://api.vetrf.ru/schema/cdm/application");
-		XSDДобавить(_таблица, _Имя+"argus_common"+_суф,        "http://api.vetrf.ru/schema/cdm/argus/common");
-		XSDДобавить(_таблица, _Имя+"production"+_суф,          "http://api.vetrf.ru/schema/cdm/argus/production");
-		XSDДобавить(_таблица, _Имя+"argus_shipment"+_суф,      "http://api.vetrf.ru/schema/cdm/argus/shipment");
-		XSDДобавить(_таблица, _Имя+"base"+_суф,                "http://api.vetrf.ru/schema/cdm/base");
-		XSDДобавить(_таблица, _Имя+"enterprise"+_суф,          "http://api.vetrf.ru/schema/cdm/cerberus/enterprise");
-		XSDДобавить(_таблица, _Имя+"ikar"+_суф,                "http://api.vetrf.ru/schema/cdm/ikar");
-		XSDДобавить(_таблица, _Имя+"applications"+_суф,        "http://api.vetrf.ru/schema/cdm/mercury/applications");
-		XSDДобавить(_таблица, _Имя+"veterinary_document"+_суф, "http://api.vetrf.ru/schema/cdm/mercury/vet-document");
+		XSDДобавить(_таблица, _Имя+"application"+_суф,         ВетисApplication.URI());
+		XSDДобавить(_таблица, _Имя+"argus_common"+_суф,        ВетисArgusCommon.URI());
+		XSDДобавить(_таблица, _Имя+"production"+_суф,          ВетисArgusProduction.URI());
+		XSDДобавить(_таблица, _Имя+"argus_shipment"+_суф,      ВетисArgusShipment.URI());
+		XSDДобавить(_таблица, _Имя+"base"+_суф,                ВетисBase.URI());
+		XSDДобавить(_таблица, _Имя+"enterprise"+_суф,          ВетисCerberusEnterprise.URI());
+		XSDДобавить(_таблица, _Имя+"ikar"+_суф,                ВетисIkar.URI());
+		XSDДобавить(_таблица, _Имя+"applications"+_суф,        ВетисMercuryApplications.URI());
+		XSDДобавить(_таблица, _Имя+"veterinary_document"+_суф, ВетисMercuryVetdocument.URI());
+		
+		XSDДобавить(_таблица, ВетисSoapEnvelope.xsd_url(), ВетисSoapEnvelope.URI());
 		
 		ВетисПеременные.Установить("xsd", _таблица);
 		

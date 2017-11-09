@@ -18,6 +18,7 @@
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -134,6 +135,9 @@
 											</InputHint>
 											<ContextMenu name="ОтборИмяКонтекстноеМеню" id="166"/>
 											<ExtendedTooltip name="ОтборИмяРасширеннаяПодсказка" id="167"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -175,6 +179,9 @@
 											</InputHint>
 											<ContextMenu name="ОтборПолноеИмяКонтекстноеМеню" id="207"/>
 											<ExtendedTooltip name="ОтборПолноеИмяРасширеннаяПодсказка" id="208"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -216,28 +223,12 @@
 											</InputHint>
 											<ContextMenu name="ОтборФИОКонтекстноеМеню" id="163"/>
 											<ExtendedTooltip name="ОтборФИОРасширеннаяПодсказка" id="164"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаОтбор2" id="232">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа отбор2</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа отбор2</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаОтбор2РасширеннаяПодсказка" id="233"/>
-							<ChildItems>
 								<UsualGroup name="ГруппаОтборИНН" id="189">
 									<Title>
 										<v8:item>
@@ -276,6 +267,72 @@
 											</InputHint>
 											<ContextMenu name="ОтборИННКонтекстноеМеню" id="204"/>
 											<ExtendedTooltip name="ОтборИННРасширеннаяПодсказка" id="205"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОтбор2" id="232">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор2</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор2</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтбор2РасширеннаяПодсказка" id="233"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаОтборАдрес" id="265">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор адрес</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор тип</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборАдресРасширеннаяПодсказка" id="266"/>
+									<ChildItems>
+										<CheckBoxField name="ОтборАдресИспользование" id="267">
+											<DataPath>ОтборАдресИспользование</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОтборАдресИспользованиеКонтекстноеМеню" id="268"/>
+											<ExtendedTooltip name="ОтборАдресИспользованиеРасширеннаяПодсказка" id="269"/>
+											<Events>
+												<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="ОтборАдрес" id="270">
+											<DataPath>ОтборАдрес</DataPath>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Адрес</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ОтборАдресКонтекстноеМеню" id="271"/>
+											<ExtendedTooltip name="ОтборАдресРасширеннаяПодсказка" id="272"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -317,6 +374,9 @@
 											</InputHint>
 											<ContextMenu name="ОтборРегионКонтекстноеМеню" id="198"/>
 											<ExtendedTooltip name="ОтборРегионРасширеннаяПодсказка" id="199"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -365,6 +425,9 @@
 											</InputHint>
 											<ContextMenu name="ОтборРайонКонтекстноеМеню" id="192"/>
 											<ExtendedTooltip name="ОтборРайонРасширеннаяПодсказка" id="193"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -406,6 +469,9 @@
 											</InputHint>
 											<ContextMenu name="ОтборТипКонтекстноеМеню" id="257"/>
 											<ExtendedTooltip name="ОтборТипРасширеннаяПодсказка" id="258"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -457,6 +523,7 @@
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<Header>false</Header>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -507,10 +574,10 @@
 										<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
 										<ExtendedTooltip name="СписокВетисКомандаЗаполнитьРасширеннаяПодсказка" id="241"/>
 									</Button>
-									<Button name="СправочникСписокКомандаСопоставитьАвтоматически" id="160">
+									<Button name="СписокВетисКомандаСопоставитьАвтоматически" id="277">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаСопоставитьАвтоматически</CommandName>
-										<ExtendedTooltip name="СправочникСписокКомандаСопоставитьАвтоматическиРасширеннаяПодсказка" id="161"/>
+										<ExtendedTooltip name="СписокВетисКомандаСопоставитьАвтоматическиРасширеннаяПодсказка" id="278"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -547,31 +614,28 @@
 									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокВетисГруппа1РасширеннаяПодсказка" id="251"/>
 									<ChildItems>
+										<InputField name="СписокВетисname" id="117">
+											<DataPath>СписокВетис.name</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoCellHeight>true</AutoCellHeight>
+											<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="118"/>
+											<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="119"/>
+										</InputField>
 										<ColumnGroup name="СписокВетисГруппа2" id="252">
 											<Group>Horizontal</Group>
 											<ExtendedTooltip name="СписокВетисГруппа2РасширеннаяПодсказка" id="253"/>
 											<ChildItems>
-												<InputField name="СписокВетисname" id="117">
-													<DataPath>СписокВетис.name</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="118"/>
-													<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="119"/>
-												</InputField>
 												<InputField name="СписокВетисinn" id="114">
 													<DataPath>СписокВетис.inn</DataPath>
 													<EditMode>EnterOnInput</EditMode>
-													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>9</MaxWidth>
-													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="СписокВетисinnКонтекстноеМеню" id="115"/>
 													<ExtendedTooltip name="СписокВетисinnРасширеннаяПодсказка" id="116"/>
 												</InputField>
 												<InputField name="СписокВетисtype" id="99">
 													<DataPath>СписокВетис.type</DataPath>
 													<EditMode>EnterOnInput</EditMode>
-													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>3</MaxWidth>
-													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="СписокВетисtypeКонтекстноеМеню" id="100"/>
 													<ExtendedTooltip name="СписокВетисtypeРасширеннаяПодсказка" id="101"/>
 												</InputField>
@@ -617,15 +681,15 @@
 										<CommandName>Form.Command.КомандаСправочникДобавить</CommandName>
 										<ExtendedTooltip name="СправочникСписокКомандаДобавитьРасширеннаяПодсказка" id="146"/>
 									</Button>
-									<Button name="СписокВетисКомандаСоздатьСвязь" id="242">
+									<Button name="СправочникСписокКомандаСоздатьСвязь" id="273">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
-										<ExtendedTooltip name="СписокВетисКомандаСоздатьСвязьРасширеннаяПодсказка" id="243"/>
+										<ExtendedTooltip name="СправочникСписокКомандаСоздатьСвязьРасширеннаяПодсказка" id="274"/>
 									</Button>
-									<Button name="СписокВетисКомандаУдалитьСвязь" id="244">
+									<Button name="СправочникСписокКомандаУдалитьСвязь" id="275">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
-										<ExtendedTooltip name="СписокВетисКомандаУдалитьСвязьРасширеннаяПодсказка" id="245"/>
+										<ExtendedTooltip name="СправочникСписокКомандаУдалитьСвязьРасширеннаяПодсказка" id="276"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -1166,6 +1230,32 @@
 				<Field>ОтборТипИспользование</Field>
 			</Save>
 		</Attribute>
+		<Attribute name="ОтборАдрес" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОтборАдрес</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборАдресИспользование" id="24">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборАдресИспользование</Field>
+			</Save>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -1208,6 +1298,9 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВетисaddress</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВетисfullName</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>

@@ -11,6 +11,9 @@
 			<DataPath>Запись.ХозяйствующийСубъект</DataPath>
 			<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="26"/>
 			<ExtendedTooltip name="ХозяйствующийСубъектРасширеннаяПодсказка" id="27"/>
+			<Events>
+				<Event name="StartChoice">ХозяйствующийСубъектНачалоВыбора</Event>
+			</Events>
 		</InputField>
 		<InputField name="Логин" id="4">
 			<DataPath>Запись.Логин</DataPath>

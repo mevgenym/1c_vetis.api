@@ -3,16 +3,8 @@
 	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="СписокОбновить" id="34">
-				<Type>CommandBarButton</Type>
-				<Representation>PictureAndText</Representation>
-				<OnlyInAllActions>true</OnlyInAllActions>
-				<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
-				<ExtendedTooltip name="СписокОбновитьРасширеннаяПодсказка" id="35"/>
-			</Button>
 			<Button name="ФормаОчиститьЖурнал" id="25">
 				<Type>CommandBarButton</Type>
-				<OnlyInAllActions>false</OnlyInAllActions>
 				<CommandName>Form.Command.ОчиститьЖурнал</CommandName>
 				<Title>
 					<v8:item>
@@ -195,7 +187,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Очистить журнал</v8:content>
+					<v8:content>Очистить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>

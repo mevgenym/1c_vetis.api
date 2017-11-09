@@ -119,7 +119,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисTransport</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисProductMarkingClass</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисXSD</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">XDTOPackage.soap_envelop</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">f5da5dd6-a9d7-48e7-91cc-5c990ce8bd3f</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисНастройки</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисResearchResult</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисXSD</xr:Item>
@@ -160,6 +160,9 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисAddress</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисХозяйственныеОперации</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисLocality</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">a3a6b685-ce13-45c7-a89e-a72d4536d34a</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">cae0bb39-04f6-4c69-ac49-c4cf9ecda482</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">221e202e-f77f-4753-8bcd-db30502dc26b</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

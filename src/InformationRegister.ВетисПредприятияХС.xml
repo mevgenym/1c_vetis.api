@@ -42,7 +42,7 @@
 			<Comment/>
 			<UseStandardCommands>false</UseStandardCommands>
 			<EditType>InDialog</EditType>
-			<DefaultRecordForm/>
+			<DefaultRecordForm>InformationRegister.ВетисПредприятияХС.Form.ФормаЗаписи</DefaultRecordForm>
 			<DefaultListForm>InformationRegister.ВетисПредприятияХС.Form.ФормаСписка</DefaultListForm>
 			<AuxiliaryRecordForm/>
 			<AuxiliaryListForm/>
@@ -182,6 +182,7 @@
 				</Properties>
 			</Dimension>
 			<Form>ФормаСписка</Form>
+			<Form>ФормаЗаписи</Form>
 		</ChildObjects>
 	</InformationRegister>
 </MetaDataObject>

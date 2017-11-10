@@ -67,7 +67,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисИмяСправочника</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисUnit</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисBusinessEntity</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисПользователь</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисПользователи</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисEnterprise</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисCountry</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисProductItem</xr:Item>

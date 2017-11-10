@@ -25,17 +25,17 @@
 					<ContextMenu name="ВерсияКонтекстноеМеню" id="2"/>
 					<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="3"/>
 				</InputField>
-				<CheckBoxField name="Тестовый" id="112">
-					<DataPath>Тестовый</DataPath>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="ТестовыйКонтекстноеМеню" id="113"/>
-					<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="114"/>
-				</CheckBoxField>
 				<CheckBoxField name="Отладка" id="105">
 					<DataPath>Отладка</DataPath>
 					<CheckBoxType>Auto</CheckBoxType>
 					<ContextMenu name="ОтладкаКонтекстноеМеню" id="106"/>
 					<ExtendedTooltip name="ОтладкаРасширеннаяПодсказка" id="107"/>
+				</CheckBoxField>
+				<CheckBoxField name="Тестовый" id="112">
+					<DataPath>Тестовый</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТестовыйКонтекстноеМеню" id="113"/>
+					<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="114"/>
 				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
@@ -259,11 +259,6 @@
 									<DataPath>СписокПользователи.Логин</DataPath>
 									<ContextMenu name="СписокПользователиЛогинКонтекстноеМеню" id="63"/>
 									<ExtendedTooltip name="СписокПользователиЛогинРасширеннаяПодсказка" id="64"/>
-								</LabelField>
-								<LabelField name="СписокПользователиПароль" id="65">
-									<DataPath>СписокПользователи.Пароль</DataPath>
-									<ContextMenu name="СписокПользователиПарольКонтекстноеМеню" id="66"/>
-									<ExtendedTooltip name="СписокПользователиПарольРасширеннаяПодсказка" id="67"/>
 								</LabelField>
 							</ChildItems>
 						</Table>
@@ -504,6 +499,17 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
+		<Attribute name="ОсновнойХС" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основной ХС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -531,9 +537,8 @@
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СписокНастройкиХС.ОсновнойХС</dcsset:left>
+						<dcsset:left xsi:type="dcscor:Field">СписокНастройкиХС.ХозяйствующийСубъект</dcsset:left>
 						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
 					</dcsset:item>
 				</dcsset:filter>
 				<dcsset:appearance>

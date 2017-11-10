@@ -181,6 +181,12 @@
 										</CheckBoxField>
 										<InputField name="ОтборКод" id="134">
 											<DataPath>ОтборКод</DataPath>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Код</v8:content>
+												</v8:item>
+											</InputHint>
 											<ContextMenu name="ОтборКодКонтекстноеМеню" id="135"/>
 											<ExtendedTooltip name="ОтборКодРасширеннаяПодсказка" id="136"/>
 											<Events>

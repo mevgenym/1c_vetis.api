@@ -70,12 +70,6 @@
 					<ContextMenu name="ЛогинКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="19"/>
 				</LabelField>
-				<LabelField name="Пароль" id="20">
-					<DataPath>Список.Пароль</DataPath>
-					<DefaultItem>true</DefaultItem>
-					<ContextMenu name="ПарольКонтекстноеМеню" id="21"/>
-					<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="22"/>
-				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>

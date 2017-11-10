@@ -376,6 +376,7 @@
 											<ExtendedTooltip name="ОтборРегионРасширеннаяПодсказка" id="199"/>
 											<Events>
 												<Event name="OnChange">ОтборПриИзменении</Event>
+												<Event name="StartChoice">ОтборРегионНачалоВыбора</Event>
 											</Events>
 										</InputField>
 									</ChildItems>
@@ -427,6 +428,7 @@
 											<ExtendedTooltip name="ОтборРайонРасширеннаяПодсказка" id="193"/>
 											<Events>
 												<Event name="OnChange">ОтборПриИзменении</Event>
+												<Event name="StartChoice">ОтборРайонНачалоВыбора</Event>
 											</Events>
 										</InputField>
 									</ChildItems>
@@ -618,6 +620,7 @@
 											<DataPath>СписокВетис.name</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoCellHeight>true</AutoCellHeight>
+											<Font height="8" kind="AutoFont"/>
 											<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="118"/>
 											<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="119"/>
 										</InputField>

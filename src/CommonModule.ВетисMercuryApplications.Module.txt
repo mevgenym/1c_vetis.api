@@ -6,10 +6,10 @@
 	
 	_Объект = Создать("getStockEntryByGuidRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.GUID               = guid;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "guid");
 	
 	Возврат _Объект;
 	
@@ -42,10 +42,10 @@
 	
 	_Объект = Создать("getStockEntryListRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.listOptions        = ВетисBase.ListOptions();
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -112,11 +112,11 @@
 	
 	_Объект = Создать("getStockEntryChangesListRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.updateDateInterval = ВетисBase.DateInterval(beginDate, endDate);
-	_Объект.listOptions        = ВетисBase.ListOptions();
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.DateInterval(beginDate, endDate), "updateDateInterval");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -181,10 +181,10 @@
 	
 	_Объект = Создать("getVetDocumentByUuidRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.uuid               = vetDocumentUuid;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentUuid, "uuid");
 	
 	Возврат _Объект;
 	
@@ -218,18 +218,12 @@
 	
 	_Объект = Создать("getVetDocumentListRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.listOptions        = ВетисBase.ListOptions();
-	
-	Если НЕ vetDocumentType = Неопределено Тогда
-		_Объект.vetDocumentType = vetDocumentType;
-	КонецЕсли;
-	
-	Если НЕ vetDocumentStatus = Неопределено Тогда
-		_Объект.vetDocumentStatus = vetDocumentStatus;
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.ListOptions(), "listOptions");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentType, "vetDocumentType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentStatus, "vetDocumentStatus");
 	
 	Возврат _Объект;
 	
@@ -306,11 +300,11 @@
 	
 	_Объект = Создать("getVetDocumentChangesListRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.updateDateInterval = ВетисBase.DateInterval(beginDate, endDate);
-	_Объект.listOptions        = ВетисBase.ListOptions();
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.DateInterval(beginDate, endDate), "updateDateInterval");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -371,10 +365,10 @@
 	
 	_Объект = Создать("MergeStockEntriesRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterprise         = enterprise;
-	_Объект.mergeOperation     = mergeOperation;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, mergeOperation, "mergeOperation");
 	
 	Возврат _Объект;
 	
@@ -400,24 +394,12 @@
 	
 	_Объект = Создать("ProcessIncomingConsignmentRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.delivery           = delivery;
-	_Объект.deliveryFacts      = deliveryFacts;
-	
-	Если НЕ discrepancyReport = Неопределено Тогда
-		Если ТипЗнч(discrepancyReport) = Тип("Массив") Тогда
-			Для каждого _discrepancyReport Из discrepancyReport Цикл
-				_Объект.discrepancyReport.Добавить(_discrepancyReport);
-			КонецЦикла;
-		Иначе
-			_Объект.discrepancyReport.Добавить(discrepancyReport);
-		КонецЕсли;
-	КонецЕсли;
-	
-	Если НЕ returnedDelivery = Неопределено Тогда
-		_Объект.returnedDelivery = returnedDelivery;
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, delivery, "delivery");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, deliveryFacts, "deliveryFacts");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, discrepancyReport, "discrepancyReport");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, returnedDelivery, "returnedDelivery");
 	
 	Возврат _Объект;
 	
@@ -459,16 +441,9 @@
 	
 	_Объект = Создать("PrepareOutcomingConsignmentRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	
-	Если ТипЗнч(delivery) = Тип("Массив") Тогда
-		Для каждого _delivery Из delivery Цикл
-			_Объект.delivery.Добавить(_delivery);
-		КонецЦикла;
-	Иначе
-		_Объект.delivery.Добавить(delivery);
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, delivery, "delivery");
 	
 	Возврат _Объект;
 	
@@ -508,20 +483,13 @@
 	
 	_Объект = Создать("ResolveDiscrepancyRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС());
-	_Объект.enterprise         = enterprise;
-	_Объект.inventoryDate      = ВетисОбщегоНазначения.ВремяВетис(inventoryDate);
-	_Объект.responsible        = responsible;
-	_Объект.stockDiscrepancy   = stockDiscrepancy;
-	
-	Если ТипЗнч(discrepancyReport) = Тип("Массив") Тогда
-		Для каждого _discrepancyReport Из discrepancyReport Цикл
-			_Объект.discrepancyReport.Добавить(_discrepancyReport);
-		КонецЦикла;
-	Иначе
-		_Объект.discrepancyReport.Добавить(discrepancyReport);
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисОбщегоНазначения.ВремяВетис(inventoryDate), "inventoryDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, stockDiscrepancy, "stockDiscrepancy");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, discrepancyReport, "discrepancyReport");
 	
 	Возврат _Объект;
 	
@@ -785,7 +753,7 @@
 	
 	_Пакеты = Новый Массив;
 	_Пакеты.Добавить(_ФабрикаXDTO.Пакеты.Получить(URI()));
-	_Пакеты.Добавить(_ФабрикаXDTO.Пакеты.Получить("http://schemas.xmlsoap.org/soap/envelope/"));
+	_Пакеты.Добавить(_ФабрикаXDTO.Пакеты.Получить(ВетисSoapEnvelope.URI()));
 	
 	Для Каждого _Пакет Из _ФабрикаWS.Пакеты Цикл
 		_Пакеты.Добавить(_Пакет);

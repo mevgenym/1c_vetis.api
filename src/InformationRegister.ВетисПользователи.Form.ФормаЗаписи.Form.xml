@@ -8,21 +8,22 @@
 			<DataPath>Запись.ХозяйствующийСубъект</DataPath>
 			<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="11"/>
 			<ExtendedTooltip name="ХозяйствующийСубъектРасширеннаяПодсказка" id="12"/>
+			<Events>
+				<Event name="StartChoice">ХозяйствующийСубъектНачалоВыбора</Event>
+			</Events>
 		</InputField>
 		<InputField name="Пользователь" id="1">
 			<DataPath>Запись.Пользователь</DataPath>
 			<ContextMenu name="ПользовательКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="3"/>
+			<Events>
+				<Event name="StartChoice">ПользовательНачалоВыбора</Event>
+			</Events>
 		</InputField>
 		<InputField name="Логин" id="4">
 			<DataPath>Запись.Логин</DataPath>
 			<ContextMenu name="ЛогинКонтекстноеМеню" id="5"/>
 			<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="6"/>
-		</InputField>
-		<InputField name="Пароль" id="7">
-			<DataPath>Запись.Пароль</DataPath>
-			<ContextMenu name="ПарольКонтекстноеМеню" id="8"/>
-			<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="9"/>
 		</InputField>
 	</ChildItems>
 	<Attributes>

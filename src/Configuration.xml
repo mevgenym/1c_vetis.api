@@ -201,7 +201,7 @@
 			<DefinedType>ВетисTransport</DefinedType>
 			<DefinedType>ВетисUnit</DefinedType>
 			<DefinedType>ВетисПодразделения</DefinedType>
-			<DefinedType>ВетисПользователь</DefinedType>
+			<DefinedType>ВетисПользователи</DefinedType>
 			<CommonCommand>ВетисAddress</CommonCommand>
 			<CommonCommand>ВетисDistrict</CommonCommand>
 			<CommonCommand>ВетисIncorporationForm</CommonCommand>

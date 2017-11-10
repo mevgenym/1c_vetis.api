@@ -224,6 +224,7 @@
 											<ExtendedTooltip name="ОтборРегионРасширеннаяПодсказка" id="158"/>
 											<Events>
 												<Event name="OnChange">ОтборПриИзменении</Event>
+												<Event name="StartChoice">ОтборРегионНачалоВыбора</Event>
 											</Events>
 										</InputField>
 									</ChildItems>
@@ -275,6 +276,7 @@
 											<ExtendedTooltip name="ОтборРайонРасширеннаяПодсказка" id="155"/>
 											<Events>
 												<Event name="OnChange">ОтборПриИзменении</Event>
+												<Event name="StartChoice">ОтборРайонНачалоВыбора</Event>
 											</Events>
 										</InputField>
 									</ChildItems>

@@ -37,6 +37,11 @@
 					<ContextMenu name="ТестовыйКонтекстноеМеню" id="113"/>
 					<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="114"/>
 				</CheckBoxField>
+				<InputField name="Сервис" id="149">
+					<DataPath>Сервис</DataPath>
+					<ContextMenu name="СервисКонтекстноеМеню" id="150"/>
+					<ExtendedTooltip name="СервисРасширеннаяПодсказка" id="151"/>
+				</InputField>
 			</ChildItems>
 		</UsualGroup>
 		<Pages name="ГруппаСтраницы" id="115">
@@ -508,6 +513,17 @@
 			</Title>
 			<Type>
 				<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="Сервис" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сервис</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВетисСервис</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

@@ -4,6 +4,7 @@
 	//вызывать:
 	// после изменения тестовый - рабочий
 	// после изменения версии
+	// после изменения сервиса
 	
 	_версия = Версия();
 	
@@ -20,7 +21,12 @@
 		
 		_таблица = Неопределено;
 		
-		WSDLДобавить(_таблица, "ams-mercury-g2b.service", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ams-mercury-g2b.service"+_суф);
+		Если Сервис() = Перечисления.ВетисСервис.mercury_g2b_service Тогда
+			WSDLДобавить(_таблица, "ams-mercury.service", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ams-mercury-g2b.service"+_суф);
+		ИначеЕсли Сервис() = Перечисления.ВетисСервис.mercury_vu_service Тогда
+			WSDLДобавить(_таблица, "ams-mercury.service", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ams-mercury-vu.service"+_суф);
+		КонецЕсли;
+		
 		WSDLДобавить(_таблица, "ApplicationManagementService", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ApplicationManagementService_v1.1.wsdl");
 		
 		WSDLДобавить(_таблица, "DictionaryService", "http://api.vetrf.ru/schema/cdm/registry/dictionary/service/v2", "DictionaryServiceBindingQSService", "DictionaryServiceBindingQSPort", _Имя+"DictionaryService"+_суф);
@@ -45,7 +51,12 @@
 		XSDДобавить(_таблица, _Имя+"base_v1.1.xsd",                 ВетисBase_2_0.URI());
 		XSDДобавить(_таблица, _Имя+"dictionary"+_суф,               ВетисDictionary_2_0.URI());
 		XSDДобавить(_таблица, _Имя+"document"+_суф,                 ВетисMercuryVetdocument_2_0.URI());
-		XSDДобавить(_таблица, _Имя+"mercury_g2b_applications"+_суф, ВетисMercuryApplications_2_0.URI());
+		
+		Если Сервис() = Перечисления.ВетисСервис.mercury_g2b_service Тогда
+			XSDДобавить(_таблица, _Имя+"mercury_g2b_applications"+_суф, ВетисMercuryApplications_2_0.URI());
+		ИначеЕсли Сервис() = Перечисления.ВетисСервис.mercury_vu_service Тогда
+			XSDДобавить(_таблица, _Имя+"mercury_vu_applications"+_суф, ВетисMercuryApplications_2_0.URI());
+		КонецЕсли;
 		
 		XSDДобавить(_таблица, ВетисSoapEnvelope.xsd_url(), ВетисSoapEnvelope.URI());
 		
@@ -127,6 +138,31 @@
 	Константы.ВетисТестовый.Установить(пЗначение);
 	
 	ВетисПеременные.Установить("ВетисТестовый", пЗначение);
+	
+КонецФункции
+
+
+Функция Сервис() Экспорт
+	
+	_Значение = ВетисПеременные.Получить("ВетисСервис", Неопределено);
+	
+	Если _Значение = Неопределено Тогда
+		
+		_Значение = Константы.ВетисСервис.Получить();
+		
+		ВетисПеременные.Установить("ВетисСервис", ?(ЗначениеЗаполнено(_Значение), _Значение, Перечисления.ВетисСервис.mercury_g2b_service));
+		
+	КонецЕсли;
+	
+	Возврат _Значение;
+	
+КонецФункции
+
+Функция СервисУстановить(пЗначение) Экспорт
+	
+	Константы.ВетисСервис.Установить(пЗначение);
+	
+	ВетисПеременные.Установить("ВетисСервис", пЗначение);
 	
 КонецФункции
 

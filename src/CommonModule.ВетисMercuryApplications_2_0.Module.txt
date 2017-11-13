@@ -715,7 +715,11 @@
 
 Функция URI() Экспорт
 	
-	Возврат "http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2";
+	Если ВетисXSD.Сервис() = Перечисления.ВетисСервис.mercury_g2b_service Тогда
+		Возврат "http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2";
+	ИначеЕсли ВетисXSD.Сервис() = Перечисления.ВетисСервис.mercury_vu_service Тогда
+		Возврат "http://api.vetrf.ru/schema/cdm/mercury/vu/applications/v2";
+	КонецЕсли;
 	
 КонецФункции
 
@@ -764,6 +768,6 @@
 
 Функция Прокси(пИмяФункции, пRequest, issuerId = Неопределено, ПоУмолчанию = Неопределено, пОтладка = Неопределено, пОжидание = 5)
 	
-	Возврат ВетисXSD.ВыполнитьЗапрос("ams-mercury-g2b.service", пИмяФункции, ФабрикаWS(), пRequest, issuerId, ПоУмолчанию, пОтладка, пОжидание);
+	Возврат ВетисXSD.ВыполнитьЗапрос("ams-mercury.service", пИмяФункции, ФабрикаWS(), пRequest, issuerId, ПоУмолчанию, пОтладка, пОжидание);
 	
 КонецФункции

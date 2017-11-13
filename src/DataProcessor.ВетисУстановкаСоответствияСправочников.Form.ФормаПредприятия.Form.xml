@@ -359,15 +359,15 @@
 										<CommandName>Form.Command.КомандаНайти</CommandName>
 										<ExtendedTooltip name="СписокВетисКомандаНайтиРасширеннаяПодсказка" id="227"/>
 									</Button>
-									<Button name="СправочникСписокКомандаДобавитьИзСервиса" id="195">
+									<Button name="СписокВетисКомандаДобавитьИзСервиса" id="248">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаДобавитьИзСервиса</CommandName>
-										<ExtendedTooltip name="СправочникСписокКомандаДобавитьИзСервисаРасширеннаяПодсказка" id="196"/>
+										<ExtendedTooltip name="СписокВетисКомандаДобавитьИзСервисаРасширеннаяПодсказка" id="249"/>
 									</Button>
-									<Button name="СправочникСписокКомандаЗаполнитьИзСервиса" id="193">
+									<Button name="СписокВетисКомандаЗаполнитьИзСервиса" id="250">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
-										<ExtendedTooltip name="СправочникСписокКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="194"/>
+										<ExtendedTooltip name="СписокВетисКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="251"/>
 									</Button>
 									<Button name="СписокВетисКомандаПривязатьПредприятиеХС" id="197">
 										<Type>CommandBarButton</Type>

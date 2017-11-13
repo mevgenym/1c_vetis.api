@@ -19,11 +19,11 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="27"/>
 			<ChildItems>
-				<UsualGroup name="Группа2" id="28">
-					<Group>Vertical</Group>
+				<UsualGroup name="Группа3" id="30">
+					<Group>Horizontal</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="29"/>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="31"/>
 					<ChildItems>
 						<Table name="СписокВетис" id="1">
 							<Representation>List</Representation>
@@ -31,6 +31,7 @@
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<HeightInTableRows>1</HeightInTableRows>
+							<Header>false</Header>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -39,13 +40,26 @@
 								<ExcludedCommand>Change</ExcludedCommand>
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="СписокВетисКонтекстноеМеню" id="2"/>
+							<ContextMenu name="СписокВетисКонтекстноеМеню" id="2">
+								<ChildItems>
+									<Button name="СписокВетисКонтекстноеМенюКомандаСоздатьСвязь" id="132">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
+										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаСоздатьСвязьРасширеннаяПодсказка" id="133"/>
+									</Button>
+									<Button name="СписокВетисКонтекстноеМенюКомандаУдалитьСвязь" id="134">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
+										<ExtendedTooltip name="СписокВетисКонтекстноеМенюКомандаУдалитьСвязьРасширеннаяПодсказка" id="135"/>
+									</Button>
+								</ChildItems>
+							</ContextMenu>
 							<AutoCommandBar name="СписокВетисКоманднаяПанель" id="3">
 								<ChildItems>
-									<Button name="СписокВетисСписокВетисЗаполнить" id="136">
+									<Button name="СписокВетисКомандаНайти" id="130">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СписокВетисЗаполнить</CommandName>
-										<ExtendedTooltip name="СписокВетисСписокВетисЗаполнитьРасширеннаяПодсказка" id="137"/>
+										<CommandName>Form.Command.КомандаНайти</CommandName>
+										<ExtendedTooltip name="СписокВетисКомандаНайтиРасширеннаяПодсказка" id="131"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -86,19 +100,6 @@
 								</InputField>
 							</ChildItems>
 						</Table>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="Группа3" id="30">
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="31"/>
-					<ChildItems>
-						<PictureDecoration name="Декорация1" id="133">
-							<Height>1</Height>
-							<ContextMenu name="Декорация1КонтекстноеМеню" id="134"/>
-							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="135"/>
-						</PictureDecoration>
 						<Table name="СправочникСписок" id="34">
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
@@ -125,12 +126,12 @@
 								<ChildItems>
 									<Button name="СправочникСписокСоздатьСвязь" id="86">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СоздатьСвязь</CommandName>
+										<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
 										<ExtendedTooltip name="СправочникСписокСоздатьСвязьРасширеннаяПодсказка" id="87"/>
 									</Button>
 									<Button name="СправочникСписокУдалитьСвязь" id="88">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.УдалитьСвязь</CommandName>
+										<CommandName>Form.Command.КомандаУдалитьСвязь</CommandName>
 										<ExtendedTooltip name="СправочникСписокУдалитьСвязьРасширеннаяПодсказка" id="89"/>
 									</Button>
 								</ChildItems>
@@ -314,22 +315,27 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="СписокВетисЗаполнить" id="1">
+		<Command name="КомандаНайти" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить</v8:content>
+					<v8:content>Найти</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Список ветис заполнить</v8:content>
+					<v8:content>Команда найти</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>СписокВетисЗаполнить</Action>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаНайти</Action>
+			<Representation>TextPicture</Representation>
 		</Command>
-		<Command name="СоздатьСвязь" id="2">
+		<Command name="КомандаСоздатьСвязь" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -342,9 +348,9 @@
 					<v8:content>Создать связь</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>СоздатьСвязь</Action>
+			<Action>КомандаСоздатьСвязь</Action>
 		</Command>
-		<Command name="УдалитьСвязь" id="3">
+		<Command name="КомандаУдалитьСвязь" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -357,7 +363,7 @@
 					<v8:content>Удалить связь</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>УдалитьСвязь</Action>
+			<Action>КомандаУдалитьСвязь</Action>
 		</Command>
 	</Commands>
 </Form>

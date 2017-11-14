@@ -1,7 +1,7 @@
 ﻿
 Функция Прокси()
 	
-	_Прокси = ВетисXSD.Прокси("RegionalizationService");
+	_Прокси = Ветис.Прокси("RegionalizationService");
 	
 	Возврат _Прокси;
 	

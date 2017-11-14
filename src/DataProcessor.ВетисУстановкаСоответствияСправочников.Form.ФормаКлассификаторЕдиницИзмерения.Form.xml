@@ -88,9 +88,6 @@
 								<ContextMenu name="СписокВетисУправлениеПоискомКонтекстноеМеню" id="12"/>
 								<ExtendedTooltip name="СписокВетисУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 							</SearchControlAddition>
-							<Events>
-								<Event name="Selection">СписокВетисВыбор</Event>
-							</Events>
 							<ChildItems>
 								<InputField name="СписокВетисname" id="96">
 									<DataPath>СписокВетис.name</DataPath>
@@ -161,9 +158,6 @@
 								<ContextMenu name="СправочникСписокУправлениеПоискомКонтекстноеМеню" id="45"/>
 								<ExtendedTooltip name="СправочникСписокУправлениеПоискомРасширеннаяПодсказка" id="46"/>
 							</SearchControlAddition>
-							<Events>
-								<Event name="Selection">СправочникСписокВыбор</Event>
-							</Events>
 							<ChildItems>
 								<LabelField name="СправочникСписокname" id="83">
 									<DataPath>СправочникСписок.name</DataPath>

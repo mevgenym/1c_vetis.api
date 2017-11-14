@@ -7,7 +7,7 @@
 	_Объект = Создать("GetStockEntryByGuidRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.GUID               = guid;
 	
@@ -43,7 +43,7 @@
 	_Объект = Создать("GetStockEntryListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.listOptions        = ВетисBase.ListOptions();
 	
@@ -113,7 +113,7 @@
 	_Объект = Создать("GetStockEntryChangesListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.updateDateInterval = ВетисBase_2_0.DateInterval(beginDate, endDate);
 	_Объект.listOptions        = ВетисBase_2_0.ListOptions();
@@ -182,7 +182,7 @@
 	_Объект = Создать("GetVetDocumentByUuidRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.uuid               = vetDocumentUuid;
 	
@@ -219,7 +219,7 @@
 	_Объект = Создать("GetVetDocumentListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.listOptions        = ВетисBase_2_0.ListOptions();
 	
@@ -307,7 +307,7 @@
 	_Объект = Создать("GetVetDocumentChangesListRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.enterpriseGuid     = enterpriseGuid;
 	_Объект.updateDateInterval = ВетисBase_2_0.DateInterval(beginDate, endDate);
 	_Объект.listOptions        = ВетисBase_2_0.ListOptions();
@@ -372,7 +372,7 @@
 	_Объект = Создать("MergeStockEntriesRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.enterprise         = enterprise;
 	_Объект.mergeOperation     = mergeOperation;
 	
@@ -401,7 +401,7 @@
 	_Объект = Создать("ProcessIncomingConsignmentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.delivery           = delivery;
 	_Объект.deliveryFacts      = deliveryFacts;
 	
@@ -460,7 +460,7 @@
 	_Объект = Создать("PrepareOutgoingConsignmentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.delivery           = delivery;
 	
 	Возврат _Объект;
@@ -502,7 +502,7 @@
 	_Объект = Создать("ResolveDiscrepancyRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.enterprise         = enterprise;
 	_Объект.inventoryDate      = ВетисОбщегоНазначения.ВремяВетис(inventoryDate);
 	_Объект.responsible        = responsible;
@@ -559,7 +559,7 @@
 	_Объект = Создать("WithdrawVetDocumentRequest");
 	
 	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.vetDocumentId      = vetDocumentId;
 	_Объект.withdrawReason     = withdrawReason;
 	_Объект.withdrawDate       = ВетисОбщегоНазначения.ВремяВетис(withdrawDate);
@@ -578,7 +578,7 @@
 
 Функция WithdrawVetDocument(vetDocumentId, withdrawReason, withdrawDate, issuerId = Неопределено, пОтказ = Ложь) Экспорт
 	
-	_Request = WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, ВетисПараметрыСоединения.Врач());
+	_Request = WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, Ветис.Врач());
 	
 	_Response = Прокси("withdrawVetDocumentRequest", _Request, issuerId, Ложь);
 	
@@ -601,7 +601,7 @@
 	_Объект = Создать("ModifyBusinessEntityRequest");
 	
 	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.modificationOperation = modificationOperation;
 	
 	Возврат _Объект;
@@ -640,7 +640,7 @@
 	_Объект = Создать("ModifyEnterpriseRequest");
 	
 	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.modificationOperation = modificationOperation;
 	
 	Возврат _Объект;
@@ -678,7 +678,7 @@
 	_Объект = Создать("ModifyActivityLocationsRequest");
 	
 	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС());
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
 	_Объект.modificationOperation = modificationOperation;
 	
 	Возврат _Объект;
@@ -715,9 +715,9 @@
 
 Функция URI() Экспорт
 	
-	Если ВетисXSD.Сервис() = Перечисления.ВетисСервис.mercury_g2b_service Тогда
+	Если Ветис.Сервис() = Перечисления.ВетисСервис.mercury_g2b_service Тогда
 		Возврат "http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2";
-	ИначеЕсли ВетисXSD.Сервис() = Перечисления.ВетисСервис.mercury_vu_service Тогда
+	ИначеЕсли Ветис.Сервис() = Перечисления.ВетисСервис.mercury_vu_service Тогда
 		Возврат "http://api.vetrf.ru/schema/cdm/mercury/vu/applications/v2";
 	КонецЕсли;
 	
@@ -726,7 +726,7 @@
 
 Функция ФабрикаWS()
 	
-	_Кеш = ВетисПеременные.Получить("КешФабрики", Новый Соответствие);
+	_Кеш = Ветис.Переменные_Получить("КешФабрики", Новый Соответствие);
 	
 	_фабрика = _Кеш.Получить("ApplicationManagementService");
 	
@@ -734,9 +734,9 @@
 		Возврат _фабрика;
 	КонецЕсли;
 	
-	_ФабрикаXDTO = ВетисXSD.ФабрикаОбщая();
+	_ФабрикаXDTO = Ветис.ФабрикаОбщая();
 	
-	_Определения = ВетисXSD.Определения("ApplicationManagementService");
+	_Определения = Ветис.Определения("ApplicationManagementService");
 	
 	// создаем врем. фабрику на основе пакетов из конфиги и web сервиса
 	// нам нужны 2 пакета из ws, но пакет с application нужен локальный
@@ -756,11 +756,11 @@
 	
 	_фабрика = Новый ФабрикаXDTO(, _Пакеты);
 	
-	_Кеш = ВетисПеременные.Получить("КешФабрики", Новый Соответствие);
+	_Кеш = Ветис.Переменные_Получить("КешФабрики", Новый Соответствие);
 	
 	_Кеш.Вставить("ApplicationManagementService", _фабрика);
 	
-	ВетисПеременные.Установить("КешФабрики", _Кеш);
+	Ветис.Переменные_Установить("КешФабрики", _Кеш);
 	
 	Возврат _фабрика;
 	
@@ -768,6 +768,6 @@
 
 Функция Прокси(пИмяФункции, пRequest, issuerId = Неопределено, ПоУмолчанию = Неопределено, пОтладка = Неопределено, пОжидание = 5)
 	
-	Возврат ВетисXSD.ВыполнитьЗапрос("ams-mercury.service", пИмяФункции, ФабрикаWS(), пRequest, issuerId, ПоУмолчанию, пОтладка, пОжидание);
+	Возврат Ветис.ВыполнитьЗапрос("ams-mercury.service", пИмяФункции, ФабрикаWS(), пRequest, issuerId, ПоУмолчанию, пОтладка, пОжидание);
 	
 КонецФункции

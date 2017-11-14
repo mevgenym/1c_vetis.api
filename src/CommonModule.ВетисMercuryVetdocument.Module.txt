@@ -118,7 +118,7 @@
 	_Объект = Создать("DeliveryInspection");
 	
 	_Объект.result = result;
-	_Объект.responsible = ?(responsible = Неопределено, ВетисArgusCommon.User(ВетисПараметрыСоединения.ЛогинХС()), responsible);
+	_Объект.responsible = ?(responsible = Неопределено, ВетисArgusCommon.User(Ветис.ЛогинХС()), responsible);
 	
 	Возврат _Объект;
 	

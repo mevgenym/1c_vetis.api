@@ -126,8 +126,8 @@
 									<ContextMenu name="ОтборХСКонтекстноеМеню" id="139"/>
 									<ExtendedTooltip name="ОтборХСРасширеннаяПодсказка" id="140"/>
 									<Events>
-										<Event name="OnChange">ОтборПриИзменении</Event>
-										<Event name="StartChoice">ХСНачалоВыбора</Event>
+										<Event name="OnChange">ОтборХСПриИзменении</Event>
+										<Event name="StartChoice">ОтборХСНачалоВыбора</Event>
 									</Events>
 								</InputField>
 							</ChildItems>
@@ -162,6 +162,8 @@
 								</CheckBoxField>
 								<InputField name="ОтборПредприятие" id="141">
 									<DataPath>Объект.Предприятие</DataPath>
+									<DropListButton>false</DropListButton>
+									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -172,7 +174,7 @@
 									<ExtendedTooltip name="ОтборПредприятиеРасширеннаяПодсказка" id="143"/>
 									<Events>
 										<Event name="OnChange">ОтборПредприятиеПриИзменении</Event>
-										<Event name="StartChoice">ПредприятиеНачалоВыбора</Event>
+										<Event name="StartChoice">ОтборПредприятиеНачалоВыбора</Event>
 									</Events>
 								</InputField>
 							</ChildItems>

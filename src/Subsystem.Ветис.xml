@@ -32,13 +32,13 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисMercuryVetdocument</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисMercuryVetdocumentСлой1с</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисSoapEnvelope</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисЖурнал</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">fc475750-e71e-4071-903c-e2dbc39fe8af</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисКонстанты</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисОбщегоНазначения</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисПараметрыСоединения</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисСоответствие</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисПеременные</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисПредопределенные</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">00141f66-9acd-4489-9e1a-c44bb44f7a2e</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">2b92c7b9-5cc9-443e-9f16-06b245cbb1d9</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">64e6ff87-57cf-49d7-a658-4fa591aa864a</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">4d40e4e8-bef3-49db-b4ef-1ff32af19d53</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">SessionParameter.ВетисПеременные</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисОператор</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисОсновнойХС</xr:Item>
@@ -118,7 +118,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисПредприятия</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисTransport</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисProductMarkingClass</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисXSD</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">8045383f-c55d-4f10-b71f-a02516adce94</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисНастройки</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисResearchResult</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисXSD</xr:Item>
@@ -161,6 +161,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисLocality</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисСервис</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисСервис</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.Ветис</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисВызовСервера</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

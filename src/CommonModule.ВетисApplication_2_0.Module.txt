@@ -4,8 +4,8 @@
 	
 	_Объект = Создать("Application");
 	
-	_Объект.serviceId = ВетисПараметрыСоединения.serviceId();
-	_Объект.issuerId  = ВетисПараметрыСоединения.issuerId();
+	_Объект.serviceId = Ветис.serviceId();
+	_Объект.issuerId  = Ветис.issuerId();
 	_Объект.issueDate = ВетисОбщегоНазначения.ВремяВетис();
 	_Объект.data      = ApplicationDataWrapper(пОбъект, пИмя);
 	
@@ -51,7 +51,7 @@
 	
 	_Объект = Создать("submitApplicationRequest", ServiceURI());
 	
-	_Объект.apiKey      = ВетисПараметрыСоединения.apiKey();
+	_Объект.apiKey      = Ветис.apiKey();
 	_Объект.application = пApplication;
 	
 	Возврат _Объект;
@@ -70,8 +70,8 @@
 	
 	_Объект = Создать("receiveApplicationResultRequest", ServiceURI());
 	
-	_Объект.apiKey        = ВетисПараметрыСоединения.apiKey();
-	_Объект.issuerId      = ВетисПараметрыСоединения.issuerId();
+	_Объект.apiKey        = Ветис.apiKey();
+	_Объект.issuerId      = Ветис.issuerId();
 	_Объект.applicationId = applicationId;
 	
 	Возврат _Объект;
@@ -114,7 +114,7 @@
 
 Функция Фабрика()
 	
-	Возврат ВетисXSD.Определения("ApplicationManagementService").ФабрикаXDTO;
+	Возврат Ветис.Определения("ApplicationManagementService").ФабрикаXDTO;
 	
 КонецФункции
 

@@ -506,9 +506,6 @@
 									</InputHint>
 									<ContextMenu name="ОтборGuidКонтекстноеМеню" id="143"/>
 									<ExtendedTooltip name="ОтборGuidРасширеннаяПодсказка" id="144"/>
-									<Events>
-										<Event name="OnChange">guidПриИзменении</Event>
-									</Events>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>

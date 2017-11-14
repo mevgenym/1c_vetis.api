@@ -138,6 +138,7 @@
 			<Role>ВетисОператор</Role>
 			<Role>ВетисПользователь</Role>
 			<Role>ВетисПолныеПрава</Role>
+			<CommonModule>Ветис</CommonModule>
 			<CommonModule>ВетисApplication</CommonModule>
 			<CommonModule>ВетисApplication_2_0</CommonModule>
 			<CommonModule>ВетисArgusCommon</CommonModule>
@@ -171,18 +172,13 @@
 			<CommonModule>ВетисProductService_2_0</CommonModule>
 			<CommonModule>ВетисRegionalizationService_2_0</CommonModule>
 			<CommonModule>ВетисSoapEnvelope</CommonModule>
-			<CommonModule>ВетисXSD</CommonModule>
-			<CommonModule>ВетисЖурнал</CommonModule>
+			<CommonModule>ВетисВызовСервера</CommonModule>
 			<CommonModule>ВетисИмяСправочника</CommonModule>
 			<CommonModule>ВетисКонстанты</CommonModule>
 			<CommonModule>ВетисОбщегоНазначения</CommonModule>
 			<CommonModule>ВетисОбщегоНазначенияКлиентСервер</CommonModule>
-			<CommonModule>ВетисПараметрыСоединения</CommonModule>
-			<CommonModule>ВетисПеременные</CommonModule>
-			<CommonModule>ВетисПредопределенные</CommonModule>
-			<CommonModule>ВетисХозяйственныеОперации</CommonModule>
-			<CommonModule>ВетисСоответствие</CommonModule>
 			<CommonModule>ВетисФормы</CommonModule>
+			<CommonModule>ВетисХозяйственныеОперации</CommonModule>
 			<CommonModule>Пользователи</CommonModule>
 			<DefinedType>ВетисAddress</DefinedType>
 			<DefinedType>ВетисBusinessEntity</DefinedType>

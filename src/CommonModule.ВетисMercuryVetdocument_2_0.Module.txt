@@ -233,7 +233,7 @@
 	_Объект = Создать("DeliveryInspection");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, result, "result");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ?(responsible = Неопределено, ВетисMercuryVetdocument_2_0.User(ВетисПараметрыСоединения.ЛогинХС()), responsible), "responsible");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ?(responsible = Неопределено, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), responsible), "responsible");
 	
 	Возврат _Объект;
 	

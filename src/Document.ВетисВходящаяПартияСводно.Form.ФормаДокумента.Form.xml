@@ -616,21 +616,6 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="ЗаполнитьВозвратный" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить возвратный</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ЗаполнитьВозвратный</Action>
-		</Command>
 		<Command name="Отправить" id="2">
 			<Title>
 				<v8:item>

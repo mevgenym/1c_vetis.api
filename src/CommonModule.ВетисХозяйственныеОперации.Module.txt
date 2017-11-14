@@ -296,8 +296,6 @@
 		_мз.volume      = _stockEntry.batch.volume;
 		
 		Если _Версия20 Тогда
-			//_мз.PackingForm = ?(_stockEntry.batch.productItem.packaging = Неопределено, "", _stockEntry.batch.productItem.packaging.packagingType.guid);
-			//_мз.packingAmount = ?(_stockEntry.batch.productItem.packaging = Неопределено, 0, _stockEntry.batch.productItem.packaging.quantity);
 			_package = ВетисDictionaryСлой1с.PackageList(_stockEntry.batch.packageList);
 			_мз.PackingForm   = _package.packingType.guid;
 			_мз.packingAmount = _package.quantity;

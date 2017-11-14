@@ -530,8 +530,7 @@
 			КонецЕсли;
 			
 			Если _productСоответствие.Получить(_productItem.product.guid) = Неопределено Тогда
-				//здесь, видимо, тоже самое
-				_item = ВетисProductService_2_0.GetProductByGuid(_productItem.product.guid,,Ложь);
+				_item = ВетисProductService_2_0.GetProductByGuid(_productItem.product.guid);
 				Если _item = Неопределено Тогда
 					_productСоответствие.Вставить(_productItem.product.guid, "");
 				Иначе

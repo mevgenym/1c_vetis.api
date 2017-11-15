@@ -637,7 +637,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда отправить</v8:content>
+					<v8:content>Оформить</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОтправить</Action>
@@ -652,7 +652,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда подобрать ВСД</v8:content>
+					<v8:content>Подобрать ВСД по отправителю и получателю</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаПодобратьВСД</Action>
@@ -667,7 +667,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда заполнить по документу</v8:content>
+					<v8:content>Заполнить по документу</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнитьПоДокументу</Action>

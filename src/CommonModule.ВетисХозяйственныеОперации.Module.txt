@@ -234,7 +234,7 @@
 			И _Строка.Статус    = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_VetDocument.status)
 			И (_Строка.СерияВСД = _VetDocument.issueSeries ИЛИ _VetDocument.issueSeries = Неопределено)
 			И _Строка.НомерВСД  = _VetDocument.issueNumber
-			И _Строка.ДатаВСД   = ВетисОбщегоНазначения.ВремяБД(_VetDocument.issueDate)
+			И _Строка.ДатаВСД   = Ветис.ВремяБД(_VetDocument.issueDate)
 			Тогда
 			//считаем что ничего не изменилось
 			пВетки.Удалить(_Строка);
@@ -284,8 +284,8 @@
 		_мз._active = _stockEntry.active;
 		_мз.entryNumber = _stockEntry.entryNumber;
 		
-		_мз.createDate = ВетисОбщегоНазначения.ВремяБД(_stockEntry.createDate);
-		_мз.updateDate = ВетисОбщегоНазначения.ВремяБД(_stockEntry.updateDate);
+		_мз.createDate = Ветис.ВремяБД(_stockEntry.createDate);
+		_мз.updateDate = Ветис.ВремяБД(_stockEntry.updateDate);
 		
 		_мз.ProductType = _stockEntry.batch.productType;
 		_мз.Product     = _stockEntry.batch.product.guid;

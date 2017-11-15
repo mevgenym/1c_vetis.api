@@ -1417,6 +1417,25 @@
 		</right>
 	</object>
 	<object>
+		<name>Constant.ВетисНастройки</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>CommonCommand.ВетисDistrict</name>
 		<right>
 			<name>View</name>
@@ -1424,7 +1443,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Constant.ВетисТестовый</name>
+		<name>Constant.ВетисТестовыйУдалить</name>
 		<right>
 			<name>Read</name>
 			<value>true</value>

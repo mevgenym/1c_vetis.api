@@ -227,9 +227,10 @@
 			<CommandGroup>ВетисСправочники</CommandGroup>
 			<CommandGroup>ВетисСервис</CommandGroup>
 			<Constant>ВетисВерсия</Constant>
+			<Constant>ВетисНастройки</Constant>
 			<Constant>ВетисОсновнойХС</Constant>
-			<Constant>ВетисТестовый</Constant>
 			<Constant>ВетисСервис</Constant>
+			<Constant>ВетисТестовыйУдалить</Constant>
 			<CommonForm>ВетисXSD</CommonForm>
 			<CommonForm>ВетисНастройки</CommonForm>
 			<CommonForm>ВетисРабочийСтол</CommonForm>

@@ -874,6 +874,7 @@
 				</InputField>
 				<CheckBoxField name="Отладка" id="245">
 					<DataPath>Отладка</DataPath>
+					<Visible>false</Visible>
 					<CheckBoxType>Auto</CheckBoxType>
 					<ContextMenu name="ОтладкаКонтекстноеМеню" id="246"/>
 					<ExtendedTooltip name="ОтладкаРасширеннаяПодсказка" id="247"/>

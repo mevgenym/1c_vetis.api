@@ -899,7 +899,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Constant.ВетисТестовый</name>
+		<name>Constant.ВетисТестовыйУдалить</name>
 		<right>
 			<name>Read</name>
 			<value>true</value>

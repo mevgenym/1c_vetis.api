@@ -176,7 +176,7 @@
 	
 	_Объект = Создать("Delivery");
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисОбщегоНазначения.ВремяВетис(), "deliveryDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяВетис(), "deliveryDate");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, accompanyingForms, "accompanyingForms");
@@ -255,7 +255,7 @@
 	
 	_Объект.issueSeries = issueSeries;
 	_Объект.issueNumber = issueNumber;
-	_Объект.issueDate   = ВетисОбщегоНазначения.ВремяВетис(issueDate);
+	_Объект.issueDate   = Ветис.ВремяВетис(issueDate);
 	_Объект.reason      = DiscrepancyReason(reason);
 	_Объект.description = description;
 	

@@ -6,7 +6,7 @@
 	
 	_Объект.serviceId = Ветис.serviceId();
 	_Объект.issuerId  = Ветис.issuerId();
-	_Объект.issueDate = ВетисОбщегоНазначения.ВремяВетис();
+	_Объект.issueDate = Ветис.ВремяВетис();
 	_Объект.data      = ApplicationDataWrapper(пОбъект, пИмя);
 	
 	Возврат _Объект;

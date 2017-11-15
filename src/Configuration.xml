@@ -266,6 +266,7 @@
 			<Enum>ВетисResearchResult</Enum>
 			<Enum>ВетисTransportStorageType</Enum>
 			<Enum>ВетисTransportType</Enum>
+			<Enum>ВетисUserAuthority</Enum>
 			<Enum>ВетисVersionStatus</Enum>
 			<Enum>ВетисVetDocumentForm</Enum>
 			<Enum>ВетисVetDocumentStatus</Enum>

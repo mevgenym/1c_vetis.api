@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Enum uuid="223179c8-3a72-4c9a-aa0f-ea6117efc693">
+		<InternalInfo>
+			<xr:GeneratedType name="EnumRef.ВетисUserAuthority" category="Ref">
+				<xr:TypeId>ee58612d-f6a0-4632-8355-a7ab61ac7f81</xr:TypeId>
+				<xr:ValueId>e018cc4d-dba2-4c5b-b935-3dc95e39be87</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumManager.ВетисUserAuthority" category="Manager">
+				<xr:TypeId>2ae4df47-48e1-48d4-825e-6726041e6e34</xr:TypeId>
+				<xr:ValueId>684ea5c8-06a5-4440-a310-1885c9cea250</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumList.ВетисUserAuthority" category="List">
+				<xr:TypeId>449f89a2-d995-4e8e-800d-5901e7e01679</xr:TypeId>
+				<xr:ValueId>83d18b9c-0ce7-4a10-9b98-c3106d475035</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ВетисUserAuthority</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>UserAuthority (ветис)</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<Characteristics/>
+			<QuickChoice>true</QuickChoice>
+			<ChoiceMode>BothWays</ChoiceMode>
+			<DefaultListForm/>
+			<DefaultChoiceForm/>
+			<AuxiliaryListForm/>
+			<AuxiliaryChoiceForm/>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+			<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+		</Properties>
+		<ChildObjects>
+			<EnumValue uuid="0db1de38-6ed0-4dee-b717-7ffe4c03fec4">
+				<Properties>
+					<Name>MERCURY_ACCESS_WEB_READ</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступ к веб-интерфейсу ИС Меркурий только на чтение</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="1911cfe0-3e54-48cd-9ace-73228cdeb00b">
+				<Properties>
+					<Name>MERCURY_ACCESS_WEB_WRITE</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступ к веб-интерфейсу ИС Меркурий на выполнение операций</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="a0103328-7761-48b5-a76c-f1975c93c746">
+				<Properties>
+					<Name>ARGUS_HS_AUTHORIZED_APPLICANT</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Авторизованный заявитель в системе Аргус</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="db53ea1f-3ce9-48b9-b114-c0d006b8a2ea">
+				<Properties>
+					<Name>MERCURY_ACCESS_API_READ</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступ к ИС Меркурий через Ветис.API только на чтение</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="6635eabe-1e41-45dd-9888-f9f38852d50f">
+				<Properties>
+					<Name>MERCURY_CONTROL_WORKING_AREA</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Управление зонами ответственности пользователей</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="ebc15cf5-218e-4d2f-8cb2-7b6f725deaf1">
+				<Properties>
+					<Name>MERCURY_ACCESS_API_WRITE</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступ к ИС Меркурий через Ветис.API на выполнение операций</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="ade507d1-aca4-4b29-859e-4d08f62675f8">
+				<Properties>
+					<Name>MERCURY_CERTIFICATE_ACCEPTANCE</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Гашение ВСД</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="25584aff-0f85-4957-a369-a0d2126ca9b6">
+				<Properties>
+					<Name>MERCURY_AUTHORIZED_CERTIFICATE_ACCEPTANCE</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уполномоченное гашение ВСД</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="5344252a-f7ce-4157-9bf5-6b7df9d40c4d">
+				<Properties>
+					<Name>MERCURY_AUTHORIZED_RETURNED_CERTIFICATE_CREATION</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уполномоченное оформление возвратных ВСД</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="87573a68-3d04-45c1-910b-9b71615c5d80">
+				<Properties>
+					<Name>MERCURY_HS_FISH_CERTIFICATE</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сертификация уловов ВБР</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="442fe3b3-e8fc-44bc-8f50-50105dafe799">
+				<Properties>
+					<Name>MERCURY_PRODUCTION_BATCH_CERTIFICATE</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оформление ВСД на производственную партию</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="d57009f9-973c-4e2b-b7a5-97363c967154">
+				<Properties>
+					<Name>MERCURY_HS_FRESH_MILK_CERTIFICATE</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оформление ВСД на сырое молоко (при наличии справки о безопасности сырого молока)</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="53715466-18de-479d-a19b-e44637a5e7f7">
+				<Properties>
+					<Name>MERCURY_HS_AUTHORIZED_APPLICANT</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Авторизованный заявитель в системе Меркурий</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="23540d61-81f5-4a77-88b0-b1c519e68628">
+				<Properties>
+					<Name>MERCURY_RETURNED_CERTIFICATE_CREATION</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оформление возвратных ВСД</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+		</ChildObjects>
+	</Enum>
+</MetaDataObject>

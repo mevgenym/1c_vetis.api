@@ -363,6 +363,38 @@
 	
 КонецФункции
 
+
+Функция UpdateVeterinaryEventsRequest(enterprise, stockEntry) Экспорт
+	
+	_Объект = Создать("UpdateVeterinaryEventsRequest");
+	
+	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
+	_Объект.enterprise         = enterprise;
+	_Объект.stockEntry         = stockEntry;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция UpdateVeterinaryEventsResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.UpdateVeterinaryEventsResponse, "UpdateVeterinaryEventsResponse", URI()).stockEntry;
+	
+КонецФункции
+
+Функция UpdateVeterinaryEvents(enterprise, stockEntry, issuerId = Неопределено, Отказ = Ложь) Экспорт
+	
+	_Request = UpdateVeterinaryEventsRequest(enterprise, stockEntry);
+	
+	_Response = Прокси("updateVeterinaryEventsRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат UpdateVeterinaryEventsResponse(_Response);
+	
+КонецФункции
+
 #КонецОбласти
 
 #Область MergeOperation
@@ -400,24 +432,12 @@
 	
 	_Объект = Создать("ProcessIncomingConsignmentRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.delivery           = delivery;
-	_Объект.deliveryFacts      = deliveryFacts;
-	
-	Если НЕ discrepancyReport = Неопределено Тогда
-		Если ТипЗнч(discrepancyReport) = Тип("Массив") Тогда
-			Для каждого _discrepancyReport Из discrepancyReport Цикл
-				_Объект.discrepancyReport.Добавить(_discrepancyReport);
-			КонецЦикла;
-		Иначе
-			_Объект.discrepancyReport.Добавить(discrepancyReport);
-		КонецЕсли;
-	КонецЕсли;
-	
-	Если НЕ returnedDelivery = Неопределено Тогда
-		_Объект.returnedDelivery = returnedDelivery;
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, delivery, "delivery");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, deliveryFacts, "deliveryFacts");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, discrepancyReport, "discrepancyReport");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, returnedDelivery, "returnedDelivery");
 	
 	Возврат _Объект;
 	
@@ -459,9 +479,9 @@
 	
 	_Объект = Создать("PrepareOutgoingConsignmentRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.delivery           = delivery;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, delivery, "delivery");
 	
 	Возврат _Объект;
 	
@@ -469,7 +489,7 @@
 
 Функция PrepareOutgoingConsignmentResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.PrepareOutgoingConsignmentResponse, "PrepareOutgoingConsignmentResponse", URI());
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.PrepareOutgoingConsignmentResponse, "PrepareOutgoingConsignmentResponse", URI()).stockEntry;
 	
 КонецФункции
 
@@ -482,6 +502,44 @@
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
 	Возврат PrepareOutgoingConsignmentResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область RegisterProductionOperation
+
+// Операция предназначена для оформления транспортной партии.
+// Параметры:
+//  delivery - vetd:Delivery - Сведения для оформления транспортного ВСД
+Функция RegisterProductionRequest(productionOperation, vetDocument) Экспорт
+	
+	_Объект = Создать("RegisterProductionRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, productionOperation, "productionOperation");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocument, "vetDocument");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция RegisterProductionResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.RegisterProductionResponse, "RegisterProductionResponse", URI()).stockEntryList;
+	
+КонецФункции
+
+Функция RegisterProduction(productionOperation, vetDocument, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = RegisterProductionRequest(productionOperation, vetDocument);
+	
+	_Response = Прокси("registerProductionRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат RegisterProductionResponse(_Response);
 	
 КонецФункции
 
@@ -501,13 +559,13 @@
 	
 	_Объект = Создать("ResolveDiscrepancyRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.enterprise         = enterprise;
-	_Объект.inventoryDate      = Ветис.ВремяВетис(inventoryDate);
-	_Объект.responsible        = responsible;
-	_Объект.stockDiscrepancy   = stockDiscrepancy;
-	_Объект.discrepancyReport  = discrepancyReport;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяВетис(inventoryDate), "inventoryDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, stockDiscrepancy, "stockDiscrepancy");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, discrepancyReport, "discrepancyReport");
 	
 	Возврат _Объект;
 	
@@ -589,6 +647,7 @@
 КонецФункции
 
 #КонецОбласти
+
 
 #Область ModifyBusinessEntityOperation
 
@@ -701,6 +760,375 @@
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
 	Возврат ModifyActivityLocationsResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+
+#Область UpdateTransportMovementDetails
+
+Функция UpdateTransportMovementDetailsRequest(deliveryParticipant, vetDocumentUuid, shipmentRoute) Экспорт
+	
+	_Объект = Создать("UpdateTransportMovementDetailsRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
+	_Объект.deliveryParticipant   = deliveryParticipant;
+	_Объект.vetDocumentUuid       = vetDocumentUuid;
+	_Объект.shipmentRoute         = shipmentRoute;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция UpdateTransportMovementDetailsResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.UpdateTransportMovementDetailsResponse, "UpdateTransportMovementDetailsResponse", URI()).vetDocument;
+	
+КонецФункции
+
+Функция UpdateTransportMovementDetails(deliveryParticipant, vetDocumentUuid, shipmentRoute, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = UpdateTransportMovementDetailsRequest(deliveryParticipant, vetDocumentUuid, shipmentRoute);
+	
+	_Response = Прокси("updateTransportMovementDetailsRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат UpdateTransportMovementDetailsResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область CheckShipmentRegionalization
+
+Функция CheckShipmentRegionalizationRequest(cargoType, shipmentRoute) Экспорт
+	
+	_Объект = Создать("CheckShipmentRegionalizationRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
+	_Объект.cargoType             = cargoType;
+	_Объект.shipmentRoute         = shipmentRoute;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция CheckShipmentRegionalizationResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.CheckShipmentRegionalizationResponse, "CheckShipmentRegionalizationResponse", URI()).r13nRouteSection;
+	
+КонецФункции
+
+Функция CheckShipmentRegionalization(cargoType, shipmentRoute, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = CheckShipmentRegionalizationRequest(cargoType, shipmentRoute);
+	
+	_Response = Прокси("сheckShipmentRegionalizationRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат CheckShipmentRegionalizationResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+
+#Область AddBusinessEntityUser
+
+Функция AddBusinessEntityUserRequest(user) Экспорт
+	
+	_Объект = Создать("AddBusinessEntityUserRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
+	_Объект.user                  = user;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция AddBusinessEntityUserResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.AddBusinessEntityUserResponse, "AddBusinessEntityUserResponse", URI()).user;
+	
+КонецФункции
+
+Функция AddBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = AddBusinessEntityUserRequest(user);
+	
+	_Response = Прокси("addBusinessEntityUserRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат AddBusinessEntityUserResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область GetBusinessEntityUser
+
+Функция GetBusinessEntityUserRequest(user) Экспорт
+	
+	_Объект = Создать("GetBusinessEntityUserRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
+	_Объект.user                  = user;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetBusinessEntityUserResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetBusinessEntityUserResponse, "GetBusinessEntityUserResponse", URI()).user;
+	
+КонецФункции
+
+Функция GetBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = GetBusinessEntityUserRequest(user);
+	
+	_Response = Прокси("getBusinessEntityUserRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат GetBusinessEntityUserResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область GetBusinessEntityUserList
+
+Функция GetBusinessEntityUserListRequest() Экспорт
+	
+	_Объект = Создать("GetBusinessEntityUserListRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
+	_Объект.listOptions           = ВетисBase_2_0.ListOptions();
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetBusinessEntityUserListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetBusinessEntityUserListResponse, "GetBusinessEntityUserListResponse", URI()).userList;
+	
+КонецФункции
+
+Функция GetBusinessEntityUserListСледующий(issuerId = Неопределено, пItem, пПараметры) Экспорт
+	
+	Если пПараметры = Неопределено Тогда
+		пПараметры = Новый Структура;
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", GetBusinessEntityUserListRequest());
+		пПараметры.Вставить("Отладка", Ветис.РазрешенаОтладка());
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.user[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = Прокси("getBusinessEntityUserListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
+	
+	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
+	
+	_ListResponse = GetBusinessEntityUserListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.user[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область UpdateUserAuthorities
+
+Функция UpdateUserAuthoritiesRequest(user) Экспорт
+	
+	_Объект = Создать("UpdateUserAuthoritiesRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
+	_Объект.user                  = user;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция UpdateUserAuthoritiesResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.UpdateUserAuthoritiesResponse, "UpdateUserAuthoritiesResponse", URI()).user;
+	
+КонецФункции
+
+Функция UpdateUserAuthorities(user, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = UpdateUserAuthoritiesRequest(user);
+	
+	_Response = Прокси("updateUserAuthoritiesRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат UpdateUserAuthoritiesResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область UpdateUserWorkingAreas
+
+Функция UpdateUserWorkingAreasRequest(user) Экспорт
+	
+	_Объект = Создать("UpdateUserWorkingAreasRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
+	_Объект.user                  = user;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция UpdateUserWorkingAreasResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.UpdateUserWorkingAreasResponse, "UpdateUserWorkingAreasResponse", URI()).user;
+	
+КонецФункции
+
+Функция UpdateUserWorkingAreas(user, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = UpdateUserWorkingAreasRequest(user);
+	
+	_Response = Прокси("updateUserWorkingAreasRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат UpdateUserWorkingAreasResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область UnbindBusinessEntityUser
+
+Функция UnbindBusinessEntityUserRequest(user) Экспорт
+	
+	_Объект = Создать("UnbindBusinessEntityUserRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
+	_Объект.user                  = user;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция UnbindBusinessEntityUserResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.UnbindBusinessEntityUserResponse, "UnbindBusinessEntityUserResponse", URI()).user;
+	
+КонецФункции
+
+Функция UnbindBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+	
+	_Request = UnbindBusinessEntityUserRequest(user);
+	
+	_Response = Прокси("unbindBusinessEntityUserRequest", _Request, issuerId, Ложь);
+	
+	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	
+	Возврат UnbindBusinessEntityUserResponse(_Response);
+	
+КонецФункции
+
+#КонецОбласти
+
+#Область GetApplicableUserAuthorityList
+
+Функция GetApplicableUserAuthorityListRequest() Экспорт
+	
+	_Объект = Создать("GetApplicableUserAuthorityListRequest");
+	
+	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
+	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
+	_Объект.listOptions           = ВетисBase_2_0.ListOptions();
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetApplicableUserAuthorityListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetApplicableUserAuthorityListResponse, "GetApplicableUserAuthorityListResponse", URI()).authorityList;
+	
+КонецФункции
+
+Функция GetApplicableUserAuthorityListСледующий(issuerId = Неопределено, пItem, пПараметры) Экспорт
+	
+	Если пПараметры = Неопределено Тогда
+		пПараметры = Новый Структура;
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", GetApplicableUserAuthorityListRequest());
+		пПараметры.Вставить("Отладка", Ветис.РазрешенаОтладка());
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.authority[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = Прокси("getApplicableUserAuthorityListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
+	
+	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
+	
+	_ListResponse = GetApplicableUserAuthorityListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.authority[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
 	
 КонецФункции
 

@@ -158,6 +158,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.Ветис</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисВызовСервера</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисНастройки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисUserAuthority</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

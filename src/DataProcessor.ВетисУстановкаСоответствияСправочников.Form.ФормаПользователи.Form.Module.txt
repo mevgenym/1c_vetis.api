@@ -16,15 +16,21 @@
 	//APLM0002 - Unsupported application data format
 	_параметры = Неопределено;
 	Пока ВетисMercuryApplications_2_0.GetBusinessEntityUserListСледующий(_issuerId, _user, _параметры) Цикл
-		
+		//
 	КонецЦикла;
 	
 	//2017-11-16
-	//этой нет в тестовых xsd, только в рабочих
+	//APLM0002 - Unsupported application data format
 	_параметры = Неопределено;
-	Пока ВетисMercuryApplications_2_0.GetApplicableUserAuthorityListСледующий(_issuerId, _user, _параметры) Цикл
-		
-	КонецЦикла;
+	Если Ветис.Тестовый() Тогда
+		Пока ВетисMercuryApplications_2_0.GetAppliedUserAuthorityListСледующий(_issuerId, _user, _параметры) Цикл
+			//
+		КонецЦикла;
+	Иначе
+		Пока ВетисMercuryApplications_2_0.GetApplicableUserAuthorityListСледующий(_issuerId, _user, _параметры) Цикл
+			//
+		КонецЦикла;
+	КонецЕсли;
 	
 КонецПроцедуры
 

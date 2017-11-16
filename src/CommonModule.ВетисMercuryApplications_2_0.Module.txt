@@ -1151,6 +1151,66 @@
 	
 КонецФункции
 
+//только для тестовых xsd (2017-11-16)
+Функция GetAppliedUserAuthorityListRequest() Экспорт
+	
+	_Объект = Создать("GetAppliedUserAuthorityListRequest");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция GetAppliedUserAuthorityListResponse(пResponse) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.GetAppliedUserAuthorityListResponse, "GetAppliedUserAuthorityListResponse", URI()).authorityList;
+	
+КонецФункции
+
+Функция GetAppliedUserAuthorityListСледующий(issuerId = Неопределено, пItem, пПараметры) Экспорт
+	
+	Если пПараметры = Неопределено Тогда
+		пПараметры = Новый Структура;
+		пПараметры.Вставить("Индекс", 0);
+		пПараметры.Вставить("ListRequest", GetAppliedUserAuthorityListRequest());
+		пПараметры.Вставить("Отладка", Ветис.РазрешенаОтладка());
+	Иначе
+		пПараметры.Индекс = пПараметры.Индекс + 1;
+		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+			Если пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count >= Число(пПараметры.ListResponse.Total) Тогда
+				Возврат Ложь;
+			Иначе
+				пПараметры.ListRequest.ListOptions.offset = пПараметры.ListRequest.ListOptions.offset + пПараметры.ListRequest.ListOptions.count;
+				пПараметры.Индекс = 0;
+			КонецЕсли;
+		Иначе
+			пItem = пПараметры.ListResponse.authority[пПараметры.Индекс];
+			Возврат Истина;
+		КонецЕсли;
+	КонецЕсли;
+	
+	_Response = Прокси("getAppliedUserAuthorityListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
+	
+	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
+	
+	_ListResponse = GetAppliedUserAuthorityListResponse(_Response);
+	
+	пПараметры.Вставить("ListResponse", _ListResponse);
+	
+	Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
+		Возврат Ложь;
+	Иначе
+		пItem = пПараметры.ListResponse.authority[пПараметры.Индекс];
+		Возврат Истина;
+	КонецЕсли;
+	
+	Возврат Истина;
+	
+КонецФункции
+
 #КонецОбласти
 
 

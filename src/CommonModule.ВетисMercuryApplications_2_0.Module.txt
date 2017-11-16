@@ -6,10 +6,10 @@
 	
 	_Объект = Создать("GetStockEntryByGuidRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.GUID               = guid;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "guid");
 	
 	Возврат _Объект;
 	
@@ -42,10 +42,10 @@
 	
 	_Объект = Создать("GetStockEntryListRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.listOptions        = ВетисBase.ListOptions();
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -112,11 +112,11 @@
 	
 	_Объект = Создать("GetStockEntryChangesListRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.updateDateInterval = ВетисBase_2_0.DateInterval(beginDate, endDate);
-	_Объект.listOptions        = ВетисBase_2_0.ListOptions();
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.DateInterval(beginDate, endDate), "updateDateInterval");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -181,10 +181,10 @@
 	
 	_Объект = Создать("GetVetDocumentByUuidRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.uuid               = vetDocumentUuid;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentUuid, "uuid");
 	
 	Возврат _Объект;
 	
@@ -218,18 +218,12 @@
 	
 	_Объект = Создать("GetVetDocumentListRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.listOptions        = ВетисBase_2_0.ListOptions();
-	
-	Если НЕ vetDocumentType = Неопределено Тогда
-		_Объект.vetDocumentType = vetDocumentType;
-	КонецЕсли;
-	
-	Если НЕ vetDocumentStatus = Неопределено Тогда
-		_Объект.vetDocumentStatus = vetDocumentStatus;
-	КонецЕсли;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentType, "vetDocumentType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentStatus, "vetDocumentStatus");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -306,11 +300,11 @@
 	
 	_Объект = Создать("GetVetDocumentChangesListRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.enterpriseGuid     = enterpriseGuid;
-	_Объект.updateDateInterval = ВетисBase_2_0.DateInterval(beginDate, endDate);
-	_Объект.listOptions        = ВетисBase_2_0.ListOptions();
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.DateInterval(beginDate, endDate), "updateDateInterval");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -368,10 +362,10 @@
 	
 	_Объект = Создать("UpdateVeterinaryEventsRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.enterprise         = enterprise;
-	_Объект.stockEntry         = stockEntry;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, stockEntry, "stockEntry");
 	
 	Возврат _Объект;
 	
@@ -403,10 +397,10 @@
 	
 	_Объект = Создать("MergeStockEntriesRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.enterprise         = enterprise;
-	_Объект.mergeOperation     = mergeOperation;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, mergeOperation, "mergeOperation");
 	
 	Возврат _Объект;
 	
@@ -433,7 +427,7 @@
 	_Объект = Создать("ProcessIncomingConsignmentRequest");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, delivery, "delivery");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, deliveryFacts, "deliveryFacts");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, discrepancyReport, "discrepancyReport");
@@ -480,7 +474,7 @@
 	_Объект = Создать("PrepareOutgoingConsignmentRequest");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, delivery, "delivery");
 	
 	Возврат _Объект;
@@ -509,15 +503,15 @@
 
 #Область RegisterProductionOperation
 
-// Операция предназначена для оформления транспортной партии.
+// Операция предназначена для оформления производственной партии.
 // Параметры:
-//  delivery - vetd:Delivery - Сведения для оформления транспортного ВСД
-Функция RegisterProductionRequest(productionOperation, vetDocument) Экспорт
+Функция RegisterProductionOperationRequest(enterprise, productionOperation, vetDocument) Экспорт
 	
-	_Объект = Создать("RegisterProductionRequest");
+	_Объект = Создать("RegisterProductionOperationRequest");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, productionOperation, "productionOperation");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocument, "vetDocument");
 	
@@ -525,21 +519,21 @@
 	
 КонецФункции
 
-Функция RegisterProductionResponse(пResponse) Экспорт
+Функция RegisterProductionOperationResponse(пResponse) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.RegisterProductionResponse, "RegisterProductionResponse", URI()).stockEntryList;
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.RegisterProductionOperationResponse, "RegisterProductionOperationResponse", URI()).stockEntryList;
 	
 КонецФункции
 
-Функция RegisterProduction(productionOperation, vetDocument, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция RegisterProductionOperation(enterprise, productionOperation, vetDocument, issuerId = Неопределено, пОтказ = Ложь) Экспорт
 	
-	_Request = RegisterProductionRequest(productionOperation, vetDocument);
+	_Request = RegisterProductionOperationRequest(enterprise, productionOperation, vetDocument);
 	
-	_Response = Прокси("registerProductionRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("registerProductionOperationRequest", _Request, issuerId, Ложь);
 	
 	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
 	
-	Возврат RegisterProductionResponse(_Response);
+	Возврат RegisterProductionOperationResponse(_Response);
 	
 КонецФункции
 
@@ -560,7 +554,7 @@
 	_Объект = Создать("ResolveDiscrepancyRequest");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяВетис(inventoryDate), "inventoryDate");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible");
@@ -616,12 +610,12 @@
 	
 	_Объект = Создать("WithdrawVetDocumentRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.vetDocumentId      = vetDocumentId;
-	_Объект.withdrawReason     = withdrawReason;
-	_Объект.withdrawDate       = Ветис.ВремяВетис(withdrawDate);
-	_Объект.specifiedPerson    = specifiedPerson;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentId, "vetDocumentId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, withdrawReason, "withdrawReason");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяВетис(withdrawDate), "withdrawDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, specifiedPerson, "specifiedPerson");
 	
 	Возврат _Объект;
 	
@@ -659,9 +653,9 @@
 	
 	_Объект = Создать("ModifyBusinessEntityRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.modificationOperation = modificationOperation;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, modificationOperation, "modificationOperation");
 	
 	Возврат _Объект;
 	
@@ -698,9 +692,9 @@
 	
 	_Объект = Создать("ModifyEnterpriseRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.modificationOperation = modificationOperation;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, modificationOperation, "modificationOperation");
 	
 	Возврат _Объект;
 	
@@ -736,9 +730,9 @@
 	
 	_Объект = Создать("ModifyActivityLocationsRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.modificationOperation = modificationOperation;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, modificationOperation, "modificationOperation");
 	
 	Возврат _Объект;
 	
@@ -772,11 +766,11 @@
 	
 	_Объект = Создать("UpdateTransportMovementDetailsRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.deliveryParticipant   = deliveryParticipant;
-	_Объект.vetDocumentUuid       = vetDocumentUuid;
-	_Объект.shipmentRoute         = shipmentRoute;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, deliveryParticipant, "deliveryParticipant");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentUuid, "vetDocumentUuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shipmentRoute, "shipmentRoute");
 	
 	Возврат _Объект;
 	
@@ -808,10 +802,10 @@
 	
 	_Объект = Создать("CheckShipmentRegionalizationRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.cargoType             = cargoType;
-	_Объект.shipmentRoute         = shipmentRoute;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, cargoType, "cargoType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, shipmentRoute, "shipmentRoute");
 	
 	Возврат _Объект;
 	
@@ -844,9 +838,9 @@
 	
 	_Объект = Создать("AddBusinessEntityUserRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.user                  = user;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "user");
 	
 	Возврат _Объект;
 	
@@ -878,9 +872,9 @@
 	
 	_Объект = Создать("GetBusinessEntityUserRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.user                  = user;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "user");
 	
 	Возврат _Объект;
 	
@@ -912,9 +906,9 @@
 	
 	_Объект = Создать("GetBusinessEntityUserListRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.listOptions           = ВетисBase_2_0.ListOptions();
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -975,9 +969,9 @@
 	
 	_Объект = Создать("UpdateUserAuthoritiesRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.user                  = user;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "user");
 	
 	Возврат _Объект;
 	
@@ -1009,9 +1003,9 @@
 	
 	_Объект = Создать("UpdateUserWorkingAreasRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.user                  = user;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "user");
 	
 	Возврат _Объект;
 	
@@ -1043,9 +1037,9 @@
 	
 	_Объект = Создать("UnbindBusinessEntityUserRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.user                  = user;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "user");
 	
 	Возврат _Объект;
 	
@@ -1077,9 +1071,9 @@
 	
 	_Объект = Создать("GetApplicableUserAuthorityListRequest");
 	
-	_Объект.localTransactionId    = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator             = ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС());
-	_Объект.listOptions           = ВетисBase_2_0.ListOptions();
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	

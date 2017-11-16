@@ -23,7 +23,7 @@
 			<Type>
 				<v8:Type>v8:ValueStorage</v8:Type>
 			</Type>
-			<UseStandardCommands>true</UseStandardCommands>
+			<UseStandardCommands>false</UseStandardCommands>
 			<DefaultForm/>
 			<ExtendedPresentation/>
 			<Explanation/>

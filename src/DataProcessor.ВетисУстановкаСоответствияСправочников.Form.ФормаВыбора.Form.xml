@@ -33,6 +33,11 @@
 			<CommandName>Form.Command.Страны</CommandName>
 			<ExtendedTooltip name="СтраныРасширеннаяПодсказка" id="4"/>
 		</Button>
+		<Button name="Пользователи" id="23">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.Пользователи</CommandName>
+			<ExtendedTooltip name="ПользователиРасширеннаяПодсказка" id="24"/>
+		</Button>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -132,6 +137,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НоменклатурныеГруппы</Action>
+		</Command>
+		<Command name="Пользователи" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользователи</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользователи</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Пользователи</Action>
 		</Command>
 	</Commands>
 </Form>

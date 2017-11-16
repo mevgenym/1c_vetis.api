@@ -547,6 +547,7 @@
 	_СписокВетисСтрока.name = пEnterprise.name;
 	_СписокВетисСтрока.type = пEnterprise.type;
 	_СписокВетисСтрока.owner = ?(пEnterprise.owner = Неопределено, "", пEnterprise.owner.guid);
+	//_СписокВетисСтрока.Владелец = ?(Ветис.Версия_2_0(), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с).BusinessEntity(пEnterprise.owner);
 	
 	Если НЕ пEnterprise.address = Неопределено Тогда
 		_СписокВетисСтрока.country  = ?(пEnterprise.address.country = Неопределено, "", пEnterprise.address.country.guid);

@@ -103,6 +103,7 @@
 			<Form>ФормаКлассификаторЕдиницИзмерения</Form>
 			<Form>ФормаНоменклатура</Form>
 			<Form>ФормаНоменклатурныеГруппы</Form>
+			<Form>ФормаПользователи</Form>
 		</ChildObjects>
 	</DataProcessor>
 </MetaDataObject>

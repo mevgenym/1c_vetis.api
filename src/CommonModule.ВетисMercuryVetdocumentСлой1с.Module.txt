@@ -173,6 +173,77 @@
 	
 КонецФункции
 
+Функция UserAuthority(value) Экспорт
+	
+	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисUserAuthority") Тогда
+		Если      value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_ACCESS_WEB_READ") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_ACCESS_WEB_READ();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_ACCESS_WEB_WRITE") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_ACCESS_WEB_WRITE();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.ARGUS_HS_AUTHORIZED_APPLICANT") Тогда
+			Возврат ВетисКонстанты.UserAuthority_ARGUS_HS_AUTHORIZED_APPLICANT();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_ACCESS_API_READ") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_ACCESS_API_READ();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_CONTROL_WORKING_AREA") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_CONTROL_WORKING_AREA();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_ACCESS_API_WRITE") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_ACCESS_API_WRITE();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_CERTIFICATE_ACCEPTANCE") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_CERTIFICATE_ACCEPTANCE();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_AUTHORIZED_CERTIFICATE_ACCEPTANCE") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_AUTHORIZED_CERTIFICATE_ACCEPTANCE();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_AUTHORIZED_RETURNED_CERTIFICATE_CREATION") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_AUTHORIZED_RETURNED_CERTIFICATE_CREATION();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_HS_FISH_CERTIFICATE") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_HS_FISH_CERTIFICATE();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_PRODUCTION_BATCH_CERTIFICATE") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_PRODUCTION_BATCH_CERTIFICATE();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_HS_FRESH_MILK_CERTIFICATE") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_HS_FRESH_MILK_CERTIFICATE();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_HS_AUTHORIZED_APPLICANT") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_HS_AUTHORIZED_APPLICANT();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_RETURNED_CERTIFICATE_CREATION") Тогда
+			Возврат ВетисКонстанты.UserAuthority_MERCURY_RETURNED_CERTIFICATE_CREATION();
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	Иначе
+		Если      value = ВетисКонстанты.UserAuthority_MERCURY_ACCESS_WEB_READ() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_ACCESS_WEB_READ");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_ACCESS_WEB_WRITE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_ACCESS_WEB_WRITE");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_ARGUS_HS_AUTHORIZED_APPLICANT() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.ARGUS_HS_AUTHORIZED_APPLICANT");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_ACCESS_API_READ() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_ACCESS_API_READ");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_CONTROL_WORKING_AREA() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_CONTROL_WORKING_AREA");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_ACCESS_API_WRITE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_ACCESS_API_WRITE");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_CERTIFICATE_ACCEPTANCE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_CERTIFICATE_ACCEPTANCE");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_AUTHORIZED_CERTIFICATE_ACCEPTANCE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_AUTHORIZED_CERTIFICATE_ACCEPTANCE");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_AUTHORIZED_RETURNED_CERTIFICATE_CREATION() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_AUTHORIZED_RETURNED_CERTIFICATE_CREATION");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_HS_FISH_CERTIFICATE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_HS_FISH_CERTIFICATE");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_PRODUCTION_BATCH_CERTIFICATE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_PRODUCTION_BATCH_CERTIFICATE");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_HS_FRESH_MILK_CERTIFICATE() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_HS_FRESH_MILK_CERTIFICATE");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_HS_AUTHORIZED_APPLICANT() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_HS_AUTHORIZED_APPLICANT");
+		ИначеЕсли value = ВетисКонстанты.UserAuthority_MERCURY_RETURNED_CERTIFICATE_CREATION() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисUserAuthority.MERCURY_RETURNED_CERTIFICATE_CREATION");
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецФункции
+
+
 //начиная с v2.0
 Функция TransportInfo(value) Экспорт
 	

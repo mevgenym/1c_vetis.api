@@ -840,5 +840,90 @@
 	
 КонецФункции
 
+
+Функция UserAuthority_MERCURY_ACCESS_WEB_READ() Экспорт
+	
+	Возврат "MERCURY_ACCESS_WEB_READ";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_ACCESS_WEB_WRITE() Экспорт
+	
+	Возврат "MERCURY_ACCESS_WEB_WRITE";
+	
+КонецФункции
+
+Функция UserAuthority_ARGUS_HS_AUTHORIZED_APPLICANT() Экспорт
+	
+	Возврат "ARGUS_HS_AUTHORIZED_APPLICANT";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_ACCESS_API_READ() Экспорт
+	
+	Возврат "MERCURY_ACCESS_API_READ";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_CONTROL_WORKING_AREA() Экспорт
+	
+	Возврат "MERCURY_CONTROL_WORKING_AREA";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_ACCESS_API_WRITE() Экспорт
+	
+	Возврат "MERCURY_ACCESS_API_WRITE";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_CERTIFICATE_ACCEPTANCE() Экспорт
+	
+	Возврат "MERCURY_CERTIFICATE_ACCEPTANCE";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_AUTHORIZED_CERTIFICATE_ACCEPTANCE() Экспорт
+	
+	Возврат "MERCURY_AUTHORIZED_CERTIFICATE_ACCEPTANCE";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_AUTHORIZED_RETURNED_CERTIFICATE_CREATION() Экспорт
+	
+	Возврат "MERCURY_AUTHORIZED_RETURNED_CERTIFICATE_CREATION";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_HS_FISH_CERTIFICATE() Экспорт
+	
+	Возврат "MERCURY_HS_FISH_CERTIFICATE";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_PRODUCTION_BATCH_CERTIFICATE() Экспорт
+	
+	Возврат "MERCURY_PRODUCTION_BATCH_CERTIFICATE";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_HS_FRESH_MILK_CERTIFICATE() Экспорт
+	
+	Возврат "MERCURY_HS_FRESH_MILK_CERTIFICATE";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_HS_AUTHORIZED_APPLICANT() Экспорт
+	
+	Возврат "MERCURY_HS_AUTHORIZED_APPLICANT";
+	
+КонецФункции
+
+Функция UserAuthority_MERCURY_RETURNED_CERTIFICATE_CREATION() Экспорт
+	
+	Возврат "MERCURY_RETURNED_CERTIFICATE_CREATION";
+	
+КонецФункции
+
 #КонецОбласти
  

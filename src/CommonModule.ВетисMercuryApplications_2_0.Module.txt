@@ -600,7 +600,7 @@
 // Аннулировать ВСД может тот, кто его выписал, либо другой ветеринарный врач обслуживающий то предприятие, с которого данный ВСД был выписан.
 // Если ВСД был погашен, то его аннулировать уже нельзя, то есть для аннулирования ВСД должен быть в статусе "Оформлен".
 
-// Операция предназначена для аннулирования ВСД.
+// Предназначена для аннулирования ВСД.
 // Параметры:
 //  vetDocumentId	- bs:UUID - Идентификатор ВСД, который аннулируется
 //  withdrawReason - vetd:WithdrawReason - Причина аннулирования ВСД
@@ -645,7 +645,7 @@
 
 #Область ModifyBusinessEntityOperation
 
-// Операция предназначена для регистрации новых ХС в реестре,
+// Предназначена для регистрации новых ХС в реестре,
 // а также для изменения информации об уже зарегистрированных.
 // Параметры:
 //  modificationOperation - vd:BEModificationOperation - Описание операции добавления/изменения информации о ХС.
@@ -684,7 +684,7 @@
 
 #Область ModifyEnterpriseOperation
 
-// Операция предназначена для регистрации новых площадок (поднадзорных объектов) в реестре,
+// Предназначена для регистрации новых площадок (поднадзорных объектов) в реестре,
 // а также для изменения информации об уже зарегистрированных.
 // Параметры:
 //  modificationOperation - vd:ENTModificationOperation - Описание операции добавления/изменения информации о поднадзорном объекте.
@@ -723,7 +723,7 @@
 
 #Область ModifyActivityLocationsOperation
 
-//Операция предназначена для создание связи между ХС и площадкой или удаление этой связи.
+// Предназначена для создание связи между ХС и площадкой или удаление этой связи.
 // Параметры:
 //  modificationOperation - vd:BEActivityLocationsModificationOperation
 Функция ModifyActivityLocationsRequest(modificationOperation) Экспорт
@@ -738,7 +738,7 @@
 	
 КонецФункции
 
-//Объект содержит сведения о поднадзорном объекте, который был изменен или добавлен.
+// Объект содержит сведения о поднадзорном объекте, который был изменен или добавлен.
 Функция ModifyActivityLocationsResponse(пResponse) Экспорт
 	
 	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.ModifyActivityLocationsResponse, "ModifyActivityLocationsResponse", URI()).businessEntity;
@@ -762,6 +762,8 @@
 
 #Область UpdateTransportMovementDetails
 
+// Предназначена для внесения номера транспортного средства в пункте перегрузке в уже оформленный ВСД
+// Параметры:
 Функция UpdateTransportMovementDetailsRequest(deliveryParticipant, vetDocumentUuid, shipmentRoute) Экспорт
 	
 	_Объект = Создать("UpdateTransportMovementDetailsRequest");
@@ -798,6 +800,8 @@
 
 #Область CheckShipmentRegionalization
 
+// Предназначена для проверки возможности осуществления перевозки в рамках регионализации
+// Параметры:
 Функция CheckShipmentRegionalizationRequest(cargoType, shipmentRoute) Экспорт
 	
 	_Объект = Создать("CheckShipmentRegionalizationRequest");
@@ -834,6 +838,10 @@
 
 #Область AddBusinessEntityUser
 
+// Предназначена для регистрации новых пользователей в системе Меркурий
+// или привязки существующих пользователей к хозяйствующему субъекту.
+// Параметры:
+//  user - Описание пользователя системы - vd:User
 Функция AddBusinessEntityUserRequest(user) Экспорт
 	
 	_Объект = Создать("AddBusinessEntityUserRequest");
@@ -868,6 +876,9 @@
 
 #Область GetBusinessEntityUser
 
+// Предназначена для получения данных пользователя по логину или его уникальному идентификатору
+// Параметры:
+//  user - Описание пользователя системы - vd:User
 Функция GetBusinessEntityUserRequest(user) Экспорт
 	
 	_Объект = Создать("GetBusinessEntityUserRequest");
@@ -902,6 +913,8 @@
 
 #Область GetBusinessEntityUserList
 
+// Предназначена для получения списка пользователей хозяйствующего субъекта
+// Параметры:
 Функция GetBusinessEntityUserListRequest() Экспорт
 	
 	_Объект = Создать("GetBusinessEntityUserListRequest");
@@ -965,6 +978,10 @@
 
 #Область UpdateUserAuthorities
 
+// Предназначена для назначения или изменения прав доступа пользователей в системе Меркурий.
+// Роли пользователя изменяются только применительно к хозяйствующему субъекту, инициировавшему запрос на выполнение данной операции.
+// Параметры:
+//  user - Описание пользователя системы - vd:User
 Функция UpdateUserAuthoritiesRequest(user) Экспорт
 	
 	_Объект = Создать("UpdateUserAuthoritiesRequest");
@@ -999,6 +1016,9 @@
 
 #Область UpdateUserWorkingAreas
 
+// Предназначена для назначения зон ответственности пользователям в системе Меркурий
+// Параметры:
+//  user - Описание пользователя системы - vd:User
 Функция UpdateUserWorkingAreasRequest(user) Экспорт
 	
 	_Объект = Создать("UpdateUserWorkingAreasRequest");
@@ -1033,6 +1053,9 @@
 
 #Область UnbindBusinessEntityUser
 
+// Предназначена для удаления связи между пользователем и хозяйствующим субъектом
+// Параметры:
+//  user - Описание пользователя системы - vd:User
 Функция UnbindBusinessEntityUserRequest(user) Экспорт
 	
 	_Объект = Создать("UnbindBusinessEntityUserRequest");
@@ -1067,6 +1090,8 @@
 
 #Область GetApplicableUserAuthorityList
 
+// Предназначена для получения списка прав пользователей для системы Меркурий
+// Параметры:
 Функция GetApplicableUserAuthorityListRequest() Экспорт
 	
 	_Объект = Создать("GetApplicableUserAuthorityListRequest");

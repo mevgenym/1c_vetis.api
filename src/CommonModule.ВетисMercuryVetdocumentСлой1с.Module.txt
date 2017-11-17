@@ -791,9 +791,6 @@
 			_batch.productItem = ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name);
 		КонецЕсли;
 		
-		//_packingType = ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка));
-		//_packaging = ВетисDictionary_2_0.Packaging(_packingType, _СтрокаСЖ.КоличествоМест);
-		//_batch.productItem = ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name, _packaging);
 		//MERC13265 - В ветеринарно-сопроводительном документе должен быть указан хотя бы один производитель продукции.
 		//MERC13219 - Страна происхождения продукции в ветеринарно-сопроводительном документе обязательна для заполнения.
 		_batch.origin = ВетисMercuryVetdocument_2_0.BatchOrigin(
@@ -802,16 +799,18 @@
 			ВетисDictionary_2_0.Producer(ВетисDictionaryСлой1с.Producer(_СтрокаСЖ.ПроизводительПредприятие))
 			);
 		
-		//сделать: добавить упаковки для 2.0
+		//MERC14245 - Так как маркировка в сведениях о принимаемой партии не совпадает с указанной в ветеринарно-сопроводительном документе, то необходимо указать причину в акте о несоответствии.
 		_список = Новый Массив;
 		Для каждого _СтрокаУпаковка Из пУпаковка Цикл
 			_список.Добавить(ВетисDictionary_2_0.Package(
-				_СтрокаУпаковка.Уровень,
-				ВетисDictionaryСлой1с.PackingType(_СтрокаУпаковка.ТипУпаковки),
+				ВетисDictionaryСлой1с.PackageLevelType(_СтрокаУпаковка.Уровень),
+				ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаУпаковка.ТипУпаковки)),
 				_СтрокаУпаковка.Количество,
 				ВетисDictionary_2_0.ProductMarks(_СтрокаУпаковка.Маркировка, ВетисDictionaryСлой1с.ProductMarkingClass(_СтрокаУпаковка.КлассМаркировки))
 				));
 		КонецЦикла;
+		
+		_batch.packageList = ВетисDictionary_2_0.PackageList(_список);
 		
 		_batch.batchID.Очистить();
 		_batch.batchID.Добавить(_СтрокаСЖ.ИДПартии);

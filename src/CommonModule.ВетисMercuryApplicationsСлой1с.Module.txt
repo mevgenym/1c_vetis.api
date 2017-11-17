@@ -75,7 +75,7 @@
 		_delivery = ВетисMercuryVetdocument_2_0.Delivery(
 			ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
-			ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
+			ПолучитьConsignment_20(_всд.Товары[0], _всд.Упаковка, _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
 			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill(_всд), ПолучитьVetDocument(_всд)),
 			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),
 			ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.Транспорт),
@@ -144,7 +144,7 @@
 			_returnedDelivery = ВетисMercuryVetdocument_2_0.Delivery(
 				ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
 				ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
-				ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.КоличествоВозврат, _СтрокаСЖ.КоличествоМестВозврат),
+				ПолучитьConsignment_20(_всд.Товары[0], _всд.Упаковка, _СтрокаСЖ.КоличествоВозврат, _СтрокаСЖ.КоличествоМестВозврат),
 				ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill(_всд, Истина, _ВозвратДата), ПолучитьVetDocument(_всд, Истина, _ВозвратДата)),
 				ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),//пока тот же который привез
 				ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.Транспорт),//пока тот же который привез
@@ -538,34 +538,37 @@
 
 Функция ПолучитьConsignment(пСтрокаСЖ, пКоличество = Неопределено, пКоличествоМест = Неопределено, пSourceStockEntry = Неопределено)
 	
-	Если Ветис.Версия_2_0() Тогда
-		_Consignment = ВетисMercuryVetdocument_2_0.Consignment();
-		
-		ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_Consignment, пСтрокаСЖ);
-		
-		_Consignment.volume = ?(пКоличество = Неопределено, пСтрокаСЖ.Количество, пКоличество);
-		
-		Если ЗначениеЗаполнено(пСтрокаСЖ.Упаковка) И НЕ пКоличествоМест = Неопределено Тогда
-			ВетисDictionaryСлой1с.PackageList(_Consignment.packageList).quantity = пКоличествоМест;
-		КонецЕсли;
-		
+	_Consignment = ВетисMercuryVetdocument.Consignment();
+	
+	ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_Consignment, пСтрокаСЖ);
+	
+	Если пSourceStockEntry = Неопределено Тогда
+		_Consignment.volume           = ?(пКоличество     = Неопределено, пСтрокаСЖ.Количество, пКоличество);
+		_Consignment.packingAmount    = ?(пКоличествоМест = Неопределено, пСтрокаСЖ.КоличествоМест, пКоличествоМест);
 	Иначе
-		_Consignment = ВетисMercuryVetdocument.Consignment();
-		ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_Consignment, пСтрокаСЖ);
+		_Количество     = ?(пКоличество     = Неопределено, пСтрокаСЖ.Количество, пКоличество);
+		_КоличествоМест = ?(пКоличествоМест = Неопределено, пСтрокаСЖ.КоличествоМест, пКоличествоМест);
 		
-		Если пSourceStockEntry = Неопределено Тогда
-			_Consignment.volume           = ?(пКоличество     = Неопределено, пСтрокаСЖ.Количество, пКоличество);
-			_Consignment.packingAmount    = ?(пКоличествоМест = Неопределено, пСтрокаСЖ.КоличествоМест, пКоличествоМест);
-		Иначе
-			_Количество     = ?(пКоличество     = Неопределено, пСтрокаСЖ.Количество, пКоличество);
-			_КоличествоМест = ?(пКоличествоМест = Неопределено, пСтрокаСЖ.КоличествоМест, пКоличествоМест);
-			
-			Для каждого _StockEntry Из пSourceStockEntry Цикл
-				//_StockEntry.
-			КонецЦикла;
-			
-		КонецЕсли;
+		Для каждого _StockEntry Из пSourceStockEntry Цикл
+			//_StockEntry.
+		КонецЦикла;
 		
+	КонецЕсли;
+	
+	Возврат _Consignment;
+	
+КонецФункции
+
+Функция ПолучитьConsignment_20(пСтрокаСЖ, пУпаковка, пКоличество = Неопределено, пКоличествоМест = Неопределено, пSourceStockEntry = Неопределено)
+	
+	_Consignment = ВетисMercuryVetdocument_2_0.Consignment();
+	
+	ВетисMercuryVetdocumentСлой1с.BatchКонвертировать_20(_Consignment, пСтрокаСЖ, пУпаковка);
+	
+	_Consignment.volume = ?(пКоличество = Неопределено, пСтрокаСЖ.Количество, пКоличество);
+	
+	Если ЗначениеЗаполнено(пСтрокаСЖ.Упаковка) И НЕ пКоличествоМест = Неопределено Тогда
+		ВетисDictionaryСлой1с.PackageList(_Consignment.packageList).quantity = пКоличествоМест;
 	КонецЕсли;
 	
 	Возврат _Consignment;

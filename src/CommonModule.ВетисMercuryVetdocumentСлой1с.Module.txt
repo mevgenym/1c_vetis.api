@@ -420,8 +420,8 @@
 		_всд.quarantineDays     = _СтрокаВСД.КарантированиеДней;
 		_всд.immunizationInfo   = _СтрокаВСД.Иммунизация;
 		//_всд.precedingVetDocuments = _СтрокаВСД.ПредыдущиеВСД;
-		//_всд.importPermit       = _ВетисArgusCommon.Document(всдРазрешениеНаВвозНазвание, всдРазрешениеНаВвозСерия, всдРазрешениеНаВвозНомер, всдРазрешениеНаВвозДата);
-		//_всд.transferPermit     = _ВетисArgusCommon.Document(всдРазрешениеНаВывозНазвание, всдРазрешениеНаВывозСерия, всдРазрешениеНаВывозНомер, всдРазрешениеНаВывозДата);
+		//_всд.importPermit       = ВетисArgusCommon.Document(всдРазрешениеНаВвозНазвание, всдРазрешениеНаВвозСерия, всдРазрешениеНаВвозНомер, всдРазрешениеНаВвозДата);
+		//_всд.transferPermit     = ВетисArgusCommon.Document(всдРазрешениеНаВывозНазвание, всдРазрешениеНаВывозСерия, всдРазрешениеНаВывозНомер, всдРазрешениеНаВывозДата);
 		_всд.specialMarks       = _СтрокаВСД.ОсобыеОтметки;
 		
 		_всд.batch = ВетисMercuryVetdocument.Batch();
@@ -499,7 +499,7 @@
 		
 		_СтрокаСЖ = ?(_док.Товары.Количество() = 0, _док.Товары.Добавить(), _док.Товары[0]);
 		
-		BatchКонвертировать(_СтрокаСЖ, _всд.certifiedConsignment.batch);
+		BatchКонвертировать_20(_СтрокаСЖ, _всд.certifiedConsignment.batch, _док.Упаковка);
 		
 	ИначеЕсли ТипЗнч(value2) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент")
 		ИЛИ ТипЗнч(value2) = Тип("ДанныеФормыСтруктура") Тогда
@@ -519,7 +519,7 @@
 		
 		_batch = ВетисMercuryVetdocument_2_0.Batch();
 		
-		BatchКонвертировать(_batch, _СтрокаСЖ);
+		BatchКонвертировать_20(_batch, _СтрокаСЖ, _док.Упаковка);
 		
 		_всд.issueSeries          = _док.СерияВСД;
 		_всд.issueNumber          = _док.НомерВСД;
@@ -695,14 +695,133 @@
 	
 КонецФункции
 
-Процедура Аннулировать(пСсылка, пПричина) Экспорт
+Функция BatchКонвертировать_20(value1, value2, пУпаковка) Экспорт
 	
-	Перем _Отказ, _Ошибка;
-	
-	ВетисMercuryApplicationsСлой1с.WithdrawVetDocumentOperation(пСсылка, пПричина, _Отказ, _Ошибка);
-	
-	Если _Отказ = Истина Тогда
-		Сообщить(_Ошибка);
+	Если ТипЗнч(value1) = Тип("ДокументТабличнаяЧастьСтрока.ВетисВетеринарноСопроводительныйДокумент.Товары")
+		ИЛИ ТипЗнч(value1) = Тип("ДанныеФормыЭлементКоллекции") Тогда
+		
+		_СтрокаСЖ = value1;
+		_batch    = value2;
+		
+		_строкаСЖ.SubProductGuid       = _batch.subProduct.guid;
+		_строкаСЖ.ProductItemName      = _batch.productItem.name;
+		_строкаСЖ.ProductItemGuid      = _batch.productItem.guid;
+		
+		_строкаСЖ.НоменклатурнаяГруппа = ВетисDictionaryСлой1с.SubProduct(_batch.subProduct);
+		_строкаСЖ.Количество           = _batch.volume;
+		_строкаСЖ.ЕдиницаИзмерения     = ВетисDictionaryСлой1с.Unit(_batch.unit);
+		_строкаСЖ.ДатаВыработкиНачало  = ВетисDictionary_2_0.ComplexDate(_batch.dateOfProduction.firstDate);
+		_строкаСЖ.ДатаВыработкиКонец   = ВетисDictionary_2_0.ComplexDate(_batch.dateOfProduction.secondDate);
+		_строкаСЖ.СрокГодностиНачало   = ВетисDictionary_2_0.ComplexDate(_batch.expiryDate.firstDate);
+		_строкаСЖ.СрокГодностиКонец    = ВетисDictionary_2_0.ComplexDate(_batch.expiryDate.secondDate);
+		_строкаСЖ.Скоропортящаяся      = _batch.perishable;
+		_строкаСЖ.Собственник          = ВетисDictionaryСлой1с.BusinessEntity(_batch.owner);
+		_строкаСЖ.НекачественныйГруз   = _batch.lowGradeCargo;
+		
+		пУпаковка.Очистить();
+		Если НЕ _batch.packageList = Неопределено Тогда
+			Для каждого _package Из _batch.packageList.package Цикл
+				_СтрокаУпаковка = пУпаковка.Добавить();
+				_СтрокаУпаковка.Уровень = ВетисDictionaryСлой1с.PackageLevelType(_package.level);
+				_СтрокаУпаковка.ТипУпаковки = ВетисDictionaryСлой1с.PackingType(_package.packingType);
+				_СтрокаУпаковка.Количество = _package.quantity;
+				_Маркировка = ВетисDictionaryСлой1с.ProductMarks(_package.productMarks);
+				_СтрокаУпаковка.Маркировка = _Маркировка.content;
+				_СтрокаУпаковка.КлассМаркировки = _Маркировка.class;
+			КонецЦикла;
+		КонецЕсли;
+		
+		Если НЕ _batch.origin = Неопределено Тогда
+			_строкаСЖ.ПроизводительПредприятие = ВетисDictionaryСлой1с.Producer(_batch.origin.producer);
+			_строкаСЖ.Номенклатура             = ВетисDictionaryСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
+			_строкаСЖ.СтранаПроисхождения      = ВетисDictionaryСлой1с.Country(_batch.origin.country);
+		КонецЕсли;
+		
+		_ИДПартии = "";
+		Для каждого batchID Из _batch.batchID Цикл
+			_ИДПартии = _ИДПартии + "; " + batchID;
+		КонецЦикла;
+		
+		_СтрокаСЖ.ИДПартии = Сред(_ИДПартии, 3);
+		
+	ИначеЕсли ТипЗнч(value2) = Тип("ДокументТабличнаяЧастьСтрока.ВетисВетеринарноСопроводительныйДокумент.Товары")
+		ИЛИ ТипЗнч(value2) = Тип("ДанныеФормыЭлементКоллекции") Тогда
+		
+		_batch    = value1;
+		_СтрокаСЖ = value2;
+		
+		//сделать: проверить конверсию номенклатуры
+		
+		_productItem = ВетисDictionaryСлой1с.ProductItem(_СтрокаСЖ.Номенклатура, _СтрокаСЖ.ПроизводительПредприятие);//Структура
+		_subProduct  = ВетисDictionaryСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
+		_product     = "";
+		_productType = ВетисКонстанты.ProductType_МясоИМясопродукты();
+		
+		Если ЗначениеЗаполнено(_productItem.guid) Тогда
+			_productItem = ВетисProductService_2_0.GetProductItemByGuid(_productItem.guid);//ОбъектXDTO
+			_subProduct  = _productItem.subProduct;
+			_product     = _productItem.product;
+			_productType = _productItem.productType;
+			
+		ИначеЕсли НЕ ПустаяСтрока(_subProduct) Тогда
+			_subProduct  = ВетисProductService_2_0.GetSubProductByGuid(_subProduct);
+			_product     = ВетисProductService_2_0.GetProductByGuid(_subProduct.productGuid);
+			_productType = _product.productType;
+			_productItem.name = ?(ЗначениеЗаполнено(_productItem.name), _productItem.name, _subProduct.name);
+			
+		Иначе
+			//не заполнены ключевые поля, выходим
+			Возврат Неопределено;
+		КонецЕсли;
+		
+		_batch.productType      = _productType;
+		_batch.product          = ВетисDictionary_2_0.Product(_product.guid);
+		_batch.subProduct       = ВетисDictionary_2_0.SubProduct(_subProduct.guid);
+		//_batch.productItem      = ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name);
+		_batch.volume           = _СтрокаСЖ.Количество;
+		_batch.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
+		_batch.dateOfProduction = ВетисMercuryVetdocument_2_0.GoodsDate(_СтрокаСЖ.ДатаВыработкиНачало, _СтрокаСЖ.ДатаВыработкиКонец);
+		_batch.expiryDate       = ВетисMercuryVetdocument_2_0.GoodsDate(_СтрокаСЖ.СрокГодностиНачало, _СтрокаСЖ.СрокГодностиКонец);
+		_batch.perishable       = _СтрокаСЖ.Скоропортящаяся;
+		_batch.lowGradeCargo    = _СтрокаСЖ.НекачественныйГруз;
+		_batch.owner            = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_строкаСЖ.Собственник));
+		
+		//MERC13098 - Наименование продукции в ветеринарно-сопроводительном документе обязательно для заполнения.
+		Если ЗначениеЗаполнено(_productItem.guid) ИЛИ ЗначениеЗаполнено(_productItem.name) Тогда
+			_batch.productItem = ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name);
+		КонецЕсли;
+		
+		//_packingType = ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка));
+		//_packaging = ВетисDictionary_2_0.Packaging(_packingType, _СтрокаСЖ.КоличествоМест);
+		//_batch.productItem = ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name, _packaging);
+		//MERC13265 - В ветеринарно-сопроводительном документе должен быть указан хотя бы один производитель продукции.
+		//MERC13219 - Страна происхождения продукции в ветеринарно-сопроводительном документе обязательна для заполнения.
+		_batch.origin = ВетисMercuryVetdocument_2_0.BatchOrigin(
+			ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name),
+			ВетисDictionary_2_0.Country(ВетисDictionaryСлой1с.Country(_СтрокаСЖ.СтранаПроисхождения)),
+			ВетисDictionary_2_0.Producer(ВетисDictionaryСлой1с.Producer(_СтрокаСЖ.ПроизводительПредприятие))
+			);
+		
+		//сделать: добавить упаковки для 2.0
+		_список = Новый Массив;
+		Для каждого _СтрокаУпаковка Из пУпаковка Цикл
+			_список.Добавить(ВетисDictionary_2_0.Package(
+				_СтрокаУпаковка.Уровень,
+				ВетисDictionaryСлой1с.PackingType(_СтрокаУпаковка.ТипУпаковки),
+				_СтрокаУпаковка.Количество,
+				ВетисDictionary_2_0.ProductMarks(_СтрокаУпаковка.Маркировка, ВетисDictionaryСлой1с.ProductMarkingClass(_СтрокаУпаковка.КлассМаркировки))
+				));
+		КонецЦикла;
+		
+		_batch.batchID.Очистить();
+		_batch.batchID.Добавить(_СтрокаСЖ.ИДПартии);
+		
 	КонецЕсли;
+	
+КонецФункции
+
+Процедура Аннулировать(пСсылка, пПричина, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	ВетисMercuryApplicationsСлой1с.WithdrawVetDocumentOperation(пСсылка, пПричина, пОтказ, пОшибка);
 	
 КонецПроцедуры

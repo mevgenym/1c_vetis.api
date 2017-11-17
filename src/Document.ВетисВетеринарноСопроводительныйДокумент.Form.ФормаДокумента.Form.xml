@@ -587,6 +587,18 @@
 									<ContextMenu name="УпаковкаМаркировкаКонтекстноеМеню" id="570"/>
 									<ExtendedTooltip name="УпаковкаМаркировкаРасширеннаяПодсказка" id="571"/>
 								</InputField>
+								<InputField name="УпаковкаКлассМаркировки" id="575">
+									<DataPath>Объект.Упаковка.КлассМаркировки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Класс</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаКлассМаркировкиКонтекстноеМеню" id="576"/>
+									<ExtendedTooltip name="УпаковкаКлассМаркировкиРасширеннаяПодсказка" id="577"/>
+								</InputField>
 							</ChildItems>
 						</Table>
 					</ChildItems>

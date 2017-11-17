@@ -75,10 +75,15 @@
 					<ExtendedTooltip name="ЗначениеРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Наименование" id="14">
-					<DataPath>Список.Description</DataPath>
+					<DataPath>Список.Наименование</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="16"/>
+				</LabelField>
+				<LabelField name="guid" id="22">
+					<DataPath>Список.guid</DataPath>
+					<ContextMenu name="guidКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -90,8 +95,20 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	_Таблица.Ссылка КАК Ссылка,
+	_Таблица.Наименование КАК Наименование,
+	_Таблица.Значение КАК Значение,
+	_Соответствие.guid КАК guid
+ИЗ
+	Справочник.ВетисPackingForm КАК _Таблица
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Соответствие
+			ПО _Таблица.Ссылка = _Соответствие.Ссылка
+ГДЕ
+	ИСТИНА
+</QueryText>
 				<MainTable>Catalog.ВетисPackingForm</MainTable>
 				<ListSettings>
 					<dcsset:filter>

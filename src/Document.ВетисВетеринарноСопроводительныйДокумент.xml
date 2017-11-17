@@ -4078,6 +4078,42 @@
 					</Attribute>
 					<Attribute uuid="53c40dad-e309-4860-9669-d2058221e815">
 						<Properties>
+							<Name>КлассМаркировки</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Класс маркировки</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>productMarks {dt:ProductMarks}</Comment>
+							<Type>
+								<v8:Type>cfg:EnumRef.ВетисProductMarkingClass</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="4117932f-819b-45ca-80bb-2ebaf733465e">
+						<Properties>
 							<Name>Маркировка</Name>
 							<Synonym>
 								<v8:item>
@@ -4085,9 +4121,13 @@
 									<v8:content>Маркировка</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>productMarks {dt:ProductMarks}</Comment>
+							<Comment/>
 							<Type>
-								<v8:Type>cfg:EnumRef.ВетисProductMarkingClass</v8:Type>
+								<v8:Type>xs:string</v8:Type>
+								<v8:StringQualifiers>
+									<v8:Length>255</v8:Length>
+									<v8:AllowedLength>Variable</v8:AllowedLength>
+								</v8:StringQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>

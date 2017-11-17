@@ -25,11 +25,9 @@
 	
 	_Request = getStockEntryByGuidRequest(guid, enterpriseGuid);
 	
-	_Response = Прокси("getStockEntryByGuidRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("getStockEntryByGuidRequest", _Request, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат getStockEntryByGuidResponse(_Response);
 	
@@ -89,11 +87,9 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = Прокси("getStockEntryListRequest", пПараметры.ListRequest, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("getStockEntryListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
 	_ListResponse = getStockEntryListResponse(_Response);
 	
@@ -152,11 +148,9 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = Прокси("getStockEntryChangesListRequest", пПараметры.ListRequest, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("getStockEntryChangesListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
 	_ListResponse = getStockEntryChangesListResponse(_Response);
 	
@@ -204,11 +198,9 @@
 	
 	_Request = getVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid);
 	
-	_Response = Прокси("getVetDocumentByUuidRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("getVetDocumentByUuidRequest", _Request, issuerId, пОтказ, пОшибка);
 	
-	Если пОтказ = Истина Тогда Возврат Неопределено;	КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	
 	Возврат getVetDocumentByUuidResponse(_Response);
 	
@@ -276,11 +268,9 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = Прокси("getVetDocumentListRequest", пПараметры.ListRequest, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("getVetDocumentListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
 	_ListResponse = getVetDocumentListResponse(_Response);
 	
@@ -344,11 +334,9 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = Прокси("getVetDocumentChangesListRequest", пПараметры.ListRequest, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("getVetDocumentChangesListRequest", пПараметры.ListRequest, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
 	_ListResponse = getVetDocumentChangesListResponse(_Response);
 	
@@ -430,11 +418,9 @@
 	
 	_Request = processIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport, returnedDelivery);
 	
-	_Response = Прокси("processIncomingConsignmentRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("processIncomingConsignmentRequest", _Request, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Неопределено; КонецЕсли;
 	
 	Возврат processIncomingConsignmentResponse(_Response);
 	
@@ -469,11 +455,9 @@
 	
 	_Request = prepareOutcomingConsignmentRequest(delivery);
 	
-	_Response = Прокси("prepareOutcomingConsignmentRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("prepareOutcomingConsignmentRequest", _Request, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат prepareOutcomingConsignmentResponse(_Response);
 	
@@ -519,11 +503,9 @@
 	
 	_Request = ResolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
 	
-	_Response = Прокси("resolveDiscrepancyRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("resolveDiscrepancyRequest", _Request, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат ResolveDiscrepancyResponse(_Response);
 	
@@ -576,11 +558,9 @@
 	
 	_Request = withdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, Ветис.Врач());
 	
-	_Response = Прокси("withdrawVetDocumentRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("withdrawVetDocumentRequest", _Request, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат withdrawVetDocumentResponse(_Response);
 	
@@ -617,11 +597,9 @@
 	
 	_Request = ModifyBusinessEntityRequest(modificationOperation);
 	
-	_Response = Прокси("modifyBusinessEntityRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("modifyBusinessEntityRequest", _Request, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат ModifyBusinessEntityResponse(_Response);
 	
@@ -658,11 +636,9 @@
 	
 	_Request = ModifyEnterpriseRequest(modificationOperation);
 	
-	_Response = Прокси("modifyEnterpriseRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("modifyEnterpriseRequest", _Request, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат ModifyEnterpriseResponse(_Response);
 	
@@ -698,11 +674,9 @@
 	
 	_Request = ModifyActivityLocationsRequest(modificationOperation);
 	
-	_Response = Прокси("modifyActivityLocationsRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
+	_Response = Прокси("modifyActivityLocationsRequest", _Request, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
-	
-	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат ModifyActivityLocationsResponse(_Response);
 	
@@ -793,8 +767,8 @@
 	
 КонецФункции
 
-Функция Прокси(пИмяФункции, пRequest, issuerId = Неопределено, ПоУмолчанию = Неопределено, пОтказ = Ложь, пОшибка = "", пОжидание = 5)
+Функция Прокси(пИмяФункции, пRequest, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "", пОжидание = 5)
 	
-	Возврат Ветис.ВыполнитьЗапрос("ApplicationManagementService", пИмяФункции, ФабрикаWS(), пRequest, issuerId, ПоУмолчанию, пОтказ, пОшибка, пОжидание);
+	Возврат Ветис.ВыполнитьЗапрос("ApplicationManagementService", пИмяФункции, ФабрикаWS(), пRequest, issuerId, пОтказ, пОшибка, пОжидание);
 	
 КонецФункции

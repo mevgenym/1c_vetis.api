@@ -46,22 +46,62 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаОтборРасширеннаяПодсказка" id="110"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаОтбор1" id="111">
+						<UsualGroup name="ГруппаВариантПоиска" id="201">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа отбор1</v8:content>
+									<v8:content>Группа вариант поиска</v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа отбор1</v8:content>
+									<v8:content>Группа вариант поиска</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаВариантПоискаРасширеннаяПодсказка" id="202"/>
+							<ChildItems>
+								<RadioButtonField name="ВариантПоиска" id="203">
+									<DataPath>ВариантПоиска</DataPath>
+									<RadioButtonType>Tumbler</RadioButtonType>
+									<ContextMenu name="ВариантПоискаКонтекстноеМеню" id="204"/>
+									<ExtendedTooltip name="ВариантПоискаРасширеннаяПодсказка" id="205"/>
+									<Events>
+										<Event name="OnChange">ВариантПоискаПриИзменении</Event>
+									</Events>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="ОтборGuid" id="206">
+							<DataPath>ОтборGuid</DataPath>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>guid</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ОтборGuidКонтекстноеМеню" id="207"/>
+							<ExtendedTooltip name="ОтборGuidРасширеннаяПодсказка" id="208"/>
+						</InputField>
+						<UsualGroup name="ГруппаОтборСписок" id="111">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор список</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор список</v8:content>
 								</v8:item>
 							</ToolTip>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаОтбор1РасширеннаяПодсказка" id="112"/>
+							<ExtendedTooltip name="ГруппаОтборСписокРасширеннаяПодсказка" id="112"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаОтборИмя" id="113">
 									<Title>
@@ -609,6 +649,42 @@
 			</Type>
 			<Save>
 				<Field>ОтборКодИспользование</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборGuid" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>guid</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>40</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОтборGuid</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВариантПоиска" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант поиска</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ВариантПоиска</Field>
 			</Save>
 		</Attribute>
 		<ConditionalAppearance>

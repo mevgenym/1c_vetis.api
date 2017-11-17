@@ -5,7 +5,7 @@
 	Попытка
 		Возврат Прокси().GetBusinessEntityByGuid(guid);
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetBusinessEntityByGuid");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -17,7 +17,7 @@
 	Попытка
 		Возврат Прокси().GetEnterpriseByGuid(guid);
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetEnterpriseByGuid");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -35,11 +35,16 @@
 		пListOptions.offset = пListOptions.offset + пListOptions.count;
 	КонецЕсли;
 	
-	Если пfiltr = Неопределено Тогда
-		Возврат Прокси().GetBusinessEntityList(пListOptions);
-	Иначе
-		Возврат Прокси().GetBusinessEntityList(пListOptions, ВетисDictionary_2_0.BusinessEntity(пfiltr));
-	КонецЕсли;
+	Попытка
+		Если пfiltr = Неопределено Тогда
+			Возврат Прокси().GetBusinessEntityList(пListOptions);
+		Иначе
+			Возврат Прокси().GetBusinessEntityList(пListOptions, ВетисDictionary_2_0.BusinessEntity(пfiltr));
+		КонецЕсли;
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetBusinessEntityList");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -79,7 +84,7 @@
 			_List = Прокси().GetBusinessEntityList(пПараметры.ListOptions, ВетисDictionary_2_0.BusinessEntity(пfiltr));
 		КонецЕсли;
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetBusinessEntityListСледующий");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -121,7 +126,7 @@
 			Возврат Прокси().GetRussianEnterpriseList(пListOptions, ВетисDictionary_2_0.Enterprise(пfiltr));
 		КонецЕсли;
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetRussianEnterpriseList");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -170,7 +175,7 @@
 			_ListResponse = Прокси().GetRussianEnterpriseList(пПараметры.ListOptions, ВетисDictionary_2_0.Enterprise(пfiltr));
 		КонецЕсли;
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetRussianEnterpriseListСледующий");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -198,7 +203,7 @@
 	Попытка
 		Возврат Прокси().GetBusinessMemberByGLN(globalID);
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetBusinessMemberByGLN");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -213,7 +218,12 @@
 		пListOptions.offset = пListOptions.offset + пListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetActivityLocationList(пListOptions, ВетисDictionary_2_0.BusinessEntity(businessEntityGuid));
+	Попытка
+		Возврат Прокси().GetActivityLocationList(пListOptions, ВетисDictionary_2_0.BusinessEntity(businessEntityGuid));
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetActivityLocationList");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -247,7 +257,12 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	ListResponse = Прокси().GetActivityLocationList(пПараметры.ListOptions, пПараметры.BusinessEntity);
+	Попытка
+		ListResponse = Прокси().GetActivityLocationList(пПараметры.ListOptions, пПараметры.BusinessEntity);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetActivityLocationListСледующий");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 	пПараметры.Вставить("ListResponse", ListResponse);
 	

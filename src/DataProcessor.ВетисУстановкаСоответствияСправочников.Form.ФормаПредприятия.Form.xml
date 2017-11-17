@@ -124,6 +124,30 @@
 							<ContextMenu name="ОтборGuidКонтекстноеМеню" id="148"/>
 							<ExtendedTooltip name="ОтборGuidРасширеннаяПодсказка" id="149"/>
 						</InputField>
+						<UsualGroup name="ГруппаОтборGLN" id="262">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор GLN</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор GLN</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтборGLNРасширеннаяПодсказка" id="263"/>
+							<ChildItems>
+								<InputField name="ОтборGLN" id="264">
+									<DataPath>ОтборGLN</DataPath>
+									<ContextMenu name="ОтборGLNКонтекстноеМеню" id="265"/>
+									<ExtendedTooltip name="ОтборGLNРасширеннаяПодсказка" id="266"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 						<UsualGroup name="ГруппаОтборИмя" id="28">
 							<Title>
 								<v8:item>
@@ -185,6 +209,69 @@
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
+								<UsualGroup name="ГруппаОтборНомер" id="252">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор номер</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отбор номер</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборНомерРасширеннаяПодсказка" id="253"/>
+									<ChildItems>
+										<CheckBoxField name="ОтборНомерИспользование" id="254">
+											<DataPath>ОтборНомерИспользование</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОтборНомерИспользованиеКонтекстноеМеню" id="255"/>
+											<ExtendedTooltip name="ОтборНомерИспользованиеРасширеннаяПодсказка" id="256"/>
+											<Events>
+												<Event name="OnChange">ОтборИспользованиеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="ОтборНомер" id="257">
+											<DataPath>ОтборНомер</DataPath>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Номер</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ОтборНомерКонтекстноеМеню" id="258"/>
+											<ExtendedTooltip name="ОтборНомерРасширеннаяПодсказка" id="259"/>
+											<Events>
+												<Event name="OnChange">ОтборПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОтборАдрес" id="260">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор адрес</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор адрес</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтборАдресРасширеннаяПодсказка" id="261"/>
+							<ChildItems>
 								<UsualGroup name="ГруппаОтборРегион" id="230">
 									<Title>
 										<v8:item>
@@ -815,25 +902,6 @@
 				<Field>ОтборРайон</Field>
 			</Save>
 		</Attribute>
-		<Attribute name="ОтборПоХС" id="10">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор по ХС</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>10</v8:Digits>
-					<v8:FractionDigits>0</v8:FractionDigits>
-					<v8:AllowedSign>Any</v8:AllowedSign>
-				</v8:NumberQualifiers>
-			</Type>
-			<Save>
-				<Field>ОтборПоХС</Field>
-			</Save>
-		</Attribute>
 		<Attribute name="МаксимальноеКоличество" id="11">
 			<Title>
 				<v8:item>
@@ -872,12 +940,6 @@
 			</Save>
 		</Attribute>
 		<Attribute name="ОтборРайонИспользование" id="13">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Район</v8:content>
-				</v8:item>
-			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
@@ -886,12 +948,6 @@
 			</Save>
 		</Attribute>
 		<Attribute name="ОтборРегионИспользование" id="14">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор регион</v8:content>
-				</v8:item>
-			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
@@ -900,12 +956,6 @@
 			</Save>
 		</Attribute>
 		<Attribute name="ОтборНаименованиеИспользование" id="15">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Наименование</v8:content>
-				</v8:item>
-			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
@@ -947,6 +997,32 @@
 			</Type>
 			<Save>
 				<Field>ОтборGLN</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборНомер" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>40</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОтборНомер</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборНомерИспользование" id="19">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборНомерИспользование</Field>
 			</Save>
 		</Attribute>
 		<ConditionalAppearance>

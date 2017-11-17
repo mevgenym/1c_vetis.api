@@ -1,7 +1,12 @@
 ﻿
 Функция GetCountryByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
 	
-	_объект = Прокси().GetCountryByGuid(guid);
+	Попытка
+		_объект = Прокси().GetCountryByGuid(guid);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetCountryByGuid");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 	Если пИмяСвойства = Неопределено Тогда
 		Возврат _объект;
@@ -19,7 +24,12 @@
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetAllCountryList(ListOptions);
+	Попытка
+		Возврат Прокси().GetAllCountryList(ListOptions);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetAllCountryList");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -47,7 +57,7 @@
 	Попытка
 		_List = Прокси().GetAllCountryList(пПараметры.ListOptions);
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetAllCountryListСледующий");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -65,7 +75,12 @@
 
 Функция GetRegionByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
 	
-	_объект = Прокси().GetRegionByGuid(guid);
+	Попытка
+		_объект = Прокси().GetRegionByGuid(guid);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetRegionByGuid");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 	Если пИмяСвойства = Неопределено Тогда
 		Возврат _объект;
@@ -83,7 +98,12 @@
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetRegionListByCountry(ListOptions, countryGuid);
+	Попытка
+		Возврат Прокси().GetRegionListByCountry(ListOptions, countryGuid);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetRegionListByCountry");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -111,7 +131,7 @@
 	Попытка
 		_List = Прокси().GetRegionListByCountry(пПараметры.ListOptions, countryGuid);
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetRegionListByCountryСледующий");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -129,7 +149,12 @@
 
 Функция GetDistrictByGuid(guid, пИмяСвойства = Неопределено, ПоУмолчанию = Неопределено) Экспорт
 	
-	_объект = Прокси().GetDistrictByGuid(guid);
+	Попытка
+		_объект = Прокси().GetDistrictByGuid(guid);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetDistrictByGuid");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 	Если пИмяСвойства = Неопределено Тогда
 		Возврат _объект;
@@ -147,7 +172,12 @@
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetDistrictListByRegion(ListOptions, regionGuid);
+	Попытка
+		Возврат Прокси().GetDistrictListByRegion(ListOptions, regionGuid);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetDistrictListByRegion");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -175,7 +205,7 @@
 	Попытка
 		_List = Прокси().GetDistrictListByRegion(пПараметры.ListOptions, regionGuid);
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetDistrictListByRegionСледующий");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -199,7 +229,12 @@
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetLocalityListByRegion(ListOptions, regionGuid);
+	Попытка
+		Возврат Прокси().GetLocalityListByRegion(ListOptions, regionGuid);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetLocalityListByRegion");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -211,7 +246,12 @@
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetLocalityListByDistrict(ListOptions, districtGuid);
+	Попытка
+		Возврат Прокси().GetLocalityListByDistrict(ListOptions, districtGuid);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetLocalityListByDistrict");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -223,7 +263,12 @@
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetLocalityListByLocality(ListOptions, localityGuid);
+	Попытка
+		Возврат Прокси().GetLocalityListByLocality(ListOptions, localityGuid);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetLocalityListByLocality");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -235,7 +280,12 @@
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().FindLocalityListByName(ListOptions, regionGuid, pattern);
+	Попытка
+		Возврат Прокси().FindLocalityListByName(ListOptions, regionGuid, pattern);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "FindLocalityListByName");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -263,7 +313,7 @@
 	Попытка
 		_List = Прокси().GetLocalityListByRegion(пПараметры.ListOptions, regionGuid);
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetLocalityListByRegionСледующий");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -302,7 +352,7 @@
 	Попытка
 		_List = Прокси().GetLocalityListByDistrict(пПараметры.ListOptions, districtGuid);
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetLocalityListByDistrictСледующий");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -326,7 +376,12 @@
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetStreetListByLocality(ListOptions, localityGuid);
+	Попытка
+		Возврат Прокси().GetStreetListByLocality(ListOptions, localityGuid);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetStreetListByLocality");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -338,7 +393,12 @@
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().FindStreetListByName(ListOptions, localityGuid, pattern);
+	Попытка
+		Возврат Прокси().FindStreetListByName(ListOptions, localityGuid, pattern);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "FindStreetListByName");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 

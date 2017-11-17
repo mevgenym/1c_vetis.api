@@ -5,7 +5,7 @@
 	Попытка
 		Возврат Прокси().GetBusinessEntityByGuid(guid);
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetBusinessEntityByGuid");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -17,7 +17,7 @@
 	Попытка
 		Возврат Прокси().GetEnterpriseByGuid(guid);
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetEnterpriseByGuid");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -35,11 +35,16 @@
 		пListOptions.offset = пListOptions.offset + пListOptions.count;
 	КонецЕсли;
 	
-	Если пfiltr = Неопределено Тогда
-		Возврат Прокси().GetBusinessEntityList(пListOptions);
-	Иначе
-		Возврат Прокси().GetBusinessEntityList(пListOptions, ВетисCerberusEnterprise.BusinessEntity(пfiltr));
-	КонецЕсли;
+	Попытка
+		Если пfiltr = Неопределено Тогда
+			Возврат Прокси().GetBusinessEntityList(пListOptions);
+		Иначе
+			Возврат Прокси().GetBusinessEntityList(пListOptions, ВетисCerberusEnterprise.BusinessEntity(пfiltr));
+		КонецЕсли;
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetBusinessEntityList");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -79,7 +84,7 @@
 			_List = Прокси().GetBusinessEntityList(пПараметры.ListOptions, ВетисCerberusEnterprise.BusinessEntity(пfiltr));
 		КонецЕсли;
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetBusinessEntityListСледующий");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -121,7 +126,7 @@
 			Возврат Прокси().GetRussianEnterpriseList(пListOptions, ВетисCerberusEnterprise.Enterprise(пfiltr));
 		КонецЕсли;
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetRussianEnterpriseList");
 		ВызватьИсключение;
 	КонецПопытки;
 	
@@ -170,7 +175,7 @@
 			_ListResponse = Прокси().GetRussianEnterpriseList(пПараметры.ListOptions, ВетисCerberusEnterprise.Enterprise(пfiltr));
 		КонецЕсли;
 	Исключение
-		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetRussianEnterpriseListСледующий");
 		ВызватьИсключение;
 	КонецПопытки;
 	

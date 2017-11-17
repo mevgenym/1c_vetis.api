@@ -596,15 +596,21 @@
 				_строкаСЖ.КоличествоМест       = _package.quantity;
 			КонецЕсли;
 			Если НЕ _batch.origin = Неопределено Тогда
-				_строкаСЖ.ПроизводительПредприятие = _ВетисCerberusEnterpriseСлой1с.Producer(_batch.origin.producer);
-				_строкаСЖ.Номенклатура         = _ВетисArgusProductionСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
+				_строкаСЖ.ПроизводительПредприятие = ВетисDictionaryСлой1с.Producer(_batch.origin.producer);
+				_строкаСЖ.Номенклатура             = ВетисDictionaryСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
+				_строкаСЖ.СтранаПроисхождения      = ВетисDictionaryСлой1с.Country(_batch.origin.country);
 			КонецЕсли;
+			_ИДПартии = "";
+			Для каждого batchID Из _batch.batchID Цикл
+				_ИДПартии = _ИДПартии + "; " + batchID;
+			КонецЦикла;
+			_СтрокаСЖ.ИДПартии = Сред(_ИДПартии, 3);
 		Иначе
-			_строкаСЖ.Упаковка             = _ВетисArgusCommonСлой1с.PackingForm(_batch.packingList);
+			_строкаСЖ.Упаковка             = ВетисArgusCommonСлой1с.PackingForm(_batch.packingList);
 			_строкаСЖ.КоличествоМест       = _batch.packingAmount;
-			_строкаСЖ.СтранаПроисхождения  = _ВетисIkarСлой1с.Country(_batch.countryOfOrigin);
-			_строкаСЖ.ПроизводительПредприятие = _ВетисCerberusEnterpriseСлой1с.Producer(_batch.producerList);
-			_строкаСЖ.Номенклатура         = _ВетисArgusProductionСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
+			_строкаСЖ.СтранаПроисхождения  = ВетисIkarСлой1с.Country(_batch.countryOfOrigin);
+			_строкаСЖ.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Producer(_batch.producerList);
+			_строкаСЖ.Номенклатура         = ВетисArgusProductionСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
 			//_строкаСЖ.Маркировка           = ProductMarking(_batch.productMarkingList);
 		КонецЕсли;
 		
@@ -631,7 +637,7 @@
 			_subProduct  = _ВетисProductService.GetSubProductByGuid(_subProduct);
 			_product     = _ВетисProductService.GetProductByGuid(_subProduct.productGuid);
 			_productType = _product.productType;
-			_productItem.name = _subProduct.name;
+			_productItem.name = ?(ЗначениеЗаполнено(_productItem.name), _productItem.name, _subProduct.name);
 			
 		Иначе
 			//не заполнены ключевые поля, выходим
@@ -671,6 +677,8 @@
 				_level = ВетисDictionaryСлой1с.PackageLevelType(ВетисDictionaryСлой1с.PackageLevelType());//пока фиксированный
 				_packingType = ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка);
 				_batch.packageList = ВетисDictionary_2_0.PackageList(_level, _packingType, _СтрокаСЖ.КоличествоМест);
+			Иначе
+				//_batch.packageList = ВетисDictionary_2_0.PackageList();
 			КонецЕсли;
 			_batch.batchID.Очистить();
 			_batch.batchID.Добавить(_СтрокаСЖ.ИДПартии);
@@ -689,6 +697,12 @@
 
 Процедура Аннулировать(пСсылка, пПричина) Экспорт
 	
-	ВетисMercuryApplicationsСлой1с.WithdrawVetDocumentOperation(пСсылка, пПричина);
+	Перем _Отказ, _Ошибка;
+	
+	ВетисMercuryApplicationsСлой1с.WithdrawVetDocumentOperation(пСсылка, пПричина, _Отказ, _Ошибка);
+	
+	Если _Отказ = Истина Тогда
+		Сообщить(_Ошибка);
+	КонецЕсли;
 	
 КонецПроцедуры

@@ -21,13 +21,15 @@
 	
 КонецФункции
 
-Функция GetStockEntryByGuid(guid, enterpriseGuid, issuerId = Неопределено, Отказ = Ложь) Экспорт
+Функция GetStockEntryByGuid(guid, enterpriseGuid, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = GetStockEntryByGuidRequest(guid, enterpriseGuid);
 	
-	_Response = Прокси("getStockEntryByGuidRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("getStockEntryByGuidRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат GetStockEntryByGuidResponse(_Response);
 	
@@ -66,13 +68,12 @@
 //  пПараметры     - для внутреннего использования, начальное значение - Неопределено
 // Возвращаемое значение:
 //	Булево         - Ложь значит список пройден весь
-Функция GetStockEntryListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры) Экспорт
+Функция GetStockEntryListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", GetStockEntryListRequest(enterpriseGuid));
-		пПараметры.Вставить("Отладка", Ветис.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
@@ -88,7 +89,9 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = Прокси("getStockEntryListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
+	_Response = Прокси("getStockEntryListRequest", пПараметры.ListRequest, issuerId, Ложь, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -128,13 +131,12 @@
 	
 КонецФункции
 
-Функция GetStockEntryChangesListСледующий(enterpriseGuid, issuerId = Неопределено, beginDate, endDate = Неопределено, пItem, пПараметры) Экспорт
+Функция GetStockEntryChangesListСледующий(enterpriseGuid, issuerId = Неопределено, beginDate, endDate = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", GetStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate));
-		пПараметры.Вставить("Отладка", Ветис.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
@@ -150,7 +152,9 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = Прокси("getStockEntryChangesListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
+	_Response = Прокси("getStockEntryChangesListRequest", пПараметры.ListRequest, issuerId, Ложь, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -196,13 +200,15 @@
 	
 КонецФункции
 
-Функция GetVetDocumentByUuid(vetDocumentUuid, enterpriseGuid, issuerId = Неопределено, Отказ = Ложь) Экспорт
+Функция GetVetDocumentByUuid(vetDocumentUuid, enterpriseGuid, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = GetVetDocumentByUuidRequest(vetDocumentUuid, enterpriseGuid);
 	
-	_Response = Прокси("getVetDocumentByUuidRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("getVetDocumentByUuidRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат GetVetDocumentByUuidResponse(_Response);
 	
@@ -244,13 +250,12 @@
 //  пПараметры     - для внутреннего использования, начальное значение - Неопределено
 // Возвращаемое значение:
 //	Булево         - Ложь значит список пройден весь
-Функция GetVetDocumentListСледующий(enterpriseGuid, issuerId = Неопределено, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, пItem, пПараметры) Экспорт
+Функция GetVetDocumentListСледующий(enterpriseGuid, issuerId = Неопределено, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", getVetDocumentListRequest(enterpriseGuid, vetDocumentType, vetDocumentStatus));
-		пПараметры.Вставить("Отладка", Ветис.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
@@ -265,13 +270,15 @@
 			//по отбору приходят ВСД с другим типом, пока ставлю ограничение здесь
 			Если НЕ vetDocumentType = Неопределено И НЕ пItem.vetDType = vetDocumentType
 				ИЛИ НЕ vetDocumentStatus = Неопределено И НЕ пItem.vetDStatus = vetDocumentStatus Тогда
-				Возврат GetVetDocumentListСледующий(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры);
+				Возврат GetVetDocumentListСледующий(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры, пОтказ, пОшибка);
 			КонецЕсли;
 			Возврат Истина;
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = Прокси("getVetDocumentListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
+	_Response = Прокси("getVetDocumentListRequest", пПараметры.ListRequest, issuerId, Ложь, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -286,7 +293,7 @@
 		//по отбору приходят ВСД с другим типом, пока ставлю ограничение здесь
 		Если НЕ vetDocumentType = Неопределено И НЕ пItem.vetDType = vetDocumentType
 			ИЛИ НЕ vetDocumentStatus = Неопределено И НЕ пItem.vetDStatus = vetDocumentStatus Тогда
-			Возврат GetVetDocumentListСледующий(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры);
+			Возврат GetVetDocumentListСледующий(enterpriseGuid, issuerId, vetDocumentType, vetDocumentStatus, пItem, пПараметры, пОтказ, пОшибка);
 		КонецЕсли;
 		Возврат Истина;
 	КонецЕсли;
@@ -316,13 +323,12 @@
 	
 КонецФункции
 
-Функция GetVetDocumentChangesListСледующий(enterpriseGuid, issuerId = Неопределено, beginDate, endDate = Неопределено, пItem, пПараметры) Экспорт
+Функция GetVetDocumentChangesListСледующий(enterpriseGuid, issuerId = Неопределено, beginDate, endDate = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", getVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate));
-		пПараметры.Вставить("Отладка", Ветис.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
@@ -338,7 +344,9 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = Прокси("getVetDocumentChangesListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
+	_Response = Прокси("getVetDocumentChangesListRequest", пПараметры.ListRequest, issuerId, Ложь, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -377,13 +385,15 @@
 	
 КонецФункции
 
-Функция UpdateVeterinaryEvents(enterprise, stockEntry, issuerId = Неопределено, Отказ = Ложь) Экспорт
+Функция UpdateVeterinaryEvents(enterprise, stockEntry, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = UpdateVeterinaryEventsRequest(enterprise, stockEntry);
 	
-	_Response = Прокси("updateVeterinaryEventsRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("updateVeterinaryEventsRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда Отказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат UpdateVeterinaryEventsResponse(_Response);
 	
@@ -450,13 +460,15 @@
 	
 КонецФункции
 
-Функция ProcessIncomingConsignment(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция ProcessIncomingConsignment(delivery, deliveryFacts, discrepancyReport = Неопределено, returnedDelivery = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = ProcessIncomingConsignmentRequest(delivery, deliveryFacts, discrepancyReport, returnedDelivery);
 	
-	_Response = Прокси("processIncomingConsignmentRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("processIncomingConsignmentRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат ProcessIncomingConsignmentResponse(_Response);
 	
@@ -487,13 +499,15 @@
 	
 КонецФункции
 
-Функция PrepareOutgoingConsignment(delivery, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция PrepareOutgoingConsignment(delivery, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = PrepareOutgoingConsignmentRequest(delivery);
 	
-	_Response = Прокси("prepareOutgoingConsignmentRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("prepareOutgoingConsignmentRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат PrepareOutgoingConsignmentResponse(_Response);
 	
@@ -525,13 +539,15 @@
 	
 КонецФункции
 
-Функция RegisterProductionOperation(enterprise, productionOperation, vetDocument, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция RegisterProductionOperation(enterprise, productionOperation, vetDocument, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = RegisterProductionOperationRequest(enterprise, productionOperation, vetDocument);
 	
-	_Response = Прокси("registerProductionOperationRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("registerProductionOperationRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат RegisterProductionOperationResponse(_Response);
 	
@@ -573,13 +589,15 @@
 	
 КонецФункции
 
-Функция ResolveDiscrepancy(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция ResolveDiscrepancy(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = ResolveDiscrepancyRequest(enterprise, inventoryDate, responsible, stockDiscrepancy, discrepancyReport);
 	
-	_Response = Прокси("resolveDiscrepancyRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("resolveDiscrepancyRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат ResolveDiscrepancyResponse(_Response);
 	
@@ -628,13 +646,15 @@
 	
 КонецФункции
 
-Функция WithdrawVetDocument(vetDocumentId, withdrawReason, withdrawDate, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция WithdrawVetDocument(vetDocumentId, withdrawReason, withdrawDate, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, Ветис.Врач());
 	
-	_Response = Прокси("withdrawVetDocumentRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("withdrawVetDocumentRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат WithdrawVetDocumentResponse(_Response);
 	
@@ -668,13 +688,15 @@
 	
 КонецФункции
 
-Функция ModifyBusinessEntity(modificationOperation, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция ModifyBusinessEntity(modificationOperation, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = ModifyBusinessEntityRequest(modificationOperation);
 	
-	_Response = Прокси("modifyBusinessEntityRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("modifyBusinessEntityRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат ModifyBusinessEntityResponse(_Response);
 	
@@ -707,13 +729,15 @@
 	
 КонецФункции
 
-Функция ModifyEnterprise(modificationOperation, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция ModifyEnterprise(modificationOperation, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = ModifyEnterpriseRequest(modificationOperation);
 	
-	_Response = Прокси("modifyEnterpriseRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("modifyEnterpriseRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат ModifyEnterpriseResponse(_Response);
 	
@@ -745,13 +769,15 @@
 	
 КонецФункции
 
-Функция ModifyActivityLocations(modificationOperation, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция ModifyActivityLocations(modificationOperation, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = ModifyActivityLocationsRequest(modificationOperation);
 	
-	_Response = Прокси("modifyActivityLocationsRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("modifyActivityLocationsRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат ModifyActivityLocationsResponse(_Response);
 	
@@ -784,13 +810,15 @@
 	
 КонецФункции
 
-Функция UpdateTransportMovementDetails(deliveryParticipant, vetDocumentUuid, shipmentRoute, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция UpdateTransportMovementDetails(deliveryParticipant, vetDocumentUuid, shipmentRoute, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = UpdateTransportMovementDetailsRequest(deliveryParticipant, vetDocumentUuid, shipmentRoute);
 	
-	_Response = Прокси("updateTransportMovementDetailsRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("updateTransportMovementDetailsRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат UpdateTransportMovementDetailsResponse(_Response);
 	
@@ -821,13 +849,15 @@
 	
 КонецФункции
 
-Функция CheckShipmentRegionalization(cargoType, shipmentRoute, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция CheckShipmentRegionalization(cargoType, shipmentRoute, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = CheckShipmentRegionalizationRequest(cargoType, shipmentRoute);
 	
-	_Response = Прокси("сheckShipmentRegionalizationRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("сheckShipmentRegionalizationRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат CheckShipmentRegionalizationResponse(_Response);
 	
@@ -860,13 +890,15 @@
 	
 КонецФункции
 
-Функция AddBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция AddBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = AddBusinessEntityUserRequest(user);
 	
-	_Response = Прокси("addBusinessEntityUserRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("addBusinessEntityUserRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат AddBusinessEntityUserResponse(_Response);
 	
@@ -897,13 +929,15 @@
 	
 КонецФункции
 
-Функция GetBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция GetBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = GetBusinessEntityUserRequest(user);
 	
-	_Response = Прокси("getBusinessEntityUserRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("getBusinessEntityUserRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат GetBusinessEntityUserResponse(_Response);
 	
@@ -933,13 +967,12 @@
 	
 КонецФункции
 
-Функция GetBusinessEntityUserListСледующий(issuerId = Неопределено, пItem, пПараметры) Экспорт
+Функция GetBusinessEntityUserListСледующий(issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", GetBusinessEntityUserListRequest());
-		пПараметры.Вставить("Отладка", Ветис.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
@@ -955,7 +988,9 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = Прокси("getBusinessEntityUserListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
+	_Response = Прокси("getBusinessEntityUserListRequest", пПараметры.ListRequest, issuerId, Ложь, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -1000,13 +1035,15 @@
 	
 КонецФункции
 
-Функция UpdateUserAuthorities(user, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция UpdateUserAuthorities(user, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = UpdateUserAuthoritiesRequest(user);
 	
-	_Response = Прокси("updateUserAuthoritiesRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("updateUserAuthoritiesRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат UpdateUserAuthoritiesResponse(_Response);
 	
@@ -1037,13 +1074,15 @@
 	
 КонецФункции
 
-Функция UpdateUserWorkingAreas(user, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция UpdateUserWorkingAreas(user, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = UpdateUserWorkingAreasRequest(user);
 	
-	_Response = Прокси("updateUserWorkingAreasRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("updateUserWorkingAreasRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат UpdateUserWorkingAreasResponse(_Response);
 	
@@ -1074,13 +1113,15 @@
 	
 КонецФункции
 
-Функция UnbindBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция UnbindBusinessEntityUser(user, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Request = UnbindBusinessEntityUserRequest(user);
 	
-	_Response = Прокси("unbindBusinessEntityUserRequest", _Request, issuerId, Ложь);
+	_Response = Прокси("unbindBusinessEntityUserRequest", _Request, issuerId, Ложь, пОтказ, пОшибка);
 	
-	Если _Response = Ложь Тогда пОтказ = Истина; Возврат Неопределено;	КонецЕсли;
+	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
+	
+	Если _Response = Ложь Тогда Возврат Неопределено;	КонецЕсли;
 	
 	Возврат UnbindBusinessEntityUserResponse(_Response);
 	
@@ -1110,13 +1151,12 @@
 	
 КонецФункции
 
-Функция GetApplicableUserAuthorityListСледующий(issuerId = Неопределено, пItem, пПараметры) Экспорт
+Функция GetApplicableUserAuthorityListСледующий(issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", GetApplicableUserAuthorityListRequest());
-		пПараметры.Вставить("Отладка", Ветис.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
@@ -1132,7 +1172,9 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = Прокси("getApplicableUserAuthorityListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
+	_Response = Прокси("getApplicableUserAuthorityListRequest", пПараметры.ListRequest, issuerId, Ложь, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -1170,13 +1212,12 @@
 	
 КонецФункции
 
-Функция GetAppliedUserAuthorityListСледующий(issuerId = Неопределено, пItem, пПараметры) Экспорт
+Функция GetAppliedUserAuthorityListСледующий(issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", GetAppliedUserAuthorityListRequest());
-		пПараметры.Вставить("Отладка", Ветис.РазрешенаОтладка());
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
@@ -1192,7 +1233,9 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = Прокси("getAppliedUserAuthorityListRequest", пПараметры.ListRequest, issuerId, Ложь, пПараметры.Отладка);
+	_Response = Прокси("getAppliedUserAuthorityListRequest", пПараметры.ListRequest, issuerId, Ложь, пОтказ, пОшибка);
+	
+	Если пОтказ = Истина Тогда Возврат Ложь; КонецЕсли;
 	
 	Если _Response = Ложь Тогда Возврат Ложь;	КонецЕсли;
 	
@@ -1273,8 +1316,8 @@
 	
 КонецФункции
 
-Функция Прокси(пИмяФункции, пRequest, issuerId = Неопределено, ПоУмолчанию = Неопределено, пОтладка = Неопределено, пОжидание = 5)
+Функция Прокси(пИмяФункции, пRequest, issuerId = Неопределено, ПоУмолчанию = Неопределено, пОтказ = Ложь, пОшибка = Неопределено, пОжидание = 5)
 	
-	Возврат Ветис.ВыполнитьЗапрос("ams-mercury.service", пИмяФункции, ФабрикаWS(), пRequest, issuerId, ПоУмолчанию, пОтладка, пОжидание);
+	Возврат Ветис.ВыполнитьЗапрос("ams-mercury.service", пИмяФункции, ФабрикаWS(), пRequest, issuerId, ПоУмолчанию, пОтказ, пОшибка, пОжидание);
 	
 КонецФункции

@@ -2,14 +2,24 @@
 // Получение единицы измерения.
 Функция GetUnitByGuid(guid) Экспорт
 	
-	Возврат Прокси().GetUnitByGuid(guid);
+	Попытка
+		Возврат Прокси().GetUnitByGuid(guid);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetUnitByGuid");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
 // Получение назначения груза.
 Функция GetPurposeByGuid(guid) Экспорт
 	
-	Возврат Прокси().GetPurposeByGuid(guid);
+	Попытка
+		Возврат Прокси().GetPurposeByGuid(guid);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetPurposeByGuid");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -23,7 +33,12 @@
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetUnitList(ListOptions);
+	Попытка
+		Возврат Прокси().GetUnitList(ListOptions);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetUnitList");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -55,7 +70,12 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	ListResponse = Прокси().GetUnitList(пПараметры.ListOptions);
+	Попытка
+		ListResponse = Прокси().GetUnitList(пПараметры.ListOptions);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetUnitListСледующий");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 	пПараметры.Вставить("ListResponse", ListResponse);
 	
@@ -80,7 +100,12 @@
 		ListOptions.offset = ListOptions.offset + ListOptions.count;
 	КонецЕсли;
 	
-	Возврат Прокси().GetPurposeList(ListOptions);
+	Попытка
+		Возврат Прокси().GetPurposeList(ListOptions);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetPurposeList");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 КонецФункции
 
@@ -112,7 +137,12 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	ListResponse = Прокси().GetPurposeList(пПараметры.ListOptions);
+	Попытка
+		ListResponse = Прокси().GetPurposeList(пПараметры.ListOptions);
+	Исключение
+		Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке(), "GetPurposeListСледующий");
+		ВызватьИсключение;
+	КонецПопытки;
 	
 	пПараметры.Вставить("ListResponse", ListResponse);
 	

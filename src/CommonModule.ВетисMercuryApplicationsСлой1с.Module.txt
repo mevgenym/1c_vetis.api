@@ -3,7 +3,7 @@
 	
 КонецПроцедуры
 
-Функция ResolveDiscrepancy(пПредприятие, пСтрокаПартии, discrepancyReport = Неопределено, issuerId = Неопределено, пОтказ = Ложь) Экспорт
+Функция ResolveDiscrepancy(пПредприятие, пСтрокаПартии, discrepancyReport = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	//сделать: тестировать ResolveDiscrepancy
 	
 	_enterprise = ВетисCerberusEnterprise.Enterprise(ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие));
@@ -26,11 +26,11 @@
 		_discrepancyReport = discrepancyReport;
 	КонецЕсли;
 	
-	_Response = ВетисMercuryApplications.resolveDiscrepancy(_enterprise, _inventoryDate, _responsible, _stockDiscrepancy, _discrepancyReport, issuerId, пОтказ);
+	_Response = ВетисMercuryApplications.resolveDiscrepancy(_enterprise, _inventoryDate, _responsible, _stockDiscrepancy, _discrepancyReport, issuerId, пОтказ, пОшибка);
 	
 КонецФункции
 
-Процедура IncomingOperation(пСтрокаСЖ, пВСД = Неопределено, пВозвратДата = Неопределено, пОтказ = Ложь) Экспорт
+Процедура IncomingOperation(пСтрокаСЖ, пВСД = Неопределено, пВозвратДата = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Перем _discrepancyReport, _returnedDelivery;
 	
@@ -159,7 +159,7 @@
 		КонецЕсли;
 	КонецЕсли;
 	
-	_Response = _ВетисMercuryApplications.processIncomingConsignment(_delivery, _deliveryFacts, _discrepancyReport, _returnedDelivery, _Получатель, пОтказ);
+	_Response = _ВетисMercuryApplications.processIncomingConsignment(_delivery, _deliveryFacts, _discrepancyReport, _returnedDelivery, _Получатель, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат; КонецЕсли;
 	
@@ -222,7 +222,7 @@
 	
 КонецПроцедуры
 
-Процедура TransportOperation(пДокумент, пСтрокаПартии, пСтрокаВСД, пСтрокаТТН, пОтказ = Ложь) Экспорт
+Процедура TransportOperation(пДокумент, пСтрокаПартии, пСтрокаВСД, пСтрокаТТН, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Версия20 = Ветис.Версия_2_0();
 	_ВетисBase = ?(_Версия20, ВетисDictionary_2_0, ВетисBase);
@@ -285,9 +285,9 @@
 		_ВетисMercuryVetdocument.ConsignmentDocumentList(_waybill, _VetDocument));
 	
 	Если _Версия20 Тогда
-		_Response = ВетисMercuryApplications_2_0.PrepareOutgoingConsignment(_delivery, _Отправитель, пОтказ);
+		_Response = ВетисMercuryApplications_2_0.PrepareOutgoingConsignment(_delivery, _Отправитель, пОтказ, пОшибка);
 	Иначе
-		_Response = ВетисMercuryApplications.prepareOutcomingConsignment(_delivery, _Отправитель, пОтказ);
+		_Response = ВетисMercuryApplications.prepareOutcomingConsignment(_delivery, _Отправитель, пОтказ, пОшибка);
 	КонецЕсли;
 	
 	//http://vetrf.ru/vetrf-forum/posts/list/7130.page#44764
@@ -298,7 +298,7 @@
 	
 КонецПроцедуры
 
-Процедура WithdrawVetDocumentOperation(пСсылка, пПричина, пОтказ = Ложь) Экспорт
+Процедура WithdrawVetDocumentOperation(пСсылка, пПричина, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если НЕ пСсылка.Статус = Перечисления.ВетисVetDocumentStatus.Оформлен Тогда
 		Возврат;
@@ -317,13 +317,13 @@
 		
 		_Получатель = ВетисDictionaryСлой1с.BusinessEntity(пСсылка.Получатель);
 		
-		_Response = ВетисMercuryApplications_2_0.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), _Получатель, пОтказ);
+		_Response = ВетисMercuryApplications_2_0.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), _Получатель, пОтказ, пОшибка);
 	Иначе
 		_Reason = ВетисMercuryVetdocument.WithdrawReason(пПричина);
 		
 		_Получатель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(пСсылка.Получатель);
 		
-		_Response = ВетисMercuryApplications.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), _Получатель, пОтказ);
+		_Response = ВетисMercuryApplications.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), _Получатель, пОтказ, пОшибка);
 	КонецЕсли;
 	
 	Если пОтказ = Истина Тогда Возврат; КонецЕсли;
@@ -340,7 +340,7 @@
 	
 КонецПроцедуры
 
-Функция getVetDocumentByUuid(пВСД, пВСДОбъект = Неопределено) Экспорт
+Функция getVetDocumentByUuid(пВСД, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_ВетисCerberusEnterpriseСлой1с = ?(Ветис.Версия_2_0(), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
 	_ВетисMercuryApplications = ?(Ветис.Версия_2_0(), ВетисMercuryApplications_2_0, ВетисMercuryApplications);
@@ -361,27 +361,11 @@
 		Возврат Неопределено;
 	КонецЕсли;
 	
-	_vetDocument = _ВетисMercuryApplications.getVetDocumentByUuid(пВСД.uuid, _enterpriseGuid, _issuerId);
-	
-	Если пВСДОбъект = Неопределено Тогда
-		Возврат _vetDocument;
-	Иначе
-		Если ТипЗнч(пВСДОбъект) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент")
-			ИЛИ ТипЗнч(пВСДОбъект) = Тип("ДанныеФормыСтруктура") Тогда
-			_ВСДОбъект = пВСДОбъект;
-		Иначе
-			_ВСДОбъект = Документы.ВетисВетеринарноСопроводительныйДокумент.СоздатьДокумент();
-		КонецЕсли;
-		
-		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_ВСДОбъект, _vetDocument);
-		
-		Возврат _ВСДОбъект;
-		
-	КонецЕсли;
+	Возврат _ВетисMercuryApplications.getVetDocumentByUuid(пВСД.uuid, _enterpriseGuid, _issuerId, пОтказ, пОшибка);
 	
 КонецФункции
 
-Функция ModifyActivityLocations(пХС, пПредприятие, ModificationTypeCREATE = Истина) Экспорт
+Функция ModifyActivityLocations(пХС, пПредприятие, ModificationTypeCREATE = Истина, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_ModificationType = ?(ModificationTypeCREATE, ВетисКонстанты.RegisterModificationType_CREATE(), ВетисКонстанты.RegisterModificationType_DELETE());
 	
@@ -393,7 +377,7 @@
 		
 		_Operation = ВетисMercuryVetdocument_2_0.BusinessEntityActivityLocationsModificationOperation(_ModificationType, _BusinessEntityGuid, _EnterpriseGuid);
 		
-		_BusinessEntityResponse = ВетисMercuryApplications_2_0.ModifyActivityLocations(_Operation, _BusinessEntityGuid);
+		_BusinessEntityResponse = ВетисMercuryApplications_2_0.ModifyActivityLocations(_Operation, _BusinessEntityGuid, пОтказ, пОшибка);
 		
 	Иначе
 		
@@ -403,7 +387,7 @@
 		
 		_Operation = ВетисCerberusEnterprise.BusinessEntityActivityLocationsModificationOperation(_ModificationType, _BusinessEntityGuid, _EnterpriseGuid);
 		
-		_BusinessEntityResponse = ВетисMercuryApplications.ModifyActivityLocations(_Operation, _BusinessEntityGuid);
+		_BusinessEntityResponse = ВетисMercuryApplications.ModifyActivityLocations(_Operation, _BusinessEntityGuid, пОтказ, пОшибка);
 		
 	КонецЕсли;
 	
@@ -411,7 +395,7 @@
 	
 КонецФункции
 
-Функция ModifyBusinessEntity(пХС, пПричина = Неопределено, RegisterModificationType_FIND_OR_CREATE = Истина) Экспорт
+Функция ModifyBusinessEntity(пХС, пПричина = Неопределено, RegisterModificationType_FIND_OR_CREATE = Истина, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_type = ?(RegisterModificationType_FIND_OR_CREATE = Истина, ВетисКонстанты.RegisterModificationType_FIND_OR_CREATE(), ВетисКонстанты.RegisterModificationType_UPDATE());
 	
@@ -449,7 +433,7 @@
 		
 		_modificationOperation = ВетисMercuryVetdocument_2_0.BusinessEntityModificationOperation(_type, , _businessEntity, _Причина);
 		
-		_Response = ВетисMercuryApplications_2_0.ModifyBusinessEntity(_modificationOperation, _businessEntityGuid);
+		_Response = ВетисMercuryApplications_2_0.ModifyBusinessEntity(_modificationOperation, _businessEntityGuid, пОтказ, пОшибка);
 		
 	Иначе
 		
@@ -473,7 +457,7 @@
 		
 		_modificationOperation = ВетисCerberusEnterprise.BusinessEntityModificationOperation(_type, , _businessEntity, _Причина);
 		
-		_Response = ВетисMercuryApplications.ModifyBusinessEntity(_modificationOperation, _businessEntityGuid);
+		_Response = ВетисMercuryApplications.ModifyBusinessEntity(_modificationOperation, _businessEntityGuid, пОтказ, пОшибка);
 		
 	КонецЕсли;
 	
@@ -481,7 +465,7 @@
 	
 КонецФункции
 
-Функция ModifyEnterprise(пПредприятие, пПричина = Неопределено, RegisterModificationType_CREATE = Истина) Экспорт
+Функция ModifyEnterprise(пПредприятие, пПричина = Неопределено, RegisterModificationType_CREATE = Истина, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_type = ?(RegisterModificationType_CREATE = Истина, ВетисКонстанты.RegisterModificationType_CREATE(), ВетисКонстанты.RegisterModificationType_UPDATE());
 	
@@ -521,7 +505,7 @@
 		
 		_modificationOperation = ВетисMercuryVetdocument_2_0.EnterpriseModificationOperation(_type, , _enterprise, _Причина);
 		
-		_Response = ВетисMercuryApplications_2_0.ModifyEnterprise(_modificationOperation, _issuerId);
+		_Response = ВетисMercuryApplications_2_0.ModifyEnterprise(_modificationOperation, _issuerId, пОтказ, пОшибка);
 		
 	Иначе
 		
@@ -543,7 +527,7 @@
 		
 		_modificationOperation = ВетисCerberusEnterprise.EnterpriseModificationOperation(_type, , _enterprise, _Причина);
 		
-		_Response = ВетисMercuryApplications.ModifyEnterprise(_modificationOperation, _issuerId);
+		_Response = ВетисMercuryApplications.ModifyEnterprise(_modificationOperation, _issuerId, пОтказ, пОшибка);
 		
 	КонецЕсли;
 	
@@ -559,9 +543,9 @@
 		
 		ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_Consignment, пСтрокаСЖ);
 		
-		_Consignment.volume           = ?(пКоличество     = Неопределено, пСтрокаСЖ.Количество, пКоличество);
+		_Consignment.volume = ?(пКоличество = Неопределено, пСтрокаСЖ.Количество, пКоличество);
 		
-		Если НЕ пКоличествоМест = Неопределено Тогда
+		Если ЗначениеЗаполнено(пСтрокаСЖ.Упаковка) И НЕ пКоличествоМест = Неопределено Тогда
 			ВетисDictionaryСлой1с.PackageList(_Consignment.packageList).quantity = пКоличествоМест;
 		КонецЕсли;
 		

@@ -136,6 +136,12 @@
 									<ContextMenu name="КонтекстКонтекстноеМеню" id="43"/>
 									<ExtendedTooltip name="КонтекстРасширеннаяПодсказка" id="44"/>
 								</LabelField>
+								<LabelField name="КлючДанных" id="59">
+									<DataPath>Список.КлючДанных</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="КлючДанныхКонтекстноеМеню" id="60"/>
+									<ExtendedTooltip name="КлючДанныхРасширеннаяПодсказка" id="61"/>
+								</LabelField>
 								<LabelField name="Версия" id="45">
 									<DataPath>Список.Версия</DataPath>
 									<Width>2</Width>

@@ -14,7 +14,6 @@
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
-		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>

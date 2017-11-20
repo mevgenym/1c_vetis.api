@@ -176,7 +176,7 @@
 	
 	_Объект = Создать("Delivery");
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяВетис(), "deliveryDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяСервиса(), "deliveryDate");// xs:dateTime
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, accompanyingForms, "accompanyingForms");
@@ -233,7 +233,7 @@
 	_Объект = Создать("DeliveryInspection");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, result, "result");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ?(responsible = Неопределено, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), responsible), "responsible");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible", , ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()));
 	
 	Возврат _Объект;
 	
@@ -249,15 +249,15 @@
 	
 КонецФункции
 
-Функция DiscrepancyReport(issueSeries = "", issueNumber = "", issueDate, reason, description) Экспорт
+Функция DiscrepancyReport(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, reason = Неопределено, description = Неопределено) Экспорт
 	
 	_Объект = Создать("DiscrepancyReport");
 	
-	_Объект.issueSeries = issueSeries;
-	_Объект.issueNumber = issueNumber;
-	_Объект.issueDate   = Ветис.ВремяВетис(issueDate);
-	_Объект.reason      = DiscrepancyReason(reason);
-	_Объект.description = description;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");//xs:date
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, DiscrepancyReason(reason), "reason");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, description, "description");
 	
 	Возврат _Объект;
 	
@@ -284,24 +284,14 @@
 
 //Тип, описывающий дату производства, либо дату окончания срока годности продукции.
 //Может указываться единичной датой, интервалом, либо строкой.
-Функция GoodsDate(firstDate, secondDate = Неопределено) Экспорт
+Функция GoodsDate(firstDate, secondDate = Неопределено, пДень = Ложь, пЧас = Ложь, пМинута = Ложь) Экспорт
 	
 	_Объект = Создать("GoodsDate");
 	
-	Если ЗначениеЗаполнено(firstDate) Тогда
-		Если ТипЗнч(firstDate) = Тип("Дата") Тогда
-			_Объект.firstDate = ВетисDictionary_2_0.ComplexDate(firstDate);
-		Иначе
-			_Объект.firstDate = firstDate;
-		КонецЕсли;
-	КонецЕсли;
+	_Объект.firstDate = ВетисDictionary_2_0.ComplexDate(firstDate, пДень, пЧас, пМинута);
 	
 	Если НЕ secondDate = Неопределено И ЗначениеЗаполнено(secondDate) Тогда
-		Если ТипЗнч(secondDate) = Тип("Дата") Тогда
-			_Объект.secondDate = ВетисDictionary_2_0.ComplexDate(secondDate);
-		Иначе
-			_Объект.secondDate = secondDate;
-		КонецЕсли;
+		_Объект.secondDate = ВетисDictionary_2_0.ComplexDate(secondDate, пДень, пЧас, пМинута);
 	КонецЕсли;
 	
 	Возврат _Объект;
@@ -328,9 +318,7 @@
 	
 	_Объект = Создать("MergeStockEntriesOperation");
 	
-	Для каждого _StockEntry Из sourceStockEntry Цикл
-		_Объект.sourceStockEntry.Добавить(StockEntry(_StockEntry));
-	КонецЦикла;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, sourceStockEntry, "sourceStockEntry", "ВетисMercuryVetdocument.StockEntry");
 	
 	Возврат _Объект;
 	
@@ -561,14 +549,14 @@
 // user - dt:User - пользователь, изменивший статус
 // date - xs:dateTime - дата и время изменения статуса
 // reason - vd:VetDocumentStatusChangeReason - основание
-Функция VetDocumentStatusChange(status, user, date, reason = "") Экспорт
+Функция VetDocumentStatusChange(status = Неопределено, user = Неопределено, date = Неопределено, reason = Неопределено) Экспорт
 	
 	_Объект = Создать("VetDocumentStatusChange");
 	
-	_Объект.status = status;
-	_Объект.specifiedPerson = user;
-	_Объект.actualDateTime = date;
-	_Объект.reason = VetDocumentStatusChangeReason(reason);
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, status, "status", , ВетисКонстанты.VetDocumentStatus_CONFIRMED());
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user = Неопределено, "specifiedPerson", , Ветис.Врач());
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, date, "actualDateTime", , Ветис.ВремяСервиса());// xs:dateTime
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason", "ВетисMercuryVetdocument_2_0.VetDocumentStatusChangeReason");
 	
 	Возврат _Объект;
 	

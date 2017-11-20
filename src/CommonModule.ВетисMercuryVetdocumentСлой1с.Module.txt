@@ -335,7 +335,7 @@
 		
 		_док.СерияВСД = _всд.issueSeries;
 		_док.НомерВСД = _всд.issueNumber;
-		_док.ДатаВСД  = Ветис.ВремяБД(_всд.issueDate);
+		_док.ДатаВСД  = _всд.issueDate;
 		_док.Тип      = VetDocumentType(_всд.type);
 		_док.Статус   = VetDocumentStatus(_всд.status);
 		_док.Форма    = VetDocumentForm(_всд.form);
@@ -357,8 +357,7 @@
 		_строкаВСД.БлагополучиеМестности  = _всд.locationProsperity;
 		_строкаВСД.Ветсанэкспертиза       = _всд.cargoExpertized;
 		//_строкаВСД.ГосударственныйВетврач = _всд.confirmedBy.fio;
-		_строкаВСД.ГосударственныйВетврачДата = ?(_всд.confirmedDate = Неопределено, _строкаВСД.ГосударственныйВетврачДата, Ветис.ВремяБД(_всд.confirmedDate));
-		//_строкаВСД.ДатаОбновления         = ?(_всд.lastUpdateDate = Неопределено, _строкаВСД.ДатаОбновления, Ветис.ВремяБД(_всд.lastUpdateDate));
+		_строкаВСД.ГосударственныйВетврачДата = ?(_всд.confirmedDate = Неопределено, _строкаВСД.ГосударственныйВетврачДата, Ветис.ВремяМестное(_всд.confirmedDate));// xs:dateTime
 		_строкаВСД.Иммунизация            = ?(_всд.immunizationInfo = Неопределено, _строкаВСД.Иммунизация, _всд.immunizationInfo);
 		_строкаВСД.КарантированиеДней     = ?(_всд.quarantineDays = Неопределено, _строкаВСД.КарантированиеДней, _всд.quarantineDays);
 		_строкаВСД.КарантированиеМесто    = ?(_всд.quarantinePlace = Неопределено, _строкаВСД.КарантированиеДней, _всд.quarantinePlace);
@@ -372,7 +371,7 @@
 		
 		_строкаТТН.Серия          = _всд.waybillSeries;
 		_строкаТТН.Номер          = _всд.waybillNumber;
-		_строкаТТН.Дата           = Ветис.ВремяБД(_всд.waybillDate);
+		_строкаТТН.Дата           = _всд.waybillDate;
 		_строкаТТН.Тип            = ВетисArgusShipmentСлой1с.WaybillType(_всд.waybillType);
 		_строкаТТН.Посредник      = ?(_всд.broker = Неопределено, _строкаТТН.Посредник, ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.broker));
 		_строкаТТН.СпособХранения = ВетисArgusShipmentСлой1с.TransportationStorageType(_всд.transportStorageType);
@@ -400,7 +399,7 @@
 		
 		_всд.issueSeries        = _док.СерияВСД;
 		_всд.issueNumber        = _док.НомерВСД;
-		_всд.issueDate          = Ветис.ВремяВетис(_док.ДатаВСД);
+		_всд.issueDate          = _док.ДатаВСД;
 		
 		_всд.form               = VetDocumentForm(_док.Форма);
 		//_всд.type               = VetDocumentType(_док.Тип);
@@ -414,7 +413,7 @@
 		_всд.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
 		_всд.expertiseInfo      = _СтрокаВСД.ЛабораторныеИсследования;
 		_всд.confirmedBy        = Ветис.Врач();
-		_всд.confirmedDate      = Ветис.ВремяВетис(_док.ДатаВСД);
+		_всд.confirmedDate      = Ветис.ВремяСервиса(_док.ДатаВСД);// xs:dateTime
 		_всд.locationProsperity = _СтрокаВСД.БлагополучиеМестности;
 		_всд.quarantinePlace    = _СтрокаВСД.КарантированиеМесто;
 		_всд.quarantineDays     = _СтрокаВСД.КарантированиеДней;
@@ -443,7 +442,7 @@
 		
 		_док.СерияВСД = _всд.issueSeries;
 		_док.НомерВСД = _всд.issueNumber;
-		_док.ДатаВСД  = Ветис.ВремяБД(_всд.issueDate);
+		_док.ДатаВСД  = _всд.issueDate;
 		_док.Тип      = VetDocumentType(_всд.vetDType);
 		_док.Статус   = VetDocumentStatus(_всд.vetDStatus);
 		_док.Форма    = VetDocumentForm(_всд.vetDForm);
@@ -523,7 +522,7 @@
 		
 		_всд.issueSeries          = _док.СерияВСД;
 		_всд.issueNumber          = _док.НомерВСД;
-		_всд.issueDate            = Ветис.ВремяВетис(_док.ДатаВСД);
+		_всд.issueDate            = _док.ДатаВСД;
 		_всд.vetDForm             = VetDocumentForm(_док.Форма);
 		
 		_всд.certifiedConsignment = ВетисMercuryVetdocument_2_0.CertifiedConsignment(
@@ -544,29 +543,13 @@
 			_СтрокаВСД.ОсобыеОтметки
 			);
 		
-		_всд.statusChange.Добавить(ВетисMercuryVetdocument_2_0.VetDocumentStatusChange(
-			ВетисКонстанты.VetDocumentStatus_CONFIRMED(),
-			Ветис.Врач(),
-			Ветис.ВремяВетис()
-			));
+		_всд.statusChange.Добавить(ВетисMercuryVetdocument_2_0.VetDocumentStatusChange());
 		
 	КонецЕсли;
 	
 КонецФункции
 
 Функция BatchКонвертировать(value1, value2) Экспорт
-	
-	_Версия20 = Ветис.Версия_2_0();
-	_ВетисBase = ?(_Версия20, ВетисDictionary_2_0, ВетисBase);
-	_ВетисArgusProduction = ?(_Версия20, ВетисDictionary_2_0, ВетисArgusProduction);
-	_ВетисArgusProductionСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusProductionСлой1с);
-	_ВетисArgusCommon = ?(_Версия20, ВетисDictionary_2_0, ВетисArgusCommon);
-	_ВетисArgusCommonСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисArgusCommonСлой1с);
-	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary_2_0, ВетисCerberusEnterprise);
-	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
-	_ВетисIkarСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисIkarСлой1с);
-	_ВетисProductService = ?(_Версия20, ВетисProductService_2_0, ВетисProductService);
-	_ВетисMercuryVetdocument = ?(_Версия20, ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
 	
 	Если ТипЗнч(value1) = Тип("ДокументТабличнаяЧастьСтрока.ВетисВетеринарноСопроводительныйДокумент.Товары")
 		ИЛИ ТипЗнч(value1) = Тип("ДанныеФормыЭлементКоллекции") Тогда
@@ -578,41 +561,23 @@
 		_строкаСЖ.ProductItemName      = _batch.productItem.name;
 		_строкаСЖ.ProductItemGuid      = _batch.productItem.guid;
 		
-		_строкаСЖ.НоменклатурнаяГруппа = _ВетисArgusProductionСлой1с.SubProduct(_batch.subProduct);
+		_строкаСЖ.НоменклатурнаяГруппа = ВетисArgusProductionСлой1с.SubProduct(_batch.subProduct);
 		_строкаСЖ.Количество           = _batch.volume;
-		_строкаСЖ.ЕдиницаИзмерения     = _ВетисArgusCommonСлой1с.Unit(_batch.unit);
-		_строкаСЖ.ДатаВыработкиНачало  = _ВетисBase.ComplexDate(_batch.dateOfProduction.firstDate);
-		_строкаСЖ.ДатаВыработкиКонец   = _ВетисBase.ComplexDate(_batch.dateOfProduction.secondDate);
-		_строкаСЖ.СрокГодностиНачало   = _ВетисBase.ComplexDate(_batch.expiryDate.firstDate);
-		_строкаСЖ.СрокГодностиКонец    = _ВетисBase.ComplexDate(_batch.expiryDate.secondDate);
+		_строкаСЖ.ЕдиницаИзмерения     = ВетисArgusCommonСлой1с.Unit(_batch.unit);
+		_строкаСЖ.ДатаВыработкиНачало  = ВетисBase.ComplexDate(_batch.dateOfProduction.firstDate);
+		_строкаСЖ.ДатаВыработкиКонец   = ВетисBase.ComplexDate(_batch.dateOfProduction.secondDate);
+		_строкаСЖ.СрокГодностиНачало   = ВетисBase.ComplexDate(_batch.expiryDate.firstDate);
+		_строкаСЖ.СрокГодностиКонец    = ВетисBase.ComplexDate(_batch.expiryDate.secondDate);
 		_строкаСЖ.Скоропортящаяся      = _batch.perishable;
-		_строкаСЖ.Собственник          = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_batch.owner);
+		_строкаСЖ.Собственник          = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_batch.owner);
 		_строкаСЖ.НекачественныйГруз   = _batch.lowGradeCargo;
 		
-		Если _Версия20 Тогда
-			Если НЕ _batch.packageList = Неопределено Тогда
-				_package = ВетисDictionaryСлой1с.PackageList(_batch.packageList);
-				_строкаСЖ.Упаковка             = ВетисDictionaryСлой1с.Package(_package);
-				_строкаСЖ.КоличествоМест       = _package.quantity;
-			КонецЕсли;
-			Если НЕ _batch.origin = Неопределено Тогда
-				_строкаСЖ.ПроизводительПредприятие = ВетисDictionaryСлой1с.Producer(_batch.origin.producer);
-				_строкаСЖ.Номенклатура             = ВетисDictionaryСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
-				_строкаСЖ.СтранаПроисхождения      = ВетисDictionaryСлой1с.Country(_batch.origin.country);
-			КонецЕсли;
-			_ИДПартии = "";
-			Для каждого batchID Из _batch.batchID Цикл
-				_ИДПартии = _ИДПартии + "; " + batchID;
-			КонецЦикла;
-			_СтрокаСЖ.ИДПартии = Сред(_ИДПартии, 3);
-		Иначе
-			_строкаСЖ.Упаковка             = ВетисArgusCommonСлой1с.PackingForm(_batch.packingList);
-			_строкаСЖ.КоличествоМест       = _batch.packingAmount;
-			_строкаСЖ.СтранаПроисхождения  = ВетисIkarСлой1с.Country(_batch.countryOfOrigin);
-			_строкаСЖ.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Producer(_batch.producerList);
-			_строкаСЖ.Номенклатура         = ВетисArgusProductionСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
-			//_строкаСЖ.Маркировка           = ProductMarking(_batch.productMarkingList);
-		КонецЕсли;
+		_строкаСЖ.Упаковка             = ВетисArgusCommonСлой1с.PackingForm(_batch.packingList);
+		_строкаСЖ.КоличествоМест       = _batch.packingAmount;
+		_строкаСЖ.СтранаПроисхождения  = ВетисIkarСлой1с.Country(_batch.countryOfOrigin);
+		_строкаСЖ.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Producer(_batch.producerList);
+		_строкаСЖ.Номенклатура         = ВетисArgusProductionСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
+		//_строкаСЖ.Маркировка           = ProductMarking(_batch.productMarkingList);
 		
 	ИначеЕсли ТипЗнч(value2) = Тип("ДокументТабличнаяЧастьСтрока.ВетисВетеринарноСопроводительныйДокумент.Товары")
 		ИЛИ ТипЗнч(value2) = Тип("ДанныеФормыЭлементКоллекции") Тогда
@@ -622,20 +587,20 @@
 		
 		//сделать: проверить конверсию номенклатуры
 		
-		_productItem = _ВетисArgusProductionСлой1с.ProductItem(_СтрокаСЖ.Номенклатура, _СтрокаСЖ.ПроизводительПредприятие);//Структура
-		_subProduct  = _ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
+		_productItem = ВетисArgusProductionСлой1с.ProductItem(_СтрокаСЖ.Номенклатура, _СтрокаСЖ.ПроизводительПредприятие);//Структура
+		_subProduct  = ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
 		_product     = "";
 		_productType = ВетисКонстанты.ProductType_МясоИМясопродукты();
 		
 		Если ЗначениеЗаполнено(_productItem.guid) Тогда
-			_productItem = _ВетисProductService.GetProductItemByGuid(_productItem.guid);//ОбъектXDTO
+			_productItem = ВетисProductService.GetProductItemByGuid(_productItem.guid);//ОбъектXDTO
 			_subProduct  = _productItem.subProduct;
 			_product     = _productItem.product;
 			_productType = _productItem.productType;
 			
 		ИначеЕсли НЕ ПустаяСтрока(_subProduct) Тогда
-			_subProduct  = _ВетисProductService.GetSubProductByGuid(_subProduct);
-			_product     = _ВетисProductService.GetProductByGuid(_subProduct.productGuid);
+			_subProduct  = ВетисProductService.GetSubProductByGuid(_subProduct);
+			_product     = ВетисProductService.GetProductByGuid(_subProduct.productGuid);
 			_productType = _product.productType;
 			_productItem.name = ?(ЗначениеЗаполнено(_productItem.name), _productItem.name, _subProduct.name);
 			
@@ -645,51 +610,28 @@
 		КонецЕсли;
 		
 		_batch.productType      = _productType;
-		_batch.product          = _ВетисArgusProduction.Product(_product.guid);
-		_batch.subProduct       = _ВетисArgusProduction.SubProduct(_subProduct.guid);
-		//_batch.productItem      = _ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
+		_batch.product          = ВетисArgusProduction.Product(_product.guid);
+		_batch.subProduct       = ВетисArgusProduction.SubProduct(_subProduct.guid);
+		//_batch.productItem      = ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
 		_batch.volume           = _СтрокаСЖ.Количество;
-		_batch.unit             = _ВетисArgusCommon.Unit(_ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
-		_batch.dateOfProduction = _ВетисMercuryVetdocument.GoodsDate(_СтрокаСЖ.ДатаВыработкиНачало, _СтрокаСЖ.ДатаВыработкиКонец);
-		_batch.expiryDate       = _ВетисMercuryVetdocument.GoodsDate(_СтрокаСЖ.СрокГодностиНачало, _СтрокаСЖ.СрокГодностиКонец);
+		_batch.unit             = ВетисArgusCommon.Unit(ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
+		_batch.dateOfProduction = ВетисMercuryVetdocument.GoodsDate(_СтрокаСЖ.ДатаВыработкиНачало, _СтрокаСЖ.ДатаВыработкиКонец, _СтрокаСЖ.Скоропортящаяся);
+		_batch.expiryDate       = ВетисMercuryVetdocument.GoodsDate(_СтрокаСЖ.СрокГодностиНачало, _СтрокаСЖ.СрокГодностиКонец, _СтрокаСЖ.Скоропортящаяся);
 		_batch.perishable       = _СтрокаСЖ.Скоропортящаяся;
 		_batch.lowGradeCargo    = _СтрокаСЖ.НекачественныйГруз;
-		_batch.owner            = _ВетисCerberusEnterprise.BusinessEntity(_ВетисCerberusEnterpriseСлой1с.BusinessEntity(_строкаСЖ.Собственник));
+		_batch.owner            = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_строкаСЖ.Собственник));
 		
 		//MERC13098 - Наименование продукции в ветеринарно-сопроводительном документе обязательно для заполнения.
 		Если ЗначениеЗаполнено(_productItem.guid) ИЛИ ЗначениеЗаполнено(_productItem.name) Тогда
-			_batch.productItem = _ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
+			_batch.productItem = ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
 		КонецЕсли;
 		
-		Если _Версия20 Тогда
-			//_packingType = ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка));
-			//_packaging = ВетисDictionary_2_0.Packaging(_packingType, _СтрокаСЖ.КоличествоМест);
-			//_batch.productItem = ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name, _packaging);
-			//MERC13265 - В ветеринарно-сопроводительном документе должен быть указан хотя бы один производитель продукции.
-			//MERC13219 - Страна происхождения продукции в ветеринарно-сопроводительном документе обязательна для заполнения.
-			_batch.origin = ВетисMercuryVetdocument_2_0.BatchOrigin(
-				ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name),
-				ВетисDictionary_2_0.Country(ВетисDictionaryСлой1с.Country(_СтрокаСЖ.СтранаПроисхождения)),
-				ВетисDictionary_2_0.Producer(ВетисDictionaryСлой1с.Producer(_СтрокаСЖ.ПроизводительПредприятие))
-				);
-			//сделать: добавить упаковки для 2.0
-			Если ЗначениеЗаполнено(_СтрокаСЖ.Упаковка) Тогда
-				_level = ВетисDictionaryСлой1с.PackageLevelType(ВетисDictionaryСлой1с.PackageLevelType());//пока фиксированный
-				_packingType = ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка);
-				_batch.packageList = ВетисDictionary_2_0.PackageList(_level, _packingType, _СтрокаСЖ.КоличествоМест);
-			Иначе
-				//_batch.packageList = ВетисDictionary_2_0.PackageList();
-			КонецЕсли;
-			_batch.batchID.Очистить();
-			_batch.batchID.Добавить(_СтрокаСЖ.ИДПартии);
-		Иначе
-			//_batch.productItem      = ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
-			_batch.packingList      = ВетисArgusCommon.PackingFormList(_ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
-			_batch.packingAmount    = _СтрокаСЖ.КоличествоМест;
-			_batch.countryOfOrigin  = ВетисIkar.Country(ВетисIkarСлой1с.Country(_СтрокаСЖ.СтранаПроисхождения));
-			_batch.producerList     = ВетисCerberusEnterprise.ProducerList(_ВетисCerberusEnterpriseСлой1с.Enterprise(_СтрокаСЖ.ПроизводительПредприятие));
-			_batch.productMarkingList = ВетисMercuryVetdocument.ProductMarkingList(_СтрокаСЖ.Маркировка);
-		КонецЕсли;
+		//_batch.productItem      = ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
+		_batch.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
+		_batch.packingAmount    = _СтрокаСЖ.КоличествоМест;
+		_batch.countryOfOrigin  = ВетисIkar.Country(ВетисIkarСлой1с.Country(_СтрокаСЖ.СтранаПроисхождения));
+		_batch.producerList     = ВетисCerberusEnterprise.ProducerList(ВетисCerberusEnterpriseСлой1с.Enterprise(_СтрокаСЖ.ПроизводительПредприятие));
+		_batch.productMarkingList = ВетисMercuryVetdocument.ProductMarkingList(_СтрокаСЖ.Маркировка);
 		
 	КонецЕсли;
 	
@@ -780,8 +722,20 @@
 		//_batch.productItem      = ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name);
 		_batch.volume           = _СтрокаСЖ.Количество;
 		_batch.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
-		_batch.dateOfProduction = ВетисMercuryVetdocument_2_0.GoodsDate(_СтрокаСЖ.ДатаВыработкиНачало, _СтрокаСЖ.ДатаВыработкиКонец);
-		_batch.expiryDate       = ВетисMercuryVetdocument_2_0.GoodsDate(_СтрокаСЖ.СрокГодностиНачало, _СтрокаСЖ.СрокГодностиКонец);
+		
+		//Для скоропортящейся продукции обязательны к указанию год/месяц/день и могут быть указаны час/минута.
+		//Для не скоропортящейся продукции обязательны к указанию год/месяц и может быть указан день.
+		//Для не скоропортящейся продукции дата выработки и дата окончания срока годности должны быть заданы в одном формате
+		//(например, если дата выработки указывается как год/месяц, то указать дату окончания срока годности как год/месяц/день нельзя).
+		_batch.dateOfProduction = ВетисMercuryVetdocument_2_0.GoodsDate(_СтрокаСЖ.ДатаВыработкиНачало, _СтрокаСЖ.ДатаВыработкиКонец, _СтрокаСЖ.Скоропортящаяся, _СтрокаСЖ.Скоропортящаяся);
+		
+		//Не указывается для типа продукции "Живые животные"
+		//Для скоропортящейся продукции обязательны к указанию год/месяц/день и могут быть указаны час/минута.
+		//Для не скоропортящейся продукции обязательны к указанию год/месяц и может быть указан день.
+		//Для не скоропортящейся продукции дата выработки и дата окончания срока годности должны быть заданы в одном формате
+		//(например, если дата выработки указывается как год/месяц, то указать дату окончания срока годности как год/месяц/день нельзя).
+		_batch.expiryDate       = ВетисMercuryVetdocument_2_0.GoodsDate(_СтрокаСЖ.СрокГодностиНачало, _СтрокаСЖ.СрокГодностиКонец, _СтрокаСЖ.Скоропортящаяся, _СтрокаСЖ.Скоропортящаяся);
+		
 		_batch.perishable       = _СтрокаСЖ.Скоропортящаяся;
 		_batch.lowGradeCargo    = _СтрокаСЖ.НекачественныйГруз;
 		_batch.owner            = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_строкаСЖ.Собственник));

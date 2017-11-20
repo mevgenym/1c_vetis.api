@@ -20,41 +20,57 @@
 			<ContextMenu name="РасшифровкаКонтекстноеМеню" id="16"/>
 			<ExtendedTooltip name="РасшифровкаРасширеннаяПодсказка" id="17"/>
 		</TextDocumentField>
-		<UsualGroup name="Группа1" id="13">
-			<Group>Horizontal</Group>
+		<UsualGroup name="Группа3" id="38">
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="14"/>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="39"/>
 			<ChildItems>
-				<InputField name="Период" id="18">
-					<DataPath>Запись.Period</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<TitleLocation>None</TitleLocation>
-					<ContextMenu name="ПериодКонтекстноеМеню" id="19"/>
-					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="20"/>
-				</InputField>
-				<InputField name="Миллисекунды" id="21">
-					<DataPath>Запись.Миллисекунды</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<TitleLocation>None</TitleLocation>
-					<ContextMenu name="МиллисекундыКонтекстноеМеню" id="22"/>
-					<ExtendedTooltip name="МиллисекундыРасширеннаяПодсказка" id="23"/>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="Группа2" id="24">
-			<Group>Horizontal</Group>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="25"/>
-			<ChildItems>
-				<InputField name="Пользователь" id="10">
-					<DataPath>Запись.Пользователь</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<TitleLocation>None</TitleLocation>
-					<ContextMenu name="ПользовательКонтекстноеМеню" id="11"/>
-					<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="12"/>
-				</InputField>
+				<UsualGroup name="Группа1" id="13">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="14"/>
+					<ChildItems>
+						<LabelField name="Период" id="18">
+							<DataPath>Запись.Period</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="ПериодКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="20"/>
+						</LabelField>
+						<LabelField name="Миллисекунды" id="21">
+							<DataPath>Запись.Миллисекунды</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="МиллисекундыКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="МиллисекундыРасширеннаяПодсказка" id="23"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа2" id="24">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="25"/>
+					<ChildItems>
+						<InputField name="Пользователь" id="10">
+							<DataPath>Запись.Пользователь</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="ПользовательКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<LabelField name="Контекст" id="32">
+							<DataPath>Запись.Контекст</DataPath>
+							<ContextMenu name="КонтекстКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="КонтекстРасширеннаяПодсказка" id="34"/>
+						</LabelField>
+						<LabelField name="Версия" id="35">
+							<DataPath>Запись.Версия</DataPath>
+							<ContextMenu name="ВерсияКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="37"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>

@@ -65,7 +65,7 @@
 	
 	_Объект = Создать("Delivery");
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяВетис(), "deliveryDate");// Дата поставки.
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяСервиса(), "deliveryDate");// xs:dateTime
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, accompanyingForms, "accompanyingForms");
@@ -100,10 +100,10 @@
 	
 	_Объект = Создать("DeliveryFactList");
 	
-	_Объект.vetCertificatePresence = presence;
-	_Объект.docInspection = docInspection;
-	_Объект.vetInspection = vetInspection;
-	_Объект.decision = decision;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, presence, "vetCertificatePresence");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, docInspection, "docInspection");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetInspection, "vetInspection");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, decision, "decision");
 	
 	Возврат _Объект;
 	
@@ -117,8 +117,8 @@
 	
 	_Объект = Создать("DeliveryInspection");
 	
-	_Объект.result = result;
-	_Объект.responsible = ?(responsible = Неопределено, ВетисArgusCommon.User(Ветис.ЛогинХС()), responsible);
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, result, "result");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible", , ВетисArgusCommon.User(Ветис.ЛогинХС()));
 	
 	Возврат _Объект;
 	
@@ -150,7 +150,7 @@
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяВетис(issueDate), "issueDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");//xs:date
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, DiscrepancyReason(reason), "reason");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, description, "description");
 	
@@ -160,24 +160,14 @@
 
 // Тип, описывающий дату производства, либо дату окончания срока годности продукции.
 // Может указываться единичной датой, интервалом, либо строкой.
-Функция GoodsDate(firstDate, secondDate = Неопределено) Экспорт
+Функция GoodsDate(firstDate, secondDate = Неопределено, пЧас = Ложь) Экспорт
 	
 	_Объект = Создать("GoodsDate");
 	
-	Если ЗначениеЗаполнено(firstDate) Тогда
-		Если ТипЗнч(firstDate) = Тип("Дата") Тогда
-			_Объект.firstDate = ВетисBase.ComplexDate(firstDate);
-		Иначе
-			_Объект.firstDate = firstDate;
-		КонецЕсли;
-	КонецЕсли;
+	_Объект.firstDate = ВетисBase.ComplexDate(firstDate, пЧас);
 	
 	Если НЕ secondDate = Неопределено И ЗначениеЗаполнено(secondDate) Тогда
-		Если ТипЗнч(secondDate) = Тип("Дата") Тогда
-			_Объект.secondDate = ВетисBase.ComplexDate(secondDate);
-		Иначе
-			_Объект.secondDate = secondDate;
-		КонецЕсли;
+		_Объект.secondDate = ВетисBase.ComplexDate(secondDate, пЧас);
 	КонецЕсли;
 	
 	Возврат _Объект;
@@ -204,9 +194,7 @@
 	
 	_Объект = Создать("MergeStockEntriesOperation");
 	
-	Для каждого _StockEntry Из sourceStockEntry Цикл
-		_Объект.sourceStockEntry.Добавить(StockEntry(_StockEntry));
-	КонецЦикла;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, sourceStockEntry, "sourceStockEntry", "ВетисMercuryVetdocument.StockEntry");
 	
 	Возврат _Объект;
 	

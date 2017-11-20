@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаКомандаЗапуск" id="26">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаЗапуск</CommandName>
+				<ExtendedTooltip name="ФормаКомандаЗапускРасширеннаяПодсказка" id="27"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="28">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="29"/>
+			<ChildItems>
+				<InputField name="ХозяйствующийСубъект" id="1">
+					<DataPath>Объект.ХозяйствующийСубъект</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ХС</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ХозяйствующийСубъектРасширеннаяПодсказка" id="3"/>
+					<Events>
+						<Event name="OnChange">ХозяйствующийСубъектПриИзменении</Event>
+						<Event name="StartChoice">ХозяйствующийСубъектНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="Предприятие" id="4">
+					<DataPath>Объект.Предприятие</DataPath>
+					<DropListButton>false</DropListButton>
+					<ChoiceButton>true</ChoiceButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="StartChoice">ПредприятиеНачалоВыбора</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Отчет" id="7">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Отчет</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ОтчетКонтекстноеМеню" id="8"/>
+			<AutoCommandBar name="ОтчетКоманднаяПанель" id="9"/>
+			<ExtendedTooltip name="ОтчетРасширеннаяПодсказка" id="10"/>
+			<SearchStringAddition name="ОтчетСтрокаПоиска" id="11">
+				<AdditionSource>
+					<Item>Отчет</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОтчетСтрокаПоискаКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ОтчетСтрокаПоискаРасширеннаяПодсказка" id="13"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ОтчетСостояниеПросмотра" id="14">
+				<AdditionSource>
+					<Item>Отчет</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОтчетСостояниеПросмотраКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="ОтчетСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ОтчетУправлениеПоиском" id="17">
+				<AdditionSource>
+					<Item>Отчет</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ОтчетУправлениеПоискомКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="ОтчетУправлениеПоискомРасширеннаяПодсказка" id="19"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ОтчетВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ОтчетЭтап" id="20">
+					<DataPath>Отчет.Этап</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтчетЭтапКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ОтчетЭтапРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="ОтчетРезультат" id="23">
+					<DataPath>Отчет.Результат</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтчетРезультатКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ОтчетРезультатРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ВетисУстановкаСоответствияСправочников</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>Объект.ХозяйствующийСубъект</Field>
+				<Field>Объект.Предприятие</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Отчет" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отчет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Этап" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Этап</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Результат" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результат</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаЗапуск" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запуск</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда запуск</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаЗапуск</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

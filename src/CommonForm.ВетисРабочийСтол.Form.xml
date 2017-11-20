@@ -131,6 +131,47 @@
 						<Event name="StartChoice">ОтборПредприятиеНачалоВыбора</Event>
 					</Events>
 				</InputField>
+				<UsualGroup name="ГруппаОтборUuid" id="333">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор uuid</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор uuid</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборUuidРасширеннаяПодсказка" id="334"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборUuidИспользование" id="327">
+							<DataPath>ОтборUuidИспользование</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборUuidИспользованиеКонтекстноеМеню" id="328"/>
+							<ExtendedTooltip name="ОтборUuidИспользованиеРасширеннаяПодсказка" id="329"/>
+							<Events>
+								<Event name="OnChange">ОтборUuidИспользованиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="ОтборUuid" id="330">
+							<DataPath>ОтборUuid</DataPath>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>uuid</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ОтборUuidКонтекстноеМеню" id="331"/>
+							<ExtendedTooltip name="ОтборUuidРасширеннаяПодсказка" id="332"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<Pages name="Страницы" id="1">
@@ -1189,6 +1230,29 @@
 					<v8:content>Тестовый</v8:content>
 				</v8:item>
 			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборUuid" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>uuid</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>40</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОтборUuid</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборUuidИспользование" id="18">
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>

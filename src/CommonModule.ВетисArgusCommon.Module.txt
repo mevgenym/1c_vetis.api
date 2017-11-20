@@ -74,7 +74,7 @@
 	_Объект.name        = name;
 	_Объект.issueSeries = issueSeries;
 	_Объект.issueNumber = issueNumber;
-	_Объект.issueDate   = issueDate;
+	_Объект.issueDate   = issueDate;//xs:date
 	
 	Возврат _Объект;
 	

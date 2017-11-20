@@ -482,7 +482,7 @@
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяВетис(inventoryDate), "inventoryDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяСервиса(inventoryDate), "inventoryDate");// xs:dateTime
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, responsible, "responsible");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, stockDiscrepancy, "stockDiscrepancy");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, discrepancyReport, "discrepancyReport");
@@ -536,12 +536,12 @@
 	
 	_Объект = Создать("WithdrawVetDocumentRequest");
 	
-	_Объект.localTransactionId = Строка(Новый УникальныйИдентификатор);
-	_Объект.initiator          = ВетисArgusCommon.User(Ветис.ЛогинХС());
-	_Объект.vetDocumentId      = vetDocumentId;
-	_Объект.withdrawReason     = withdrawReason;
-	_Объект.withdrawDate       = Ветис.ВремяВетис(withdrawDate);
-	_Объект.vetDoctor          = vetDoctor;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentId, "vetDocumentId");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, withdrawReason, "withdrawReason");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Ветис.ВремяСервиса(withdrawDate), "withdrawDate");// xs:dateTime
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDoctor, "vetDoctor");
 	
 	Возврат _Объект;
 	

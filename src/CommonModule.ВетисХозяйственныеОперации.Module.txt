@@ -240,7 +240,7 @@
 			И _Строка.Статус    = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_VetDocument.status)
 			И (_Строка.СерияВСД = _VetDocument.issueSeries ИЛИ _VetDocument.issueSeries = Неопределено)
 			И _Строка.НомерВСД  = _VetDocument.issueNumber
-			И _Строка.ДатаВСД   = Ветис.ВремяБД(_VetDocument.issueDate)
+			И _Строка.ДатаВСД   = _VetDocument.issueDate
 			Тогда
 			//считаем что ничего не изменилось
 			пВетки.Удалить(_Строка);
@@ -290,8 +290,8 @@
 		_мз._active = _stockEntry.active;
 		_мз.entryNumber = _stockEntry.entryNumber;
 		
-		_мз.createDate = Ветис.ВремяБД(_stockEntry.createDate);
-		_мз.updateDate = Ветис.ВремяБД(_stockEntry.updateDate);
+		_мз.createDate = Ветис.ВремяМестное(_stockEntry.createDate);// xs:dateTime
+		_мз.updateDate = Ветис.ВремяМестное(_stockEntry.updateDate);// xs:dateTime
 		
 		_мз.ProductType = _stockEntry.batch.productType;
 		_мз.Product     = _stockEntry.batch.product.guid;
@@ -302,12 +302,29 @@
 		_мз.volume      = _stockEntry.batch.volume;
 		
 		Если _Версия20 Тогда
-			_package = ВетисDictionaryСлой1с.PackageList(_stockEntry.batch.packageList);
-			_мз.PackingForm   = _package.packingType.guid;
-			_мз.packingAmount = _package.quantity;
+			Если НЕ _stockEntry.batch.packageList = Неопределено Тогда
+				_package = ВетисDictionaryСлой1с.PackageList(_stockEntry.batch.packageList);
+				_мз.PackingForm   = _package.packingType.guid;
+				_мз.packingAmount = _package.quantity;
+				
+				_упаковка = "";
+				Для каждого _package Из _stockEntry.batch.packageList.package Цикл
+					//ВетисDictionaryСлой1с.PackingType(_package.packingType)
+					_упаковка = _упаковка + "; " + _package.level + ") " + _package.packingType.name + " (" + _package.packingType.guid + ") " + ?(_package.quantity = 0, "", ", " + _package.quantity);
+				КонецЦикла;
+				_мз.package = Сред(_упаковка, 3);
+			КонецЕсли;
 		Иначе
 			_мз.PackingForm = ?(_stockEntry.batch.packingList = Неопределено, "", _stockEntry.batch.packingList.packingForm[0].uuid);
 			_мз.packingAmount = _stockEntry.batch.packingAmount;
+			
+			Если НЕ _stockEntry.batch.packingList = Неопределено Тогда
+				_упаковка = "";
+				Для каждого _package Из _stockEntry.batch.packingList.packingForm Цикл
+					_упаковка = _упаковка + "; " + _package.name;
+				КонецЦикла;
+				_мз.package = Сред(_упаковка, 3);
+			КонецЕсли;
 		КонецЕсли;
 		
 		_мз.Записать();

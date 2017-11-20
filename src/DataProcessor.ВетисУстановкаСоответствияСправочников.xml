@@ -104,6 +104,7 @@
 			<Form>ФормаНоменклатура</Form>
 			<Form>ФормаНоменклатурныеГруппы</Form>
 			<Form>ФормаПользователи</Form>
+			<Form>ФормаТестирование</Form>
 		</ChildObjects>
 	</DataProcessor>
 </MetaDataObject>

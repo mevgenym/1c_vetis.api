@@ -601,7 +601,7 @@
 //  vetDocumentId	- bs:UUID - Идентификатор ВСД, который аннулируется
 //  withdrawReason - vetd:WithdrawReason - Причина аннулирования ВСД
 //  withdrawDate - xs:dateTime - Дата аннулирования ВСД
-//  vetDoctor - argc:User - Ветеринарный врач, ответственный за аннулирование ВСД
+//  specifiedPerson - argc:User - Ветеринарный врач, ответственный за аннулирование ВСД
 Функция WithdrawVetDocumentRequest(vetDocumentId, withdrawReason, withdrawDate, specifiedPerson) Экспорт
 	
 	_Объект = Создать("WithdrawVetDocumentRequest");

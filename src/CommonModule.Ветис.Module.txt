@@ -798,7 +798,7 @@
 		WSDLДобавить(_таблица, "EnterpriseService", "http://api.vetrf.ru/schema/cdm/registry/enterprise/service/v2", "EnterpriseServiceBindingQSService", "EnterpriseServiceBindingQSPort", _Имя+"EnterpriseService"+_суф);
 		WSDLДобавить(_таблица, "IkarService",       "http://api.vetrf.ru/schema/cdm/registry/ikar/service/v2",       "IkarServiceBindingQSService",       "IkarServiceBindingQSPort",       _Имя+"IkarService"+_суф);
 		WSDLДобавить(_таблица, "ProductService",    "http://api.vetrf.ru/schema/cdm/registry/product/service/v2",    "ProductServiceBindingQSService",    "ProductServiceBindingQSPort",    _Имя+"ProductService"+_суф);
-		WSDLДобавить(_таблица, "RegionalizationService", "http://api.vetrf.ru/schema/cdm/registry/r13n/service/v2",  "RegionalizationServiceBindingQSService", "RegionalizationServicePortType", _Имя+"RegionalizationService"+_суф);
+		WSDLДобавить(_таблица, "RegionalizationService", "http://api.vetrf.ru/schema/cdm/registry/r13n/service/v2",  "RegionalizationServiceBindingQSService", "RegionalizationServiceBindingQSPort", _Имя+"RegionalizationService"+_суф);
 		
 		Переменные_Установить("wsdl", _таблица);
 		

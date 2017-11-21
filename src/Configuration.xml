@@ -192,6 +192,7 @@
 			<DefinedType>ВетисProductItem</DefinedType>
 			<DefinedType>ВетисPurpose</DefinedType>
 			<DefinedType>ВетисRegion</DefinedType>
+			<DefinedType>ВетисRegionalizationCondition</DefinedType>
 			<DefinedType>ВетисString255</DefinedType>
 			<DefinedType>ВетисSubProduct</DefinedType>
 			<DefinedType>ВетисTransport</DefinedType>
@@ -199,11 +200,13 @@
 			<DefinedType>ВетисПодразделения</DefinedType>
 			<DefinedType>ВетисПользователи</DefinedType>
 			<CommonCommand>ВетисAddress</CommonCommand>
+			<CommonCommand>ВетисAnimalDisease</CommonCommand>
 			<CommonCommand>ВетисDistrict</CommonCommand>
 			<CommonCommand>ВетисIncorporationForm</CommonCommand>
 			<CommonCommand>ВетисPackingForm</CommonCommand>
 			<CommonCommand>ВетисPurpose</CommonCommand>
 			<CommonCommand>ВетисRegion</CommonCommand>
+			<CommonCommand>ВетисRegionalizationCondition</CommonCommand>
 			<CommonCommand>ВетисXSD</CommonCommand>
 			<CommonCommand>ВетисВетеринарноСопроводительныйДокумент</CommonCommand>
 			<CommonCommand>ВетисВходящаяПартияПоДокументам</CommonCommand>
@@ -236,14 +239,16 @@
 			<CommonForm>ВетисРабочийСтол</CommonForm>
 			<CommonForm>ВетисФормаВыбора</CommonForm>
 			<Catalog>ВетисAddress</Catalog>
+			<Catalog>ВетисAnimalDisease</Catalog>
 			<Catalog>ВетисDistrict</Catalog>
 			<Catalog>ВетисIncorporationForm</Catalog>
 			<Catalog>ВетисLocality</Catalog>
 			<Catalog>ВетисPackingForm</Catalog>
 			<Catalog>ВетисPurpose</Catalog>
 			<Catalog>ВетисRegion</Catalog>
-			<Catalog>ВетисПредприятия</Catalog>
+			<Catalog>ВетисRegionalizationCondition</Catalog>
 			<Catalog>ВетисTransport</Catalog>
+			<Catalog>ВетисПредприятия</Catalog>
 			<Catalog>КлассификаторЕдиницИзмерения</Catalog>
 			<Catalog>КлассификаторСтранМира</Catalog>
 			<Catalog>Контрагенты</Catalog>
@@ -263,6 +268,7 @@
 			<Enum>ВетисPackageLevelType</Enum>
 			<Enum>ВетисProductMarkingClass</Enum>
 			<Enum>ВетисProductType</Enum>
+			<Enum>ВетисReferenceType</Enum>
 			<Enum>ВетисResearchResult</Enum>
 			<Enum>ВетисTransportStorageType</Enum>
 			<Enum>ВетисTransportType</Enum>

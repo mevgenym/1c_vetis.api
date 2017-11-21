@@ -554,7 +554,7 @@
 	_Объект = Создать("VetDocumentStatusChange");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, status, "status", , ВетисКонстанты.VetDocumentStatus_CONFIRMED());
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user = Неопределено, "specifiedPerson", , Ветис.Врач());
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, user, "specifiedPerson", , Ветис.Врач());
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, date, "actualDateTime", , Ветис.ВремяСервиса());// xs:dateTime
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason", "ВетисMercuryVetdocument_2_0.VetDocumentStatusChangeReason");
 	

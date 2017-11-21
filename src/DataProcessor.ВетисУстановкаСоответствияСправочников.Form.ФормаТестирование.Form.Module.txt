@@ -140,10 +140,10 @@
 				КонецЕсли;
 				Если НЕ _Item.certifiedConsignment.batch.packageList = Неопределено Тогда
 					Для каждого _package Из _Item.certifiedConsignment.batch.packageList.package Цикл
-						_тест = _package.Свойства().Найти("name");
-						_тест = _package.Свойства().Найти("uuid");
-						_тест = _package.Свойства().Найти("guid");
-						_тест = _package.Свойства().Найти("globalID");
+						_тест = _package.Свойства().Получить("name");
+						_тест = _package.Свойства().Получить("uuid");
+						_тест = _package.Свойства().Получить("guid");
+						_тест = _package.Свойства().Получить("globalID");
 					КонецЦикла;
 				КонецЕсли;
 			КонецЦикла;

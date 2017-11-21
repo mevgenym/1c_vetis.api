@@ -107,7 +107,7 @@
 	_deliveryFacts = _ВетисMercuryVetdocument.DeliveryFactList(
 	  _ВетисArgusCommonСлой1с.DocumentNature(Перечисления.ВетисDocumentNature[?(ЗначениеЗаполнено(_всд.Статус), "ELECTRONIC", "PAPER")]),
 	  _ВетисMercuryVetdocument.DeliveryInspection(ВетисMercuryVetdocumentСлой1с.DeliveryInspectionResult(_РезультатПриема)),
-	  _ВетисMercuryVetdocument.DeliveryInspection(ВетисMercuryVetdocumentСлой1с.DeliveryInspectionResult(_РезультатПриема), Ветис.Врач()),
+	  _ВетисMercuryVetdocument.DeliveryInspection(ВетисMercuryVetdocumentСлой1с.DeliveryInspectionResult(_РезультатПриема)),
 	  ВетисMercuryVetdocumentСлой1с.DeliveryDecision(_РешениеОПриеме));
 	
 	_reason = "";
@@ -267,7 +267,8 @@
 	_VetDocument.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 	_VetDocument.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
 	_VetDocument.expertiseInfo      = _СтрокаВСД.ЛабораторныеИсследования;
-	_VetDocument.confirmedBy        = Ветис.Врач();
+	//Указываются только для бумажных ветеринарных сертификатов
+	//_VetDocument.confirmedBy        = Ветис.Врач();
 	_VetDocument.locationProsperity = _СтрокаВСД.БлагополучиеМестности;
 	
 	_waybill = _ВетисArgusShipment.Waybill();
@@ -608,7 +609,8 @@
 			_VetDocument.purpose            = _ВетисArgusCommon.Purpose(_ВетисArgusCommonСлой1с.Purpose(Ветис.Предопределенные_Получить("Purpose.Возврат")));
 			_VetDocument.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 			_VetDocument.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
-			_VetDocument.confirmedBy        = Ветис.Врач();
+			//Указываются только для бумажных ветеринарных сертификатов.
+			//_VetDocument.confirmedBy        = Ветис.Врач();
 			_VetDocument.confirmedDate      = Ветис.ВремяСервиса(пВозвратДата);// xs:dateTime
 			_VetDocument.locationProsperity = _СтрокаВСД.БлагополучиеМестности;
 			_VetDocument.specialMarks       = _СтрокаВСД.ОсобыеОтметки;

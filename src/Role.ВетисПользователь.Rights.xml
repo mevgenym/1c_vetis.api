@@ -22,13 +22,6 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисТранспортнаяПартия</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.Иммунизация</name>
 		<right>
 			<name>View</name>
@@ -70,6 +63,17 @@
 	</object>
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.КоличествоМест</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисАдреса.Dimension.Район</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -154,13 +158,6 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисВходящаяПартияПоДокументам</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Catalog.ВетисRegion</name>
 		<right>
 			<name>Read</name>
@@ -176,10 +173,14 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисВходящаяПартияСводно</name>
+		<name>InformationRegister.ВетисАдреса.Dimension.Объект</name>
 		<right>
 			<name>View</name>
-			<value>true</value>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -387,6 +388,21 @@
 		</right>
 	</object>
 	<object>
+		<name>Catalog.ВетисAddress</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.РезультатВетКонтроля</name>
 		<right>
 			<name>View</name>
@@ -413,6 +429,21 @@
 		<right>
 			<name>Edit</name>
 			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ВетисAnimalDisease</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
 		</right>
 	</object>
 	<object>
@@ -485,6 +516,14 @@
 		<name>Catalog.Пользователи</name>
 		<right>
 			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Insert</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Update</name>
 			<value>true</value>
 		</right>
 		<right>
@@ -571,16 +610,27 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисВетеринарноСопроводительныйДокумент</name>
+		<name>Subsystem.Ветис</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
 		</right>
 	</object>
 	<object>
-		<name>Subsystem.Ветис</name>
+		<name>InformationRegister.ВетисАдреса.Dimension.Страна</name>
 		<right>
 			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Constant.ВетисСервис</name>
+		<right>
+			<name>Read</name>
 			<value>true</value>
 		</right>
 	</object>
@@ -647,6 +697,21 @@
 		</right>
 	</object>
 	<object>
+		<name>Catalog.ВетисRegionalizationCondition</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>InformationRegister.ВетисНастройкиХС</name>
 		<right>
 			<name>Read</name>
@@ -669,6 +734,17 @@
 		<right>
 			<name>View</name>
 			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисАдреса.Dimension.Регион</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -976,14 +1052,65 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисАдреса.Resource.Представление</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>InformationRegister.ВетисАдреса</name>
 		<right>
 			<name>Read</name>
 			<value>true</value>
 		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисАдреса.StandardAttribute.Active</name>
 		<right>
 			<name>View</name>
-			<value>true</value>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисАдреса.StandardAttribute.LineNumber</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисАдреса.StandardAttribute.Recorder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисАдреса.StandardAttribute.Period</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -1161,6 +1288,17 @@
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.Тип</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисАдреса.Dimension.НаселенныйПункт</name>
 		<right>
 			<name>View</name>
 			<value>false</value>

@@ -159,6 +159,12 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисВызовСервера</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисНастройки</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисUserAuthority</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисReferenceType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисRegionalizationCondition</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисAnimalDisease</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DefinedType.ВетисRegionalizationCondition</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисRegionalizationCondition</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисAnimalDisease</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

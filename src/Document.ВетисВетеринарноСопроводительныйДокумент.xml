@@ -3096,11 +3096,7 @@
 							</Synonym>
 							<Comment>disease {dt:AnimalDisease}</Comment>
 							<Type>
-								<v8:Type>xs:string</v8:Type>
-								<v8:StringQualifiers>
-									<v8:Length>255</v8:Length>
-									<v8:AllowedLength>Variable</v8:AllowedLength>
-								</v8:StringQualifiers>
+								<v8:Type>cfg:CatalogRef.ВетисAnimalDisease</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -3361,11 +3357,7 @@
 							</Synonym>
 							<Comment>disease {dt:AnimalDisease}</Comment>
 							<Type>
-								<v8:Type>xs:string</v8:Type>
-								<v8:StringQualifiers>
-									<v8:Length>255</v8:Length>
-									<v8:AllowedLength>Variable</v8:AllowedLength>
-								</v8:StringQualifiers>
+								<v8:Type>cfg:CatalogRef.ВетисAnimalDisease</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -3764,11 +3756,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>xs:string</v8:Type>
-								<v8:StringQualifiers>
-									<v8:Length>10</v8:Length>
-									<v8:AllowedLength>Variable</v8:AllowedLength>
-								</v8:StringQualifiers>
+								<v8:Type>cfg:CatalogRef.ВетисRegionalizationCondition</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -4451,6 +4439,72 @@
 							<Comment/>
 							<Type>
 								<v8:Type>cfg:EnumRef.ВетисReferenceType</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+				</ChildObjects>
+			</TabularSection>
+			<TabularSection uuid="a89a4d78-6531-408b-973a-5e3cd4c8646e">
+				<InternalInfo>
+					<xr:GeneratedType name="DocumentTabularSection.ВетисВетеринарноСопроводительныйДокумент.ИДПартии" category="TabularSection">
+						<xr:TypeId>e7f3d62f-c84e-4fd9-a362-3f40985f134d</xr:TypeId>
+						<xr:ValueId>a650435e-2c6d-4d09-8080-ced42677f7ee</xr:ValueId>
+					</xr:GeneratedType>
+					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисВетеринарноСопроводительныйДокумент.ИДПартии" category="TabularSectionRow">
+						<xr:TypeId>6fd5ded9-6844-4d2b-9e07-929dfbe02b94</xr:TypeId>
+						<xr:ValueId>06be8a73-d1c6-4f95-8f59-eae5de629c9a</xr:ValueId>
+					</xr:GeneratedType>
+				</InternalInfo>
+				<Properties>
+					<Name>ИДПартии</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ИДПартии</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>certifiedConsignment.batch.batchID</Comment>
+					<ToolTip/>
+					<FillChecking>DontCheck</FillChecking>
+				</Properties>
+				<ChildObjects>
+					<Attribute uuid="b9639f09-fdf9-46e8-99c8-ac83d2d646c5">
+						<Properties>
+							<Name>batchID</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Batch ID</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>bs:Identifier</Comment>
+							<Type>
+								<v8:Type>xs:string</v8:Type>
+								<v8:StringQualifiers>
+									<v8:Length>100</v8:Length>
+									<v8:AllowedLength>Variable</v8:AllowedLength>
+								</v8:StringQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>

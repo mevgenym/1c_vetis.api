@@ -62,7 +62,7 @@
 			<DefaultObjectForm>Catalog.ВетисRegionalizationCondition.Form.ФормаЭлемента</DefaultObjectForm>
 			<DefaultFolderForm/>
 			<DefaultListForm>Catalog.ВетисRegionalizationCondition.Form.ФормаСписка</DefaultListForm>
-			<DefaultChoiceForm/>
+			<DefaultChoiceForm>Catalog.ВетисRegionalizationCondition.Form.ФормаВыбора</DefaultChoiceForm>
 			<DefaultFolderChoiceForm/>
 			<AuxiliaryObjectForm/>
 			<AuxiliaryFolderForm/>
@@ -218,7 +218,7 @@
 							<v8:content>Заболевание</v8:content>
 						</v8:item>
 					</Synonym>
-					<Comment/>
+					<Comment>disease {dt:AnimalDisease}</Comment>
 					<Type>
 						<v8:Type>cfg:CatalogRef.ВетисAnimalDisease</v8:Type>
 					</Type>
@@ -250,6 +250,7 @@
 			</Attribute>
 			<Form>ФормаСписка</Form>
 			<Form>ФормаЭлемента</Form>
+			<Form>ФормаВыбора</Form>
 		</ChildObjects>
 	</Catalog>
 </MetaDataObject>

@@ -908,6 +908,356 @@
 						</Table>
 					</ChildItems>
 				</Page>
+				<Page name="ГруппаЛабораторныеИсследования" id="578">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Лабораторные исследования</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа лабораторные исследования</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаЛабораторныеИсследованияРасширеннаяПодсказка" id="579"/>
+					<ChildItems>
+						<Table name="ЛабораторныеИсследования" id="580">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ЛабораторныеИсследования</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ЛабораторныеИсследованияКонтекстноеМеню" id="581"/>
+							<AutoCommandBar name="ЛабораторныеИсследованияКоманднаяПанель" id="582"/>
+							<ExtendedTooltip name="ЛабораторныеИсследованияРасширеннаяПодсказка" id="583"/>
+							<SearchStringAddition name="ЛабораторныеИсследованияСтрокаПоиска" id="584">
+								<AdditionSource>
+									<Item>ЛабораторныеИсследования</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЛабораторныеИсследованияСтрокаПоискаКонтекстноеМеню" id="585"/>
+								<ExtendedTooltip name="ЛабораторныеИсследованияСтрокаПоискаРасширеннаяПодсказка" id="586"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ЛабораторныеИсследованияСостояниеПросмотра" id="587">
+								<AdditionSource>
+									<Item>ЛабораторныеИсследования</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЛабораторныеИсследованияСостояниеПросмотраКонтекстноеМеню" id="588"/>
+								<ExtendedTooltip name="ЛабораторныеИсследованияСостояниеПросмотраРасширеннаяПодсказка" id="589"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ЛабораторныеИсследованияУправлениеПоиском" id="590">
+								<AdditionSource>
+									<Item>ЛабораторныеИсследования</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ЛабораторныеИсследованияУправлениеПоискомКонтекстноеМеню" id="591"/>
+								<ExtendedTooltip name="ЛабораторныеИсследованияУправлениеПоискомРасширеннаяПодсказка" id="592"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ЛабораторныеИсследованияНомерСтроки" id="593">
+									<DataPath>Объект.ЛабораторныеИсследования.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЛабораторныеИсследованияНомерСтрокиКонтекстноеМеню" id="594"/>
+									<ExtendedTooltip name="ЛабораторныеИсследованияНомерСтрокиРасширеннаяПодсказка" id="595"/>
+								</LabelField>
+								<InputField name="ЛабораторныеИсследованияИДПартии" id="596">
+									<DataPath>Объект.ЛабораторныеИсследования.ИДПартии</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЛабораторныеИсследованияИДПартииКонтекстноеМеню" id="597"/>
+									<ExtendedTooltip name="ЛабораторныеИсследованияИДПартииРасширеннаяПодсказка" id="598"/>
+								</InputField>
+								<InputField name="ЛабораторныеИсследованияНомерЭкспертизы" id="599">
+									<DataPath>Объект.ЛабораторныеИсследования.НомерЭкспертизы</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЛабораторныеИсследованияНомерЭкспертизыКонтекстноеМеню" id="600"/>
+									<ExtendedTooltip name="ЛабораторныеИсследованияНомерЭкспертизыРасширеннаяПодсказка" id="601"/>
+								</InputField>
+								<InputField name="ЛабораторныеИсследованияПоказательБезопасности" id="602">
+									<DataPath>Объект.ЛабораторныеИсследования.ПоказательБезопасности</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЛабораторныеИсследованияПоказательБезопасностиКонтекстноеМеню" id="603"/>
+									<ExtendedTooltip name="ЛабораторныеИсследованияПоказательБезопасностиРасширеннаяПодсказка" id="604"/>
+								</InputField>
+								<InputField name="ЛабораторныеИсследованияЗаболевание" id="605">
+									<DataPath>Объект.ЛабораторныеИсследования.Заболевание</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЛабораторныеИсследованияЗаболеваниеКонтекстноеМеню" id="606"/>
+									<ExtendedTooltip name="ЛабораторныеИсследованияЗаболеваниеРасширеннаяПодсказка" id="607"/>
+								</InputField>
+								<InputField name="ЛабораторныеИсследованияМетодИсследования" id="608">
+									<DataPath>Объект.ЛабораторныеИсследования.МетодИсследования</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЛабораторныеИсследованияМетодИсследованияКонтекстноеМеню" id="609"/>
+									<ExtendedTooltip name="ЛабораторныеИсследованияМетодИсследованияРасширеннаяПодсказка" id="610"/>
+								</InputField>
+								<InputField name="ЛабораторныеИсследованияРезультатИсследования" id="611">
+									<DataPath>Объект.ЛабораторныеИсследования.РезультатИсследования</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЛабораторныеИсследованияРезультатИсследованияКонтекстноеМеню" id="612"/>
+									<ExtendedTooltip name="ЛабораторныеИсследованияРезультатИсследованияРасширеннаяПодсказка" id="613"/>
+								</InputField>
+								<InputField name="ЛабораторныеИсследованияЗаключение" id="614">
+									<DataPath>Объект.ЛабораторныеИсследования.Заключение</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЛабораторныеИсследованияЗаключениеКонтекстноеМеню" id="615"/>
+									<ExtendedTooltip name="ЛабораторныеИсследованияЗаключениеРасширеннаяПодсказка" id="616"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаМероприятия" id="617">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Мероприятия</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа мероприятия</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаМероприятияРасширеннаяПодсказка" id="618"/>
+					<ChildItems>
+						<Table name="Мероприятия" id="619">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Мероприятия</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="МероприятияКонтекстноеМеню" id="620"/>
+							<AutoCommandBar name="МероприятияКоманднаяПанель" id="621"/>
+							<ExtendedTooltip name="МероприятияРасширеннаяПодсказка" id="622"/>
+							<SearchStringAddition name="МероприятияСтрокаПоиска" id="623">
+								<AdditionSource>
+									<Item>Мероприятия</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МероприятияСтрокаПоискаКонтекстноеМеню" id="624"/>
+								<ExtendedTooltip name="МероприятияСтрокаПоискаРасширеннаяПодсказка" id="625"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="МероприятияСостояниеПросмотра" id="626">
+								<AdditionSource>
+									<Item>Мероприятия</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МероприятияСостояниеПросмотраКонтекстноеМеню" id="627"/>
+								<ExtendedTooltip name="МероприятияСостояниеПросмотраРасширеннаяПодсказка" id="628"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="МероприятияУправлениеПоиском" id="629">
+								<AdditionSource>
+									<Item>Мероприятия</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="МероприятияУправлениеПоискомКонтекстноеМеню" id="630"/>
+								<ExtendedTooltip name="МероприятияУправлениеПоискомРасширеннаяПодсказка" id="631"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="МероприятияНомерСтроки" id="632">
+									<DataPath>Объект.Мероприятия.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МероприятияНомерСтрокиКонтекстноеМеню" id="633"/>
+									<ExtendedTooltip name="МероприятияНомерСтрокиРасширеннаяПодсказка" id="634"/>
+								</LabelField>
+								<InputField name="МероприятияНаименование" id="635">
+									<DataPath>Объект.Мероприятия.Наименование</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МероприятияНаименованиеКонтекстноеМеню" id="636"/>
+									<ExtendedTooltip name="МероприятияНаименованиеРасширеннаяПодсказка" id="637"/>
+								</InputField>
+								<InputField name="МероприятияДата" id="638">
+									<DataPath>Объект.Мероприятия.Дата</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МероприятияДатаКонтекстноеМеню" id="639"/>
+									<ExtendedTooltip name="МероприятияДатаРасширеннаяПодсказка" id="640"/>
+								</InputField>
+								<InputField name="МероприятияМесто" id="641">
+									<DataPath>Объект.Мероприятия.Место</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МероприятияМестоКонтекстноеМеню" id="642"/>
+									<ExtendedTooltip name="МероприятияМестоРасширеннаяПодсказка" id="643"/>
+								</InputField>
+								<InputField name="МероприятияПредприятие" id="644">
+									<DataPath>Объект.Мероприятия.Предприятие</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МероприятияПредприятиеКонтекстноеМеню" id="645"/>
+									<ExtendedTooltip name="МероприятияПредприятиеРасширеннаяПодсказка" id="646"/>
+								</InputField>
+								<InputField name="МероприятияДополнительныеСведения" id="647">
+									<DataPath>Объект.Мероприятия.ДополнительныеСведения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МероприятияДополнительныеСведенияКонтекстноеМеню" id="648"/>
+									<ExtendedTooltip name="МероприятияДополнительныеСведенияРасширеннаяПодсказка" id="649"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаУсловияПеремещения" id="650">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условия перемещения</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа условия перемещения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаУсловияПеремещенияРасширеннаяПодсказка" id="651"/>
+					<ChildItems>
+						<Table name="УсловияПеремещения" id="652">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.УсловияПеремещения</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="УсловияПеремещенияКонтекстноеМеню" id="653"/>
+							<AutoCommandBar name="УсловияПеремещенияКоманднаяПанель" id="654"/>
+							<ExtendedTooltip name="УсловияПеремещенияРасширеннаяПодсказка" id="655"/>
+							<SearchStringAddition name="УсловияПеремещенияСтрокаПоиска" id="656">
+								<AdditionSource>
+									<Item>УсловияПеремещения</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УсловияПеремещенияСтрокаПоискаКонтекстноеМеню" id="657"/>
+								<ExtendedTooltip name="УсловияПеремещенияСтрокаПоискаРасширеннаяПодсказка" id="658"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="УсловияПеремещенияСостояниеПросмотра" id="659">
+								<AdditionSource>
+									<Item>УсловияПеремещения</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УсловияПеремещенияСостояниеПросмотраКонтекстноеМеню" id="660"/>
+								<ExtendedTooltip name="УсловияПеремещенияСостояниеПросмотраРасширеннаяПодсказка" id="661"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="УсловияПеремещенияУправлениеПоиском" id="662">
+								<AdditionSource>
+									<Item>УсловияПеремещения</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="УсловияПеремещенияУправлениеПоискомКонтекстноеМеню" id="663"/>
+								<ExtendedTooltip name="УсловияПеремещенияУправлениеПоискомРасширеннаяПодсказка" id="664"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="УсловияПеремещенияНомерСтроки" id="665">
+									<DataPath>Объект.УсловияПеремещения.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УсловияПеремещенияНомерСтрокиКонтекстноеМеню" id="666"/>
+									<ExtendedTooltip name="УсловияПеремещенияНомерСтрокиРасширеннаяПодсказка" id="667"/>
+								</LabelField>
+								<InputField name="УсловияПеремещенияУсловие" id="668">
+									<DataPath>Объект.УсловияПеремещения.Условие</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УсловияПеремещенияУсловиеКонтекстноеМеню" id="669"/>
+									<ExtendedTooltip name="УсловияПеремещенияУсловиеРасширеннаяПодсказка" id="670"/>
+								</InputField>
+								<InputField name="УсловияПеремещенияТекст" id="671">
+									<DataPath>Объект.УсловияПеремещения.Текст</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УсловияПеремещенияТекстКонтекстноеМеню" id="672"/>
+									<ExtendedTooltip name="УсловияПеремещенияТекстРасширеннаяПодсказка" id="673"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаСвязанныеДокументы" id="674">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Связанные документы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа связанные документы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСвязанныеДокументыРасширеннаяПодсказка" id="675"/>
+					<ChildItems>
+						<Table name="СвязанныеДокументы" id="676">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.СвязанныеДокументы</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СвязанныеДокументыКонтекстноеМеню" id="677"/>
+							<AutoCommandBar name="СвязанныеДокументыКоманднаяПанель" id="678"/>
+							<ExtendedTooltip name="СвязанныеДокументыРасширеннаяПодсказка" id="679"/>
+							<SearchStringAddition name="СвязанныеДокументыСтрокаПоиска" id="680">
+								<AdditionSource>
+									<Item>СвязанныеДокументы</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СвязанныеДокументыСтрокаПоискаКонтекстноеМеню" id="681"/>
+								<ExtendedTooltip name="СвязанныеДокументыСтрокаПоискаРасширеннаяПодсказка" id="682"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СвязанныеДокументыСостояниеПросмотра" id="683">
+								<AdditionSource>
+									<Item>СвязанныеДокументы</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СвязанныеДокументыСостояниеПросмотраКонтекстноеМеню" id="684"/>
+								<ExtendedTooltip name="СвязанныеДокументыСостояниеПросмотраРасширеннаяПодсказка" id="685"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СвязанныеДокументыУправлениеПоиском" id="686">
+								<AdditionSource>
+									<Item>СвязанныеДокументы</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СвязанныеДокументыУправлениеПоискомКонтекстноеМеню" id="687"/>
+								<ExtendedTooltip name="СвязанныеДокументыУправлениеПоискомРасширеннаяПодсказка" id="688"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СвязанныеДокументыНомерСтроки" id="689">
+									<DataPath>Объект.СвязанныеДокументы.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СвязанныеДокументыНомерСтрокиКонтекстноеМеню" id="690"/>
+									<ExtendedTooltip name="СвязанныеДокументыНомерСтрокиРасширеннаяПодсказка" id="691"/>
+								</LabelField>
+								<InputField name="СвязанныеДокументыСерия" id="692">
+									<DataPath>Объект.СвязанныеДокументы.Серия</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СвязанныеДокументыСерияКонтекстноеМеню" id="693"/>
+									<ExtendedTooltip name="СвязанныеДокументыСерияРасширеннаяПодсказка" id="694"/>
+								</InputField>
+								<InputField name="СвязанныеДокументыНомер" id="695">
+									<DataPath>Объект.СвязанныеДокументы.Номер</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СвязанныеДокументыНомерКонтекстноеМеню" id="696"/>
+									<ExtendedTooltip name="СвязанныеДокументыНомерРасширеннаяПодсказка" id="697"/>
+								</InputField>
+								<InputField name="СвязанныеДокументыДата" id="698">
+									<DataPath>Объект.СвязанныеДокументы.Дата</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СвязанныеДокументыДатаКонтекстноеМеню" id="699"/>
+									<ExtendedTooltip name="СвязанныеДокументыДатаРасширеннаяПодсказка" id="700"/>
+								</InputField>
+								<InputField name="СвязанныеДокументыТип" id="701">
+									<DataPath>Объект.СвязанныеДокументы.Тип</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СвязанныеДокументыТипКонтекстноеМеню" id="702"/>
+									<ExtendedTooltip name="СвязанныеДокументыТипРасширеннаяПодсказка" id="703"/>
+								</InputField>
+								<InputField name="СвязанныеДокументыТипОтношения" id="704">
+									<DataPath>Объект.СвязанныеДокументы.ТипОтношения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СвязанныеДокументыТипОтношенияКонтекстноеМеню" id="705"/>
+									<ExtendedTooltip name="СвязанныеДокументыТипОтношенияРасширеннаяПодсказка" id="706"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 				<Page name="ГруппаДополнительно" id="466">
 					<Title>
 						<v8:item>

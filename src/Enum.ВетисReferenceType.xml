@@ -40,7 +40,7 @@
 		<ChildObjects>
 			<EnumValue uuid="57a6a0f2-4667-42de-b0b7-f3ee746ff08a">
 				<Properties>
-					<Name>СопроводительныйДокумент</Name>
+					<Name>ComplementaryDocument</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -52,7 +52,7 @@
 			</EnumValue>
 			<EnumValue uuid="c924fe91-a67e-4ec6-ac7b-3b6c33c6daec">
 				<Properties>
-					<Name>ПредшествующийДокумент</Name>
+					<Name>PrecedingDocument</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -64,7 +64,7 @@
 			</EnumValue>
 			<EnumValue uuid="3e40c5dd-9958-44a1-8fe1-bc97daa9c0f2">
 				<Properties>
-					<Name>СледующийДокумент</Name>
+					<Name>SubsequentFollowingDocument</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -76,7 +76,7 @@
 			</EnumValue>
 			<EnumValue uuid="1cf30242-4dcb-4f86-a6fa-f694a430a758">
 				<Properties>
-					<Name>ДокументВзаменКоторогоВыданТекущий</Name>
+					<Name>ReplacedDocument</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -88,7 +88,7 @@
 			</EnumValue>
 			<EnumValue uuid="1a6316a7-3054-4c74-82be-ee7b89a20a1d">
 				<Properties>
-					<Name>ДокументЗаменяющийТекущий</Name>
+					<Name>ReplacedByDocument</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -100,7 +100,7 @@
 			</EnumValue>
 			<EnumValue uuid="ea2a00b3-7536-4cc3-b266-06410878e99f">
 				<Properties>
-					<Name>СвязанныйДокумент</Name>
+					<Name>RelatedDocument</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>

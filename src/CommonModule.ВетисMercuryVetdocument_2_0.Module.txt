@@ -263,6 +263,26 @@
 	
 КонецФункции
 
+//Тип, описывающий документ
+//Параметры:
+// issueSeries - Серия документа. bs:String255 0..1
+// issueNumber - Номер документа. bs:String255 0..1
+// issueDate - Дата документа. xs:date 0..1
+// type - Тип документа. dt:DocumentType
+Функция Document(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено, issuer = Неопределено) Экспорт
+	
+	_Объект = Создать("Document");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issuer, "issuer");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
 //Операция внесения изменений в реестр ХС
 //Параметры:
 // type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
@@ -337,12 +357,33 @@
 	
 	_Объект = Создать("LaboratoryResearchEvent");
 	
-	_Объект.expertiseID = expertiseID;
-	_Объект.indicator = indicator;
-	_Объект.disease = disease;
-	_Объект.method = method;
-	_Объект.result = result;
-	_Объект.conclusion = conclusion;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, expertiseID, "expertiseID");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, indicator, "indicator");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, disease, "disease");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, method, "method");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, result, "result");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, conclusion, "conclusion");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Тип, описывающий cведения о связанном документе
+//Параметры:
+// relationshipType - Тип отношения между документами. ReferenceType 1..1
+// issueSeries - Серия документа. bs:String255 0..1
+// issueNumber - Номер документа. bs:String255 0..1
+// issueDate - Дата документа. xs:date 0..1
+// type - Тип документа. dt:DocumentType
+Функция ReferencedDocument(relationshipType = Неопределено, issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено) Экспорт
+	
+	_Объект = Создать("ReferencedDocument");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, relationshipType, "relationshipType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
 	
 	Возврат _Объект;
 	
@@ -352,12 +393,12 @@
 //Параметры:
 // condition - dt:RegionalizationCondition - Cоблюдаемое условие перемещения партии.
 // text - bs:Text - Текст (точная формулировка) соблюдаемого условия перемещения партии.
-Функция RegionalizationClause(condition, text) Экспорт
+Функция RegionalizationClause(condition = Неопределено, text = Неопределено) Экспорт
 	
 	_Объект = Создать("RegionalizationClause");
 	
-	_Объект.condition = condition;
-	_Объект.text = text;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, condition, "condition");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, text, "text");
 	
 	Возврат _Объект;
 	
@@ -373,10 +414,10 @@
 	
 	_Объект = Создать("RegionalizationCondition");
 	
-	_Объект.referenceNumber = referenceNumber;
-	_Объект.text = text;
-	_Объект.strict = strict;
-	_Объект.relatedDisease = relatedDisease;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, referenceNumber, "referenceNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, text, "text");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, strict, "strict");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, relatedDisease, "relatedDisease");
 	
 	Возврат _Объект;
 	
@@ -563,9 +604,17 @@
 КонецФункции
 
 //Тип, описывающий товарно-транспортную накладную.
-Функция Waybill() Экспорт
+Функция Waybill(broker = Неопределено, transportInfo = Неопределено, transportStorageType = Неопределено, issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено) Экспорт
 	
 	_Объект = Создать("Waybill");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, broker, "broker");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportInfo, "transportInfo");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportStorageType, "transportStorageType");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
 	
 	Возврат _Объект;
 	

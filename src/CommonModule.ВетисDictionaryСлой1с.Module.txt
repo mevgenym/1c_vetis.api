@@ -603,6 +603,40 @@
 	
 КонецФункции
 
+Функция ReferenceType(value) Экспорт
+	
+	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисReferenceType") Тогда
+		Если      value = ПредопределенноеЗначение("Перечисление.ВетисReferenceType.ComplementaryDocument") Тогда
+			Возврат ВетисКонстанты.ReferenceType_ComplementaryDocument();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисReferenceType.PrecedingDocument") Тогда
+			Возврат ВетисКонстанты.ReferenceType_PrecedingDocument();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисReferenceType.SubsequentFollowingDocument") Тогда
+			Возврат ВетисКонстанты.ReferenceType_SubsequentFollowingDocument();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисReferenceType.ReplacedDocument") Тогда
+			Возврат ВетисКонстанты.ReferenceType_ReplacedDocument();
+		ИначеЕсли value = ПредопределенноеЗначение("Перечисление.ВетисReferenceType.RelatedDocument") Тогда
+			Возврат ВетисКонстанты.ReferenceType_RelatedDocument();
+		Иначе
+			Возврат Неопределено;
+		КонецЕсли;
+	Иначе
+		Если      value = ВетисКонстанты.ReferenceType_ComplementaryDocument() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисReferenceType.ComplementaryDocument");
+		ИначеЕсли value = ВетисКонстанты.ReferenceType_PrecedingDocument() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисReferenceType.PrecedingDocument");
+		ИначеЕсли value = ВетисКонстанты.ReferenceType_SubsequentFollowingDocument() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисReferenceType.SubsequentFollowingDocument");
+		ИначеЕсли value = ВетисКонстанты.ReferenceType_ReplacedDocument() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисReferenceType.ReplacedDocument");
+		ИначеЕсли value = ВетисКонстанты.ReferenceType_RelatedDocument() Тогда
+			Возврат ПредопределенноеЗначение("Перечисление.ВетисReferenceType.RelatedDocument");
+		Иначе
+			Возврат "";
+		КонецЕсли;
+	КонецЕсли;
+	
+КонецФункции
+
 
 Функция BusinessEntityДобавить(guid)
 	

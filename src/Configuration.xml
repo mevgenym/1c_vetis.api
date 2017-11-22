@@ -133,6 +133,7 @@
 		<ChildObjects>
 			<Language>Русский</Language>
 			<Subsystem>Ветис</Subsystem>
+			<Subsystem>ВетисКоманды</Subsystem>
 			<SessionParameter>ВетисПеременные</SessionParameter>
 			<Role>ВетисАдминистратор</Role>
 			<Role>ВетисОператор</Role>
@@ -180,25 +181,6 @@
 			<CommonModule>ВетисФормы</CommonModule>
 			<CommonModule>ВетисХозяйственныеОперации</CommonModule>
 			<CommonModule>Пользователи</CommonModule>
-			<DefinedType>ВетисAddress</DefinedType>
-			<DefinedType>ВетисBusinessEntity</DefinedType>
-			<DefinedType>ВетисCountry</DefinedType>
-			<DefinedType>ВетисDistrict</DefinedType>
-			<DefinedType>ВетисEnterprise</DefinedType>
-			<DefinedType>ВетисGuid</DefinedType>
-			<DefinedType>ВетисIncorporationForm</DefinedType>
-			<DefinedType>ВетисLocality</DefinedType>
-			<DefinedType>ВетисPackingForm</DefinedType>
-			<DefinedType>ВетисProductItem</DefinedType>
-			<DefinedType>ВетисPurpose</DefinedType>
-			<DefinedType>ВетисRegion</DefinedType>
-			<DefinedType>ВетисRegionalizationCondition</DefinedType>
-			<DefinedType>ВетисString255</DefinedType>
-			<DefinedType>ВетисSubProduct</DefinedType>
-			<DefinedType>ВетисTransport</DefinedType>
-			<DefinedType>ВетисUnit</DefinedType>
-			<DefinedType>ВетисПодразделения</DefinedType>
-			<DefinedType>ВетисПользователи</DefinedType>
 			<CommonCommand>ВетисAddress</CommonCommand>
 			<CommonCommand>ВетисAnimalDisease</CommonCommand>
 			<CommonCommand>ВетисDistrict</CommonCommand>
@@ -233,7 +215,6 @@
 			<Constant>ВетисНастройки</Constant>
 			<Constant>ВетисОсновнойХС</Constant>
 			<Constant>ВетисСервис</Constant>
-			<Constant>ВетисТестовыйУдалить</Constant>
 			<CommonForm>ВетисXSD</CommonForm>
 			<CommonForm>ВетисНастройки</CommonForm>
 			<CommonForm>ВетисРабочийСтол</CommonForm>
@@ -254,6 +235,7 @@
 			<Catalog>Контрагенты</Catalog>
 			<Catalog>Номенклатура</Catalog>
 			<Catalog>НоменклатурныеГруппы</Catalog>
+			<Catalog>Подразделения</Catalog>
 			<Catalog>Пользователи</Catalog>
 			<Document>ВетисВетеринарноСопроводительныйДокумент</Document>
 			<Document>ВетисВходящаяПартияПоДокументам</Document>
@@ -290,7 +272,6 @@
 			<InformationRegister>ВетисПредприятияХС</InformationRegister>
 			<InformationRegister>ВетисСкладскойЖурналРС</InformationRegister>
 			<InformationRegister>ВетисСоответствие</InformationRegister>
-			<AccumulationRegister>ВетисСкладскойЖурнал</AccumulationRegister>
 		</ChildObjects>
 	</Configuration>
 </MetaDataObject>

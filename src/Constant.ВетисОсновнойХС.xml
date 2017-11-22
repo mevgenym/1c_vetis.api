@@ -21,7 +21,7 @@
 			</Synonym>
 			<Comment/>
 			<Type>
-				<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 			</Type>
 			<UseStandardCommands>false</UseStandardCommands>
 			<DefaultForm/>

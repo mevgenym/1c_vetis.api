@@ -187,9 +187,7 @@
 			<RegisterRecordsDeletion>AutoDeleteOnUnpost</RegisterRecordsDeletion>
 			<RegisterRecordsWritingOnPost>WriteSelected</RegisterRecordsWritingOnPost>
 			<SequenceFilling>AutoFill</SequenceFilling>
-			<RegisterRecords>
-				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.ВетисСкладскойЖурнал</xr:Item>
-			</RegisterRecords>
+			<RegisterRecords/>
 			<PostInPrivilegedMode>false</PostInPrivilegedMode>
 			<UnpostInPrivilegedMode>false</UnpostInPrivilegedMode>
 			<IncludeHelpInContents>false</IncludeHelpInContents>
@@ -215,7 +213,11 @@
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисGuid</v8:TypeSet>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>36</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -228,7 +230,7 @@
 					<MinValue xsi:nil="true"/>
 					<MaxValue xsi:nil="true"/>
 					<FillFromFillingValue>false</FillFromFillingValue>
-					<FillValue xsi:nil="true"/>
+					<FillValue xsi:type="xs:string"/>
 					<FillChecking>DontCheck</FillChecking>
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<ChoiceParameterLinks/>
@@ -492,7 +494,7 @@
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -530,7 +532,7 @@
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
+						<v8:Type>cfg:CatalogRef.ВетисПредприятия</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -568,7 +570,7 @@
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -606,7 +608,7 @@
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
+						<v8:Type>cfg:CatalogRef.ВетисПредприятия</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -644,7 +646,7 @@
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисSubProduct</v8:TypeSet>
+						<v8:Type>cfg:CatalogRef.НоменклатурныеГруппы</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -682,7 +684,7 @@
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисProductItem</v8:TypeSet>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -763,7 +765,7 @@
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисПользователи</v8:TypeSet>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -801,7 +803,7 @@
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисПодразделения</v8:TypeSet>
+						<v8:Type>cfg:CatalogRef.Подразделения</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -973,7 +975,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисSubProduct</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.НоменклатурныеГруппы</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1089,7 +1091,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисProductItem</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1287,7 +1289,7 @@
 							</Synonym>
 							<Comment>unit</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисUnit</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1555,7 +1557,7 @@
 							</Synonym>
 							<Comment>origin.country</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисCountry</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.КлассификаторСтранМира</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1591,7 +1593,7 @@
 							</Synonym>
 							<Comment>origin.producer</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.ВетисПредприятия</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1703,7 +1705,7 @@
 							</Synonym>
 							<Comment>packageList</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисPackingForm</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.ВетисPackingForm</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1739,7 +1741,7 @@
 							</Synonym>
 							<Comment>owner</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1828,7 +1830,7 @@
 							</Synonym>
 							<Comment>purpose</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисPurpose</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.ВетисPurpose</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1976,7 +1978,7 @@
 							</Synonym>
 							<Comment>confirmedBy {argc:User} v1.4</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисПользователи</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -2500,7 +2502,7 @@
 							</Synonym>
 							<Comment>certifiedConsignment.broker</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -2536,7 +2538,7 @@
 							</Synonym>
 							<Comment>certifiedConsignment.transportInfo</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисTransport</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.ВетисTransport</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -2882,7 +2884,7 @@
 							</Synonym>
 							<Comment>purpose</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисPurpose</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.ВетисPurpose</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -3654,7 +3656,7 @@
 							</Synonym>
 							<Comment>enterprise {dt:Enterprise}</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.ВетисПредприятия</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -3934,7 +3936,7 @@
 							</Synonym>
 							<Comment>enterprise {dt:Enterprise}</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.ВетисПредприятия</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -4006,7 +4008,7 @@
 							</Synonym>
 							<Comment>nextTransport {vd:TransportInfo}</Comment>
 							<Type>
-								<v8:TypeSet>cfg:DefinedType.ВетисTransport</v8:TypeSet>
+								<v8:Type>cfg:CatalogRef.ВетисTransport</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>

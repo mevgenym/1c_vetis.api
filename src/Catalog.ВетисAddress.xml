@@ -133,7 +133,7 @@
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:TypeSet>cfg:DefinedType.ВетисCountry</v8:TypeSet>
+						<v8:Type>cfg:CatalogRef.КлассификаторСтранМира</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>

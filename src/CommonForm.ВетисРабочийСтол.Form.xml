@@ -5,49 +5,25 @@
 	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="ОбщаяКомандаВетисЖурнал" id="318">
+			<Button name="ФормаКомандаЖурнал" id="335">
 				<Type>CommandBarButton</Type>
-				<CommandName>CommonCommand.ВетисЖурнал</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Журнал</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ОбщаяКомандаВетисЖурналРасширеннаяПодсказка" id="319"/>
+				<CommandName>Form.Command.КомандаЖурнал</CommandName>
+				<ExtendedTooltip name="ФормаКомандаЖурналРасширеннаяПодсказка" id="336"/>
 			</Button>
-			<Button name="ОбщаяКомандаВетисУстановкаСоответствияСправочников" id="316">
+			<Button name="ФормаКомандаУстановкаСоответствияСправочников" id="337">
 				<Type>CommandBarButton</Type>
-				<CommandName>CommonCommand.ВетисУстановкаСоответствияСправочников</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Соответствие справочников</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ОбщаяКомандаВетисУстановкаСоответствияСправочниковРасширеннаяПодсказка" id="317"/>
+				<CommandName>Form.Command.КомандаУстановкаСоответствияСправочников</CommandName>
+				<ExtendedTooltip name="ФормаКомандаУстановкаСоответствияСправочниковРасширеннаяПодсказка" id="338"/>
 			</Button>
-			<Button name="ФормаОбщаяКомандаВетисНастройки" id="320">
+			<Button name="ФормаКомандаНастройки" id="339">
 				<Type>CommandBarButton</Type>
-				<CommandName>CommonCommand.ВетисНастройки</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Настройки</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаОбщаяКомандаВетисНастройкиРасширеннаяПодсказка" id="321"/>
+				<CommandName>Form.Command.КомандаНастройки</CommandName>
+				<ExtendedTooltip name="ФормаКомандаНастройкиРасширеннаяПодсказка" id="340"/>
 			</Button>
-			<Button name="ФормаОбщаяКомандаВетисПредприятияХС" id="322">
+			<Button name="ФормаКомандаПредприятияХС" id="341">
 				<Type>CommandBarButton</Type>
-				<CommandName>CommonCommand.ВетисПредприятияХС</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Связи Предприятие-ХС</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаОбщаяКомандаВетисПредприятияХСРасширеннаяПодсказка" id="323"/>
+				<CommandName>Form.Command.КомандаПредприятияХС</CommandName>
+				<ExtendedTooltip name="ФормаКомандаПредприятияХСРасширеннаяПодсказка" id="342"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -228,22 +204,22 @@
 								<ChildItems>
 									<Button name="СписокВСДСинхронизировать" id="69">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ВСДСинхронизировать</CommandName>
+										<CommandName>Form.Command.КомандаСинхронизироватьВСД</CommandName>
 										<ExtendedTooltip name="СписокВСДСинхронизироватьРасширеннаяПодсказка" id="70"/>
 									</Button>
 									<Button name="СписокВСДАннулировать" id="71">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ВСДАннулировать</CommandName>
+										<CommandName>Form.Command.КомандаАннулироватьВСД</CommandName>
 										<ExtendedTooltip name="СписокВСДАннулироватьРасширеннаяПодсказка" id="72"/>
 									</Button>
 									<Button name="СписокВСДОтборТип" id="307">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ВСДОтборТип</CommandName>
+										<CommandName>Form.Command.КомандаОтборТипВСД</CommandName>
 										<ExtendedTooltip name="СписокВСДОтборТипРасширеннаяПодсказка" id="308"/>
 									</Button>
 									<Button name="СписокВСДОтборСтатус" id="309">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ВСДОтборСтатус</CommandName>
+										<CommandName>Form.Command.КомандаОтборСтатусВСД</CommandName>
 										<ExtendedTooltip name="СписокВСДОтборСтатусРасширеннаяПодсказка" id="310"/>
 									</Button>
 								</ChildItems>
@@ -651,17 +627,17 @@
 								<ChildItems>
 									<Button name="СписокСкладскойЖурналСинхронизироватьСкладскойЖурнал" id="180">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СинхронизироватьСкладскойЖурнал</CommandName>
+										<CommandName>Form.Command.КомандаСинхронизироватьСкладскойЖурнал</CommandName>
 										<ExtendedTooltip name="СписокСкладскойЖурналСинхронизироватьСкладскойЖурналРасширеннаяПодсказка" id="181"/>
 									</Button>
 									<Button name="СписокСкладскойЖурналСкладскойЖурналПоследние" id="224">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СкладскойЖурналПоследние</CommandName>
+										<CommandName>Form.Command.КомандаСкладскойЖурналОтборПоследние</CommandName>
 										<ExtendedTooltip name="СписокСкладскойЖурналСкладскойЖурналПоследниеРасширеннаяПодсказка" id="225"/>
 									</Button>
 									<Button name="СписокСкладскойЖурналСкладскойЖурналПолучитьТекущий" id="305">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СкладскойЖурналПолучитьТекущий</CommandName>
+										<CommandName>Form.Command.КомандаСкладскойЖурналТест</CommandName>
 										<ExtendedTooltip name="СписокСкладскойЖурналСкладскойЖурналПолучитьТекущийРасширеннаяПодсказка" id="306"/>
 									</Button>
 								</ChildItems>
@@ -1107,7 +1083,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:TypeSet>cfg:DefinedType.ВетисEnterprise</v8:TypeSet>
+				<v8:Type>cfg:CatalogRef.ВетисПредприятия</v8:Type>
 			</Type>
 			<Save>
 				<Field>ОтборПредприятие</Field>
@@ -1121,7 +1097,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:TypeSet>cfg:DefinedType.ВетисBusinessEntity</v8:TypeSet>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 			</Type>
 			<Save>
 				<Field>ОтборХС</Field>
@@ -1423,7 +1399,7 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="ВСДАннулировать" id="1">
+		<Command name="КомандаАннулироватьВСД" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1433,12 +1409,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ВСДАннулировать</v8:content>
+					<v8:content>Команда аннулировать ВСД</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ВСДАннулировать</Action>
+			<Action>КомандаАннулироватьВСД</Action>
 		</Command>
-		<Command name="ВСДСинхронизировать" id="2">
+		<Command name="КомандаСинхронизироватьВСД" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1448,12 +1424,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ВСДСинхронизировать</v8:content>
+					<v8:content>Команда синхронизировать ВСД</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ВСДСинхронизировать</Action>
+			<Action>КомандаСинхронизироватьВСД</Action>
 		</Command>
-		<Command name="СинхронизироватьСкладскойЖурнал" id="3">
+		<Command name="КомандаСинхронизироватьСкладскойЖурнал" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1463,12 +1439,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Синхронизировать складской журнал</v8:content>
+					<v8:content>Команда синхронизировать складской журнал</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>СинхронизироватьСкладскойЖурнал</Action>
+			<Action>КомандаСинхронизироватьСкладскойЖурнал</Action>
 		</Command>
-		<Command name="СкладскойЖурналПоследние" id="4">
+		<Command name="КомандаСкладскойЖурналОтборПоследние" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1478,12 +1454,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Складской журнал последние</v8:content>
+					<v8:content>Команда складской журнал отбор последние</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>СкладскойЖурналПоследние</Action>
+			<Action>КомандаСкладскойЖурналОтборПоследние</Action>
 		</Command>
-		<Command name="СкладскойЖурналПолучитьТекущий" id="5">
+		<Command name="КомандаСкладскойЖурналТест" id="5">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1493,12 +1469,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Складской журнал получить текущий</v8:content>
+					<v8:content>Команда складской журнал тест</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>СкладскойЖурналПолучитьТекущий</Action>
+			<Action>КомандаСкладскойЖурналТест</Action>
 		</Command>
-		<Command name="ВСДОтборТип" id="6">
+		<Command name="КомандаОтборТипВСД" id="6">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1508,12 +1484,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ВСДОтбор тип</v8:content>
+					<v8:content>Команда отбор тип ВСД</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ВСДОтборТип</Action>
+			<Action>КомандаОтборТипВСД</Action>
 		</Command>
-		<Command name="ВСДОтборСтатус" id="7">
+		<Command name="КомандаОтборСтатусВСД" id="7">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1523,10 +1499,70 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ВСДОтбор статус</v8:content>
+					<v8:content>Команда отбор статус ВСД</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ВСДОтборСтатус</Action>
+			<Action>КомандаОтборСтатусВСД</Action>
+		</Command>
+		<Command name="КомандаЖурнал" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Журнал</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда журнал</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЖурнал</Action>
+		</Command>
+		<Command name="КомандаУстановкаСоответствияСправочников" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соответствие справочников</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда установка соответствия справочников</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаУстановкаСоответствияСправочников</Action>
+		</Command>
+		<Command name="КомандаНастройки" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаНастройки</Action>
+		</Command>
+		<Command name="КомандаПредприятияХС" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Связи Предприятие-ХС</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда предприятия ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПредприятияХС</Action>
 		</Command>
 	</Commands>
 </Form>

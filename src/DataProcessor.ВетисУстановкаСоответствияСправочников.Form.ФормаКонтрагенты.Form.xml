@@ -855,7 +855,7 @@
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
+							<v8:Length>36</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
 					</Type>
@@ -1129,7 +1129,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:TypeSet>cfg:DefinedType.ВетисRegion</v8:TypeSet>
+				<v8:Type>cfg:CatalogRef.ВетисRegion</v8:Type>
 			</Type>
 			<Save>
 				<Field>ОтборРегион</Field>
@@ -1171,7 +1171,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:TypeSet>cfg:DefinedType.ВетисDistrict</v8:TypeSet>
+				<v8:Type>cfg:CatalogRef.ВетисDistrict</v8:Type>
 			</Type>
 			<Save>
 				<Field>ОтборРайон</Field>

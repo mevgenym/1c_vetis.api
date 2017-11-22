@@ -44,13 +44,6 @@
 		</right>
 	</object>
 	<object>
-		<name>AccumulationRegister.ВетисСкладскойЖурнал</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.ДатаВыработкиНачало</name>
 		<right>
 			<name>View</name>
@@ -378,6 +371,21 @@
 		<right>
 			<name>Edit</name>
 			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Подразделения</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
 		</right>
 	</object>
 	<object>
@@ -1575,13 +1583,6 @@
 	</object>
 	<object>
 		<name>Constant.ВетисНастройки</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>Constant.ВетисТестовыйУдалить</name>
 		<right>
 			<name>Read</name>
 			<value>true</value>

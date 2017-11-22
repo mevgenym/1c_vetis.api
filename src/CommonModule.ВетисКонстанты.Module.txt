@@ -769,37 +769,37 @@
 
 Функция ReferenceType_ComplementaryDocument() Экспорт
 	
-	Возврат "1";
+	Возврат 1;
 	
 КонецФункции
 
 Функция ReferenceType_PrecedingDocument() Экспорт
 	
-	Возврат "2";
+	Возврат 2;
 	
 КонецФункции
 
 Функция ReferenceType_SubsequentFollowingDocument() Экспорт
 	
-	Возврат "3";
+	Возврат 3;
 	
 КонецФункции
 
 Функция ReferenceType_ReplacedDocument() Экспорт
 	
-	Возврат "4";
+	Возврат 4;
 	
 КонецФункции
 
 Функция ReferenceType_ReplacedByDocument() Экспорт
 	
-	Возврат "5";
+	Возврат 5;
 	
 КонецФункции
 
 Функция ReferenceType_RelatedDocument() Экспорт
 	
-	Возврат "6";
+	Возврат 6;
 	
 КонецФункции
 

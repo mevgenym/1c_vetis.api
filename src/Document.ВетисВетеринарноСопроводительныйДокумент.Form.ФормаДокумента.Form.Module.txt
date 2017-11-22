@@ -353,7 +353,11 @@
 	_vetDocument = ВетисMercuryApplicationsСлой1с.getVetDocumentByUuid(Объект, пОтказ, пОшибка);
 	
 	Если НЕ пОтказ = Истина Тогда
-		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(Объект, _vetDocument);
+		Если Ветис.Версия_2_0() Тогда
+			ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(Объект, _vetDocument);
+		Иначе
+			ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(Объект, _vetDocument);
+		КонецЕсли;
 		ЗаполнитьРеквизитыФормы();
 		Если Ветис.РазрешенаОтладка() Тогда
 			Модифицированность = Истина;

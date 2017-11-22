@@ -495,7 +495,7 @@
 КонецПроцедуры
 
 &НаСервере
-Процедура КомандаНайтиПоGuidСервер(пGuid, пОтборПоХС = Ложь)
+Процедура КомандаНайтиПоGuidСервер(пGuid, пОтборПоХС = Ложь, пОтказ = Ложь, пОшибка = "")
 	
 	Перем _Enterprise, _Параметры;
 	
@@ -513,7 +513,7 @@
 			_Guid = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с).BusinessEntity(пGuid);
 		КонецЕсли;
 		
-		Пока ?(_Версия20, ВетисEnterpriseService_2_0, ВетисEnterpriseService).GetActivityLocationListСледующий(_Guid, _Enterprise, _Параметры) Цикл
+		Пока ?(_Версия20, ВетисEnterpriseService_2_0, ВетисEnterpriseService).GetActivityLocationListСледующий(_Guid, _Enterprise, _Параметры, пОтказ, пОшибка) Цикл
 			СписокВетисДобавить(_Enterprise);
 		КонецЦикла;
 		

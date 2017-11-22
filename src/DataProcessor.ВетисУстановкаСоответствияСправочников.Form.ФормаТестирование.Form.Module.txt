@@ -80,7 +80,7 @@
 		
 		Попытка
 			Пока ВетисMercuryApplications_2_0.GetStockEntryChangesListСледующий(_enterpriseGuid, _businessEntityGuid, _ДатаНачала, , _Item, _параметры, _Отказ, _Ошибка) Цикл
-				Если _Отказ Тогда
+				Если _Отказ = Истина Тогда
 					Прервать; 
 				КонецЕсли;
 			КонецЦикла;
@@ -98,7 +98,7 @@
 		
 		Попытка
 			Пока ВетисMercuryApplications_2_0.GetStockEntryListСледующий(_enterpriseGuid, _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
-				Если _Отказ Тогда
+				Если _Отказ = Истина Тогда
 					Прервать; 
 				КонецЕсли;
 			КонецЦикла;
@@ -117,7 +117,7 @@
 		
 		Попытка
 			Пока ВетисMercuryApplications_2_0.GetVetDocumentChangesListСледующий(_enterpriseGuid, _businessEntityGuid, _ДатаНачала, , _Item, _параметры, _Отказ, _Ошибка) Цикл
-				Если _Отказ Тогда
+				Если _Отказ = Истина Тогда
 					Прервать; 
 				КонецЕсли;
 			КонецЦикла;
@@ -135,7 +135,7 @@
 		
 		Попытка
 			Пока ВетисMercuryApplications_2_0.GetVetDocumentListСледующий(_enterpriseGuid, _businessEntityGuid, , ВетисКонстанты.VetDocumentStatus_CONFIRMED(), _Item, _параметры, _Отказ, _Ошибка) Цикл
-				Если _Отказ Тогда
+				Если _Отказ = Истина Тогда
 					Прервать;
 				КонецЕсли;
 				Если НЕ _Item.certifiedConsignment.batch.packageList = Неопределено Тогда

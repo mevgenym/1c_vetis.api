@@ -197,7 +197,12 @@
 				_возвратный.Дата = _ВозвратДата;
 			КонецЕсли;
 			
-			ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_возвратный, _vetDocument);
+			Если _Версия20 Тогда
+				ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_возвратный, _vetDocument);
+			Иначе
+				ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_возвратный, _vetDocument);
+			КонецЕсли;
+			
 			
 			_возвратный.ДополнительныеСвойства.Вставить("Загрузка");
 			
@@ -319,19 +324,25 @@
 		_Получатель = ВетисDictionaryСлой1с.BusinessEntity(пСсылка.Получатель);
 		
 		_Response = ВетисMercuryApplications_2_0.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), _Получатель, пОтказ, пОшибка);
+		
+		Если пОтказ = Истина Тогда Возврат; КонецЕсли;
+		
+		_док = пСсылка.ПолучитьОбъект();
+		
+		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_док, _Response.VetDocument);
 	Иначе
 		_Reason = ВетисMercuryVetdocument.WithdrawReason(пПричина);
 		
 		_Получатель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(пСсылка.Получатель);
 		
 		_Response = ВетисMercuryApplications.withdrawVetDocument(_vetDocumentId, _Reason, ТекущаяДата(), _Получатель, пОтказ, пОшибка);
+		
+		Если пОтказ = Истина Тогда Возврат; КонецЕсли;
+		
+		_док = пСсылка.ПолучитьОбъект();
+		
+		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _Response.VetDocument);
 	КонецЕсли;
-	
-	Если пОтказ = Истина Тогда Возврат; КонецЕсли;
-	
-	_док = пСсылка.ПолучитьОбъект();
-	
-	ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _Response.VetDocument);
 	
 	//_док.ДатаОбновления = ТекущаяДата();
 	

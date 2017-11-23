@@ -15,6 +15,7 @@
 	</AutoCommandBar>
 	<Events>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -714,6 +715,11 @@
 							<ContextMenu name="всдВетсанэкспертизаКонтекстноеМеню" id="260"/>
 							<ExtendedTooltip name="всдВетсанэкспертизаРасширеннаяПодсказка" id="261"/>
 						</CheckBoxField>
+						<InputField name="всдВетсанэкспертиза20" id="326">
+							<DataPath>всдВетсанэкспертиза20</DataPath>
+							<ContextMenu name="всдВетсанэкспертиза20КонтекстноеМеню" id="327"/>
+							<ExtendedTooltip name="всдВетсанэкспертиза20РасширеннаяПодсказка" id="328"/>
+						</InputField>
 						<CheckBoxField name="всдКонтрольГосВетврачем" id="262">
 							<DataPath>всдКонтрольГосВетврачем</DataPath>
 							<CheckBoxType>Auto</CheckBoxType>
@@ -891,7 +897,7 @@
 						<v8:Type>xs:decimal</v8:Type>
 						<v8:NumberQualifiers>
 							<v8:Digits>15</v8:Digits>
-							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:FractionDigits>0</v8:FractionDigits>
 							<v8:AllowedSign>Any</v8:AllowedSign>
 						</v8:NumberQualifiers>
 					</Type>
@@ -934,7 +940,7 @@
 						<v8:Type>xs:decimal</v8:Type>
 						<v8:NumberQualifiers>
 							<v8:Digits>15</v8:Digits>
-							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:FractionDigits>0</v8:FractionDigits>
 							<v8:AllowedSign>Any</v8:AllowedSign>
 						</v8:NumberQualifiers>
 					</Type>
@@ -1179,6 +1185,17 @@
 					<v8:FractionDigits>0</v8:FractionDigits>
 					<v8:AllowedSign>Any</v8:AllowedSign>
 				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="всдВетсанэкспертиза20" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ветсанэкспертиза</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВетисResearchResult</v8:Type>
 			</Type>
 		</Attribute>
 	</Attributes>

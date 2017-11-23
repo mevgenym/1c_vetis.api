@@ -604,17 +604,26 @@
 КонецФункции
 
 //Тип, описывающий товарно-транспортную накладную.
-Функция Waybill(broker = Неопределено, transportInfo = Неопределено, transportStorageType = Неопределено, issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено) Экспорт
+//Параметры;
+// consignor - Сведения об отправителе (владельце). dt:BusinessMember 0..1
+// consignee - Сведения о получателе груза. dt:BusinessMember 0..1
+// broker - Сведения о фирме-посреднике (перевозчике). dt:BusinessEntity 0..1
+// transportInfo - Сведения о транспорте. vd:TransportInfo 0..1
+// transportStorageType - Способ хранения при перевозке. dt:TransportationStorageType 0..1
+// shipmentRoute - Сведения о маршруте следования (пунктах перегрузки). vd:ShipmentRoute 0..1
+Функция Waybill(issueSeries = Неопределено, issueNumber = Неопределено, issueDate = Неопределено, type = Неопределено, consignor = Неопределено, consignee = Неопределено, broker = Неопределено, transportInfo = Неопределено, transportStorageType = Неопределено) Экспорт
 	
 	_Объект = Создать("Waybill");
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, broker, "broker");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportInfo, "transportInfo");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportStorageType, "transportStorageType");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueSeries, "issueSeries");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueNumber, "issueNumber");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, issueDate, "issueDate");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignor, "consignor");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, consignee, "consignee");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, broker, "broker");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportInfo, "transportInfo");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, transportStorageType, "transportStorageType");
 	
 	Возврат _Объект;
 	

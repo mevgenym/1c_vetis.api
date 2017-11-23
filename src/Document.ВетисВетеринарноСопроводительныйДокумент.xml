@@ -1900,7 +1900,7 @@
 									<v8:content>Ветсанэкспертиза</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>cargoExpertized v1.4</Comment>
+							<Comment>cargoExpertized</Comment>
 							<Type>
 								<v8:Type>xs:boolean</v8:Type>
 							</Type>
@@ -2954,7 +2954,7 @@
 									<v8:content>Ветсанэкспертиза</v8:content>
 								</v8:item>
 							</Synonym>
-							<Comment>cargoExpertized v1.4</Comment>
+							<Comment>cargoExpertized</Comment>
 							<Type>
 								<v8:Type>cfg:EnumRef.ВетисResearchResult</v8:Type>
 							</Type>

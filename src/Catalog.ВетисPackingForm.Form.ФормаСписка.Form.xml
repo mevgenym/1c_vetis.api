@@ -68,22 +68,15 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<LabelField name="Значение" id="19">
-					<DataPath>Список.Значение</DataPath>
-					<Width>2</Width>
-					<ContextMenu name="ЗначениеКонтекстноеМеню" id="20"/>
-					<ExtendedTooltip name="ЗначениеРасширеннаяПодсказка" id="21"/>
+				<LabelField name="globalID" id="22">
+					<DataPath>Список.globalID</DataPath>
+					<ContextMenu name="globalIDКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="globalIDРасширеннаяПодсказка" id="24"/>
 				</LabelField>
-				<LabelField name="Наименование" id="14">
-					<DataPath>Список.Наименование</DataPath>
-					<DefaultItem>true</DefaultItem>
-					<ContextMenu name="НаименованиеКонтекстноеМеню" id="15"/>
-					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="16"/>
-				</LabelField>
-				<LabelField name="guid" id="22">
-					<DataPath>Список.guid</DataPath>
-					<ContextMenu name="guidКонтекстноеМеню" id="23"/>
-					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="24"/>
+				<LabelField name="Наименование" id="19">
+					<DataPath>Список.Description</DataPath>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -95,20 +88,8 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>true</ManualQuery>
+				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
-				<QueryText>ВЫБРАТЬ
-	_Таблица.Ссылка КАК Ссылка,
-	_Таблица.Наименование КАК Наименование,
-	_Таблица.Значение КАК Значение,
-	_Соответствие.guid КАК guid
-ИЗ
-	Справочник.ВетисPackingForm КАК _Таблица
-			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Соответствие
-			ПО _Таблица.Ссылка = _Соответствие.Ссылка
-ГДЕ
-	ИСТИНА
-</QueryText>
 				<MainTable>Catalog.ВетисPackingForm</MainTable>
 				<ListSettings>
 					<dcsset:filter>

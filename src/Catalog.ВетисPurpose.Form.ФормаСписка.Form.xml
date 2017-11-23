@@ -16,7 +16,7 @@
 			<Button name="ФормаКомандаВозврат" id="31">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.КомандаВозврат</CommandName>
-				<BackColor>#FFFF99</BackColor>
+				<BackColor>#FFCC99</BackColor>
 				<ExtendedTooltip name="ФормаКомандаВозвратРасширеннаяПодсказка" id="32"/>
 			</Button>
 			<Button name="ФормаКомандаПеремещение" id="35">
@@ -123,7 +123,6 @@
 	_Purpose.ПометкаУдаления,
 	_Purpose.Наименование,
 	_Purpose.НекачественныйГруз,
-	_Purpose.ДатаИзменения,
 	_Purpose.Предопределенный,
 	_Purpose.ИмяПредопределенныхДанных,
 	ВЫБОР

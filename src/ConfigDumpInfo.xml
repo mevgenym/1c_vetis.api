@@ -29,29 +29,25 @@
 			<Metadata name="Catalog.ВетисLocality.Attribute.Страна" id="e02ae54d-3920-4b89-822f-d2dbbe3ac7d2"/>
 			<Metadata name="Catalog.ВетисLocality.Attribute.Район" id="eef78c84-20e5-4750-bb47-593733bcdecc"/>
 		</Metadata>
-		<Metadata name="Catalog.ВетисPackingForm" id="d67e40f7-3be9-46a6-a9ec-421604429d85" configVersion="3a8138708d1e8f4e8431aac259809f9100000000">
-			<Metadata name="Catalog.ВетисPackingForm.Attribute.ДатаИзменения" id="993550ed-7940-49f0-a9bb-5a7ece852a82"/>
-			<Metadata name="Catalog.ВетисPackingForm.Attribute.Значение" id="9b6ababe-b10c-4d3c-91e8-dfc50c6ed0f9"/>
+		<Metadata name="Catalog.ВетисPackingForm" id="d67e40f7-3be9-46a6-a9ec-421604429d85" configVersion="c4ec28e487034d49905266e814f5bc7900000000">
+			<Metadata name="Catalog.ВетисPackingForm.Attribute.globalID" id="9b6ababe-b10c-4d3c-91e8-dfc50c6ed0f9"/>
 		</Metadata>
-		<Metadata name="Catalog.ВетисPackingForm.Form.ФормаВыбора" id="4cf186ef-50fc-48a9-99a4-d8167f85d6f9" configVersion="cb9e327908ce0340879fa02c40c0bbc800000000"/>
-		<Metadata name="Catalog.ВетисPackingForm.Form.ФормаВыбора.Form" id="4cf186ef-50fc-48a9-99a4-d8167f85d6f9.0" configVersion="be5b5b8f6d2b2e4f94586be53a671d5b00000000"/>
-		<Metadata name="Catalog.ВетисPackingForm.Form.ФормаСписка" id="1ca89128-aa2b-4114-bcc3-03a993367d02" configVersion="b749a6bb0162194b8e16f1b2275825ae00000000"/>
-		<Metadata name="Catalog.ВетисPackingForm.Form.ФормаСписка.Form" id="1ca89128-aa2b-4114-bcc3-03a993367d02.0" configVersion="8476c440b9783548bf4a12f899ea85e100000000"/>
-		<Metadata name="Catalog.ВетисPackingForm.Form.ФормаЭлемента" id="0239a87f-948a-451e-9d15-3a5a194f3f50" configVersion="f181ee2367357248b4d60257e107935000000000"/>
-		<Metadata name="Catalog.ВетисPackingForm.Form.ФормаЭлемента.Form" id="0239a87f-948a-451e-9d15-3a5a194f3f50.0" configVersion="e7b5f75b690a5949b6ad2b4d273d70f800000000"/>
+		<Metadata name="Catalog.ВетисPackingForm.Form.ФормаВыбора" id="4cf186ef-50fc-48a9-99a4-d8167f85d6f9" configVersion="b7af6dc9350c8b43933e5e87e2a60ba300000000"/>
+		<Metadata name="Catalog.ВетисPackingForm.Form.ФормаВыбора.Form" id="4cf186ef-50fc-48a9-99a4-d8167f85d6f9.0" configVersion="ba07a634b4f5a242a8214467ddd3b3c500000000"/>
+		<Metadata name="Catalog.ВетисPackingForm.Form.ФормаСписка" id="1ca89128-aa2b-4114-bcc3-03a993367d02" configVersion="e48d20a92476f6449a22a3d647f0406700000000"/>
+		<Metadata name="Catalog.ВетисPackingForm.Form.ФормаСписка.Form" id="1ca89128-aa2b-4114-bcc3-03a993367d02.0" configVersion="03fcbb098634bb4e925feaccf755d6f100000000"/>
 		<Metadata name="Catalog.ВетисPackingForm.Predefined" id="d67e40f7-3be9-46a6-a9ec-421604429d85.1c" configVersion="8cfbc305fa12a54a8143b757defbb43b00000000"/>
 		<Metadata name="Catalog.ВетисPackingForm.Template.СписокФормУпаковок" id="b481c854-8590-40fe-8a8a-10dad86b0b69" configVersion="4b6106e713d9d1448ac63060b17be71a00000000"/>
 		<Metadata name="Catalog.ВетисPackingForm.Template.СписокФормУпаковок.Template" id="b481c854-8590-40fe-8a8a-10dad86b0b69.0" configVersion="6c6a2c1e91018340ac470344430bc8b700000000"/>
 		<Metadata name="Catalog.ВетисPackingForm.Template.СписокФормУпаковок_2_0" id="c591a6b1-12a8-4c78-b39c-452e6658441b" configVersion="adf331fd9a0e5048bfba9035dda928c000000000"/>
 		<Metadata name="Catalog.ВетисPackingForm.Template.СписокФормУпаковок_2_0.Template" id="c591a6b1-12a8-4c78-b39c-452e6658441b.0" configVersion="03d6042e51bf3e42a3c8c10f47984fad00000000"/>
-		<Metadata name="Catalog.ВетисPurpose" id="d8a2781b-ada5-43b1-80a7-981bd2168f11" configVersion="2166c52ebeeff6439f5868d38fbd3db700000000">
-			<Metadata name="Catalog.ВетисPurpose.Attribute.ДатаИзменения" id="661a75e2-01e0-4ac6-b3b8-a2112cd2a172"/>
+		<Metadata name="Catalog.ВетисPurpose" id="d8a2781b-ada5-43b1-80a7-981bd2168f11" configVersion="d7644eb197a4b54d86ea3d44802d388400000000">
 			<Metadata name="Catalog.ВетисPurpose.Attribute.НекачественныйГруз" id="86823804-be82-4750-b61e-ba2486476c2f"/>
 		</Metadata>
-		<Metadata name="Catalog.ВетисPurpose.Form.ФормаВыбора" id="9131c587-1d9c-4e26-8c3f-c988ee45f13e" configVersion="a7a5e03537fb394aaa4d6cc434bc80eb00000000"/>
-		<Metadata name="Catalog.ВетисPurpose.Form.ФормаВыбора.Form" id="9131c587-1d9c-4e26-8c3f-c988ee45f13e.0" configVersion="ba14912112ac5744a9e0d02f899e69e600000000"/>
-		<Metadata name="Catalog.ВетисPurpose.Form.ФормаСписка" id="f2b135a5-c1da-408e-b7de-06dd3eb96437" configVersion="72804692a944aa46a5a37748bab65ba100000000"/>
-		<Metadata name="Catalog.ВетисPurpose.Form.ФормаСписка.Form" id="f2b135a5-c1da-408e-b7de-06dd3eb96437.0" configVersion="dc2ac33b3c43bd4b88f1687361b2236f00000000"/>
+		<Metadata name="Catalog.ВетисPurpose.Form.ФормаВыбора" id="9131c587-1d9c-4e26-8c3f-c988ee45f13e" configVersion="c603e18863c5af459fb7b1bd7b74bb2900000000"/>
+		<Metadata name="Catalog.ВетисPurpose.Form.ФормаВыбора.Form" id="9131c587-1d9c-4e26-8c3f-c988ee45f13e.0" configVersion="2cde5bae28a93e48a07310785d89e83000000000"/>
+		<Metadata name="Catalog.ВетисPurpose.Form.ФормаСписка" id="f2b135a5-c1da-408e-b7de-06dd3eb96437" configVersion="b8d39a105d36344193f5ce0c802ba35b00000000"/>
+		<Metadata name="Catalog.ВетисPurpose.Form.ФормаСписка.Form" id="f2b135a5-c1da-408e-b7de-06dd3eb96437.0" configVersion="45e76b0579d6b649918fd34c8bdca98900000000"/>
 		<Metadata name="Catalog.ВетисPurpose.Form.ФормаЭлемента" id="75eb92e0-368e-4384-b680-7c4786170df1" configVersion="0be6dd7520838445af335206ba3fda5500000000"/>
 		<Metadata name="Catalog.ВетисPurpose.Form.ФормаЭлемента.Form" id="75eb92e0-368e-4384-b680-7c4786170df1.0" configVersion="3601dda2310e0a48801b2b20ebafd1ac00000000"/>
 		<Metadata name="Catalog.ВетисRegion" id="2502cad4-faff-49d4-947a-395afa81f047" configVersion="9f76f03518094b4b85c77d20e208bc2800000000">
@@ -222,8 +218,8 @@
 		<Metadata name="CommonModule.ВетисDictionaryService_2_0.Module" id="4432e4d2-e16e-46e6-a777-ade07626e4ed.0" configVersion="d6d386150675aa4383019bc817fe245e00000000"/>
 		<Metadata name="CommonModule.ВетисDictionary_2_0" id="1a937408-a54d-4598-9e05-d3ed0d107117" configVersion="e93f293322f51b43a6142380090c487400000000"/>
 		<Metadata name="CommonModule.ВетисDictionary_2_0.Module" id="1a937408-a54d-4598-9e05-d3ed0d107117.0" configVersion="4e99e635024f34489e5ba76d5d29f60600000000"/>
-		<Metadata name="CommonModule.ВетисDictionaryСлой1с" id="bdcc3f1f-3c4b-4c31-94fe-331a60b41ec1" configVersion="590270f9fbb3d44882b79364c3df87fb00000000"/>
-		<Metadata name="CommonModule.ВетисDictionaryСлой1с.Module" id="bdcc3f1f-3c4b-4c31-94fe-331a60b41ec1.0" configVersion="c4fd2415c8143244aab4dae73b9e9d4b00000000"/>
+		<Metadata name="CommonModule.ВетисDictionaryСлой1с" id="bdcc3f1f-3c4b-4c31-94fe-331a60b41ec1" configVersion="9d0ead25e4e40c459bc2a814318a68d000000000"/>
+		<Metadata name="CommonModule.ВетисDictionaryСлой1с.Module" id="bdcc3f1f-3c4b-4c31-94fe-331a60b41ec1.0" configVersion="e9944c8853a35846b97c87dbf91238e400000000"/>
 		<Metadata name="CommonModule.ВетисEnterpriseService" id="170e9b3e-a2d2-42fb-83b2-2a9d06fe5cad" configVersion="b53bfd2774a7f141bff993539988585d00000000"/>
 		<Metadata name="CommonModule.ВетисEnterpriseService.Module" id="170e9b3e-a2d2-42fb-83b2-2a9d06fe5cad.0" configVersion="032f405abe064249a4d5c2a7384fe3a600000000"/>
 		<Metadata name="CommonModule.ВетисEnterpriseService_2_0" id="9e695acd-d19e-4741-b3f9-85f17386ee33" configVersion="8b635b77f6a66e409b7b5a127a2161c200000000"/>
@@ -268,8 +264,8 @@
 		<Metadata name="CommonModule.ВетисОбщегоНазначенияКлиентСервер.Module" id="e069315a-9de0-464e-b3b4-9ac7f96f168d.0" configVersion="b50052990fd946449d323617031aeaaa00000000"/>
 		<Metadata name="CommonModule.ВетисФормы" id="811121c2-bfb1-4209-855f-d6937998af68" configVersion="6343a67ce2f53145875be809c115ff0e00000000"/>
 		<Metadata name="CommonModule.ВетисФормы.Module" id="811121c2-bfb1-4209-855f-d6937998af68.0" configVersion="973cbe30d430a84d8d152ba28a0a319300000000"/>
-		<Metadata name="CommonModule.ВетисХозяйственныеОперации" id="986bb602-7a7b-4e2f-8b01-76a4dcfc6ad3" configVersion="75c8942d408eca49bffa939d1fc0703300000000"/>
-		<Metadata name="CommonModule.ВетисХозяйственныеОперации.Module" id="986bb602-7a7b-4e2f-8b01-76a4dcfc6ad3.0" configVersion="623951a893a3294b9caf44830349908100000000"/>
+		<Metadata name="CommonModule.ВетисХозяйственныеОперации" id="986bb602-7a7b-4e2f-8b01-76a4dcfc6ad3" configVersion="371e7b837160304eb5a5561fc8b3af8800000000"/>
+		<Metadata name="CommonModule.ВетисХозяйственныеОперации.Module" id="986bb602-7a7b-4e2f-8b01-76a4dcfc6ad3.0" configVersion="f95fdb6c5518ac48864be2c91694ccea00000000"/>
 		<Metadata name="CommonModule.Пользователи" id="36584f98-f00b-4c1c-a56a-aa70a19b5b06" configVersion="76bda95095b005438ae613461a64f97600000000"/>
 		<Metadata name="CommonModule.Пользователи.Module" id="36584f98-f00b-4c1c-a56a-aa70a19b5b06.0" configVersion="810a6aa0bd15bf41832ae46484f0d78c00000000"/>
 		<Metadata name="Configuration.ВетеринарияМеркурийГИС" id="bb10dab7-4aa6-448b-86af-a6c3e646616c" configVersion="5c19f6ad803f654682b606efdafae5fa00000000"/>
@@ -294,14 +290,14 @@
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаКлассификаторЕдиницИзмерения.Form" id="a0c3a75a-db72-443d-b4c5-6a529f288ba9.0" configVersion="a9d5d3d2f733ae4689f04e778e864f2700000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаКонтрагенты" id="d531cc62-c841-49e6-b62c-e4e87ed02cd4" configVersion="635cafbc86f5664eb0e9aa3730318d0400000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаКонтрагенты.Form" id="d531cc62-c841-49e6-b62c-e4e87ed02cd4.0" configVersion="8da3552ceefbb2449acf73277109c62800000000"/>
-		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатура" id="a3ccaa42-0fd8-454f-b573-1b404b4b2972" configVersion="610e8c8e69346e489e5110fc1d0074ae00000000"/>
-		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатура.Form" id="a3ccaa42-0fd8-454f-b573-1b404b4b2972.0" configVersion="9b52c29a4b3a0041847061d70c3a058b00000000"/>
+		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатура" id="a3ccaa42-0fd8-454f-b573-1b404b4b2972" configVersion="6124ed250c4d644981e5d852acffaebd00000000"/>
+		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатура.Form" id="a3ccaa42-0fd8-454f-b573-1b404b4b2972.0" configVersion="e1f95a83a66f0347be366d8ba87bf78a00000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатурныеГруппы" id="5ae3c542-84c8-429c-b63e-a9592c56ecf2" configVersion="0a182acfb12e5947bb1ab07346a08f5100000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатурныеГруппы.Form" id="5ae3c542-84c8-429c-b63e-a9592c56ecf2.0" configVersion="4da307cc80a2c441b270c374ad49638b00000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаПользователи" id="5418bf56-31fc-494e-af34-dfa7045c08f1" configVersion="91988115c0d5df44987dbe1e6004268500000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаПользователи.Form" id="5418bf56-31fc-494e-af34-dfa7045c08f1.0" configVersion="47a24b09ab2a86429b14e0688081dc9b00000000"/>
-		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаПредприятия" id="7be89182-10d7-43c4-83b4-d0d1418f57bd" configVersion="63563855497b754187a514195560867500000000"/>
-		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаПредприятия.Form" id="7be89182-10d7-43c4-83b4-d0d1418f57bd.0" configVersion="53583bbe7a81cb46b81daf89a86129a400000000"/>
+		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаПредприятия" id="7be89182-10d7-43c4-83b4-d0d1418f57bd" configVersion="7e08712fcb9ed144a431337a5c02875200000000"/>
+		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаПредприятия.Form" id="7be89182-10d7-43c4-83b4-d0d1418f57bd.0" configVersion="96dc400a8ee15b43836e05eaf970c3e700000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаСтраны" id="f58965bc-862a-46ad-a1fe-99697f2f4f53" configVersion="232285966977f548803805bbf873083000000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаСтраны.Form" id="f58965bc-862a-46ad-a1fe-99697f2f4f53.0" configVersion="c0254b07c7d25d4a8f173348cd13a73a00000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаТестирование" id="d608c817-e769-4911-a9d7-b9d718ba15e8" configVersion="fd6cf3b25b372b41b3f11c260ec967a600000000"/>
@@ -763,7 +759,7 @@
 			<Metadata name="InformationRegister.ВетисПредопределенные.Dimension.Значение" id="251ab0c4-34c2-4878-911d-31fa89937730"/>
 			<Metadata name="InformationRegister.ВетисПредопределенные.Dimension.Назначение" id="803e3f39-db52-429a-8066-301bac5cb52d"/>
 		</Metadata>
-		<Metadata name="InformationRegister.ВетисПредприятияХС" id="3bcb0642-5091-45a6-babe-1e24a4a6e9d6" configVersion="2159e614a5af3744b0b944ad9c56c30f00000000">
+		<Metadata name="InformationRegister.ВетисПредприятияХС" id="3bcb0642-5091-45a6-babe-1e24a4a6e9d6" configVersion="69ccf390d368c941a7a3fe3bbd87945600000000">
 			<Metadata name="InformationRegister.ВетисПредприятияХС.Dimension.ХозяйствующийСубъект" id="4a3cdaf7-c82b-4544-9b34-58dd77de5a58"/>
 			<Metadata name="InformationRegister.ВетисПредприятияХС.Resource.ВСервисе" id="a658485e-b44a-4164-a0a0-af90e67fb8a8"/>
 			<Metadata name="InformationRegister.ВетисПредприятияХС.Dimension.Предприятие" id="edbc8d8b-a1f0-4e11-bde9-455274f3684c"/>
@@ -772,7 +768,7 @@
 		<Metadata name="InformationRegister.ВетисПредприятияХС.Form.ФормаЗаписи.Form" id="006447ce-18c5-469d-aa72-cfe789854675.0" configVersion="c349767851a9d74b9cae9d113d5aaf0c00000000"/>
 		<Metadata name="InformationRegister.ВетисПредприятияХС.Form.ФормаСписка" id="ce27c713-8764-4988-a748-222528f5a684" configVersion="b78d5bc8427d6148ab7d7aaf3068a2e300000000"/>
 		<Metadata name="InformationRegister.ВетисПредприятияХС.Form.ФормаСписка.Form" id="ce27c713-8764-4988-a748-222528f5a684.0" configVersion="6679b60a7e7f884c89e4b7e6e1c27b3e00000000"/>
-		<Metadata name="InformationRegister.ВетисПредприятияХС.RecordSetModule" id="3bcb0642-5091-45a6-babe-1e24a4a6e9d6.1" configVersion="0ad443930e642a43bbe902f956d21c9f00000000"/>
+		<Metadata name="InformationRegister.ВетисПредприятияХС.RecordSetModule" id="3bcb0642-5091-45a6-babe-1e24a4a6e9d6.1" configVersion="1e4dac57bdba30478b9ac3f8355c3bd300000000"/>
 		<Metadata name="InformationRegister.ВетисСкладскойЖурналРС" id="35056cee-cf80-4163-bd09-f643a8c2df7d" configVersion="56633ffb4dcaf64ba485e0374f121cb500000000">
 			<Metadata name="InformationRegister.ВетисСкладскойЖурналРС.Attribute.last" id="0a9678cd-298d-4336-9354-6742e916f11d"/>
 			<Metadata name="InformationRegister.ВетисСкладскойЖурналРС.Attribute.entryNumber" id="14000e95-68fe-4abe-b6a1-fd045a730836"/>

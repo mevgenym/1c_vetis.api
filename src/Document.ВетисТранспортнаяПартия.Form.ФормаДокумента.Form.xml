@@ -1196,7 +1196,7 @@
 					<v8:content>Команда заполнить товары</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>КомандаЗаполнить</Action>
+			<Action>КомандаЗаполнитьТовары</Action>
 		</Command>
 		<Command name="КомандаОтправить" id="4">
 			<Title>

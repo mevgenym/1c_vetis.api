@@ -222,6 +222,7 @@
 			<Catalog>ВетисAddress</Catalog>
 			<Catalog>ВетисAnimalDisease</Catalog>
 			<Catalog>ВетисDistrict</Catalog>
+			<Catalog>ВетисEnterpriseActivity</Catalog>
 			<Catalog>ВетисIncorporationForm</Catalog>
 			<Catalog>ВетисLocality</Catalog>
 			<Catalog>ВетисPackingForm</Catalog>

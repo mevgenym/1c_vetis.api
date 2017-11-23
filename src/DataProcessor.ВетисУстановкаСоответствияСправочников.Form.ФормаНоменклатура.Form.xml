@@ -639,26 +639,47 @@
 			</Type>
 			<UseAlways>
 				<Field>СправочникСписок.Ссылка</Field>
+				<Field>СправочникСписок.guid</Field>
 				<Field>~СправочникСписок.ЕстьНК</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
-	NULL КАК Ссылка,
-	NULL КАК Код,
-	NULL КАК Наименование,
-	NULL КАК guid,
-	NULL КАК Предприятие,
-	NULL КАК name,
-	NULL КАК Описание
-</QueryText>
+	_Таблица.Ссылка,
+	_Таблица.Код,
+	_Таблица.Наименование,
+	_Ветис.guid КАК guid,
+	_Ветис.Предприятие КАК Предприятие,
+	_Ветис.name КАК name,
+	_Ветис.Описание КАК Описание
+{ВЫБРАТЬ
+	Ссылка.*,
+	Код,
+	Наименование,
+	guid,
+	Предприятие,
+	name,
+	Описание}
+ИЗ
+	Справочник.Номенклатура КАК _Таблица
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Ветис
+		ПО _Таблица.Ссылка = _Ветис.Ссылка
+ГДЕ
+	ИСТИНА
+	И НЕ _Таблица.ПометкаУдаления
+	И НЕ _Таблица.ЭтоГруппа
+	И ИСТИНА</QueryText>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
 					</dcsset:filter>
 					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
 					</dcsset:order>
@@ -985,29 +1006,19 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
-						<dcsset:field>СправочникСписокКод</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СправочникСписокКодНК</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
 						<dcsset:field>СправочникСписокНаименование</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СправочникСписокНаименованиеНК</dcsset:field>
+						<dcsset:field>СправочникСписокПредприятие</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СправочникСписокСсылка</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СправочникСписокИдентификаторНК</dcsset:field>
+						<dcsset:field>СправочникСписокname</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СправочникСписок.ЕстьНК</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						<dcsset:left xsi:type="dcscor:Field">СправочникСписок.guid</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
 					</dcsset:item>
 				</dcsset:filter>
 				<dcsset:appearance>

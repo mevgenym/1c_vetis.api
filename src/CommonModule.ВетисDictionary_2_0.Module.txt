@@ -9,7 +9,7 @@
 	
 КонецФункции
 
-Функция Address(countryGuid = Неопределено, regionGuid = Неопределено, districtGuid = Неопределено, localityGuid = Неопределено, streetGuid = Неопределено, house = Неопределено, building = Неопределено, addressView = Неопределено) Экспорт
+Функция Address(addressView = Неопределено, countryGuid = Неопределено, regionGuid = Неопределено, districtGuid = Неопределено, localityGuid = Неопределено, streetGuid = Неопределено, house = Неопределено, building = Неопределено) Экспорт
 	
 	_Объект = Создать("Address");
 	
@@ -171,11 +171,11 @@
 	
 КонецФункции
 
-Функция EnterpriseActivity(name = Неопределено) Экспорт
+Функция EnterpriseActivity(guid = Неопределено) Экспорт
 	
 	_Объект = Создать("EnterpriseActivity");
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, name, "name");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "guid");
 	
 	Возврат _Объект;
 	

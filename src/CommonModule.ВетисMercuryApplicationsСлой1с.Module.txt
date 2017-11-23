@@ -505,10 +505,10 @@
 		
 		_enterprise.type = ВетисDictionaryСлой1с.EnterpriseType(_Предприятие.Тип);
 		
-		_enterprise.address = ВетисDictionary_2_0.Address(ВетисDictionaryСлой1с.Country(_Предприятие.Страна), ВетисDictionaryСлой1с.Region(_Предприятие.Регион), ВетисDictionaryСлой1с.District(_Предприятие.Район), ВетисDictionaryСлой1с.Locality(_Предприятие.НаселенныйПункт));
+		_enterprise.address = ВетисDictionary_2_0.Address(_Предприятие.АдресПредставление, ВетисDictionaryСлой1с.Country(_Предприятие.Страна), ВетисDictionaryСлой1с.Region(_Предприятие.Регион), ВетисDictionaryСлой1с.District(_Предприятие.Район), ВетисDictionaryСлой1с.Locality(_Предприятие.НаселенныйПункт));
 		
 		Для каждого _ВидыДеятельностиСтрока Из _Предприятие.ВидыДеятельности Цикл
-			_enterprise.activityList.Добавить(ВетисDictionary_2_0.EnterpriseActivity(_ВидыДеятельностиСтрока.Наименование));
+			_enterprise.activityList.Добавить(ВетисDictionary_2_0.EnterpriseActivity(ВетисDictionaryСлой1с.EnterpriseActivity(_ВидыДеятельностиСтрока.ВидДеятельности)));
 		КонецЦикла;
 		
 		_enterprise.owner = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_Предприятие.Собственник));

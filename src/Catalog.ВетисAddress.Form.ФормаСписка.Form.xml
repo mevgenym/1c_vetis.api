@@ -196,6 +196,7 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
 			</SearchControlAddition>
 			<Events>
+				<Event name="ValueChoice">СписокВыборЗначения</Event>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 			</Events>
 			<ChildItems>

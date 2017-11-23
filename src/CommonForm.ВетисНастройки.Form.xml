@@ -380,18 +380,93 @@
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="153"/>
 					<ChildItems>
-						<CheckBoxField name="СоздаватьХС" id="157">
-							<DataPath>СоздаватьХС</DataPath>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="СоздаватьХСКонтекстноеМеню" id="158"/>
-							<ExtendedTooltip name="СоздаватьХСРасширеннаяПодсказка" id="159"/>
-						</CheckBoxField>
-						<CheckBoxField name="СоздаватьПредприятия" id="154">
-							<DataPath>СоздаватьПредприятия</DataPath>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="СоздаватьПредприятияКонтекстноеМеню" id="155"/>
-							<ExtendedTooltip name="СоздаватьПредприятияРасширеннаяПодсказка" id="156"/>
-						</CheckBoxField>
+						<UsualGroup name="ГруппаДополнительноКолонки" id="162">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дополнительно колонки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дополнительно колонки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаДополнительноКолонкиРасширеннаяПодсказка" id="163"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаДополнительноКолонка1" id="164">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа дополнительно колонка1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа дополнительно колонка1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДополнительноКолонка1РасширеннаяПодсказка" id="165"/>
+									<ChildItems>
+										<CheckBoxField name="СоздаватьХС" id="157">
+											<DataPath>СоздаватьХС</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="СоздаватьХСКонтекстноеМеню" id="158"/>
+											<ExtendedTooltip name="СоздаватьХСРасширеннаяПодсказка" id="159"/>
+										</CheckBoxField>
+										<CheckBoxField name="СоздаватьПредприятия" id="154">
+											<DataPath>СоздаватьПредприятия</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="СоздаватьПредприятияКонтекстноеМеню" id="155"/>
+											<ExtendedTooltip name="СоздаватьПредприятияРасширеннаяПодсказка" id="156"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<PictureDecoration name="ДекорацияРазделитель" id="168">
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Декорация разделитель</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияРазделительКонтекстноеМеню" id="169"/>
+									<ExtendedTooltip name="ДекорацияРазделительРасширеннаяПодсказка" id="170"/>
+								</PictureDecoration>
+								<UsualGroup name="ГруппаДополнительноКолонка2" id="166">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа дополнительно колонка2</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа дополнительно колонка2</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДополнительноКолонка2РасширеннаяПодсказка" id="167"/>
+									<ChildItems>
+										<Button name="КомандаОбновитьСправочники" id="160">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаОбновитьСправочники</CommandName>
+											<ExtendedTooltip name="КомандаОбновитьСправочникиРасширеннаяПодсказка" id="161"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -659,6 +734,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОсновнойХС</Action>
+		</Command>
+		<Command name="КомандаОбновитьСправочники" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить справочники</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда обновить справочники</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОбновитьСправочники</Action>
 		</Command>
 	</Commands>
 </Form>

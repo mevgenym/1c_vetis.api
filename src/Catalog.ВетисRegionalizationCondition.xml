@@ -248,6 +248,69 @@
 					<FullTextSearch>Use</FullTextSearch>
 				</Properties>
 			</Attribute>
+			<TabularSection uuid="31387bf2-ecab-48a5-a794-1549414d115e">
+				<InternalInfo>
+					<xr:GeneratedType name="CatalogTabularSection.ВетисRegionalizationCondition.Заболевания" category="TabularSection">
+						<xr:TypeId>27e1d19a-a141-4b08-883b-5a003112941b</xr:TypeId>
+						<xr:ValueId>0148e4d5-264e-4709-b250-e0bf475adab9</xr:ValueId>
+					</xr:GeneratedType>
+					<xr:GeneratedType name="CatalogTabularSectionRow.ВетисRegionalizationCondition.Заболевания" category="TabularSectionRow">
+						<xr:TypeId>7bc4c28f-52f8-4f25-af78-aec44f147423</xr:TypeId>
+						<xr:ValueId>5b351aa9-dccc-414d-9eee-7d832a885bdb</xr:ValueId>
+					</xr:GeneratedType>
+				</InternalInfo>
+				<Properties>
+					<Name>Заболевания</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заболевания</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<ToolTip/>
+					<FillChecking>DontCheck</FillChecking>
+					<Use>ForItem</Use>
+				</Properties>
+				<ChildObjects>
+					<Attribute uuid="5b12f1be-140f-49df-943f-9b5989cbdeba">
+						<Properties>
+							<Name>Заболевание</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заболевание</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>disease {dt:AnimalDisease}</Comment>
+							<Type>
+								<v8:Type>cfg:CatalogRef.ВетисAnimalDisease</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+				</ChildObjects>
+			</TabularSection>
 			<Form>ФормаСписка</Form>
 			<Form>ФормаЭлемента</Form>
 			<Form>ФормаВыбора</Form>

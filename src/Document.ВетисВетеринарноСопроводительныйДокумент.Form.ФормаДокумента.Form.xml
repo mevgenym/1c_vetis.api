@@ -618,6 +618,11 @@
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаРезультатыОсмотраРасширеннаяПодсказка" id="488"/>
 					<ChildItems>
+						<InputField name="ТипПоле1" id="707">
+							<DataPath>Объект.Тип</DataPath>
+							<ContextMenu name="ТипПоле1КонтекстноеМеню" id="708"/>
+							<ExtendedTooltip name="ТипПоле1РасширеннаяПодсказка" id="709"/>
+						</InputField>
 						<LabelField name="Тип1" id="506">
 							<DataPath>Объект.Тип</DataPath>
 							<ContextMenu name="Тип1КонтекстноеМеню" id="507"/>

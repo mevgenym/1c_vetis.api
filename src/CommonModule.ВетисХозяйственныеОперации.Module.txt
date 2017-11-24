@@ -319,17 +319,32 @@
 		_мз.volume      = _stockEntry.batch.volume;
 		
 		Если _Версия20 Тогда
+			
+			_мз.owner = _stockEntry.batch.owner.guid;
+			
 			Если НЕ _stockEntry.batch.packageList = Неопределено Тогда
+				//берем одну последнюю
 				_package = ВетисDictionaryСлой1с.PackageList(_stockEntry.batch.packageList);
 				_мз.PackingForm   = _package.packingType.guid;
 				_мз.packingAmount = _package.quantity;
 				
+				//и текстом список упаковок
 				_упаковка = "";
 				Для каждого _package Из _stockEntry.batch.packageList.package Цикл
-					//ВетисDictionaryСлой1с.PackingType(_package.packingType)
 					_упаковка = _упаковка + "; " + _package.level + ") " + _package.packingType.name + " (" + _package.packingType.guid + ") " + ?(_package.quantity = 0, "", ", " + _package.quantity);
 				КонецЦикла;
 				_мз.package = Сред(_упаковка, 3);
+			КонецЕсли;
+			
+			Если НЕ _stockEntry.batch.origin = Неопределено Тогда
+				//берем первого
+				Если _stockEntry.batch.origin.producer.Количество()>0 Тогда
+					_мз.producer = _stockEntry.batch.origin.producer[0].enterprise.guid;
+					_мз.producerRole = _stockEntry.batch.origin.producer[0].role;
+				КонецЕсли;
+				_мз.producerProductItem = _stockEntry.batch.origin.productItem.guid;
+				_мз.producerProductItemName = _stockEntry.batch.origin.productItem.name;
+				_мз.country = _stockEntry.batch.origin.country.guid;
 			КонецЕсли;
 		Иначе
 			_мз.PackingForm = ?(_stockEntry.batch.packingList = Неопределено, "", _stockEntry.batch.packingList.packingForm[0].uuid);
@@ -594,6 +609,7 @@
 		_Строка.guid            = _Условие.guid;
 		_Строка.text            = _Условие.text;
 		_Строка.strict          = _Условие.strict;
+		//сделать: переделать заболевания на список или таблицу
 		_Строка.relatedDiseaseGuid  = ?(_Условие.relatedDisease.Количество()=0, "", _Условие.relatedDisease[0].guid);
 		_Строка.relatedDisease  = ?(_Условие.relatedDisease.Количество()=0, "", _Условие.relatedDisease[0].name);
 	КонецЦикла;
@@ -654,17 +670,19 @@
 		Если Выборка.СоответствиеЗаболевание = NULL Тогда
 			_Заболевание = _СоответствиеЗаболевание.Получить(Выборка.relatedDiseaseGuid);
 			Если _Заболевание = Неопределено И ЗначениеЗаполнено(Выборка.relatedDiseaseGuid) Тогда
-				_Элемент = Справочники.ВетисAnimalDisease.СоздатьЭлемент();
-				_Элемент.Наименование = Выборка.relatedDisease;
-				Попытка
-					_Элемент.Записать();
-					_Заболевание = _Элемент.Ссылка;
-					_СоответствиеЗаболевание.Вставить(Выборка.relatedDiseaseGuid, _Элемент.Ссылка);
-					Ветис.Соответствие_Добавить(_Элемент.Ссылка, Выборка.relatedDiseaseGuid, Выборка.relatedDisease);
-					Ветис.Журнал_Добавить("+ " + СокрЛП(Выборка.relatedDisease), "Ветис.AnimalDisease");
-				Исключение
-					ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "Ветис.AnimalDisease");
-				КонецПопытки;
+				_Заболевание = ВетисDictionaryСлой1с.AnimalDisease(Новый Структура("guid,name", Выборка.relatedDiseaseGuid, Выборка.relatedDisease));
+				_СоответствиеЗаболевание.Вставить(Выборка.relatedDiseaseGuid, _Заболевание)
+				//_Элемент = Справочники.ВетисAnimalDisease.СоздатьЭлемент();
+				//_Элемент.Наименование = Выборка.relatedDisease;
+				//Попытка
+				//	_Элемент.Записать();
+				//	_Заболевание = _Элемент.Ссылка;
+				//	_СоответствиеЗаболевание.Вставить(Выборка.relatedDiseaseGuid, _Элемент.Ссылка);
+				//	Ветис.Соответствие_Добавить(_Элемент.Ссылка, Выборка.relatedDiseaseGuid, Выборка.relatedDisease);
+				//	Ветис.Журнал_Добавить("+ " + СокрЛП(Выборка.relatedDisease), "Ветис.AnimalDisease");
+				//Исключение
+				//	ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "Ветис.AnimalDisease");
+				//КонецПопытки;
 			КонецЕсли;
 		Иначе
 			_Заболевание = Выборка.СоответствиеЗаболевание;

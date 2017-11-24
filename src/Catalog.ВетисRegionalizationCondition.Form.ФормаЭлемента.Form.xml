@@ -13,12 +13,6 @@
 			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
 		</InputField>
-		<InputField name="Заболевание" id="13">
-			<DataPath>Объект.Заболевание</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="ЗаболеваниеКонтекстноеМеню" id="14"/>
-			<ExtendedTooltip name="ЗаболеваниеРасширеннаяПодсказка" id="15"/>
-		</InputField>
 		<UsualGroup name="Группа1" id="16">
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -47,6 +41,61 @@
 			<ContextMenu name="ФормулировкаУсловияКонтекстноеМеню" id="8"/>
 			<ExtendedTooltip name="ФормулировкаУсловияРасширеннаяПодсказка" id="9"/>
 		</InputField>
+		<InputField name="Заболевание" id="13">
+			<DataPath>Объект.Заболевание</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ЗаболеваниеКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ЗаболеваниеРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<Table name="Заболевания" id="18">
+			<HeightInTableRows>1</HeightInTableRows>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Заболевания</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ЗаболеванияКонтекстноеМеню" id="19"/>
+			<AutoCommandBar name="ЗаболеванияКоманднаяПанель" id="20"/>
+			<ExtendedTooltip name="ЗаболеванияРасширеннаяПодсказка" id="21"/>
+			<SearchStringAddition name="ЗаболеванияСтрокаПоиска" id="22">
+				<AdditionSource>
+					<Item>Заболевания</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаболеванияСтрокаПоискаКонтекстноеМеню" id="23"/>
+				<ExtendedTooltip name="ЗаболеванияСтрокаПоискаРасширеннаяПодсказка" id="24"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ЗаболеванияСостояниеПросмотра" id="25">
+				<AdditionSource>
+					<Item>Заболевания</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаболеванияСостояниеПросмотраКонтекстноеМеню" id="26"/>
+				<ExtendedTooltip name="ЗаболеванияСостояниеПросмотраРасширеннаяПодсказка" id="27"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ЗаболеванияУправлениеПоиском" id="28">
+				<AdditionSource>
+					<Item>Заболевания</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаболеванияУправлениеПоискомКонтекстноеМеню" id="29"/>
+				<ExtendedTooltip name="ЗаболеванияУправлениеПоискомРасширеннаяПодсказка" id="30"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ЗаболеванияНомерСтроки" id="31">
+					<DataPath>Объект.Заболевания.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаболеванияНомерСтрокиКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ЗаболеванияНомерСтрокиРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<InputField name="ЗаболеванияЗаболевание" id="34">
+					<DataPath>Объект.Заболевания.Заболевание</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаболеванияЗаболеваниеКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ЗаболеванияЗаболеваниеРасширеннаяПодсказка" id="36"/>
+				</InputField>
+			</ChildItems>
+		</Table>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">

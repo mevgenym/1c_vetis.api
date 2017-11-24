@@ -459,7 +459,7 @@
 		_док.Иммунизация.Очистить();
 		Для каждого _immunization Из _всд.authentication.immunization Цикл
 			_Строка = _док.Иммунизация.Добавить();
-			_Строка.Заболевание  = _immunization.disease.name;
+			_Строка.Заболевание  = ВетисDictionaryСлой1с.AnimalDisease(_immunization.disease);
 			_Строка.Вакцина      = ?(ЗначениеЗаполнено(_immunization.medicinalDrug.ID), _immunization.medicinalDrug.ID, _immunization.medicinalDrug.name);
 			_Строка.СрокДействия = _immunization.effectiveBeforeDate;
 		КонецЦикла;
@@ -470,7 +470,7 @@
 			_Строка.ИДПартии               = _laboratoryResearch.batchID;
 			_Строка.НомерЭкспертизы        = _laboratoryResearch.expertiseID;
 			_Строка.ПоказательБезопасности = _laboratoryResearch.indicator.name;
-			_Строка.Заболевание            = _laboratoryResearch.disease.name;
+			_Строка.Заболевание            = ВетисDictionaryСлой1с.AnimalDisease(_laboratoryResearch.disease);
 			_Строка.МетодИсследования      = _laboratoryResearch.method.name;
 			_Строка.РезультатИсследования  = ВетисDictionaryСлой1с.ResearchResult(_laboratoryResearch.result);
 			_Строка.Заключение             = _laboratoryResearch.conclusion;

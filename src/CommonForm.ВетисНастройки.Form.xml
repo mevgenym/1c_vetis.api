@@ -429,17 +429,6 @@
 										</CheckBoxField>
 									</ChildItems>
 								</UsualGroup>
-								<PictureDecoration name="ДекорацияРазделитель" id="168">
-									<HorizontalStretch>true</HorizontalStretch>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Декорация разделитель</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ДекорацияРазделительКонтекстноеМеню" id="169"/>
-									<ExtendedTooltip name="ДекорацияРазделительРасширеннаяПодсказка" id="170"/>
-								</PictureDecoration>
 								<UsualGroup name="ГруппаДополнительноКолонка2" id="166">
 									<Title>
 										<v8:item>
@@ -457,13 +446,6 @@
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаДополнительноКолонка2РасширеннаяПодсказка" id="167"/>
-									<ChildItems>
-										<Button name="КомандаОбновитьСправочники" id="160">
-											<Type>UsualButton</Type>
-											<CommandName>Form.Command.КомандаОбновитьСправочники</CommandName>
-											<ExtendedTooltip name="КомандаОбновитьСправочникиРасширеннаяПодсказка" id="161"/>
-										</Button>
-									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
@@ -734,21 +716,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОсновнойХС</Action>
-		</Command>
-		<Command name="КомандаОбновитьСправочники" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить справочники</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда обновить справочники</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаОбновитьСправочники</Action>
 		</Command>
 	</Commands>
 </Form>

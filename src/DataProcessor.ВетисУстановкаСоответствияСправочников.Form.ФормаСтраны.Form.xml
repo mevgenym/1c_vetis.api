@@ -250,6 +250,7 @@
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<HeightInTableRows>1</HeightInTableRows>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -285,6 +286,16 @@
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаНайти</CommandName>
 										<ExtendedTooltip name="СписокВетисКомандаНайтиРасширеннаяПодсказка" id="192"/>
+									</Button>
+									<Button name="СписокВетисКомандаДобавитьИзСервиса" id="209">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаДобавитьИзСервиса</CommandName>
+										<ExtendedTooltip name="СписокВетисКомандаДобавитьИзСервисаРасширеннаяПодсказка" id="210"/>
+									</Button>
+									<Button name="СписокВетисКомандаЗаполнитьИзСервиса" id="211">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
+										<ExtendedTooltip name="СписокВетисКомандаЗаполнитьИзСервисаРасширеннаяПодсказка" id="212"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -338,6 +349,7 @@
 							</ChildItems>
 						</Table>
 						<Table name="СправочникСписок" id="143">
+							<HeightInTableRows>1</HeightInTableRows>
 							<UseAlternationRowColor>true</UseAlternationRowColor>
 							<EnableStartDrag>true</EnableStartDrag>
 							<DataPath>СправочникСписок</DataPath>

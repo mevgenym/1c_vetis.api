@@ -25,6 +25,7 @@
 		</UsualGroup>
 		<InputField name="СтранаОтбор" id="25">
 			<DataPath>Страна</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<ContextMenu name="СтранаОтборКонтекстноеМеню" id="26"/>
 			<ExtendedTooltip name="СтранаОтборРасширеннаяПодсказка" id="27"/>
 			<Events>
@@ -33,6 +34,7 @@
 		</InputField>
 		<Table name="Список" id="28">
 			<CommandBarLocation>None</CommandBarLocation>
+			<ChangeRowSet>false</ChangeRowSet>
 			<UseAlternationRowColor>true</UseAlternationRowColor>
 			<EnableStartDrag>true</EnableStartDrag>
 			<DataPath>Список</DataPath>

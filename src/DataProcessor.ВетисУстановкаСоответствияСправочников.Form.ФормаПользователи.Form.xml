@@ -18,6 +18,7 @@
 				<Table name="СписокПользователей" id="1">
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
+					<HeightInTableRows>1</HeightInTableRows>
 					<UseAlternationRowColor>true</UseAlternationRowColor>
 					<EnableStartDrag>true</EnableStartDrag>
 					<DataPath>СписокПользователей</DataPath>
@@ -84,6 +85,7 @@
 					<Representation>List</Representation>
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
+					<HeightInTableRows>1</HeightInTableRows>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
 					<EnableStartDrag>true</EnableStartDrag>
 					<EnableDrag>true</EnableDrag>

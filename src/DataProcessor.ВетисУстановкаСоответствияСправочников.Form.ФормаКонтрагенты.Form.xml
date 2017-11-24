@@ -552,6 +552,7 @@
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<HeightInTableRows>1</HeightInTableRows>
 							<Header>false</Header>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
@@ -686,6 +687,7 @@
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<HeightInTableRows>1</HeightInTableRows>
 							<EnableStartDrag>true</EnableStartDrag>
 							<DataPath>СправочникСписок</DataPath>
 							<RowPictureDataPath>СправочникСписок.DefaultPicture</RowPictureDataPath>

@@ -1,51 +1,148 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<Group>HorizontalIfPossible</Group>
 	<CommandBarLocation>None</CommandBarLocation>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<Button name="Тестирование" id="25">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.Тестирование</CommandName>
-			<ExtendedTooltip name="ТестированиеРасширеннаяПодсказка" id="26"/>
-		</Button>
-		<Button name="Контрагенты" id="11">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.Контрагенты</CommandName>
-			<ExtendedTooltip name="КонтрагентыРасширеннаяПодсказка" id="12"/>
-		</Button>
-		<Button name="ПунктыНазначения" id="17">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.Предприятия</CommandName>
-			<ExtendedTooltip name="ПунктыНазначенияРасширеннаяПодсказка" id="18"/>
-		</Button>
-		<Button name="Номенклатура" id="19">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.Номенклатура</CommandName>
-			<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="20"/>
-		</Button>
-		<Button name="НоменклатурныеГруппы" id="21">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.НоменклатурныеГруппы</CommandName>
-			<ExtendedTooltip name="НоменклатурныеГруппыРасширеннаяПодсказка" id="22"/>
-		</Button>
-		<Button name="ЕдиницыИзмерения" id="13">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.ЕдиницыИзмерения</CommandName>
-			<ExtendedTooltip name="ЕдиницыИзмеренияРасширеннаяПодсказка" id="14"/>
-		</Button>
-		<Button name="Страны" id="3">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.Страны</CommandName>
-			<ExtendedTooltip name="СтраныРасширеннаяПодсказка" id="4"/>
-		</Button>
-		<Button name="Пользователи" id="23">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.Пользователи</CommandName>
-			<ExtendedTooltip name="ПользователиРасширеннаяПодсказка" id="24"/>
-		</Button>
+		<UsualGroup name="ГруппаКолонка1" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа колонка1</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаКолонка1РасширеннаяПодсказка" id="30"/>
+			<ChildItems>
+				<Button name="Контрагенты" id="11">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Контрагенты</CommandName>
+					<ExtendedTooltip name="КонтрагентыРасширеннаяПодсказка" id="12"/>
+				</Button>
+				<Button name="Предприятия" id="33">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Предприятия</CommandName>
+					<ExtendedTooltip name="ПредприятияРасширеннаяПодсказка" id="34"/>
+				</Button>
+				<Button name="Номенклатура" id="19">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Номенклатура</CommandName>
+					<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="20"/>
+				</Button>
+				<Button name="НоменклатурныеГруппы" id="21">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.НоменклатурныеГруппы</CommandName>
+					<ExtendedTooltip name="НоменклатурныеГруппыРасширеннаяПодсказка" id="22"/>
+				</Button>
+				<Button name="ЕдиницыИзмерения" id="13">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ЕдиницыИзмерения</CommandName>
+					<ExtendedTooltip name="ЕдиницыИзмеренияРасширеннаяПодсказка" id="14"/>
+				</Button>
+				<Button name="Пользователи" id="23">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Пользователи</CommandName>
+					<ExtendedTooltip name="ПользователиРасширеннаяПодсказка" id="24"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКолонка2" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаКолонка2РасширеннаяПодсказка" id="32"/>
+			<ChildItems>
+				<Button name="ОбновитьСправочники" id="27">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ОбновитьСправочники</CommandName>
+					<ExtendedTooltip name="ОбновитьСправочникиРасширеннаяПодсказка" id="28"/>
+				</Button>
+				<Button name="НазначенияГрузов" id="47">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.НазначенияГрузов</CommandName>
+					<ExtendedTooltip name="НазначенияГрузовРасширеннаяПодсказка" id="48"/>
+				</Button>
+				<Button name="Упаковки" id="35">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Упаковки</CommandName>
+					<ExtendedTooltip name="УпаковкиРасширеннаяПодсказка" id="36"/>
+				</Button>
+				<Button name="УсловияРегионализации" id="37">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.УсловияРегионализации</CommandName>
+					<ExtendedTooltip name="УсловияРегионализацииРасширеннаяПодсказка" id="38"/>
+				</Button>
+				<Button name="ОрганизационноПравовыеФормы" id="45">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ОрганизационноПравовыеФормы</CommandName>
+					<ExtendedTooltip name="ОрганизационноПравовыеФормыРасширеннаяПодсказка" id="46"/>
+				</Button>
+				<Button name="Тестирование" id="25">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Тестирование</CommandName>
+					<ExtendedTooltip name="ТестированиеРасширеннаяПодсказка" id="26"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКолонка3" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адреса</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаКолонка3РасширеннаяПодсказка" id="53"/>
+			<ChildItems>
+				<InputField name="Страна" id="49">
+					<DataPath>Страна</DataPath>
+					<Visible>false</Visible>
+					<TitleLocation>Top</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>14</MaxWidth>
+					<OpenButton>false</OpenButton>
+					<ContextMenu name="СтранаКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="СтранаРасширеннаяПодсказка" id="51"/>
+				</InputField>
+				<Button name="Страны" id="3">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Страны</CommandName>
+					<ExtendedTooltip name="СтраныРасширеннаяПодсказка" id="4"/>
+				</Button>
+				<Button name="Регионы" id="39">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Регионы</CommandName>
+					<ExtendedTooltip name="РегионыРасширеннаяПодсказка" id="40"/>
+				</Button>
+				<Button name="Районы" id="41">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Районы</CommandName>
+					<ExtendedTooltip name="РайоныРасширеннаяПодсказка" id="42"/>
+				</Button>
+				<Button name="НаселенныеПункты" id="43">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.НаселенныеПункты</CommandName>
+					<ExtendedTooltip name="НаселенныеПунктыРасширеннаяПодсказка" id="44"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -53,6 +150,20 @@
 				<v8:Type>cfg:DataProcessorObject.ВетисУстановкаСоответствияСправочников</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Страна" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страна</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.КлассификаторСтранМира</v8:Type>
+			</Type>
+			<Save>
+				<Field>Страна</Field>
+			</Save>
 		</Attribute>
 	</Attributes>
 	<Commands>
@@ -175,6 +286,126 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Тестирование</Action>
+		</Command>
+		<Command name="ОбновитьСправочники" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить справочники</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить справочники</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОбновитьСправочники</Action>
+		</Command>
+		<Command name="Регионы" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регионы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регионы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Регионы</Action>
+		</Command>
+		<Command name="Районы" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Районы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Районы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Районы</Action>
+		</Command>
+		<Command name="НаселенныеПункты" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Населенные пункты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Населенные пункты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НаселенныеПункты</Action>
+		</Command>
+		<Command name="ОрганизационноПравовыеФормы" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организационно правовые формы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организационно правовые формы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОрганизационноПравовыеФормы</Action>
+		</Command>
+		<Command name="УсловияРегионализации" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Условия регионализации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Условия регионализации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УсловияРегионализации</Action>
+		</Command>
+		<Command name="НазначенияГрузов" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначения (цели) грузов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначения грузов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НазначенияГрузов</Action>
+		</Command>
+		<Command name="Упаковки" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Упаковки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Упаковки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Упаковки</Action>
 		</Command>
 	</Commands>
 </Form>

@@ -294,8 +294,8 @@
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаКлассификаторЕдиницИзмерения.Form" id="a0c3a75a-db72-443d-b4c5-6a529f288ba9.0" configVersion="a9d5d3d2f733ae4689f04e778e864f2700000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаКонтрагенты" id="d531cc62-c841-49e6-b62c-e4e87ed02cd4" configVersion="75e40d3c4685f9459f7c7aab2653f59400000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаКонтрагенты.Form" id="d531cc62-c841-49e6-b62c-e4e87ed02cd4.0" configVersion="4751988ed53c374fae9696604e1b2e9000000000"/>
-		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатура" id="a3ccaa42-0fd8-454f-b573-1b404b4b2972" configVersion="6124ed250c4d644981e5d852acffaebd00000000"/>
-		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатура.Form" id="a3ccaa42-0fd8-454f-b573-1b404b4b2972.0" configVersion="e1f95a83a66f0347be366d8ba87bf78a00000000"/>
+		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатура" id="a3ccaa42-0fd8-454f-b573-1b404b4b2972" configVersion="f544200f3e0dda4296dd1532008abb6300000000"/>
+		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатура.Form" id="a3ccaa42-0fd8-454f-b573-1b404b4b2972.0" configVersion="b23fc4dd7fe752499eaa48d1a5efb75900000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатурныеГруппы" id="5ae3c542-84c8-429c-b63e-a9592c56ecf2" configVersion="0a182acfb12e5947bb1ab07346a08f5100000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаНоменклатурныеГруппы.Form" id="5ae3c542-84c8-429c-b63e-a9592c56ecf2.0" configVersion="4da307cc80a2c441b270c374ad49638b00000000"/>
 		<Metadata name="DataProcessor.ВетисУстановкаСоответствияСправочников.Form.ФормаПользователи" id="5418bf56-31fc-494e-af34-dfa7045c08f1" configVersion="ba090ad60c463249a36fa71e33a968b600000000"/>

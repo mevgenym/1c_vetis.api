@@ -10027,60 +10027,6 @@
 					<tl>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>fedf5f70-053c-11e1-99b4-d8d385fbc9e8</v8:content>
-						</v8:item>
-					</tl>
-				</c>
-			</c>
-			<c>
-				<c>
-					<f>0</f>
-					<tl>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>пенопластовые коробки</v8:content>
-						</v8:item>
-					</tl>
-				</c>
-			</c>
-		</row>
-	</rowsItem>
-	<rowsItem>
-		<index>264</index>
-		<row>
-			<c>
-				<c>
-					<f>0</f>
-					<tl>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>fedf55e8-053c-11e1-99b4-d8d385fbc9e8</v8:content>
-						</v8:item>
-					</tl>
-				</c>
-			</c>
-			<c>
-				<c>
-					<f>0</f>
-					<tl>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>пенопластовые ящики</v8:content>
-						</v8:item>
-					</tl>
-				</c>
-			</c>
-		</row>
-	</rowsItem>
-	<rowsItem>
-		<index>265</index>
-		<row>
-			<c>
-				<c>
-					<f>0</f>
-					<tl>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
 							<v8:content>240ef107-fad5-4fca-bad1-ae65ab388ac6</v8:content>
 						</v8:item>
 					</tl>
@@ -10111,7 +10057,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>266</index>
+		<index>264</index>
 		<row>
 			<c>
 				<c>
@@ -10149,7 +10095,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>267</index>
+		<index>265</index>
 		<row>
 			<c>
 				<c>
@@ -10187,7 +10133,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>268</index>
+		<index>266</index>
 		<row>
 			<c>
 				<c>
@@ -10225,7 +10171,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>269</index>
+		<index>267</index>
 		<row>
 			<c>
 				<c>
@@ -10263,7 +10209,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>270</index>
+		<index>268</index>
 		<row>
 			<c>
 				<c>
@@ -10301,7 +10247,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>271</index>
+		<index>269</index>
 		<row>
 			<c>
 				<c>
@@ -10339,7 +10285,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>272</index>
+		<index>270</index>
 		<row>
 			<c>
 				<c>
@@ -10377,7 +10323,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>273</index>
+		<index>271</index>
 		<row>
 			<c>
 				<c>
@@ -10415,7 +10361,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>274</index>
+		<index>272</index>
 		<row>
 			<c>
 				<c>
@@ -10453,7 +10399,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>275</index>
+		<index>273</index>
 		<row>
 			<c>
 				<c>
@@ -10491,7 +10437,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>276</index>
+		<index>274</index>
 		<row>
 			<c>
 				<c>
@@ -10529,7 +10475,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>277</index>
+		<index>275</index>
 		<row>
 			<c>
 				<c>
@@ -10567,7 +10513,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>278</index>
+		<index>276</index>
 		<row>
 			<c>
 				<c>
@@ -10605,7 +10551,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>279</index>
+		<index>277</index>
 		<row>
 			<c>
 				<c>
@@ -10643,7 +10589,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>280</index>
+		<index>278</index>
 		<row>
 			<c>
 				<c>
@@ -10681,7 +10627,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>281</index>
+		<index>279</index>
 		<row>
 			<c>
 				<c>
@@ -10719,7 +10665,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>282</index>
+		<index>280</index>
 		<row>
 			<c>
 				<c>
@@ -10757,7 +10703,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>283</index>
+		<index>281</index>
 		<row>
 			<c>
 				<c>
@@ -10795,7 +10741,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>284</index>
+		<index>282</index>
 		<row>
 			<c>
 				<c>
@@ -10833,7 +10779,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>285</index>
+		<index>283</index>
 		<row>
 			<c>
 				<c>
@@ -10871,7 +10817,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>286</index>
+		<index>284</index>
 		<row>
 			<c>
 				<c>
@@ -10909,7 +10855,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>287</index>
+		<index>285</index>
 		<row>
 			<c>
 				<c>
@@ -10947,7 +10893,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>288</index>
+		<index>286</index>
 		<row>
 			<c>
 				<c>
@@ -10985,7 +10931,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>289</index>
+		<index>287</index>
 		<row>
 			<c>
 				<c>
@@ -11023,7 +10969,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>290</index>
+		<index>288</index>
 		<row>
 			<c>
 				<c>
@@ -11061,7 +11007,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>291</index>
+		<index>289</index>
 		<row>
 			<c>
 				<c>
@@ -11099,7 +11045,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>292</index>
+		<index>290</index>
 		<row>
 			<c>
 				<c>
@@ -11137,7 +11083,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>293</index>
+		<index>291</index>
 		<row>
 			<c>
 				<c>
@@ -11175,7 +11121,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>294</index>
+		<index>292</index>
 		<row>
 			<c>
 				<c>
@@ -11213,7 +11159,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>295</index>
+		<index>293</index>
 		<row>
 			<c>
 				<c>
@@ -11251,7 +11197,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>296</index>
+		<index>294</index>
 		<row>
 			<c>
 				<c>
@@ -11289,7 +11235,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>297</index>
+		<index>295</index>
 		<row>
 			<c>
 				<c>
@@ -11327,7 +11273,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>298</index>
+		<index>296</index>
 		<row>
 			<c>
 				<c>
@@ -11365,7 +11311,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>299</index>
+		<index>297</index>
 		<row>
 			<c>
 				<c>
@@ -11403,7 +11349,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>300</index>
+		<index>298</index>
 		<row>
 			<c>
 				<c>
@@ -11441,7 +11387,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>301</index>
+		<index>299</index>
 		<row>
 			<c>
 				<c>
@@ -11479,7 +11425,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>302</index>
+		<index>300</index>
 		<row>
 			<c>
 				<c>
@@ -11517,7 +11463,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>303</index>
+		<index>301</index>
 		<row>
 			<c>
 				<c>
@@ -11555,7 +11501,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>304</index>
+		<index>302</index>
 		<row>
 			<c>
 				<c>
@@ -11593,7 +11539,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>305</index>
+		<index>303</index>
 		<row>
 			<c>
 				<c>
@@ -11631,7 +11577,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>306</index>
+		<index>304</index>
 		<row>
 			<c>
 				<c>
@@ -11669,7 +11615,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>307</index>
+		<index>305</index>
 		<row>
 			<c>
 				<c>
@@ -11707,7 +11653,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>308</index>
+		<index>306</index>
 		<row>
 			<c>
 				<c>
@@ -11745,7 +11691,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>309</index>
+		<index>307</index>
 		<row>
 			<c>
 				<c>
@@ -11783,7 +11729,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>310</index>
+		<index>308</index>
 		<row>
 			<c>
 				<c>
@@ -11821,7 +11767,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>311</index>
+		<index>309</index>
 		<row>
 			<c>
 				<c>
@@ -11859,7 +11805,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>312</index>
+		<index>310</index>
 		<row>
 			<c>
 				<c>
@@ -11897,7 +11843,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>313</index>
+		<index>311</index>
 		<row>
 			<c>
 				<c>
@@ -11935,7 +11881,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>314</index>
+		<index>312</index>
 		<row>
 			<c>
 				<c>
@@ -11973,7 +11919,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>315</index>
+		<index>313</index>
 		<row>
 			<c>
 				<c>
@@ -12011,7 +11957,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>316</index>
+		<index>314</index>
 		<row>
 			<c>
 				<c>
@@ -12049,7 +11995,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>317</index>
+		<index>315</index>
 		<row>
 			<c>
 				<c>
@@ -12087,7 +12033,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>318</index>
+		<index>316</index>
 		<row>
 			<c>
 				<c>
@@ -12125,7 +12071,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>319</index>
+		<index>317</index>
 		<row>
 			<c>
 				<c>
@@ -12163,7 +12109,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>320</index>
+		<index>318</index>
 		<row>
 			<c>
 				<c>
@@ -12201,7 +12147,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>321</index>
+		<index>319</index>
 		<row>
 			<c>
 				<c>
@@ -12239,7 +12185,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>322</index>
+		<index>320</index>
 		<row>
 			<c>
 				<c>
@@ -12277,7 +12223,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>323</index>
+		<index>321</index>
 		<row>
 			<c>
 				<c>
@@ -12315,7 +12261,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>324</index>
+		<index>322</index>
 		<row>
 			<c>
 				<c>
@@ -12353,7 +12299,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>325</index>
+		<index>323</index>
 		<row>
 			<c>
 				<c>
@@ -12391,7 +12337,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>326</index>
+		<index>324</index>
 		<row>
 			<c>
 				<c>
@@ -12429,7 +12375,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>327</index>
+		<index>325</index>
 		<row>
 			<c>
 				<c>
@@ -12467,7 +12413,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>328</index>
+		<index>326</index>
 		<row>
 			<c>
 				<c>
@@ -12505,7 +12451,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>329</index>
+		<index>327</index>
 		<row>
 			<c>
 				<c>
@@ -12543,7 +12489,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>330</index>
+		<index>328</index>
 		<row>
 			<c>
 				<c>
@@ -12581,7 +12527,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>331</index>
+		<index>329</index>
 		<row>
 			<c>
 				<c>
@@ -12619,7 +12565,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>332</index>
+		<index>330</index>
 		<row>
 			<c>
 				<c>
@@ -12657,7 +12603,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>333</index>
+		<index>331</index>
 		<row>
 			<c>
 				<c>
@@ -12695,7 +12641,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>334</index>
+		<index>332</index>
 		<row>
 			<c>
 				<c>
@@ -12733,7 +12679,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>335</index>
+		<index>333</index>
 		<row>
 			<c>
 				<c>
@@ -12771,7 +12717,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>336</index>
+		<index>334</index>
 		<row>
 			<c>
 				<c>
@@ -12809,7 +12755,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>337</index>
+		<index>335</index>
 		<row>
 			<c>
 				<c>
@@ -12847,7 +12793,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>338</index>
+		<index>336</index>
 		<row>
 			<c>
 				<c>
@@ -12885,7 +12831,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>339</index>
+		<index>337</index>
 		<row>
 			<c>
 				<c>
@@ -12923,7 +12869,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>340</index>
+		<index>338</index>
 		<row>
 			<c>
 				<c>
@@ -12961,7 +12907,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>341</index>
+		<index>339</index>
 		<row>
 			<c>
 				<c>
@@ -12999,7 +12945,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>342</index>
+		<index>340</index>
 		<row>
 			<c>
 				<c>
@@ -13037,7 +12983,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>343</index>
+		<index>341</index>
 		<row>
 			<c>
 				<c>
@@ -13075,7 +13021,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>344</index>
+		<index>342</index>
 		<row>
 			<c>
 				<c>
@@ -13113,7 +13059,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>345</index>
+		<index>343</index>
 		<row>
 			<c>
 				<c>
@@ -13151,7 +13097,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>346</index>
+		<index>344</index>
 		<row>
 			<c>
 				<c>
@@ -13189,7 +13135,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>347</index>
+		<index>345</index>
 		<row>
 			<c>
 				<c>
@@ -13227,7 +13173,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>348</index>
+		<index>346</index>
 		<row>
 			<c>
 				<c>
@@ -13265,7 +13211,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>349</index>
+		<index>347</index>
 		<row>
 			<c>
 				<c>
@@ -13303,7 +13249,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>350</index>
+		<index>348</index>
 		<row>
 			<c>
 				<c>
@@ -13341,7 +13287,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>351</index>
+		<index>349</index>
 		<row>
 			<c>
 				<c>
@@ -13379,7 +13325,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>352</index>
+		<index>350</index>
 		<row>
 			<c>
 				<c>
@@ -13417,7 +13363,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>353</index>
+		<index>351</index>
 		<row>
 			<c>
 				<c>
@@ -13455,7 +13401,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>354</index>
+		<index>352</index>
 		<row>
 			<c>
 				<c>
@@ -13493,7 +13439,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>355</index>
+		<index>353</index>
 		<row>
 			<c>
 				<c>
@@ -13531,7 +13477,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>356</index>
+		<index>354</index>
 		<row>
 			<c>
 				<c>
@@ -13569,7 +13515,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>357</index>
+		<index>355</index>
 		<row>
 			<c>
 				<c>
@@ -13607,7 +13553,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>358</index>
+		<index>356</index>
 		<row>
 			<c>
 				<c>
@@ -13645,7 +13591,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>359</index>
+		<index>357</index>
 		<row>
 			<c>
 				<c>
@@ -13683,7 +13629,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>360</index>
+		<index>358</index>
 		<row>
 			<c>
 				<c>
@@ -13721,7 +13667,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>361</index>
+		<index>359</index>
 		<row>
 			<c>
 				<c>
@@ -13759,7 +13705,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>362</index>
+		<index>360</index>
 		<row>
 			<c>
 				<c>
@@ -13797,7 +13743,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>363</index>
+		<index>361</index>
 		<row>
 			<c>
 				<c>
@@ -13835,7 +13781,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>364</index>
+		<index>362</index>
 		<row>
 			<c>
 				<c>
@@ -13873,7 +13819,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>365</index>
+		<index>363</index>
 		<row>
 			<c>
 				<c>
@@ -13911,7 +13857,7 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>366</index>
+		<index>364</index>
 		<row>
 			<c>
 				<c>
@@ -13950,8 +13896,8 @@
 	</rowsItem>
 	<templateMode>true</templateMode>
 	<defaultFormatIndex>3</defaultFormatIndex>
-	<height>367</height>
-	<vgRows>367</vgRows>
+	<height>365</height>
+	<vgRows>365</vgRows>
 	<format>
 		<width>248</width>
 	</format>

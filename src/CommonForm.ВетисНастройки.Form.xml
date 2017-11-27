@@ -449,6 +449,12 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
+						<CheckBoxField name="ПоказыватьGuid" id="168">
+							<DataPath>ПоказыватьGuid</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПоказыватьGuidКонтекстноеМеню" id="169"/>
+							<ExtendedTooltip name="ПоказыватьGuidРасширеннаяПодсказка" id="170"/>
+						</CheckBoxField>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -640,6 +646,17 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Создавать предприятия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказыватьGuid" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать guid</v8:content>
 				</v8:item>
 			</Title>
 			<Type>

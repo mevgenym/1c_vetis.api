@@ -228,6 +228,20 @@
 КонецПроцедуры
 
 Процедура TransportOperation(пДокумент, пСтрокаПартии, пСтрокаВСД, пСтрокаТТН, пОтказ = Ложь, пОшибка = "") Экспорт
+//если в партии stockEntry нет блока origin
+//[code]<origin>
+//	<productItem>...</productItem>
+//	<country>...</country>
+//	<producer>
+//		<enterprise xmlns="http://api.vetrf.ru/schema/cdm/dictionary/v2">...</enterprise>
+//		<role xmlns="http://api.vetrf.ru/schema/cdm/dictionary/v2">PRODUCER</role>
+//	</producer>
+//</origin>[/code]
+//то при гашении попадаем на ошибки:
+//MERC14219 - Страна происхождения продукции в сведениях о принимаемой партии обязательна для заполнения.
+//MERC14237 - Список производителей в сведениях о принимаемой партии должен совпадать с указанным в ветеринарно-сопроводительном документе.
+//страну, видимо, можно любую, но если указать любого производителя, то получим:
+//MERC14237 - Список производителей в сведениях о принимаемой партии должен совпадать с указанным в ветеринарно-сопроводительном документе.
 	
 	_Версия20 = Ветис.Версия_2_0();
 	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
@@ -249,14 +263,16 @@
 		_Consignment.volume           = _СтрокаСЖ.Количество;
 		_Consignment.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
 		_Consignment.sourceStockEntry = ВетисMercuryVetdocument_2_0.StockEntry(_СтрокаСЖ.guid);
-		_Consignment.packageList      = ВетисDictionary_2_0.PackageList(
-			ВетисDictionary_2_0.Package(
-				ВетисDictionaryСлой1с.PackageLevelType(Перечисления.ВетисPackageLevelType.Транспортный),
-				ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка)),
-				_СтрокаСЖ.КоличествоМест,
-				ВетисDictionary_2_0.ProductMarks("custom marking", ВетисDictionaryСлой1с.ProductMarkingClass(Перечисления.ВетисProductMarkingClass.UNDEFINED))
-				)
-			);
+		Если _СтрокаСЖ.КоличествоМест > 0 Тогда
+			_Consignment.packageList      = ВетисDictionary_2_0.PackageList(
+				ВетисDictionary_2_0.Package(
+					ВетисDictionaryСлой1с.PackageLevelType(Перечисления.ВетисPackageLevelType.Транспортный),
+					ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка)),
+					_СтрокаСЖ.КоличествоМест,
+					ВетисDictionary_2_0.ProductMarks("custom marking", ВетисDictionaryСлой1с.ProductMarkingClass(Перечисления.ВетисProductMarkingClass.UNDEFINED))
+					)
+				);
+		КонецЕсли;
 		
 		_authentication = ВетисMercuryVetdocument_2_0.VeterinaryAuthentication(
 			ВетисDictionary_2_0.Purpose(ВетисDictionaryСлой1с.Purpose(_СтрокаВСД.НазначениеГруза)),

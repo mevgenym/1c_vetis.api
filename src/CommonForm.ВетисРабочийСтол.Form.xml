@@ -321,6 +321,11 @@
 									<ContextMenu name="СписокВСДСтатусКонтекстноеМеню" id="40"/>
 									<ExtendedTooltip name="СписокВСДСтатусРасширеннаяПодсказка" id="41"/>
 								</LabelField>
+								<LabelField name="СписокВСДuuid" id="343">
+									<DataPath>СписокВСД.uuid</DataPath>
+									<ContextMenu name="СписокВСДuuidКонтекстноеМеню" id="344"/>
+									<ExtendedTooltip name="СписокВСДuuidРасширеннаяПодсказка" id="345"/>
+								</LabelField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
@@ -467,8 +472,14 @@
 									<ContextMenu name="СписокВходящиеПартииПоДокументамОтправительКонтекстноеМеню" id="291"/>
 									<ExtendedTooltip name="СписокВходящиеПартииПоДокументамОтправительРасширеннаяПодсказка" id="292"/>
 								</LabelField>
+								<LabelField name="СписокВходящиеПартииПоДокументамОтправительПредприятие" id="349">
+									<DataPath>СписокВходящиеПартииПоДокументам.ОтправительПредприятие</DataPath>
+									<ContextMenu name="СписокВходящиеПартииПоДокументамОтправительПредприятиеКонтекстноеМеню" id="350"/>
+									<ExtendedTooltip name="СписокВходящиеПартииПоДокументамОтправительПредприятиеРасширеннаяПодсказка" id="351"/>
+								</LabelField>
 								<LabelField name="СписокВходящиеПартииПоДокументамПолучатель" id="293">
 									<DataPath>СписокВходящиеПартииПоДокументам.Получатель</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="СписокВходящиеПартииПоДокументамПолучательКонтекстноеМеню" id="294"/>
 									<ExtendedTooltip name="СписокВходящиеПартииПоДокументамПолучательРасширеннаяПодсказка" id="295"/>
 								</LabelField>
@@ -565,6 +576,7 @@
 								</LabelField>
 								<LabelField name="СписокТранспортныеПартииОтправитель" id="97">
 									<DataPath>СписокТранспортныеПартии.Отправитель</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="СписокТранспортныеПартииОтправительКонтекстноеМеню" id="98"/>
 									<ExtendedTooltip name="СписокТранспортныеПартииОтправительРасширеннаяПодсказка" id="99"/>
 								</LabelField>
@@ -572,6 +584,11 @@
 									<DataPath>СписокТранспортныеПартии.Получатель</DataPath>
 									<ContextMenu name="СписокТранспортныеПартииПолучательКонтекстноеМеню" id="104"/>
 									<ExtendedTooltip name="СписокТранспортныеПартииПолучательРасширеннаяПодсказка" id="105"/>
+								</LabelField>
+								<LabelField name="СписокТранспортныеПартииПолучательПредприятие" id="346">
+									<DataPath>СписокТранспортныеПартии.ПолучательПредприятие</DataPath>
+									<ContextMenu name="СписокТранспортныеПартииПолучательПредприятиеКонтекстноеМеню" id="347"/>
+									<ExtendedTooltip name="СписокТранспортныеПартииПолучательПредприятиеРасширеннаяПодсказка" id="348"/>
 								</LabelField>
 								<LabelField name="СписокТранспортныеПартииОтветственный" id="118">
 									<DataPath>СписокТранспортныеПартии.Ответственный</DataPath>
@@ -1257,6 +1274,9 @@
 					<dcsset:item>
 						<dcsset:field>СписокВСДКоличество</dcsset:field>
 					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДuuid</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -1299,6 +1319,9 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДКоличество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДuuid</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
@@ -1343,6 +1366,9 @@
 					<dcsset:item>
 						<dcsset:field>СписокВСДКоличество</dcsset:field>
 					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДuuid</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -1380,6 +1406,9 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДКоличество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДuuid</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>

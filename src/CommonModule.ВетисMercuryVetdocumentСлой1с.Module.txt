@@ -562,13 +562,14 @@
 		
 		_всд.statusChange.Добавить(ВетисMercuryVetdocument_2_0.VetDocumentStatusChange());
 		
-		Для каждого _Строка Из _док.СвязанныеДокументы Цикл
-			_всд.referencedDocument.Добавить(ВетисMercuryVetdocument_2_0.ReferencedDocument(
-				ВетисDictionaryСлой1с.ReferenceType(_Строка.ТипОтношения),
-				_Строка.Серия, _Строка.Номер, _Строка.Дата,
-				ВетисDictionaryСлой1с.DocumentType(_Строка.Тип)
-				));
-		КонецЦикла;
+		//APLM0007 - Wrong application data format. Format validation failed due to XML Schema rules:  Элемент 'referencedDocument' не предусмотрен.
+		//Для каждого _Строка Из _док.СвязанныеДокументы Цикл
+		//	_всд.referencedDocument.Добавить(ВетисMercuryVetdocument_2_0.ReferencedDocument(
+		//		ВетисDictionaryСлой1с.ReferenceType(_Строка.ТипОтношения),
+		//		_Строка.Серия, _Строка.Номер, _Строка.Дата,
+		//		ВетисDictionaryСлой1с.DocumentType(_Строка.Тип)
+		//		));
+		//КонецЦикла;
 		
 	КонецЕсли;
 	

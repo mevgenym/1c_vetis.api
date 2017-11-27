@@ -16,7 +16,7 @@
 	<Events>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
-		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -463,6 +463,7 @@
 											</ChildItems>
 										</ColumnGroup>
 										<ColumnGroup name="ПартииСписокГруппаНоменклатура" id="170">
+											<Visible>false</Visible>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -479,7 +480,6 @@
 											<ChildItems>
 												<LabelField name="ПартииСписокНоменклатура" id="142">
 													<DataPath>ПартииСписок.Номенклатура</DataPath>
-													<Visible>false</Visible>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ПартииСписокНоменклатураКонтекстноеМеню" id="143"/>
 													<ExtendedTooltip name="ПартииСписокНоменклатураРасширеннаяПодсказка" id="144"/>
@@ -492,6 +492,7 @@
 												</LabelField>
 												<InputField name="ПартииСписокSubProductGuid" id="294">
 													<DataPath>ПартииСписок.SubProductGuid</DataPath>
+													<Visible>false</Visible>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ПартииСписокSubProductGuidКонтекстноеМеню" id="295"/>
 													<ExtendedTooltip name="ПартииСписокSubProductGuidРасширеннаяПодсказка" id="296"/>
@@ -706,6 +707,7 @@
 						</InputField>
 						<InputField name="всдБлагополучиеМестности" id="256">
 							<DataPath>всдБлагополучиеМестности</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="всдБлагополучиеМестностиКонтекстноеМеню" id="257"/>
 							<ExtendedTooltip name="всдБлагополучиеМестностиРасширеннаяПодсказка" id="258"/>
 						</InputField>
@@ -784,6 +786,7 @@
 						</InputField>
 						<InputField name="ттнТранспорт" id="286">
 							<DataPath>ттнТранспорт</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="ттнТранспортКонтекстноеМеню" id="287"/>
 							<ExtendedTooltip name="ттнТранспортРасширеннаяПодсказка" id="288"/>
 						</InputField>
@@ -1013,6 +1016,17 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
+				<Column name="Отправлена" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправлена</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="всдНазначениеГруза" id="3">
@@ -1198,6 +1212,59 @@
 				<v8:Type>cfg:EnumRef.ВетисResearchResult</v8:Type>
 			</Type>
 		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокНоменклатура</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокНоменклатурнаяГруппа</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокКоличество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокКоличествоМест</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокКоличествоПартии</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокКоличествоМестПартии</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокИспользовать</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокguid</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокЕдиницаИзмерения</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокУпаковка</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПартииСписок.Отправлена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаЗаполнитьТовары" id="3">

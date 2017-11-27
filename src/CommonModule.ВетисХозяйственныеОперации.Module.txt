@@ -292,6 +292,8 @@
 	_выборка = _запрос.Выполнить().Выбрать();
 	_выборка.Следующий();
 	
+	//2017-11-27
+	//дает разные результаты в 1.4 и в 2.0
 	Пока _ВетисMercuryApplications.getStockEntryChangesListСледующий(_enterpriseGuid, _issuerId, _выборка.Период + 1, , _stockEntry, _параметры, пОтказ, пОшибка) Цикл
 		
 		_мз = РегистрыСведений.ВетисСкладскойЖурналРС.СоздатьМенеджерЗаписи();
@@ -346,7 +348,17 @@
 				_мз.producerProductItemName = _stockEntry.batch.origin.productItem.name;
 				_мз.country = _stockEntry.batch.origin.country.guid;
 			КонецЕсли;
+			
+			Для каждого _vetDocument Из _stockEntry.vetDocument Цикл
+				_мз.vetDocument = _vetDocument.uuid;
+				//берем только первый
+				Прервать;
+			КонецЦикла;
+			
 		Иначе
+			
+			_мз.owner = _stockEntry.batch.owner.guid;
+			
 			_мз.PackingForm = ?(_stockEntry.batch.packingList = Неопределено, "", _stockEntry.batch.packingList.packingForm[0].uuid);
 			_мз.packingAmount = _stockEntry.batch.packingAmount;
 			
@@ -357,6 +369,24 @@
 				КонецЦикла;
 				_мз.package = Сред(_упаковка, 3);
 			КонецЕсли;
+			
+			Если НЕ _stockEntry.batch.producerList = Неопределено Тогда
+				//берем первого
+				Если _stockEntry.batch.producerList.producer.Количество()>0 Тогда
+					_мз.producer = _stockEntry.batch.producerList.producer[0].enterprise.guid;
+					_мз.producerRole = _stockEntry.batch.producerList.producer[0].role;
+				КонецЕсли;
+				_мз.country = _stockEntry.batch.countryOfOrigin.guid;
+			КонецЕсли;
+			
+			Если НЕ _stockEntry.batch.productMarkingList = Неопределено Тогда
+				_Mark = "";
+				Для каждого _productMarking Из _stockEntry.batch.productMarkingList.productMarking Цикл
+					_Mark = _Mark + _productMarking.__content + "(" + _productMarking.class + "); ";
+				КонецЦикла;
+				_мз.productMarking = _Mark;
+			КонецЕсли;
+			
 		КонецЕсли;
 		
 		_мз.Записать();

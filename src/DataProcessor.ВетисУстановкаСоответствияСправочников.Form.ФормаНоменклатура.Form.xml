@@ -471,43 +471,49 @@
 						<Event name="Selection">СписокВетисВыбор</Event>
 					</Events>
 					<ChildItems>
-						<LabelField name="СписокВетисenterprise" id="187">
-							<DataPath>СписокВетис.enterprise</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="СписокВетисenterpriseКонтекстноеМеню" id="188"/>
-							<ExtendedTooltip name="СписокВетисenterpriseРасширеннаяПодсказка" id="189"/>
-						</LabelField>
-						<InputField name="СписокВетисproductType" id="201">
-							<DataPath>СписокВетис.productType</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="СписокВетисproductTypeКонтекстноеМеню" id="202"/>
-							<ExtendedTooltip name="СписокВетисproductTypeРасширеннаяПодсказка" id="203"/>
-						</InputField>
-						<LabelField name="СписокВетисproduct" id="184">
-							<DataPath>СписокВетис.product</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="СписокВетисproductКонтекстноеМеню" id="185"/>
-							<ExtendedTooltip name="СписокВетисproductРасширеннаяПодсказка" id="186"/>
-						</LabelField>
-						<LabelField name="СписокВетисsubProduct" id="181">
-							<DataPath>СписокВетис.subProduct</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="СписокВетисsubProductКонтекстноеМеню" id="182"/>
-							<ExtendedTooltip name="СписокВетисsubProductРасширеннаяПодсказка" id="183"/>
-						</LabelField>
-						<LabelField name="СписокВетисname" id="113">
-							<DataPath>СписокВетис.name</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="114"/>
-							<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="115"/>
-						</LabelField>
-						<InputField name="СписокВетисguid" id="116">
-							<DataPath>СписокВетис.guid</DataPath>
-							<Visible>false</Visible>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="117"/>
-							<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="118"/>
-						</InputField>
+						<ColumnGroup name="СписокВетисГруппа1" id="239">
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="СписокВетисГруппа1РасширеннаяПодсказка" id="240"/>
+							<ChildItems>
+								<LabelField name="СписокВетисenterprise" id="187">
+									<DataPath>СписокВетис.enterprise</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисenterpriseКонтекстноеМеню" id="188"/>
+									<ExtendedTooltip name="СписокВетисenterpriseРасширеннаяПодсказка" id="189"/>
+								</LabelField>
+								<InputField name="СписокВетисproductType" id="201">
+									<DataPath>СписокВетис.productType</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисproductTypeКонтекстноеМеню" id="202"/>
+									<ExtendedTooltip name="СписокВетисproductTypeРасширеннаяПодсказка" id="203"/>
+								</InputField>
+								<LabelField name="СписокВетисproduct" id="184">
+									<DataPath>СписокВетис.product</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисproductКонтекстноеМеню" id="185"/>
+									<ExtendedTooltip name="СписокВетисproductРасширеннаяПодсказка" id="186"/>
+								</LabelField>
+								<LabelField name="СписокВетисsubProduct" id="181">
+									<DataPath>СписокВетис.subProduct</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисsubProductКонтекстноеМеню" id="182"/>
+									<ExtendedTooltip name="СписокВетисsubProductРасширеннаяПодсказка" id="183"/>
+								</LabelField>
+								<LabelField name="СписокВетисname" id="113">
+									<DataPath>СписокВетис.name</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="114"/>
+									<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="115"/>
+								</LabelField>
+								<InputField name="СписокВетисguid" id="116">
+									<DataPath>СписокВетис.guid</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="117"/>
+									<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="118"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
 					</ChildItems>
 				</Table>
 				<Table name="СправочникСписок" id="28">

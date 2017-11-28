@@ -553,7 +553,6 @@
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<HeightInTableRows>1</HeightInTableRows>
-							<Header>false</Header>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -652,23 +651,34 @@
 											<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="118"/>
 											<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="119"/>
 										</InputField>
-										<ColumnGroup name="СписокВетисГруппа2" id="252">
-											<Group>Horizontal</Group>
-											<ExtendedTooltip name="СписокВетисГруппа2РасширеннаяПодсказка" id="253"/>
+										<ColumnGroup name="СписокВетисГруппа3" id="287">
+											<ExtendedTooltip name="СписокВетисГруппа3РасширеннаяПодсказка" id="288"/>
 											<ChildItems>
-												<InputField name="СписокВетисinn" id="114">
-													<DataPath>СписокВетис.inn</DataPath>
+												<ColumnGroup name="СписокВетисГруппа2" id="252">
+													<Group>InCell</Group>
+													<ExtendedTooltip name="СписокВетисГруппа2РасширеннаяПодсказка" id="253"/>
+													<ChildItems>
+														<InputField name="СписокВетисinn" id="114">
+															<DataPath>СписокВетис.inn</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<MaxWidth>9</MaxWidth>
+															<ContextMenu name="СписокВетисinnКонтекстноеМеню" id="115"/>
+															<ExtendedTooltip name="СписокВетисinnРасширеннаяПодсказка" id="116"/>
+														</InputField>
+														<InputField name="СписокВетисtype" id="99">
+															<DataPath>СписокВетис.type</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<MaxWidth>3</MaxWidth>
+															<ContextMenu name="СписокВетисtypeКонтекстноеМеню" id="100"/>
+															<ExtendedTooltip name="СписокВетисtypeРасширеннаяПодсказка" id="101"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="СписокВетисguid" id="284">
+													<DataPath>СписокВетис.guid</DataPath>
 													<EditMode>EnterOnInput</EditMode>
-													<MaxWidth>9</MaxWidth>
-													<ContextMenu name="СписокВетисinnКонтекстноеМеню" id="115"/>
-													<ExtendedTooltip name="СписокВетисinnРасширеннаяПодсказка" id="116"/>
-												</InputField>
-												<InputField name="СписокВетисtype" id="99">
-													<DataPath>СписокВетис.type</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<MaxWidth>3</MaxWidth>
-													<ContextMenu name="СписокВетисtypeКонтекстноеМеню" id="100"/>
-													<ExtendedTooltip name="СписокВетисtypeРасширеннаяПодсказка" id="101"/>
+													<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="285"/>
+													<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="286"/>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
@@ -678,13 +688,6 @@
 											<AutoCellHeight>true</AutoCellHeight>
 											<ContextMenu name="СписокВетисaddressКонтекстноеМеню" id="103"/>
 											<ExtendedTooltip name="СписокВетисaddressРасширеннаяПодсказка" id="104"/>
-										</InputField>
-										<InputField name="СписокВетисguid" id="284">
-											<DataPath>СписокВетис.guid</DataPath>
-											<Visible>false</Visible>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="285"/>
-											<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="286"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -1336,7 +1339,7 @@
 						<dcsset:field>СписокВетисaddress</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СписокВетисfullName</dcsset:field>
+						<dcsset:field>СписокВетисguid</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>

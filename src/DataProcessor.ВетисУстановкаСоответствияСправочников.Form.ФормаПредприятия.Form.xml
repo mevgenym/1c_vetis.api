@@ -515,6 +515,12 @@
 											<ContextMenu name="СписокВетисaddressКонтекстноеМеню" id="103"/>
 											<ExtendedTooltip name="СписокВетисaddressРасширеннаяПодсказка" id="104"/>
 										</InputField>
+										<InputField name="СписокВетисowner" id="270">
+											<DataPath>СписокВетис.owner</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокВетисownerКонтекстноеМеню" id="271"/>
+											<ExtendedTooltip name="СписокВетисownerРасширеннаяПодсказка" id="272"/>
+										</InputField>
 										<InputField name="СписокВетисguid" id="267">
 											<DataPath>СписокВетис.guid</DataPath>
 											<Visible>false</Visible>
@@ -825,6 +831,17 @@
 						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 					</Type>
 				</Column>
+				<Column name="link" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Link</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="СправочникСписок" id="3">
@@ -1086,6 +1103,35 @@
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
 						<dcsset:left xsi:type="dcscor:Field">СправочникСписок.guid</dcsset:left>
 						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокВетисname</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВетисaddress</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВетисowner</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВетисguid</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокВетис.link</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
 					</dcsset:item>
 				</dcsset:filter>
 				<dcsset:appearance>

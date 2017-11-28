@@ -289,8 +289,14 @@
 									<ContextMenu name="СписокВСДОтправительКонтекстноеМеню" id="31"/>
 									<ExtendedTooltip name="СписокВСДОтправительРасширеннаяПодсказка" id="32"/>
 								</LabelField>
+								<LabelField name="СписокВСДОтправительПредприятие" id="352">
+									<DataPath>СписокВСД.ОтправительПредприятие</DataPath>
+									<ContextMenu name="СписокВСДОтправительПредприятиеКонтекстноеМеню" id="353"/>
+									<ExtendedTooltip name="СписокВСДОтправительПредприятиеРасширеннаяПодсказка" id="354"/>
+								</LabelField>
 								<LabelField name="СписокВСДПолучатель" id="33">
 									<DataPath>СписокВСД.Получатель</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="СписокВСДПолучательКонтекстноеМеню" id="34"/>
 									<ExtendedTooltip name="СписокВСДПолучательРасширеннаяПодсказка" id="35"/>
 								</LabelField>
@@ -1263,6 +1269,9 @@
 						<dcsset:field>СписокВСДОтправитель</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
+						<dcsset:field>СписокВСДОтправительПредприятие</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
 						<dcsset:field>СписокВСДПолучатель</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
@@ -1307,6 +1316,9 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДОтправитель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДОтправительПредприятие</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДПолучатель</dcsset:field>
@@ -1355,6 +1367,9 @@
 						<dcsset:field>СписокВСДОтправитель</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
+						<dcsset:field>СписокВСДОтправительПредприятие</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
 						<dcsset:field>СписокВСДПолучатель</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
@@ -1394,6 +1409,9 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДОтправитель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДОтправительПредприятие</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДПолучатель</dcsset:field>

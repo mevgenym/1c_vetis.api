@@ -397,7 +397,6 @@
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<HeightInTableRows>1</HeightInTableRows>
-							<Header>false</Header>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -515,19 +514,24 @@
 											<ContextMenu name="СписокВетисaddressКонтекстноеМеню" id="103"/>
 											<ExtendedTooltip name="СписокВетисaddressРасширеннаяПодсказка" id="104"/>
 										</InputField>
-										<InputField name="СписокВетисowner" id="270">
-											<DataPath>СписокВетис.owner</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="СписокВетисownerКонтекстноеМеню" id="271"/>
-											<ExtendedTooltip name="СписокВетисownerРасширеннаяПодсказка" id="272"/>
-										</InputField>
-										<InputField name="СписокВетисguid" id="267">
-											<DataPath>СписокВетис.guid</DataPath>
-											<Visible>false</Visible>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="268"/>
-											<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="269"/>
-										</InputField>
+										<ColumnGroup name="СписокВетисГруппа2" id="273">
+											<ExtendedTooltip name="СписокВетисГруппа2РасширеннаяПодсказка" id="274"/>
+											<ChildItems>
+												<InputField name="СписокВетисowner" id="270">
+													<DataPath>СписокВетис.owner</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="СписокВетисownerКонтекстноеМеню" id="271"/>
+													<ExtendedTooltip name="СписокВетисownerРасширеннаяПодсказка" id="272"/>
+												</InputField>
+												<InputField name="СписокВетисguid" id="267">
+													<DataPath>СписокВетис.guid</DataPath>
+													<Visible>false</Visible>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="268"/>
+													<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="269"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
 									</ChildItems>
 								</ColumnGroup>
 							</ChildItems>

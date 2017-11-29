@@ -288,10 +288,15 @@
 	
 	_Объект = Создать("Package");
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, level, "level");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, packingType, "packingType", , PackingType());
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, quantity, "quantity");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, productMarks, "productMarks", , ProductMarks());
+	//если level = Неопределено, все остальное не имеет смысла
+	//APLM0007 - Wrong application data format. Format validation failed due to XML Schema rules:  Элемент 'quantity' не предусмотрен.
+	//APLM0007 - Wrong application data format. Format validation failed due to XML Schema rules:  Элемент 'packingType' не предусмотрен.
+	Если НЕ level = Неопределено Тогда
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, level, "level");
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, packingType, "packingType", , PackingType());
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, quantity, "quantity");
+		ВетисОбщегоНазначения.УстановитьЗначение(_Объект, productMarks, "productMarks", , ProductMarks());
+	КонецЕсли;
 	
 	Возврат _Объект;
 	

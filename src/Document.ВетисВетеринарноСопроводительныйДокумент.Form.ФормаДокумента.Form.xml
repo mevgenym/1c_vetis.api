@@ -21,7 +21,7 @@
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
-		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -98,6 +98,7 @@
 				</LabelField>
 				<InputField name="uuid" id="482">
 					<DataPath>Объект.uuid</DataPath>
+					<TextEdit>false</TextEdit>
 					<ContextMenu name="uuidКонтекстноеМеню" id="483"/>
 					<ExtendedTooltip name="uuidРасширеннаяПодсказка" id="484"/>
 				</InputField>
@@ -353,6 +354,11 @@
 												<Event name="OnChange">сжКоличествоМестПриИзменении</Event>
 											</Events>
 										</InputField>
+										<PictureDecoration name="Декорация1" id="771">
+											<Height>1</Height>
+											<ContextMenu name="Декорация1КонтекстноеМеню" id="772"/>
+											<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="773"/>
+										</PictureDecoration>
 										<InputField name="сжПроизводительПредприятие" id="439">
 											<DataPath>сжПроизводительПредприятие</DataPath>
 											<ChoiceParameterLinks>
@@ -436,6 +442,11 @@
 											<DataPath>сжУпаковка</DataPath>
 											<ContextMenu name="сжУпаковкаКонтекстноеМеню" id="212"/>
 											<ExtendedTooltip name="сжУпаковкаРасширеннаяПодсказка" id="213"/>
+										</InputField>
+										<InputField name="сжМаркировка" id="774">
+											<DataPath>сжМаркировка</DataPath>
+											<ContextMenu name="сжМаркировкаКонтекстноеМеню" id="775"/>
+											<ExtendedTooltip name="сжМаркировкаРасширеннаяПодсказка" id="776"/>
 										</InputField>
 										<UsualGroup name="ГруппаВыработано" id="332">
 											<Title>
@@ -522,6 +533,7 @@
 							<v8:content>Группа упаковка</v8:content>
 						</v8:item>
 					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
 					<ExtendedTooltip name="ГруппаУпаковкаРасширеннаяПодсказка" id="543"/>
 					<ChildItems>
 						<Table name="Упаковка" id="544">
@@ -581,23 +593,59 @@
 									<ContextMenu name="УпаковкаКоличествоКонтекстноеМеню" id="567"/>
 									<ExtendedTooltip name="УпаковкаКоличествоРасширеннаяПодсказка" id="568"/>
 								</InputField>
-								<InputField name="УпаковкаМаркировка" id="569">
-									<DataPath>Объект.Упаковка.Маркировка</DataPath>
+							</ChildItems>
+						</Table>
+						<Table name="Маркировка" id="746">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Маркировка</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="МаркировкаКонтекстноеМеню" id="747"/>
+							<AutoCommandBar name="МаркировкаКоманднаяПанель" id="748"/>
+							<ExtendedTooltip name="МаркировкаРасширеннаяПодсказка" id="749"/>
+							<SearchStringAddition name="МаркировкаСтрокаПоиска" id="750">
+								<AdditionSource>
+									<Item>Маркировка</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МаркировкаСтрокаПоискаКонтекстноеМеню" id="751"/>
+								<ExtendedTooltip name="МаркировкаСтрокаПоискаРасширеннаяПодсказка" id="752"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="МаркировкаСостояниеПросмотра" id="753">
+								<AdditionSource>
+									<Item>Маркировка</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МаркировкаСостояниеПросмотраКонтекстноеМеню" id="754"/>
+								<ExtendedTooltip name="МаркировкаСостояниеПросмотраРасширеннаяПодсказка" id="755"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="МаркировкаУправлениеПоиском" id="756">
+								<AdditionSource>
+									<Item>Маркировка</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="МаркировкаУправлениеПоискомКонтекстноеМеню" id="757"/>
+								<ExtendedTooltip name="МаркировкаУправлениеПоискомРасширеннаяПодсказка" id="758"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="МаркировкаНомерСтроки" id="759">
+									<DataPath>Объект.Маркировка.LineNumber</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="УпаковкаМаркировкаКонтекстноеМеню" id="570"/>
-									<ExtendedTooltip name="УпаковкаМаркировкаРасширеннаяПодсказка" id="571"/>
+									<ContextMenu name="МаркировкаНомерСтрокиКонтекстноеМеню" id="760"/>
+									<ExtendedTooltip name="МаркировкаНомерСтрокиРасширеннаяПодсказка" id="761"/>
+								</LabelField>
+								<InputField name="МаркировкаТекст" id="765">
+									<DataPath>Объект.Маркировка.Маркировка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаркировкаТекстКонтекстноеМеню" id="766"/>
+									<ExtendedTooltip name="МаркировкаТекстРасширеннаяПодсказка" id="767"/>
 								</InputField>
-								<InputField name="УпаковкаКлассМаркировки" id="575">
-									<DataPath>Объект.Упаковка.КлассМаркировки</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Класс</v8:content>
-										</v8:item>
-									</Title>
+								<InputField name="МаркировкаКлассМаркировки" id="768">
+									<DataPath>Объект.Маркировка.КлассМаркировки</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="УпаковкаКлассМаркировкиКонтекстноеМеню" id="576"/>
-									<ExtendedTooltip name="УпаковкаКлассМаркировкиРасширеннаяПодсказка" id="577"/>
+									<ContextMenu name="МаркировкаКлассМаркировкиКонтекстноеМеню" id="769"/>
+									<ExtendedTooltip name="МаркировкаКлассМаркировкиРасширеннаяПодсказка" id="770"/>
 								</InputField>
 							</ChildItems>
 						</Table>
@@ -884,12 +932,6 @@
 									<ContextMenu name="МаршрутСледованияПунктПерегрузкиКонтекстноеМеню" id="531"/>
 									<ExtendedTooltip name="МаршрутСледованияПунктПерегрузкиРасширеннаяПодсказка" id="532"/>
 								</InputField>
-								<InputField name="МаршрутСледованияАдрес" id="572">
-									<DataPath>Объект.МаршрутСледования.Адрес</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="МаршрутСледованияАдресКонтекстноеМеню" id="573"/>
-									<ExtendedTooltip name="МаршрутСледованияАдресРасширеннаяПодсказка" id="574"/>
-								</InputField>
 								<InputField name="МаршрутСледованияПредприятие" id="533">
 									<DataPath>Объект.МаршрутСледования.Предприятие</DataPath>
 									<EditMode>EnterOnInput</EditMode>
@@ -908,6 +950,35 @@
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="МаршрутСледованияТранспортКонтекстноеМеню" id="540"/>
 									<ExtendedTooltip name="МаршрутСледованияТранспортРасширеннаяПодсказка" id="541"/>
+								</InputField>
+								<InputField name="МаршрутСледованияМесто" id="710">
+									<DataPath>1/0:7a405828-cae1-40cc-a1f5-2e3e18c3cb05/0:d964cb77-cb76-4e99-a327-e3ae16481e92</DataPath>
+									<ContextMenu name="МаршрутСледованияМестоКонтекстноеМеню" id="711"/>
+									<ExtendedTooltip name="МаршрутСледованияМестоРасширеннаяПодсказка" id="712"/>
+								</InputField>
+								<InputField name="МаршрутСледованияСтрана" id="713">
+									<DataPath>Объект.МаршрутСледования.Страна</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаршрутСледованияСтранаКонтекстноеМеню" id="714"/>
+									<ExtendedTooltip name="МаршрутСледованияСтранаРасширеннаяПодсказка" id="715"/>
+								</InputField>
+								<InputField name="МаршрутСледованияРегион" id="716">
+									<DataPath>Объект.МаршрутСледования.Регион</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаршрутСледованияРегионКонтекстноеМеню" id="717"/>
+									<ExtendedTooltip name="МаршрутСледованияРегионРасширеннаяПодсказка" id="718"/>
+								</InputField>
+								<InputField name="МаршрутСледованияРайон" id="719">
+									<DataPath>Объект.МаршрутСледования.Район</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаршрутСледованияРайонКонтекстноеМеню" id="720"/>
+									<ExtendedTooltip name="МаршрутСледованияРайонРасширеннаяПодсказка" id="721"/>
+								</InputField>
+								<InputField name="МаршрутСледованияНаселенныйПункт" id="722">
+									<DataPath>Объект.МаршрутСледования.НаселенныйПункт</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаршрутСледованияНаселенныйПунктКонтекстноеМеню" id="723"/>
+									<ExtendedTooltip name="МаршрутСледованияНаселенныйПунктРасширеннаяПодсказка" id="724"/>
 								</InputField>
 							</ChildItems>
 						</Table>
@@ -1688,7 +1759,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Предприятие</v8:content>
+					<v8:content>Производитель</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1836,13 +1907,13 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сж маркировка</v8:content>
+					<v8:content>Маркировка</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
 				<v8:Type>xs:string</v8:Type>
 				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
+					<v8:Length>50</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>

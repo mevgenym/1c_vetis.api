@@ -412,6 +412,8 @@
 		_issuerId = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(пВСД.Отправитель);
 		_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(пВСД.ОтправительПредприятие);
 	Иначе
+		пОтказ = Истина;
+		пОшибка = "Не заполнено поле Тип";
 		Возврат Неопределено;
 	КонецЕсли;
 	

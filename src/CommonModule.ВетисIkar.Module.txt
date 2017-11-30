@@ -59,7 +59,7 @@
 	
 КонецФункции
 
-Функция Address(countryGuid = Неопределено, regionGuid = Неопределено, districtGuid = Неопределено, localityGuid = Неопределено, streetGuid = Неопределено, house = Неопределено, building = Неопределено, addressView = Неопределено) Экспорт
+Функция Address(addressView = Неопределено, countryGuid = Неопределено, regionGuid = Неопределено, districtGuid = Неопределено, localityGuid = Неопределено, streetGuid = Неопределено, house = Неопределено, building = Неопределено) Экспорт
 	
 	_Объект = Создать("Address");
 	

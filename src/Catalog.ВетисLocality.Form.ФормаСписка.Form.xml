@@ -10,6 +10,9 @@
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
 			<Title>
@@ -218,6 +221,11 @@
 					<ContextMenu name="РайонКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="30"/>
 				</LabelField>
+				<LabelField name="guid" id="56">
+					<DataPath>Список.guid</DataPath>
+					<ContextMenu name="guidКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="58"/>
+				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -228,8 +236,24 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	_Таблица.Ссылка,
+	_Таблица.ПометкаУдаления,
+	_Таблица.Наименование,
+	_Таблица.Страна,
+	_Таблица.Регион,
+	_Таблица.Район,
+	_Таблица.Представление,
+	_Таблица.Предопределенный,
+	_Таблица.ИмяПредопределенныхДанных,
+	_Соответствие.guid
+ИЗ
+	Справочник.ВетисLocality КАК _Таблица
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Соответствие
+		ПО _Таблица.Ссылка = _Соответствие.Ссылка
+			И (_Соответствие.Ссылка ССЫЛКА Справочник.ВетисLocality)</QueryText>
 				<MainTable>Catalog.ВетисLocality</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -307,6 +331,39 @@
 				<Field>ОтборРайон</Field>
 			</Save>
 		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Наименование</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Страна</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Регион</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Район</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>guid</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Список.guid</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаЗаполнить" id="1">
@@ -323,6 +380,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнить</Action>
+		</Command>
+		<Command name="КомандаУдалитьПомеченные" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить помеченные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда удалить помеченные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаУдалитьПомеченные</Action>
 		</Command>
 	</Commands>
 </Form>

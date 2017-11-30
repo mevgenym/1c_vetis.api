@@ -60,8 +60,8 @@
 
 //Тип, описывающий интервал дат. 
 //Параметры:
-// beginDate - Начальная дата интервала xs:dateTime 1
-// endDate - Конечная дата интервала xs:dateTime 1
+// beginDate - Начальная дата интервала xs:dateTime
+// endDate - Конечная дата интервала xs:dateTime
 Функция DateInterval(beginDate, endDate = Неопределено) Экспорт
 	
 	_Объект = Создать("DateInterval");

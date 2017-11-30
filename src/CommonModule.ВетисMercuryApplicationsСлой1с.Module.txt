@@ -522,6 +522,9 @@
 КонецФункции
 
 Функция ModifyEnterprise(пПредприятие, пПричина = Неопределено, RegisterModificationType_CREATE = Истина, пОтказ = Ложь, пОшибка = "") Экспорт
+//Доделана совместными усилиями:
+// Орех Захаров
+// Sany81
 	
 	_type = ?(RegisterModificationType_CREATE = Истина, ВетисКонстанты.RegisterModificationType_CREATE(), ВетисКонстанты.RegisterModificationType_UPDATE());
 	
@@ -537,51 +540,85 @@
 	
 	_issuerId = Ветис.ТекущийХС();
 	
-	_Предприятие = пПредприятие.ПолучитьОбъект();
+	Если ТипЗнч(пПредприятие) = Тип("СправочникСсылка.ВетисПредприятия") Тогда
+		_Предприятие = пПредприятие.ПолучитьОбъект();
+	Иначе
+		_Предприятие = пПредприятие;
+	КонецЕсли;
 	
 	Если Ветис.Версия_2_0() Тогда
 		
-		_enterpriseGuid = ВетисDictionaryСлой1с.Enterprise(пПредприятие);
+		_enterprise = ВетисDictionary_2_0.Enterprise(); 
 		
-		_enterprise = ВетисDictionary_2_0.BusinessEntity(_enterpriseGuid);
+		Если _type = ВетисКонстанты.RegisterModificationType_UPDATE() Тогда
+			_enterpriseGuid = ВетисDictionaryСлой1с.Enterprise(пПредприятие.Ссылка);
+			_enterprise.uuid = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_enterpriseGuid).uuid;
+		КонецЕсли;
 		
-		_enterprise.name = _Предприятие.Наименование;
+		_enterprise.name = _Предприятие.Наименование; 
 		
-		_enterprise.type = ВетисDictionaryСлой1с.EnterpriseType(_Предприятие.Тип);
+		_enterprise.type = ВетисDictionaryСлой1с.EnterpriseType(_Предприятие.Тип); 
 		
-		_enterprise.address = ВетисDictionary_2_0.Address(_Предприятие.АдресПредставление, ВетисDictionaryСлой1с.Country(_Предприятие.Страна), ВетисDictionaryСлой1с.Region(_Предприятие.Регион), ВетисDictionaryСлой1с.District(_Предприятие.Район), ВетисDictionaryСлой1с.Locality(_Предприятие.НаселенныйПункт));
+		_enterprise.Address = ВетисDictionary_2_0.Address(_Предприятие.АдресПредставление, ВетисDictionaryСлой1с.Country(_Предприятие.Страна), ВетисDictionaryСлой1с.Region(_Предприятие.Регион), ВетисDictionaryСлой1с.District(_Предприятие.Район), ВетисDictionaryСлой1с.Locality(_Предприятие.НаселенныйПункт)); 
+		
+		_activity = Новый Массив;
 		
 		Для каждого _ВидыДеятельностиСтрока Из _Предприятие.ВидыДеятельности Цикл
-			_enterprise.activityList.Добавить(ВетисDictionary_2_0.EnterpriseActivity(ВетисDictionaryСлой1с.EnterpriseActivity(_ВидыДеятельностиСтрока.ВидДеятельности)));
+			_activity.Добавить(ВетисDictionary_2_0.EnterpriseActivity(_ВидыДеятельностиСтрока.Наименование));
 		КонецЦикла;
 		
-		_enterprise.owner = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_Предприятие.Собственник));
+		_enterprise.activityList = ВетисDictionary_2_0.EnterpriseActivityList(_activity); 
 		
-		//_enterprise.officialRegistration = 
+		//ошибки нет, но список номеров не воспринимает
+		//_numberList = Новый Массив;
+		//
+		//Для каждого _НомераПредприятияСтрока Из _Предприятие.НомераПредприятия Цикл
+		//	_numberList.Добавить(_НомераПредприятияСтрока.Номер);
+		//КонецЦикла;
+		//
+		//_enterprise.numberList = ВетисDictionary_2_0.EnterpriseNumberList(_numberList); 
 		
-		_modificationOperation = ВетисMercuryVetdocument_2_0.EnterpriseModificationOperation(_type, , _enterprise, _Причина);
+		_enterprise.owner = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_Предприятие.Собственник)); 
+		
+		_modificationOperation = ВетисMercuryVetdocument_2_0.EnterpriseModificationOperation(_type, _enterprise, _Причина);
 		
 		_Response = ВетисMercuryApplications_2_0.ModifyEnterprise(_modificationOperation, _issuerId, пОтказ, пОшибка);
 		
 	Иначе
 		
-		_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие);
+		_enterprise = ВетисCerberusEnterprise.Enterprise(); 
 		
-		_enterprise = ВетисCerberusEnterprise.BusinessEntity(_enterpriseGuid);
+		Если _type = ВетисКонстанты.RegisterModificationType_UPDATE() Тогда
+			_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие.Ссылка);
+			_enterprise.uuid = ВетисEnterpriseService.GetEnterpriseByGuid(_enterpriseGuid).uuid;
+		КонецЕсли;
 		
-		_enterprise.name = _Предприятие.Наименование;
+		_enterprise.name = _Предприятие.Наименование; 
 		
-		_enterprise.type = ВетисCerberusEnterpriseСлой1с.EnterpriseType(_Предприятие.Тип);
+		_enterprise.type = ВетисCerberusEnterpriseСлой1с.EnterpriseType(_Предприятие.Тип); 
 		
-		_enterprise.address = ВетисIkar.Address(ВетисIkarСлой1с.Country(_Предприятие.Страна), ВетисIkarСлой1с.Region(_Предприятие.Регион), ВетисIkarСлой1с.District(_Предприятие.Район), ВетисIkarСлой1с.Locality(_Предприятие.НаселенныйПункт));
+		_enterprise.Address = ВетисIkar.Address(_Предприятие.АдресПредставление, ВетисIkarСлой1с.Country(_Предприятие.Страна), ВетисIkarСлой1с.Region(_Предприятие.Регион), ВетисIkarСлой1с.District(_Предприятие.Район), ВетисIkarСлой1с.Locality(_Предприятие.НаселенныйПункт)); 
+		
+		_activity = Новый Массив;
 		
 		Для каждого _ВидыДеятельностиСтрока Из _Предприятие.ВидыДеятельности Цикл
-			_enterprise.activityList.Добавить(ВетисDictionary_2_0.EnterpriseActivity(_ВидыДеятельностиСтрока.Наименование));
+			_activity.Добавить(ВетисCerberusEnterprise.EnterpriseActivity(_ВидыДеятельностиСтрока.Наименование));
 		КонецЦикла;
 		
-		_enterprise.owner = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Предприятие.Собственник));
+		_enterprise.activityList = ВетисCerberusEnterprise.EnterpriseActivityList(_activity); 
 		
-		_modificationOperation = ВетисCerberusEnterprise.EnterpriseModificationOperation(_type, , _enterprise, _Причина);
+		//ошибки нет, но список номеров не воспринимает
+		//_numberList = Новый Массив;
+		//
+		//Для каждого _НомераПредприятияСтрока Из _Предприятие.НомераПредприятия Цикл
+		//	_numberList.Добавить(_НомераПредприятияСтрока.Номер);
+		//КонецЦикла;
+		//
+		//_enterprise.numberList = ВетисCerberusEnterprise.EnterpriseNumberList(_numberList); 
+		
+		_enterprise.owner = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Предприятие.Собственник)); 
+		
+		_modificationOperation = ВетисCerberusEnterprise.EnterpriseModificationOperation(_type, _enterprise, _Причина);
 		
 		_Response = ВетисMercuryApplications.ModifyEnterprise(_modificationOperation, _issuerId, пОтказ, пОшибка);
 		

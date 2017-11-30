@@ -101,21 +101,35 @@
 	
 КонецФункции
 
-Функция EnterpriseActivity(guid = Неопределено) Экспорт
+Функция EnterpriseActivity(name = Неопределено) Экспорт
 	
 	_Объект = Создать("EnterpriseActivity");
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "guid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, name, "name");
 	
 	Возврат _Объект;
 	
 КонецФункции
 
-Функция EnterpriseList(enterpriseGuid = Неопределено) Экспорт
+Функция EnterpriseActivityList(activity = Неопределено) Экспорт
+	
+	_Объект = Создать("EnterpriseActivityList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, activity, "activity");
+	
+	_Объект.count = _Объект.activity.Количество();
+	_Объект.offset = 0;
+	_Объект.total = 0;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция EnterpriseList(enterprise = Неопределено) Экспорт
 	
 	_Объект = Создать("EnterpriseList");
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterprise", "ВетисCerberusEnterprise.Enterprise");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
 	
 	_Объект.count = _Объект.enterprise.Количество();
 	_Объект.offset = 0;
@@ -125,20 +139,29 @@
 	
 КонецФункции
 
-// Операция внесения изменений в реестр ХС
-// Параметры:
-//  type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
-//  affectedList - ent:EnterpriseList - Входящий список площадок
-//  resultingList - ent:EnterpriseList - Получаемые в результате операции записи
-//  reason - xs:String - Основание добавления записи в реестр
-Функция EnterpriseModificationOperation(type, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
+Функция EnterpriseNumberList(enterpriseNumber = Неопределено) Экспорт
+	
+	_Объект = Создать("EnterpriseNumberList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseNumber, "enterpriseNumber");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+//Операция внесения изменений в реестр ХС
+//Параметры:
+// type - bs:RegisterModificationType - Тип операции (CREATE, UPDATE)
+// enterprise - dt:Enterprise - сведения о добавляемых поднадзорных объектах.
+//                 На данный момент поддерживается добавление только одной площадки в рамках одной заявки.
+// reason - xs:String - Основание добавления записи в реестр
+Функция EnterpriseModificationOperation(type, enterprise = Неопределено, reason = Неопределено) Экспорт
 	
 	_Объект = Создать("ENTModificationOperation");
 	
-	_Объект.type = type;
-	_Объект.affectedList = affectedList;
-	_Объект.resultingList = resultingList;
-	_Объект.reason  = reason;
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, EnterpriseList(enterprise), "resultingList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
 	
 	Возврат _Объект;
 	

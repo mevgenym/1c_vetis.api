@@ -171,11 +171,49 @@
 	
 КонецФункции
 
-Функция EnterpriseActivity(guid = Неопределено) Экспорт
+Функция EnterpriseActivity(name = Неопределено) Экспорт
 	
 	_Объект = Создать("EnterpriseActivity");
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "guid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, name, "name");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция EnterpriseActivityList(activity = Неопределено) Экспорт
+	
+	_Объект = Создать("EnterpriseActivityList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, activity, "activity");
+	
+	_Объект.count = _Объект.activity.Количество();
+	_Объект.offset = 0;
+	_Объект.total = 0;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция EnterpriseList(enterprise = Неопределено) Экспорт
+	
+	_Объект = Создать("EnterpriseList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterprise, "enterprise");
+	
+	_Объект.count = _Объект.enterprise.Количество();
+	_Объект.offset = 0;
+	_Объект.total = 0;
+	
+	Возврат _Объект;
+	
+КонецФункции
+
+Функция EnterpriseNumberList(enterpriseNumber = Неопределено) Экспорт
+	
+	_Объект = Создать("EnterpriseNumberList");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseNumber, "enterpriseNumber");
 	
 	Возврат _Объект;
 	

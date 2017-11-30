@@ -265,6 +265,7 @@
 			<Enum>ВетисТипАдреса</Enum>
 			<Enum>ЮрФизЛицо</Enum>
 			<DataProcessor>ВетисУстановкаСоответствияСправочников</DataProcessor>
+			<InformationRegister>ВетисRussianEnterpriseList</InformationRegister>
 			<InformationRegister>ВетисАдреса</InformationRegister>
 			<InformationRegister>ВетисЖурнал</InformationRegister>
 			<InformationRegister>ВетисНастройкиХС</InformationRegister>

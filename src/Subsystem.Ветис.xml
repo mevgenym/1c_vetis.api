@@ -115,6 +115,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисRegionalizationCondition</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисAnimalDisease</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисEnterpriseActivity</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисRussianEnterpriseList</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

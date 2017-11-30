@@ -285,17 +285,16 @@
 
 //Операция внесения изменений в реестр ХС
 //Параметры:
-// type - bs:RegisterModificationType - Тип операции (CREATE, FIND_OR_CREATE, UPDATE)
-// affectedList - dt:EnterpriseList - Входящий список площадок
-// resultingList - dt:EnterpriseList - Получаемые в результате операции записи
+// type - bs:RegisterModificationType - Тип операции (CREATE, UPDATE)
+// enterprise - dt:Enterprise - сведения о добавляемых поднадзорных объектах.
+//                 На данный момент поддерживается добавление только одной площадки в рамках одной заявки.
 // reason - xs:String - Основание добавления записи в реестр
-Функция EnterpriseModificationOperation(type, affectedList = Неопределено, resultingList = Неопределено, reason = Неопределено) Экспорт
+Функция EnterpriseModificationOperation(type, enterprise = Неопределено, reason = Неопределено) Экспорт
 	
 	_Объект = Создать("ENTModificationOperation");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, affectedList, "affectedList");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, resultingList, "resultingList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисDictionary_2_0.EnterpriseList(enterprise), "resultingList");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
 	
 	Возврат _Объект;

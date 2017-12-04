@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version = "1.0" encoding = "UTF-8"?>
 <xs:schema xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" attributeFormDefault="unqualified" elementFormDefault="unqualified">
 	<xs:element name="Envelope" type="tns:Envelope"/>
 	<xs:complexType name="Envelope">

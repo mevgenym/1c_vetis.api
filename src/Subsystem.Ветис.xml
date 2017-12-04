@@ -58,7 +58,6 @@
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисПредопределенные</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисПользователь</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисАдминистратор</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисИмяСправочника</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисПользователи</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСоответствие</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисРабочийСтол</xr:Item>
@@ -116,6 +115,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисAnimalDisease</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисEnterpriseActivity</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисRussianEnterpriseList</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисИмяСправочника</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

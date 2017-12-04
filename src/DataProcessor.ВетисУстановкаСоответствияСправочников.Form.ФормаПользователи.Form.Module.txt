@@ -22,7 +22,7 @@
 	//2017-11-16
 	//APLM0002 - Unsupported application data format
 	_параметры = Неопределено;
-	Если Ветис.Тестовый() Тогда
+	Если Ветис.Настройки_Тестовый() Тогда
 		Пока ВетисMercuryApplications_2_0.GetAppliedUserAuthorityListСледующий(_issuerId, _user, _параметры) Цикл
 			//
 		КонецЦикла;

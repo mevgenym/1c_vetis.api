@@ -350,9 +350,6 @@
 											<ChoiceButton>true</ChoiceButton>
 											<ContextMenu name="сжКоличествоМестКонтекстноеМеню" id="206"/>
 											<ExtendedTooltip name="сжКоличествоМестРасширеннаяПодсказка" id="207"/>
-											<Events>
-												<Event name="OnChange">сжКоличествоМестПриИзменении</Event>
-											</Events>
 										</InputField>
 										<PictureDecoration name="Декорация1" id="771">
 											<Height>1</Height>

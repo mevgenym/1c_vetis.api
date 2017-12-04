@@ -35,6 +35,11 @@
 					<CommandName>Form.Command.Предприятия</CommandName>
 					<ExtendedTooltip name="ПредприятияРасширеннаяПодсказка" id="34"/>
 				</Button>
+				<Button name="ПредприятияХС" id="54">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ПредприятияХС</CommandName>
+					<ExtendedTooltip name="ПредприятияХСРасширеннаяПодсказка" id="55"/>
+				</Button>
 				<Button name="Номенклатура" id="19">
 					<Type>UsualButton</Type>
 					<CommandName>Form.Command.Номенклатура</CommandName>
@@ -406,6 +411,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Упаковки</Action>
+		</Command>
+		<Command name="ПредприятияХС" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предприятия ХС</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предприятия ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПредприятияХС</Action>
 		</Command>
 	</Commands>
 </Form>

@@ -701,7 +701,6 @@
 							<EnableStartDrag>true</EnableStartDrag>
 							<DataPath>СправочникСписок</DataPath>
 							<RowPictureDataPath>СправочникСписок.DefaultPicture</RowPictureDataPath>
-							<SearchStringLocation>Top</SearchStringLocation>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -765,7 +764,7 @@
 							</Events>
 							<ChildItems>
 								<LabelField name="СправочникСписокНаименование" id="154">
-									<DataPath>СправочникСписок.Наименование</DataPath>
+									<DataPath>СправочникСписок.Description</DataPath>
 									<ContextMenu name="СправочникСписокНаименованиеКонтекстноеМеню" id="155"/>
 									<ExtendedTooltip name="СправочникСписокНаименованиеРасширеннаяПодсказка" id="156"/>
 								</LabelField>
@@ -774,18 +773,16 @@
 									<ContextMenu name="СправочникСписокИННКонтекстноеМеню" id="158"/>
 									<ExtendedTooltip name="СправочникСписокИННРасширеннаяПодсказка" id="159"/>
 								</LabelField>
-								<LabelField name="СправочникСписокВетисname" id="90">
-									<DataPath>СправочникСписок.Ветисname</DataPath>
-									<Width>15</Width>
-									<ContextMenu name="СправочникСписокВетисnameКонтекстноеМеню" id="91"/>
-									<ExtendedTooltip name="СправочникСписокВетисnameРасширеннаяПодсказка" id="92"/>
+								<LabelField name="СправочникСписок_name" id="292">
+									<DataPath>СправочникСписок._name</DataPath>
+									<ContextMenu name="СправочникСписок_nameКонтекстноеМеню" id="293"/>
+									<ExtendedTooltip name="СправочникСписок_nameРасширеннаяПодсказка" id="294"/>
 								</LabelField>
-								<InputField name="СправочникСписокОписание" id="139">
-									<DataPath>СправочникСписок.ВетисОписание</DataPath>
-									<Visible>false</Visible>
-									<ContextMenu name="СправочникСписокОписаниеКонтекстноеМеню" id="140"/>
-									<ExtendedTooltip name="СправочникСписокОписаниеРасширеннаяПодсказка" id="141"/>
-								</InputField>
+								<LabelField name="СправочникСписокguid" id="289">
+									<DataPath>СправочникСписок.guid</DataPath>
+									<ContextMenu name="СправочникСписокguidКонтекстноеМеню" id="290"/>
+									<ExtendedTooltip name="СправочникСписокguidРасширеннаяПодсказка" id="291"/>
+								</LabelField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
@@ -941,25 +938,32 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<UseAlways>
-				<Field>СправочникСписок.Ссылка</Field>
-				<Field>СправочникСписок.Наименование</Field>
-				<Field>СправочникСписок.ВетисОписание</Field>
 				<Field>СправочникСписок.guid</Field>
-				<Field>~СправочникСписок.Ref</Field>
+				<Field>СправочникСписок.Ref</Field>
+				<Field>~СправочникСписок.Ссылка</Field>
+				<Field>~СправочникСписок.Наименование</Field>
+				<Field>~СправочникСписок.ВетисОписание</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>false</DynamicDataRead>
-				<QueryText>	ВЫБРАТЬ
-	NULL КАК Ссылка,
-	NULL КАК Код,
-	NULL КАК Наименование,
-	NULL КАК ИНН,
-	NULL КАК КПП,
-	NULL КАК guid,
-	NULL КАК Ветисname,
-	NULL КАК ВетисОписание
-</QueryText>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+		_Таблица.Ссылка,
+		_Таблица.Код,
+		_Таблица.Наименование,
+		_Таблица.ИНН,
+		_Таблица.КПП,
+		_Ветис.guid КАК guid,
+		_Ветис.name КАК _name
+	ИЗ
+		Справочник.Контрагенты КАК _Таблица
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Ветис
+			ПО _Таблица.Ссылка = _Ветис.Ссылка
+	ГДЕ
+		ИСТИНА
+		И НЕ _Таблица.ПометкаУдаления
+		И НЕ _Таблица.ЭтоГруппа</QueryText>
+				<MainTable>Catalog.Контрагенты</MainTable>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
@@ -1302,13 +1306,13 @@
 						<dcsset:field>СправочникСписокНаименование</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СправочникСписокВетисname</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
 						<dcsset:field>СправочникСписокИНН</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СправочникСписокОписание</dcsset:field>
+						<dcsset:field>СправочникСписок_name</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СправочникСписокguid</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>

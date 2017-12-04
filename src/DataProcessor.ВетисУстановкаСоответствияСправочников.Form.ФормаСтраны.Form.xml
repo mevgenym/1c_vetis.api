@@ -86,22 +86,22 @@
 							<ContextMenu name="ОтборGuidКонтекстноеМеню" id="207"/>
 							<ExtendedTooltip name="ОтборGuidРасширеннаяПодсказка" id="208"/>
 						</InputField>
-						<UsualGroup name="ГруппаОтборСписок" id="111">
+						<UsualGroup name="ГруппаОтбор1" id="111">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа отбор список</v8:content>
+									<v8:content>Группа отбор1</v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа отбор список</v8:content>
+									<v8:content>Группа отбор1</v8:content>
 								</v8:item>
 							</ToolTip>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаОтборСписокРасширеннаяПодсказка" id="112"/>
+							<ExtendedTooltip name="ГруппаОтбор1РасширеннаяПодсказка" id="112"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаОтборИмя" id="113">
 									<Title>

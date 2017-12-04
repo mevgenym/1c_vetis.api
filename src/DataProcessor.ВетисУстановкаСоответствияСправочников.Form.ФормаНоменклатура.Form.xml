@@ -192,6 +192,7 @@
 									<v8:content>Группа отбор предприятие guid</v8:content>
 								</v8:item>
 							</ToolTip>
+							<Group>Horizontal</Group>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаОтборПредприятиеGuidРасширеннаяПодсказка" id="235"/>
@@ -222,14 +223,6 @@
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
-						<LabelField name="ОтборПредприятиеПредставление" id="198">
-							<DataPath>ОтборПредприятиеПредставление</DataPath>
-							<Visible>false</Visible>
-							<TitleLocation>None</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<ContextMenu name="ОтборПредприятиеПредставлениеКонтекстноеМеню" id="199"/>
-							<ExtendedTooltip name="ОтборПредприятиеПредставлениеРасширеннаяПодсказка" id="200"/>
-						</LabelField>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаОтбор2" id="169">
@@ -507,7 +500,6 @@
 								</LabelField>
 								<InputField name="СписокВетисguid" id="116">
 									<DataPath>СписокВетис.guid</DataPath>
-									<Visible>false</Visible>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="117"/>
 									<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="118"/>
@@ -520,12 +512,10 @@
 					<Representation>List</Representation>
 					<ChangeRowSet>false</ChangeRowSet>
 					<HeightInTableRows>1</HeightInTableRows>
-					<RowSelectionMode>Row</RowSelectionMode>
 					<EnableStartDrag>true</EnableStartDrag>
 					<EnableDrag>true</EnableDrag>
 					<DataPath>СправочникСписок</DataPath>
 					<RowPictureDataPath>СправочникСписок.DefaultPicture</RowPictureDataPath>
-					<SearchStringLocation>Top</SearchStringLocation>
 					<AutoRefresh>false</AutoRefresh>
 					<AutoRefreshPeriod>60</AutoRefreshPeriod>
 					<Period>
@@ -588,26 +578,20 @@
 									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СправочникСписокГруппа3РасширеннаяПодсказка" id="70"/>
 									<ChildItems>
-										<LabelField name="СправочникСписокНаименование" id="44">
+										<LabelField name="СправочникСписокНаименование" id="244">
 											<DataPath>СправочникСписок.Наименование</DataPath>
-											<ContextMenu name="СправочникСписокНаименованиеКонтекстноеМеню" id="45"/>
-											<ExtendedTooltip name="СправочникСписокНаименованиеРасширеннаяПодсказка" id="46"/>
-										</LabelField>
-										<LabelField name="СправочникСписокПредприятие" id="221">
-											<DataPath>СправочникСписок.Предприятие</DataPath>
-											<ContextMenu name="СправочникСписокПредприятиеКонтекстноеМеню" id="222"/>
-											<ExtendedTooltip name="СправочникСписокПредприятиеРасширеннаяПодсказка" id="223"/>
+											<ContextMenu name="СправочникСписокНаименованиеКонтекстноеМеню" id="245"/>
+											<ExtendedTooltip name="СправочникСписокНаименованиеРасширеннаяПодсказка" id="246"/>
 										</LabelField>
 										<LabelField name="СправочникСписокname" id="97">
-											<DataPath>СправочникСписок.name</DataPath>
+											<DataPath>СправочникСписок._name</DataPath>
 											<ContextMenu name="СправочникСписокnameКонтекстноеМеню" id="98"/>
 											<ExtendedTooltip name="СправочникСписокnameРасширеннаяПодсказка" id="99"/>
 										</LabelField>
-										<LabelField name="СправочникСписокОписание" id="94">
-											<DataPath>СправочникСписок.Описание</DataPath>
-											<Visible>false</Visible>
-											<ContextMenu name="СправочникСписокОписаниеКонтекстноеМеню" id="95"/>
-											<ExtendedTooltip name="СправочникСписокОписаниеРасширеннаяПодсказка" id="96"/>
+										<LabelField name="СправочникСписокguid" id="241">
+											<DataPath>СправочникСписок.guid</DataPath>
+											<ContextMenu name="СправочникСписокguidКонтекстноеМеню" id="242"/>
+											<ExtendedTooltip name="СправочникСписокguidРасширеннаяПодсказка" id="243"/>
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
@@ -646,46 +630,26 @@
 			<UseAlways>
 				<Field>СправочникСписок.Ссылка</Field>
 				<Field>СправочникСписок.guid</Field>
+				<Field>~СправочникСписок.Предприятие</Field>
 				<Field>~СправочникСписок.ЕстьНК</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
-	_Таблица.Ссылка,
-	_Таблица.Код,
-	_Таблица.Наименование,
-	_Ветис.guid КАК guid,
-	_Ветис.Предприятие КАК Предприятие,
-	_Ветис.name КАК name,
-	_Ветис.Описание КАК Описание
-{ВЫБРАТЬ
-	Ссылка.*,
-	Код,
-	Наименование,
-	guid,
-	Предприятие,
-	name,
-	Описание}
-ИЗ
-	Справочник.Номенклатура КАК _Таблица
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Ветис
-		ПО _Таблица.Ссылка = _Ветис.Ссылка
-ГДЕ
-	ИСТИНА
-	И НЕ _Таблица.ПометкаУдаления
-	И НЕ _Таблица.ЭтоГруппа
-	И ИСТИНА</QueryText>
+	NULL КАК Ссылка,
+	NULL КАК Код,
+	NULL КАК Наименование,
+	NULL КАК ИНН,
+	NULL КАК КПП,
+	NULL КАК guid,
+	NULL КАК _name</QueryText>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
 					</dcsset:filter>
 					<dcsset:order>
-						<dcsset:item xsi:type="dcsset:OrderItemField">
-							<dcsset:field>Наименование</dcsset:field>
-							<dcsset:orderType>Asc</dcsset:orderType>
-						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
 					</dcsset:order>
@@ -978,18 +942,6 @@
 				<Field>ОтборПредприятиеGuid</Field>
 			</Save>
 		</Attribute>
-		<Attribute name="ОтборПредприятиеПредставление" id="18">
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-			<Save>
-				<Field>ОтборПредприятиеПредставление</Field>
-			</Save>
-		</Attribute>
 		<Attribute name="ВариантПоиска" id="19">
 			<Title>
 				<v8:item>
@@ -1015,16 +967,51 @@
 						<dcsset:field>СправочникСписокНаименование</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СправочникСписокПредприятие</dcsset:field>
+						<dcsset:field>СправочникСписокname</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
-						<dcsset:field>СправочникСписокname</dcsset:field>
+						<dcsset:field>СправочникСписокguid</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
 						<dcsset:left xsi:type="dcscor:Field">СправочникСписок.guid</dcsset:left>
 						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокВетисenterprise</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВетисproductType</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВетисproduct</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВетисsubProduct</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВетисname</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВетисguid</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокВетис.link</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
 					</dcsset:item>
 				</dcsset:filter>
 				<dcsset:appearance>

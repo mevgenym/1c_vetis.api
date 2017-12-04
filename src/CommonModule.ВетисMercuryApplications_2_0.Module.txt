@@ -1215,9 +1215,9 @@
 
 Функция URI() Экспорт
 	
-	Если Ветис.Сервис() = Перечисления.ВетисСервис.mercury_g2b_service Тогда
+	Если Ветис.Настройки_Сервис() = Перечисления.ВетисСервис.mercury_g2b_service Тогда
 		Возврат "http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2";
-	ИначеЕсли Ветис.Сервис() = Перечисления.ВетисСервис.mercury_vu_service Тогда
+	ИначеЕсли Ветис.Настройки_Сервис() = Перечисления.ВетисСервис.mercury_vu_service Тогда
 		Возврат "http://api.vetrf.ru/schema/cdm/mercury/vu/applications/v2";
 	КонецЕсли;
 	

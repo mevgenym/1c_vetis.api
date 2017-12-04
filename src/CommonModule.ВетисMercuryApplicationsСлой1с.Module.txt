@@ -540,7 +540,7 @@
 	
 	_issuerId = Ветис.ТекущийХС();
 	
-	Если ТипЗнч(пПредприятие) = Тип("СправочникСсылка.ВетисПредприятия") Тогда
+	Если ТипЗнч(пПредприятие) = Тип(ВетисИмяСправочника.Enterprise("СправочникСсылка")) Тогда
 		_Предприятие = пПредприятие.ПолучитьОбъект();
 	Иначе
 		_Предприятие = пПредприятие;
@@ -548,18 +548,18 @@
 	
 	Если Ветис.Версия_2_0() Тогда
 		
-		_enterprise = ВетисDictionary_2_0.Enterprise(); 
+		_enterprise = ВетисDictionary_2_0.Enterprise();
 		
 		Если _type = ВетисКонстанты.RegisterModificationType_UPDATE() Тогда
 			_enterpriseGuid = ВетисDictionaryСлой1с.Enterprise(пПредприятие.Ссылка);
 			_enterprise.uuid = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_enterpriseGuid).uuid;
 		КонецЕсли;
 		
-		_enterprise.name = _Предприятие.Наименование; 
+		_enterprise.name = _Предприятие.Наименование;
 		
-		_enterprise.type = ВетисDictionaryСлой1с.EnterpriseType(_Предприятие.Тип); 
+		_enterprise.type = ВетисDictionaryСлой1с.EnterpriseType(_Предприятие.Тип);
 		
-		_enterprise.Address = ВетисDictionary_2_0.Address(_Предприятие.АдресПредставление, ВетисDictionaryСлой1с.Country(_Предприятие.Страна), ВетисDictionaryСлой1с.Region(_Предприятие.Регион), ВетисDictionaryСлой1с.District(_Предприятие.Район), ВетисDictionaryСлой1с.Locality(_Предприятие.НаселенныйПункт)); 
+		_enterprise.Address = ВетисDictionary_2_0.Address(_Предприятие.АдресПредставление, ВетисDictionaryСлой1с.Country(_Предприятие.Страна), ВетисDictionaryСлой1с.Region(_Предприятие.Регион), ВетисDictionaryСлой1с.District(_Предприятие.Район), ВетисDictionaryСлой1с.Locality(_Предприятие.НаселенныйПункт));
 		
 		_activity = Новый Массив;
 		
@@ -567,7 +567,7 @@
 			_activity.Добавить(ВетисDictionary_2_0.EnterpriseActivity(_ВидыДеятельностиСтрока.Наименование));
 		КонецЦикла;
 		
-		_enterprise.activityList = ВетисDictionary_2_0.EnterpriseActivityList(_activity); 
+		_enterprise.activityList = ВетисDictionary_2_0.EnterpriseActivityList(_activity);
 		
 		//ошибки нет, но список номеров не воспринимает
 		//_numberList = Новый Массив;
@@ -576,9 +576,9 @@
 		//	_numberList.Добавить(_НомераПредприятияСтрока.Номер);
 		//КонецЦикла;
 		//
-		//_enterprise.numberList = ВетисDictionary_2_0.EnterpriseNumberList(_numberList); 
+		//_enterprise.numberList = ВетисDictionary_2_0.EnterpriseNumberList(_numberList);
 		
-		_enterprise.owner = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_Предприятие.Собственник)); 
+		_enterprise.owner = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_Предприятие.Собственник));
 		
 		_modificationOperation = ВетисMercuryVetdocument_2_0.EnterpriseModificationOperation(_type, _enterprise, _Причина);
 		
@@ -586,18 +586,18 @@
 		
 	Иначе
 		
-		_enterprise = ВетисCerberusEnterprise.Enterprise(); 
+		_enterprise = ВетисCerberusEnterprise.Enterprise();
 		
 		Если _type = ВетисКонстанты.RegisterModificationType_UPDATE() Тогда
 			_enterpriseGuid = ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие.Ссылка);
 			_enterprise.uuid = ВетисEnterpriseService.GetEnterpriseByGuid(_enterpriseGuid).uuid;
 		КонецЕсли;
 		
-		_enterprise.name = _Предприятие.Наименование; 
+		_enterprise.name = _Предприятие.Наименование;
 		
-		_enterprise.type = ВетисCerberusEnterpriseСлой1с.EnterpriseType(_Предприятие.Тип); 
+		_enterprise.type = ВетисCerberusEnterpriseСлой1с.EnterpriseType(_Предприятие.Тип);
 		
-		_enterprise.Address = ВетисIkar.Address(_Предприятие.АдресПредставление, ВетисIkarСлой1с.Country(_Предприятие.Страна), ВетисIkarСлой1с.Region(_Предприятие.Регион), ВетисIkarСлой1с.District(_Предприятие.Район), ВетисIkarСлой1с.Locality(_Предприятие.НаселенныйПункт)); 
+		_enterprise.Address = ВетисIkar.Address(_Предприятие.АдресПредставление, ВетисIkarСлой1с.Country(_Предприятие.Страна), ВетисIkarСлой1с.Region(_Предприятие.Регион), ВетисIkarСлой1с.District(_Предприятие.Район), ВетисIkarСлой1с.Locality(_Предприятие.НаселенныйПункт));
 		
 		_activity = Новый Массив;
 		
@@ -605,7 +605,7 @@
 			_activity.Добавить(ВетисCerberusEnterprise.EnterpriseActivity(_ВидыДеятельностиСтрока.Наименование));
 		КонецЦикла;
 		
-		_enterprise.activityList = ВетисCerberusEnterprise.EnterpriseActivityList(_activity); 
+		_enterprise.activityList = ВетисCerberusEnterprise.EnterpriseActivityList(_activity);
 		
 		//ошибки нет, но список номеров не воспринимает
 		//_numberList = Новый Массив;
@@ -614,9 +614,9 @@
 		//	_numberList.Добавить(_НомераПредприятияСтрока.Номер);
 		//КонецЦикла;
 		//
-		//_enterprise.numberList = ВетисCerberusEnterprise.EnterpriseNumberList(_numberList); 
+		//_enterprise.numberList = ВетисCerberusEnterprise.EnterpriseNumberList(_numberList);
 		
-		_enterprise.owner = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Предприятие.Собственник)); 
+		_enterprise.owner = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_Предприятие.Собственник));
 		
 		_modificationOperation = ВетисCerberusEnterprise.EnterpriseModificationOperation(_type, _enterprise, _Причина);
 		

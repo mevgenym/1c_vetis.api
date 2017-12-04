@@ -914,26 +914,6 @@
 						<Event name="OnChange">ВерсияПриИзменении</Event>
 					</Events>
 				</InputField>
-				<CheckBoxField name="Отладка" id="245">
-					<DataPath>Отладка</DataPath>
-					<Visible>false</Visible>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="ОтладкаКонтекстноеМеню" id="246"/>
-					<ExtendedTooltip name="ОтладкаРасширеннаяПодсказка" id="247"/>
-					<Events>
-						<Event name="OnChange">ОтладкаПриИзменении</Event>
-					</Events>
-				</CheckBoxField>
-				<CheckBoxField name="Тестовый" id="324">
-					<DataPath>Тестовый</DataPath>
-					<Visible>false</Visible>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="ТестовыйКонтекстноеМеню" id="325"/>
-					<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="326"/>
-					<Events>
-						<Event name="OnChange">ТестовыйПриИзменении</Event>
-					</Events>
-				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаКоманды" id="314">

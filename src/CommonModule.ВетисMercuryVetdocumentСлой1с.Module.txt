@@ -639,7 +639,10 @@
 			_subProduct = ВетисArgusProduction.SubProduct(_строкаСЖ.SubProductGuid);
 		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.НоменклатурнаяГруппа) Тогда
 			_subProduct = ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
-		ИначеЕсли ЗначениеЗаполнено(_productItem.guid) Тогда
+			_subProduct = ?(_subProduct = Неопределено, Неопределено, ВетисArgusProduction.SubProduct(_subProduct));
+		КонецЕсли;
+		
+		Если _subProduct = Неопределено И ЗначениеЗаполнено(_productItem.guid) Тогда
 			_productItem = ВетисProductService.GetProductItemByGuid(_productItem.guid);
 			_subProduct  = _productItem.subProduct;
 			_product     = _productItem.product;
@@ -654,7 +657,7 @@
 		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.ProductGuid) Тогда
 			_product = ВетисArgusProduction.Product(_строкаСЖ.ProductGuid);
 		Иначе
-			_subProduct  = ВетисProductService.GetSubProductByGuid(_subProduct);
+			_subProduct  = ВетисProductService.GetSubProductByGuid(_subProduct.guid);
 			_product = ВетисArgusProduction.Product(_subProduct.productGuid);
 		КонецЕсли;
 		
@@ -670,7 +673,12 @@
 		_batch.productType      = _productType;
 		_batch.product          = ВетисArgusProduction.Product(_product.guid);
 		_batch.subProduct       = ВетисArgusProduction.SubProduct(_subProduct.guid);
-		//_batch.productItem      = ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
+		
+		Если ЗначениеЗаполнено(_productItem.guid) ИЛИ ЗначениеЗаполнено(_productItem.name) Тогда
+			//MERC13098 - Наименование продукции в ветеринарно-сопроводительном документе обязательно для заполнения.
+			_batch.productItem = ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
+		КонецЕсли;
+		
 		_batch.volume           = _СтрокаСЖ.Количество;
 		_batch.unit             = ВетисArgusCommon.Unit(ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
 		_batch.dateOfProduction = ВетисMercuryVetdocument.GoodsDate(_СтрокаСЖ.ДатаВыработкиНачало, _СтрокаСЖ.ДатаВыработкиКонец, _СтрокаСЖ.Скоропортящаяся);
@@ -678,11 +686,6 @@
 		_batch.perishable       = _СтрокаСЖ.Скоропортящаяся;
 		_batch.lowGradeCargo    = _СтрокаСЖ.НекачественныйГруз;
 		_batch.owner            = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_строкаСЖ.Собственник));
-		
-		//MERC13098 - Наименование продукции в ветеринарно-сопроводительном документе обязательно для заполнения.
-		Если ЗначениеЗаполнено(_productItem.guid) ИЛИ ЗначениеЗаполнено(_productItem.name) Тогда
-			_batch.productItem = ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
-		КонецЕсли;
 		
 		//_batch.productItem      = ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
 		_batch.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
@@ -798,7 +801,10 @@
 			_subProduct = ВетисDictionary_2_0.SubProduct(_строкаСЖ.SubProductGuid);
 		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.НоменклатурнаяГруппа) Тогда
 			_subProduct = ВетисDictionaryСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
-		ИначеЕсли ЗначениеЗаполнено(_productItem.guid) Тогда
+			_subProduct = ?(_subProduct = Неопределено, Неопределено, ВетисDictionary_2_0.SubProduct(_subProduct));
+		КонецЕсли;
+		
+		Если _subProduct = Неопределено И ЗначениеЗаполнено(_productItem.guid) Тогда
 			_productItem = ВетисProductService_2_0.GetProductItemByGuid(_productItem.guid);
 			_subProduct  = _productItem.subProduct;
 			_product     = _productItem.product;
@@ -813,7 +819,7 @@
 		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.ProductGuid) Тогда
 			_product = ВетисDictionary_2_0.Product(_строкаСЖ.ProductGuid);
 		Иначе
-			_subProduct  = ВетисProductService_2_0.GetSubProductByGuid(_subProduct);
+			_subProduct  = ВетисProductService_2_0.GetSubProductByGuid(_subProduct.guid);
 			_product = ВетисDictionary_2_0.Product(_subProduct.productGuid);
 		КонецЕсли;
 		

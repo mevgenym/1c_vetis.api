@@ -107,6 +107,7 @@
 			<Form>ФормаТестирование</Form>
 			<Form>ФормаКонтрагент</Form>
 			<Form>ФормаПредприятие</Form>
+			<Form>ФормаНоменклатура1</Form>
 		</ChildObjects>
 	</DataProcessor>
 </MetaDataObject>

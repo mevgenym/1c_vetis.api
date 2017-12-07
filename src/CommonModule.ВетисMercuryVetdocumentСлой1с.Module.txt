@@ -338,8 +338,14 @@
 		_док.Отправитель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.consignor.businessEntity);
 		_док.Получатель  = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.consignee.businessEntity);
 		
+		_док.ОтправительGuid = _всд.certifiedConsignment.consignor.businessEntity.guid;
+		_док.ПолучательGuid  = _всд.certifiedConsignment.consignee.businessEntity.guid;
+		
 		_док.ОтправительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.consignor.enterprise);
 		_док.ПолучательПредприятие  = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.consignee.enterprise);
+		
+		_док.ОтправительПредприятиеGuid = _всд.certifiedConsignment.consignor.enterprise.guid;
+		_док.ПолучательПредприятиеGuid  = _всд.certifiedConsignment.consignee.enterprise.guid;
 		
 		_строкаВСД = ?(_док.ВСД.Количество() = 0, _док.ВСД.Добавить(), _док.ВСД[0]);
 		
@@ -451,8 +457,14 @@
 		_док.Отправитель = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.consignor.businessEntity);
 		_док.Получатель  = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.consignee.businessEntity);
 		
+		_док.ОтправительGuid = _всд.certifiedConsignment.consignor.businessEntity.guid;
+		_док.ПолучательGuid  = _всд.certifiedConsignment.consignee.businessEntity.guid;
+		
 		_док.ОтправительПредприятие = ВетисDictionaryСлой1с.Enterprise(_всд.certifiedConsignment.consignor.enterprise);
 		_док.ПолучательПредприятие  = ВетисDictionaryСлой1с.Enterprise(_всд.certifiedConsignment.consignee.enterprise);
+		
+		_док.ОтправительПредприятиеGuid = _всд.certifiedConsignment.consignor.enterprise.guid;
+		_док.ПолучательПредприятиеGuid  = _всд.certifiedConsignment.consignee.enterprise.guid;
 		
 		_СтрокаВСД = ?(_док.РезультатыОсмотра.Количество() = 0, _док.РезультатыОсмотра.Добавить(), _док.РезультатыОсмотра[0]);
 		_СтрокаВСД.НазначениеГруза        = ВетисDictionaryСлой1с.Purpose(_всд.authentication.purpose);
@@ -520,7 +532,7 @@
 		
 		_СтрокаСЖ = ?(_док.Товары.Количество() = 0, _док.Товары.Добавить(), _док.Товары[0]);
 		
-		BatchКонвертировать_20(_СтрокаСЖ, _всд.certifiedConsignment.batch, _док.Упаковка, пОшибка);
+		BatchКонвертировать_20(_СтрокаСЖ, _всд.certifiedConsignment.batch, _док.Упаковка, _док.Маркировка, пОшибка);
 		
 	ИначеЕсли ТипЗнч(value2) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент")
 		ИЛИ ТипЗнч(value2) = Тип("ДанныеФормыСтруктура") Тогда
@@ -540,7 +552,7 @@
 		
 		_batch = ВетисMercuryVetdocument_2_0.Batch();
 		
-		BatchКонвертировать_20(_batch, _СтрокаСЖ, _док.Упаковка, пОшибка);
+		BatchКонвертировать_20(_batch, _СтрокаСЖ, _док.Упаковка, _док.Маркировка, пОшибка);
 		
 		_всд.issueSeries          = _док.СерияВСД;
 		_всд.issueNumber          = _док.НомерВСД;
@@ -617,27 +629,42 @@
 		_СтрокаСЖ = value2;
 		
 		//сделать: проверить конверсию номенклатуры
+		Если ЗначениеЗаполнено(_строкаСЖ.ProductItemGuid) ИЛИ ЗначениеЗаполнено(_строкаСЖ.ProductItemName) Тогда
+			_productItem = ВетисArgusProduction.ProductItem(_строкаСЖ.ProductItemGuid, _строкаСЖ.ProductItemName);
+		Иначе
+			_productItem = ВетисArgusProductionСлой1с.ProductItem(_СтрокаСЖ.Номенклатура, _СтрокаСЖ.ПроизводительПредприятие);//Структура
+		КонецЕсли;
 		
-		_productItem = ВетисArgusProductionСлой1с.ProductItem(_СтрокаСЖ.Номенклатура, _СтрокаСЖ.ПроизводительПредприятие);//Структура
-		_subProduct  = ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
-		_product     = "";
-		_productType = ВетисКонстанты.ProductType_МясоИМясопродукты();
-		
-		Если ЗначениеЗаполнено(_productItem.guid) Тогда
-			_productItem = ВетисProductService.GetProductItemByGuid(_productItem.guid);//ОбъектXDTO
+		Если ЗначениеЗаполнено(_строкаСЖ.SubProductGuid) Тогда
+			_subProduct = ВетисArgusProduction.SubProduct(_строкаСЖ.SubProductGuid);
+		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.НоменклатурнаяГруппа) Тогда
+			_subProduct = ВетисArgusProductionСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
+		ИначеЕсли ЗначениеЗаполнено(_productItem.guid) Тогда
+			_productItem = ВетисProductService.GetProductItemByGuid(_productItem.guid);
 			_subProduct  = _productItem.subProduct;
 			_product     = _productItem.product;
 			_productType = _productItem.productType;
-			
-		ИначеЕсли НЕ ПустаяСтрока(_subProduct) Тогда
-			_subProduct  = ВетисProductService.GetSubProductByGuid(_subProduct);
-			_product     = ВетисProductService.GetProductByGuid(_subProduct.productGuid);
-			_productType = _product.productType;
-			_productItem.name = ?(ЗначениеЗаполнено(_productItem.name), _productItem.name, _subProduct.name);
-			
 		Иначе
 			//не заполнены ключевые поля, выходим
 			Возврат Неопределено;
+		КонецЕсли;
+		
+		Если НЕ _product = Неопределено Тогда
+			//пропускаем
+		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.ProductGuid) Тогда
+			_product = ВетисArgusProduction.Product(_строкаСЖ.ProductGuid);
+		Иначе
+			_subProduct  = ВетисProductService.GetSubProductByGuid(_subProduct);
+			_product = ВетисArgusProduction.Product(_subProduct.productGuid);
+		КонецЕсли;
+		
+		Если НЕ _productType = Неопределено Тогда
+			//пропускаем
+		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.ProductType) Тогда
+			_productType = _строкаСЖ.ProductType;
+		Иначе
+			_product     = ВетисProductService_2_0.GetProductByGuid(_product.guid);
+			_productType = _product.productType;
 		КонецЕсли;
 		
 		_batch.productType      = _productType;
@@ -668,7 +695,7 @@
 	
 КонецФункции
 
-Функция BatchКонвертировать_20(value1, value2, пУпаковка, пОшибка = Ложь) Экспорт
+Функция BatchКонвертировать_20(value1, value2, пУпаковка, пМаркировка, пОшибка = Ложь) Экспорт
 	
 	_МногоуровневаяУпаковка = Ветис.Настройки_МногоуровневаяУпаковка();
 	_УровеньУпаковки        = Ветис.Настройки_УровеньУпаковки();
@@ -682,9 +709,11 @@
 		_СтрокаСЖ = value1;
 		_batch    = value2;
 		
-		_строкаСЖ.SubProductGuid       = _batch.subProduct.guid;
-		_строкаСЖ.ProductItemName      = _batch.productItem.name;
-		_строкаСЖ.ProductItemGuid      = _batch.productItem.guid;
+		_строкаСЖ.ProductType     = _batch.productType;
+		_строкаСЖ.ProductGuid     = _batch.product.guid;
+		_строкаСЖ.SubProductGuid  = _batch.subProduct.guid;
+		_строкаСЖ.ProductItemName = _batch.productItem.name;
+		_строкаСЖ.ProductItemGuid = _batch.productItem.guid;
 		
 		_строкаСЖ.НоменклатурнаяГруппа = ВетисDictionaryСлой1с.SubProduct(_batch.subProduct);
 		_строкаСЖ.Количество           = _batch.volume;
@@ -702,12 +731,19 @@
 			Если НЕ _batch.packageList = Неопределено Тогда
 				Для каждого _package Из _batch.packageList.package Цикл
 					_СтрокаУпаковка = пУпаковка.Добавить();
+					_СтрокаУпаковка.КлючСтроки = _СтрокаУпаковка.НомерСтроки;
 					_СтрокаУпаковка.Уровень = ВетисDictionaryСлой1с.PackageLevelType(_package.level);
 					_СтрокаУпаковка.ТипУпаковки = ВетисDictionaryСлой1с.PackingType(_package.packingType);
 					_СтрокаУпаковка.Количество = _package.quantity;
-					_productMarks = ВетисDictionaryСлой1с.ProductMarks(_package.productMarks);
-					_СтрокаУпаковка.Маркировка = _productMarks.content;
-					_СтрокаУпаковка.КлассМаркировки = _productMarks.class;
+					//_productMarks = ВетисDictionaryСлой1с.ProductMarks(_package.productMarks);
+					//_СтрокаУпаковка.Маркировка = _productMarks.content;
+					//_СтрокаУпаковка.КлассМаркировки = _productMarks.class;
+					Для каждого _productMarks Из _package.productMarks Цикл
+						_СтрокаМаркировка = пМаркировка.Добавить();
+						_СтрокаМаркировка.КлючСвязи = _СтрокаУпаковка.КлючСтроки;
+						_СтрокаМаркировка.Маркировка = _productMarks.__content;
+						_СтрокаМаркировка.КлассМаркировки = ВетисDictionaryСлой1с.ProductMarkingClass(_productMarks.class);
+					КонецЦикла;
 				КонецЦикла;
 			КонецЕсли;
 		ИначеЕсли НЕ _batch.packageList = Неопределено И _batch.packageList.package.Количество() > 0 Тогда
@@ -733,6 +769,9 @@
 			_строкаСЖ.ПроизводительПредприятие = ВетисDictionaryСлой1с.Producer(_batch.origin.producer);
 			_строкаСЖ.Номенклатура             = ВетисDictionaryСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
 			_строкаСЖ.СтранаПроисхождения      = ВетисDictionaryСлой1с.Country(_batch.origin.country);
+			
+			_строкаСЖ.ПроизводительПредприятиеGuid = ?(_batch.origin.producer.Количество()>0,_batch.origin.producer[0].enterprise.guid, "");
+			_строкаСЖ.СтранаПроисхожденияGuid      = _batch.origin.country.guid;
 		КонецЕсли;
 		
 		_ИДПартии = "";
@@ -749,33 +788,53 @@
 		_СтрокаСЖ = value2;
 		
 		//сделать: проверить конверсию номенклатуры
+		Если ЗначениеЗаполнено(_строкаСЖ.ProductItemGuid) ИЛИ ЗначениеЗаполнено(_строкаСЖ.ProductItemName) Тогда
+			_productItem = ВетисDictionary_2_0.ProductItem(_строкаСЖ.ProductItemGuid, _строкаСЖ.ProductItemName);
+		Иначе
+			_productItem = ВетисDictionaryСлой1с.ProductItem(_СтрокаСЖ.Номенклатура, _СтрокаСЖ.ПроизводительПредприятие);//Структура
+		КонецЕсли;
 		
-		_productItem = ВетисDictionaryСлой1с.ProductItem(_СтрокаСЖ.Номенклатура, _СтрокаСЖ.ПроизводительПредприятие);//Структура
-		_subProduct  = ВетисDictionaryСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
-		_product     = "";
-		_productType = ВетисКонстанты.ProductType_МясоИМясопродукты();
-		
-		Если ЗначениеЗаполнено(_productItem.guid) Тогда
-			_productItem = ВетисProductService_2_0.GetProductItemByGuid(_productItem.guid);//ОбъектXDTO
+		Если ЗначениеЗаполнено(_строкаСЖ.SubProductGuid) Тогда
+			_subProduct = ВетисDictionary_2_0.SubProduct(_строкаСЖ.SubProductGuid);
+		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.НоменклатурнаяГруппа) Тогда
+			_subProduct = ВетисDictionaryСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
+		ИначеЕсли ЗначениеЗаполнено(_productItem.guid) Тогда
+			_productItem = ВетисProductService_2_0.GetProductItemByGuid(_productItem.guid);
 			_subProduct  = _productItem.subProduct;
 			_product     = _productItem.product;
 			_productType = _productItem.productType;
-			
-		ИначеЕсли НЕ ПустаяСтрока(_subProduct) Тогда
-			_subProduct  = ВетисProductService_2_0.GetSubProductByGuid(_subProduct);
-			_product     = ВетисProductService_2_0.GetProductByGuid(_subProduct.productGuid);
-			_productType = _product.productType;
-			_productItem.name = ?(ЗначениеЗаполнено(_productItem.name), _productItem.name, _subProduct.name);
-			
 		Иначе
 			//не заполнены ключевые поля, выходим
 			Возврат Неопределено;
 		КонецЕсли;
 		
+		Если НЕ _product = Неопределено Тогда
+			//пропускаем
+		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.ProductGuid) Тогда
+			_product = ВетисDictionary_2_0.Product(_строкаСЖ.ProductGuid);
+		Иначе
+			_subProduct  = ВетисProductService_2_0.GetSubProductByGuid(_subProduct);
+			_product = ВетисDictionary_2_0.Product(_subProduct.productGuid);
+		КонецЕсли;
+		
+		Если НЕ _productType = Неопределено Тогда
+			//пропускаем
+		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.ProductType) Тогда
+			_productType = _строкаСЖ.ProductType;
+		Иначе
+			_product     = ВетисProductService_2_0.GetProductByGuid(_product.guid);
+			_productType = _product.productType;
+		КонецЕсли;
+		
 		_batch.productType      = _productType;
 		_batch.product          = ВетисDictionary_2_0.Product(_product.guid);
 		_batch.subProduct       = ВетисDictionary_2_0.SubProduct(_subProduct.guid);
-		//_batch.productItem      = ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name);
+		
+		Если ЗначениеЗаполнено(_productItem.guid) ИЛИ ЗначениеЗаполнено(_productItem.name) Тогда
+			//MERC13098 - Наименование продукции в ветеринарно-сопроводительном документе обязательно для заполнения.
+			_batch.productItem = ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name);
+		КонецЕсли;
+		
 		_batch.volume           = _СтрокаСЖ.Количество;
 		_batch.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
 		
@@ -795,11 +854,6 @@
 		_batch.perishable       = _СтрокаСЖ.Скоропортящаяся;
 		_batch.lowGradeCargo    = _СтрокаСЖ.НекачественныйГруз;
 		_batch.owner            = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_строкаСЖ.Собственник));
-		
-		//MERC13098 - Наименование продукции в ветеринарно-сопроводительном документе обязательно для заполнения.
-		Если ЗначениеЗаполнено(_productItem.guid) ИЛИ ЗначениеЗаполнено(_productItem.name) Тогда
-			_batch.productItem = ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name);
-		КонецЕсли;
 		
 		//MERC13265 - В ветеринарно-сопроводительном документе должен быть указан хотя бы один производитель продукции.
 		//MERC13219 - Страна происхождения продукции в ветеринарно-сопроводительном документе обязательна для заполнения.

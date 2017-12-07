@@ -1,11 +1,11 @@
 ﻿
 // тип, описывающий параметры запрашиваемого у сервиса списка объектов
-Функция ListOptions(count = 200, offset = 0) Экспорт
+Функция ListOptions(count = Неопределено, offset = Неопределено) Экспорт
 	
 	_Объект = Создать("ListOptions");
 	
-	_Объект.count = count;
-	_Объект.offset = offset;
+	_Объект.count = ?(count = Неопределено, 200, count);
+	_Объект.offset = ?(offset = Неопределено, 0, offset);
 	
 	Возврат _Объект;
 	
@@ -58,10 +58,13 @@
 	
 КонецФункции
 
-Функция URI() Экспорт
+Функция ServiceURI() Экспорт
 	
-	//пространство имен осталось прежним
-	//http://api.vetrf.ru/schema/platform/services/2.0-RC-last/base_v1.1.xsd
+	Возврат "http://api.vetrf.ru/schema/cdm/base/ws-definitions";
+	
+КонецФункции
+
+Функция URI() Экспорт
 	
 	Возврат "http://api.vetrf.ru/schema/cdm/base";
 	

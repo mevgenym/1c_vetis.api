@@ -563,6 +563,21 @@
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="СписокВетисКонтекстноеМеню" id="2">
 								<ChildItems>
+									<ButtonGroup name="СписокВетисКонтекстноеМенюГруппаКнопок" id="297">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Список ветис контекстное меню группа кнопок</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Список ветис контекстное меню группа кнопок</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="СписокВетисКонтекстноеМенюГруппаКнопокРасширеннаяПодсказка" id="298"/>
+									</ButtonGroup>
 									<Button name="СписокВетисКонтекстноеМенюКомандаСоздатьСвязь" id="213">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаСоздатьСвязь</CommandName>
@@ -593,21 +608,38 @@
 										<CommandName>Form.Command.КомандаНайти</CommandName>
 										<ExtendedTooltip name="СписокВетисКомандаНайтиРасширеннаяПодсказка" id="184"/>
 									</Button>
-									<Button name="СписокВетисКомандаДобавить" id="238">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаДобавитьИзСервиса</CommandName>
-										<ExtendedTooltip name="СписокВетисКомандаДобавитьРасширеннаяПодсказка" id="239"/>
-									</Button>
-									<Button name="СписокВетисКомандаЗаполнить" id="240">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
-										<ExtendedTooltip name="СписокВетисКомандаЗаполнитьРасширеннаяПодсказка" id="241"/>
-									</Button>
-									<Button name="СписокВетисКомандаСопоставитьАвтоматически" id="277">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаСопоставитьАвтоматически</CommandName>
-										<ExtendedTooltip name="СписокВетисКомандаСопоставитьАвтоматическиРасширеннаяПодсказка" id="278"/>
-									</Button>
+									<ButtonGroup name="СписокВетисГруппаКнопок" id="295">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Список ветис группа кнопок</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Список ветис группа кнопок</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="СписокВетисГруппаКнопокРасширеннаяПодсказка" id="296"/>
+										<ChildItems>
+											<Button name="СписокВетисКомандаДобавить" id="238">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.КомандаДобавитьИзСервиса</CommandName>
+												<ExtendedTooltip name="СписокВетисКомандаДобавитьРасширеннаяПодсказка" id="239"/>
+											</Button>
+											<Button name="СписокВетисКомандаЗаполнить" id="240">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.КомандаЗаполнитьИзСервиса</CommandName>
+												<ExtendedTooltip name="СписокВетисКомандаЗаполнитьРасширеннаяПодсказка" id="241"/>
+											</Button>
+											<Button name="СписокВетисКомандаСопоставитьАвтоматически" id="277">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.КомандаСопоставитьАвтоматически</CommandName>
+												<ExtendedTooltip name="СписокВетисКомандаСопоставитьАвтоматическиРасширеннаяПодсказка" id="278"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокВетисРасширеннаяПодсказка" id="4"/>
@@ -679,6 +711,12 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="285"/>
 													<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="286"/>
+												</InputField>
+												<InputField name="СписокВетисlink" id="299">
+													<DataPath>СписокВетис.link</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="СписокВетисlinkКонтекстноеМеню" id="300"/>
+													<ExtendedTooltip name="СписокВетисlinkРасширеннаяПодсказка" id="301"/>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
@@ -922,7 +960,7 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>xs:boolean</v8:Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 					</Type>
 				</Column>
 			</Columns>
@@ -1029,7 +1067,7 @@
 			<Type>
 				<v8:Type>xs:string</v8:Type>
 				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
+					<v8:Length>36</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
@@ -1299,6 +1337,17 @@
 				<Field>ОтборGLN</Field>
 			</Save>
 		</Attribute>
+		<Attribute name="ВыборОнлайн" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбор онлайн</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -1345,12 +1394,14 @@
 					<dcsset:item>
 						<dcsset:field>СписокВетисguid</dcsset:field>
 					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВетисlink</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
 						<dcsset:left xsi:type="dcscor:Field">СписокВетис.link</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
 					</dcsset:item>
 				</dcsset:filter>
 				<dcsset:appearance>

@@ -176,6 +176,20 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаОтправительРасширеннаяПодсказка" id="154"/>
 									<ChildItems>
+										<LabelDecoration name="ОтправительСопоставить" id="779">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отправитель сопоставить</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ОтправительСопоставитьКонтекстноеМеню" id="780"/>
+											<ExtendedTooltip name="ОтправительСопоставитьРасширеннаяПодсказка" id="781"/>
+											<Events>
+												<Event name="Click">СопоставитьНажатие</Event>
+											</Events>
+										</LabelDecoration>
 										<InputField name="Отправитель" id="155">
 											<DataPath>Объект.Отправитель</DataPath>
 											<ContextMenu name="ОтправительКонтекстноеМеню" id="156"/>
@@ -184,6 +198,20 @@
 												<Event name="StartChoice">ОтправительНачалоВыбора</Event>
 											</Events>
 										</InputField>
+										<LabelDecoration name="ОтправительПредприятиеСопоставить" id="782">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Предприятие сопоставить</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ОтправительПредприятиеСопоставитьКонтекстноеМеню" id="783"/>
+											<ExtendedTooltip name="ОтправительПредприятиеСопоставитьРасширеннаяПодсказка" id="784"/>
+											<Events>
+												<Event name="Click">СопоставитьНажатие</Event>
+											</Events>
+										</LabelDecoration>
 										<InputField name="ОтправительПредприятие" id="158">
 											<DataPath>Объект.ОтправительПредприятие</DataPath>
 											<DropListButton>false</DropListButton>
@@ -234,6 +262,20 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаПолучательРасширеннаяПодсказка" id="162"/>
 									<ChildItems>
+										<LabelDecoration name="ПолучательСопоставить" id="785">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Получатель сопоставить</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ПолучательСопоставитьКонтекстноеМеню" id="786"/>
+											<ExtendedTooltip name="ПолучательСопоставитьРасширеннаяПодсказка" id="787"/>
+											<Events>
+												<Event name="Click">СопоставитьНажатие</Event>
+											</Events>
+										</LabelDecoration>
 										<InputField name="Получатель" id="163">
 											<DataPath>Объект.Получатель</DataPath>
 											<ContextMenu name="ПолучательКонтекстноеМеню" id="164"/>
@@ -242,6 +284,20 @@
 												<Event name="StartChoice">ПолучательНачалоВыбора</Event>
 											</Events>
 										</InputField>
+										<LabelDecoration name="ПолучательПредприятиеСопоставить" id="788">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Предприятие сопоставить</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ПолучательПредприятиеСопоставитьКонтекстноеМеню" id="789"/>
+											<ExtendedTooltip name="ПолучательПредприятиеСопоставитьРасширеннаяПодсказка" id="790"/>
+											<Events>
+												<Event name="Click">СопоставитьНажатие</Event>
+											</Events>
+										</LabelDecoration>
 										<InputField name="ПолучательПредприятие" id="166">
 											<DataPath>Объект.ПолучательПредприятие</DataPath>
 											<DropListButton>false</DropListButton>
@@ -326,6 +382,20 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаПродукцияКолонка1РасширеннаяПодсказка" id="196"/>
 									<ChildItems>
+										<LabelDecoration name="НоменклатураСопоставить" id="791">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Номенклатура сопоставить</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="НоменклатураСопоставитьКонтекстноеМеню" id="792"/>
+											<ExtendedTooltip name="НоменклатураСопоставитьРасширеннаяПодсказка" id="793"/>
+											<Events>
+												<Event name="Click">СопоставитьНажатие</Event>
+											</Events>
+										</LabelDecoration>
 										<InputField name="сжНоменклатура" id="199">
 											<DataPath>сжНоменклатура</DataPath>
 											<ContextMenu name="сжНоменклатураКонтекстноеМеню" id="200"/>
@@ -333,12 +403,6 @@
 											<Events>
 												<Event name="StartChoice">сжНоменклатураНачалоВыбора</Event>
 											</Events>
-										</InputField>
-										<InputField name="сжНоменклатурнаяГруппа" id="476">
-											<DataPath>сжНоменклатурнаяГруппа</DataPath>
-											<AutoMarkIncomplete>true</AutoMarkIncomplete>
-											<ContextMenu name="сжНоменклатурнаяГруппаКонтекстноеМеню" id="477"/>
-											<ExtendedTooltip name="сжНоменклатурнаяГруппаРасширеннаяПодсказка" id="478"/>
 										</InputField>
 										<InputField name="сжКоличество" id="202">
 											<DataPath>сжКоличество</DataPath>
@@ -352,10 +416,25 @@
 											<ExtendedTooltip name="сжКоличествоМестРасширеннаяПодсказка" id="207"/>
 										</InputField>
 										<PictureDecoration name="Декорация1" id="771">
+											<Visible>false</Visible>
 											<Height>1</Height>
 											<ContextMenu name="Декорация1КонтекстноеМеню" id="772"/>
 											<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="773"/>
 										</PictureDecoration>
+										<LabelDecoration name="ПроизводительПредприятиеСопоставить" id="797">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Производитель сопоставить</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ПроизводительПредприятиеСопоставитьКонтекстноеМеню" id="798"/>
+											<ExtendedTooltip name="ПроизводительПредприятиеСопоставитьРасширеннаяПодсказка" id="799"/>
+											<Events>
+												<Event name="Click">СопоставитьНажатие</Event>
+											</Events>
+										</LabelDecoration>
 										<InputField name="сжПроизводительПредприятие" id="439">
 											<DataPath>сжПроизводительПредприятие</DataPath>
 											<ChoiceParameterLinks>
@@ -371,6 +450,20 @@
 												<Event name="StartChoice">сжПроизводительПредприятиеНачалоВыбора</Event>
 											</Events>
 										</InputField>
+										<LabelDecoration name="СтранаПроисхожденияСопопставить" id="800">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Страна происхождения сопопставить</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="СтранаПроисхожденияСопопставитьКонтекстноеМеню" id="801"/>
+											<ExtendedTooltip name="СтранаПроисхожденияСопопставитьРасширеннаяПодсказка" id="802"/>
+											<Events>
+												<Event name="Click">СопоставитьНажатие</Event>
+											</Events>
+										</LabelDecoration>
 										<InputField name="сжСтранаПроисхождения" id="354">
 											<DataPath>сжСтранаПроисхождения</DataPath>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -412,8 +505,29 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаПродукцияКолонка2РасширеннаяПодсказка" id="198"/>
 									<ChildItems>
+										<LabelDecoration name="НоменклатурнаяГруппаСопоставить" id="794">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Номенклатурная группа сопоставить</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="НоменклатурнаяГруппаСопоставитьКонтекстноеМеню" id="795"/>
+											<ExtendedTooltip name="НоменклатурнаяГруппаСопоставитьРасширеннаяПодсказка" id="796"/>
+											<Events>
+												<Event name="Click">СопоставитьНажатие</Event>
+											</Events>
+										</LabelDecoration>
+										<InputField name="сжНоменклатурнаяГруппа" id="476">
+											<DataPath>сжНоменклатурнаяГруппа</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="сжНоменклатурнаяГруппаКонтекстноеМеню" id="477"/>
+											<ExtendedTooltip name="сжНоменклатурнаяГруппаРасширеннаяПодсказка" id="478"/>
+										</InputField>
 										<InputField name="сжProductItemName" id="468">
 											<DataPath>сжProductItemName</DataPath>
+											<Visible>false</Visible>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="сжProductItemNameКонтекстноеМеню" id="469"/>
 											<ExtendedTooltip name="сжProductItemNameРасширеннаяПодсказка" id="470"/>
@@ -423,6 +537,7 @@
 										</InputField>
 										<InputField name="сжSubProductName" id="471">
 											<DataPath>сжSubProductName</DataPath>
+											<Visible>false</Visible>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="сжSubProductNameКонтекстноеМеню" id="472"/>
 											<ExtendedTooltip name="сжSubProductNameРасширеннаяПодсказка" id="473"/>
@@ -565,6 +680,11 @@
 								<ContextMenu name="УпаковкаУправлениеПоискомКонтекстноеМеню" id="555"/>
 								<ExtendedTooltip name="УпаковкаУправлениеПоискомРасширеннаяПодсказка" id="556"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeDeleteRow">УпаковкаПередУдалением</Event>
+								<Event name="OnActivateRow">УпаковкаПриАктивизацииСтроки</Event>
+								<Event name="OnStartEdit">УпаковкаПриНачалеРедактирования</Event>
+							</Events>
 							<ChildItems>
 								<LabelField name="УпаковкаНомерСтроки" id="557">
 									<DataPath>Объект.Упаковка.LineNumber</DataPath>
@@ -625,6 +745,10 @@
 								<ContextMenu name="МаркировкаУправлениеПоискомКонтекстноеМеню" id="757"/>
 								<ExtendedTooltip name="МаркировкаУправлениеПоискомРасширеннаяПодсказка" id="758"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">МаркировкаПередНачаломДобавления</Event>
+								<Event name="OnStartEdit">МаркировкаПриНачалеРедактирования</Event>
+							</Events>
 							<ChildItems>
 								<LabelField name="МаркировкаНомерСтроки" id="759">
 									<DataPath>Объект.Маркировка.LineNumber</DataPath>
@@ -1405,7 +1529,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
+				<v8:Type>cfg:CatalogRef.ЕдиницыИзмерения</v8:Type>
 			</Type>
 		</Attribute>
 		<Attribute name="сжУпаковка" id="4">
@@ -1911,6 +2035,47 @@
 				<v8:Type>xs:string</v8:Type>
 				<v8:StringQualifiers>
 					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыборОнлайн" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбор онлайн</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="сжСтранаПроисхожденияGuid" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сж страна происхождения guid</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="сжПроизводительПредприятиеGuid" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сж производитель предприятие guid</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>

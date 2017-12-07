@@ -94,19 +94,13 @@
 	
 КонецФункции
 
-Функция ServiceURI()
-	
-	//пространство имен осталось прежним
-	//http://api.vetrf.ru/schema/platform/services/2.0-RC-last/application_ws_definitions_v1.1.xsd
+Функция ServiceURI() Экспорт
 	
 	Возврат "http://api.vetrf.ru/schema/cdm/application/ws-definitions";
 	
 КонецФункции
 
 Функция URI() Экспорт
-	
-	//пространство имен осталось прежним
-	//http://api.vetrf.ru/schema/platform/services/2.0-RC-last/application_v1.1.xsd
 	
 	Возврат "http://api.vetrf.ru/schema/cdm/application";
 	

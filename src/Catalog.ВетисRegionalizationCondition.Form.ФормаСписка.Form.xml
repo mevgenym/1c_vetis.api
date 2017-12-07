@@ -9,6 +9,9 @@
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
 			<Title>
@@ -98,6 +101,11 @@
 					<ContextMenu name="ЗаболеваниеКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ЗаболеваниеРасширеннаяПодсказка" id="30"/>
 				</LabelField>
+				<LabelField name="guid" id="36">
+					<DataPath>Список.guid</DataPath>
+					<ContextMenu name="guidКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="38"/>
+				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -108,8 +116,20 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	_Таблица.Ссылка,
+	_Таблица.Наименование,
+	_Таблица.НомерУсловия,
+	_Таблица.ФормулировкаУсловия,
+	_Таблица.Обязательность,
+	_Таблица.Заболевание,
+	_Соответствие.guid
+ИЗ
+	Справочник.ВетисRegionalizationCondition КАК _Таблица
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Соответствие
+		ПО _Таблица.Ссылка = _Соответствие.Ссылка</QueryText>
 				<MainTable>Catalog.ВетисRegionalizationCondition</MainTable>
 				<ListSettings>
 					<dcsset:filter>

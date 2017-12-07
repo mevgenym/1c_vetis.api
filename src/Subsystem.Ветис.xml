@@ -115,7 +115,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисAnimalDisease</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисEnterpriseActivity</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисRussianEnterpriseList</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисИмяСправочника</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисМногоуровневаяУпаковка</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

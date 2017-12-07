@@ -94,7 +94,7 @@
 	
 КонецФункции
 
-Функция ServiceURI()
+Функция ServiceURI() Экспорт
 	
 	Возврат "http://api.vetrf.ru/schema/cdm/application/ws-definitions";
 	

@@ -133,7 +133,7 @@
 		<ChildObjects>
 			<Language>Русский</Language>
 			<Subsystem>Ветис</Subsystem>
-			<Subsystem>ВетисКоманды</Subsystem>
+			<Subsystem>ВетисИсключения</Subsystem>
 			<SessionParameter>ВетисПеременные</SessionParameter>
 			<Role>ВетисАдминистратор</Role>
 			<Role>ВетисОператор</Role>
@@ -231,6 +231,7 @@
 			<Catalog>ВетисRegionalizationCondition</Catalog>
 			<Catalog>ВетисTransport</Catalog>
 			<Catalog>ВетисПредприятия</Catalog>
+			<Catalog>ЕдиницыИзмерения</Catalog>
 			<Catalog>КлассификаторЕдиницИзмерения</Catalog>
 			<Catalog>КлассификаторСтранМира</Catalog>
 			<Catalog>Контрагенты</Catalog>
@@ -268,6 +269,7 @@
 			<InformationRegister>ВетисRussianEnterpriseList</InformationRegister>
 			<InformationRegister>ВетисАдреса</InformationRegister>
 			<InformationRegister>ВетисЖурнал</InformationRegister>
+			<InformationRegister>ВетисМногоуровневаяУпаковка</InformationRegister>
 			<InformationRegister>ВетисНастройкиХС</InformationRegister>
 			<InformationRegister>ВетисПользователи</InformationRegister>
 			<InformationRegister>ВетисПредопределенные</InformationRegister>

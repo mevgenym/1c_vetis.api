@@ -1241,8 +1241,8 @@
 	// создаем врем. фабрику на основе пакетов из конфиги и web сервиса
 	// нам нужны 2 пакета из ws, но пакет с application нужен локальный
 	_URI = Новый Массив;  
-	_URI.Добавить("http://api.vetrf.ru/schema/cdm/application/ws-definitions");  
-	_URI.Добавить("http://api.vetrf.ru/schema/cdm/base/ws-definitions");  
+	_URI.Добавить(ВетисApplication_2_0.ServiceURI());
+	_URI.Добавить(ВетисBase_2_0.ServiceURI());
 	
 	_ФабрикаWS = Новый ФабрикаXDTO(_Определения.ФабрикаXDTO.ЭкспортМоделиXDTO(_URI), _ФабрикаXDTO.Пакеты);  
 	

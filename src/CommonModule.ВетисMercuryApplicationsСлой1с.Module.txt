@@ -75,7 +75,7 @@
 		_delivery = ВетисMercuryVetdocument_2_0.Delivery(
 			ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
-			ПолучитьConsignment_20(_всд.Товары[0], _всд.Упаковка, _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
+			ПолучитьConsignment_20(_всд.Товары[0], _всд.Упаковка, _всд.Маркировка, _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
 			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill_20(_ттн), ПолучитьVetDocument_20(_всд)),
 			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),
 			ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.Транспорт),
@@ -144,7 +144,7 @@
 			_returnedDelivery = ВетисMercuryVetdocument_2_0.Delivery(
 				ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
 				ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
-				ПолучитьConsignment_20(_всд.Товары[0], _всд.Упаковка, _СтрокаСЖ.КоличествоВозврат, _СтрокаСЖ.КоличествоМестВозврат),
+				ПолучитьConsignment_20(_всд.Товары[0], _всд.Упаковка, _всд.Маркировка, _СтрокаСЖ.КоличествоВозврат, _СтрокаСЖ.КоличествоМестВозврат),
 				ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill_20(_ттн, Истина, _ВозвратДата), ПолучитьVetDocument_20(_всд, Истина, _ВозвратДата)),
 				ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),//пока тот же который привез
 				ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.Транспорт),//пока тот же который привез
@@ -652,11 +652,11 @@
 	
 КонецФункции
 
-Функция ПолучитьConsignment_20(пСтрокаСЖ, пУпаковка, пКоличество = Неопределено, пКоличествоМест = Неопределено, пSourceStockEntry = Неопределено)
+Функция ПолучитьConsignment_20(пСтрокаСЖ, пУпаковка, пМаркировка, пКоличество = Неопределено, пКоличествоМест = Неопределено, пSourceStockEntry = Неопределено)
 	
 	_Consignment = ВетисMercuryVetdocument_2_0.Consignment();
 	
-	ВетисMercuryVetdocumentСлой1с.BatchКонвертировать_20(_Consignment, пСтрокаСЖ, пУпаковка);
+	ВетисMercuryVetdocumentСлой1с.BatchКонвертировать_20(_Consignment, пСтрокаСЖ, пУпаковка, пМаркировка);
 	
 	_Consignment.volume = ?(пКоличество = Неопределено, пСтрокаСЖ.Количество, пКоличество);
 	

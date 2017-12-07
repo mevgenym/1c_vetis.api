@@ -742,6 +742,13 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисМногоуровневаяУпаковка</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>InformationRegister.ВетисНастройкиХС</name>
 		<right>
 			<name>Read</name>

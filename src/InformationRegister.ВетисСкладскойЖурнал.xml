@@ -2,37 +2,37 @@
 <MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<InformationRegister uuid="35056cee-cf80-4163-bd09-f643a8c2df7d">
 		<InternalInfo>
-			<xr:GeneratedType name="InformationRegisterRecord.ВетисСкладскойЖурналРС" category="Record">
+			<xr:GeneratedType name="InformationRegisterRecord.ВетисСкладскойЖурнал" category="Record">
 				<xr:TypeId>4ab86e2b-766f-409c-974d-64a977ff0986</xr:TypeId>
 				<xr:ValueId>bd3c9543-fb6a-4746-b905-86b79c449374</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterManager.ВетисСкладскойЖурналРС" category="Manager">
+			<xr:GeneratedType name="InformationRegisterManager.ВетисСкладскойЖурнал" category="Manager">
 				<xr:TypeId>b261a3c1-b436-434c-b908-5f022e9aa485</xr:TypeId>
 				<xr:ValueId>73d50019-53ae-4d45-a6c4-d94a9f1ddfb2</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterSelection.ВетисСкладскойЖурналРС" category="Selection">
+			<xr:GeneratedType name="InformationRegisterSelection.ВетисСкладскойЖурнал" category="Selection">
 				<xr:TypeId>e6ee64fe-f0cc-4332-a86d-4d90a011cac3</xr:TypeId>
 				<xr:ValueId>8ce317ef-4ed0-4f08-afa7-a960335b4f20</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterList.ВетисСкладскойЖурналРС" category="List">
+			<xr:GeneratedType name="InformationRegisterList.ВетисСкладскойЖурнал" category="List">
 				<xr:TypeId>1d316f9e-3ef1-45a2-bdc4-cb313e5cdd56</xr:TypeId>
 				<xr:ValueId>1b1796a0-1b19-45f5-9de8-9eb4cc14710d</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterRecordSet.ВетисСкладскойЖурналРС" category="RecordSet">
+			<xr:GeneratedType name="InformationRegisterRecordSet.ВетисСкладскойЖурнал" category="RecordSet">
 				<xr:TypeId>45868373-6a65-478c-980f-2c230c1008b1</xr:TypeId>
 				<xr:ValueId>6a602285-2704-4ece-bf48-b9ea63244e77</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterRecordKey.ВетисСкладскойЖурналРС" category="RecordKey">
+			<xr:GeneratedType name="InformationRegisterRecordKey.ВетисСкладскойЖурнал" category="RecordKey">
 				<xr:TypeId>c4342d69-0501-4666-83cb-a7a4910ac34f</xr:TypeId>
 				<xr:ValueId>783cc97c-c6fb-4d5a-8128-543b0ed33359</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterRecordManager.ВетисСкладскойЖурналРС" category="RecordManager">
+			<xr:GeneratedType name="InformationRegisterRecordManager.ВетисСкладскойЖурнал" category="RecordManager">
 				<xr:TypeId>89727569-f565-4df6-bf16-b5e37b1ee02b</xr:TypeId>
 				<xr:ValueId>1b5e8f3d-be24-4f82-b933-47872171be98</xr:ValueId>
 			</xr:GeneratedType>
 		</InternalInfo>
 		<Properties>
-			<Name>ВетисСкладскойЖурналРС</Name>
+			<Name>ВетисСкладскойЖурнал</Name>
 			<Synonym>
 				<v8:item>
 					<v8:lang>ru</v8:lang>

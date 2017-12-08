@@ -72,11 +72,25 @@
 	_ПолучательПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.ПолучательПредприятие);
 	
 	Если _Версия20 Тогда
+		_Consignment = ПолучитьConsignment_20(_всд.Товары[0], _всд.Упаковка, _всд.Маркировка, _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест);
+		_Waybill = ПолучитьWaybill_20(_ттн);
+		_VetDocument = ПолучитьVetDocument_20(_всд,,, пОтказ, пОшибка);
+	Иначе
+		_Consignment = ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест);
+		_Waybill = ПолучитьWaybill(_ттн);
+		_VetDocument = ПолучитьVetDocument(_всд);
+	КонецЕсли;
+	
+	Если пОтказ = Истина Тогда
+		Возврат;
+	КонецЕсли;
+	
+	Если _Версия20 Тогда
 		_delivery = ВетисMercuryVetdocument_2_0.Delivery(
 			ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
-			ПолучитьConsignment_20(_всд.Товары[0], _всд.Упаковка, _всд.Маркировка, _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
-			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill_20(_ттн), ПолучитьVetDocument_20(_всд)),
+			_Consignment,
+			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(_Waybill, _VetDocument),
 			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),
 			ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.Транспорт),
 			ВетисDictionaryСлой1с.TransportationStorageType(_ттн.СпособХранения));
@@ -84,8 +98,8 @@
 		_delivery = ВетисMercuryVetdocument.Delivery(
 			_ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			_ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
-			ПолучитьConsignment(_всд.Товары[0], _СтрокаСЖ.Количество, _СтрокаСЖ.КоличествоМест),
-			_ВетисMercuryVetdocument.ConsignmentDocumentList(ПолучитьWaybill(_ттн), ПолучитьVetDocument(_всд)));
+			_Consignment,
+			_ВетисMercuryVetdocument.ConsignmentDocumentList(_Waybill, _VetDocument));
 	КонецЕсли;
 	
 	_всдСтрокаСЖ = _всд.Товары[0];
@@ -145,7 +159,7 @@
 				ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
 				ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
 				ПолучитьConsignment_20(_всд.Товары[0], _всд.Упаковка, _всд.Маркировка, _СтрокаСЖ.КоличествоВозврат, _СтрокаСЖ.КоличествоМестВозврат),
-				ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill_20(_ттн, Истина, _ВозвратДата), ПолучитьVetDocument_20(_всд, Истина, _ВозвратДата)),
+				ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill_20(_ттн, Истина, _ВозвратДата), ПолучитьVetDocument_20(_всд, Истина, _ВозвратДата, пОтказ, пОшибка)),
 				ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),//пока тот же который привез
 				ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.Транспорт),//пока тот же который привез
 				ВетисDictionaryСлой1с.TransportationStorageType(_ттн.СпособХранения)//пока тот же который привез
@@ -660,8 +674,11 @@
 	
 	_Consignment.volume = ?(пКоличество = Неопределено, пСтрокаСЖ.Количество, пКоличество);
 	
-	Если ЗначениеЗаполнено(пСтрокаСЖ.Упаковка) И НЕ пКоличествоМест = Неопределено Тогда
-		ВетисDictionaryСлой1с.PackageList(_Consignment.packageList).quantity = пКоличествоМест;
+	//сделать: надо подумать что с многоуровневой делать
+	Если НЕ Ветис.Настройки_МногоуровневаяУпаковка() Тогда
+		Если ЗначениеЗаполнено(пСтрокаСЖ.Упаковка) И НЕ пКоличествоМест = Неопределено Тогда
+			ВетисDictionaryСлой1с.PackageList(_Consignment.packageList).quantity = пКоличествоМест;
+		КонецЕсли;
 	КонецЕсли;
 	
 	Возврат _Consignment;
@@ -694,14 +711,14 @@
 	
 КонецФункции
 
-Функция ПолучитьVetDocument_20(пВСД, пВозврат = Ложь, пВозвратДата = Неопределено)
+Функция ПолучитьVetDocument_20(пВСД, пВозврат = Ложь, пВозвратДата = Неопределено, пОтказ = Ложь, пОшибка = "")
 	
 	_VetDocument = ВетисMercuryVetdocument_2_0.VetDocument();
 	
 	Если ЗначениеЗаполнено(пВСД.uuid) Тогда
 		_VetDocument.uuid = пВСД.uuid;
 	ИначеЕсли пВозврат = Ложь Тогда
-		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_VetDocument, пВСД);
+		ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_VetDocument, пВСД, пОтказ, пОшибка);
 	Иначе
 		_СтрокаВСД = пВСД.РезультатыОсмотра[0];
 		_VetDocument.issueDate      = пВозвратДата;

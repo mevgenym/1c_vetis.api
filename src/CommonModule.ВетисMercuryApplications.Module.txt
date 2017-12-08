@@ -37,7 +37,6 @@
 //Получение актуального списка записей складского журнала.
 //Параметры:
 // enterpriseGuid - Идентификатор предприятия
-// count - Максимальное запрашиваемое количество объектов в списке
 Функция getStockEntryListRequest(enterpriseGuid) Экспорт
 	
 	_Объект = Создать("getStockEntryListRequest");
@@ -127,7 +126,7 @@
 	
 КонецФункции
 
-Функция getStockEntryChangesListСледующий(enterpriseGuid, issuerId = Неопределено, beginDate, endDate = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция getStockEntryChangesListСледующий(enterpriseGuid, beginDate, endDate = Неопределено, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если пПараметры = Неопределено Тогда
 		пПараметры = Новый Структура;

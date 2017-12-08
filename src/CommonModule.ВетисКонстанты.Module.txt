@@ -841,6 +841,19 @@
 КонецФункции
 
 
+Функция StockEntryBlankFilter_ALL() Экспорт
+	
+	Возврат "ALL";
+	
+КонецФункции
+
+Функция StockEntryBlankFilter_NOT_BLANK() Экспорт
+	
+	Возврат "NOT_BLANK";
+	
+КонецФункции
+
+
 Функция UserAuthority_MERCURY_ACCESS_WEB_READ() Экспорт
 	
 	Возврат "MERCURY_ACCESS_WEB_READ";

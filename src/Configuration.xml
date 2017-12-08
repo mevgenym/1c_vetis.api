@@ -199,6 +199,7 @@
 			<CommonCommand>ВетисПредприятия</CommonCommand>
 			<CommonCommand>ВетисПредприятияХС</CommonCommand>
 			<CommonCommand>ВетисСкладскойЖурнал</CommonCommand>
+			<CommonCommand>ВетисСкладскойЖурналОстатки</CommonCommand>
 			<CommonCommand>ВетисСоответствие</CommonCommand>
 			<CommonCommand>ВетисТранспортнаяПартия</CommonCommand>
 			<CommonCommand>ВетисУстановкаСоответствияСправочников</CommonCommand>
@@ -243,6 +244,10 @@
 			<Document>ВетисВходящаяПартияПоДокументам</Document>
 			<Document>ВетисВходящаяПартияСводно</Document>
 			<Document>ВетисТранспортнаяПартия</Document>
+			<Document>ПоступлениеТоваровУслуг</Document>
+			<Document>ПриходныйОрдерНаТовары</Document>
+			<Document>РасходныйОрдерНаТовары</Document>
+			<Document>РеализацияТоваровУслуг</Document>
 			<Enum>ВетисBusinessEntityType</Enum>
 			<Enum>ВетисDeliveryDecision</Enum>
 			<Enum>ВетисDeliveryInspectionResult</Enum>
@@ -274,7 +279,8 @@
 			<InformationRegister>ВетисПользователи</InformationRegister>
 			<InformationRegister>ВетисПредопределенные</InformationRegister>
 			<InformationRegister>ВетисПредприятияХС</InformationRegister>
-			<InformationRegister>ВетисСкладскойЖурналРС</InformationRegister>
+			<InformationRegister>ВетисСкладскойЖурнал</InformationRegister>
+			<InformationRegister>ВетисСкладскойЖурналОстатки</InformationRegister>
 			<InformationRegister>ВетисСоответствие</InformationRegister>
 		</ChildObjects>
 	</Configuration>

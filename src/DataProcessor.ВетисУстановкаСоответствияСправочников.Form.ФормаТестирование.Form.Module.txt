@@ -79,7 +79,7 @@
 		_ДатаНачала = Дата(1,1,1);
 		
 		Попытка
-			Пока ВетисMercuryApplications_2_0.GetStockEntryChangesListСледующий(_enterpriseGuid, _businessEntityGuid, _ДатаНачала, , _Item, _параметры, _Отказ, _Ошибка) Цикл
+			Пока ВетисMercuryApplications_2_0.GetStockEntryChangesListСледующий(_enterpriseGuid, _ДатаНачала, , _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
 				Если _Отказ = Истина Тогда
 					Прервать; 
 				КонецЕсли;

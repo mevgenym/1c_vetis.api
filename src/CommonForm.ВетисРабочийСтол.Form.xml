@@ -278,12 +278,6 @@
 									<ContextMenu name="СписокВСДСерияВСДКонтекстноеМеню" id="37"/>
 									<ExtendedTooltip name="СписокВСДСерияВСДРасширеннаяПодсказка" id="38"/>
 								</LabelField>
-								<LabelField name="СписокВСДФорма" id="45">
-									<DataPath>СписокВСД.Форма</DataPath>
-									<Visible>false</Visible>
-									<ContextMenu name="СписокВСДФормаКонтекстноеМеню" id="46"/>
-									<ExtendedTooltip name="СписокВСДФормаРасширеннаяПодсказка" id="47"/>
-								</LabelField>
 								<LabelField name="СписокВСДОтправитель" id="30">
 									<DataPath>СписокВСД.Отправитель</DataPath>
 									<ContextMenu name="СписокВСДОтправительКонтекстноеМеню" id="31"/>
@@ -315,22 +309,15 @@
 									<ContextMenu name="СписокВСДКоличествоКонтекстноеМеню" id="252"/>
 									<ExtendedTooltip name="СписокВСДКоличествоРасширеннаяПодсказка" id="253"/>
 								</LabelField>
-								<LabelField name="СписокВСДТип" id="42">
-									<DataPath>СписокВСД.Тип</DataPath>
-									<Visible>false</Visible>
-									<ContextMenu name="СписокВСДТипКонтекстноеМеню" id="43"/>
-									<ExtendedTooltip name="СписокВСДТипРасширеннаяПодсказка" id="44"/>
-								</LabelField>
-								<LabelField name="СписокВСДСтатус" id="39">
-									<DataPath>СписокВСД.Статус</DataPath>
-									<Visible>false</Visible>
-									<ContextMenu name="СписокВСДСтатусКонтекстноеМеню" id="40"/>
-									<ExtendedTooltip name="СписокВСДСтатусРасширеннаяПодсказка" id="41"/>
-								</LabelField>
 								<LabelField name="СписокВСДuuid" id="343">
 									<DataPath>СписокВСД.uuid</DataPath>
 									<ContextMenu name="СписокВСДuuidКонтекстноеМеню" id="344"/>
 									<ExtendedTooltip name="СписокВСДuuidРасширеннаяПодсказка" id="345"/>
+								</LabelField>
+								<LabelField name="СписокВСДКомментарий" id="355">
+									<DataPath>СписокВСД.Комментарий</DataPath>
+									<ContextMenu name="СписокВСДКомментарийКонтекстноеМеню" id="356"/>
+									<ExtendedTooltip name="СписокВСДКомментарийРасширеннаяПодсказка" id="357"/>
 								</LabelField>
 							</ChildItems>
 						</Table>
@@ -1059,7 +1046,7 @@
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
-				<MainTable>InformationRegister.ВетисСкладскойЖурналРС</MainTable>
+				<MainTable>InformationRegister.ВетисСкладскойЖурнал</MainTable>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
@@ -1266,6 +1253,9 @@
 					<dcsset:item>
 						<dcsset:field>СписокВСДuuid</dcsset:field>
 					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДКомментарий</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -1314,6 +1304,9 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДuuid</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДКомментарий</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
@@ -1364,6 +1357,9 @@
 					<dcsset:item>
 						<dcsset:field>СписокВСДuuid</dcsset:field>
 					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДКомментарий</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -1407,6 +1403,9 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДuuid</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДКомментарий</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>

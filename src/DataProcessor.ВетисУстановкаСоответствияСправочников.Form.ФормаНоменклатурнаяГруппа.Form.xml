@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаКомандаГотово" id="53">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаГотово</CommandName>
+				<ExtendedTooltip name="ФормаКомандаГотовоРасширеннаяПодсказка" id="54"/>
+			</Button>
+			<Button name="ФормаКомандаНайти" id="27">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаНайти</CommandName>
+				<ExtendedTooltip name="ФормаКомандаНайтиРасширеннаяПодсказка" id="28"/>
+			</Button>
+			<Button name="ФормаКомандаДобавить" id="51">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаДобавить</CommandName>
+				<ExtendedTooltip name="ФормаКомандаДобавитьРасширеннаяПодсказка" id="52"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<RadioButtonField name="ВариантПоиска" id="29">
+			<DataPath>ВариантПоиска</DataPath>
+			<Visible>false</Visible>
+			<TitleLocation>None</TitleLocation>
+			<RadioButtonType>Auto</RadioButtonType>
+			<ContextMenu name="ВариантПоискаКонтекстноеМеню" id="30"/>
+			<ExtendedTooltip name="ВариантПоискаРасширеннаяПодсказка" id="31"/>
+		</RadioButtonField>
+		<UsualGroup name="Группа1" id="25">
+			<Representation>StrongSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="26"/>
+			<ChildItems>
+				<InputField name="Номенклатура" id="63">
+					<DataPath>НоменклатурнаяГруппа</DataPath>
+					<ContextMenu name="НоменклатураКонтекстноеМеню" id="64"/>
+					<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="65"/>
+					<Events>
+						<Event name="OnChange">НоменклатураПриИзменении</Event>
+					</Events>
+				</InputField>
+				<PictureDecoration name="ДекорацияЕстьСвязь1" id="60">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декорация есть связь1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть связь</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Hyperlink>true</Hyperlink>
+					<Picture>
+						<xr:Ref>StdPicture.Attribute</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="ДекорацияЕстьСвязь1КонтекстноеМеню" id="61"/>
+					<ExtendedTooltip name="ДекорацияЕстьСвязь1РасширеннаяПодсказка" id="62"/>
+					<Events>
+						<Event name="Click">ДекорацияЕстьСвязь1Нажатие</Event>
+					</Events>
+				</PictureDecoration>
+				<PictureDecoration name="ДекорацияЕстьСвязь0" id="57">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декорация есть связь0</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нет связи</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Hyperlink>true</Hyperlink>
+					<Picture>
+						<xr:Ref>StdPicture.SwitchActivity</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="ДекорацияЕстьСвязь0КонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="ДекорацияЕстьСвязь0РасширеннаяПодсказка" id="59"/>
+					<Events>
+						<Event name="Click">ДекорацияЕстьСвязь0Нажатие</Event>
+					</Events>
+				</PictureDecoration>
+				<InputField name="Guid" id="1">
+					<DataPath>Guid</DataPath>
+					<ContextMenu name="GuidКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="GuidРасширеннаяПодсказка" id="3"/>
+					<Events>
+						<Event name="OnChange">GuidПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа3" id="49">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="50"/>
+			<ChildItems>
+				<InputField name="Наименование" id="13">
+					<DataPath>Наименование</DataPath>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="15"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="69">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="70"/>
+			<ChildItems>
+				<InputField name="productType" id="74">
+					<DataPath>productType</DataPath>
+					<ContextMenu name="productTypeКонтекстноеМеню" id="75"/>
+					<ExtendedTooltip name="productTypeРасширеннаяПодсказка" id="76"/>
+				</InputField>
+				<InputField name="product" id="77">
+					<DataPath>product</DataPath>
+					<ContextMenu name="productКонтекстноеМеню" id="78"/>
+					<ExtendedTooltip name="productРасширеннаяПодсказка" id="79"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ВетисУстановкаСоответствияСправочников</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Guid" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>guid</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>Guid</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Наименование" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>150</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВариантПоиска" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант поиска</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ВариантПоиска</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ЕстьСвязь" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть связь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НоменклатурнаяГруппа" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатурная группа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Страна" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страна</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.КлассификаторСтранМира</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="productType" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Product type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВетисProductType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="product" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Product</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаНайти" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда найти</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаНайти</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="КомандаДобавить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда добавить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаДобавить</Action>
+		</Command>
+		<Command name="КомандаГотово" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Готово</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда готово</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаГотово</Action>
+		</Command>
+		<Command name="КомандаПривязать" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Привязать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда привязать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПривязать</Action>
+		</Command>
+	</Commands>
+</Form>

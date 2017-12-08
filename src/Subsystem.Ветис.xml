@@ -85,7 +85,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисTransport</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисProductMarkingClass</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисResearchResult</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСкладскойЖурналРС</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСкладскойЖурнал</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисRegionalizationService_2_0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисRegion</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисDistrict</xr:Item>
@@ -116,6 +116,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисEnterpriseActivity</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисRussianEnterpriseList</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисМногоуровневаяУпаковка</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСкладскойЖурналОстатки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСкладскойЖурналОстатки</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

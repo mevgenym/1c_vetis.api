@@ -472,6 +472,19 @@
 	
 КонецФункции
 
+//
+//Параметры:
+// blankFilter - Фильтр по объёму записи складского журнала. vd:StockEntryBlankFilter
+Функция StockEntrySearchPattern(blankFilter) Экспорт
+	
+	_Объект = Создать("StockEntrySearchPattern");
+	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, blankFilter, "blankFilter");
+	
+	Возврат _Объект;
+	
+КонецФункции
+
 Функция TransportInfo(transportType, transportNumber) Экспорт
 	
 	_Объект = Создать("TransportInfo");

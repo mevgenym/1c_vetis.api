@@ -433,7 +433,7 @@
 	
 КонецФункции
 
-Функция VetDocumentКонвертировать_20(value1, value2, пОшибка = Ложь) Экспорт
+Функция VetDocumentКонвертировать_20(value1, value2, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_ЛабораторныеИсследования = Ветис.Настройки_ЛабораторныеИсследования();
 	_Мероприятия              = Ветис.Настройки_Мероприятия();
@@ -606,7 +606,7 @@
 		
 		_строкаСЖ.НоменклатурнаяГруппа = ВетисArgusProductionСлой1с.SubProduct(_batch.subProduct);
 		_строкаСЖ.Количество           = _batch.volume;
-		_строкаСЖ.ЕдиницаИзмерения     = ВетисArgusCommonСлой1с.Unit(_batch.unit);
+		_строкаСЖ.ЕдиницаПоКлассификатору = ВетисArgusCommonСлой1с.Unit(_batch.unit);
 		_строкаСЖ.ДатаВыработкиНачало  = ВетисBase.ComplexDate(_batch.dateOfProduction.firstDate);
 		_строкаСЖ.ДатаВыработкиКонец   = ВетисBase.ComplexDate(_batch.dateOfProduction.secondDate);
 		_строкаСЖ.СрокГодностиНачало   = ВетисBase.ComplexDate(_batch.expiryDate.firstDate);
@@ -680,7 +680,7 @@
 		КонецЕсли;
 		
 		_batch.volume           = _СтрокаСЖ.Количество;
-		_batch.unit             = ВетисArgusCommon.Unit(ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
+		_batch.unit             = ВетисArgusCommon.Unit(ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаПоКлассификатору));
 		_batch.dateOfProduction = ВетисMercuryVetdocument.GoodsDate(_СтрокаСЖ.ДатаВыработкиНачало, _СтрокаСЖ.ДатаВыработкиКонец, _СтрокаСЖ.Скоропортящаяся);
 		_batch.expiryDate       = ВетисMercuryVetdocument.GoodsDate(_СтрокаСЖ.СрокГодностиНачало, _СтрокаСЖ.СрокГодностиКонец, _СтрокаСЖ.Скоропортящаяся);
 		_batch.perishable       = _СтрокаСЖ.Скоропортящаяся;
@@ -698,7 +698,7 @@
 	
 КонецФункции
 
-Функция BatchКонвертировать_20(value1, value2, пУпаковка, пМаркировка, пОшибка = Ложь) Экспорт
+Функция BatchКонвертировать_20(value1, value2, пУпаковка, пМаркировка, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_МногоуровневаяУпаковка = Ветис.Настройки_МногоуровневаяУпаковка();
 	_УровеньУпаковки        = Ветис.Настройки_УровеньУпаковки();
@@ -720,7 +720,7 @@
 		
 		_строкаСЖ.НоменклатурнаяГруппа = ВетисDictionaryСлой1с.SubProduct(_batch.subProduct);
 		_строкаСЖ.Количество           = _batch.volume;
-		_строкаСЖ.ЕдиницаИзмерения     = ВетисDictionaryСлой1с.Unit(_batch.unit);
+		_строкаСЖ.ЕдиницаПоКлассификатору = ВетисDictionaryСлой1с.Unit(_batch.unit);
 		_строкаСЖ.ДатаВыработкиНачало  = ВетисDictionary_2_0.ComplexDate(_batch.dateOfProduction.firstDate, Истина);
 		_строкаСЖ.ДатаВыработкиКонец   = ВетисDictionary_2_0.ComplexDate(_batch.dateOfProduction.secondDate, Истина);
 		_строкаСЖ.СрокГодностиНачало   = ВетисDictionary_2_0.ComplexDate(_batch.expiryDate.firstDate, Истина);
@@ -801,7 +801,7 @@
 			_subProduct = ВетисDictionary_2_0.SubProduct(_строкаСЖ.SubProductGuid);
 		ИначеЕсли ЗначениеЗаполнено(_строкаСЖ.НоменклатурнаяГруппа) Тогда
 			_subProduct = ВетисDictionaryСлой1с.SubProduct(_СтрокаСЖ.НоменклатурнаяГруппа);
-			_subProduct = ?(_subProduct = Неопределено, Неопределено, ВетисDictionary_2_0.SubProduct(_subProduct));
+			_subProduct = ?(_subProduct = Неопределено, Неопределено, ВетисDictionary_2_0.SubProduct(_subProduct, _СтрокаСЖ.НоменклатурнаяГруппа.Наименование));
 		КонецЕсли;
 		
 		Если _subProduct = Неопределено И ЗначениеЗаполнено(_productItem.guid) Тогда
@@ -809,8 +809,12 @@
 			_subProduct  = _productItem.subProduct;
 			_product     = _productItem.product;
 			_productType = _productItem.productType;
+		ИначеЕсли НЕ _subProduct = Неопределено Тогда
+			//достаточно
 		Иначе
 			//не заполнены ключевые поля, выходим
+			пОтказ = Истина;
+			пОшибка = "Не выбрана номенклатура";
 			Возврат Неопределено;
 		КонецЕсли;
 		
@@ -820,6 +824,7 @@
 			_product = ВетисDictionary_2_0.Product(_строкаСЖ.ProductGuid);
 		Иначе
 			_subProduct  = ВетисProductService_2_0.GetSubProductByGuid(_subProduct.guid);
+			_productItem.name = ?(ЗначениеЗаполнено(_productItem.name), _productItem.name, _subProduct.name);
 			_product = ВетисDictionary_2_0.Product(_subProduct.productGuid);
 		КонецЕсли;
 		
@@ -832,17 +837,28 @@
 			_productType = _product.productType;
 		КонецЕсли;
 		
+		Если НЕ ЗначениеЗаполнено(_productItem.name) И НЕ ЗначениеЗаполнено(_productItem.guid) Тогда
+			Если ЗначениеЗаполнено(_subProduct.name) Тогда
+				_productItem.name = _subProduct.name;
+			Иначе
+				_subProduct  = ВетисProductService_2_0.GetSubProductByGuid(_subProduct.guid);
+				_productItem.name = _subProduct.name;
+			КонецЕсли;
+		КонецЕсли;
+		
 		_batch.productType      = _productType;
 		_batch.product          = ВетисDictionary_2_0.Product(_product.guid);
 		_batch.subProduct       = ВетисDictionary_2_0.SubProduct(_subProduct.guid);
 		
+		//если нет всего блока то:
+		//MERC13139 - Наименование продукции в ветеринарно-сопроводительном документе обязательно для заполнения
 		Если ЗначениеЗаполнено(_productItem.guid) ИЛИ ЗначениеЗаполнено(_productItem.name) Тогда
 			//MERC13098 - Наименование продукции в ветеринарно-сопроводительном документе обязательно для заполнения.
 			_batch.productItem = ВетисDictionary_2_0.ProductItem(_productItem.guid, _productItem.name);
 		КонецЕсли;
 		
 		_batch.volume           = _СтрокаСЖ.Количество;
-		_batch.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
+		_batch.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаСЖ.ЕдиницаПоКлассификатору));
 		
 		//Для скоропортящейся продукции обязательны к указанию год/месяц/день и могут быть указаны час/минута.
 		//Для не скоропортящейся продукции обязательны к указанию год/месяц и может быть указан день.

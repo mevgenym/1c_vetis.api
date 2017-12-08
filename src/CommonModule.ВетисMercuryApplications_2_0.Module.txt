@@ -37,15 +37,16 @@
 // Получение актуального списка записей складского журнала.
 // Параметры:
 //  enterpriseGuid - Идентификатор предприятия
-//  count - Максимальное запрашиваемое количество объектов в списке
-Функция GetStockEntryListRequest(enterpriseGuid) Экспорт
+//  searchPattern - отбор
+Функция GetStockEntryListRequest(enterpriseGuid, searchPattern = Неопределено, listOptions = Неопределено) Экспорт
 	
 	_Объект = Создать("GetStockEntryListRequest");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, searchPattern, "searchPattern");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase_2_0.ListOptions());
 	
 	Возврат _Объект;
 	
@@ -66,12 +67,12 @@
 //  пПараметры     - для внутреннего использования, начальное значение - Неопределено
 // Возвращаемое значение:
 //	Булево         - Ложь значит список пройден весь
-Функция GetStockEntryListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция GetStockEntryListСледующий(enterpriseGuid, searchPattern = Неопределено, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если пПараметры = Неопределено Тогда
-		пПараметры = Новый Структура;
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
 		пПараметры.Вставить("Индекс", 0);
-		пПараметры.Вставить("ListRequest", GetStockEntryListRequest(enterpriseGuid));
+		пПараметры.Вставить("ListRequest", GetStockEntryListRequest(enterpriseGuid, searchPattern, ВетисBase_2_0.ListOptions(?(пПараметры.Свойство("count"), пПараметры.count, Неопределено))));
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда
@@ -107,7 +108,7 @@
 КонецФункции
 
 
-Функция GetStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено) Экспорт
+Функция GetStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено, listOptions = Неопределено) Экспорт
 	
 	_Объект = Создать("GetStockEntryChangesListRequest");
 	
@@ -115,7 +116,7 @@
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.DateInterval(beginDate, endDate), "updateDateInterval");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase_2_0.ListOptions());
 	
 	Возврат _Объект;
 	
@@ -127,12 +128,12 @@
 	
 КонецФункции
 
-Функция GetStockEntryChangesListСледующий(enterpriseGuid, issuerId = Неопределено, beginDate, endDate = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция GetStockEntryChangesListСледующий(enterpriseGuid, beginDate, endDate = Неопределено, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если пПараметры = Неопределено Тогда
-		пПараметры = Новый Структура;
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
 		пПараметры.Вставить("Индекс", 0);
-		пПараметры.Вставить("ListRequest", GetStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate));
+		пПараметры.Вставить("ListRequest", GetStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate, ВетисBase_2_0.ListOptions(?(пПараметры.Свойство("count"), пПараметры.count, Неопределено))));
 	Иначе
 		пПараметры.Индекс = пПараметры.Индекс + 1;
 		Если пПараметры.Индекс >= пПараметры.ListResponse.count Тогда

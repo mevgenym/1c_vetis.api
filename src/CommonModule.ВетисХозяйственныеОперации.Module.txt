@@ -328,17 +328,19 @@
 	
 	_enterpriseGuid = _ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие);
 	
-	_запрос = Новый Запрос("ВЫБРАТЬ ЕСТЬNULL(МАКСИМУМ(updateDate), ДАТАВРЕМЯ(1,1,1)) КАК Период ИЗ РегистрСведений.ВетисСкладскойЖурналРС ГДЕ ХозяйствующийСубъект = &ХС И Предприятие = &Предприятие");
+	_запрос = Новый Запрос("ВЫБРАТЬ ЕСТЬNULL(МАКСИМУМ(updateDate), ДАТАВРЕМЯ(1,1,1)) КАК Период ИЗ РегистрСведений.ВетисСкладскойЖурнал ГДЕ ХозяйствующийСубъект = &ХС И Предприятие = &Предприятие");
 	_запрос.УстановитьПараметр("ХС", пХС);
 	_запрос.УстановитьПараметр("Предприятие", пПредприятие);
 	_выборка = _запрос.Выполнить().Выбрать();
 	_выборка.Следующий();
 	
+	_параметры = Новый Структура("count", 1000);
+	
 	//2017-11-27
 	//дает разные результаты в 1.4 и в 2.0
-	Пока _ВетисMercuryApplications.getStockEntryChangesListСледующий(_enterpriseGuid, _issuerId, _выборка.Период + 1, , _stockEntry, _параметры, пОтказ, пОшибка) Цикл
+	Пока _ВетисMercuryApplications.getStockEntryChangesListСледующий(_enterpriseGuid, _выборка.Период + 1, , _issuerId, _stockEntry, _параметры, пОтказ, пОшибка) Цикл
 		
-		_мз = РегистрыСведений.ВетисСкладскойЖурналРС.СоздатьМенеджерЗаписи();
+		_мз = РегистрыСведений.ВетисСкладскойЖурнал.СоздатьМенеджерЗаписи();
 		
 		_мз.ХозяйствующийСубъект = пХС;
 		_мз.Предприятие = пПредприятие;
@@ -386,8 +388,10 @@
 					_мз.producer = _stockEntry.batch.origin.producer[0].enterprise.guid;
 					_мз.producerRole = _stockEntry.batch.origin.producer[0].role;
 				КонецЕсли;
-				_мз.producerProductItem = _stockEntry.batch.origin.productItem.guid;
-				_мз.producerProductItemName = _stockEntry.batch.origin.productItem.name;
+				Если НЕ _stockEntry.batch.origin.productItem = Неопределено Тогда
+					_мз.producerProductItem = _stockEntry.batch.origin.productItem.guid;
+					_мз.producerProductItemName = _stockEntry.batch.origin.productItem.name;
+				КонецЕсли;
 				_мз.country = _stockEntry.batch.origin.country.guid;
 			КонецЕсли;
 			
@@ -430,6 +434,90 @@
 			КонецЕсли;
 			
 		КонецЕсли;
+		
+		_мз.Записать();
+		
+	КонецЦикла;
+	
+КонецПроцедуры
+
+//только для v2.0
+Процедура СинхронизироватьСкладскойЖурналОстатки_20(пХС, пПредприятие, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Перем _stockEntry, _параметры;
+	
+	Если Ветис.Версия_2_0() Тогда
+		Возврат;
+	КонецЕсли;
+	
+	_issuerId = ВетисDictionaryСлой1с.BusinessEntity(пХС);
+	
+	_enterpriseGuid = ВетисDictionaryСлой1с.Enterprise(пПредприятие);
+	
+	_sp = ВетисMercuryVetdocument_2_0.StockEntrySearchPattern(ВетисКонстанты.StockEntryBlankFilter_NOT_BLANK());
+	
+	_параметры = Новый Структура("count", 1000);
+	
+	Пока ВетисMercuryApplications_2_0.GetStockEntryListСледующий(_enterpriseGuid, _sp, _issuerId, _stockEntry, _параметры, пОтказ, пОшибка) Цикл
+		
+		_мз = РегистрыСведений.ВетисСкладскойЖурналОстатки.СоздатьМенеджерЗаписи();
+		
+		_мз.ХозяйствующийСубъект = пХС;
+		_мз.Предприятие = пПредприятие;
+		
+		_мз.guid = _stockEntry.guid;
+		_мз.uuid = _stockEntry.uuid;
+		_мз.last = _stockEntry.last;
+		
+		_мз.status = _stockEntry.status;
+		_мз._active = _stockEntry.active;
+		_мз.entryNumber = _stockEntry.entryNumber;
+		
+		_мз.createDate = Ветис.ВремяМестное(_stockEntry.createDate);// xs:dateTime
+		_мз.updateDate = Ветис.ВремяМестное(_stockEntry.updateDate);// xs:dateTime
+		
+		_мз.ProductType = _stockEntry.batch.productType;
+		_мз.Product     = _stockEntry.batch.product.guid;
+		_мз.SubProduct  = _stockEntry.batch.subProduct.guid;
+		_мз.ProductItem = _stockEntry.batch.productItem.guid;
+		
+		_мз.Unit        = _stockEntry.batch.unit.guid;
+		_мз.volume      = _stockEntry.batch.volume;
+		
+		_мз.owner = _stockEntry.batch.owner.guid;
+		
+		Если НЕ _stockEntry.batch.packageList = Неопределено Тогда
+			//берем одну последнюю
+			_package = ВетисDictionaryСлой1с.PackageList(_stockEntry.batch.packageList);
+			_мз.PackingForm   = _package.packingType.guid;
+			_мз.packingAmount = _package.quantity;
+			
+			//и текстом список упаковок
+			_упаковка = "";
+			Для каждого _package Из _stockEntry.batch.packageList.package Цикл
+				_упаковка = _упаковка + "; " + _package.level + ") " + _package.packingType.name + " (" + _package.packingType.guid + ") " + ?(_package.quantity = 0, "", ", " + _package.quantity);
+			КонецЦикла;
+			_мз.package = Сред(_упаковка, 3);
+		КонецЕсли;
+		
+		Если НЕ _stockEntry.batch.origin = Неопределено Тогда
+			//берем первого
+			Если _stockEntry.batch.origin.producer.Количество()>0 Тогда
+				_мз.producer = _stockEntry.batch.origin.producer[0].enterprise.guid;
+				_мз.producerRole = _stockEntry.batch.origin.producer[0].role;
+			КонецЕсли;
+			Если НЕ _stockEntry.batch.origin.productItem = Неопределено Тогда
+				_мз.producerProductItem = _stockEntry.batch.origin.productItem.guid;
+				_мз.producerProductItemName = _stockEntry.batch.origin.productItem.name;
+			КонецЕсли;
+			_мз.country = _stockEntry.batch.origin.country.guid;
+		КонецЕсли;
+		
+		Для каждого _vetDocument Из _stockEntry.vetDocument Цикл
+			_мз.vetDocument = _vetDocument.uuid;
+			//берем только первый
+			Прервать;
+		КонецЦикла;
 		
 		_мз.Записать();
 		

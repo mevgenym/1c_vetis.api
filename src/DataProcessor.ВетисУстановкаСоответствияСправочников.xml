@@ -108,6 +108,7 @@
 			<Form>ФормаКонтрагент</Form>
 			<Form>ФормаПредприятие</Form>
 			<Form>ФормаНоменклатура1</Form>
+			<Form>ФормаНоменклатурнаяГруппа</Form>
 		</ChildObjects>
 	</DataProcessor>
 </MetaDataObject>

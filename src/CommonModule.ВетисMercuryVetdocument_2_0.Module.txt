@@ -310,7 +310,10 @@
 	_Объект.firstDate = ВетисDictionary_2_0.ComplexDate(firstDate, пДень, пЧас, пМинута);
 	
 	Если НЕ secondDate = Неопределено И ЗначениеЗаполнено(secondDate) Тогда
-		_Объект.secondDate = ВетисDictionary_2_0.ComplexDate(secondDate, пДень, пЧас, пМинута);
+		_фс = "ДФ=ММ.гггг" + ?(пДень, ".дд", "") + ?(пЧас, ".чч", "") + ?(пМинута, ".мм", "");
+		Если НЕ Формат(secondDate, _фс) = Формат(firstDate, _фс) Тогда
+			_Объект.secondDate = ВетисDictionary_2_0.ComplexDate(secondDate, пДень, пЧас, пМинута);
+		КонецЕсли;
 	КонецЕсли;
 	
 	Возврат _Объект;

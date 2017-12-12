@@ -500,8 +500,15 @@
 														<Event name="OnChange">ПартииИспользоватьПриИзменении</Event>
 													</Events>
 												</CheckBoxField>
+												<InputField name="ПартииСписокПредставление" id="339">
+													<DataPath>ПартииСписок.Представление</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ПартииСписокПредставлениеКонтекстноеМеню" id="340"/>
+													<ExtendedTooltip name="ПартииСписокПредставлениеРасширеннаяПодсказка" id="341"/>
+												</InputField>
 												<InputField name="ПартииСписокguid" id="291">
 													<DataPath>ПартииСписок.guid</DataPath>
+													<Visible>false</Visible>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ПартииСписокguidКонтекстноеМеню" id="292"/>
 													<ExtendedTooltip name="ПартииСписокguidРасширеннаяПодсказка" id="293"/>
@@ -1044,7 +1051,7 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>cfg:CatalogRef.ЕдиницыИзмерения</v8:Type>
+						<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
 					</Type>
 				</Column>
 				<Column name="SubProductGuid" id="12">
@@ -1071,6 +1078,21 @@
 					</Title>
 					<Type>
 						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Представление" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
 					</Type>
 				</Column>
 			</Columns>

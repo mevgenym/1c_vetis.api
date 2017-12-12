@@ -848,7 +848,6 @@
 			<UseAlways>
 				<Field>СправочникСписок.guid</Field>
 				<Field>СправочникСписок.Ref</Field>
-				<Field>~СправочникСписок.Ссылка</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>

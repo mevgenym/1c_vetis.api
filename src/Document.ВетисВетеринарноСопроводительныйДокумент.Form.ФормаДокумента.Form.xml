@@ -529,6 +529,9 @@
 											<CheckBoxType>Auto</CheckBoxType>
 											<ContextMenu name="сжСкоропортящаясяКонтекстноеМеню" id="349"/>
 											<ExtendedTooltip name="сжСкоропортящаясяРасширеннаяПодсказка" id="350"/>
+											<Events>
+												<Event name="OnChange">сжСкоропортящаясяПриИзменении</Event>
+											</Events>
 										</CheckBoxField>
 										<CheckBoxField name="сжНекачественныйГруз" id="442">
 											<DataPath>сжНекачественныйГруз</DataPath>
@@ -613,12 +616,6 @@
 											<ContextMenu name="сжЕдиницаИзмеренияКонтекстноеМеню" id="209"/>
 											<ExtendedTooltip name="сжЕдиницаИзмеренияРасширеннаяПодсказка" id="210"/>
 										</InputField>
-										<InputField name="сжЕдиницаПоКлассификатору" id="810">
-											<DataPath>сжЕдиницаПоКлассификатору</DataPath>
-											<AutoMarkIncomplete>true</AutoMarkIncomplete>
-											<ContextMenu name="сжЕдиницаПоКлассификаторуКонтекстноеМеню" id="811"/>
-											<ExtendedTooltip name="сжЕдиницаПоКлассификаторуРасширеннаяПодсказка" id="812"/>
-										</InputField>
 										<UsualGroup name="ГруппаПродукцияКолонка2Упаковка" id="805">
 											<Title>
 												<v8:item>
@@ -638,7 +635,7 @@
 											<ExtendedTooltip name="ГруппаПродукцияКолонка2УпаковкаРасширеннаяПодсказка" id="806"/>
 											<ChildItems>
 												<InputField name="сжУпаковка" id="211">
-													<DataPath>упкТипУпаковки</DataPath>
+													<DataPath>упкУпаковка</DataPath>
 													<ContextMenu name="сжУпаковкаКонтекстноеМеню" id="212"/>
 													<ExtendedTooltip name="сжУпаковкаРасширеннаяПодсказка" id="213"/>
 												</InputField>
@@ -1626,7 +1623,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.ЕдиницыИзмерения</v8:Type>
+				<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
 			</Type>
 		</Attribute>
 		<Attribute name="сжКоличество" id="5">
@@ -2124,17 +2121,6 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="сжЕдиницаПоКлассификатору" id="51">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Ед. по классификатору</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
-			</Type>
-		</Attribute>
 		<Attribute name="упкУровень" id="52">
 			<Title>
 				<v8:item>
@@ -2146,7 +2132,7 @@
 				<v8:Type>cfg:EnumRef.ВетисPackageLevelType</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="упкТипУпаковки" id="53">
+		<Attribute name="упкУпаковка" id="53">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>

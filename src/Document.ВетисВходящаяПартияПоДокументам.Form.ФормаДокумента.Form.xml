@@ -146,11 +146,21 @@
 							<DataPath>Объект.Отправитель</DataPath>
 							<ContextMenu name="ОтправительКонтекстноеМеню" id="488"/>
 							<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="489"/>
+							<Events>
+								<Event name="OnChange">ОтправительПриИзменении</Event>
+								<Event name="StartChoice">ОтправительНачалоВыбора</Event>
+							</Events>
 						</InputField>
 						<InputField name="ОтправительПредприятие" id="496">
 							<DataPath>Объект.ОтправительПредприятие</DataPath>
+							<DropListButton>false</DropListButton>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 							<ContextMenu name="ОтправительПредприятиеКонтекстноеМеню" id="497"/>
 							<ExtendedTooltip name="ОтправительПредприятиеРасширеннаяПодсказка" id="498"/>
+							<Events>
+								<Event name="OnChange">ОтправительПредприятиеПриИзменении</Event>
+								<Event name="StartChoice">ОтправительПредприятиеНачалоВыбора</Event>
+							</Events>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -176,11 +186,21 @@
 							<DataPath>Объект.Получатель</DataPath>
 							<ContextMenu name="ПолучательКонтекстноеМеню" id="491"/>
 							<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="492"/>
+							<Events>
+								<Event name="OnChange">ПолучательПриИзменении</Event>
+								<Event name="StartChoice">ПолучательНачалоВыбора</Event>
+							</Events>
 						</InputField>
 						<InputField name="ПолучательПредприятие" id="493">
 							<DataPath>Объект.ПолучательПредприятие</DataPath>
+							<DropListButton>false</DropListButton>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 							<ContextMenu name="ПолучательПредприятиеКонтекстноеМеню" id="494"/>
 							<ExtendedTooltip name="ПолучательПредприятиеРасширеннаяПодсказка" id="495"/>
+							<Events>
+								<Event name="OnChange">ПолучательПредприятиеПриИзменении</Event>
+								<Event name="StartChoice">ПолучательПредприятиеНачалоВыбора</Event>
+							</Events>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -205,7 +225,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Продукты</v8:content>
+							<v8:content>Товары</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
@@ -690,7 +710,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Оформить</v8:content>
+					<v8:content>Погасить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>

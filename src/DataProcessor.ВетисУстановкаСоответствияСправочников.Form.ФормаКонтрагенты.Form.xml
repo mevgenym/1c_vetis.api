@@ -978,8 +978,7 @@
 			<UseAlways>
 				<Field>СправочникСписок.guid</Field>
 				<Field>СправочникСписок.Ref</Field>
-				<Field>~СправочникСписок.Ссылка</Field>
-				<Field>~СправочникСписок.Наименование</Field>
+				<Field>СправочникСписок.Description</Field>
 				<Field>~СправочникСписок.ВетисОписание</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">

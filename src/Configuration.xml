@@ -174,13 +174,16 @@
 			<CommonModule>ВетисRegionalizationService_2_0</CommonModule>
 			<CommonModule>ВетисSoapEnvelope</CommonModule>
 			<CommonModule>ВетисВызовСервера</CommonModule>
+			<CommonModule>ВетисДлительныеОперации</CommonModule>
 			<CommonModule>ВетисИмяСправочника</CommonModule>
 			<CommonModule>ВетисКонстанты</CommonModule>
 			<CommonModule>ВетисОбщегоНазначения</CommonModule>
 			<CommonModule>ВетисОбщегоНазначенияКлиентСервер</CommonModule>
 			<CommonModule>ВетисФормы</CommonModule>
 			<CommonModule>ВетисХозяйственныеОперации</CommonModule>
+			<CommonModule>ЗаполнениеДокументов</CommonModule>
 			<CommonModule>Пользователи</CommonModule>
+			<ScheduledJob>ВетисОчередьЗапросов</ScheduledJob>
 			<CommonCommand>ВетисAddress</CommonCommand>
 			<CommonCommand>ВетисAnimalDisease</CommonCommand>
 			<CommonCommand>ВетисDistrict</CommonCommand>
@@ -240,6 +243,7 @@
 			<Catalog>НоменклатурныеГруппы</Catalog>
 			<Catalog>Подразделения</Catalog>
 			<Catalog>Пользователи</Catalog>
+			<Catalog>Склады</Catalog>
 			<Document>ВетисВетеринарноСопроводительныйДокумент</Document>
 			<Document>ВетисВходящаяПартияПоДокументам</Document>
 			<Document>ВетисВходящаяПартияСводно</Document>
@@ -267,21 +271,26 @@
 			<Enum>ВетисVetDocumentStatus</Enum>
 			<Enum>ВетисVetDocumentType</Enum>
 			<Enum>ВетисВерсияAPI</Enum>
+			<Enum>ВетисОперации</Enum>
 			<Enum>ВетисСервис</Enum>
+			<Enum>ВетисСтатусЗапроса</Enum>
 			<Enum>ВетисТипАдреса</Enum>
 			<Enum>ЮрФизЛицо</Enum>
 			<DataProcessor>ВетисУстановкаСоответствияСправочников</DataProcessor>
 			<InformationRegister>ВетисRussianEnterpriseList</InformationRegister>
 			<InformationRegister>ВетисАдреса</InformationRegister>
 			<InformationRegister>ВетисЖурнал</InformationRegister>
+			<InformationRegister>ВетисМаркировка</InformationRegister>
 			<InformationRegister>ВетисМногоуровневаяУпаковка</InformationRegister>
 			<InformationRegister>ВетисНастройкиХС</InformationRegister>
+			<InformationRegister>ВетисОчередьЗапросов</InformationRegister>
 			<InformationRegister>ВетисПользователи</InformationRegister>
 			<InformationRegister>ВетисПредопределенные</InformationRegister>
 			<InformationRegister>ВетисПредприятияХС</InformationRegister>
 			<InformationRegister>ВетисСкладскойЖурнал</InformationRegister>
 			<InformationRegister>ВетисСкладскойЖурналОстатки</InformationRegister>
 			<InformationRegister>ВетисСоответствие</InformationRegister>
+			<InformationRegister>ВетисСправочникПродукции</InformationRegister>
 		</ChildObjects>
 	</Configuration>
 </MetaDataObject>

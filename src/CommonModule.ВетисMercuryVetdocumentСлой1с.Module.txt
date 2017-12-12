@@ -616,7 +616,7 @@
 		_строкаСЖ.НекачественныйГруз   = _batch.lowGradeCargo;
 		
 		_строкаСЖ.Упаковка             = ВетисArgusCommonСлой1с.PackingForm(_batch.packingList);
-		_строкаСЖ.КоличествоМест       = _batch.packingAmount;
+		//_строкаСЖ.КоличествоМест       = _batch.packingAmount;
 		_строкаСЖ.СтранаПроисхождения  = ВетисIkarСлой1с.Country(_batch.countryOfOrigin);
 		_строкаСЖ.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Producer(_batch.producerList);
 		_строкаСЖ.Номенклатура         = ВетисArgusProductionСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
@@ -689,10 +689,10 @@
 		
 		//_batch.productItem      = ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
 		_batch.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
-		_batch.packingAmount    = _СтрокаСЖ.КоличествоМест;
+		//_batch.packingAmount    = _СтрокаСЖ.КоличествоМест;
 		_batch.countryOfOrigin  = ВетисIkar.Country(ВетисIkarСлой1с.Country(_СтрокаСЖ.СтранаПроисхождения));
 		_batch.producerList     = ВетисCerberusEnterprise.ProducerList(ВетисCerberusEnterpriseСлой1с.Enterprise(_СтрокаСЖ.ПроизводительПредприятие));
-		_batch.productMarkingList = ВетисMercuryVetdocument.ProductMarkingList(_СтрокаСЖ.Маркировка);
+		//_batch.productMarkingList = ВетисMercuryVetdocument.ProductMarkingList(_СтрокаСЖ.Маркировка);
 		
 	КонецЕсли;
 	
@@ -730,42 +730,20 @@
 		_строкаСЖ.НекачественныйГруз   = _batch.lowGradeCargo;
 		
 		пУпаковка.Очистить();
-		Если _МногоуровневаяУпаковка Тогда
-			Если НЕ _batch.packageList = Неопределено Тогда
-				Для каждого _package Из _batch.packageList.package Цикл
-					_СтрокаУпаковка = пУпаковка.Добавить();
-					_СтрокаУпаковка.КлючСтроки = _СтрокаУпаковка.НомерСтроки;
-					_СтрокаУпаковка.Уровень = ВетисDictionaryСлой1с.PackageLevelType(_package.level);
-					_СтрокаУпаковка.ТипУпаковки = ВетисDictionaryСлой1с.PackingType(_package.packingType);
-					_СтрокаУпаковка.Количество = _package.quantity;
-					//_productMarks = ВетисDictionaryСлой1с.ProductMarks(_package.productMarks);
-					//_СтрокаУпаковка.Маркировка = _productMarks.content;
-					//_СтрокаУпаковка.КлассМаркировки = _productMarks.class;
-					Для каждого _productMarks Из _package.productMarks Цикл
-						_СтрокаМаркировка = пМаркировка.Добавить();
-						_СтрокаМаркировка.КлючСвязи = _СтрокаУпаковка.КлючСтроки;
-						_СтрокаМаркировка.Маркировка = _productMarks.__content;
-						_СтрокаМаркировка.КлассМаркировки = ВетисDictionaryСлой1с.ProductMarkingClass(_productMarks.class);
-					КонецЦикла;
+		Если НЕ _batch.packageList = Неопределено Тогда
+			Для каждого _package Из _batch.packageList.package Цикл
+				_СтрокаУпаковка = пУпаковка.Добавить();
+				_СтрокаУпаковка.КлючСтроки = _СтрокаУпаковка.НомерСтроки;
+				_СтрокаУпаковка.Уровень = ВетисDictionaryСлой1с.PackageLevelType(_package.level);
+				_СтрокаУпаковка.Упаковка = ВетисDictionaryСлой1с.PackingType(_package.packingType);
+				_СтрокаУпаковка.Количество = _package.quantity;
+				Для каждого _productMarks Из _package.productMarks Цикл
+					_СтрокаМаркировка = пМаркировка.Добавить();
+					_СтрокаМаркировка.КлючСвязи = _СтрокаУпаковка.КлючСтроки;
+					_СтрокаМаркировка.Маркировка = _productMarks.__content;
+					_СтрокаМаркировка.КлассМаркировки = ВетисDictionaryСлой1с.ProductMarkingClass(_productMarks.class);
 				КонецЦикла;
-			КонецЕсли;
-		ИначеЕсли НЕ _batch.packageList = Неопределено И _batch.packageList.package.Количество() > 0 Тогда
-			//Для каждого _package Из _batch.packageList.package Цикл
-			_package = _batch.packageList.package[_batch.packageList.package.Количество()-1];
-				//Если _packingLevelType = _package.level Тогда
-					_строкаСЖ.Упаковка = ВетисDictionaryСлой1с.PackingType(_package.packingType);
-					_строкаСЖ.КоличествоМест = _package.quantity;
-					_строкаСЖ.Маркировка = "";
-					Для каждого _productMarks Из _package.productMarks Цикл
-						//Если _productMarkingClass = _productMarks.class Тогда
-							_строкаСЖ.Маркировка = _строкаСЖ.Маркировка + "; " + _productMarks.__content;
-						//	Прервать;
-						//КонецЕсли;
-					КонецЦикла;
-					_строкаСЖ.Маркировка = Сред(_строкаСЖ.Маркировка, 3);
-					//Прервать;
-				//КонецЕсли;
-			//КонецЦикла;
+			КонецЦикла;
 		КонецЕсли;
 		
 		Если НЕ _batch.origin = Неопределено Тогда
@@ -886,27 +864,27 @@
 			);
 		
 		//MERC14245 - Так как маркировка в сведениях о принимаемой партии не совпадает с указанной в ветеринарно-сопроводительном документе, то необходимо указать причину в акте о несоответствии.
-		_список = Новый Массив;
-		Если _МногоуровневаяУпаковка Тогда
-			Для каждого _СтрокаУпаковка Из пУпаковка Цикл
-				_список.Добавить(ВетисDictionary_2_0.Package(
-					ВетисDictionaryСлой1с.PackageLevelType(_СтрокаУпаковка.Уровень),
-					ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаУпаковка.ТипУпаковки)),
-					_СтрокаУпаковка.Количество,
-					ВетисDictionary_2_0.ProductMarks(_СтрокаУпаковка.Маркировка, ВетисDictionaryСлой1с.ProductMarkingClass(_СтрокаУпаковка.КлассМаркировки))
-					));
+		_packageList = Новый Массив;
+		_СтруктураПоиска = Новый Структура("КлючСвязи");
+		Для каждого _СтрокаУпаковка Из пУпаковка Цикл
+			
+			_productMarks = Новый Массив;
+			_СтруктураПоиска.КлючСвязи = _СтрокаУпаковка.КлючСтроки;
+			_СтрокиМаркировка = пМаркировка.НайтиСтроки(_СтруктураПоиска);
+			Для каждого _СтрокаМаркировка Из _СтрокиМаркировка Цикл
+				_productMarks.Добавить(ВетисDictionary_2_0.ProductMarks(_СтрокаМаркировка.Маркировка, ВетисDictionaryСлой1с.ProductMarkingClass(_СтрокаМаркировка.КлассМаркировки)));
 			КонецЦикла;
-		Иначе
-			_список.Добавить(ВетисDictionary_2_0.Package(
-				_packingLevelType,
-				ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка)),
-				//,
-				_СтрокаСЖ.КоличествоМест,
-				ВетисDictionary_2_0.ProductMarks(_СтрокаСЖ.Маркировка, _productMarkingClass)
+			
+			_packageList.Добавить(ВетисDictionary_2_0.Package(
+				ВетисDictionaryСлой1с.PackageLevelType(_СтрокаУпаковка.Уровень),
+				ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаУпаковка.Упаковка)),
+				_СтрокаУпаковка.Количество,
+				_productMarks
 				));
-		КонецЕсли;
+			
+		КонецЦикла;
 		
-		_batch.packageList = ВетисDictionary_2_0.PackageList(_список);
+		_batch.packageList = ВетисDictionary_2_0.PackageList(_packageList);
 		
 		_batch.batchID.Очистить();
 		_batch.batchID.Добавить(_СтрокаСЖ.ИДПартии);

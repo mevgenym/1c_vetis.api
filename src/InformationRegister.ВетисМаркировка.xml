@@ -1,49 +1,49 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
-	<InformationRegister uuid="3bcb0642-5091-45a6-babe-1e24a4a6e9d6">
+	<InformationRegister uuid="e767d226-faa1-427f-88a7-2ca724a1c503">
 		<InternalInfo>
-			<xr:GeneratedType name="InformationRegisterRecord.ВетисПредприятияХС" category="Record">
-				<xr:TypeId>a672c05d-a620-47a0-89ad-0793058f513e</xr:TypeId>
-				<xr:ValueId>24349aba-a2bf-429f-b7cb-5d99b82e03c1</xr:ValueId>
+			<xr:GeneratedType name="InformationRegisterRecord.ВетисМаркировка" category="Record">
+				<xr:TypeId>64a4eda2-4b0d-40c0-af6c-dc28baeefa70</xr:TypeId>
+				<xr:ValueId>e59a185c-503f-4c09-a2ed-98f27e9694f3</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterManager.ВетисПредприятияХС" category="Manager">
-				<xr:TypeId>1beb9ddd-d601-4630-9dab-6775af7a7697</xr:TypeId>
-				<xr:ValueId>f0825413-57fd-44ce-9311-9be706a31075</xr:ValueId>
+			<xr:GeneratedType name="InformationRegisterManager.ВетисМаркировка" category="Manager">
+				<xr:TypeId>d1a8b792-0d55-405b-893f-ab32294d2649</xr:TypeId>
+				<xr:ValueId>83b44b12-ca5f-410b-97af-c147804151ae</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterSelection.ВетисПредприятияХС" category="Selection">
-				<xr:TypeId>9cac3f26-1b27-4966-9164-7d0964d284a0</xr:TypeId>
-				<xr:ValueId>f5d1502d-add0-4602-8688-29618f852fd3</xr:ValueId>
+			<xr:GeneratedType name="InformationRegisterSelection.ВетисМаркировка" category="Selection">
+				<xr:TypeId>3f63cb7d-303a-4514-826f-b252604b63af</xr:TypeId>
+				<xr:ValueId>f4a72cd6-dfb5-4596-bf4e-87fa15957c90</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterList.ВетисПредприятияХС" category="List">
-				<xr:TypeId>12fece89-fc74-4a85-a2eb-2249d2065605</xr:TypeId>
-				<xr:ValueId>5984ed8f-0d6c-423c-b862-d69548a8c361</xr:ValueId>
+			<xr:GeneratedType name="InformationRegisterList.ВетисМаркировка" category="List">
+				<xr:TypeId>2e21c090-968e-4931-b253-acab200c462a</xr:TypeId>
+				<xr:ValueId>89f92151-e39b-43a8-9be2-01dd4a772c85</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterRecordSet.ВетисПредприятияХС" category="RecordSet">
-				<xr:TypeId>4555967f-87f2-4872-b7ca-e7e7f8e4e881</xr:TypeId>
-				<xr:ValueId>411685c5-1326-4f07-9d26-a87ebf7b95df</xr:ValueId>
+			<xr:GeneratedType name="InformationRegisterRecordSet.ВетисМаркировка" category="RecordSet">
+				<xr:TypeId>cd32a3df-cfcc-4c5c-8af1-87ecda0a4188</xr:TypeId>
+				<xr:ValueId>1bf7de9e-6b1c-4f87-bb86-85be70b000ff</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterRecordKey.ВетисПредприятияХС" category="RecordKey">
-				<xr:TypeId>12844440-8f5a-4344-819b-1ecb0fde2e30</xr:TypeId>
-				<xr:ValueId>fb8b839b-6dda-4e02-abae-ba65870c5e79</xr:ValueId>
+			<xr:GeneratedType name="InformationRegisterRecordKey.ВетисМаркировка" category="RecordKey">
+				<xr:TypeId>737b2cd0-5950-46d8-873d-411b26490510</xr:TypeId>
+				<xr:ValueId>2eb9345a-25b5-42f4-8ad1-611963910309</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterRecordManager.ВетисПредприятияХС" category="RecordManager">
-				<xr:TypeId>ef8d1c63-694d-488c-9cc0-6ae20fdf28d0</xr:TypeId>
-				<xr:ValueId>5e26cff8-e9f4-467c-a758-56c172798735</xr:ValueId>
+			<xr:GeneratedType name="InformationRegisterRecordManager.ВетисМаркировка" category="RecordManager">
+				<xr:TypeId>55e728b4-4aa3-45eb-84db-2f15079dff36</xr:TypeId>
+				<xr:ValueId>90d433fd-64fa-4480-8452-5edc163c3209</xr:ValueId>
 			</xr:GeneratedType>
 		</InternalInfo>
 		<Properties>
-			<Name>ВетисПредприятияХС</Name>
+			<Name>ВетисМаркировка</Name>
 			<Synonym>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Предприятия-ХС (ветис)</v8:content>
+					<v8:content>Маркировка (ветис)</v8:content>
 				</v8:item>
 			</Synonym>
 			<Comment/>
 			<UseStandardCommands>false</UseStandardCommands>
 			<EditType>InDialog</EditType>
-			<DefaultRecordForm>InformationRegister.ВетисПредприятияХС.Form.ФормаЗаписи</DefaultRecordForm>
-			<DefaultListForm>InformationRegister.ВетисПредприятияХС.Form.ФормаСписка</DefaultListForm>
+			<DefaultRecordForm/>
+			<DefaultListForm/>
 			<AuxiliaryRecordForm/>
 			<AuxiliaryListForm/>
 			<InformationRegisterPeriodicity>Nonperiodical</InformationRegisterPeriodicity>
@@ -61,94 +61,18 @@
 			<Explanation/>
 		</Properties>
 		<ChildObjects>
-			<Resource uuid="a658485e-b44a-4164-a0a0-af90e67fb8a8">
+			<Dimension uuid="d8cb41b9-44d0-4f75-a33f-7520faf8f77e">
 				<Properties>
-					<Name>ВСервисе</Name>
+					<Name>Номенклатура</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>В сервисе</v8:content>
+							<v8:content>Номенклатура</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:Type>xs:boolean</v8:Type>
-					</Type>
-					<PasswordMode>false</PasswordMode>
-					<Format/>
-					<EditFormat/>
-					<ToolTip/>
-					<MarkNegatives>false</MarkNegatives>
-					<Mask/>
-					<MultiLine>false</MultiLine>
-					<ExtendedEdit>false</ExtendedEdit>
-					<MinValue xsi:nil="true"/>
-					<MaxValue xsi:nil="true"/>
-					<FillFromFillingValue>false</FillFromFillingValue>
-					<FillValue xsi:nil="true"/>
-					<FillChecking>DontCheck</FillChecking>
-					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-					<ChoiceParameterLinks/>
-					<ChoiceParameters/>
-					<QuickChoice>Auto</QuickChoice>
-					<CreateOnInput>Auto</CreateOnInput>
-					<ChoiceForm/>
-					<LinkByType/>
-					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-					<Indexing>DontIndex</Indexing>
-					<FullTextSearch>Use</FullTextSearch>
-				</Properties>
-			</Resource>
-			<Resource uuid="bfa31570-49e5-465d-996f-6f2b9a0d669e">
-				<Properties>
-					<Name>Основной</Name>
-					<Synonym>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Основной</v8:content>
-						</v8:item>
-					</Synonym>
-					<Comment/>
-					<Type>
-						<v8:Type>xs:boolean</v8:Type>
-					</Type>
-					<PasswordMode>false</PasswordMode>
-					<Format/>
-					<EditFormat/>
-					<ToolTip/>
-					<MarkNegatives>false</MarkNegatives>
-					<Mask/>
-					<MultiLine>false</MultiLine>
-					<ExtendedEdit>false</ExtendedEdit>
-					<MinValue xsi:nil="true"/>
-					<MaxValue xsi:nil="true"/>
-					<FillFromFillingValue>false</FillFromFillingValue>
-					<FillValue xsi:nil="true"/>
-					<FillChecking>DontCheck</FillChecking>
-					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-					<ChoiceParameterLinks/>
-					<ChoiceParameters/>
-					<QuickChoice>Auto</QuickChoice>
-					<CreateOnInput>Auto</CreateOnInput>
-					<ChoiceForm/>
-					<LinkByType/>
-					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-					<Indexing>DontIndex</Indexing>
-					<FullTextSearch>Use</FullTextSearch>
-				</Properties>
-			</Resource>
-			<Dimension uuid="4a3cdaf7-c82b-4544-9b34-58dd77de5a58">
-				<Properties>
-					<Name>ХозяйствующийСубъект</Name>
-					<Synonym>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Хозяйствующий субъект</v8:content>
-						</v8:item>
-					</Synonym>
-					<Comment/>
-					<Type>
-						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -178,18 +102,145 @@
 					<FullTextSearch>Use</FullTextSearch>
 				</Properties>
 			</Dimension>
-			<Dimension uuid="edbc8d8b-a1f0-4e11-bde9-455274f3684c">
+			<Dimension uuid="0b979be2-510e-4365-a0c1-c3c27e2e7e33">
 				<Properties>
-					<Name>Предприятие</Name>
+					<Name>Уровень</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Предприятие</v8:content>
+							<v8:content>Уровень</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>level {dt:PackageLevelType}</Comment>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВетисPackageLevelType</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>ShowError</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Master>false</Master>
+					<MainFilter>true</MainFilter>
+					<DenyIncompleteValues>false</DenyIncompleteValues>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Dimension>
+			<Dimension uuid="64bf8614-4f6f-41c4-96ea-fe1b9a8bee64">
+				<Properties>
+					<Name>Упаковка</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Упаковка</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>packingType {dt:PackingType}</Comment>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ВетисPackingForm</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>ShowError</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Master>false</Master>
+					<MainFilter>true</MainFilter>
+					<DenyIncompleteValues>false</DenyIncompleteValues>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Dimension>
+			<Dimension uuid="6f2ffc40-bde3-4d62-955f-621a0e2aeca3">
+				<Properties>
+					<Name>Маркировка</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Маркировка</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:Type>cfg:CatalogRef.ВетисПредприятия</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:type="xs:string"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Master>false</Master>
+					<MainFilter>true</MainFilter>
+					<DenyIncompleteValues>false</DenyIncompleteValues>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Dimension>
+			<Dimension uuid="bb712d1d-a44e-4594-aef7-8f517d8bb9c6">
+				<Properties>
+					<Name>КлассМаркировки</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Класс маркировки</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>productMarks {dt:ProductMarks}</Comment>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВетисProductMarkingClass</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -219,8 +270,6 @@
 					<FullTextSearch>Use</FullTextSearch>
 				</Properties>
 			</Dimension>
-			<Form>ФормаСписка</Form>
-			<Form>ФормаЗаписи</Form>
 		</ChildObjects>
 	</InformationRegister>
 </MetaDataObject>

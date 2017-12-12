@@ -211,7 +211,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+				<v8:Type>cfg:CatalogRef.НоменклатурныеГруппы</v8:Type>
 			</Type>
 		</Attribute>
 		<Attribute name="Страна" id="18">

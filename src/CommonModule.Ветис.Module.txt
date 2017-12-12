@@ -24,6 +24,11 @@
 	
 	Если пХС = Неопределено Тогда
 		_ХС = Настройки_ОсновнойХС();
+		
+		Если _ХС = ТекущийХС() Тогда
+			Возврат;
+		КонецЕсли;
+		
 		_issuerId = ?(Версия_2_0(), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с).BusinessEntity(_ХС);
 		
 	ИначеЕсли ТипЗнч(пХС) = Тип(ВетисИмяСправочника.BusinessEntity("СправочникСсылка")) Тогда
@@ -671,6 +676,16 @@
 	
 КонецФункции
 
+Функция Настройки_СправочникПродукцииЛокально(пЗначение = Неопределено) Экспорт
+	
+	Если пЗначение = Неопределено Тогда
+		Возврат Настройки_Получить("СправочникПродукцииЛокально", Ложь) = Истина;
+	Иначе
+		Настройки_Установить("СправочникПродукцииЛокально", пЗначение = Истина);
+	КонецЕсли;
+	
+КонецФункции
+
 Функция Настройки_УровеньУпаковки(пЗначение = Неопределено) Экспорт
 	
 	Если пЗначение = Неопределено Тогда
@@ -924,9 +939,9 @@
 		_таблица = Неопределено;
 		
 		Если _сервис = Перечисления.ВетисСервис.mercury_g2b_service Тогда
-			WSDLДобавить(_таблица, "ams-mercury.service", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ams-mercury-g2b.service"+_суф);
+			WSDLДобавить(_таблица, "ams-mercury.service", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ams-mercury-g2b.service"+_суф, Истина);
 		ИначеЕсли _сервис = Перечисления.ВетисСервис.mercury_vu_service Тогда
-			WSDLДобавить(_таблица, "ams-mercury.service", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ams-mercury-vu.service"+_суф);
+			WSDLДобавить(_таблица, "ams-mercury.service", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ams-mercury-vu.service"+_суф, Истина);
 		КонецЕсли;
 		
 		WSDLДобавить(_таблица, "ApplicationManagementService", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"ApplicationManagementService_v1.1.wsdl");
@@ -976,6 +991,9 @@
 		КонецЕсли;
 		
 		_таблица = Неопределено;
+		
+		//для совместиовсти с 2.0
+		WSDLДобавить(_таблица, "ams-mercury.service", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"services/ApplicationManagementService"+_суф, Истина);
 		
 		WSDLДобавить(_таблица, "ApplicationManagementService", "http://api.vetrf.ru/schema/cdm/application/service", "ApplicationManagementServiceBindingQSService", "ApplicationManagementServiceBindingQSPort", _Имя+"services/ApplicationManagementService"+_суф);
 		
@@ -1127,7 +1145,7 @@
 КонецФункции
 
 
-Процедура WSDLДобавить(пТаблица, пИмя, пURI, пСервис, пПорт, пURL)
+Процедура WSDLДобавить(пТаблица, пИмя, пURI, пСервис, пПорт, пURL, пОпределятьАдрес = Ложь)
 	
 	Если пТаблица = Неопределено Тогда
 		пТаблица = Новый ТаблицаЗначений;
@@ -1136,6 +1154,8 @@
 		пТаблица.Колонки.Добавить("Сервис");
 		пТаблица.Колонки.Добавить("Порт");
 		пТаблица.Колонки.Добавить("URL");
+		пТаблица.Колонки.Добавить("Адрес");
+		пТаблица.Колонки.Добавить("Составные");
 	КонецЕсли;
 	
 	_строка = пТаблица.Добавить();
@@ -1144,6 +1164,25 @@
 	_строка.Сервис = пСервис;
 	_строка.Порт   = пПорт;
 	_строка.URL    = пURL;
+	
+	Если пОпределятьАдрес = Истина Тогда
+		_определения = ОпределенияПоURL(пURL);
+		
+		_сервис = ПолучитьЭлементКоллекции(_Определения.Сервисы, пСервис);
+		
+		Если _сервис = Неопределено Тогда
+			Возврат;
+		КонецЕсли;
+		
+		_точка = ПолучитьЭлементКоллекции(_сервис.ТочкиПодключения, пПорт);
+		
+		Если _точка = Неопределено Тогда
+			Возврат;
+		КонецЕсли;
+		
+		_строка.Адрес     = _точка.Местоположение;
+		_строка.Составные = РазложитьАдрес(_точка.Местоположение);
+	КонецЕсли;
 	
 КонецПроцедуры
 
@@ -1166,20 +1205,6 @@
 	КонецЦикла;
 	
 	Возврат _список;
-	
-КонецФункции
-
-Функция WSDLМестоположение(пИмяСервиса) Экспорт
-	
-	_wsdl = WSDLПолучить(пИмяСервиса);
-	
-	_определения = Определения(пИмяСервиса);
-	
-	_сервис = ПолучитьЭлементКоллекции(_Определения.Сервисы, _wsdl.Сервис);
-	
-	_точка = ПолучитьЭлементКоллекции(_сервис.ТочкиПодключения, _wsdl.Порт);
-	
-	Возврат _точка.Местоположение;
 	
 КонецФункции
 
@@ -1223,11 +1248,9 @@
 
 Функция ВыполнитьЗапрос(пИмяСервиса, пИмяФункции, пФабрика, пRequest, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "", пОжидание = 5) Экспорт
 	
-	_Отладка = РазрешенаОтладка() = Истина;
+	_Отладка = РазрешенаОтладка();
 	
-	_адрес = WSDLМестоположение(пИмяСервиса);
-	
-	_составные = РазложитьАдрес(_адрес);
+	_составные = WSDLПолучить(пИмяСервиса).Составные;
 	
 	_Соединение = ПолучитьСоединение(_составные.Сервер, _составные.Порт, , , _составные.ЗащищенноеСоединение);
 	
@@ -1328,6 +1351,7 @@
 	КонецЦикла;
 	
 КонецФункции
+
 
 Функция ПолучитьСоединение(пСервер, пПорт = Неопределено, пЛогин = Неопределено, пПароль = Неопределено, пЗащищенноеСоединение = Неопределено, пПрокси = Неопределено)
 	
@@ -1437,6 +1461,72 @@
 	Исключение 
 		Возврат Ложь;
 	КонецПопытки;
+КонецФункции
+
+#КонецОбласти
+
+#Область ДлительныеОперации
+
+Функция ОтправитьЗапрос(пИмяФункции, пRequest, issuerId = Неопределено) Экспорт
+	//запрос на создание заявки
+	
+	_составные = WSDLПолучить("ams-mercury.service").Составные;
+	
+	_Соединение = ПолучитьСоединение(_составные.Сервер, _составные.Порт, , , _составные.ЗащищенноеСоединение);
+	
+	_Фабрика = ФабрикаОбщая();
+	
+	_Application = ВетисApplication.Application(пRequest, пИмяФункции, issuerId);
+	
+	_SubmitRequest = ВетисApplication.submitApplicationRequest(_Application);
+	
+	_Envelope = ВетисSoapEnvelope.Envelope(_SubmitRequest, "submitApplicationRequest");
+	
+	_ТекстЗапроса = ВетисОбщегоНазначения.Сериализовать(_Фабрика, _Envelope);
+	
+	_Запрос = ПолучитьЗапрос(_составные.Ресурс, _ТекстЗапроса);
+	
+	_Ответ = _Соединение.ОтправитьДляОбработки(_Запрос);
+	
+	Возврат Новый Структура("Отказ, Текст", НЕ _Ответ.КодСостояния = 200, _Ответ.ПолучитьТелоКакСтроку("UTF-8"));
+	
+КонецФункции
+
+Функция ПолучитьОтвет(пИмяФункции, applicationId, issuerId = Неопределено) Экспорт
+	//запрос на получение результатов обработки заявки
+	
+	_составные = WSDLПолучить("ams-mercury.service").Составные;
+	
+	_Соединение = ПолучитьСоединение(_составные.Сервер, _составные.Порт, , , _составные.ЗащищенноеСоединение);
+	
+	_Фабрика = ФабрикаОбщая();
+	
+	_receiveRequest = ВетисApplication.receiveApplicationResultRequest(applicationId, issuerId);
+	
+	_Envelope = ВетисSoapEnvelope.Envelope(_receiveRequest, "receiveApplicationResultRequest");
+	
+	_ТекстЗапроса = ВетисОбщегоНазначения.Сериализовать(_Фабрика, _Envelope);
+	
+	_Запрос = ПолучитьЗапрос(_составные.Ресурс, _ТекстЗапроса);
+	
+	_Ответ = _Соединение.ОтправитьДляОбработки(_Запрос);
+	
+	Возврат Новый Структура("Отказ, Текст", НЕ _Ответ.КодСостояния = 200, _Ответ.ПолучитьТелоКакСтроку("UTF-8"));
+	
+	//_Envelope = ВетисОбщегоНазначения.Десериализовать(_Фабрика, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), _Envelope.Тип());
+	//
+	//_receiveResponse = ВетисSoapEnvelope.Извлечь(_Envelope).receiveApplicationResultResponse;
+	//
+	//Если _receiveResponse.Application.Status = ВетисКонстанты.Status_IN_PROCESS() Тогда
+	//	Возврат Новый Структура("Отказ, Ответ, status", Истина, "", _receiveResponse.Application.status);
+	//Иначе
+	//	Если НЕ _receiveResponse.Application.status = ВетисКонстанты.Status_COMPLETED() Тогда
+	//		Возврат Новый Структура("Отказ, Ответ, status", Истина, ПолучитьТекстОшибки(_receiveResponse.Application.errors), _receiveResponse.Application.status);
+	//	Иначе
+	//		Возврат Новый Структура("Отказ, Ответ, status", Ложь, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), _receiveResponse.Application.status);
+	//	КонецЕсли;
+	//КонецЕсли;
+	
 КонецФункции
 
 #КонецОбласти

@@ -46,6 +46,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommandGroup.ВетисСправочники</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommandGroup.ВетисСервис</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисИмяСправочника</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСкладскойЖурналОстатки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">33da6fb6-d27a-4ecf-b264-9443aa84407d</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

@@ -660,6 +660,13 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисСправочникПродукции</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисAnimalDisease.StandardAttribute.PredefinedDataName</name>
 		<right>
 			<name>View</name>
@@ -2254,6 +2261,13 @@
 		<right>
 			<name>Edit</name>
 			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисМаркировка</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
 		</right>
 	</object>
 	<object>

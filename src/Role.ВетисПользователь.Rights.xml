@@ -265,7 +265,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.Упаковка</name>
+		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.УдалитьУпаковка</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -672,7 +672,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.Маркировка</name>
+		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.УдалитьМаркировка</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -690,7 +690,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.КоличествоМест</name>
+		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.УдалитьКоличествоМест</name>
 		<right>
 			<name>View</name>
 			<value>false</value>

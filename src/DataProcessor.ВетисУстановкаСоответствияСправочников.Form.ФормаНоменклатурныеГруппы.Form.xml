@@ -50,6 +50,9 @@
 					</InputHint>
 					<ContextMenu name="ОтборТипПродукцииКонтекстноеМеню" id="139"/>
 					<ExtendedTooltip name="ОтборТипПродукцииРасширеннаяПодсказка" id="140"/>
+					<Events>
+						<Event name="OnChange">ОтборТипПродукцииПриИзменении</Event>
+					</Events>
 				</InputField>
 				<UsualGroup name="ГруппаОтборПродукция" id="147">
 					<Title>

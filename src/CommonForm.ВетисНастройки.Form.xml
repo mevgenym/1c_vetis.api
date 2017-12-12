@@ -619,6 +619,12 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
+						<CheckBoxField name="СправочникПродукцииЛокально" id="217">
+							<DataPath>СправочникПродукцииЛокально</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="СправочникПродукцииЛокальноКонтекстноеМеню" id="218"/>
+							<ExtendedTooltip name="СправочникПродукцииЛокальноРасширеннаяПодсказка" id="219"/>
+						</CheckBoxField>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -961,6 +967,17 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Контроль гос ветврачем</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СправочникПродукцииЛокально" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Справочник продукции локально</v8:content>
 				</v8:item>
 			</Title>
 			<Type>

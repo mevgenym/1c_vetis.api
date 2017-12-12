@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Enum uuid="7ac2e363-d2d2-462c-99e8-a8c75ced8c00">
+		<InternalInfo>
+			<xr:GeneratedType name="EnumRef.ВетисОперации" category="Ref">
+				<xr:TypeId>c761c30c-2d8d-4e9d-b4b1-41dcc254f402</xr:TypeId>
+				<xr:ValueId>e236c74e-f299-442e-9359-87495eb2d030</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumManager.ВетисОперации" category="Manager">
+				<xr:TypeId>64b1ad7a-09c1-4379-8507-2826b48e080d</xr:TypeId>
+				<xr:ValueId>e5e49ac5-4606-486f-8e74-acf29cc29bc3</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumList.ВетисОперации" category="List">
+				<xr:TypeId>6493ff04-3437-41fb-aea5-0003adf5f89e</xr:TypeId>
+				<xr:ValueId>35ebfbec-7cc9-46f9-8d87-314d157f0377</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ВетисОперации</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ветис операции</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<Characteristics/>
+			<QuickChoice>true</QuickChoice>
+			<ChoiceMode>BothWays</ChoiceMode>
+			<DefaultListForm/>
+			<DefaultChoiceForm/>
+			<AuxiliaryListForm/>
+			<AuxiliaryChoiceForm/>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+			<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+		</Properties>
+		<ChildObjects>
+			<EnumValue uuid="eafb217b-25ea-4a92-bdd7-7609aff298eb">
+				<Properties>
+					<Name>addBusinessEntityUser</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>addBusinessEntityUser</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="72f645c6-f7d0-4ad2-8acc-fa57e0041a73">
+				<Properties>
+					<Name>getApplicableUserAuthorityList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>getApplicableUserAuthorityList</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="18c642b1-2f17-4466-881e-5dbcf69153ac">
+				<Properties>
+					<Name>getAppliedUserAuthorityList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>getAppliedUserAuthorityList</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="ae2a37e7-f7dd-47fb-a8a0-59f28ff02196">
+				<Properties>
+					<Name>getBusinessEntityUser</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>getBusinessEntityUser</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="e4b0adde-5845-458c-baad-5f3c253dc770">
+				<Properties>
+					<Name>getBusinessEntityUserList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>getBusinessEntityUserList</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="6635732f-26e8-4923-a608-84755a912752">
+				<Properties>
+					<Name>getStockEntryByGuid</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>getStockEntryByGuid</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="e55bbc8a-5397-4d16-8ff5-e515978707b1">
+				<Properties>
+					<Name>getStockEntryChangesList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>getStockEntryChangesList</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="9541db84-45ca-4f55-8b4b-f459ed11c172">
+				<Properties>
+					<Name>getStockEntryList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>getStockEntryList</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="fd954a97-483f-466e-ac00-7118a57c1ea4">
+				<Properties>
+					<Name>getVetDocumentByUuid</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>getVetDocumentByUuid</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="dbfe9972-6e14-40ca-a2f2-e04faa084212">
+				<Properties>
+					<Name>getVetDocumentChangesList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>getVetDocumentChangesList</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="c7c7e2a6-d28f-4083-a688-417c5fae417f">
+				<Properties>
+					<Name>getVetDocumentList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>getVetDocumentList</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="bf0296e6-e0bb-450d-b1e5-fd31967852ee">
+				<Properties>
+					<Name>modifyActivityLocations</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>modifyActivityLocations</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="06c5bd92-8047-4e77-bd2f-8c113c3b5feb">
+				<Properties>
+					<Name>modifyBusinessEntity</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>modifyBusinessEntity</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="eec7b2da-9d1c-4b98-91ad-c6cebb9dcd64">
+				<Properties>
+					<Name>modifyEnterprise</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>modifyEnterprise</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="b9ebc52d-d86d-4640-ad4a-e08a6d17c424">
+				<Properties>
+					<Name>prepareOutgoingConsignment</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>prepareOutgoingConsignment</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="414f98f2-a864-4d24-a865-e1114c0e6b0a">
+				<Properties>
+					<Name>processIncomingConsignment</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>processIncomingConsignment</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="e2bbc31d-ad87-4848-b7a2-4082da7f0dae">
+				<Properties>
+					<Name>registerProductionOperation</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>registerProductionOperation</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="4337213b-ee84-4d8b-9f95-7e20fef6a8dd">
+				<Properties>
+					<Name>resolveDiscrepancy</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>resolveDiscrepancy</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="991b996f-95df-4f87-bb90-211f16b9b0eb">
+				<Properties>
+					<Name>unbindBusinessEntityUser</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>unbindBusinessEntityUser</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="65b3a8c1-253e-44e8-929b-13f1565da251">
+				<Properties>
+					<Name>updateTransportMovementDetails</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>updateTransportMovementDetails</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="81361ad7-a6b5-490b-8759-4e7a2e61da3d">
+				<Properties>
+					<Name>updateUserAuthorities</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>updateUserAuthorities</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="6eccaee6-c255-4392-a984-14dcedb2c6e2">
+				<Properties>
+					<Name>updateUserWorkingAreas</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>updateUserWorkingAreas</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="85569ead-91d3-42f9-b3f1-26f8dba07998">
+				<Properties>
+					<Name>updateVeterinaryEvents</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>updateVeterinaryEvents</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="9bfa9c81-457a-431f-8d62-c85318bda2d1">
+				<Properties>
+					<Name>withdrawVetDocument</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>withdrawVetDocument</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="5d02bf19-fb7c-494d-8dd3-4e3cc34f0d75">
+				<Properties>
+					<Name>сheckShipmentRegionalization</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>сheckShipmentRegionalization</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+		</ChildObjects>
+	</Enum>
+</MetaDataObject>

@@ -199,7 +199,6 @@
 					<v8:content>Группа страницы</v8:content>
 				</v8:item>
 			</ToolTip>
-			<PagesRepresentation>None</PagesRepresentation>
 			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="28"/>
 			<ChildItems>
 				<Page name="ГруппаВходящая" id="29">
@@ -264,6 +263,8 @@
 								<Event name="Selection">ТоварыВыбор</Event>
 								<Event name="BeforeAddRow">ТоварыПередНачаломДобавления</Event>
 								<Event name="BeforeDeleteRow">ТоварыПередУдалением</Event>
+								<Event name="OnActivateRow">ТоварыПриАктивизацииСтроки</Event>
+								<Event name="OnStartEdit">ТоварыПриНачалеРедактирования</Event>
 							</Events>
 							<ChildItems>
 								<LabelField name="Товарыguid" id="407">
@@ -452,6 +453,138 @@
 						</Table>
 					</ChildItems>
 				</Page>
+				<Page name="ГруппаУпаковка" id="509">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Упаковка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа упаковка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
+					<ExtendedTooltip name="ГруппаУпаковкаРасширеннаяПодсказка" id="510"/>
+					<ChildItems>
+						<Table name="Упаковка" id="511">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Упаковка</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="УпаковкаКонтекстноеМеню" id="512"/>
+							<AutoCommandBar name="УпаковкаКоманднаяПанель" id="513"/>
+							<ExtendedTooltip name="УпаковкаРасширеннаяПодсказка" id="514"/>
+							<SearchStringAddition name="УпаковкаСтрокаПоиска" id="515">
+								<AdditionSource>
+									<Item>Упаковка</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УпаковкаСтрокаПоискаКонтекстноеМеню" id="516"/>
+								<ExtendedTooltip name="УпаковкаСтрокаПоискаРасширеннаяПодсказка" id="517"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="УпаковкаСостояниеПросмотра" id="518">
+								<AdditionSource>
+									<Item>Упаковка</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УпаковкаСостояниеПросмотраКонтекстноеМеню" id="519"/>
+								<ExtendedTooltip name="УпаковкаСостояниеПросмотраРасширеннаяПодсказка" id="520"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="УпаковкаУправлениеПоиском" id="521">
+								<AdditionSource>
+									<Item>Упаковка</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="УпаковкаУправлениеПоискомКонтекстноеМеню" id="522"/>
+								<ExtendedTooltip name="УпаковкаУправлениеПоискомРасширеннаяПодсказка" id="523"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="УпаковкаНомерСтроки" id="524">
+									<DataPath>Объект.Упаковка.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаНомерСтрокиКонтекстноеМеню" id="525"/>
+									<ExtendedTooltip name="УпаковкаНомерСтрокиРасширеннаяПодсказка" id="526"/>
+								</LabelField>
+								<InputField name="УпаковкаУровень" id="533">
+									<DataPath>Объект.Упаковка.Уровень</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаУровеньКонтекстноеМеню" id="534"/>
+									<ExtendedTooltip name="УпаковкаУровеньРасширеннаяПодсказка" id="535"/>
+								</InputField>
+								<InputField name="УпаковкаТипУпаковки" id="536">
+									<DataPath>Объект.Упаковка.Упаковка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаТипУпаковкиКонтекстноеМеню" id="537"/>
+									<ExtendedTooltip name="УпаковкаТипУпаковкиРасширеннаяПодсказка" id="538"/>
+								</InputField>
+								<InputField name="УпаковкаКоличество" id="539">
+									<DataPath>Объект.Упаковка.Количество</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаКоличествоКонтекстноеМеню" id="540"/>
+									<ExtendedTooltip name="УпаковкаКоличествоРасширеннаяПодсказка" id="541"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Table name="Маркировка" id="542">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Маркировка</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="МаркировкаКонтекстноеМеню" id="543"/>
+							<AutoCommandBar name="МаркировкаКоманднаяПанель" id="544"/>
+							<ExtendedTooltip name="МаркировкаРасширеннаяПодсказка" id="545"/>
+							<SearchStringAddition name="МаркировкаСтрокаПоиска" id="546">
+								<AdditionSource>
+									<Item>Маркировка</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МаркировкаСтрокаПоискаКонтекстноеМеню" id="547"/>
+								<ExtendedTooltip name="МаркировкаСтрокаПоискаРасширеннаяПодсказка" id="548"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="МаркировкаСостояниеПросмотра" id="549">
+								<AdditionSource>
+									<Item>Маркировка</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МаркировкаСостояниеПросмотраКонтекстноеМеню" id="550"/>
+								<ExtendedTooltip name="МаркировкаСостояниеПросмотраРасширеннаяПодсказка" id="551"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="МаркировкаУправлениеПоиском" id="552">
+								<AdditionSource>
+									<Item>Маркировка</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="МаркировкаУправлениеПоискомКонтекстноеМеню" id="553"/>
+								<ExtendedTooltip name="МаркировкаУправлениеПоискомРасширеннаяПодсказка" id="554"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="МаркировкаНомерСтроки" id="555">
+									<DataPath>Объект.Маркировка.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаркировкаНомерСтрокиКонтекстноеМеню" id="556"/>
+									<ExtendedTooltip name="МаркировкаНомерСтрокиРасширеннаяПодсказка" id="557"/>
+								</LabelField>
+								<InputField name="МаркировкаМаркировка" id="561">
+									<DataPath>Объект.Маркировка.Маркировка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаркировкаМаркировкаКонтекстноеМеню" id="562"/>
+									<ExtendedTooltip name="МаркировкаМаркировкаРасширеннаяПодсказка" id="563"/>
+								</InputField>
+								<InputField name="МаркировкаКлассМаркировки" id="564">
+									<DataPath>Объект.Маркировка.КлассМаркировки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаркировкаКлассМаркировкиКонтекстноеМеню" id="565"/>
+									<ExtendedTooltip name="МаркировкаКлассМаркировкиРасширеннаяПодсказка" id="566"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 			</ChildItems>
 		</Pages>
 	</ChildItems>
@@ -466,88 +599,15 @@
 				<Field>Объект.RegisterRecords</Field>
 			</UseAlways>
 		</Attribute>
-		<Attribute name="Отправитель" id="2">
+		<Attribute name="МногоуровневаяУпаковка" id="8">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Отправитель</v8:content>
+					<v8:content>Многоуровневая упаковка</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="Получатель" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Получатель</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="ОтправительПредприятие" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Предприятие</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисПредприятия</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="ПолучательПредприятие" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Предприятие</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:CatalogRef.ВетисПредприятия</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="Количество" id="6">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Количество</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>15</v8:Digits>
-					<v8:FractionDigits>3</v8:FractionDigits>
-					<v8:AllowedSign>Any</v8:AllowedSign>
-				</v8:NumberQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="КоличествоМест" id="7">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Количество мест</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>15</v8:Digits>
-					<v8:FractionDigits>3</v8:FractionDigits>
-					<v8:AllowedSign>Any</v8:AllowedSign>
-				</v8:NumberQualifiers>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

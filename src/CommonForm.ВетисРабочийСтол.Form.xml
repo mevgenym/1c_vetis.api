@@ -613,6 +613,7 @@
 					<ExtendedTooltip name="ГруппаСкладскойЖурналРасширеннаяПодсказка" id="131"/>
 					<ChildItems>
 						<Table name="СписокСкладскойЖурнал" id="132">
+							<Visible>false</Visible>
 							<ChangeRowSet>false</ChangeRowSet>
 							<Height>1</Height>
 							<UseAlternationRowColor>true</UseAlternationRowColor>
@@ -866,6 +867,182 @@
 											<DataPath>СписокСкладскойЖурнал.PackingForm</DataPath>
 											<ContextMenu name="СписокСкладскойЖурналPackingFormКонтекстноеМеню" id="206"/>
 											<ExtendedTooltip name="СписокСкладскойЖурналPackingFormРасширеннаяПодсказка" id="207"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</Table>
+						<Table name="СписокСкладскойЖурналОстатки" id="358">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>СписокСкладскойЖурналОстатки</DataPath>
+							<RowPictureDataPath>СписокСкладскойЖурналОстатки.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СписокСкладскойЖурналОстаткиКонтекстноеМеню" id="359"/>
+							<AutoCommandBar name="СписокСкладскойЖурналОстаткиКоманднаяПанель" id="360">
+								<ChildItems>
+									<Button name="СписокСкладскойЖурналОстаткиКомандаСинхронизироватьСкладскойЖурнал" id="371">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаСинхронизироватьСкладскойЖурнал</CommandName>
+										<ExtendedTooltip name="СписокСкладскойЖурналОстаткиКомандаСинхронизироватьСкладскойЖурналРасширеннаяПодсказка" id="372"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокСкладскойЖурналОстаткиРасширеннаяПодсказка" id="361"/>
+							<SearchStringAddition name="СписокСкладскойЖурналОстаткиСтрокаПоиска" id="362">
+								<AdditionSource>
+									<Item>СписокСкладскойЖурналОстатки</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСкладскойЖурналОстаткиСтрокаПоискаКонтекстноеМеню" id="363"/>
+								<ExtendedTooltip name="СписокСкладскойЖурналОстаткиСтрокаПоискаРасширеннаяПодсказка" id="364"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокСкладскойЖурналОстаткиСостояниеПросмотра" id="365">
+								<AdditionSource>
+									<Item>СписокСкладскойЖурналОстатки</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСкладскойЖурналОстаткиСостояниеПросмотраКонтекстноеМеню" id="366"/>
+								<ExtendedTooltip name="СписокСкладскойЖурналОстаткиСостояниеПросмотраРасширеннаяПодсказка" id="367"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокСкладскойЖурналОстаткиУправлениеПоиском" id="368">
+								<AdditionSource>
+									<Item>СписокСкладскойЖурналОстатки</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСкладскойЖурналОстаткиУправлениеПоискомКонтекстноеМеню" id="369"/>
+								<ExtendedTooltip name="СписокСкладскойЖурналОстаткиУправлениеПоискомРасширеннаяПодсказка" id="370"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<ColumnGroup name="СписокСкладскойЖурналОстаткиГруппа3" id="377">
+									<ExtendedTooltip name="СписокСкладскойЖурналОстаткиГруппа3РасширеннаяПодсказка" id="378"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналОстаткиProductType" id="400">
+											<DataPath>СписокСкладскойЖурналОстатки.ProductType</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиProductTypeКонтекстноеМеню" id="401"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиProductTypeРасширеннаяПодсказка" id="402"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналОстаткиProduct" id="397">
+											<DataPath>СписокСкладскойЖурналОстатки.Product</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиProductКонтекстноеМеню" id="398"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиProductРасширеннаяПодсказка" id="399"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокСкладскойЖурналОстаткиГруппа2" id="375">
+									<ExtendedTooltip name="СписокСкладскойЖурналОстаткиГруппа2РасширеннаяПодсказка" id="376"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналОстаткиProductItem" id="391">
+											<DataPath>СписокСкладскойЖурналОстатки.ProductItem</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиProductItemКонтекстноеМеню" id="392"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиProductItemРасширеннаяПодсказка" id="393"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналОстаткиSubProduct" id="394">
+											<DataPath>СписокСкладскойЖурналОстатки.SubProduct</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиSubProductКонтекстноеМеню" id="395"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиSubProductРасширеннаяПодсказка" id="396"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокСкладскойЖурналОстаткиГруппа5" id="381">
+									<ExtendedTooltip name="СписокСкладскойЖурналОстаткиГруппа5РасширеннаяПодсказка" id="382"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналОстаткиvolume" id="409">
+											<DataPath>СписокСкладскойЖурналОстатки.volume</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиvolumeКонтекстноеМеню" id="410"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиvolumeРасширеннаяПодсказка" id="411"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналОстаткиpackingAmount" id="412">
+											<DataPath>СписокСкладскойЖурналОстатки.packingAmount</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиpackingAmountКонтекстноеМеню" id="413"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиpackingAmountРасширеннаяПодсказка" id="414"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокСкладскойЖурналОстаткиГруппа7" id="415">
+									<ExtendedTooltip name="СписокСкладскойЖурналОстаткиГруппа7РасширеннаяПодсказка" id="416"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналОстаткиUnit" id="428">
+											<DataPath>СписокСкладскойЖурналОстатки.Unit</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиUnitКонтекстноеМеню" id="429"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиUnitРасширеннаяПодсказка" id="430"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналОстаткиPackingForm" id="425">
+											<DataPath>СписокСкладскойЖурналОстатки.PackingForm</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиPackingFormКонтекстноеМеню" id="426"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиPackingFormРасширеннаяПодсказка" id="427"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокСкладскойЖурналОстаткиГруппа6" id="383">
+									<ExtendedTooltip name="СписокСкладскойЖурналОстаткиГруппа6РасширеннаяПодсказка" id="384"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналОстаткиproducer" id="419">
+											<DataPath>СписокСкладскойЖурналОстатки.producer</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиproducerКонтекстноеМеню" id="420"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиproducerРасширеннаяПодсказка" id="421"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналОстаткиproducerProductItem" id="422">
+											<DataPath>СписокСкладскойЖурналОстатки.producerProductItem</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиproducerProductItemКонтекстноеМеню" id="423"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиproducerProductItemРасширеннаяПодсказка" id="424"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокСкладскойЖурналОстаткиГруппа8" id="417">
+									<ExtendedTooltip name="СписокСкладскойЖурналОстаткиГруппа8РасширеннаяПодсказка" id="418"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналОстаткиproductMarking" id="434">
+											<DataPath>СписокСкладскойЖурналОстатки.productMarking</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиproductMarkingКонтекстноеМеню" id="435"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиproductMarkingРасширеннаяПодсказка" id="436"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналОстаткиpackage" id="437">
+											<DataPath>СписокСкладскойЖурналОстатки.package</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиpackageКонтекстноеМеню" id="438"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиpackageРасширеннаяПодсказка" id="439"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокСкладскойЖурналОстаткиГруппа4" id="379">
+									<ExtendedTooltip name="СписокСкладскойЖурналОстаткиГруппа4РасширеннаяПодсказка" id="380"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналОстаткиentryNumber" id="406">
+											<DataPath>СписокСкладскойЖурналОстатки.entryNumber</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиentryNumberКонтекстноеМеню" id="407"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиentryNumberРасширеннаяПодсказка" id="408"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналОстаткиguid" id="440">
+											<DataPath>СписокСкладскойЖурналОстатки.guid</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиguidКонтекстноеМеню" id="441"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиguidРасширеннаяПодсказка" id="442"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокСкладскойЖурналОстаткиГруппа1" id="373">
+									<ExtendedTooltip name="СписокСкладскойЖурналОстаткиГруппа1РасширеннаяПодсказка" id="374"/>
+									<ChildItems>
+										<LabelField name="СписокСкладскойЖурналОстаткиcreateDate" id="385">
+											<DataPath>СписокСкладскойЖурналОстатки.createDate</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиcreateDateКонтекстноеМеню" id="386"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиcreateDateРасширеннаяПодсказка" id="387"/>
+										</LabelField>
+										<LabelField name="СписокСкладскойЖурналОстаткиupdateDate" id="388">
+											<DataPath>СписокСкладскойЖурналОстатки.updateDate</DataPath>
+											<ContextMenu name="СписокСкладскойЖурналОстаткиupdateDateКонтекстноеМеню" id="389"/>
+											<ExtendedTooltip name="СписокСкладскойЖурналОстаткиupdateDateРасширеннаяПодсказка" id="390"/>
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
@@ -1222,6 +1399,38 @@
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
+		</Attribute>
+		<Attribute name="СписокСкладскойЖурналОстатки" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список складской журнал остатки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.ВетисСкладскойЖурналОстатки</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>

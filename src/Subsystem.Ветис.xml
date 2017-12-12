@@ -117,7 +117,12 @@
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисRussianEnterpriseList</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисМногоуровневаяУпаковка</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСкладскойЖурналОстатки</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСкладскойЖурналОстатки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСправочникПродукции</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисДлительныеОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисОчередьЗапросов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисСтатусЗапроса</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисМаркировка</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

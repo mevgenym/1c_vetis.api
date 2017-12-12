@@ -1,11 +1,11 @@
 ﻿
 // тип, описывающий cведения о содержимом заявки
-Функция Application(пОбъект, пИмя) Экспорт
+Функция Application(пОбъект, пИмя, issuerId = Неопределено) Экспорт
 	
 	_Объект = Создать("Application");
 	
 	_Объект.serviceId = Ветис.serviceId();
-	_Объект.issuerId  = Ветис.issuerId();
+	_Объект.issuerId  = ?(issuerId = Неопределено, Ветис.issuerId(), issuerId);
 	_Объект.issueDate = Ветис.ВремяСервиса();//xs:dateTime
 	_Объект.data      = ApplicationDataWrapper(пОбъект, пИмя);
 	
@@ -66,12 +66,12 @@
 КонецФункции
 
 // Запрос на получение результатов обработки заявки.
-Функция receiveApplicationResultRequest(applicationId) Экспорт
+Функция receiveApplicationResultRequest(applicationId, issuerId = Неопределено) Экспорт
 	
 	_Объект = Создать("receiveApplicationResultRequest", ServiceURI());
 	
 	_Объект.apiKey        = Ветис.apiKey();
-	_Объект.issuerId      = Ветис.issuerId();
+	_Объект.issuerId      = ?(issuerId = Неопределено, Ветис.issuerId(), issuerId);
 	_Объект.applicationId = applicationId;
 	
 	Возврат _Объект;

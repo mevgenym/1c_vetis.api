@@ -78,6 +78,11 @@
 					<CommandName>Form.Command.ОбновитьСправочники</CommandName>
 					<ExtendedTooltip name="ОбновитьСправочникиРасширеннаяПодсказка" id="28"/>
 				</Button>
+				<Button name="СправочникПродукции" id="56">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.СправочникПродукции</CommandName>
+					<ExtendedTooltip name="СправочникПродукцииРасширеннаяПодсказка" id="57"/>
+				</Button>
 				<Button name="НазначенияГрузов" id="47">
 					<Type>UsualButton</Type>
 					<CommandName>Form.Command.НазначенияГрузов</CommandName>
@@ -426,6 +431,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПредприятияХС</Action>
+		</Command>
+		<Command name="СправочникПродукции" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Справочник продукции</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Справочник продукции</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СправочникПродукции</Action>
 		</Command>
 	</Commands>
 </Form>

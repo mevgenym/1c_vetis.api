@@ -211,6 +211,11 @@
 												<CommandName>Form.Command.КомандаЗаполнитьТовары</CommandName>
 												<ExtendedTooltip name="ТоварыКомандаЗаполнитьТоварыРасширеннаяПодсказка" id="163"/>
 											</Button>
+											<Button name="ПартииСписокКомандаРаспределитьПартииПоВсемТоварам" id="337">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.КомандаРаспределитьПартииПоВсемТоварам</CommandName>
+												<ExtendedTooltip name="ПартииСписокКомандаРаспределитьПартииПоВсемТоварамРасширеннаяПодсказка" id="338"/>
+											</Button>
 										</ChildItems>
 									</AutoCommandBar>
 									<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="41"/>
@@ -357,7 +362,7 @@
 													<ExtendedTooltip name="ТоварыЕдиницаИзмеренияРасширеннаяПодсказка" id="301"/>
 												</InputField>
 												<InputField name="ТоварыУпаковка" id="302">
-													<DataPath>Объект.Товары.Упаковка</DataPath>
+													<DataPath>1/0:f5f9771c-9962-444b-94a1-a2e72d832ef4/0:48594c73-27d0-4278-8dfa-2c2531deff3c</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ТоварыУпаковкаКонтекстноеМеню" id="303"/>
 													<ExtendedTooltip name="ТоварыУпаковкаРасширеннаяПодсказка" id="304"/>
@@ -387,7 +392,7 @@
 													<ExtendedTooltip name="ТоварыНесколькоПартийРасширеннаяПодсказка" id="333"/>
 												</CheckBoxField>
 												<InputField name="ТоварыПартия" id="334">
-													<DataPath>Объект.Товары.Партия</DataPath>
+													<DataPath>Объект.Товары.ПартияGuid</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ТоварыПартияКонтекстноеМеню" id="335"/>
 													<ExtendedTooltip name="ТоварыПартияРасширеннаяПодсказка" id="336"/>
@@ -1420,6 +1425,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнитьПоДокументу</Action>
+		</Command>
+		<Command name="КомандаРаспределитьПартииПоВсемТоварам" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить по все товарам</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда распределить партии по всем товарам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаРаспределитьПартииПоВсемТоварам</Action>
 		</Command>
 	</Commands>
 </Form>

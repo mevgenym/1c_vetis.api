@@ -1488,11 +1488,11 @@
 					</Attribute>
 					<Attribute uuid="8b5b30fe-40f0-4a48-979a-68374b93ecb3">
 						<Properties>
-							<Name>КоличествоМест</Name>
+							<Name>УдалитьКоличествоМест</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Количество мест</v8:content>
+									<v8:content>Удалить количество мест</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
@@ -1985,11 +1985,11 @@
 					</Attribute>
 					<Attribute uuid="8876f808-e289-4d9d-832c-c43ffe9bfbc8">
 						<Properties>
-							<Name>Маркировка</Name>
+							<Name>УдалитьМаркировка</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Маркировка</v8:content>
+									<v8:content>Удалить маркировка</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment>productMarkingList</Comment>
@@ -2061,11 +2061,11 @@
 					</Attribute>
 					<Attribute uuid="3331e4f9-4ae1-4936-846c-2767e6fd1091">
 						<Properties>
-							<Name>Упаковка</Name>
+							<Name>УдалитьУпаковка</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Упаковка</v8:content>
+									<v8:content>Удалить упаковка</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment>packageList</Comment>
@@ -4901,11 +4901,11 @@
 					</Attribute>
 					<Attribute uuid="d0da4eb5-be3d-4857-bf7a-97736f8308eb">
 						<Properties>
-							<Name>ТипУпаковки</Name>
+							<Name>Упаковка</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Тип упаковки</v8:content>
+									<v8:content>Упаковка</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment>packingType {dt:PackingType}</Comment>
@@ -4978,11 +4978,11 @@
 					</Attribute>
 					<Attribute uuid="53c40dad-e309-4860-9669-d2058221e815">
 						<Properties>
-							<Name>КлассМаркировки</Name>
+							<Name>УдалитьКлассМаркировки</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Класс маркировки</v8:content>
+									<v8:content>Удалить класс маркировки</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment>productMarks {dt:ProductMarks}</Comment>
@@ -5014,6 +5014,113 @@
 					</Attribute>
 					<Attribute uuid="4117932f-819b-45ca-80bb-2ebaf733465e">
 						<Properties>
+							<Name>УдалитьМаркировка</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Удалить маркировка</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>xs:string</v8:Type>
+								<v8:StringQualifiers>
+									<v8:Length>255</v8:Length>
+									<v8:AllowedLength>Variable</v8:AllowedLength>
+								</v8:StringQualifiers>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+				</ChildObjects>
+			</TabularSection>
+			<TabularSection uuid="33e83154-e4e2-4057-9b03-3772f7c817e8">
+				<InternalInfo>
+					<xr:GeneratedType name="DocumentTabularSection.ВетисВетеринарноСопроводительныйДокумент.Маркировка" category="TabularSection">
+						<xr:TypeId>f520b7c4-4b50-4f66-8166-9f3be6f334bb</xr:TypeId>
+						<xr:ValueId>7344e10e-b23a-42d1-92c6-c73980ca8834</xr:ValueId>
+					</xr:GeneratedType>
+					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисВетеринарноСопроводительныйДокумент.Маркировка" category="TabularSectionRow">
+						<xr:TypeId>10d3f648-bc7f-4e21-a881-17968e0ce9ba</xr:TypeId>
+						<xr:ValueId>8832eca9-4798-42e9-a086-47b3ca4a79bf</xr:ValueId>
+					</xr:GeneratedType>
+				</InternalInfo>
+				<Properties>
+					<Name>Маркировка</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Маркировка</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>ProductMarks v2.0</Comment>
+					<ToolTip/>
+					<FillChecking>DontCheck</FillChecking>
+				</Properties>
+				<ChildObjects>
+					<Attribute uuid="df774ffa-7d2e-4c81-8a51-a2e64f4d5bec">
+						<Properties>
+							<Name>КлючСвязи</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ключ связи</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>xs:decimal</v8:Type>
+								<v8:NumberQualifiers>
+									<v8:Digits>5</v8:Digits>
+									<v8:FractionDigits>0</v8:FractionDigits>
+									<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+								</v8:NumberQualifiers>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>Index</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="7a723737-2b1d-40a5-ad38-666f534d835c">
+						<Properties>
 							<Name>Маркировка</Name>
 							<Synonym>
 								<v8:item>
@@ -5028,6 +5135,42 @@
 									<v8:Length>255</v8:Length>
 									<v8:AllowedLength>Variable</v8:AllowedLength>
 								</v8:StringQualifiers>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="33885ed7-4f5c-475c-85b8-d3bb80ac31a8">
+						<Properties>
+							<Name>КлассМаркировки</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Класс маркировки</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>productMarks {dt:ProductMarks}</Comment>
+							<Type>
+								<v8:Type>cfg:EnumRef.ВетисProductMarkingClass</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -5311,149 +5454,6 @@
 									<v8:Length>100</v8:Length>
 									<v8:AllowedLength>Variable</v8:AllowedLength>
 								</v8:StringQualifiers>
-							</Type>
-							<PasswordMode>false</PasswordMode>
-							<Format/>
-							<EditFormat/>
-							<ToolTip/>
-							<MarkNegatives>false</MarkNegatives>
-							<Mask/>
-							<MultiLine>false</MultiLine>
-							<ExtendedEdit>false</ExtendedEdit>
-							<MinValue xsi:nil="true"/>
-							<MaxValue xsi:nil="true"/>
-							<FillChecking>DontCheck</FillChecking>
-							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ChoiceParameterLinks/>
-							<ChoiceParameters/>
-							<QuickChoice>Auto</QuickChoice>
-							<CreateOnInput>Auto</CreateOnInput>
-							<ChoiceForm/>
-							<LinkByType/>
-							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-							<Indexing>DontIndex</Indexing>
-							<FullTextSearch>Use</FullTextSearch>
-						</Properties>
-					</Attribute>
-				</ChildObjects>
-			</TabularSection>
-			<TabularSection uuid="33e83154-e4e2-4057-9b03-3772f7c817e8">
-				<InternalInfo>
-					<xr:GeneratedType name="DocumentTabularSection.ВетисВетеринарноСопроводительныйДокумент.Маркировка" category="TabularSection">
-						<xr:TypeId>f520b7c4-4b50-4f66-8166-9f3be6f334bb</xr:TypeId>
-						<xr:ValueId>7344e10e-b23a-42d1-92c6-c73980ca8834</xr:ValueId>
-					</xr:GeneratedType>
-					<xr:GeneratedType name="DocumentTabularSectionRow.ВетисВетеринарноСопроводительныйДокумент.Маркировка" category="TabularSectionRow">
-						<xr:TypeId>10d3f648-bc7f-4e21-a881-17968e0ce9ba</xr:TypeId>
-						<xr:ValueId>8832eca9-4798-42e9-a086-47b3ca4a79bf</xr:ValueId>
-					</xr:GeneratedType>
-				</InternalInfo>
-				<Properties>
-					<Name>Маркировка</Name>
-					<Synonym>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Маркировка</v8:content>
-						</v8:item>
-					</Synonym>
-					<Comment>ProductMarks v2.0</Comment>
-					<ToolTip/>
-					<FillChecking>DontCheck</FillChecking>
-				</Properties>
-				<ChildObjects>
-					<Attribute uuid="df774ffa-7d2e-4c81-8a51-a2e64f4d5bec">
-						<Properties>
-							<Name>КлючСвязи</Name>
-							<Synonym>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Ключ связи</v8:content>
-								</v8:item>
-							</Synonym>
-							<Comment/>
-							<Type>
-								<v8:Type>xs:decimal</v8:Type>
-								<v8:NumberQualifiers>
-									<v8:Digits>5</v8:Digits>
-									<v8:FractionDigits>0</v8:FractionDigits>
-									<v8:AllowedSign>Nonnegative</v8:AllowedSign>
-								</v8:NumberQualifiers>
-							</Type>
-							<PasswordMode>false</PasswordMode>
-							<Format/>
-							<EditFormat/>
-							<ToolTip/>
-							<MarkNegatives>false</MarkNegatives>
-							<Mask/>
-							<MultiLine>false</MultiLine>
-							<ExtendedEdit>false</ExtendedEdit>
-							<MinValue xsi:nil="true"/>
-							<MaxValue xsi:nil="true"/>
-							<FillChecking>DontCheck</FillChecking>
-							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ChoiceParameterLinks/>
-							<ChoiceParameters/>
-							<QuickChoice>Auto</QuickChoice>
-							<CreateOnInput>Auto</CreateOnInput>
-							<ChoiceForm/>
-							<LinkByType/>
-							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-							<Indexing>Index</Indexing>
-							<FullTextSearch>Use</FullTextSearch>
-						</Properties>
-					</Attribute>
-					<Attribute uuid="7a723737-2b1d-40a5-ad38-666f534d835c">
-						<Properties>
-							<Name>Маркировка</Name>
-							<Synonym>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Маркировка</v8:content>
-								</v8:item>
-							</Synonym>
-							<Comment/>
-							<Type>
-								<v8:Type>xs:string</v8:Type>
-								<v8:StringQualifiers>
-									<v8:Length>255</v8:Length>
-									<v8:AllowedLength>Variable</v8:AllowedLength>
-								</v8:StringQualifiers>
-							</Type>
-							<PasswordMode>false</PasswordMode>
-							<Format/>
-							<EditFormat/>
-							<ToolTip/>
-							<MarkNegatives>false</MarkNegatives>
-							<Mask/>
-							<MultiLine>false</MultiLine>
-							<ExtendedEdit>false</ExtendedEdit>
-							<MinValue xsi:nil="true"/>
-							<MaxValue xsi:nil="true"/>
-							<FillChecking>DontCheck</FillChecking>
-							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ChoiceParameterLinks/>
-							<ChoiceParameters/>
-							<QuickChoice>Auto</QuickChoice>
-							<CreateOnInput>Auto</CreateOnInput>
-							<ChoiceForm/>
-							<LinkByType/>
-							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-							<Indexing>DontIndex</Indexing>
-							<FullTextSearch>Use</FullTextSearch>
-						</Properties>
-					</Attribute>
-					<Attribute uuid="33885ed7-4f5c-475c-85b8-d3bb80ac31a8">
-						<Properties>
-							<Name>КлассМаркировки</Name>
-							<Synonym>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Класс маркировки</v8:content>
-								</v8:item>
-							</Synonym>
-							<Comment>productMarks {dt:ProductMarks}</Comment>
-							<Type>
-								<v8:Type>cfg:EnumRef.ВетисProductMarkingClass</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>

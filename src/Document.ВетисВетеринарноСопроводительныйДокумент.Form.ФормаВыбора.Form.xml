@@ -12,6 +12,7 @@
 			<Representation>List</Representation>
 			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
+			<ChangeRowSet>false</ChangeRowSet>
 			<ChoiceMode>true</ChoiceMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -60,13 +61,35 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 			</SearchControlAddition>
 			<ChildItems>
+				<LabelField name="Дата" id="56">
+					<DataPath>Список.Date</DataPath>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="58"/>
+				</LabelField>
+				<LabelField name="Номер" id="59">
+					<DataPath>Список.Number</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="60"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="61"/>
+				</LabelField>
 				<LabelField name="НомерВСД" id="20">
 					<DataPath>Список.НомерВСД</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер ВСД</v8:content>
+						</v8:item>
+					</Title>
 					<ContextMenu name="НомерВСДКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="НомерВСДРасширеннаяПодсказка" id="22"/>
 				</LabelField>
 				<LabelField name="ДатаВСД" id="23">
 					<DataPath>Список.ДатаВСД</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата ВСД</v8:content>
+						</v8:item>
+					</Title>
 					<ContextMenu name="ДатаВСДКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="ДатаВСДРасширеннаяПодсказка" id="25"/>
 				</LabelField>

@@ -529,9 +529,6 @@
 											<CheckBoxType>Auto</CheckBoxType>
 											<ContextMenu name="сжСкоропортящаясяКонтекстноеМеню" id="349"/>
 											<ExtendedTooltip name="сжСкоропортящаясяРасширеннаяПодсказка" id="350"/>
-											<Events>
-												<Event name="OnChange">сжСкоропортящаясяПриИзменении</Event>
-											</Events>
 										</CheckBoxField>
 										<CheckBoxField name="сжНекачественныйГруз" id="442">
 											<DataPath>сжНекачественныйГруз</DataPath>
@@ -1032,7 +1029,6 @@
 									<v8:content>Группа ТТННомер</v8:content>
 								</v8:item>
 							</ToolTip>
-							<Group>Horizontal</Group>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаТТННомерРасширеннаяПодсказка" id="452"/>
@@ -1868,7 +1864,7 @@
 			<Type>
 				<v8:Type>xs:string</v8:Type>
 				<v8:StringQualifiers>
-					<v8:Length>10</v8:Length>
+					<v8:Length>15</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
@@ -1894,7 +1890,7 @@
 			<Type>
 				<v8:Type>xs:string</v8:Type>
 				<v8:StringQualifiers>
-					<v8:Length>10</v8:Length>
+					<v8:Length>15</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>

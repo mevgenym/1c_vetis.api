@@ -406,25 +406,6 @@
 	
 КонецФункции
 
-//Тип, описывающий условие регионализации, соблюдаемое при перевозке груза.
-//Параметры:
-// referenceNumber - bs:Identifier - Номер условия.
-// text - xs:Text - Формулировка условия.
-// strict - xs:boolean - Обязательность соблюдения условия.
-// relatedDisease - dt:AnimalDisease - Заболевание, к которому относится данное условие.
-Функция RegionalizationCondition(referenceNumber, text, strict, relatedDisease) Экспорт
-	
-	_Объект = Создать("RegionalizationCondition");
-	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, referenceNumber, "referenceNumber");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, text, "text");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, strict, "strict");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, relatedDisease, "relatedDisease");
-	
-	Возврат _Объект;
-	
-КонецФункции
-
 //Тип, описывающий cведения о записи журнала продукции.
 Функция StockEntry(guid) Экспорт
 	
@@ -527,7 +508,7 @@
 // cargoExpertized - dt:ResearchResult - Проводилась ли ветсанэкспертиза.
 // locationProsperity - bs:String255 - Благополучие местности.
 // specialMarks - bs:Text - Особые отметки.
-Функция VeterinaryAuthentication(purpose = Неопределено, cargoInspected = Неопределено, cargoExpertized = Неопределено, locationProsperity = Неопределено, specialMarks = Неопределено) Экспорт
+Функция VeterinaryAuthentication(purpose = Неопределено, cargoInspected = Неопределено, cargoExpertized = Неопределено, locationProsperity = Неопределено, specialMarks = Неопределено, r13nClause = Неопределено) Экспорт
 	
 	_Объект = Создать("VeterinaryAuthentication");
 	
@@ -536,6 +517,7 @@
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, cargoExpertized, "cargoExpertized");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, locationProsperity, "locationProsperity");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, specialMarks, "specialMarks");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, r13nClause, "r13nClause");
 	
 	//_Объект.animalSpentPeriod
 	//_Объект.monthsSpent

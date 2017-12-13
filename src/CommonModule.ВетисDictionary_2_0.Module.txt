@@ -498,14 +498,15 @@
 // text - xs:Text - Формулировка условия
 // strict - xs:boolean - Обязательность соблюдения условия
 // relatedDisease - xs:String - Заболевание, к которому относится данное условие
-Функция RegionalizationCondition(referenceNumber = Неопределено, text = Неопределено, strict = Неопределено, relatedDisease = Неопределено) Экспорт
+Функция RegionalizationCondition(guid = Неопределено, referenceNumber = Неопределено, text = Неопределено, strict = Неопределено, relatedDisease = Неопределено) Экспорт
 	
 	_Объект = Создать("RegionalizationCondition");
 	
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Лев(referenceNumber, 100), "referenceNumber");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, guid, "guid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, referenceNumber, "referenceNumber");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, text, "text");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, strict = Истина, "strict");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, AnimalDisease(relatedDisease), "relatedDisease");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, strict, "strict");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, relatedDisease, "relatedDisease", "ВетисDictionary_2_0.AnimalDisease");
 	
 	Возврат _Объект;
 	

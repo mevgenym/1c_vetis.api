@@ -307,13 +307,17 @@
 	
 	_Объект = Создать("GoodsDate");
 	
-	_Объект.firstDate = ВетисDictionary_2_0.ComplexDate(firstDate, пДень, пЧас, пМинута);
-	
-	Если НЕ secondDate = Неопределено И ЗначениеЗаполнено(secondDate) Тогда
-		_фс = "ДФ=ММ.гггг" + ?(пДень, ".дд", "") + ?(пЧас, ".чч", "") + ?(пМинута, ".мм", "");
-		Если НЕ Формат(secondDate, _фс) = Формат(firstDate, _фс) Тогда
-			_Объект.secondDate = ВетисDictionary_2_0.ComplexDate(secondDate, пДень, пЧас, пМинута);
+	Если ТипЗнч(firstDate) = Тип("Дата") Тогда
+		_Объект.firstDate = ВетисDictionary_2_0.ComplexDate(firstDate, пДень, пЧас, пМинута);
+		
+		Если НЕ secondDate = Неопределено И ЗначениеЗаполнено(secondDate) Тогда
+			_фс = "ДФ=ММ.гггг" + ?(пДень, ".дд", "") + ?(пЧас, ".чч", "") + ?(пМинута, ".мм", "");
+			Если НЕ Формат(secondDate, _фс) = Формат(firstDate, _фс) Тогда
+				_Объект.secondDate = ВетисDictionary_2_0.ComplexDate(secondDate, пДень, пЧас, пМинута);
+			КонецЕсли;
 		КонецЕсли;
+	Иначе
+		_Объект.informalDate = firstDate;
 	КонецЕсли;
 	
 	Возврат _Объект;

@@ -180,13 +180,13 @@
 	|	Документ.ВетисВетеринарноСопроводительныйДокумент КАК _Таблица
 	|ГДЕ
 	|	ИСТИНА
-	|	И НЕ _Таблица.ПометкаУдаления
+	//|	И НЕ _Таблица.ПометкаУдаления
 	|	И НЕ _Таблица.uuid = """"
-	|//о_вхисх	(Истина
+	|//ови	(Истина
 	|//оисх	И _Таблица.Отправитель = &ХС //опо И _Таблица.ОтправительПредприятие = &Предприятие
-	|//о_вхисх	ИЛИ
+	|//ови	ИЛИ
 	|//овх	И _Таблица.Получатель = &ХС //опо И _Таблица.ПолучательПредприятие = &Предприятие
-	|//о_вхисх	)
+	|//ови	)
 	|//от	И _Таблица.Тип = &Тип
 	|//ос	И _Таблица.Статус = &Статус
 	|	И ИСТИНА";
@@ -205,7 +205,7 @@
 	
 	Если пПараметры.Свойство("Входящие") И пПараметры.Входящие = Истина
 		И пПараметры.Свойство("Исходящие") И пПараметры.Исходящие = Истина Тогда
-		Запрос.Текст = СтрЗаменить(Запрос.Текст, "//о_вхисх", "");
+		Запрос.Текст = СтрЗаменить(Запрос.Текст, "//ови", "");
 	КонецЕсли;
 	
 	Если пПараметры.Свойство("Статус") Тогда
@@ -314,8 +314,8 @@
 			_док = Документы.ВетисВетеринарноСопроводительныйДокумент.СоздатьДокумент();
 			_док.Дата = ТекущаяДата();
 		ИначеЕсли Ложь
-			И _Строка.Тип       = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_VetDocument.type)
-			И _Строка.Статус    = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_VetDocument.status)
+			И _Строка.Тип       = ВетисMercuryVetdocumentСлой1с.VetDocumentType(?(_Версия20, _VetDocument.vetDType, _VetDocument.type))
+			И _Строка.Статус    = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(?(_Версия20, _VetDocument.vetDstatus, _VetDocument.status))
 			И (_Строка.СерияВСД = _VetDocument.issueSeries ИЛИ _VetDocument.issueSeries = Неопределено)
 			И _Строка.НомерВСД  = _VetDocument.issueNumber
 			И _Строка.ДатаВСД   = _VetDocument.issueDate
@@ -333,6 +333,8 @@
 		Иначе
 			ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_док, _VetDocument);
 		КонецЕсли;
+		
+		_док.ПометкаУдаления = Ложь;
 		
 		_док.ДополнительныеСвойства.Вставить("Загрузка");
 		
@@ -429,6 +431,14 @@
 				Прервать;
 			КонецЦикла;
 			
+			_мз.dateOfProductionFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.firstDate, Истина);
+			_мз.dateOfProductionSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.secondDate, Истина);
+			_мз.dateOfProductionInformal = _stockEntry.batch.dateOfProduction.informalDate;
+			
+			_мз.expiryDateFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.firstDate, Истина);
+			_мз.expiryDateSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.secondDate, Истина);
+			_мз.expiryDateInformal = _stockEntry.batch.expiryDate.informalDate;
+			
 		Иначе
 			
 			_мз.owner = _stockEntry.batch.owner.guid;
@@ -460,6 +470,12 @@
 				КонецЦикла;
 				_мз.productMarking = _Mark;
 			КонецЕсли;
+			
+			_мз.dateOfProductionFirst = ВетисBase.ComplexDate(_stockEntry.batch.dateOfProduction.firstDate, Истина);
+			_мз.dateOfProductionSecond = ВетисBase.ComplexDate(_stockEntry.batch.dateOfProduction.secondDate, Истина);
+			
+			_мз.expiryDateFirst = ВетисBase.ComplexDate(_stockEntry.batch.expiryDate.firstDate, Истина);
+			_мз.expiryDateSecond = ВетисBase.ComplexDate(_stockEntry.batch.expiryDate.secondDate, Истина);
 			
 		КонецЕсли;
 		
@@ -546,6 +562,14 @@
 			//берем только первый
 			Прервать;
 		КонецЦикла;
+		
+		_мз.dateOfProductionFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.firstDate, Истина);
+		_мз.dateOfProductionSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.dateOfProduction.secondDate, Истина);
+		_мз.dateOfProductionInformal = _stockEntry.batch.dateOfProduction.informalDate;
+		
+		_мз.expiryDateFirst = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.firstDate, Истина);
+		_мз.expiryDateSecond = ВетисDictionary_2_0.ComplexDate(_stockEntry.batch.expiryDate.secondDate, Истина);
+		_мз.expiryDateInformal = _stockEntry.batch.expiryDate.informalDate;
 		
 		_мз.Записать();
 		
@@ -1503,9 +1527,9 @@
 	
 	Перем _product, _subProduct;
 	
-	Если НЕ Ветис.Настройки_СправочникПродукцииЛокально() Тогда
-		Возврат;
-	КонецЕсли;
+	//Если НЕ Ветис.Настройки_СправочникПродукцииЛокально() Тогда
+	//	Возврат;
+	//КонецЕсли;
 	
 	_нз = РегистрыСведений.ВетисСправочникПродукции.СоздатьНаборЗаписей();
 	

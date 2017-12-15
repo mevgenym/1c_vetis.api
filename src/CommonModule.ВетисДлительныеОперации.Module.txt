@@ -33,7 +33,7 @@
 	
 	ЗаполнитьЗначенияСвойств(_мз, Выборка);
 	
-	_Фабрика = ФабрикаОбщая();
+	_Фабрика = Ветис.ФабрикаОбщая();
 	
 	_Envelope = ВетисОбщегоНазначения.Десериализовать(_Фабрика, _Ответ.Текст, _Envelope.Тип());
 	
@@ -51,14 +51,14 @@
 		_мз.Статус = Перечисления.ВетисСтатусЗапроса.ПустаяСсылка();
 	КонецЕсли;
 	
-	Если _receiveResponse.Application.Status = ВетисКонстанты.Status_IN_PROCESS() Тогда
-		Возврат Новый Структура("Отказ, Ответ, status", Истина, "", _receiveResponse.Application.status);
-	Иначе
-		Если НЕ _receiveResponse.Application.status = ВетисКонстанты.Status_COMPLETED() Тогда
-			Возврат Новый Структура("Отказ, Ответ, status", Истина, ПолучитьТекстОшибки(_receiveResponse.Application.errors), _receiveResponse.Application.status);
-		Иначе
-			Возврат Новый Структура("Отказ, Ответ, status", Ложь, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), _receiveResponse.Application.status);
-		КонецЕсли;
-	КонецЕсли;
+	//Если _receiveResponse.Application.Status = ВетисКонстанты.Status_IN_PROCESS() Тогда
+	//	Возврат Новый Структура("Отказ, Ответ, status", Истина, "", _receiveResponse.Application.status);
+	//Иначе
+	//	Если НЕ _receiveResponse.Application.status = ВетисКонстанты.Status_COMPLETED() Тогда
+	//		Возврат Новый Структура("Отказ, Ответ, status", Истина, ПолучитьТекстОшибки(_receiveResponse.Application.errors), _receiveResponse.Application.status);
+	//	Иначе
+	//		Возврат Новый Структура("Отказ, Ответ, status", Ложь, _Ответ.ПолучитьТелоКакСтроку("UTF-8"), _receiveResponse.Application.status);
+	//	КонецЕсли;
+	//КонецЕсли;
 	
 КонецПроцедуры

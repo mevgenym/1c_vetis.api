@@ -296,9 +296,13 @@
 								</LabelField>
 								<LabelField name="СписокВСДПолучатель" id="33">
 									<DataPath>СписокВСД.Получатель</DataPath>
-									<Visible>false</Visible>
 									<ContextMenu name="СписокВСДПолучательКонтекстноеМеню" id="34"/>
 									<ExtendedTooltip name="СписокВСДПолучательРасширеннаяПодсказка" id="35"/>
+								</LabelField>
+								<LabelField name="СписокВСДПолучательПредприятие" id="445">
+									<DataPath>СписокВСД.ПолучательПредприятие</DataPath>
+									<ContextMenu name="СписокВСДПолучательПредприятиеКонтекстноеМеню" id="446"/>
+									<ExtendedTooltip name="СписокВСДПолучательПредприятиеРасширеннаяПодсказка" id="447"/>
 								</LabelField>
 								<LabelField name="СписокВСДНоменклатурнаяГруппа" id="311">
 									<DataPath>СписокВСД.НоменклатурнаяГруппа</DataPath>
@@ -1468,6 +1472,9 @@
 						<dcsset:field>СписокВСДПолучатель</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
+						<dcsset:field>СписокВСДПолучательПредприятие</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
 						<dcsset:field>СписокВСДНоменклатурнаяГруппа</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
@@ -1518,6 +1525,9 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДПолучатель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДПолучательПредприятие</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДНоменклатурнаяГруппа</dcsset:field>
@@ -1572,6 +1582,9 @@
 						<dcsset:field>СписокВСДПолучатель</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
+						<dcsset:field>СписокВСДПолучательПредприятие</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
 						<dcsset:field>СписокВСДНоменклатурнаяГруппа</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
@@ -1617,6 +1630,9 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДПолучатель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДПолучательПредприятие</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДНоменклатурнаяГруппа</dcsset:field>

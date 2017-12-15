@@ -19,6 +19,9 @@
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
@@ -117,6 +120,7 @@
 				</LabelField>
 				<LabelField name="Тип" id="57">
 					<DataPath>Список.Тип</DataPath>
+					<Visible>false</Visible>
 					<ContextMenu name="ТипКонтекстноеМеню" id="58"/>
 					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="59"/>
 				</LabelField>
@@ -142,8 +146,14 @@
 				</LabelField>
 				<LabelField name="ФормаВСД" id="48">
 					<DataPath>Список.Форма</DataPath>
+					<Visible>false</Visible>
 					<ContextMenu name="ФормаВСДКонтекстноеМеню" id="49"/>
 					<ExtendedTooltip name="ФормаВСДРасширеннаяПодсказка" id="50"/>
+				</LabelField>
+				<LabelField name="uuid" id="78">
+					<DataPath>Список.uuid</DataPath>
+					<ContextMenu name="uuidКонтекстноеМеню" id="79"/>
+					<ExtendedTooltip name="uuidРасширеннаяПодсказка" id="80"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -155,6 +165,7 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
+				<Field>Список.Тип</Field>
 				<Field>Список.uuid</Field>
 				<Field>Список.Ref</Field>
 			</UseAlways>
@@ -216,6 +227,18 @@
 					<dcsset:item>
 						<dcsset:field>ФормаВСД</dcsset:field>
 					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НоменклатурнаяГруппа</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Номенклатура</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Количество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>uuid</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -266,6 +289,18 @@
 					<dcsset:item>
 						<dcsset:field>ФормаВСД</dcsset:field>
 					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НоменклатурнаяГруппа</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Номенклатура</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Количество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>uuid</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -315,6 +350,18 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>ФормаВСД</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НоменклатурнаяГруппа</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Номенклатура</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Количество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>uuid</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>

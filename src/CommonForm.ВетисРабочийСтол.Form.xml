@@ -166,20 +166,20 @@
 			</ToolTip>
 			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="2"/>
 			<ChildItems>
-				<Page name="СтраницаВСД" id="3">
+				<Page name="СтраницаВСДВходящие" id="3">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ВСД</v8:content>
+							<v8:content>Входящие ВСД</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Страница ВСД</v8:content>
+							<v8:content>ВСД Входящие</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ExtendedTooltip name="СтраницаВСДРасширеннаяПодсказка" id="4"/>
+					<ExtendedTooltip name="СтраницаВСДВходящиеРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
 						<Table name="СписокВСД" id="5">
 							<HeightInTableRows>1</HeightInTableRows>
@@ -222,6 +222,11 @@
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.КомандаОтборСтатусВСД</CommandName>
 										<ExtendedTooltip name="СписокВСДОтборСтатусРасширеннаяПодсказка" id="310"/>
+									</Button>
+									<Button name="СписокВСДКомандаНаправление" id="443">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаНаправление</CommandName>
+										<ExtendedTooltip name="СписокВСДКомандаНаправлениеРасширеннаяПодсказка" id="444"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -1433,6 +1438,17 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
+		<Attribute name="Направление" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Направление</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -1799,6 +1815,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаПредприятияХС</Action>
+		</Command>
+		<Command name="КомандаНаправление" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Направление</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда направление</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаНаправление</Action>
 		</Command>
 	</Commands>
 </Form>

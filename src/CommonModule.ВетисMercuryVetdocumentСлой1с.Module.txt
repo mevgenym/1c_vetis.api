@@ -488,9 +488,9 @@
 			_Строка = _док.ЛабораторныеИсследования.Добавить();
 			_Строка.ИДПартии               = _laboratoryResearch.batchID;
 			_Строка.НомерЭкспертизы        = _laboratoryResearch.expertiseID;
-			_Строка.ПоказательБезопасности = _laboratoryResearch.indicator.name;
+			_Строка.ПоказательБезопасности = ?(_laboratoryResearch.indicator = Неопределено, "", _laboratoryResearch.indicator.name);
 			_Строка.Заболевание            = ВетисDictionaryСлой1с.AnimalDisease(_laboratoryResearch.disease);
-			_Строка.МетодИсследования      = _laboratoryResearch.method.name;
+			_Строка.МетодИсследования      = ?(_laboratoryResearch.method = Неопределено, "", _laboratoryResearch.method.name);
 			_Строка.РезультатИсследования  = ВетисDictionaryСлой1с.ResearchResult(_laboratoryResearch.result);
 			_Строка.Заключение             = _laboratoryResearch.conclusion;
 		КонецЦикла;
@@ -725,15 +725,27 @@
 		_строкаСЖ.НоменклатурнаяГруппа = ВетисDictionaryСлой1с.SubProduct(_batch.subProduct);
 		_строкаСЖ.Количество           = _batch.volume;
 		_строкаСЖ.ЕдиницаИзмерения     = ВетисDictionaryСлой1с.Unit(_batch.unit);
-		_строкаСЖ.ДатаВыработкиНачало  = ВетисDictionary_2_0.ComplexDate(_batch.dateOfProduction.firstDate, Истина);
-		_строкаСЖ.ДатаВыработкиКонец   = ВетисDictionary_2_0.ComplexDate(_batch.dateOfProduction.secondDate, Истина);
-		_строкаСЖ.ДатаВыработкиСтрокой = _batch.dateOfProduction.informalDate;
-		_строкаСЖ.СрокГодностиНачало   = ВетисDictionary_2_0.ComplexDate(_batch.expiryDate.firstDate, Истина);
-		_строкаСЖ.СрокГодностиКонец    = ВетисDictionary_2_0.ComplexDate(_batch.expiryDate.secondDate, Истина);
-		_строкаСЖ.СрокГодностиСтрокой  = _batch.expiryDate.informalDate;
 		_строкаСЖ.Скоропортящаяся      = _batch.perishable;
 		_строкаСЖ.Собственник          = ВетисDictionaryСлой1с.BusinessEntity(_batch.owner);
 		_строкаСЖ.НекачественныйГруз   = _batch.lowGradeCargo;
+		
+		Если НЕ _batch.dateOfProduction = Неопределено Тогда
+			Если ПустаяСтрока(_batch.dateOfProduction.informalDate) Тогда
+				_строкаСЖ.ДатаВыработкиНачало  = ВетисDictionary_2_0.ComplexDate(_batch.dateOfProduction.firstDate, Истина);
+				_строкаСЖ.ДатаВыработкиКонец   = ВетисDictionary_2_0.ComplexDate(_batch.dateOfProduction.secondDate, Истина);
+			Иначе
+				_строкаСЖ.ДатаВыработкиСтрокой = _batch.dateOfProduction.informalDate;
+			КонецЕсли;
+		КонецЕсли;
+		
+		Если НЕ _batch.expiryDate = Неопределено Тогда
+			Если ПустаяСтрока(_batch.expiryDate.informalDate) Тогда
+				_строкаСЖ.СрокГодностиНачало   = ВетисDictionary_2_0.ComplexDate(_batch.expiryDate.firstDate, Истина);
+				_строкаСЖ.СрокГодностиКонец    = ВетисDictionary_2_0.ComplexDate(_batch.expiryDate.secondDate, Истина);
+			Иначе
+				_строкаСЖ.СрокГодностиСтрокой  = _batch.expiryDate.informalDate;
+			КонецЕсли;
+		КонецЕсли;
 		
 		пУпаковка.Очистить();
 		Если НЕ _batch.packageList = Неопределено Тогда

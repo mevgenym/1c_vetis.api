@@ -46,9 +46,11 @@
 	
 	_Объект = Создать("BEActivityLocationsModificationOperation");
 	
+	_Enterprise = Enterprise(enterpriseGuid);
+	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, type, "type");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, BusinessEntity(businessEntityGuid), "businessEntity");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, EnterpriseList(enterpriseGuid), "enterpriseList");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, EnterpriseList(_Enterprise), "enterpriseList");
 	
 	Возврат _Объект;
 	

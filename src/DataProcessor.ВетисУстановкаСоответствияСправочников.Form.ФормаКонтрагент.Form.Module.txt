@@ -141,6 +141,12 @@
 		
 		_businessEntity = ?(_Версия20, ВетисEnterpriseService_2_0, ВетисEnterpriseService).GetBusinessEntityByGuid(Guid);
 		
+		Элементы.ГруппаПредупреждение.Видимость = _businessEntity = Неопределено;
+		Элементы.ГруппаРеквизиты.Видимость = НЕ _businessEntity = Неопределено;
+		
+	КонецЕсли;
+	
+	Если НЕ _businessEntity = Неопределено Тогда
 		Если _businessEntity.type = ВетисКонстанты.BusinessEntityType_JURIDICAL() Тогда
 			Наименование = ?(_businessEntity.name = Неопределено, _businessEntity.fullName, _businessEntity.name);
 		Иначе

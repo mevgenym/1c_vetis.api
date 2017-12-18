@@ -109,6 +109,7 @@
 			<Form>ФормаПредприятие</Form>
 			<Form>ФормаНоменклатура1</Form>
 			<Form>ФормаНоменклатурнаяГруппа</Form>
+			<Form>ФормаСтрана</Form>
 		</ChildObjects>
 	</DataProcessor>
 </MetaDataObject>

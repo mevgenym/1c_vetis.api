@@ -176,6 +176,12 @@
 							<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="97"/>
 							<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="98"/>
 						</InputField>
+						<InputField name="СписокВетисguid" id="161">
+							<DataPath>СписокВетис.guid</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="162"/>
+							<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="163"/>
+						</InputField>
 					</ChildItems>
 				</Table>
 				<Table name="СправочникСписок" id="34">

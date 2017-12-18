@@ -139,6 +139,12 @@
 		
 		_enterprise = ?(_Версия20, ВетисEnterpriseService_2_0, ВетисEnterpriseService).GetEnterpriseByGuid(Guid);
 		
+		Элементы.ГруппаПредупреждение.Видимость = _enterprise = Неопределено;
+		Элементы.ГруппаРеквизиты.Видимость = НЕ _enterprise = Неопределено;
+		
+	КонецЕсли;
+	
+	Если НЕ _enterprise = Неопределено Тогда
 		Наименование = _enterprise.Name;
 		
 		Тип =  ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с).EnterpriseType(_enterprise.type);

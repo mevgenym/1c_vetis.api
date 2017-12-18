@@ -262,7 +262,7 @@
 		
 		_Объект = ВетисMercuryVetdocument_2_0.TransportInfo(_transportType, _transportNumber);
 		
-	Иначе
+	ИначеЕсли НЕ value = Неопределено Тогда
 		
 		_ТипТранспорта = ВетисDictionaryСлой1с.TransportType(value.transportType);
 		

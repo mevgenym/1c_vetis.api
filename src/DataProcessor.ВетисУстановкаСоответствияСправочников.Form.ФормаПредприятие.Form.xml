@@ -25,18 +25,22 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<RadioButtonField name="ВариантПоиска" id="29">
-			<DataPath>ВариантПоиска</DataPath>
-			<Visible>false</Visible>
-			<TitleLocation>None</TitleLocation>
-			<RadioButtonType>Auto</RadioButtonType>
-			<ContextMenu name="ВариантПоискаКонтекстноеМеню" id="30"/>
-			<ExtendedTooltip name="ВариантПоискаРасширеннаяПодсказка" id="31"/>
-		</RadioButtonField>
-		<UsualGroup name="Группа1" id="25">
+		<UsualGroup name="ГруппаСопоставление" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа сопоставление</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа сопоставление</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Representation>StrongSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="26"/>
+			<ExtendedTooltip name="ГруппаСопоставлениеРасширеннаяПодсказка" id="26"/>
 			<ChildItems>
 				<InputField name="Предприятие" id="38">
 					<DataPath>Объект.Предприятие</DataPath>
@@ -104,62 +108,120 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="Группа3" id="49">
+		<UsualGroup name="ГруппаПредупреждение" id="63">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа предупреждение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа предупреждение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="50"/>
+			<ExtendedTooltip name="ГруппаПредупреждениеРасширеннаяПодсказка" id="64"/>
 			<ChildItems>
-				<InputField name="Наименование" id="13">
-					<DataPath>Наименование</DataPath>
-					<ContextMenu name="НаименованиеКонтекстноеМеню" id="14"/>
-					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="15"/>
+				<LabelDecoration name="ДекорацияПредупреждение" id="65">
+					<TextColor>#FF0000</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объект не найден в сервисе</v8:content>
+						</v8:item>
+					</Title>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<ContextMenu name="ДекорацияПредупреждениеКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="ДекорацияПредупреждениеРасширеннаяПодсказка" id="67"/>
+				</LabelDecoration>
+				<PictureDecoration name="Декорация1" id="68">
+					<Height>1</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="70"/>
+				</PictureDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеквизиты" id="71">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="72"/>
+			<ChildItems>
+				<UsualGroup name="Группа3" id="49">
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="50"/>
+					<ChildItems>
+						<InputField name="Наименование" id="13">
+							<DataPath>Наименование</DataPath>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="15"/>
+						</InputField>
+						<InputField name="Тип" id="16">
+							<DataPath>Тип</DataPath>
+							<ContextMenu name="ТипКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="18"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="Страна" id="41">
+					<DataPath>Страна</DataPath>
+					<ContextMenu name="СтранаКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="СтранаРасширеннаяПодсказка" id="43"/>
 				</InputField>
-				<InputField name="Тип" id="16">
-					<DataPath>Тип</DataPath>
-					<ContextMenu name="ТипКонтекстноеМеню" id="17"/>
-					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="18"/>
+				<UsualGroup name="Группа2" id="47">
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="48"/>
+					<ChildItems>
+						<InputField name="Регион" id="19">
+							<DataPath>Регион</DataPath>
+							<ContextMenu name="РегионКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="РегионРасширеннаяПодсказка" id="21"/>
+						</InputField>
+						<InputField name="Район" id="22">
+							<DataPath>Район</DataPath>
+							<ContextMenu name="РайонКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="24"/>
+						</InputField>
+						<InputField name="НаселенныйПункт" id="44">
+							<DataPath>НаселенныйПункт</DataPath>
+							<ContextMenu name="НаселенныйПунктКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="НаселенныйПунктРасширеннаяПодсказка" id="46"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="Адрес" id="32">
+					<DataPath>АдресПредставление</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="АдресКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="АдресРасширеннаяПодсказка" id="34"/>
+				</InputField>
+				<InputField name="GLN" id="10">
+					<DataPath>GLN</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="GLNКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="GLNРасширеннаяПодсказка" id="12"/>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<InputField name="GLN" id="10">
-			<DataPath>GLN</DataPath>
-			<Visible>false</Visible>
-			<ContextMenu name="GLNКонтекстноеМеню" id="11"/>
-			<ExtendedTooltip name="GLNРасширеннаяПодсказка" id="12"/>
-		</InputField>
-		<InputField name="Страна" id="41">
-			<DataPath>Страна</DataPath>
-			<ContextMenu name="СтранаКонтекстноеМеню" id="42"/>
-			<ExtendedTooltip name="СтранаРасширеннаяПодсказка" id="43"/>
-		</InputField>
-		<UsualGroup name="Группа2" id="47">
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="48"/>
-			<ChildItems>
-				<InputField name="Регион" id="19">
-					<DataPath>Регион</DataPath>
-					<ContextMenu name="РегионКонтекстноеМеню" id="20"/>
-					<ExtendedTooltip name="РегионРасширеннаяПодсказка" id="21"/>
-				</InputField>
-				<InputField name="Район" id="22">
-					<DataPath>Район</DataPath>
-					<ContextMenu name="РайонКонтекстноеМеню" id="23"/>
-					<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="24"/>
-				</InputField>
-				<InputField name="НаселенныйПункт" id="44">
-					<DataPath>НаселенныйПункт</DataPath>
-					<ContextMenu name="НаселенныйПунктКонтекстноеМеню" id="45"/>
-					<ExtendedTooltip name="НаселенныйПунктРасширеннаяПодсказка" id="46"/>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
-		<InputField name="Адрес" id="32">
-			<DataPath>АдресПредставление</DataPath>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<ContextMenu name="АдресКонтекстноеМеню" id="33"/>
-			<ExtendedTooltip name="АдресРасширеннаяПодсказка" id="34"/>
-		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">

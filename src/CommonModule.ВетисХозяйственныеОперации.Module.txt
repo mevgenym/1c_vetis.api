@@ -156,6 +156,8 @@
 
 Процедура СинхронизироватьЖурналВСД(пХозяйствующийСубъект = Неопределено, пПредприятие = Неопределено, пПараметры = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	
+	Перем _Отказ, _Ошибка;
+	
 	_ВетисCerberusEnterpriseСлой1с = ?(Ветис.Версия_2_0(), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
 	
 	Если пХозяйствующийСубъект = Неопределено Тогда
@@ -254,17 +256,18 @@
 		
 		Если НЕ Результат.Пустой() Тогда
 			Выборка = Результат.Выбрать();
-			_Ошибка = "";
+			пОшибка = "";
+			пОтказ = Ложь;
 			Пока Выборка.Следующий() Цикл
 				
-				СинхронизироватьЖурналВСДХСПредприятие(Выборка.guid, _issuerId, пПараметры, _Ветки, пОтказ, пОшибка);
+				СинхронизироватьЖурналВСДХСПредприятие(Выборка.guid, _issuerId, пПараметры, _Ветки, _Отказ, _Ошибка);
 				
-				Если пОтказ = Истина Тогда
-					_Ошибка = _Ошибка + ?(_Ошибка="", "", Символы.ПС) + пОшибка + " (" + Выборка.Наименование + ")";
+				Если _Отказ = Истина Тогда
+					пОшибка = пОшибка + ?(пОшибка="", "", Символы.ПС) + _Ошибка + " (" + Выборка.Наименование + ")";
+					пОтказ = Истина;
 				КонецЕсли;
 				
 			КонецЦикла;
-			пОшибка = _Ошибка;
 		КонецЕсли;
 		
 	Иначе
@@ -353,6 +356,197 @@
 		_док.ДополнительныеСвойства.Вставить("Загрузка");
 		
 		_док.Записать(РежимЗаписиДокумента.Проведение);
+		
+	КонецЦикла;
+	
+КонецПроцедуры
+
+Процедура СинхронизироватьЖурналВСДИзменения(пХозяйствующийСубъект = Неопределено, пПредприятие = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_ВетисCerberusEnterpriseСлой1с = ?(Ветис.Версия_2_0(), ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	
+	Если пХозяйствующийСубъект = Неопределено Тогда
+		_ХозяйствующийСубъект = Ветис.ТекущийХС();
+	Иначе
+		_ХозяйствующийСубъект = пХозяйствующийСубъект;
+	КонецЕсли;
+	
+	_issuerId = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(_ХозяйствующийСубъект);
+	
+	Запрос = Новый Запрос;
+	Запрос.Текст =
+	"ВЫБРАТЬ
+	|	ЕСТЬNULL(МАКСИМУМ(_Таблица.Период), ДАТАВРЕМЯ(1, 1, 1)) КАК Период,
+	|	_Таблица.Предприятие
+	|ПОМЕСТИТЬ ВПериод
+	|ИЗ
+	|	РегистрСведений.ВетисЖурналВСД КАК _Таблица
+	|ГДЕ
+	|	ИСТИНА
+	|	И _Таблица.ХозяйствующийСубъект = &ХС
+	|//опо	И _Таблица.Предприятие = &Предприятие
+	|
+	|СГРУППИРОВАТЬ ПО
+	|	_Таблица.Предприятие
+	|;
+	|
+	|////////////////////////////////////////////////////////////////////////////////
+	|ВЫБРАТЬ
+	|	_Таблица.Ссылка КАК Ссылка,
+	|	_Таблица.Ссылка.Наименование КАК Наименование,
+	|	_Таблица.guid КАК guid,
+	|	ЕСТЬNULL(_Период.Период, ДАТАВРЕМЯ(1, 1, 1)) КАК Период
+	|ИЗ
+	|	РегистрСведений.ВетисСоответствие КАК _Таблица
+	|		ЛЕВОЕ СОЕДИНЕНИЕ ВПериод КАК _Период
+	|		ПО _Таблица.Предприятие = _Период.Предприятие
+	|ГДЕ
+	|	ИСТИНА
+	|//опо	И _Таблица.Ссылка = &Предприятие
+	|	И _Таблица.Ссылка ССЫЛКА Справочник.ВетисПредприятия
+	|	И _Таблица.Ссылка В
+	|			(ВЫБРАТЬ
+	|				_Таблица.Предприятие
+	|			ИЗ
+	|				РегистрСведений.ВетисПредприятияХС КАК _Таблица
+	|			ГДЕ
+	|				_Таблица.ХозяйствующийСубъект = &ХС)
+	|	И ИСТИНА";
+	
+	Запрос.УстановитьПараметр("ХС", _ХозяйствующийСубъект);
+	Запрос.УстановитьПараметр("Предприятие", пПредприятие);
+	
+	Если НЕ пПредприятие = Неопределено Тогда
+		Запрос.Текст = СтрЗаменить(Запрос.Текст, "//опо", "");
+	КонецЕсли;
+	
+	Результат = Запрос.Выполнить();
+	
+	Если НЕ Результат.Пустой() Тогда
+		Выборка = Результат.Выбрать();
+		Пока Выборка.Следующий() Цикл
+			
+			//СинхронизироватьЖурналВСДИзмененияХСПредприятие(Выборка.guid, Выборка.Ссылка, _issuerId, _ХозяйствующийСубъект, Выборка.Период + 1, , пОтказ, пОшибка);
+			СинхронизироватьЖурналВСДХСПредприятие_(Выборка.guid, Выборка.Ссылка, _issuerId, _ХозяйствующийСубъект, пОтказ, пОшибка);
+			
+			Если пОтказ = Истина Тогда
+				пОшибка = пОшибка + " (" + Выборка.Наименование + ")";
+			КонецЕсли;
+			
+		КонецЦикла;
+	КонецЕсли;
+	
+КонецПроцедуры
+
+Процедура СинхронизироватьЖурналВСДИзмененияХСПредприятие(enterpriseGuid, пПредприятие, issuerId, пХС, beginDate, endDate = Неопределено, пОтказ = Ложь, пОшибка = "")
+	
+	Перем _vetDocument, _Параметры;
+	
+	_Версия20 = Ветис.Версия_2_0();
+	
+	_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	
+	Пока _ВетисMercuryApplications.GetVetDocumentChangesListСледующий(enterpriseGuid, issuerId, beginDate, endDate, _vetDocument, _Параметры, пОтказ, пОшибка) Цикл
+		
+		Если _vetDocument.statusChange = Неопределено ИЛИ _vetDocument.statusChange.Количество() = 0 Тогда
+			Продолжить;
+		КонецЕсли;
+		
+		_мз = РегистрыСведений.ВетисЖурналВСД.СоздатьМенеджерЗаписи();
+		
+		_мз.ХозяйствующийСубъект = пХС;
+		_мз.Предприятие = пПредприятие;
+		
+		_мз.Период = _vetDocument.statusChange[_vetDocument.statusChange.Количество()-1].actualDateTime;
+		_мз.uuid = _vetDocument.uuid;
+		
+		_мз.vetDForm = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_vetDocument.vetDForm);
+		_мз.vetDStatus = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_vetDocument.vetDStatus);
+		_мз.vetDType = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_vetDocument.vetDType);
+		
+		_мз.issueSeries = _vetDocument.issueSeries;
+		_мз.issueNumber = _vetDocument.issueNumber;
+		_мз.issueDate = _vetDocument.issueDate;
+		
+		Если НЕ _vetDocument.certifiedConsignment = Неопределено Тогда
+			_мз.Отправитель = ВетисDictionaryСлой1с.BusinessEntity(_vetDocument.certifiedConsignment.consignor.businessEntity);
+			_мз.Получатель  = ВетисDictionaryСлой1с.BusinessEntity(_vetDocument.certifiedConsignment.consignee.businessEntity);
+			
+			_мз.consignor = _vetDocument.certifiedConsignment.consignor.businessEntity.guid;
+			_мз.consignee  = _vetDocument.certifiedConsignment.consignee.businessEntity.guid;
+			
+			Если НЕ _vetDocument.certifiedConsignment.consignor.enterprise = Неопределено Тогда
+				_мз.ОтправительПредприятие = ВетисDictionaryСлой1с.Enterprise(_vetDocument.certifiedConsignment.consignor.enterprise);
+				
+				_мз.consignorEnterprise = _vetDocument.certifiedConsignment.consignor.enterprise.guid;
+			КонецЕсли;
+			
+			Если НЕ _vetDocument.certifiedConsignment.consignee.enterprise = Неопределено Тогда
+				_мз.ПолучательПредприятие  = ВетисDictionaryСлой1с.Enterprise(_vetDocument.certifiedConsignment.consignee.enterprise);
+				
+				_мз.consigneeEnterprise  = _vetDocument.certifiedConsignment.consignee.enterprise.guid;
+			КонецЕсли;
+		КонецЕсли;
+		
+		_мз.Записать();
+		
+	КонецЦикла;
+	
+КонецПроцедуры
+
+Процедура СинхронизироватьЖурналВСДХСПредприятие_(enterpriseGuid, пПредприятие, issuerId, пХС, пОтказ = Ложь, пОшибка = "")
+	
+	Перем _vetDocument, _Параметры;
+	
+	_Версия20 = Ветис.Версия_2_0();
+	
+	_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	
+	Пока _ВетисMercuryApplications.GetVetDocumentListСледующий(enterpriseGuid, issuerId, , , _vetDocument, _Параметры, пОтказ, пОшибка) Цикл
+		
+		Если _vetDocument.statusChange = Неопределено ИЛИ _vetDocument.statusChange.Количество() = 0 Тогда
+			Продолжить;
+		КонецЕсли;
+		
+		_мз = РегистрыСведений.ВетисЖурналВСД.СоздатьМенеджерЗаписи();
+		
+		_мз.ХозяйствующийСубъект = пХС;
+		_мз.Предприятие = пПредприятие;
+		
+		_мз.Период = _vetDocument.statusChange[_vetDocument.statusChange.Количество()-1].actualDateTime;
+		_мз.uuid = _vetDocument.uuid;
+		
+		_мз.vetDForm = ВетисMercuryVetdocumentСлой1с.VetDocumentForm(_vetDocument.vetDForm);
+		_мз.vetDStatus = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_vetDocument.vetDStatus);
+		_мз.vetDType = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_vetDocument.vetDType);
+		
+		_мз.issueSeries = _vetDocument.issueSeries;
+		_мз.issueNumber = _vetDocument.issueNumber;
+		_мз.issueDate = _vetDocument.issueDate;
+		
+		Если НЕ _vetDocument.certifiedConsignment = Неопределено Тогда
+			//_мз.Отправитель = ВетисDictionaryСлой1с.BusinessEntity(_vetDocument.certifiedConsignment.consignor.businessEntity);
+			//_мз.Получатель  = ВетисDictionaryСлой1с.BusinessEntity(_vetDocument.certifiedConsignment.consignee.businessEntity);
+			
+			_мз.consignor = _vetDocument.certifiedConsignment.consignor.businessEntity.guid;
+			_мз.consignee  = _vetDocument.certifiedConsignment.consignee.businessEntity.guid;
+			
+			Если НЕ _vetDocument.certifiedConsignment.consignor.enterprise = Неопределено Тогда
+				//_мз.ОтправительПредприятие = ВетисDictionaryСлой1с.Enterprise(_vetDocument.certifiedConsignment.consignor.enterprise);
+				
+				_мз.consignorEnterprise = _vetDocument.certifiedConsignment.consignor.enterprise.guid;
+			КонецЕсли;
+			
+			Если НЕ _vetDocument.certifiedConsignment.consignee.enterprise = Неопределено Тогда
+				//_мз.ПолучательПредприятие  = ВетисDictionaryСлой1с.Enterprise(_vetDocument.certifiedConsignment.consignee.enterprise);
+				
+				_мз.consigneeEnterprise  = _vetDocument.certifiedConsignment.consignee.enterprise.guid;
+			КонецЕсли;
+		КонецЕсли;
+		
+		_мз.Записать();
 		
 	КонецЦикла;
 	

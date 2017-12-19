@@ -37,14 +37,14 @@
 //Получение актуального списка записей складского журнала.
 //Параметры:
 // enterpriseGuid - Идентификатор предприятия
-Функция getStockEntryListRequest(enterpriseGuid) Экспорт
+Функция getStockEntryListRequest(enterpriseGuid, listOptions = Неопределено) Экспорт
 	
 	_Объект = Создать("getStockEntryListRequest");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.ListOptions(), "listOptions");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase.ListOptions());
 	
 	Возврат _Объект;
 	
@@ -67,8 +67,8 @@
 // Булево         - Ложь значит список пройден весь
 Функция getStockEntryListСледующий(enterpriseGuid, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если пПараметры = Неопределено Тогда
-		пПараметры = Новый Структура;
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", getStockEntryListRequest(enterpriseGuid));
 	Иначе
@@ -106,15 +106,15 @@
 КонецФункции
 
 
-Функция getStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено) Экспорт
+Функция getStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено, listOptions = Неопределено) Экспорт
 	
 	_Объект = Создать("getStockEntryChangesListRequest");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase.ListOptions());
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.DateInterval(beginDate, endDate), "updateDateInterval");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -128,8 +128,8 @@
 
 Функция getStockEntryChangesListСледующий(enterpriseGuid, beginDate, endDate = Неопределено, issuerId = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если пПараметры = Неопределено Тогда
-		пПараметры = Новый Структура;
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", getStockEntryChangesListRequest(enterpriseGuid, beginDate, endDate));
 	Иначе
@@ -211,14 +211,14 @@
 // enterpriseGuid - Идентификатор предприятия
 // vetDocumentType - vetd:VetDocumentType - Тип ВСД
 // vetDocumentStatus - vetd:VetDocumentStatus - Статус ВСД
-Функция getVetDocumentListRequest(enterpriseGuid, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено) Экспорт
+Функция getVetDocumentListRequest(enterpriseGuid, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, listOptions = Неопределено) Экспорт
 	
 	_Объект = Создать("getVetDocumentListRequest");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.ListOptions(), "listOptions");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase.ListOptions());
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentType, "vetDocumentType");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentStatus, "vetDocumentStatus");
 	
@@ -243,8 +243,8 @@
 // Булево         - Ложь значит список пройден весь
 Функция getVetDocumentListСледующий(enterpriseGuid, issuerId = Неопределено, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если пПараметры = Неопределено Тогда
-		пПараметры = Новый Структура;
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", getVetDocumentListRequest(enterpriseGuid, vetDocumentType, vetDocumentStatus));
 	Иначе
@@ -292,15 +292,15 @@
 КонецФункции
 
 
-Функция getVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено) Экспорт
+Функция getVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено, listOptions = Неопределено) Экспорт
 	
 	_Объект = Создать("getVetDocumentChangesListRequest");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисArgusCommon.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase.ListOptions());
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.DateInterval(beginDate, endDate), "updateDateInterval");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -314,8 +314,8 @@
 
 Функция getVetDocumentChangesListСледующий(enterpriseGuid, issuerId = Неопределено, beginDate, endDate = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если пПараметры = Неопределено Тогда
-		пПараметры = Новый Структура;
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", getVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate));
 	Иначе
@@ -766,8 +766,8 @@
 	
 КонецФункции
 
-Функция Прокси(пИмяФункции, пRequest, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "", пОжидание = 5)
+Функция Прокси(пИмяОперации, пRequest, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "", пОжидание = 5)
 	
-	Возврат Ветис.ВыполнитьЗапрос("ams-mercury.service", пИмяФункции, ФабрикаWS(), пRequest, issuerId, пОтказ, пОшибка, пОжидание);
+	Возврат Ветис.ВыполнитьЗапрос("ams-mercury.service", пИмяОперации, ФабрикаWS(), пRequest, issuerId, пОтказ, пОшибка, пОжидание);
 	
 КонецФункции

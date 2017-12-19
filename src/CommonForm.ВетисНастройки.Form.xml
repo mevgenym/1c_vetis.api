@@ -637,6 +637,13 @@
 							<ContextMenu name="ВремяОжиданияОтветаКонтекстноеМеню" id="221"/>
 							<ExtendedTooltip name="ВремяОжиданияОтветаРасширеннаяПодсказка" id="222"/>
 						</InputField>
+						<InputField name="КоличествоОбъектовВСписке" id="226">
+							<DataPath>КоличествоОбъектовВСписке</DataPath>
+							<SpinButton>true</SpinButton>
+							<MaxValue xsi:type="xs:decimal">1000</MaxValue>
+							<ContextMenu name="КоличествоОбъектовВСпискеКонтекстноеМеню" id="227"/>
+							<ExtendedTooltip name="КоличествоОбъектовВСпискеРасширеннаяПодсказка" id="228"/>
+						</InputField>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -1000,15 +1007,15 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Время ожидания ответа</v8:content>
+					<v8:content>Время ожидания ответа, с</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
 				<v8:Type>xs:decimal</v8:Type>
 				<v8:NumberQualifiers>
-					<v8:Digits>2</v8:Digits>
+					<v8:Digits>3</v8:Digits>
 					<v8:FractionDigits>0</v8:FractionDigits>
-					<v8:AllowedSign>Any</v8:AllowedSign>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
 				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
@@ -1021,6 +1028,22 @@
 			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоОбъектовВСписке" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Максимальное запрашиваемое количество объектов в списке</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

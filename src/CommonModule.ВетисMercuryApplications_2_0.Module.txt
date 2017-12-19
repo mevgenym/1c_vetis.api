@@ -115,8 +115,8 @@
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.DateInterval(beginDate, endDate), "updateDateInterval");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase_2_0.ListOptions());
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.DateInterval(beginDate, endDate), "updateDateInterval");
 	
 	Возврат _Объект;
 	
@@ -213,16 +213,16 @@
 //  enterpriseGuid - Идентификатор предприятия
 //  vetDocumentType - vetd:VetDocumentType - Тип ВСД
 //  vetDocumentStatus - vetd:VetDocumentStatus - Статус ВСД
-Функция GetVetDocumentListRequest(enterpriseGuid, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено) Экспорт
+Функция GetVetDocumentListRequest(enterpriseGuid, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, listOptions = Неопределено) Экспорт
 	
 	_Объект = Создать("GetVetDocumentListRequest");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase_2_0.ListOptions());
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentType, "vetDocumentType");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, vetDocumentStatus, "vetDocumentStatus");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -245,8 +245,8 @@
 //	Булево         - Ложь значит список пройден весь
 Функция GetVetDocumentListСледующий(enterpriseGuid, issuerId = Неопределено, vetDocumentType = Неопределено, vetDocumentStatus = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если пПараметры = Неопределено Тогда
-		пПараметры = Новый Структура;
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", getVetDocumentListRequest(enterpriseGuid, vetDocumentType, vetDocumentStatus));
 	Иначе
@@ -294,15 +294,15 @@
 КонецФункции
 
 
-Функция GetVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено) Экспорт
+Функция GetVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено, listOptions = Неопределено) Экспорт
 	
 	_Объект = Создать("GetVetDocumentChangesListRequest");
 	
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, Строка(Новый УникальныйИдентификатор), "localTransactionId");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисMercuryVetdocument_2_0.User(Ветис.ЛогинХС()), "initiator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, enterpriseGuid, "enterpriseGuid");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, listOptions, "listOptions", , ВетисBase_2_0.ListOptions());
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.DateInterval(beginDate, endDate), "updateDateInterval");
-	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, ВетисBase_2_0.ListOptions(), "listOptions");
 	
 	Возврат _Объект;
 	
@@ -316,8 +316,8 @@
 
 Функция GetVetDocumentChangesListСледующий(enterpriseGuid, issuerId = Неопределено, beginDate, endDate = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
 	
-	Если пПараметры = Неопределено Тогда
-		пПараметры = Новый Структура;
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
 		пПараметры.Вставить("Индекс", 0);
 		пПараметры.Вставить("ListRequest", getVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate));
 	Иначе
@@ -1225,11 +1225,17 @@
 КонецФункции
 
 
+Функция ИмяСервиса() Экспорт
+	
+	Возврат "ApplicationManagementService";
+	
+КонецФункции
+
 Функция ФабрикаWS()
 	
 	_Кеш = Ветис.Переменные_Получить("КешФабрики", Новый Соответствие);
 	
-	_фабрика = _Кеш.Получить("ApplicationManagementService");
+	_фабрика = _Кеш.Получить(ИмяСервиса());
 	
 	Если НЕ _фабрика = Неопределено Тогда
 		Возврат _фабрика;
@@ -1237,7 +1243,7 @@
 	
 	_ФабрикаXDTO = Ветис.ФабрикаОбщая();
 	
-	_Определения = Ветис.Определения("ApplicationManagementService");
+	_Определения = Ветис.Определения(ИмяСервиса());
 	
 	// создаем врем. фабрику на основе пакетов из конфиги и web сервиса
 	// нам нужны 2 пакета из ws, но пакет с application нужен локальный
@@ -1259,7 +1265,7 @@
 	
 	_Кеш = Ветис.Переменные_Получить("КешФабрики", Новый Соответствие);
 	
-	_Кеш.Вставить("ApplicationManagementService", _фабрика);
+	_Кеш.Вставить(ИмяСервиса(), _фабрика);
 	
 	Ветис.Переменные_Установить("КешФабрики", _Кеш);
 	
@@ -1267,8 +1273,8 @@
 	
 КонецФункции
 
-Функция Прокси(пИмяФункции, пRequest, issuerId = Неопределено, пОтказ = Ложь, пОшибка = Неопределено, пОжидание = 5)
+Функция Прокси(пИмяОперации, пRequest, issuerId = Неопределено, пОтказ = Ложь, пОшибка = Неопределено, пОжидание = 5)
 	
-	Возврат Ветис.ВыполнитьЗапрос("ams-mercury.service", пИмяФункции, ФабрикаWS(), пRequest, issuerId, пОтказ, пОшибка, пОжидание);
+	Возврат Ветис.ВыполнитьЗапрос("ams-mercury.service", пИмяОперации, ФабрикаWS(), пRequest, issuerId, пОтказ, пОшибка, пОжидание);
 	
 КонецФункции

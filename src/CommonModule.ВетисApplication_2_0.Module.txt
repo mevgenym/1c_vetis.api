@@ -1,13 +1,13 @@
 ﻿
 // тип, описывающий cведения о содержимом заявки
-Функция Application(пОбъект, пИмя, issuerId = Неопределено) Экспорт
+Функция Application(пОбъект, issuerId = Неопределено) Экспорт
 	
 	_Объект = Создать("Application");
 	
 	_Объект.serviceId = Ветис.serviceId();
 	_Объект.issuerId  = ?(issuerId = Неопределено, Ветис.issuerId(), issuerId);
 	_Объект.issueDate = Ветис.ВремяСервиса();//xs:dateTime
-	_Объект.data      = ApplicationDataWrapper(пОбъект, пИмя);
+	_Объект.data      = ApplicationDataWrapper(пОбъект);
 	
 	Возврат _Объект;
 	
@@ -21,13 +21,13 @@
 КонецФункции
 
 // тип, описывающий cведения о содержимом заявки
-Функция ApplicationDataWrapper(пОбъект = Неопределено, пИмя = Неопределено) Экспорт
+Функция ApplicationDataWrapper(пОбъект = Неопределено) Экспорт
 	
 	_Объект = Создать("ApplicationDataWrapper");
 	
 	Если НЕ пОбъект = Неопределено Тогда
 		
-		_Объект.Добавить(ФормаXML.Элемент, пОбъект.Тип().URIПространстваИмен, пИмя, пОбъект);
+		_Объект.Добавить(ФормаXML.Элемент, пОбъект.Тип().URIПространстваИмен, пОбъект.Тип().Имя, пОбъект);
 		
 	КонецЕсли;
 	
@@ -51,7 +51,7 @@
 	
 	_Объект = Создать("submitApplicationRequest", ServiceURI());
 	
-	_Объект.apiKey      = Ветис.apiKey();
+	_Объект.apiKey      = Ветис.КлючАПИ();
 	_Объект.application = пApplication;
 	
 	Возврат _Объект;
@@ -70,7 +70,7 @@
 	
 	_Объект = Создать("receiveApplicationResultRequest", ServiceURI());
 	
-	_Объект.apiKey        = Ветис.apiKey();
+	_Объект.apiKey        = Ветис.КлючАПИ();
 	_Объект.issuerId      = ?(issuerId = Неопределено, Ветис.issuerId(), issuerId);
 	_Объект.applicationId = applicationId;
 	

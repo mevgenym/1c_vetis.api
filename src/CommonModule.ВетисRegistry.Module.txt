@@ -1,0 +1,42 @@
+﻿
+Функция getBusinessEntityByGuidRequest(guid, пФабрика) Экспорт
+	
+	_request = Создать("getBusinessEntityByGuidRequest", пФабрика);
+	_request.guid = guid;
+	
+	Возврат _request;
+	
+КонецФункции
+
+Функция getBusinessEntityByGuidResponse(пResponse, пФабрика) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.ПривестиКТипу(пResponse.getBusinessEntityByGuidResponse, "getBusinessEntityByGuidResponse", ServiceURI(), пФабрика).businessEntity;
+	
+КонецФункции
+
+Функция getBusinessEntityByGuid(пИмяСервиса, guid, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	_Фабрика = Ветис.ФабрикаWS(пИмяСервиса);
+	
+	_request = getBusinessEntityByGuidRequest(guid, _Фабрика);
+	
+	_response = Ветис.ПроксиHttp(пИмяСервиса, _Фабрика, _request, пОтказ, пОшибка);
+	
+	Если НЕ пОтказ = Истина Тогда
+		Возврат ВетисRegistry.getBusinessEntityByGuidResponse(_response, _Фабрика);
+	КонецЕсли;
+	
+КонецФункции
+
+
+Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
+	
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, ServiceURI(), пФабрика);
+	
+КонецФункции
+
+Функция ServiceURI() Экспорт
+	
+	Возврат "http://api.vetrf.ru/schema/cdm/registry/ws-definitions/v2";
+	
+КонецФункции

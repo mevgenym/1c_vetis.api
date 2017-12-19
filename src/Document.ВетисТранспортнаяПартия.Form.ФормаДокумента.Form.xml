@@ -57,10 +57,22 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="Группа1" id="322">
+		<UsualGroup name="ГруппаДокументОснование" id="322">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа документ основание</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа документ основание</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="323"/>
+			<ExtendedTooltip name="ГруппаДокументОснованиеРасширеннаяПодсказка" id="323"/>
 			<ChildItems>
 				<InputField name="ДокументОснование" id="319">
 					<DataPath>Объект.ДокументОснование</DataPath>
@@ -270,6 +282,13 @@
 													<ContextMenu name="ТоварыНомерСтрокиКонтекстноеМеню" id="52"/>
 													<ExtendedTooltip name="ТоварыНомерСтрокиРасширеннаяПодсказка" id="53"/>
 												</LabelField>
+												<InputField name="ТоварыКлючСтроки" id="344">
+													<DataPath>Объект.Товары.КлючСтроки</DataPath>
+													<Visible>false</Visible>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТоварыКлючСтрокиКонтекстноеМеню" id="345"/>
+													<ExtendedTooltip name="ТоварыКлючСтрокиРасширеннаяПодсказка" id="346"/>
+												</InputField>
 											</ChildItems>
 										</ColumnGroup>
 										<ColumnGroup name="ТоварыГруппаНоменклатура" id="186">
@@ -506,13 +525,6 @@
 													<ContextMenu name="ПартииСписокПредставлениеКонтекстноеМеню" id="340"/>
 													<ExtendedTooltip name="ПартииСписокПредставлениеРасширеннаяПодсказка" id="341"/>
 												</InputField>
-												<InputField name="ПартииСписокguid" id="291">
-													<DataPath>ПартииСписок.guid</DataPath>
-													<Visible>false</Visible>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="ПартииСписокguidКонтекстноеМеню" id="292"/>
-													<ExtendedTooltip name="ПартииСписокguidРасширеннаяПодсказка" id="293"/>
-												</InputField>
 											</ChildItems>
 										</ColumnGroup>
 										<ColumnGroup name="ПартииСписокГруппаНоменклатура" id="170">
@@ -644,6 +656,18 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ПартииСписокУпаковкаКонтекстноеМеню" id="311"/>
 													<ExtendedTooltip name="ПартииСписокУпаковкаРасширеннаяПодсказка" id="312"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="ПартииСписокГруппа1" id="342">
+											<ExtendedTooltip name="ПартииСписокГруппа1РасширеннаяПодсказка" id="343"/>
+											<ChildItems>
+												<InputField name="ПартииСписокguid" id="291">
+													<DataPath>ПартииСписок.guid</DataPath>
+													<Visible>false</Visible>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ПартииСписокguidКонтекстноеМеню" id="292"/>
+													<ExtendedTooltip name="ПартииСписокguidРасширеннаяПодсказка" id="293"/>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
@@ -1284,6 +1308,12 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
+						<dcsset:field>ПартииСписокИспользовать</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокПредставление</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
 						<dcsset:field>ПартииСписокНоменклатура</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
@@ -1300,9 +1330,6 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>ПартииСписокКоличествоМестПартии</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ПартииСписокИспользовать</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>ПартииСписокguid</dcsset:field>

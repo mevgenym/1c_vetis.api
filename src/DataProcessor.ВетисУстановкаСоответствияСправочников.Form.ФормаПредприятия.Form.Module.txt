@@ -504,16 +504,18 @@
 		
 	Иначе
 		
-		_Enterprise = ?(_Версия20, ВетисEnterpriseService_2_0, ВетисEnterpriseService).GetEnterpriseByGuid(пGuid);
+		_Enterprise = ?(_Версия20, ВетисEnterpriseService_2_0, ВетисEnterpriseService).GetEnterpriseByGuid(пGuid, пОтказ, пОшибка);
 		
-		СписокВетисДобавить(_Enterprise);
+		Если НЕ пОтказ = Истина Тогда
+			СписокВетисДобавить(_Enterprise);
+		КонецЕсли;
 		
 	КонецЕсли;
 	
 КонецПроцедуры
 
 &НаСервере
-Процедура КомандаНайтиПоGLNСервер()
+Процедура КомандаНайтиПоGLNСервер(пОтказ = Ложь, пОшибка = "")
 	
 	СписокВетис.Очистить();
 	
@@ -521,11 +523,11 @@
 	
 	Если НЕ Ветис.Версия_2_0() Тогда Возврат; КонецЕсли;
 	
-	_businessMember = ВетисEnterpriseService_2_0.GetBusinessMemberByGLN(ОтборGLN);
+	_businessMember = ВетисEnterpriseService_2_0.GetBusinessMemberByGLN(ОтборGLN, пОтказ, пОшибка);
 	
-	_Enterprise = _businessMember.enterprise;
-	
-	СписокВетисДобавить(_Enterprise);
+	Если НЕ пОтказ = Истина Тогда
+		СписокВетисДобавить(_businessMember.enterprise);
+	КонецЕсли;
 	
 КонецПроцедуры
 

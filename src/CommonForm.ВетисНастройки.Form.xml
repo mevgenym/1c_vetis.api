@@ -37,23 +37,6 @@
 					<ContextMenu name="ВерсияКонтекстноеМеню" id="2"/>
 					<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="3"/>
 				</InputField>
-				<CheckBoxField name="Отладка" id="105">
-					<DataPath>Отладка</DataPath>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="ОтладкаКонтекстноеМеню" id="106"/>
-					<ExtendedTooltip name="ОтладкаРасширеннаяПодсказка" id="107"/>
-				</CheckBoxField>
-				<CheckBoxField name="Тестовый" id="112">
-					<DataPath>Тестовый</DataPath>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="ТестовыйКонтекстноеМеню" id="113"/>
-					<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="114"/>
-				</CheckBoxField>
-				<InputField name="Сервис" id="149">
-					<DataPath>Сервис</DataPath>
-					<ContextMenu name="СервисКонтекстноеМеню" id="150"/>
-					<ExtendedTooltip name="СервисРасширеннаяПодсказка" id="151"/>
-				</InputField>
 			</ChildItems>
 		</UsualGroup>
 		<Pages name="ГруппаСтраницы" id="115">
@@ -544,12 +527,6 @@
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="153"/>
 					<ChildItems>
-						<CheckBoxField name="Интеграция" id="223">
-							<DataPath>Интеграция</DataPath>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="ИнтеграцияКонтекстноеМеню" id="224"/>
-							<ExtendedTooltip name="ИнтеграцияРасширеннаяПодсказка" id="225"/>
-						</CheckBoxField>
 						<UsualGroup name="ГруппаДополнительноКолонки" id="162">
 							<Title>
 								<v8:item>
@@ -625,25 +602,118 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<CheckBoxField name="СправочникПродукцииЛокально" id="217">
-							<DataPath>СправочникПродукцииЛокально</DataPath>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="СправочникПродукцииЛокальноКонтекстноеМеню" id="218"/>
-							<ExtendedTooltip name="СправочникПродукцииЛокальноРасширеннаяПодсказка" id="219"/>
-						</CheckBoxField>
-						<InputField name="ВремяОжиданияОтвета" id="220">
-							<DataPath>ВремяОжиданияОтвета</DataPath>
-							<SpinButton>true</SpinButton>
-							<ContextMenu name="ВремяОжиданияОтветаКонтекстноеМеню" id="221"/>
-							<ExtendedTooltip name="ВремяОжиданияОтветаРасширеннаяПодсказка" id="222"/>
-						</InputField>
-						<InputField name="КоличествоОбъектовВСписке" id="226">
-							<DataPath>КоличествоОбъектовВСписке</DataPath>
-							<SpinButton>true</SpinButton>
-							<MaxValue xsi:type="xs:decimal">1000</MaxValue>
-							<ContextMenu name="КоличествоОбъектовВСпискеКонтекстноеМеню" id="227"/>
-							<ExtendedTooltip name="КоличествоОбъектовВСпискеРасширеннаяПодсказка" id="228"/>
-						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаСистемные" id="229">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Системные</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа системные</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСистемныеРасширеннаяПодсказка" id="230"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаСистемныеКолонки" id="234">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа системные колонки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа системные колонки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСистемныеКолонкиРасширеннаяПодсказка" id="235"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаСистемныеКолонка2" id="238">
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа системные колонки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСистемныеКолонка2РасширеннаяПодсказка" id="239"/>
+									<ChildItems>
+										<CheckBoxField name="Отладка" id="105">
+											<DataPath>Отладка</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОтладкаКонтекстноеМеню" id="106"/>
+											<ExtendedTooltip name="ОтладкаРасширеннаяПодсказка" id="107"/>
+										</CheckBoxField>
+										<CheckBoxField name="Тестовый" id="112">
+											<DataPath>Тестовый</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ТестовыйКонтекстноеМеню" id="113"/>
+											<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="114"/>
+										</CheckBoxField>
+										<CheckBoxField name="ОберткаHttp" id="231">
+											<DataPath>ОберткаHttp</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОберткаHttpКонтекстноеМеню" id="232"/>
+											<ExtendedTooltip name="ОберткаHttpРасширеннаяПодсказка" id="233"/>
+										</CheckBoxField>
+										<CheckBoxField name="СправочникПродукцииЛокально" id="217">
+											<DataPath>СправочникПродукцииЛокально</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="СправочникПродукцииЛокальноКонтекстноеМеню" id="218"/>
+											<ExtendedTooltip name="СправочникПродукцииЛокальноРасширеннаяПодсказка" id="219"/>
+										</CheckBoxField>
+										<CheckBoxField name="Интеграция" id="223">
+											<DataPath>Интеграция</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ИнтеграцияКонтекстноеМеню" id="224"/>
+											<ExtendedTooltip name="ИнтеграцияРасширеннаяПодсказка" id="225"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаСистемныеКолонка1" id="236">
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа системные колонки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСистемныеКолонка1РасширеннаяПодсказка" id="237"/>
+									<ChildItems>
+										<InputField name="ВремяОжиданияОтвета" id="220">
+											<DataPath>ВремяОжиданияОтвета</DataPath>
+											<SpinButton>true</SpinButton>
+											<ContextMenu name="ВремяОжиданияОтветаКонтекстноеМеню" id="221"/>
+											<ExtendedTooltip name="ВремяОжиданияОтветаРасширеннаяПодсказка" id="222"/>
+										</InputField>
+										<InputField name="КоличествоОбъектовВСписке" id="226">
+											<DataPath>КоличествоОбъектовВСписке</DataPath>
+											<SpinButton>true</SpinButton>
+											<MaxValue xsi:type="xs:decimal">1000</MaxValue>
+											<ContextMenu name="КоличествоОбъектовВСпискеКонтекстноеМеню" id="227"/>
+											<ExtendedTooltip name="КоличествоОбъектовВСпискеРасширеннаяПодсказка" id="228"/>
+										</InputField>
+										<InputField name="Сервис" id="149">
+											<DataPath>Сервис</DataPath>
+											<ContextMenu name="СервисКонтекстноеМеню" id="150"/>
+											<ExtendedTooltip name="СервисРасширеннаяПодсказка" id="151"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -1044,6 +1114,17 @@
 					<v8:FractionDigits>0</v8:FractionDigits>
 					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
 				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОберткаHttp" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обертка http для операций</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

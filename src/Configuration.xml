@@ -172,7 +172,7 @@
 			<CommonModule>ВетисProductService</CommonModule>
 			<CommonModule>ВетисProductService_2_0</CommonModule>
 			<CommonModule>ВетисRegionalizationService_2_0</CommonModule>
-			<CommonModule>ВетисRegistry</CommonModule>
+			<CommonModule>ВетисRegistry_2_0</CommonModule>
 			<CommonModule>ВетисSoapEnvelope</CommonModule>
 			<CommonModule>ВетисВызовСервера</CommonModule>
 			<CommonModule>ВетисДлительныеОперации</CommonModule>

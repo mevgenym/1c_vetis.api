@@ -198,12 +198,11 @@
 			<CommonCommand>ВетисВходящаяПартияПоДокументам</CommonCommand>
 			<CommonCommand>ВетисВходящаяПартияСводно</CommonCommand>
 			<CommonCommand>ВетисЖурнал</CommonCommand>
-			<CommonCommand>ВетисЖурналВСД</CommonCommand>
 			<CommonCommand>ВетисНастройки</CommonCommand>
 			<CommonCommand>ВетисПредопределенные</CommonCommand>
 			<CommonCommand>ВетисПредприятия</CommonCommand>
-			<CommonCommand>ВетисПредприятияХС</CommonCommand>
 			<CommonCommand>ВетисСкладскойЖурналОстатки</CommonCommand>
+			<CommonCommand>ВетисПредприятияХС</CommonCommand>
 			<CommonCommand>ВетисСкладскойЖурнал</CommonCommand>
 			<CommonCommand>ВетисСоответствие</CommonCommand>
 			<CommonCommand>ВетисТранспортнаяПартия</CommonCommand>
@@ -282,7 +281,6 @@
 			<InformationRegister>ВетисRussianEnterpriseList</InformationRegister>
 			<InformationRegister>ВетисАдреса</InformationRegister>
 			<InformationRegister>ВетисЖурнал</InformationRegister>
-			<InformationRegister>ВетисЖурналВСД</InformationRegister>
 			<InformationRegister>ВетисМаркировка</InformationRegister>
 			<InformationRegister>ВетисМногоуровневаяУпаковка</InformationRegister>
 			<InformationRegister>ВетисНастройкиХС</InformationRegister>

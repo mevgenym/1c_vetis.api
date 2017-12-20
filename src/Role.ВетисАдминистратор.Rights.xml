@@ -448,21 +448,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисЖурналВСД</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>Update</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>InformationRegister.ВетисЖурнал.Resource.КлючДанных</name>
 		<right>
 			<name>Edit</name>

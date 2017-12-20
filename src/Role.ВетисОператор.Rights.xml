@@ -465,13 +465,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисЖурналВСД</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Catalog.ВетисAddress.Attribute.Тип</name>
 		<right>
 			<name>View</name>

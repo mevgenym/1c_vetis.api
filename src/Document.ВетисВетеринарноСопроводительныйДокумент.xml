@@ -204,11 +204,11 @@
 		<ChildObjects>
 			<Attribute uuid="73e768c3-8e1b-4dd3-acd7-67df522bb4e7">
 				<Properties>
-					<Name>actualDateTime</Name>
+					<Name>statusChangeDateTime</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Actual date time</v8:content>
+							<v8:content>Status change date time</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment>actualDateTime</Comment>

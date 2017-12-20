@@ -123,8 +123,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисОперации</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисСтатусЗапроса</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисМаркировка</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисЖурналВСД</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисЖурналВСД</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">4075f349-09b8-49ed-9503-133b3c8ed676</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">46ec3551-1f9e-4ebf-ad4c-1ad24218770a</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисRegistry_2_0</xr:Item>
 			</Content>
 		</Properties>

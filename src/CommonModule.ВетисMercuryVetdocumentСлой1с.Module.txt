@@ -253,7 +253,7 @@
 	
 КонецФункции
 
-Функция TransportNumber(value, пНомер = Неопределено, пНомерПрицепа = Неопределено) Экспорт
+Функция TransportNumber(value, пНомер = Неопределено, пНомерПрицепа = Неопределено, пТипТранспорта = Неопределено) Экспорт
 	
 	Если ТипЗнч(value) = Тип("ОбъектXDTO") Тогда
 		
@@ -272,9 +272,11 @@
 			пНомер = value.transportNumber.shipName;
 		КонецЕсли;
 		
+		пТипТранспорта = _ТипТранспорта;
+		
 		Возврат пНомер;//возвращаем и в параметрах и в значении
 		
-	Иначе
+	ИначеЕсли ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисTransportType") Тогда
 		
 		_Объект = ВетисMercuryVetdocument_2_0.TransportNumber();
 		
@@ -368,11 +370,7 @@
 		_строкаТТН.Посредник      = ?(_всд.broker = Неопределено, _строкаТТН.Посредник, ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.broker));
 		_строкаТТН.СпособХранения = ВетисArgusShipmentСлой1с.TransportationStorageType(_всд.transportStorageType);
 		//_строкаТТН.Транспорт      = ВетисArgusShipmentСлой1с.TransportInfo(_всд.transportInfo);
-		
-		Если НЕ _всд.transportInfo = Неопределено Тогда
-			_СтрокаТТН.НомерТранспорта = ВетисArgusShipmentСлой1с.TransportNumber(_всд.transportInfo, , _СтрокаТТН.НомерПрицепа);
-			_СтрокаТТН.ТипТранспорта  = ВетисDictionaryСлой1с.TransportType(_всд.transportInfo.transportType);
-		КонецЕсли;
+		_СтрокаТТН.НомерТранспорта = ВетисArgusShipmentСлой1с.TransportNumber(_всд.transportInfo, , _СтрокаТТН.НомерПрицепа, _СтрокаТТН.ТипТранспорта);
 		
 		_строкаСЖ = ?(_док.Товары.Количество() = 0, _док.Товары.Добавить(), _док.Товары[0]);
 		
@@ -506,27 +504,24 @@
 		_СтрокаТТН.Посредник      = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.broker);
 		_СтрокаТТН.СпособХранения = ВетисDictionaryСлой1с.TransportationStorageType(_всд.certifiedConsignment.transportStorageType);
 		//_СтрокаТТН.Транспорт      = TransportInfo(_всд.certifiedConsignment.transportInfo);
-		
-		Если НЕ _всд.certifiedConsignment.transportInfo = Неопределено Тогда
-			_СтрокаТТН.НомерТранспорта = TransportNumber(_всд.certifiedConsignment.transportInfo, , _СтрокаТТН.НомерПрицепа);
-			_СтрокаТТН.ТипТранспорта  = ВетисDictionaryСлой1с.TransportType(_всд.certifiedConsignment.transportInfo.transportType);
-		КонецЕсли;
+		_СтрокаТТН.НомерТранспорта = TransportNumber(_всд.certifiedConsignment.transportInfo, , _СтрокаТТН.НомерПрицепа, _СтрокаТТН.ТипТранспорта);
 		
 		_док.МаршрутСледования.Очистить();
 		Если НЕ _всд.certifiedConsignment.shipmentRoute = Неопределено Тогда
 			Для каждого _point Из _всд.certifiedConsignment.shipmentRoute.routePoint Цикл
 				_Строка = _док.МаршрутСледования.Добавить();
-				_Строка.ПунктПерегрузки = _point.location.name;
+				_Строка.ПунктПерегрузки = ?(_point.location = Неопределено, "", _point.location.name);
 				_Строка.Предприятие     = ВетисDictionaryСлой1с.Enterprise(_point.enterprise);
 				_Строка.ЕстьПерегрузка  = _point.transshipment;
 				//_Строка.Транспорт       = TransportInfo(_point.nextTransport);
-				_Строка.НомерТранспорта = TransportNumber(_point.nextTransport,, _Строка.НомерПрицепа);
-				_Строка.ТипТранспорта   = ВетисDictionaryСлой1с.TransportType(_point.nextTransport.transportType);
-				_Строка.Адрес           = _point.location.address.addressView;
-				_Строка.Страна          = ВетисDictionaryСлой1с.Country(_point.location.address.country);
-				_Строка.Регион          = ВетисDictionaryСлой1с.Region(_point.location.address.region);
-				_Строка.Район           = ВетисDictionaryСлой1с.Region(_point.location.address.district);
-				_Строка.НаселенныйПункт = ВетисDictionaryСлой1с.Locality(_point.location.address.locality);
+				_Строка.НомерТранспорта = TransportNumber(_point.nextTransport,, _Строка.НомерПрицепа, _Строка.ТипТранспорта);
+				Если НЕ _point.location = Неопределено И НЕ _point.location.address = Неопределено Тогда
+					_Строка.Адрес           = _point.location.address.addressView;
+					_Строка.Страна          = ВетисDictionaryСлой1с.Country(_point.location.address.country);
+					_Строка.Регион          = ВетисDictionaryСлой1с.Region(_point.location.address.region);
+					_Строка.Район           = ВетисDictionaryСлой1с.Region(_point.location.address.district);
+					_Строка.НаселенныйПункт = ВетисDictionaryСлой1с.Locality(_point.location.address.locality);
+				КонецЕсли;
 			КонецЦикла;
 		КонецЕсли;
 		

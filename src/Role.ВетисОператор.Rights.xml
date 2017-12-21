@@ -421,7 +421,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.ВетисTransport.Attribute.ГосударственныйНомер</name>
+		<name>Catalog.ВетисTransport.Attribute.Номер</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -1319,7 +1319,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.ВетисTransport.Attribute.ГосударственныйНомерПрицепа</name>
+		<name>Catalog.ВетисTransport.Attribute.НомерПрицепа</name>
 		<right>
 			<name>View</name>
 			<value>false</value>

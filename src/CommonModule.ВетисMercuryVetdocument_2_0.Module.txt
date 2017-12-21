@@ -477,8 +477,8 @@
 	
 	_Объект = Создать("TransportInfo");
 	
-	_Объект.transportType   = transportType;  //Тип транспортного средства.
-	_Объект.transportNumber = transportNumber;//Номера транспортного средства.
+	_Объект.transportType   = transportType;
+	_Объект.transportNumber = transportNumber;
 	
 	Возврат _Объект;
 	

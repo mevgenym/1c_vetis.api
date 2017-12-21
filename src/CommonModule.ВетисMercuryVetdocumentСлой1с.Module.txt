@@ -244,60 +244,51 @@
 КонецФункции
 
 
-//начиная с v2.0
-Функция TransportInfo(value) Экспорт
+Функция TransportInfo(пТипТранспорта, пНомер = Неопределено, пНомерПрицепа = Неопределено) Экспорт
 	
-	Если ТипЗнч(value) = Тип(ВетисИмяСправочника.Transport("СправочникСсылка")) Тогда
-		
-		_transportType = ВетисDictionaryСлой1с.TransportType(value.ТипТранспорта);
-		
-		_transportNumber = ВетисMercuryVetdocument_2_0.TransportNumber();
-		
-		Если _transportType = ВетисКонстанты.TransportType_Автомобильный() Тогда
-			_transportNumber.vehicleNumber = value.ГосударственныйНомер;
-			_transportNumber.trailerNumber = value.ГосударственныйНомерПрицепа;
-		Иначе
-			_transportNumber.vehicleNumber = value.ГосударственныйНомер;
-		КонецЕсли;
-		
-		_Объект = ВетисMercuryVetdocument_2_0.TransportInfo(_transportType, _transportNumber);
-		
-	ИначеЕсли НЕ value = Неопределено Тогда
+	Возврат ВетисMercuryVetdocument_2_0.TransportInfo(
+				ВетисDictionaryСлой1с.TransportType(пТипТранспорта),
+				TransportNumber(пТипТранспорта, пНомер, пНомерПрицепа)
+				);
+	
+КонецФункции
+
+Функция TransportNumber(value, пНомер = Неопределено, пНомерПрицепа = Неопределено) Экспорт
+	
+	Если ТипЗнч(value) = Тип("ОбъектXDTO") Тогда
 		
 		_ТипТранспорта = ВетисDictionaryСлой1с.TransportType(value.transportType);
 		
-		Запрос = Новый Запрос;
-		Запрос.Текст =
-		"ВЫБРАТЬ ПЕРВЫЕ 1
-		|	_Таблица.Ссылка
-		|ИЗ
-		|	Справочник."+ВетисИмяСправочника.Transport()+" КАК _Таблица
-		|ГДЕ
-		|	НЕ _Таблица.ПометкаУдаления
-		|	И ВЫБОР
-		|			КОГДА _Таблица.ТипТранспорта = ЗНАЧЕНИЕ(Перечисление.ВетисTransportType.ПустаяСсылка)
-		|				ТОГДА ЗНАЧЕНИЕ(Перечисление.ВетисTransportType.Автомобильный) = &ТипТранспорта
-		|			ИНАЧЕ _Таблица.ТипТранспорта = &ТипТранспорта
-		|		КОНЕЦ
-		|	И _Таблица.ГосударственныйНомер = &Номер
-		//|//онп	И _Таблица.ГосударственныйНомерПрицепа = &НомерПрицепа
-		|	И ИСТИНА";
+		Если _ТипТранспорта = Перечисления.ВетисTransportType.Автомобильный Тогда
+			пНомер = value.transportNumber.vehicleNumber;
+			пНомерПрицепа = value.transportNumber.trailerNumber;
+		ИначеЕсли _ТипТранспорта = Перечисления.ВетисTransportType.Железнодорожный Тогда
+			пНомер = value.transportNumber.wagonNumber;
+		ИначеЕсли _ТипТранспорта = Перечисления.ВетисTransportType.Авиатранспорт Тогда
+			пНомер = value.transportNumber.flightNumber;
+		ИначеЕсли _ТипТранспорта = Перечисления.ВетисTransportType.МорскойКонтейнер Тогда
+			пНомер = value.transportNumber.shipName;
+		ИначеЕсли _ТипТранспорта = Перечисления.ВетисTransportType.МорскойТрюм Тогда
+			пНомер = value.transportNumber.shipName;
+		КонецЕсли;
 		
-		Запрос.УстановитьПараметр("Номер", value.transportNumber.vehicleNumber);
-		Запрос.УстановитьПараметр("НомерПрицепа", value.transportNumber.trailerNumber);
-		Запрос.УстановитьПараметр("ТипТранспорта", _ТипТранспорта);
+		Возврат пНомер;//возвращаем и в параметрах и в значении
 		
-		//Если ЗначениеЗаполнено(value.transportNumber.trailerNumber) Тогда
-		//	Запрос.Текст = СтрЗаменить(Запрос.Текст, "//онп", "");
-		//КонецЕсли;
+	Иначе
 		
-		Результат = Запрос.Выполнить();
-		Выборка = Результат.Выбрать();
+		_Объект = ВетисMercuryVetdocument_2_0.TransportNumber();
 		
-		Если Выборка.Следующий() Тогда
-			_Объект = Выборка.Ссылка;
-		Иначе
-			_Объект = ПредопределенноеЗначение(ВетисИмяСправочника.Transport("Справочник","ПустаяСсылка"));
+		Если value = Перечисления.ВетисTransportType.Автомобильный Тогда
+			_Объект.vehicleNumber = пНомер;
+			_Объект.trailerNumber = пНомерПрицепа;
+		ИначеЕсли value = Перечисления.ВетисTransportType.Железнодорожный Тогда
+			_Объект.wagonNumber = пНомер;
+		ИначеЕсли value = Перечисления.ВетисTransportType.Авиатранспорт Тогда
+			_Объект.flightNumber = пНомер;
+		ИначеЕсли value = Перечисления.ВетисTransportType.МорскойКонтейнер Тогда
+			_Объект.shipName = пНомер;
+		ИначеЕсли value = Перечисления.ВетисTransportType.МорскойТрюм Тогда
+			_Объект.shipName = пНомер;
 		КонецЕсли;
 		
 	КонецЕсли;
@@ -376,7 +367,12 @@
 		_строкаТТН.Тип            = ВетисArgusShipmentСлой1с.WaybillType(_всд.waybillType);
 		_строкаТТН.Посредник      = ?(_всд.broker = Неопределено, _строкаТТН.Посредник, ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.broker));
 		_строкаТТН.СпособХранения = ВетисArgusShipmentСлой1с.TransportationStorageType(_всд.transportStorageType);
-		_строкаТТН.Транспорт      = ВетисArgusShipmentСлой1с.TransportInfo(_всд.transportInfo);
+		//_строкаТТН.Транспорт      = ВетисArgusShipmentСлой1с.TransportInfo(_всд.transportInfo);
+		
+		Если НЕ _всд.transportInfo = Неопределено Тогда
+			_СтрокаТТН.НомерТранспорта = ВетисArgusShipmentСлой1с.TransportNumber(_всд.transportInfo, , _СтрокаТТН.НомерПрицепа);
+			_СтрокаТТН.ТипТранспорта  = ВетисDictionaryСлой1с.TransportType(_всд.transportInfo.transportType);
+		КонецЕсли;
 		
 		_строкаСЖ = ?(_док.Товары.Количество() = 0, _док.Товары.Добавить(), _док.Товары[0]);
 		
@@ -410,7 +406,8 @@
 		_всд.consignee          = ВетисCerberusEnterprise.BusinessMember(_consigneeBusinessEntity, _consigneeEnterprise);
 		_всд.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(_СтрокаВСД.НазначениеГруза));
 		_всд.broker             = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
-		_всд.transportInfo      = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
+		//_всд.transportInfo      = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
+		_всд.transportInfo      = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа);
 		_всд.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
 		_всд.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 		_всд.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
@@ -508,16 +505,28 @@
 		_СтрокаТТН = ?(_док.ТТН.Количество() = 0, _док.ТТН.Добавить(), _док.ТТН[0]);
 		_СтрокаТТН.Посредник      = ВетисDictionaryСлой1с.BusinessEntity(_всд.certifiedConsignment.broker);
 		_СтрокаТТН.СпособХранения = ВетисDictionaryСлой1с.TransportationStorageType(_всд.certifiedConsignment.transportStorageType);
-		_СтрокаТТН.Транспорт      = TransportInfo(_всд.certifiedConsignment.transportInfo);
+		//_СтрокаТТН.Транспорт      = TransportInfo(_всд.certifiedConsignment.transportInfo);
+		
+		Если НЕ _всд.certifiedConsignment.transportInfo = Неопределено Тогда
+			_СтрокаТТН.НомерТранспорта = TransportNumber(_всд.certifiedConsignment.transportInfo, , _СтрокаТТН.НомерПрицепа);
+			_СтрокаТТН.ТипТранспорта  = ВетисDictionaryСлой1с.TransportType(_всд.certifiedConsignment.transportInfo.transportType);
+		КонецЕсли;
 		
 		_док.МаршрутСледования.Очистить();
 		Если НЕ _всд.certifiedConsignment.shipmentRoute = Неопределено Тогда
-			Для каждого _point Из _всд.certifiedConsignment.shipmentRoute Цикл
+			Для каждого _point Из _всд.certifiedConsignment.shipmentRoute.routePoint Цикл
 				_Строка = _док.МаршрутСледования.Добавить();
 				_Строка.ПунктПерегрузки = _point.location.name;
 				_Строка.Предприятие     = ВетисDictionaryСлой1с.Enterprise(_point.enterprise);
 				_Строка.ЕстьПерегрузка  = _point.transshipment;
-				_Строка.Транспорт       = TransportInfo(_point.nextTransport);
+				//_Строка.Транспорт       = TransportInfo(_point.nextTransport);
+				_Строка.НомерТранспорта = TransportNumber(_point.nextTransport,, _Строка.НомерПрицепа);
+				_Строка.ТипТранспорта   = ВетисDictionaryСлой1с.TransportType(_point.nextTransport.transportType);
+				_Строка.Адрес           = _point.location.address.addressView;
+				_Строка.Страна          = ВетисDictionaryСлой1с.Country(_point.location.address.country);
+				_Строка.Регион          = ВетисDictionaryСлой1с.Region(_point.location.address.region);
+				_Строка.Район           = ВетисDictionaryСлой1с.Region(_point.location.address.district);
+				_Строка.НаселенныйПункт = ВетисDictionaryСлой1с.Locality(_point.location.address.locality);
 			КонецЦикла;
 		КонецЕсли;
 		
@@ -573,14 +582,33 @@
 		_всд.issueDate            = _док.ДатаВСД;
 		_всд.vetDForm             = VetDocumentForm(_док.Форма);
 		
+		_Номер = 0;
+		_ShipmentRoute = Новый Массив;
+		
+		Для каждого _Строка Из _док.МаршрутСледования Цикл
+			_Номер = _Номер + 1;
+			_ShipmentRoute.Добавить(ВетисMercuryVetdocument_2_0.ShipmentRoutePoint(
+				_Номер,
+				ВетисDictionary_2_0.Location(_Строка.ПунктПерегрузки,
+					ВетисDictionary_2_0.Address(_Строка.Адрес,
+						ВетисDictionaryСлой1с.Country(_Строка.Страна),
+						ВетисDictionaryСлой1с.Region(_Строка.Регион),
+						ВетисDictionaryСлой1с.District(_Строка.Район),
+						ВетисDictionaryСлой1с.Locality(_Строка.НаселенныйПункт))),
+				ВетисDictionaryСлой1с.Enterprise(_Строка.Предприятие),
+				_Строка.ЕстьПерегрузка,
+				TransportInfo(_Строка.ТипТранспорта, _Строка.НомерТранспорта, _Строка.НомерПрицепа)
+			));
+		КонецЦикла;
+		
 		_всд.certifiedConsignment = ВетисMercuryVetdocument_2_0.CertifiedConsignment(
 			ВетисDictionary_2_0.BusinessMember(_consignorBusinessEntity, _consignorEnterprise),
 			ВетисDictionary_2_0.BusinessMember(_consigneeBusinessEntity, _consigneeEnterprise),
 			_batch,
 			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_СтрокаТТН.Посредник)),
-			TransportInfo(_СтрокаТТН.Транспорт),
-			ВетисDictionaryСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения)
-			//сделать: добавить маршрут
+			TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа),
+			ВетисDictionaryСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения),
+			_ShipmentRoute
 			);
 		
 		_всд.authentication = ВетисMercuryVetdocument_2_0.VeterinaryAuthentication(

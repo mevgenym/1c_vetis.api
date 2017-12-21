@@ -93,59 +93,51 @@
 	
 КонецФункции
 
-Функция TransportInfo(value) Экспорт
+Функция TransportInfo(пТипТранспорта, пНомер = Неопределено, пНомерПрицепа = Неопределено) Экспорт
 	
-	Если ТипЗнч(value) = Тип(ВетисИмяСправочника.Transport("СправочникСсылка")) Тогда
+	Возврат ВетисArgusShipment.TransportInfo(
+				TransportType(пТипТранспорта),
+				TransportNumber(пТипТранспорта, пНомер, пНомерПрицепа)
+				);
+	
+КонецФункции
+
+Функция TransportNumber(value, пНомер = Неопределено, пНомерПрицепа = Неопределено) Экспорт
+	
+	Если ТипЗнч(value) = Тип("ОбъектXDTO") Тогда
 		
-		_transportType = ВетисArgusShipmentСлой1с.TransportType(value.ТипТранспорта);
+		_ТипТранспорта = TransportType(value.transportType);
 		
-		_transportNumber = ВетисArgusShipment.TransportNumber();
-		
-		Если _transportType = ВетисКонстанты.TransportType_Автомобильный() Тогда
-			_transportNumber.vehicleNumber = value.ГосударственныйНомер;
-			_transportNumber.trailerNumber = value.ГосударственныйНомерПрицепа;
-		Иначе
-			_transportNumber.vehicleNumber = value.ГосударственныйНомер;
+		Если _ТипТранспорта = Перечисления.ВетисTransportType.Автомобильный Тогда
+			пНомер = value.transportNumber.vehicleNumber;
+			пНомерПрицепа = value.transportNumber.trailerNumber;
+		ИначеЕсли _ТипТранспорта = Перечисления.ВетисTransportType.Железнодорожный Тогда
+			пНомер = value.transportNumber.wagonNumber;
+		ИначеЕсли _ТипТранспорта = Перечисления.ВетисTransportType.Авиатранспорт Тогда
+			пНомер = value.transportNumber.flightNumber;
+		ИначеЕсли _ТипТранспорта = Перечисления.ВетисTransportType.МорскойКонтейнер Тогда
+			пНомер = value.transportNumber.shipName;
+		ИначеЕсли _ТипТранспорта = Перечисления.ВетисTransportType.МорскойТрюм Тогда
+			пНомер = value.transportNumber.shipName;
 		КонецЕсли;
 		
-		_Объект = ВетисArgusShipment.TransportInfo(_transportType, _transportNumber);
+		Возврат пНомер;//возвращаем и в параметрах и в значении
 		
 	Иначе
 		
-		_ТипТранспорта = ВетисArgusShipmentСлой1с.TransportType(value.transportType);
+		_Объект = ВетисArgusShipment.TransportNumber();
 		
-		Запрос = Новый Запрос;
-		Запрос.Текст =
-		"ВЫБРАТЬ ПЕРВЫЕ 1
-		|	_Таблица.Ссылка
-		|ИЗ
-		|	Справочник."+ВетисИмяСправочника.Transport()+" КАК _Таблица
-		|ГДЕ
-		|	НЕ _Таблица.ПометкаУдаления
-		|	И ВЫБОР
-		|			КОГДА _Таблица.ТипТранспорта = ЗНАЧЕНИЕ(Перечисление.ВетисTransportType.ПустаяСсылка)
-		|				ТОГДА ЗНАЧЕНИЕ(Перечисление.ВетисTransportType.Автомобильный) = &ТипТранспорта
-		|			ИНАЧЕ _Таблица.ТипТранспорта = &ТипТранспорта
-		|		КОНЕЦ
-		|	И _Таблица.ГосударственныйНомер = &Номер
-		//|//онп	И _Таблица.ГосударственныйНомерПрицепа = &НомерПрицепа
-		|	И ИСТИНА";
-		
-		Запрос.УстановитьПараметр("Номер", value.transportNumber.vehicleNumber);
-		Запрос.УстановитьПараметр("НомерПрицепа", value.transportNumber.trailerNumber);
-		Запрос.УстановитьПараметр("ТипТранспорта", _ТипТранспорта);
-		
-		//Если ЗначениеЗаполнено(value.transportNumber.trailerNumber) Тогда
-		//	Запрос.Текст = СтрЗаменить(Запрос.Текст, "//онп", "");
-		//КонецЕсли;
-		
-		Результат = Запрос.Выполнить();
-		Выборка = Результат.Выбрать();
-		
-		Если Выборка.Следующий() Тогда
-			_Объект = Выборка.Ссылка;
-		Иначе
-			_Объект = ПредопределенноеЗначение(ВетисИмяСправочника.Transport("Справочник","ПустаяСсылка"));
+		Если value = Перечисления.ВетисTransportType.Автомобильный Тогда
+			_Объект.vehicleNumber = пНомер;
+			_Объект.trailerNumber = пНомерПрицепа;
+		ИначеЕсли value = Перечисления.ВетисTransportType.Железнодорожный Тогда
+			_Объект.wagonNumber = пНомер;
+		ИначеЕсли value = Перечисления.ВетисTransportType.Авиатранспорт Тогда
+			_Объект.flightNumber = пНомер;
+		ИначеЕсли value = Перечисления.ВетисTransportType.МорскойКонтейнер Тогда
+			_Объект.shipName = пНомер;
+		ИначеЕсли value = Перечисления.ВетисTransportType.МорскойТрюм Тогда
+			_Объект.shipName = пНомер;
 		КонецЕсли;
 		
 	КонецЕсли;

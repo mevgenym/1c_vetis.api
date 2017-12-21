@@ -134,6 +134,8 @@
 			<Language>Русский</Language>
 			<Subsystem>Ветис</Subsystem>
 			<Subsystem>ВетисИсключения</Subsystem>
+			<CommonPicture>ВетисНетСвязи</CommonPicture>
+			<CommonPicture>ВетисЕстьСвязь</CommonPicture>
 			<SessionParameter>ВетисПеременные</SessionParameter>
 			<Role>ВетисАдминистратор</Role>
 			<Role>ВетисОператор</Role>

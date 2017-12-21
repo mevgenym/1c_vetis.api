@@ -56,13 +56,9 @@
 						<Event name="OnChange">ХозяйствующийСубъектПриИзменении</Event>
 					</Events>
 				</InputField>
-				<PictureDecoration name="ДекорацияЕстьСвязь1" id="54">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Декорация есть связь1</v8:content>
-						</v8:item>
-					</Title>
+				<PictureDecoration name="ДекорацияЕстьСвязь1" id="70">
+					<Width>2</Width>
+					<Height>1</Height>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -71,22 +67,18 @@
 					</ToolTip>
 					<Hyperlink>true</Hyperlink>
 					<Picture>
-						<xr:Ref>StdPicture.Attribute</xr:Ref>
+						<xr:Ref>CommonPicture.ВетисЕстьСвязь</xr:Ref>
 						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</Picture>
-					<ContextMenu name="ДекорацияЕстьСвязь1КонтекстноеМеню" id="55"/>
-					<ExtendedTooltip name="ДекорацияЕстьСвязь1РасширеннаяПодсказка" id="56"/>
+					<ContextMenu name="ДекорацияЕстьСвязь1КонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="ДекорацияЕстьСвязь1РасширеннаяПодсказка" id="72"/>
 					<Events>
 						<Event name="Click">ДекорацияЕстьСвязь1Нажатие</Event>
 					</Events>
 				</PictureDecoration>
-				<PictureDecoration name="ДекорацияЕстьСвязь0" id="57">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Декорация есть связь0</v8:content>
-						</v8:item>
-					</Title>
+				<PictureDecoration name="ДекорацияЕстьСвязь0" id="73">
+					<Width>2</Width>
+					<Height>1</Height>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -95,11 +87,11 @@
 					</ToolTip>
 					<Hyperlink>true</Hyperlink>
 					<Picture>
-						<xr:Ref>StdPicture.SwitchActivity</xr:Ref>
+						<xr:Ref>CommonPicture.ВетисНетСвязи</xr:Ref>
 						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</Picture>
-					<ContextMenu name="ДекорацияЕстьСвязь0КонтекстноеМеню" id="58"/>
-					<ExtendedTooltip name="ДекорацияЕстьСвязь0РасширеннаяПодсказка" id="59"/>
+					<ContextMenu name="ДекорацияЕстьСвязь0КонтекстноеМеню" id="74"/>
+					<ExtendedTooltip name="ДекорацияЕстьСвязь0РасширеннаяПодсказка" id="75"/>
 					<Events>
 						<Event name="Click">ДекорацияЕстьСвязь0Нажатие</Event>
 					</Events>

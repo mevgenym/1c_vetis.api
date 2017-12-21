@@ -294,7 +294,7 @@
 КонецФункции
 
 
-Функция GetVetDocumentChangesListRequest(enterpriseGuid, beginDate, endDate = Неопределено, listOptions = Неопределено) Экспорт
+Функция GetVetDocumentChangesListRequest(enterpriseGuid, beginDate = Неопределено, endDate = Неопределено, listOptions = Неопределено) Экспорт
 	
 	_Объект = Создать("GetVetDocumentChangesListRequest");
 	

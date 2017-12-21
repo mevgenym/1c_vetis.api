@@ -1481,7 +1481,7 @@
 	
 	//запрос на получение результатов обработки заявки
 	
-	_receiveRequest = ВетисApplication.receiveApplicationResultRequest(_SubmitResponse.Application.applicationId);
+	_receiveRequest = ВетисApplication.receiveApplicationResultRequest(_SubmitResponse.Application.applicationId, _настройки.issuerId, _настройки.КлючАПИ);
 	
 	_Envelope = ВетисSoapEnvelope.Envelope(_receiveRequest, _Фабрика, "receiveApplicationResultRequest");
 	

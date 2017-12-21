@@ -66,11 +66,11 @@
 КонецФункции
 
 // Запрос на получение результатов обработки заявки.
-Функция receiveApplicationResultRequest(applicationId, issuerId = Неопределено) Экспорт
+Функция receiveApplicationResultRequest(applicationId, issuerId = Неопределено, пКлючАПИ = Неопределено) Экспорт
 	
 	_Объект = Создать("receiveApplicationResultRequest", ServiceURI());
 	
-	_Объект.apiKey        = Ветис.КлючАПИ();
+	_Объект.apiKey        = ?(пКлючАПИ = Неопределено, Ветис.КлючАПИ(), пКлючАПИ);
 	_Объект.issuerId      = ?(issuerId = Неопределено, Ветис.issuerId(), issuerId);
 	_Объект.applicationId = applicationId;
 	

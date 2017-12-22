@@ -8,19 +8,16 @@
 	
 	//пока только ошибки, запросы совпадают с примерами
 	
-	//2017-11-16
-	//APLM0002 - Unsupported application data format
+	//2017-12-22
+	//в тесте схемы отстают
+	
 	_user = ВетисMercuryApplications_2_0.GetBusinessEntityUser(ВетисMercuryVetdocument_2_0.User(пЛогин), _issuerId);
 	
-	//2017-11-16
-	//APLM0002 - Unsupported application data format
 	_параметры = Неопределено;
 	Пока ВетисMercuryApplications_2_0.GetBusinessEntityUserListСледующий(_issuerId, _user, _параметры) Цикл
 		//
 	КонецЦикла;
 	
-	//2017-11-16
-	//APLM0002 - Unsupported application data format
 	_параметры = Неопределено;
 	Если Ветис.Настройки_Тестовый() Тогда
 		Пока ВетисMercuryApplications_2_0.GetAppliedUserAuthorityListСледующий(_issuerId, _user, _параметры) Цикл

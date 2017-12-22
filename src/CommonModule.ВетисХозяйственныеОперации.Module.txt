@@ -1704,21 +1704,17 @@
 	
 	Перем _product, _subProduct;
 	
-	//Если НЕ Ветис.Настройки_СправочникПродукцииЛокально() Тогда
-	//	Возврат;
-	//КонецЕсли;
-	
 	_нз = РегистрыСведений.ВетисСправочникПродукции.СоздатьНаборЗаписей();
 	
 	Если Ветис.Версия_2_0() Тогда
 		Для каждого _ТипПродукции Из Перечисления.ВетисProductType Цикл
 			_productType = ВетисDictionaryСлой1с.ProductType(_ТипПродукции);
 			_нз.Отбор.ProductType.Установить(_productType);
-			_параметрыP = Неопределено;
+			_параметрыP = Новый Структура("ИзСервиса");
 			Пока ВетисProductService_2_0.GetProductByTypeListСледующий(_productType, _product, _параметрыP) Цикл
 				_нз.Очистить();
 				_нз.Отбор.Product.Установить(_product.guid);
-				_параметрыS = Неопределено;
+				_параметрыS = Новый Структура("ИзСервиса");
 				Пока ВетисProductService_2_0.GetSubProductByProductListСледующий(_product.guid, _subProduct, _параметрыS) Цикл
 					_нзСтрока = _нз.Добавить();
 					_нзСтрока.ProductType = _ProductType;
@@ -1734,11 +1730,11 @@
 		Для каждого _ТипПродукции Из Перечисления.ВетисProductType Цикл
 			_productType = ВетисArgusProductionСлой1с.ProductType(_ТипПродукции);
 			_нз.Отбор.ProductType.Установить(_productType);
-			_параметрыP = Неопределено;
+			_параметрыP = Новый Структура("ИзСервиса");
 			Пока ВетисProductService.GetProductByTypeListСледующий(_productType, _product, _параметрыP) Цикл
 				_нз.Очистить();
 				_нз.Отбор.Product.Установить(_product.guid);
-				_параметрыS = Неопределено;
+				_параметрыS = Новый Структура("ИзСервиса");
 				Пока ВетисProductService.GetSubProductByProductListСледующий(_product.guid, _subProduct, _параметрыS) Цикл
 					_нзСтрока = _нз.Добавить();
 					_нзСтрока.ProductType = _ProductType;

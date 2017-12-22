@@ -1049,6 +1049,7 @@
 		XSDДобавить(_таблица, _Имя+"base_v1.1.xsd",                 ВетисBase_2_0.URI());
 		XSDДобавить(_таблица, _Имя+"dictionary"+_суф,               ВетисDictionary_2_0.URI());
 		XSDДобавить(_таблица, _Имя+"document"+_суф,                 ВетисMercuryVetdocument_2_0.URI());
+		//XSDДобавить(_таблица, _Имя+"registry_ws_definitions"+_суф,  ВетисRegistry_2_0.ServiceURI());
 		
 		Если _сервис = Перечисления.ВетисСервис.mercury_g2b_service Тогда
 			XSDДобавить(_таблица, _Имя+"mercury_g2b_applications"+_суф, ВетисMercuryApplications_2_0.URI());

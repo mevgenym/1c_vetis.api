@@ -32,7 +32,7 @@
 
 Функция Создать(пИмя, пФабрика = Неопределено) Экспорт
 	
-	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), пФабрика);
+	Возврат ВетисОбщегоНазначения.Создать(пИмя, URI(), ?(пФабрика = Неопределено, Фабрика(), пФабрика));
 	
 КонецФункции
 
@@ -42,70 +42,64 @@
 	
 КонецФункции
 
-Функция xsd_url() Экспорт
+Функция Фабрика() Экспорт
 	
-	_url = ПолучитьИмяВременногоФайла("xsd");
+	_Кеш = Ветис.Переменные_Получить("КешФабрики", Новый Соответствие);
 	
-	_зт = Новый ЗаписьТекста(_url, КодировкаТекста.UTF8);
-	_зт.Записать(xsd());
-	_зт.Закрыть();
+	_фабрика = _Кеш.Получить("soap_envelop");
 	
-	Возврат _url;
+	Если НЕ _фабрика = Неопределено Тогда
+		Возврат _фабрика;
+	КонецЕсли;
+	
+	_Чтение = Новый ЧтениеXML;
+	
+	_Чтение.УстановитьСтроку(xsd());
+	
+	_Модель = ФабрикаXDTO.ПрочитатьXML(_Чтение);
+	
+	_фабрика = Новый ФабрикаXDTO(_Модель);
+	
+	_Кеш = Ветис.Переменные_Получить("КешФабрики", Новый Соответствие);
+	
+	_Кеш.Вставить("soap_envelop", _фабрика);
+	
+	Ветис.Переменные_Установить("КешФабрики", _Кеш);
+	
+	Возврат _фабрика;
 	
 КонецФункции
 
+
 Функция xsd()
 Возврат
-"<xs:schema xmlns:tns=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"" targetNamespace=""http://schemas.xmlsoap.org/soap/envelope/"" attributeFormDefault=""unqualified"" elementFormDefault=""unqualified"">
-|	<xs:element name=""Envelope"" type=""tns:Envelope""/>
-|	<xs:complexType name=""Envelope"">
-|		<xs:sequence>
-|			<xs:element ref=""tns:Header"" minOccurs=""0""/>
-|			<xs:element ref=""tns:Body""/>
-|			<xs:any namespace=""##other"" processContents=""lax"" minOccurs=""0"" maxOccurs=""unbounded""/>
-|		</xs:sequence>
-|		<xs:anyAttribute namespace=""##other"" processContents=""lax""/>
-|	</xs:complexType>
-|	<xs:element name=""Header"" type=""tns:Header""/>
-|	<xs:complexType name=""Header"">
-|		<xs:sequence>
-|			<xs:any namespace=""##other"" processContents=""lax"" minOccurs=""0"" maxOccurs=""unbounded""/>
-|		</xs:sequence>
-|		<xs:anyAttribute namespace=""##other"" processContents=""lax""/>
-|	</xs:complexType>
-|	<xs:element name=""Body"" type=""tns:Body""/>
-|	<xs:complexType name=""Body"">
-|		<xs:sequence>
-|			<xs:any namespace=""##other"" processContents=""lax"" minOccurs=""0"" maxOccurs=""unbounded""/>
-|		</xs:sequence>
-|		<xs:anyAttribute namespace=""##other"" processContents=""lax""/>
-|	</xs:complexType>
-|	<xs:attribute name=""mustUnderstand"">
-|		<xs:simpleType>
-|			<xs:restriction base=""xs:boolean"">
-|				<xs:pattern value=""0|1""/>
-|			</xs:restriction>
-|		</xs:simpleType>
-|	</xs:attribute>
-|	<xs:attribute name=""actor"" type=""xs:anyURI""/>
-|	<xs:simpleType name=""encodingStyle"">
-|		<xs:list itemType=""xs:anyURI""/>
-|	</xs:simpleType>
-|	<xs:attribute name=""encodingStyle"" type=""tns:encodingStyle""/>
-|	<xs:element name=""Fault"" type=""tns:Fault""/>
-|	<xs:complexType name=""Fault"">
-|		<xs:sequence>
-|			<xs:element name=""faultcode"" type=""xs:QName""/>
-|			<xs:element name=""faultstring"" type=""xs:string""/>
-|			<xs:element name=""faultactor"" type=""xs:anyURI"" minOccurs=""0""/>
-|			<xs:element name=""detail"" type=""tns:detail"" minOccurs=""0""/>
-|		</xs:sequence>
-|	</xs:complexType>
-|	<xs:complexType name=""detail"">
-|		<xs:sequence>
-|			<xs:any namespace=""##other"" processContents=""lax"" minOccurs=""0"" maxOccurs=""unbounded""/>
-|		</xs:sequence>
-|		<xs:anyAttribute namespace=""##other"" processContents=""lax""/>
-|	</xs:complexType>
-|</xs:schema>";
+"<Model xmlns=""http://v8.1c.ru/8.1/xdto"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xsi:type=""Model"">
+|<package targetNamespace=""http://schemas.xmlsoap.org/soap/envelope/"" elementFormQualified=""false"" attributeFormQualified=""false"">
+|<property name=""mustUnderstand"" form=""Attribute"">
+|<typeDef xsi:type=""ValueType"" base=""xs:boolean"">
+|<pattern>0|1</pattern>
+|</typeDef>
+|</property>
+|<property name=""actor"" type=""xs:anyURI"" form=""Attribute""/>
+|<property xmlns:d3p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""encodingStyle"" type=""d3p1:encodingStyle"" form=""Attribute""/>
+|<property xmlns:d3p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""Body"" type=""d3p1:Body""/>
+|<property xmlns:d3p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""Fault"" type=""d3p1:Fault""/>
+|<property xmlns:d3p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""Header"" type=""d3p1:Header""/>
+|<property xmlns:d3p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""Envelope"" type=""d3p1:Envelope""/>
+|<valueType name=""encodingStyle"" itemType=""xs:anyURI""/>
+|<objectType name=""Body"" open=""true"" sequenced=""true""/>
+|<objectType name=""Envelope"" open=""true"" sequenced=""true"">
+|<property xmlns:d4p1=""http://schemas.xmlsoap.org/soap/envelope/"" ref=""d4p1:Header"" lowerBound=""0""/>
+|<property xmlns:d4p1=""http://schemas.xmlsoap.org/soap/envelope/"" ref=""d4p1:Body""/>
+|</objectType>
+|<objectType name=""Fault"">
+|<property name=""faultcode"" type=""xs:QName""/>
+|<property name=""faultstring"" type=""xs:string""/>
+|<property name=""faultactor"" type=""xs:anyURI"" lowerBound=""0""/>
+|<property xmlns:d4p1=""http://schemas.xmlsoap.org/soap/envelope/"" name=""detail"" type=""d4p1:detail"" lowerBound=""0""/>
+|</objectType>
+|<objectType name=""Header"" open=""true"" sequenced=""true""/>
+|<objectType name=""detail"" open=""true"" sequenced=""true""/>
+|</package>
+|</Model>";
 КонецФункции

@@ -281,6 +281,7 @@
 			<Enum>ЮрФизЛицо</Enum>
 			<DataProcessor>ВетисУстановкаСоответствияСправочников</DataProcessor>
 			<InformationRegister>ВетисRussianEnterpriseList</InformationRegister>
+			<InformationRegister>ВетисXSD</InformationRegister>
 			<InformationRegister>ВетисАдреса</InformationRegister>
 			<InformationRegister>ВетисЖурнал</InformationRegister>
 			<InformationRegister>ВетисМаркировка</InformationRegister>

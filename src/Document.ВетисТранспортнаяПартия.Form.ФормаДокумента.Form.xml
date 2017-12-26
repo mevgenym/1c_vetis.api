@@ -225,6 +225,7 @@
 											</Button>
 											<Button name="ПартииСписокКомандаРаспределитьПартииПоВсемТоварам" id="337">
 												<Type>CommandBarButton</Type>
+												<Visible>false</Visible>
 												<CommandName>Form.Command.КомандаРаспределитьПартииПоВсемТоварам</CommandName>
 												<ExtendedTooltip name="ПартииСписокКомандаРаспределитьПартииПоВсемТоварамРасширеннаяПодсказка" id="338"/>
 											</Button>
@@ -389,6 +390,7 @@
 											</ChildItems>
 										</ColumnGroup>
 										<ColumnGroup name="ТоварыГруппаПартия" id="329">
+											<Visible>false</Visible>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -411,10 +413,21 @@
 													<ExtendedTooltip name="ТоварыНесколькоПартийРасширеннаяПодсказка" id="333"/>
 												</CheckBoxField>
 												<InputField name="ТоварыПартия" id="334">
-													<DataPath>Объект.Товары.ПартияGuid</DataPath>
+													<DataPath>Объект.Товары.ПартияПредставление</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Партия</v8:content>
+														</v8:item>
+													</Title>
 													<EditMode>EnterOnInput</EditMode>
+													<ChoiceButton>true</ChoiceButton>
+													<TextEdit>false</TextEdit>
 													<ContextMenu name="ТоварыПартияКонтекстноеМеню" id="335"/>
 													<ExtendedTooltip name="ТоварыПартияРасширеннаяПодсказка" id="336"/>
+													<Events>
+														<Event name="StartChoice">ТоварыПартияНачалоВыбора</Event>
+													</Events>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
@@ -822,56 +835,139 @@
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаТТНРасширеннаяПодсказка" id="255"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаТТНСерияНомерДата" id="289">
+						<UsualGroup name="ГруппаТТНКолонки" id="347">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа ТТНСерия номер дата</v8:content>
+									<v8:content>Группа ТТНКолонки</v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа ТТНСерия номер дата</v8:content>
+									<v8:content>Группа ТТНКолонки</v8:content>
 								</v8:item>
 							</ToolTip>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаТТНСерияНомерДатаРасширеннаяПодсказка" id="290"/>
+							<ExtendedTooltip name="ГруппаТТНКолонкиРасширеннаяПодсказка" id="348"/>
 							<ChildItems>
-								<InputField name="ттнСерия" id="277">
-									<DataPath>ттнСерия</DataPath>
-									<ContextMenu name="ттнСерияКонтекстноеМеню" id="278"/>
-									<ExtendedTooltip name="ттнСерияРасширеннаяПодсказка" id="279"/>
-								</InputField>
-								<InputField name="ттнНомер" id="274">
-									<DataPath>ттнНомер</DataPath>
-									<ContextMenu name="ттнНомерКонтекстноеМеню" id="275"/>
-									<ExtendedTooltip name="ттнНомерРасширеннаяПодсказка" id="276"/>
-								</InputField>
-								<InputField name="ттнДата" id="271">
-									<DataPath>ттнДата</DataPath>
-									<ContextMenu name="ттнДатаКонтекстноеМеню" id="272"/>
-									<ExtendedTooltip name="ттнДатаРасширеннаяПодсказка" id="273"/>
-								</InputField>
+								<UsualGroup name="ГруппаТТНКолонка1" id="349">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ТТНКолонка1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ТТНКолонка1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаТТНКолонка1РасширеннаяПодсказка" id="350"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаТТНСерияНомерДата" id="289">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ТТНСерия номер дата</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ТТНСерия номер дата</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТТНСерияНомерДатаРасширеннаяПодсказка" id="290"/>
+											<ChildItems>
+												<InputField name="ттнСерия" id="277">
+													<DataPath>ттнСерия</DataPath>
+													<ContextMenu name="ттнСерияКонтекстноеМеню" id="278"/>
+													<ExtendedTooltip name="ттнСерияРасширеннаяПодсказка" id="279"/>
+												</InputField>
+												<InputField name="ттнНомер" id="274">
+													<DataPath>ттнНомер</DataPath>
+													<ContextMenu name="ттнНомерКонтекстноеМеню" id="275"/>
+													<ExtendedTooltip name="ттнНомерРасширеннаяПодсказка" id="276"/>
+												</InputField>
+												<InputField name="ттнДата" id="271">
+													<DataPath>ттнДата</DataPath>
+													<ContextMenu name="ттнДатаКонтекстноеМеню" id="272"/>
+													<ExtendedTooltip name="ттнДатаРасширеннаяПодсказка" id="273"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<InputField name="ттнПосредник" id="356">
+											<DataPath>ттнПосредник</DataPath>
+											<ContextMenu name="ттнПосредникКонтекстноеМеню" id="357"/>
+											<ExtendedTooltip name="ттнПосредникРасширеннаяПодсказка" id="358"/>
+										</InputField>
+										<InputField name="ттнСпособХранения" id="280">
+											<DataPath>ттнСпособХранения</DataPath>
+											<ContextMenu name="ттнСпособХраненияКонтекстноеМеню" id="281"/>
+											<ExtendedTooltip name="ттнСпособХраненияРасширеннаяПодсказка" id="282"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаТТНКолонка2" id="351">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ТТНКолонка2</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ТТНКолонка2</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаТТНКолонка2РасширеннаяПодсказка" id="352"/>
+									<ChildItems>
+										<InputField name="ттнТип" id="283">
+											<DataPath>ттнТип</DataPath>
+											<ContextMenu name="ттнТипКонтекстноеМеню" id="284"/>
+											<ExtendedTooltip name="ттнТипРасширеннаяПодсказка" id="285"/>
+										</InputField>
+										<InputField name="ттнТранспорт" id="286">
+											<DataPath>ттнТранспорт</DataPath>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="ттнТранспортКонтекстноеМеню" id="287"/>
+											<ExtendedTooltip name="ттнТранспортРасширеннаяПодсказка" id="288"/>
+											<Events>
+												<Event name="OnChange">ттнТранспортПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ттнТипТранспорта" id="353">
+											<DataPath>ттнТипТранспорта</DataPath>
+											<ContextMenu name="ттнТипТранспортаКонтекстноеМеню" id="354"/>
+											<ExtendedTooltip name="ттнТипТранспортаРасширеннаяПодсказка" id="355"/>
+										</InputField>
+										<InputField name="ттнНомерТранспорта" id="359">
+											<DataPath>ттнНомерТранспорта</DataPath>
+											<ContextMenu name="ттнНомерТранспортаКонтекстноеМеню" id="360"/>
+											<ExtendedTooltip name="ттнНомерТранспортаРасширеннаяПодсказка" id="361"/>
+										</InputField>
+										<InputField name="ттнНомерПрицепа" id="362">
+											<DataPath>ттнНомерПрицепа</DataPath>
+											<ContextMenu name="ттнНомерПрицепаКонтекстноеМеню" id="363"/>
+											<ExtendedTooltip name="ттнНомерПрицепаРасширеннаяПодсказка" id="364"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<InputField name="ттнТип" id="283">
-							<DataPath>ттнТип</DataPath>
-							<ContextMenu name="ттнТипКонтекстноеМеню" id="284"/>
-							<ExtendedTooltip name="ттнТипРасширеннаяПодсказка" id="285"/>
-						</InputField>
-						<InputField name="ттнТранспорт" id="286">
-							<DataPath>ттнТранспорт</DataPath>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="ттнТранспортКонтекстноеМеню" id="287"/>
-							<ExtendedTooltip name="ттнТранспортРасширеннаяПодсказка" id="288"/>
-						</InputField>
-						<InputField name="ттнСпособХранения" id="280">
-							<DataPath>ттнСпособХранения</DataPath>
-							<ContextMenu name="ттнСпособХраненияКонтекстноеМеню" id="281"/>
-							<ExtendedTooltip name="ттнСпособХраненияРасширеннаяПодсказка" id="282"/>
-						</InputField>
 					</ChildItems>
 				</Page>
 				<Page name="ГруппаДополнительно" id="95">
@@ -1156,7 +1252,7 @@
 			<Type>
 				<v8:Type>xs:string</v8:Type>
 				<v8:StringQualifiers>
-					<v8:Length>10</v8:Length>
+					<v8:Length>15</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
@@ -1171,7 +1267,7 @@
 			<Type>
 				<v8:Type>xs:string</v8:Type>
 				<v8:StringQualifiers>
-					<v8:Length>10</v8:Length>
+					<v8:Length>15</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
@@ -1302,6 +1398,58 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:EnumRef.ВетисResearchResult</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ттнНомерПрицепа" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер прицепа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ттнНомерТранспорта" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер транспорта</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ттнТипТранспорта" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип транспорта</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВетисTransportType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ттнПосредник" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Посредник</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

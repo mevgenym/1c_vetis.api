@@ -126,6 +126,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисRegistry_2_0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonPicture.ВетисНетСвязи</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonPicture.ВетисЕстьСвязь</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисXSD</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

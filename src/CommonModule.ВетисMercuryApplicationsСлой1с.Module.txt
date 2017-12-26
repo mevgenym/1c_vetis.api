@@ -94,7 +94,7 @@
 			_Consignment,
 			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(_Waybill, _VetDocument),
 			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),
-			ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.Транспорт),
+			ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа),
 			ВетисDictionaryСлой1с.TransportationStorageType(_ттн.СпособХранения));
 	Иначе
 		_delivery = ВетисMercuryVetdocument.Delivery(
@@ -167,9 +167,9 @@
 				ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
 				ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
 				ПолучитьConsignment_20(_всд.Товары[0], _всд.Упаковка, _всд.Маркировка, _СтрокаСЖ.КоличествоВозврат, _СтрокаСЖ.КоличествоМестВозврат),
-				ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill_20(_ттн, Истина, _ВозвратДата), ПолучитьVetDocument_20_Возвратный(_всд, _СтрокаСЖ.УсловияПеремещения, _ВозвратДата, пОтказ, пОшибка)),
+				ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(ПолучитьWaybill_20(_ттн, Истина, _ВозвратДата), ПолучитьVetDocument_20_Возвратный(_всд, , _ВозвратДата, пОтказ, пОшибка)),
 				ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_ттн.Посредник)),//пока тот же который привез
-				ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.Транспорт),//пока тот же который привез
+				ВетисMercuryVetdocumentСлой1с.TransportInfo(_ттн.ТипТранспорта, _ттн.НомерТранспорта, _ттн.НомерПрицепа),//пока тот же который привез
 				ВетисDictionaryСлой1с.TransportationStorageType(_ттн.СпособХранения)//пока тот же который привез
 				);
 		Иначе
@@ -185,10 +185,17 @@
 	
 	Если пОтказ = Истина Тогда Возврат _Результат; КонецЕсли;
 	
+	//может быть гашение возвратных входящих ВСД
+	//видимо, может быть оформлен возврат на возрат, т.е. в ответе будет два возвратных
+	//входящий электронный можно только по типу TRANSPORT или по uuid равно входящему
+	//входящий бумажный можно только по типу TRANSPORT
+	//входящий возвратный надо искать по uuid
+	//исходящий возвртаный можно по типу RETURNABLE и uuid не равно входящему
 	Для каждого _vetDocument Из _Response.vetDocument Цикл
+		//входящий электронный или бумажный
 		Если ?(_Версия20, _vetDocument.vetDType, _vetDocument.type) = ВетисКонстанты.VetDocumentType_TRANSPORT() Тогда
 			
-			_всд.Uuid   = _vetDocument.uuid;
+			_всд.uuid   = _vetDocument.uuid;
 			
 			Если _Версия20 Тогда
 				_всд.Тип    = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_vetDocument.vetDType);
@@ -215,32 +222,62 @@
 			_Результат.Вставить("Статус", _всд.Статус);
 			_Результат.Вставить("ВСД", _всд.Ссылка);
 			
-		ИначеЕсли _ЕстьСвойствоВозврат И ?(_Версия20, _vetDocument.vetDType, _vetDocument.type) = ВетисКонстанты.VetDocumentType_RETURNABLE() Тогда
+		//возвратный входящий либо исходящий
+		ИначеЕсли ?(_Версия20, _vetDocument.vetDType, _vetDocument.type) = ВетисКонстанты.VetDocumentType_RETURNABLE() Тогда
 			
-			Если ЗначениеЗаполнено(_СтрокаСЖ.ВозвратныйВСД) Тогда
-				_возвратный = _СтрокаСЖ.ВозвратныйВСД.ПолучитьОбъект();
+			//входящий
+			Если _всд.uuid = _vetDocument.uuid Тогда
+				Если _Версия20 Тогда
+					_всд.Тип    = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_vetDocument.vetDType);
+					_всд.Статус = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_vetDocument.vetDStatus);
+				Иначе
+					_всд.Тип    = ВетисMercuryVetdocumentСлой1с.VetDocumentType(_vetDocument.type);
+					_всд.Статус = ВетисMercuryVetdocumentСлой1с.VetDocumentStatus(_vetDocument.status);
+				КонецЕсли;
+				
+				Если ТипЗнч(_всд) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент") Тогда
+					_всд.ОбменДанными.Загрузка = Истина;
+					Попытка
+						_всд.Записать();
+					Исключение
+						ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке());
+						ВызватьИсключение;
+					КонецПопытки;
+				КонецЕсли;
+				
+				_Результат.Вставить("uuid", _всд.uuid);
+				_Результат.Вставить("Тип", _всд.Тип);
+				_Результат.Вставить("Статус", _всд.Статус);
+				_Результат.Вставить("ВСД", _всд.Ссылка);
+		
+			//исходящий
 			Иначе
-				_возвратный = Документы.ВетисВетеринарноСопроводительныйДокумент.СоздатьДокумент();
-				_возвратный.Дата = _ВозвратДата;
+				Если _ЕстьСвойствоВозврат Тогда
+					Если ЗначениеЗаполнено(_СтрокаСЖ.ВозвратныйВСД) Тогда
+						_возвратный = _СтрокаСЖ.ВозвратныйВСД.ПолучитьОбъект();
+					Иначе
+						_возвратный = Документы.ВетисВетеринарноСопроводительныйДокумент.СоздатьДокумент();
+						_возвратный.Дата = _ВозвратДата;
+					КонецЕсли;
+					
+					Если _Версия20 Тогда
+						ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_возвратный, _vetDocument);
+					Иначе
+						ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_возвратный, _vetDocument);
+					КонецЕсли;
+					
+					_возвратный.ДополнительныеСвойства.Вставить("Загрузка");
+					
+					Попытка
+						_возвратный.Записать(РежимЗаписиДокумента.Проведение);
+					Исключение
+						ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "Возвратный ВСД");
+						ВызватьИсключение;
+					КонецПопытки;
+					
+					_Результат.Вставить("ВозвратныйВСД", _возвратный.Ссылка);
+				КонецЕсли;
 			КонецЕсли;
-			
-			Если _Версия20 Тогда
-				ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать_20(_возвратный, _vetDocument);
-			Иначе
-				ВетисMercuryVetdocumentСлой1с.VetDocumentКонвертировать(_возвратный, _vetDocument);
-			КонецЕсли;
-			
-			_возвратный.ДополнительныеСвойства.Вставить("Загрузка");
-			
-			Попытка
-				_возвратный.Записать(РежимЗаписиДокумента.Проведение);
-			Исключение
-				ВетисОбщегоНазначения.ВывестиСообщениеОбОшибке(ИнформацияОбОшибке(), "Возвратный ВСД");
-				ВызватьИсключение;
-			КонецПопытки;
-			
-			_Результат.Вставить("ВозвратныйВСД", _возвратный.Ссылка);
-			
 		КонецЕсли;
 	КонецЦикла;
 	
@@ -316,8 +353,8 @@
 			ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
 			_Consignment,
 			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(_waybill, _VetDocument),
-			ВетисDictionaryСлой1с.BusinessEntity(_СтрокаТТН.Посредник),
-			ВетисMercuryVetdocumentСлой1с.TransportInfo(_СтрокаТТН.Транспорт),
+			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_СтрокаТТН.Посредник)),
+			ВетисMercuryVetdocumentСлой1с.TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа),
 			ВетисDictionaryСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения)
 			);
 		
@@ -332,7 +369,7 @@
 		
 		_VetDocument = ВетисMercuryVetdocument.VetDocument();
 		_VetDocument.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(_СтрокаВСД.НазначениеГруза));
-		_VetDocument.transportInfo      = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
+		_VetDocument.transportInfo      = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа);
 		_VetDocument.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
 		_VetDocument.cargoInspected     = _СтрокаВСД.КонтрольГосВетврачем;
 		_VetDocument.cargoExpertized    = _СтрокаВСД.Ветсанэкспертиза;
@@ -346,8 +383,8 @@
 		_waybill.issueNumber   = _СтрокаТТН.Номер;
 		_waybill.issueDate     = _СтрокаТТН.Дата;
 		_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(_СтрокаТТН.Тип);
-		_waybill.broker        = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник);
-		_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.Транспорт);
+		_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_СтрокаТТН.Посредник));
+		_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа);
 		_waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(_СтрокаТТН.СпособХранения);
 		
 		_delivery = ВетисMercuryVetdocument.Delivery(
@@ -736,7 +773,7 @@
 	
 КонецФункции
 
-Функция ПолучитьVetDocument_20_Возвратный(пВходящийВСД, пУсловияПеремещения, пВозвратДата, пОтказ = Ложь, пОшибка = "")
+Функция ПолучитьVetDocument_20_Возвратный(пВходящийВСД, пУсловияПеремещения = Неопределено, пВозвратДата, пОтказ = Ложь, пОшибка = "")
 	
 	_VetDocument = ВетисMercuryVetdocument_2_0.VetDocument();
 	
@@ -751,8 +788,8 @@
 		ВетисDictionaryСлой1с.ResearchResult(_СтрокаВСД.Ветсанэкспертиза),
 		_СтрокаВСД.БлагополучиеМестности,
 		_СтрокаВСД.ОсобыеОтметки, //MERC15246 - Особые отметки в сведениях о возврате продукции должны совпадать с указанными в ветеринарно-сопроводительном документе.
-		ВетисMercuryVetdocument_2_0.RegionalizationClause(
-			ВетисDictionary_2_0.RegionalizationCondition(ВетисDictionaryСлой1с.RegionalizationCondition(пУсловияПеремещения)))
+		?(пУсловияПеремещения = Неопределено, Неопределено, ВетисMercuryVetdocument_2_0.RegionalizationClause(
+			ВетисDictionary_2_0.RegionalizationCondition(ВетисDictionaryСлой1с.RegionalizationCondition(пУсловияПеремещения))))
 	);
 	
 	//MERC15469 - Указаны не все обязательные условия перевозки в соответствии с регионализацией. Необходимо указать все обязательные условия (т.е. подтвердить их выполнение).
@@ -770,7 +807,7 @@
 	_waybill.issueDate     = пСтрокаТТН.Дата;
 	_waybill.broker        = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(пСтрокаТТН.Посредник));
 	_waybill.type          = ВетисArgusShipmentСлой1с.WaybillType(пСтрокаТТН.Тип);
-	_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(пСтрокаТТН.Транспорт);
+	_waybill.transportInfo = ВетисArgusShipmentСлой1с.TransportInfo(пСтрокаТТН.ТипТранспорта, пСтрокаТТН.НомерТранспорта, пСтрокаТТН.НомерПрицепа);
 	_waybill.transportStorageType = ВетисArgusShipmentСлой1с.TransportationStorageType(пСтрокаТТН.СпособХранения);
 	
 	Если пВозврат = Истина Тогда
@@ -791,7 +828,7 @@
 	_waybill.issueDate     = пСтрокаТТН.Дата;
 	_waybill.broker        = ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(пСтрокаТТН.Посредник));
 	_waybill.type          = ВетисDictionaryСлой1с.DocumentType(пСтрокаТТН.Тип);
-	_waybill.transportInfo = ВетисMercuryVetdocumentСлой1с.TransportInfo(пСтрокаТТН.Транспорт);
+	_waybill.transportInfo = ВетисMercuryVetdocumentСлой1с.TransportInfo(пСтрокаТТН.ТипТранспорта, пСтрокаТТН.НомерТранспорта, пСтрокаТТН.НомерПрицепа);
 	_waybill.transportStorageType = ВетисDictionaryСлой1с.TransportationStorageType(пСтрокаТТН.СпособХранения);
 	
 	Если пВозврат = Истина Тогда

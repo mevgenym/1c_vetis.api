@@ -654,12 +654,6 @@
 											<ContextMenu name="ОтладкаКонтекстноеМеню" id="106"/>
 											<ExtendedTooltip name="ОтладкаРасширеннаяПодсказка" id="107"/>
 										</CheckBoxField>
-										<CheckBoxField name="Тестовый" id="112">
-											<DataPath>Тестовый</DataPath>
-											<CheckBoxType>Auto</CheckBoxType>
-											<ContextMenu name="ТестовыйКонтекстноеМеню" id="113"/>
-											<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="114"/>
-										</CheckBoxField>
 										<CheckBoxField name="ОберткаHttp" id="231">
 											<DataPath>ОберткаHttp</DataPath>
 											<CheckBoxType>Auto</CheckBoxType>
@@ -705,15 +699,129 @@
 											<ContextMenu name="КоличествоОбъектовВСпискеКонтекстноеМеню" id="227"/>
 											<ExtendedTooltip name="КоличествоОбъектовВСпискеРасширеннаяПодсказка" id="228"/>
 										</InputField>
-										<InputField name="Сервис" id="149">
-											<DataPath>Сервис</DataPath>
-											<ContextMenu name="СервисКонтекстноеМеню" id="150"/>
-											<ExtendedTooltip name="СервисРасширеннаяПодсказка" id="151"/>
-										</InputField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаXSD" id="240">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>XSD</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа XSD</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаXSDРасширеннаяПодсказка" id="241"/>
+					<ChildItems>
+						<UsualGroup name="Группа1" id="275">
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="276"/>
+							<ChildItems>
+								<CheckBoxField name="Тестовый" id="112">
+									<DataPath>Тестовый</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ТестовыйКонтекстноеМеню" id="113"/>
+									<ExtendedTooltip name="ТестовыйРасширеннаяПодсказка" id="114"/>
+								</CheckBoxField>
+								<InputField name="Сервис" id="149">
+									<DataPath>Сервис</DataPath>
+									<ContextMenu name="СервисКонтекстноеМеню" id="150"/>
+									<ExtendedTooltip name="СервисРасширеннаяПодсказка" id="151"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="XSD" id="242">
+							<HeightInTableRows>1</HeightInTableRows>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>XSD</DataPath>
+							<RowPictureDataPath>XSD.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="XSDКонтекстноеМеню" id="243"/>
+							<AutoCommandBar name="XSDКоманднаяПанель" id="244">
+								<ChildItems>
+									<Button name="XSDКомандаПоУмолчаниюXSD" id="273">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаПоУмолчаниюXSD</CommandName>
+										<ExtendedTooltip name="XSDКомандаПоУмолчаниюXSDРасширеннаяПодсказка" id="274"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="XSDРасширеннаяПодсказка" id="245"/>
+							<SearchStringAddition name="XSDСтрокаПоиска" id="246">
+								<AdditionSource>
+									<Item>XSD</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="XSDСтрокаПоискаКонтекстноеМеню" id="247"/>
+								<ExtendedTooltip name="XSDСтрокаПоискаРасширеннаяПодсказка" id="248"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="XSDСостояниеПросмотра" id="249">
+								<AdditionSource>
+									<Item>XSD</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="XSDСостояниеПросмотраКонтекстноеМеню" id="250"/>
+								<ExtendedTooltip name="XSDСостояниеПросмотраРасширеннаяПодсказка" id="251"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="XSDУправлениеПоиском" id="252">
+								<AdditionSource>
+									<Item>XSD</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="XSDУправлениеПоискомКонтекстноеМеню" id="253"/>
+								<ExtendedTooltip name="XSDУправлениеПоискомРасширеннаяПодсказка" id="254"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="XSDuri" id="255">
+									<DataPath>XSD.uri</DataPath>
+									<ContextMenu name="XSDuriКонтекстноеМеню" id="256"/>
+									<ExtendedTooltip name="XSDuriРасширеннаяПодсказка" id="257"/>
+								</LabelField>
+								<LabelField name="XSDurl" id="258">
+									<DataPath>XSD.url</DataPath>
+									<ContextMenu name="XSDurlКонтекстноеМеню" id="259"/>
+									<ExtendedTooltip name="XSDurlРасширеннаяПодсказка" id="260"/>
+								</LabelField>
+								<CheckBoxField name="XSDdefault" id="261">
+									<DataPath>XSD.default</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="XSDdefaultКонтекстноеМеню" id="262"/>
+									<ExtendedTooltip name="XSDdefaultРасширеннаяПодсказка" id="263"/>
+								</CheckBoxField>
+								<CheckBoxField name="XSDoffline" id="267">
+									<DataPath>XSD.offline</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="XSDofflineКонтекстноеМеню" id="268"/>
+									<ExtendedTooltip name="XSDofflineРасширеннаяПодсказка" id="269"/>
+								</CheckBoxField>
+								<LabelField name="XSDVersionAPI" id="270">
+									<DataPath>XSD.VersionAPI</DataPath>
+									<ContextMenu name="XSDVersionAPIКонтекстноеМеню" id="271"/>
+									<ExtendedTooltip name="XSDVersionAPIРасширеннаяПодсказка" id="272"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -1127,6 +1235,38 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="XSD" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>XSD</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.ВетисXSD</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -1197,6 +1337,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОсновнойХС</Action>
+		</Command>
+		<Command name="КомандаПоУмолчаниюXSD" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда по умолчанию XSD</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПоУмолчаниюXSD</Action>
 		</Command>
 	</Commands>
 </Form>

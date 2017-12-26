@@ -35,6 +35,11 @@
 				<CommandName>Form.Command.КомандаПогасить</CommandName>
 				<ExtendedTooltip name="ФормаКомандаПогаситьРасширеннаяПодсказка" id="486"/>
 			</Button>
+			<Button name="ФормаКомандаВозврат" id="858">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаВозврат</CommandName>
+				<ExtendedTooltip name="ФормаКомандаВозвратРасширеннаяПодсказка" id="859"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -735,7 +740,6 @@
 										</UsualGroup>
 										<InputField name="сжИДПартии" id="509">
 											<DataPath>сжИДПартии</DataPath>
-											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="сжИДПартииКонтекстноеМеню" id="510"/>
 											<ExtendedTooltip name="сжИДПартииРасширеннаяПодсказка" id="511"/>
 										</InputField>
@@ -1698,6 +1702,11 @@
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
+						<InputField name="statusChangeDateTime" id="860">
+							<DataPath>Объект.statusChangeDateTime</DataPath>
+							<ContextMenu name="statusChangeDateTimeКонтекстноеМеню" id="861"/>
+							<ExtendedTooltip name="statusChangeDateTimeРасширеннаяПодсказка" id="862"/>
+						</InputField>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -2514,6 +2523,21 @@
 					<v8:content>Команда дата выработки строкой</v8:content>
 				</v8:item>
 			</ToolTip>
+		</Command>
+		<Command name="КомандаВозврат" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда возврат</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаВозврат</Action>
 		</Command>
 	</Commands>
 </Form>

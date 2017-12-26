@@ -442,10 +442,11 @@
 		_док = value1;
 		_всд = value2;
 		
+		//сделать: проверить изменение статуса после гашения
 		Если _всд.statusChange = Неопределено ИЛИ _всд.statusChange.Количество() = 0 Тогда
 			_док.statusChangeDateTime = Неопределено;
 		Иначе
-			_док.statusChangeDateTime = _всд.statusChange[_всд.statusChange.Количество()-1].actualDateTime;
+			_док.statusChangeDateTime = Ветис.ВремяМестное(_всд.statusChange[_всд.statusChange.Количество()-1].actualDateTime);
 		КонецЕсли;
 		
 		_док.uuid     = _всд.uuid;

@@ -4,6 +4,7 @@
 
 Код основан на исходниках:
 - https://infostart.ru/public/560823/
+- https://infostart.ru/public/171019/
 - https://vetrf.ru/vetrf-forum/posts/list/30/6955.page#39151
 
 ## Версии ##

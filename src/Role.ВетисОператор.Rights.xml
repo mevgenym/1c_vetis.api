@@ -1132,7 +1132,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Subsystem.Ветис</name>
+		<name>Subsystem.ВетисИнтеграцияУТ</name>
 		<right>
 			<name>View</name>
 			<value>true</value>

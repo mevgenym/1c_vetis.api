@@ -37,22 +37,22 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаДокументРасширеннаяПодсказка" id="375"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаДокументКолонка2" id="378">
+				<UsualGroup name="ГруппаДокументНомерДата" id="378">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа документ колонка2</v8:content>
+							<v8:content>Группа документ номер дата</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа документ колонка2</v8:content>
+							<v8:content>Группа документ номер дата</v8:content>
 						</v8:item>
 					</ToolTip>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаДокументКолонка2РасширеннаяПодсказка" id="379"/>
+					<ExtendedTooltip name="ГруппаДокументНомерДатаРасширеннаяПодсказка" id="379"/>
 					<ChildItems>
 						<InputField name="Номер" id="9">
 							<DataPath>Объект.Number</DataPath>
@@ -77,22 +77,22 @@
 						</LabelField>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаДокументКолонка1" id="376">
+				<UsualGroup name="ГруппаДокументОснование" id="376">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа документ колонка1</v8:content>
+							<v8:content>Группа документ основание</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа документ колонка1</v8:content>
+							<v8:content>Группа документ основание</v8:content>
 						</v8:item>
 					</ToolTip>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаДокументКолонка1РасширеннаяПодсказка" id="377"/>
+					<ExtendedTooltip name="ГруппаДокументОснованиеРасширеннаяПодсказка" id="377"/>
 					<ChildItems>
 						<InputField name="ДокументОснование" id="502">
 							<DataPath>Объект.ДокументОснование</DataPath>
@@ -342,7 +342,6 @@
 								<InputField name="ТоварыВСД" id="402">
 									<DataPath>Объект.Товары.ВСД</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<AutoCellHeight>true</AutoCellHeight>
 									<DropListButton>false</DropListButton>
 									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 									<QuickChoice>false</QuickChoice>

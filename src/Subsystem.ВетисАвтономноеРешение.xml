@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Subsystem uuid="6832b322-68f9-48bd-afc7-d8005ec28a74">
+		<Properties>
+			<Name>ВетисАвтономноеРешение</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ветис автономное решение</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<IncludeInCommandInterface>false</IncludeInCommandInterface>
+			<Explanation/>
+			<Picture/>
+			<Content>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисAddress</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисAnimalDisease</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисDistrict</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисIncorporationForm</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисPackingForm</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисPurpose</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисRegion</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисRegionalizationCondition</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисXSD</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисВетеринарноСопроводительныйДокумент</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисВходящаяПартияПоДокументам</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисВходящаяПартияСводно</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисЖурнал</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисНастройки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПредопределенные</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПредприятия</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПредприятияХС</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСкладскойЖурнал</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСоответствие</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисТранспортнаяПартия</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисУстановкаСоответствияСправочников</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.КлассификаторЕдиницИзмерения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.КлассификаторСтранМира</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.Контрагенты</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.Номенклатура</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.Пользователи</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.Транспорт</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommandGroup.ВетисДокументы</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommandGroup.ВетисСправочники</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommandGroup.ВетисСервис</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисСкладскойЖурналОстатки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисАвтономноеРешение</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ЗаполнениеДокументов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.Пользователи</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисВетеринарноСопроводительныйДокумент</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисВходящаяПартияПоДокументам</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисВходящаяПартияСводно</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисТранспортнаяПартия</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисAddress</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисAnimalDisease</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисDistrict</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисEnterpriseActivity</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисIncorporationForm</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисLocality</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисPackingForm</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисPurpose</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисRegion</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисRegionalizationCondition</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисTransport</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисПредприятия</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ЕдиницыИзмерения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.КлассификаторЕдиницИзмерения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.КлассификаторСтранМира</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Контрагенты</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Номенклатура</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.НоменклатурныеГруппы</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Подразделения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Пользователи</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Склады</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисВерсия</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисНастройки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисОсновнойХС</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.ВетисСервис</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonPicture.ВетисНетСвязи</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonPicture.ВетисЕстьСвязь</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисXSD</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисНастройки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисРабочийСтол</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.ВетисФормаВыбора</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.ВетисОчередьЗапросов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисАдминистратор</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисОператор</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисПользователь</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.ВетисПолныеПрава</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">SessionParameter.ВетисПеременные</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.Ветис</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисApplication</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисApplication_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusCommon</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusCommonСлой1с</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusProduction</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusProductionСлой1с</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusShipment</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисArgusShipmentСлой1с</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисBase</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисBase_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисBaseСлой1с</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисCerberusEnterprise</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисCerberusEnterpriseСлой1с</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисDictionary_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисDictionaryService</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисDictionaryService_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисDictionaryСлой1с</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисEnterpriseService</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисEnterpriseService_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисIkar</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисIkarService</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисIkarService_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисIkarСлой1с</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисMercuryApplications</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисMercuryApplications_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисMercuryApplicationsСлой1с</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисMercuryVetdocument</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисMercuryVetdocument_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисMercuryVetdocumentСлой1с</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисProductService</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисProductService_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисRegionalizationService_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисRegistry_2_0</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисSoapEnvelope</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисВызовСервера</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисДлительныеОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисКонстанты</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисОбщегоНазначения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисОбщегоНазначенияКлиентСервер</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисИмяСправочника</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисФормы</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ВетисХозяйственныеОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисBusinessEntityType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисDeliveryDecision</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисDeliveryInspectionResult</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисDocumentNature</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисDocumentType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисEnterpriseType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисProductMarkingClass</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисProductType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисPackageLevelType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисReferenceType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисResearchResult</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисTransportStorageType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисTransportType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисUserAuthority</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVersionStatus</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVetDocumentForm</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVetDocumentStatus</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисVetDocumentType</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисВерсияAPI</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисСервис</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисСтатусЗапроса</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВетисТипАдреса</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ЮрФизЛицо</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ВетисУстановкаСоответствияСправочников</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисRussianEnterpriseList</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисXSD</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисАдреса</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисЖурнал</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисМаркировка</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисМногоуровневаяУпаковка</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисНастройкиХС</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисОчередьЗапросов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисПользователи</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисПредопределенные</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисПредприятияХС</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСкладскойЖурнал</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСкладскойЖурналОстатки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСоответствие</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСправочникПродукции</xr:Item>
+			</Content>
+		</Properties>
+		<ChildObjects/>
+	</Subsystem>
+</MetaDataObject>

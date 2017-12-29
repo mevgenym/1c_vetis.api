@@ -13,20 +13,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.Иммунизация</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ТТН.Attribute.Серия</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -35,20 +27,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.ДатаВыработкиНачало</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.КоличествоМест</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -68,6 +52,13 @@
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.Attribute.Комментарий</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.Attribute.ЕдиницаХраненияОстатков</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -79,6 +70,13 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.Статус</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторЕдиницИзмерения.StandardAttribute.PredefinedDataName</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -88,18 +86,91 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.КлассификаторЕдиницИзмерения</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
+		<name>Catalog.КлассификаторЕдиницИзмерения.StandardAttribute.Predefined</name>
 		<right>
 			<name>View</name>
-			<value>true</value>
+			<value>false</value>
 		</right>
 		<right>
-			<name>InputByString</name>
-			<value>true</value>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторЕдиницИзмерения.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторЕдиницИзмерения.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторЕдиницИзмерения.StandardAttribute.IsFolder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторЕдиницИзмерения.StandardAttribute.Owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторЕдиницИзмерения.StandardAttribute.Parent</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторЕдиницИзмерения.StandardAttribute.Description</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторЕдиницИзмерения.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -120,20 +191,12 @@
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.Количество</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.КоличествоМестВозврат</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -166,11 +229,73 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.РезультатПриема</name>
+		<name>Catalog.Контрагенты.Attribute.ЮрФизЛицо</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.РеализацияТоваровУслуг.StandardAttribute.Posted</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.РеализацияТоваровУслуг.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.РеализацияТоваровУслуг.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.РеализацияТоваровУслуг.StandardAttribute.Date</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.РеализацияТоваровУслуг.StandardAttribute.Number</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.РезультатПриема</name>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -179,20 +304,12 @@
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.Возврат</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.КонтрольГосВетврачем</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -201,16 +318,19 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.НомерВСД</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ТТН.Attribute.СпособХранения</name>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.Attribute.Услуга</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -234,6 +354,13 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Разрешение.Attribute.Серия</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторЕдиницИзмерения.Attribute.МеждународноеСокращение</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -245,10 +372,6 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.ПроизводительПредприятие</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -256,20 +379,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.УдалитьУпаковка</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.ПолучательПредприятие</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -285,10 +400,6 @@
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.ВозвратныйВСД</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -303,10 +414,6 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.СтранаПроисхождения</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -314,6 +421,20 @@
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.КоличествоМест</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ТТН.Attribute.Номер</name>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.РасходныйОрдерНаТовары.StandardAttribute.Posted</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -323,7 +444,139 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ТТН.Attribute.Номер</name>
+		<name>Document.РасходныйОрдерНаТовары.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.РасходныйОрдерНаТовары.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.РасходныйОрдерНаТовары.StandardAttribute.Date</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.РасходныйОрдерНаТовары.StandardAttribute.Number</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.StandardAttribute.PredefinedDataName</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.StandardAttribute.Predefined</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.StandardAttribute.IsFolder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.StandardAttribute.Owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.StandardAttribute.Parent</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.StandardAttribute.Description</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.StandardAttribute.Code</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -343,6 +596,13 @@
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.Количество</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.Attribute.НоменклатурнаяГруппа</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -354,6 +614,13 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.ЛабораторныеИсследования</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Подразделения.StandardAttribute.PredefinedDataName</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -363,18 +630,91 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Подразделения</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
+		<name>Catalog.Подразделения.StandardAttribute.Predefined</name>
 		<right>
 			<name>View</name>
-			<value>true</value>
+			<value>false</value>
 		</right>
 		<right>
-			<name>InputByString</name>
-			<value>true</value>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Подразделения.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Подразделения.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Подразделения.StandardAttribute.IsFolder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Подразделения.StandardAttribute.Owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Подразделения.StandardAttribute.Parent</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Подразделения.StandardAttribute.Description</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Подразделения.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -402,10 +742,6 @@
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.РезультатВетКонтроля</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -414,6 +750,14 @@
 		<name>Document.ВетисВходящаяПартияПоДокументам</name>
 		<right>
 			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
 			<value>true</value>
 		</right>
 	</object>
@@ -426,10 +770,6 @@
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.Отправитель</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -453,10 +793,6 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.БлагополучиеМестности</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -464,6 +800,20 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.НазначениеГруза</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.Номенклатура</name>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ПриходныйОрдерНаТовары.StandardAttribute.Posted</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -473,7 +823,40 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.Номенклатура</name>
+		<name>Document.ПриходныйОрдерНаТовары.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ПриходныйОрдерНаТовары.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ПриходныйОрдерНаТовары.StandardAttribute.Date</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ПриходныйОрдерНаТовары.StandardAttribute.Number</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -486,20 +869,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.Собственник</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.СерияВСД</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -508,6 +883,13 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.ОсобыеОтметки</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Пользователи.StandardAttribute.PredefinedDataName</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -517,31 +899,103 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Пользователи</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>Insert</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>Update</name>
-			<value>true</value>
-		</right>
+		<name>Catalog.Пользователи.StandardAttribute.Predefined</name>
 		<right>
 			<name>View</name>
-			<value>true</value>
+			<value>false</value>
 		</right>
 		<right>
-			<name>InputByString</name>
-			<value>true</value>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Пользователи.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Пользователи.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Пользователи.StandardAttribute.IsFolder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Пользователи.StandardAttribute.Owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Пользователи.StandardAttribute.Parent</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Пользователи.StandardAttribute.Description</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Пользователи.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.TabularSection.Партии</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторСтранМира.Attribute.КодАльфа2</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -551,26 +1005,117 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Контрагенты</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>InputByString</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.РешениеОПриеме</name>
+		<name>Catalog.Контрагенты.Attribute.НаименованиеПолное</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты.StandardAttribute.PredefinedDataName</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты.StandardAttribute.Predefined</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты.StandardAttribute.IsFolder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты.StandardAttribute.Owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты.StandardAttribute.Parent</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты.StandardAttribute.Description</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.РешениеОПриеме</name>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -578,6 +1123,13 @@
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.Ветсанэкспертиза</name>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторСтранМира.Attribute.НаименованиеПолное</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -605,6 +1157,13 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Разрешение.Attribute.Дата</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.Attribute.СтранаПроисхождения</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -614,7 +1173,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Subsystem.Ветис</name>
+		<name>Subsystem.ВетисИнтеграцияУТ</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -632,6 +1191,17 @@
 		</right>
 	</object>
 	<object>
+		<name>Catalog.Номенклатура.Attribute.БазоваяЕдиницаИзмерения</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Constant.ВетисСервис</name>
 		<right>
 			<name>Read</name>
@@ -639,11 +1209,18 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.КарантированиеМесто</name>
+		<name>Catalog.КлассификаторЕдиницИзмерения.Attribute.НаименованиеПолное</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.КарантированиеМесто</name>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -652,20 +1229,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.uuid</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.УдалитьМаркировка</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -681,20 +1250,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.УдалитьКоличествоМест</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.Attribute.Подразделение</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -747,10 +1308,6 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.Количество</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -776,10 +1333,6 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ТТН.Attribute.Тип</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -787,20 +1340,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.КарантированиеДней</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ТТН.Attribute.Посредник</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -812,13 +1357,17 @@
 			<name>Read</name>
 			<value>true</value>
 		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
 	</object>
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.StandardAttribute.Posted</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -827,20 +1376,12 @@
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.StandardAttribute.Ref</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.StandardAttribute.DeletionMark</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -849,20 +1390,12 @@
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.StandardAttribute.Date</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.StandardAttribute.Number</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -886,10 +1419,6 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Разрешение.Attribute.НаВвоз</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -897,20 +1426,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.ГосударственныйВетврач</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.ОтправительПредприятие</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -926,10 +1447,6 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.Получатель</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -937,6 +1454,13 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.Скоропортящаяся</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.Attribute.Вес</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -946,7 +1470,120 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.КлассификаторСтранМира</name>
+		<name>Catalog.КлассификаторСтранМира.StandardAttribute.PredefinedDataName</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторСтранМира.StandardAttribute.Predefined</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторСтранМира.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторСтранМира.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторСтранМира.StandardAttribute.IsFolder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторСтранМира.StandardAttribute.Owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторСтранМира.StandardAttribute.Parent</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторСтранМира.StandardAttribute.Description</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КлассификаторСтранМира.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.СрокГодностиНачало</name>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ВетисТранспортнаяПартия.Attribute.Ответственный</name>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ВетисВходящаяПартияСводно</name>
 		<right>
 			<name>Read</name>
 			<value>true</value>
@@ -961,40 +1598,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.СрокГодностиНачало</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>Document.ВетисТранспортнаяПартия.Attribute.Ответственный</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
-		<name>Document.ВетисВходящаяПартияСводно</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>Document.ВетисВходящаяПартияСводно.StandardAttribute.Posted</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1003,20 +1607,12 @@
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.StandardAttribute.Ref</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.StandardAttribute.DeletionMark</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1025,20 +1621,12 @@
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.StandardAttribute.Date</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.StandardAttribute.Number</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1047,10 +1635,6 @@
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -1058,20 +1642,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.ГосударственныйВетврачДата</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.TabularSection.Товары.Attribute.КлючСтроки</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1142,10 +1718,6 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.ДатаВСД</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -1153,20 +1725,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.ДатаВыработкиКонец</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.TabularSection.Партии.Attribute.Количество</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1178,13 +1742,17 @@
 			<name>Read</name>
 			<value>true</value>
 		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.StandardAttribute.Posted</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1193,20 +1761,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.StandardAttribute.Ref</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.StandardAttribute.DeletionMark</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1215,10 +1775,6 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.StandardAttribute.Date</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -1226,20 +1782,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.StandardAttribute.Number</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Разрешение.Attribute.Номер</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1265,26 +1813,106 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Номенклатура</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>InputByString</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>Document.ВетисТранспортнаяПартия.TabularSection.Партии.Attribute.КоличествоМест</name>
+		<name>Catalog.Номенклатура.StandardAttribute.PredefinedDataName</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.StandardAttribute.Predefined</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.StandardAttribute.IsFolder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.StandardAttribute.Owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.StandardAttribute.Parent</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.StandardAttribute.Description</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ВетисТранспортнаяПартия.TabularSection.Партии.Attribute.КоличествоМест</name>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1293,10 +1921,6 @@
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.ВСД</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -1304,16 +1928,19 @@
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.Номенклатура</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.Тип</name>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.Attribute.Коэффициент</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -1337,20 +1964,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.НекачественныйГруз</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1373,20 +1992,12 @@
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.TabularSection.Партии.Attribute.КлючСвязи</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.КоличествоВозврат</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1395,20 +2006,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Разрешение.Attribute.Название</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ТТН.Attribute.Транспорт</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1432,10 +2035,6 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.Номенклатура</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -1456,11 +2055,128 @@
 		</right>
 	</object>
 	<object>
-		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Разрешение</name>
+		<name>Catalog.Склады.StandardAttribute.PredefinedDataName</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Склады.StandardAttribute.Predefined</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Склады.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Склады.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Склады.StandardAttribute.IsFolder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Склады.StandardAttribute.Owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Склады.StandardAttribute.Parent</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Склады.StandardAttribute.Description</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Склады.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ЕдиницыИзмерения.Attribute.ЕдиницаПоКлассификатору</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Номенклатура.Attribute.НаименованиеПолное</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Разрешение</name>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1484,20 +2200,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.Attribute.Форма</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары.Attribute.СрокГодностиКонец</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1528,6 +2236,13 @@
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.АктОписание</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.НоменклатурныеГруппы.StandardAttribute.PredefinedDataName</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -1537,26 +2252,95 @@
 		</right>
 	</object>
 	<object>
-		<name>Catalog.НоменклатурныеГруппы</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-		<right>
-			<name>InputByString</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.АктПричина</name>
+		<name>Catalog.НоменклатурныеГруппы.StandardAttribute.Predefined</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.НоменклатурныеГруппы.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.НоменклатурныеГруппы.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.НоменклатурныеГруппы.StandardAttribute.IsFolder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.НоменклатурныеГруппы.StandardAttribute.Owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.НоменклатурныеГруппы.StandardAttribute.Parent</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.НоменклатурныеГруппы.StandardAttribute.Description</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.НоменклатурныеГруппы.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.АктПричина</name>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1564,6 +2348,13 @@
 	</object>
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ТТН</name>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты.Attribute.КПП</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -1576,10 +2367,6 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ВСД.Attribute.ПредыдущиеВСД</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
@@ -1587,20 +2374,12 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.ТТН.Attribute.Дата</name>
 		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
 			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Document.ВетисТранспортнаяПартия.TabularSection.Товары</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>
@@ -1616,6 +2395,68 @@
 	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент.TabularSection.Товары</name>
 		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ПоступлениеТоваровУслуг.StandardAttribute.Posted</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ПоступлениеТоваровУслуг.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ПоступлениеТоваровУслуг.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ПоступлениеТоваровУслуг.StandardAttribute.Date</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ПоступлениеТоваровУслуг.StandardAttribute.Number</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты.Attribute.ИНН</name>
+		<right>
 			<name>View</name>
 			<value>false</value>
 		</right>
@@ -1626,10 +2467,6 @@
 	</object>
 	<object>
 		<name>Document.ВетисВходящаяПартияСводно.TabularSection.Товары.Attribute.guid</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
 		<right>
 			<name>Edit</name>
 			<value>false</value>

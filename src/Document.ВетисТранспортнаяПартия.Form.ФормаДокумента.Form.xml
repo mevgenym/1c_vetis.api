@@ -234,6 +234,16 @@
 												<CommandName>Form.Command.КомандаПодборПартий</CommandName>
 												<ExtendedTooltip name="ТоварыКомандаПодборПартийРасширеннаяПодсказка" id="366"/>
 											</Button>
+											<Button name="ТоварыКомандаПодборПартийАвтоматически" id="367">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.КомандаПодборПартийАвтоматически</CommandName>
+												<ExtendedTooltip name="ТоварыКомандаПодборПартийАвтоматическиРасширеннаяПодсказка" id="368"/>
+											</Button>
+											<Button name="ТоварыКомандаОбновитьПартии" id="369">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.КомандаОбновитьПартии</CommandName>
+												<ExtendedTooltip name="ТоварыКомандаОбновитьПартииРасширеннаяПодсказка" id="370"/>
+											</Button>
 										</ChildItems>
 									</AutoCommandBar>
 									<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="41"/>
@@ -409,14 +419,6 @@
 											</ToolTip>
 											<ExtendedTooltip name="ТоварыГруппаПартияРасширеннаяПодсказка" id="330"/>
 											<ChildItems>
-												<CheckBoxField name="ТоварыНесколькоПартий" id="331">
-													<DataPath>Объект.Товары.НесколькоПартий</DataPath>
-													<Visible>false</Visible>
-													<EditMode>EnterOnInput</EditMode>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="ТоварыНесколькоПартийКонтекстноеМеню" id="332"/>
-													<ExtendedTooltip name="ТоварыНесколькоПартийРасширеннаяПодсказка" id="333"/>
-												</CheckBoxField>
 												<InputField name="ТоварыПартия" id="334">
 													<DataPath>Объект.Товары.ПартияПредставление</DataPath>
 													<Title>
@@ -436,6 +438,35 @@
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
+										<ColumnGroup name="ТоварыГруппаПартияКоличество" id="371">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Количество партии</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Товары группа партия количество</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="ТоварыГруппаПартияКоличествоРасширеннаяПодсказка" id="372"/>
+											<ChildItems>
+												<InputField name="ТоварыКоличествоПартии" id="373">
+													<DataPath>Объект.Товары.КоличествоПартии</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТоварыКоличествоПартииКонтекстноеМеню" id="374"/>
+													<ExtendedTooltip name="ТоварыКоличествоПартииРасширеннаяПодсказка" id="375"/>
+												</InputField>
+												<InputField name="ТоварыКоличествоМестПартии" id="376">
+													<DataPath>Объект.Товары.КоличествоМестПартии</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТоварыКоличествоМестПартииКонтекстноеМеню" id="377"/>
+													<ExtendedTooltip name="ТоварыКоличествоМестПартииРасширеннаяПодсказка" id="378"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
 									</ChildItems>
 								</Table>
 							</ChildItems>
@@ -452,6 +483,7 @@
 							<ChildItems>
 								<Table name="ПартииСписок" id="129">
 									<Representation>List</Representation>
+									<Visible>false</Visible>
 									<ChangeRowSet>false</ChangeRowSet>
 									<ChangeRowOrder>false</ChangeRowOrder>
 									<HeightInTableRows>1</HeightInTableRows>
@@ -466,21 +498,19 @@
 										<ChildItems>
 											<Button name="ПартииСписокКомандаПартииПереместитьВверх" id="250">
 												<Type>CommandBarButton</Type>
+												<Visible>false</Visible>
 												<CommandName>Form.Command.КомандаПартииПереместитьВверх</CommandName>
 												<ExtendedTooltip name="ПартииСписокКомандаПартииПереместитьВверхРасширеннаяПодсказка" id="251"/>
 											</Button>
 											<Button name="ПартииСписокКомандаПартииПереместитьВниз" id="248">
 												<Type>CommandBarButton</Type>
+												<Visible>false</Visible>
 												<CommandName>Form.Command.КомандаПартииПереместитьВниз</CommandName>
 												<ExtendedTooltip name="ПартииСписокКомандаПартииПереместитьВнизРасширеннаяПодсказка" id="249"/>
 											</Button>
-											<Button name="ПартииКомандаОбновитьПартии" id="157">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.КомандаОбновитьПартии</CommandName>
-												<ExtendedTooltip name="ПартииКомандаОбновитьПартииРасширеннаяПодсказка" id="158"/>
-											</Button>
 											<Button name="ПартииСписокКомандаРаспределитьПартии" id="178">
 												<Type>CommandBarButton</Type>
+												<Visible>false</Visible>
 												<CommandName>Form.Command.КомандаРаспределитьПартии</CommandName>
 												<ExtendedTooltip name="ПартииСписокКомандаРаспределитьПартииРасширеннаяПодсказка" id="179"/>
 											</Button>
@@ -529,6 +559,7 @@
 											<ChildItems>
 												<CheckBoxField name="ПартииСписокИспользовать" id="159">
 													<DataPath>ПартииСписок.Использовать</DataPath>
+													<ReadOnly>true</ReadOnly>
 													<EditMode>EnterOnInput</EditMode>
 													<CheckBoxType>Auto</CheckBoxType>
 													<ContextMenu name="ПартииСписокИспользоватьКонтекстноеМеню" id="160"/>
@@ -1525,7 +1556,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда заполнить товары</v8:content>
+					<v8:content>Заполнить товары</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнитьТовары</Action>
@@ -1555,7 +1586,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда обновить партии</v8:content>
+					<v8:content>Обновить партии</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОбновитьПартии</Action>
@@ -1632,13 +1663,13 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Распределить по все товарам</v8:content>
+					<v8:content>Распределить по всем товарам</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда распределить партии по всем товарам</v8:content>
+					<v8:content>Распределить партии по всем товарам</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаРаспределитьПартииПоВсемТоварам</Action>
@@ -1653,10 +1684,25 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда подбор партий</v8:content>
+					<v8:content>Подбор партий для текущей позиции</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаПодборПартий</Action>
+		</Command>
+		<Command name="КомандаПодборПартийАвтоматически" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автоподбор партий</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автоподбор партий</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПодборПартийАвтоматически</Action>
 		</Command>
 	</Commands>
 </Form>

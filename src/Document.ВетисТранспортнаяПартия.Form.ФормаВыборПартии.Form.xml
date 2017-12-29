@@ -1,15 +1,88 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Подбор партий</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
 	<CommandBarLocation>None</CommandBarLocation>
 	<ScalingMode>Compact</ScalingMode>
-	<AutoTime>CurrentOrLast</AutoTime>
-	<UsePostingMode>Auto</UsePostingMode>
-	<RepostOnWrite>true</RepostOnWrite>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="ГруппаЗаголовок" id="124">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа заголовок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="125"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="132">
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="133"/>
+					<ChildItems>
+						<LabelField name="НоменклатурнаяГруппа" id="121">
+							<DataPath>НоменклатурнаяГруппа</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Border width="1">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<ContextMenu name="НоменклатурнаяГруппаКонтекстноеМеню" id="122"/>
+							<ExtendedTooltip name="НоменклатурнаяГруппаРасширеннаяПодсказка" id="123"/>
+						</LabelField>
+						<LabelField name="Номенклатура" id="118">
+							<DataPath>Номенклатура</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Border width="1">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<ContextMenu name="НоменклатураКонтекстноеМеню" id="119"/>
+							<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="120"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа2" id="134">
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="135"/>
+					<ChildItems>
+						<LabelField name="Количество" id="126">
+							<DataPath>Количество</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Border width="1">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<ContextMenu name="КоличествоКонтекстноеМеню" id="127"/>
+							<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="128"/>
+						</LabelField>
+						<LabelField name="КоличествоМест" id="129">
+							<DataPath>КоличествоМест</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Border width="1">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<ContextMenu name="КоличествоМестКонтекстноеМеню" id="130"/>
+							<ExtendedTooltip name="КоличествоМестРасширеннаяПодсказка" id="131"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
 		<Table name="ПартииСписок" id="1">
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
@@ -39,11 +112,6 @@
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.КомандаРаспределитьПартии</CommandName>
 						<ExtendedTooltip name="ПартииСписокКомандаРаспределитьПартииРасширеннаяПодсказка" id="110"/>
-					</Button>
-					<Button name="ПартииСписокКомандаОбновитьПартии" id="103">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.КомандаОбновитьПартии</CommandName>
-						<ExtendedTooltip name="ПартииСписокКомандаОбновитьПартииРасширеннаяПодсказка" id="104"/>
 					</Button>
 					<Button name="ПартииСписокКомандаПартииПереместитьВверх" id="105">
 						<Type>CommandBarButton</Type>
@@ -83,12 +151,13 @@
 				<ExtendedTooltip name="ПартииСписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<InputField name="ПартииСписокНомерСтроки" id="115">
+				<LabelField name="ПартииСписокНомерСтроки" id="115">
 					<DataPath>ПартииСписок.НомерСтроки</DataPath>
+					<Visible>false</Visible>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="ПартииСписокНомерСтрокиКонтекстноеМеню" id="116"/>
 					<ExtendedTooltip name="ПартииСписокНомерСтрокиРасширеннаяПодсказка" id="117"/>
-				</InputField>
+				</LabelField>
 				<ColumnGroup name="ПартииСписокГруппаВСД" id="14">
 					<Title>
 						<v8:item>
@@ -760,7 +829,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Количество итог</v8:content>
+					<v8:content>Количество</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -776,7 +845,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Количество мест итог</v8:content>
+					<v8:content>Количество мест</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -787,21 +856,6 @@
 					<v8:AllowedSign>Any</v8:AllowedSign>
 				</v8:NumberQualifiers>
 			</Type>
-		</Attribute>
-		<Attribute name="Объект" id="12">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Объект</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:DocumentObject.ВетисТранспортнаяПартия</v8:Type>
-			</Type>
-			<MainAttribute>true</MainAttribute>
-			<UseAlways>
-				<Field>Объект.RegisterRecords</Field>
-			</UseAlways>
 		</Attribute>
 		<Attribute name="ПартииДокДругие" id="13">
 			<Title>
@@ -1090,21 +1144,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаРаспределитьПартии</Action>
-		</Command>
-		<Command name="КомандаОбновитьПартии" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда обновить партии</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаОбновитьПартии</Action>
 		</Command>
 		<Command name="КомандаГотово" id="5">
 			<Title>

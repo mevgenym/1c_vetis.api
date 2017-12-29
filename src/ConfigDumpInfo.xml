@@ -197,8 +197,8 @@
 		<Metadata name="CommonForm.ВетисXSD.Form" id="37b7631f-4dc4-48c8-b29d-74f615387e5b.0" configVersion="e3e58d6005be994f82f608327e42212400000000"/>
 		<Metadata name="CommonForm.ВетисНастройки" id="cd0eb2cd-eef4-4dee-9c9c-f8123777f1f9" configVersion="ee97cc23a2981149953ab5a5ee36a0eb00000000"/>
 		<Metadata name="CommonForm.ВетисНастройки.Form" id="cd0eb2cd-eef4-4dee-9c9c-f8123777f1f9.0" configVersion="a616c04adf795642a4e668bda5cacdbc00000000"/>
-		<Metadata name="CommonForm.ВетисРабочийСтол" id="cf32aacc-627e-44a0-9d8a-1ea226b43f24" configVersion="eaa8692f1a2e764c814d28e7a1fbb98900000000"/>
-		<Metadata name="CommonForm.ВетисРабочийСтол.Form" id="cf32aacc-627e-44a0-9d8a-1ea226b43f24.0" configVersion="7464afbd9f276e4ca192ccdc12dfa7d000000000"/>
+		<Metadata name="CommonForm.ВетисРабочийСтол" id="cf32aacc-627e-44a0-9d8a-1ea226b43f24" configVersion="bd2b52c351fbf54a97c8665488a66e8600000000"/>
+		<Metadata name="CommonForm.ВетисРабочийСтол.Form" id="cf32aacc-627e-44a0-9d8a-1ea226b43f24.0" configVersion="390f8e0b14e26e41b60af940a8381c5800000000"/>
 		<Metadata name="CommonForm.ВетисФормаВыбора" id="974ae331-9656-47af-8a46-da0abac3f4eb" configVersion="38317538df785749887c30e53c17444200000000"/>
 		<Metadata name="CommonForm.ВетисФормаВыбора.Form" id="974ae331-9656-47af-8a46-da0abac3f4eb.0" configVersion="2190fdac4be6524cb4db54e9a9e9fbf700000000"/>
 		<Metadata name="CommonModule.Ветис" id="3b316a76-45a9-457a-b5b3-5d4cb9eef671" configVersion="da76c0f27c067f4895e9e1eab0b1ec7700000000"/>
@@ -646,10 +646,10 @@
 			<Metadata name="Document.ВетисТранспортнаяПартия.TabularSection.Товары" id="f5f9771c-9962-444b-94a1-a2e72d832ef4"/>
 			<Metadata name="Document.ВетисТранспортнаяПартия.Attribute.ДокументОснование" id="f6297e1e-d193-41ee-875e-8e6a4335f932"/>
 		</Metadata>
-		<Metadata name="Document.ВетисТранспортнаяПартия.Form.ФормаВыборПартии" id="00423c2f-0f58-4a8b-9115-966a7a81e983" configVersion="45e804a062e08d4a8d58ad5bf4b84a2a00000000"/>
-		<Metadata name="Document.ВетисТранспортнаяПартия.Form.ФормаВыборПартии.Form" id="00423c2f-0f58-4a8b-9115-966a7a81e983.0" configVersion="eee80fc6c2da864aa472a624bc3f764900000000"/>
-		<Metadata name="Document.ВетисТранспортнаяПартия.Form.ФормаДокумента" id="6037dfba-ec34-4890-badc-237c7b0665d7" configVersion="b5748078b3bab4478ca12bab478db1b900000000"/>
-		<Metadata name="Document.ВетисТранспортнаяПартия.Form.ФормаДокумента.Form" id="6037dfba-ec34-4890-badc-237c7b0665d7.0" configVersion="53adeaba60ed874a99a19b1a7cf2d65500000000"/>
+		<Metadata name="Document.ВетисТранспортнаяПартия.Form.ФормаВыборПартии" id="00423c2f-0f58-4a8b-9115-966a7a81e983" configVersion="8c6db464a1d2494d876e9a429d61ff4400000000"/>
+		<Metadata name="Document.ВетисТранспортнаяПартия.Form.ФормаВыборПартии.Form" id="00423c2f-0f58-4a8b-9115-966a7a81e983.0" configVersion="27886ba2fa50e042a0d601306f3fe70600000000"/>
+		<Metadata name="Document.ВетисТранспортнаяПартия.Form.ФормаДокумента" id="6037dfba-ec34-4890-badc-237c7b0665d7" configVersion="776fb5f40bc1674eac1d6ca5de9bed8200000000"/>
+		<Metadata name="Document.ВетисТранспортнаяПартия.Form.ФормаДокумента.Form" id="6037dfba-ec34-4890-badc-237c7b0665d7.0" configVersion="edd4550162aee347bad80ae627ebb31f00000000"/>
 		<Metadata name="Document.ВетисТранспортнаяПартия.ObjectModule" id="9b079be8-ac62-46cb-82d2-db70f69b53d7.0" configVersion="d1638fe184df3a44b789bfed14c79bd100000000"/>
 		<Metadata name="Document.ПоступлениеТоваровУслуг" id="fb697c91-7835-4773-8a86-e0860ffa8cc5" configVersion="50c7cbd01f994c4aaeeb4b199854b19400000000"/>
 		<Metadata name="Document.ПриходныйОрдерНаТовары" id="5987616f-80ce-4ef8-8319-e9886672562b" configVersion="11b2ffcfb641634289f786b77383e70d00000000"/>

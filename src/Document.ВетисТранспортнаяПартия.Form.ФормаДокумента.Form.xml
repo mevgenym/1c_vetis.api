@@ -300,7 +300,6 @@
 												</LabelField>
 												<InputField name="ТоварыКлючСтроки" id="344">
 													<DataPath>Объект.Товары.КлючСтроки</DataPath>
-													<Visible>false</Visible>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ТоварыКлючСтрокиКонтекстноеМеню" id="345"/>
 													<ExtendedTooltip name="ТоварыКлючСтрокиРасширеннаяПодсказка" id="346"/>
@@ -723,7 +722,6 @@
 									</ChildItems>
 								</Table>
 								<Table name="Партии" id="190">
-									<Visible>false</Visible>
 									<HeightInTableRows>1</HeightInTableRows>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>

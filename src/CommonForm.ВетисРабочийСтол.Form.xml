@@ -54,12 +54,6 @@
 			<ChildItems>
 				<InputField name="ОтборХС" id="172">
 					<DataPath>ОтборХС</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ХС</v8:content>
-						</v8:item>
-					</Title>
 					<DropListButton>false</DropListButton>
 					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -78,12 +72,6 @@
 				</InputField>
 				<InputField name="ОтборПредприятие" id="175">
 					<DataPath>ОтборПредприятие</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Предприятие</v8:content>
-						</v8:item>
-					</Title>
 					<DropListButton>false</DropListButton>
 					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -215,12 +203,12 @@
 									</Button>
 									<Button name="СписокВСДОтборТип" id="307">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаОтборТипВСД</CommandName>
+										<CommandName>Form.Command.КомандаОтборСписокВСДТип</CommandName>
 										<ExtendedTooltip name="СписокВСДОтборТипРасширеннаяПодсказка" id="308"/>
 									</Button>
 									<Button name="СписокВСДОтборСтатус" id="309">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.КомандаОтборСтатусВСД</CommandName>
+										<CommandName>Form.Command.КомандаОтборСписокВСДСтатус</CommandName>
 										<ExtendedTooltip name="СписокВСДОтборСтатусРасширеннаяПодсказка" id="310"/>
 									</Button>
 									<Button name="СписокВСДКомандаНаправление" id="443">
@@ -348,66 +336,6 @@
 					</ToolTip>
 					<ExtendedTooltip name="СтраницаВходящиеПартииРасширеннаяПодсказка" id="49"/>
 					<ChildItems>
-						<Table name="ВходящиеПартии" id="50">
-							<Visible>false</Visible>
-							<HeightInTableRows>1</HeightInTableRows>
-							<UseAlternationRowColor>true</UseAlternationRowColor>
-							<EnableStartDrag>true</EnableStartDrag>
-							<DataPath>СписокВходящиеПартии</DataPath>
-							<RowPictureDataPath>СписокВходящиеПартии.DefaultPicture</RowPictureDataPath>
-							<AutoRefresh>false</AutoRefresh>
-							<AutoRefreshPeriod>60</AutoRefreshPeriod>
-							<Period>
-								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
-							</Period>
-							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<RestoreCurrentRow>false</RestoreCurrentRow>
-							<TopLevelParent xsi:nil="true"/>
-							<ShowRoot>true</ShowRoot>
-							<AllowRootChoice>false</AllowRootChoice>
-							<UpdateOnDataChange>Auto</UpdateOnDataChange>
-							<ContextMenu name="ВходящиеПартииКонтекстноеМеню" id="51"/>
-							<AutoCommandBar name="ВходящиеПартииКоманднаяПанель" id="52"/>
-							<ExtendedTooltip name="ВходящиеПартииРасширеннаяПодсказка" id="53"/>
-							<SearchStringAddition name="ВходящиеПартииСтрокаПоиска" id="54">
-								<AdditionSource>
-									<Item>ВходящиеПартии</Item>
-									<Type>SearchStringRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="ВходящиеПартииСтрокаПоискаКонтекстноеМеню" id="55"/>
-								<ExtendedTooltip name="ВходящиеПартииСтрокаПоискаРасширеннаяПодсказка" id="56"/>
-							</SearchStringAddition>
-							<ViewStatusAddition name="ВходящиеПартииСостояниеПросмотра" id="57">
-								<AdditionSource>
-									<Item>ВходящиеПартии</Item>
-									<Type>ViewStatusRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="ВходящиеПартииСостояниеПросмотраКонтекстноеМеню" id="58"/>
-								<ExtendedTooltip name="ВходящиеПартииСостояниеПросмотраРасширеннаяПодсказка" id="59"/>
-							</ViewStatusAddition>
-							<SearchControlAddition name="ВходящиеПартииУправлениеПоиском" id="60">
-								<AdditionSource>
-									<Item>ВходящиеПартии</Item>
-									<Type>SearchControl</Type>
-								</AdditionSource>
-								<ContextMenu name="ВходящиеПартииУправлениеПоискомКонтекстноеМеню" id="61"/>
-								<ExtendedTooltip name="ВходящиеПартииУправлениеПоискомРасширеннаяПодсказка" id="62"/>
-							</SearchControlAddition>
-							<ChildItems>
-								<LabelField name="ВходящиеПартииДата" id="63">
-									<DataPath>СписокВходящиеПартии.Date</DataPath>
-									<ContextMenu name="ВходящиеПартииДатаКонтекстноеМеню" id="64"/>
-									<ExtendedTooltip name="ВходящиеПартииДатаРасширеннаяПодсказка" id="65"/>
-								</LabelField>
-								<LabelField name="ВходящиеПартииНомер" id="66">
-									<DataPath>СписокВходящиеПартии.Number</DataPath>
-									<ContextMenu name="ВходящиеПартииНомерКонтекстноеМеню" id="67"/>
-									<ExtendedTooltip name="ВходящиеПартииНомерРасширеннаяПодсказка" id="68"/>
-								</LabelField>
-							</ChildItems>
-						</Table>
 						<Table name="СписокВходящиеПартииПоДокументам" id="265">
 							<HeightInTableRows>1</HeightInTableRows>
 							<UseAlternationRowColor>true</UseAlternationRowColor>
@@ -428,7 +356,15 @@
 							<AllowRootChoice>false</AllowRootChoice>
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
 							<ContextMenu name="СписокВходящиеПартииПоДокументамКонтекстноеМеню" id="266"/>
-							<AutoCommandBar name="СписокВходящиеПартииПоДокументамКоманднаяПанель" id="267"/>
+							<AutoCommandBar name="СписокВходящиеПартииПоДокументамКоманднаяПанель" id="267">
+								<ChildItems>
+									<Button name="СписокВходящиеПартииПоДокументамОтборСтатус" id="448">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаОтборСписокВходящиеПартииСтатус</CommandName>
+										<ExtendedTooltip name="СписокВходящиеПартииПоДокументамОтборСтатусРасширеннаяПодсказка" id="449"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="СписокВходящиеПартииПоДокументамРасширеннаяПодсказка" id="268"/>
 							<SearchStringAddition name="СписокВходящиеПартииПоДокументамСтрокаПоиска" id="269">
 								<AdditionSource>
@@ -464,6 +400,11 @@
 									<DataPath>СписокВходящиеПартииПоДокументам.Number</DataPath>
 									<ContextMenu name="СписокВходящиеПартииПоДокументамНомерКонтекстноеМеню" id="282"/>
 									<ExtendedTooltip name="СписокВходящиеПартииПоДокументамНомерРасширеннаяПодсказка" id="283"/>
+								</LabelField>
+								<LabelField name="СписокВходящиеПартииПоДокументамСтатус" id="450">
+									<DataPath>СписокВходящиеПартииПоДокументам.Статус</DataPath>
+									<ContextMenu name="СписокВходящиеПартииПоДокументамСтатусКонтекстноеМеню" id="451"/>
+									<ExtendedTooltip name="СписокВходящиеПартииПоДокументамСтатусРасширеннаяПодсказка" id="452"/>
 								</LabelField>
 								<LabelField name="СписокВходящиеПартииПоДокументамДокументОснование" id="284">
 									<DataPath>СписокВходящиеПартииПоДокументам.ДокументОснование</DataPath>
@@ -535,7 +476,15 @@
 							<AllowRootChoice>false</AllowRootChoice>
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
 							<ContextMenu name="СписокТранспортныеПартииКонтекстноеМеню" id="76"/>
-							<AutoCommandBar name="СписокТранспортныеПартииКоманднаяПанель" id="77"/>
+							<AutoCommandBar name="СписокТранспортныеПартииКоманднаяПанель" id="77">
+								<ChildItems>
+									<Button name="СписокТранспортныеПартииОтборСтатус" id="453">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КомандаОтборСписокТранспортныеПартииСтатус</CommandName>
+										<ExtendedTooltip name="СписокТранспортныеПартииОтборСтатусРасширеннаяПодсказка" id="454"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="СписокТранспортныеПартииРасширеннаяПодсказка" id="78"/>
 							<SearchStringAddition name="СписокТранспортныеПартииСтрокаПоиска" id="79">
 								<AdditionSource>
@@ -571,6 +520,11 @@
 									<DataPath>СписокТранспортныеПартии.Number</DataPath>
 									<ContextMenu name="СписокТранспортныеПартииНомерКонтекстноеМеню" id="92"/>
 									<ExtendedTooltip name="СписокТранспортныеПартииНомерРасширеннаяПодсказка" id="93"/>
+								</LabelField>
+								<LabelField name="СписокТранспортныеПартииСтатус" id="455">
+									<DataPath>СписокТранспортныеПартии.Статус</DataPath>
+									<ContextMenu name="СписокТранспортныеПартииСтатусКонтекстноеМеню" id="456"/>
+									<ExtendedTooltip name="СписокТранспортныеПартииСтатусРасширеннаяПодсказка" id="457"/>
 								</LabelField>
 								<LabelField name="СписокТранспортныеПартииДокументОснование" id="299">
 									<DataPath>СписокТранспортныеПартии.ДокументОснование</DataPath>
@@ -1256,7 +1210,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор предприятие</v8:content>
+					<v8:content>Предприятие</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1270,7 +1224,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор ХС</v8:content>
+					<v8:content>ХС</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1348,32 +1302,32 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
-		<Attribute name="ВСДОтборТип" id="14">
+		<Attribute name="ОтборСписокВСДТип" id="14">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ВСДОтбор тип</v8:content>
+					<v8:content>Отбор список ВСДТип</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
 			<Save>
-				<Field>ВСДОтборТип</Field>
+				<Field>ОтборСписокВСДТип</Field>
 			</Save>
 		</Attribute>
-		<Attribute name="ВСДОтборСтатус" id="15">
+		<Attribute name="ОтборСписокВСДСтатус" id="15">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ВСДОтбор статус</v8:content>
+					<v8:content>Отбор список ВСДСтатус</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
 			<Save>
-				<Field>ВСДОтборСтатус</Field>
+				<Field>ОтборСписокВСДСтатус</Field>
 			</Save>
 		</Attribute>
 		<Attribute name="Тестовый" id="16">
@@ -1452,6 +1406,34 @@
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
+		</Attribute>
+		<Attribute name="ОтборСписокВходящиеПартииСтатус" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор список входящие партии статус</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборСписокВходящиеПартииСтатус</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборСписокТранспортныеПартииСтатус" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор список транспортные партии статус</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборСписокТранспортныеПартииСтатус</Field>
+			</Save>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
@@ -1742,7 +1724,7 @@
 			</ToolTip>
 			<Action>КомандаСкладскойЖурналТест</Action>
 		</Command>
-		<Command name="КомандаОтборТипВСД" id="6">
+		<Command name="КомандаОтборСписокВСДТип" id="6">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1752,12 +1734,12 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда отбор тип ВСД</v8:content>
+					<v8:content>Команда отбор список ВСДТип</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>КомандаОтборТипВСД</Action>
+			<Action>КомандаОтборСписокВСДТип</Action>
 		</Command>
-		<Command name="КомандаОтборСтатусВСД" id="7">
+		<Command name="КомандаОтборСписокВСДСтатус" id="7">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1767,10 +1749,10 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда отбор статус ВСД</v8:content>
+					<v8:content>Команда отбор список ВСДСтатус</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>КомандаОтборСтатусВСД</Action>
+			<Action>КомандаОтборСписокВСДСтатус</Action>
 		</Command>
 		<Command name="КомандаЖурнал" id="8">
 			<Title>
@@ -1846,6 +1828,36 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаНаправление</Action>
+		</Command>
+		<Command name="КомандаОтборСписокВходящиеПартииСтатус" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статусы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отбор список входящие партии статус</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтборСписокВходящиеПартииСтатус</Action>
+		</Command>
+		<Command name="КомандаОтборСписокТранспортныеПартииСтатус" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статусы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отбор список входящие партии статус</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтборСписокТранспортныеПартииСтатус</Action>
 		</Command>
 	</Commands>
 </Form>

@@ -287,30 +287,15 @@
 	
 КонецФункции
 
-Процедура TransportOperation(пДокумент, пСтрокаПартии, пСтрокаВСД, пСтрокаТТН, пОтказ = Ложь, пОшибка = "") Экспорт
-//если в партии stockEntry нет блока origin
-//[code]<origin>
-//	<productItem>...</productItem>
-//	<country>...</country>
-//	<producer>
-//		<enterprise xmlns="http://api.vetrf.ru/schema/cdm/dictionary/v2">...</enterprise>
-//		<role xmlns="http://api.vetrf.ru/schema/cdm/dictionary/v2">PRODUCER</role>
-//	</producer>
-//</origin>[/code]
-//то при гашении попадаем на ошибки:
-//MERC14219 - Страна происхождения продукции в сведениях о принимаемой партии обязательна для заполнения.
-//MERC14237 - Список производителей в сведениях о принимаемой партии должен совпадать с указанным в ветеринарно-сопроводительном документе.
-//страну, видимо, можно любую, но если указать любого производителя, то получим:
-//MERC14237 - Список производителей в сведениях о принимаемой партии должен совпадать с указанным в ветеринарно-сопроводительном документе.
+Процедура TransportOperation(пДокумент, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_Версия20 = Ветис.Версия_2_0();
 	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
 	
 	_Отладка = Ветис.РазрешенаОтладка();
 	
-	_СтрокаСЖ  = пСтрокаПартии;
-	_СтрокаВСД = пСтрокаВСД;
-	_СтрокаТТН = пСтрокаТТН;
+	_СтрокаВСД = пДокумент.ВСД[0];
+	_СтрокаТТН = пДокумент.ТТН[0];
 	
 	_Отправитель = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(пДокумент.Отправитель);
 	_Получатель = _ВетисCerberusEnterpriseСлой1с.BusinessEntity(пДокумент.Получатель);
@@ -318,21 +303,51 @@
 	_ОтправительПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(пДокумент.ОтправительПредприятие);
 	_ПолучательПредприятие = _ВетисCerberusEnterpriseСлой1с.Enterprise(пДокумент.ПолучательПредприятие);
 	
+	_ConsignmentСписок = Новый Массив;
+	
 	Если _Версия20 Тогда
-		_Consignment = ВетисMercuryVetdocument_2_0.Consignment();
-		_Consignment.volume           = _СтрокаСЖ.Количество;
-		_Consignment.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
-		_Consignment.sourceStockEntry = ВетисMercuryVetdocument_2_0.StockEntry(_СтрокаСЖ.guid);
-		Если _СтрокаСЖ.КоличествоМест > 0 Тогда
-			_Consignment.packageList      = ВетисDictionary_2_0.PackageList(
-				ВетисDictionary_2_0.Package(
-					ВетисDictionaryСлой1с.PackageLevelType(Перечисления.ВетисPackageLevelType.Транспортный),
-					ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаСЖ.Упаковка)),
-					_СтрокаСЖ.КоличествоМест,
-					ВетисDictionary_2_0.ProductMarks("custom marking", ВетисDictionaryСлой1с.ProductMarkingClass(Перечисления.ВетисProductMarkingClass.UNDEFINED))
-					)
-				);
-		КонецЕсли;
+		Для каждого _СтрокаПартии Из пДокумент.Партии Цикл
+			
+			Если _СтрокаПартии.Отправлена ИЛИ ЗначениеЗаполнено(_СтрокаПартии.Статус) Тогда
+				Продолжить;
+			КонецЕсли;
+			
+			_СтрокиТовары = пДокумент.Товары.НайтиСтроки(Новый Структура("КлючСтроки", _СтрокаПартии.КлючСвязи));
+			Если _СтрокиТовары.Количество() = 0 Тогда
+				Продолжить;
+			КонецЕсли;
+			
+			_СтрокаТовары = _СтрокиТовары[0];
+			
+			_Consignment = ВетисMercuryVetdocument_2_0.Consignment();
+			_Consignment.volume           = _СтрокаПартии.Количество;
+			_Consignment.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаПартии.ЕдиницаИзмерения));
+			_Consignment.sourceStockEntry = ВетисMercuryVetdocument_2_0.StockEntry(_СтрокаПартии.guid);
+			
+			//Consignment это одна партия, значит несколько партий одной продукции будут упакованы одинаково
+			//наверное, физически это должно быть несколько упаковок
+			
+			_packageList = Новый Массив;
+			Для каждого _СтрокаУпаковка Из пДокумент.Упаковка.НайтиСтроки(Новый Структура("КлючСвязи", _СтрокаТовары.КлючСтроки)) Цикл
+				
+				_productMarks = Новый Массив;
+				Для каждого _СтрокаМаркировка Из пДокумент.Маркировка.НайтиСтроки(Новый Структура("КлючСвязи", _СтрокаУпаковка.КлючСтроки)) Цикл
+					_productMarks.Добавить(ВетисDictionary_2_0.ProductMarks(_СтрокаМаркировка.Маркировка, ВетисDictionaryСлой1с.ProductMarkingClass(_СтрокаМаркировка.КлассМаркировки)));
+				КонецЦикла;
+				
+				_packageList.Добавить(ВетисDictionary_2_0.Package(
+					ВетисDictionaryСлой1с.PackageLevelType(_СтрокаУпаковка.Уровень),
+					ВетисDictionary_2_0.PackingType(ВетисDictionaryСлой1с.PackingType(_СтрокаУпаковка.Упаковка)),
+					_СтрокаУпаковка.Количество,
+					_productMarks
+					));
+				
+			КонецЦикла;
+			
+			_Consignment.packageList = ВетисDictionary_2_0.PackageList(_packageList);
+			
+			_ConsignmentСписок.Добавить(_Consignment);
+		КонецЦикла;
 		
 		_authentication = ВетисMercuryVetdocument_2_0.VeterinaryAuthentication(
 			ВетисDictionary_2_0.Purpose(ВетисDictionaryСлой1с.Purpose(_СтрокаВСД.НазначениеГруза)),
@@ -353,7 +368,7 @@
 		_delivery = ВетисMercuryVetdocument_2_0.Delivery(
 			ВетисDictionary_2_0.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			ВетисDictionary_2_0.BusinessMember(_Получатель, _ПолучательПредприятие),
-			_Consignment,
+			_ConsignmentСписок,
 			ВетисMercuryVetdocument_2_0.ConsignmentDocumentList(_waybill, _VetDocument),
 			ВетисDictionary_2_0.BusinessEntity(ВетисDictionaryСлой1с.BusinessEntity(_СтрокаТТН.Посредник)),
 			ВетисMercuryVetdocumentСлой1с.TransportInfo(_СтрокаТТН.ТипТранспорта, _СтрокаТТН.НомерТранспорта, _СтрокаТТН.НомерПрицепа),
@@ -362,12 +377,15 @@
 		
 		_Response = ВетисMercuryApplications_2_0.PrepareOutgoingConsignment(_delivery, _Отправитель, пОтказ, пОшибка);
 	Иначе
-		_Consignment = ВетисMercuryVetdocument.Consignment();
-		_Consignment.volume           = _СтрокаСЖ.Количество;
-		_Consignment.unit             = ВетисArgusCommon.Unit(ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
-		_Consignment.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
-		_Consignment.packingAmount    = _СтрокаСЖ.КоличествоМест;
-		_Consignment.sourceStockEntry = ВетисMercuryVetdocument.StockEntry(_СтрокаСЖ.guid);
+		Для каждого _СтрокаСЖ Из пДокумент.Партии Цикл
+			_Consignment = ВетисMercuryVetdocument.Consignment();
+			_Consignment.volume           = _СтрокаСЖ.Количество;
+			_Consignment.unit             = ВетисArgusCommon.Unit(ВетисArgusCommonСлой1с.Unit(_СтрокаСЖ.ЕдиницаИзмерения));
+			_Consignment.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
+			_Consignment.packingAmount    = _СтрокаСЖ.КоличествоМест;
+			_Consignment.sourceStockEntry = ВетисMercuryVetdocument.StockEntry(_СтрокаСЖ.guid);
+			_ConsignmentСписок.Добавить(_Consignment);
+		КонецЦикла;
 		
 		_VetDocument = ВетисMercuryVetdocument.VetDocument();
 		_VetDocument.purpose            = ВетисArgusCommon.Purpose(ВетисArgusCommonСлой1с.Purpose(_СтрокаВСД.НазначениеГруза));
@@ -392,7 +410,7 @@
 		_delivery = ВетисMercuryVetdocument.Delivery(
 			ВетисCerberusEnterprise.BusinessMember(_Отправитель, _ОтправительПредприятие),
 			ВетисCerberusEnterprise.BusinessMember(_Получатель, _ПолучательПредприятие),
-			_Consignment,
+			_ConsignmentСписок,
 			ВетисMercuryVetdocument.ConsignmentDocumentList(_waybill, _VetDocument));
 		
 		_Response = ВетисMercuryApplications.prepareOutcomingConsignment(_delivery, _Отправитель, пОтказ, пОшибка);
@@ -402,7 +420,10 @@
 		Возврат;
 	КонецЕсли;
 	
-	ВетисХозяйственныеОперации.СинхронизироватьСкладскойЖурнал(пДокумент.Получатель, пДокумент.ПолучательПредприятие, пОтказ, пОшибка);
+	//сделать: обработать _Response
+	//надо создать ВСД, вставить ссылку в ТЧ Партии, обновить статусы
+	
+	ВетисХозяйственныеОперации.СинхронизироватьСкладскойЖурнал(пДокумент.Отправитель, пДокумент.ОтправительПредприятие, пОтказ, пОшибка);
 	
 	//http://vetrf.ru/vetrf-forum/posts/list/7130.page#44764
 	//Партия приходуется на сток с той упаковкой, которая была во входящем сертификате.

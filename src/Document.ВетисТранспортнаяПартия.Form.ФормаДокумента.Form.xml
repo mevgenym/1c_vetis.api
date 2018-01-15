@@ -300,6 +300,7 @@
 												</LabelField>
 												<InputField name="ТоварыКлючСтроки" id="344">
 													<DataPath>Объект.Товары.КлючСтроки</DataPath>
+													<Visible>false</Visible>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ТоварыКлючСтрокиКонтекстноеМеню" id="345"/>
 													<ExtendedTooltip name="ТоварыКлючСтрокиРасширеннаяПодсказка" id="346"/>
@@ -319,6 +320,7 @@
 													<v8:content>Товары группа номенклатура</v8:content>
 												</v8:item>
 											</ToolTip>
+											<Group>Horizontal</Group>
 											<ExtendedTooltip name="ТоварыГруппаНоменклатураРасширеннаяПодсказка" id="187"/>
 											<ChildItems>
 												<InputField name="ТоварыНоменклатура" id="54">
@@ -358,6 +360,7 @@
 													<v8:content>Товары группа количество</v8:content>
 												</v8:item>
 											</ToolTip>
+											<Group>Horizontal</Group>
 											<ExtendedTooltip name="ТоварыГруппаКоличествоРасширеннаяПодсказка" id="189"/>
 											<ChildItems>
 												<InputField name="ТоварыКоличество" id="57">
@@ -371,6 +374,9 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ТоварыКоличествоМестКонтекстноеМеню" id="181"/>
 													<ExtendedTooltip name="ТоварыКоличествоМестРасширеннаяПодсказка" id="182"/>
+													<Events>
+														<Event name="OnChange">ТоварыКоличествоМестПриИзменении</Event>
+													</Events>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
@@ -387,6 +393,7 @@
 													<v8:content>Товары группа единица</v8:content>
 												</v8:item>
 											</ToolTip>
+											<Group>Horizontal</Group>
 											<ExtendedTooltip name="ТоварыГруппаЕдиницаРасширеннаяПодсказка" id="298"/>
 											<ChildItems>
 												<InputField name="ТоварыЕдиницаИзмерения" id="299">
@@ -395,11 +402,35 @@
 													<ContextMenu name="ТоварыЕдиницаИзмеренияКонтекстноеМеню" id="300"/>
 													<ExtendedTooltip name="ТоварыЕдиницаИзмеренияРасширеннаяПодсказка" id="301"/>
 												</InputField>
-												<InputField name="ТоварыУпаковка" id="302">
-													<DataPath>1/0:f5f9771c-9962-444b-94a1-a2e72d832ef4/0:48594c73-27d0-4278-8dfa-2c2531deff3c</DataPath>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="ТоварыГруппаУпаковка" id="437">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Товары группа упаковка</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Товары группа упаковка</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<ExtendedTooltip name="ТоварыГруппаУпаковкаРасширеннаяПодсказка" id="438"/>
+											<ChildItems>
+												<InputField name="ТоварыУпаковка" id="439">
+													<DataPath>Объект.Товары.Упаковка</DataPath>
 													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="ТоварыУпаковкаКонтекстноеМеню" id="303"/>
-													<ExtendedTooltip name="ТоварыУпаковкаРасширеннаяПодсказка" id="304"/>
+													<ContextMenu name="ТоварыУпаковкаКонтекстноеМеню" id="440"/>
+													<ExtendedTooltip name="ТоварыУпаковкаРасширеннаяПодсказка" id="441"/>
+												</InputField>
+												<InputField name="ТоварыМаркировка" id="442">
+													<DataPath>Объект.Товары.Маркировка</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТоварыМаркировкаКонтекстноеМеню" id="443"/>
+													<ExtendedTooltip name="ТоварыМаркировкаРасширеннаяПодсказка" id="444"/>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
@@ -450,6 +481,7 @@
 													<v8:content>Товары группа партия количество</v8:content>
 												</v8:item>
 											</ToolTip>
+											<Group>Horizontal</Group>
 											<ExtendedTooltip name="ТоварыГруппаПартияКоличествоРасширеннаяПодсказка" id="372"/>
 											<ChildItems>
 												<InputField name="ТоварыКоличествоПартии" id="373">
@@ -722,6 +754,7 @@
 									</ChildItems>
 								</Table>
 								<Table name="Партии" id="190">
+									<Visible>false</Visible>
 									<HeightInTableRows>1</HeightInTableRows>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
@@ -802,6 +835,148 @@
 								</Table>
 							</ChildItems>
 						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаУпаковка" id="379">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Упаковка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа упаковка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
+					<ExtendedTooltip name="ГруппаУпаковкаРасширеннаяПодсказка" id="380"/>
+					<ChildItems>
+						<Table name="Упаковка" id="381">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Упаковка</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="УпаковкаКонтекстноеМеню" id="382"/>
+							<AutoCommandBar name="УпаковкаКоманднаяПанель" id="383"/>
+							<ExtendedTooltip name="УпаковкаРасширеннаяПодсказка" id="384"/>
+							<SearchStringAddition name="УпаковкаСтрокаПоиска" id="385">
+								<AdditionSource>
+									<Item>Упаковка</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УпаковкаСтрокаПоискаКонтекстноеМеню" id="386"/>
+								<ExtendedTooltip name="УпаковкаСтрокаПоискаРасширеннаяПодсказка" id="387"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="УпаковкаСостояниеПросмотра" id="388">
+								<AdditionSource>
+									<Item>Упаковка</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УпаковкаСостояниеПросмотраКонтекстноеМеню" id="389"/>
+								<ExtendedTooltip name="УпаковкаСостояниеПросмотраРасширеннаяПодсказка" id="390"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="УпаковкаУправлениеПоиском" id="391">
+								<AdditionSource>
+									<Item>Упаковка</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="УпаковкаУправлениеПоискомКонтекстноеМеню" id="392"/>
+								<ExtendedTooltip name="УпаковкаУправлениеПоискомРасширеннаяПодсказка" id="393"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">УпаковкаПередНачаломДобавления</Event>
+								<Event name="BeforeDeleteRow">УпаковкаПередУдалением</Event>
+								<Event name="OnActivateRow">УпаковкаПриАктивизацииСтроки</Event>
+								<Event name="OnStartEdit">УпаковкаПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="УпаковкаНомерСтроки" id="394">
+									<DataPath>Объект.Упаковка.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаНомерСтрокиКонтекстноеМеню" id="395"/>
+									<ExtendedTooltip name="УпаковкаНомерСтрокиРасширеннаяПодсказка" id="396"/>
+								</LabelField>
+								<InputField name="УпаковкаУровень" id="403">
+									<DataPath>Объект.Упаковка.Уровень</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаУровеньКонтекстноеМеню" id="404"/>
+									<ExtendedTooltip name="УпаковкаУровеньРасширеннаяПодсказка" id="405"/>
+								</InputField>
+								<InputField name="УпаковкаУпаковка" id="406">
+									<DataPath>Объект.Упаковка.Упаковка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаУпаковкаКонтекстноеМеню" id="407"/>
+									<ExtendedTooltip name="УпаковкаУпаковкаРасширеннаяПодсказка" id="408"/>
+								</InputField>
+								<InputField name="УпаковкаКоличество" id="409">
+									<DataPath>Объект.Упаковка.Количество</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УпаковкаКоличествоКонтекстноеМеню" id="410"/>
+									<ExtendedTooltip name="УпаковкаКоличествоРасширеннаяПодсказка" id="411"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Table name="Маркировка" id="412">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Маркировка</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="МаркировкаКонтекстноеМеню" id="413"/>
+							<AutoCommandBar name="МаркировкаКоманднаяПанель" id="414"/>
+							<ExtendedTooltip name="МаркировкаРасширеннаяПодсказка" id="415"/>
+							<SearchStringAddition name="МаркировкаСтрокаПоиска" id="416">
+								<AdditionSource>
+									<Item>Маркировка</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МаркировкаСтрокаПоискаКонтекстноеМеню" id="417"/>
+								<ExtendedTooltip name="МаркировкаСтрокаПоискаРасширеннаяПодсказка" id="418"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="МаркировкаСостояниеПросмотра" id="419">
+								<AdditionSource>
+									<Item>Маркировка</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МаркировкаСостояниеПросмотраКонтекстноеМеню" id="420"/>
+								<ExtendedTooltip name="МаркировкаСостояниеПросмотраРасширеннаяПодсказка" id="421"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="МаркировкаУправлениеПоиском" id="422">
+								<AdditionSource>
+									<Item>Маркировка</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="МаркировкаУправлениеПоискомКонтекстноеМеню" id="423"/>
+								<ExtendedTooltip name="МаркировкаУправлениеПоискомРасширеннаяПодсказка" id="424"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">МаркировкаПередНачаломДобавления</Event>
+								<Event name="OnStartEdit">МаркировкаПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="МаркировкаНомерСтроки" id="425">
+									<DataPath>Объект.Маркировка.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаркировкаНомерСтрокиКонтекстноеМеню" id="426"/>
+									<ExtendedTooltip name="МаркировкаНомерСтрокиРасширеннаяПодсказка" id="427"/>
+								</LabelField>
+								<InputField name="МаркировкаМаркировка" id="431">
+									<DataPath>Объект.Маркировка.Маркировка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаркировкаМаркировкаКонтекстноеМеню" id="432"/>
+									<ExtendedTooltip name="МаркировкаМаркировкаРасширеннаяПодсказка" id="433"/>
+								</InputField>
+								<InputField name="МаркировкаКлассМаркировки" id="434">
+									<DataPath>Объект.Маркировка.КлассМаркировки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МаркировкаКлассМаркировкиКонтекстноеМеню" id="435"/>
+									<ExtendedTooltip name="МаркировкаКлассМаркировкиРасширеннаяПодсказка" id="436"/>
+								</InputField>
+							</ChildItems>
+						</Table>
 					</ChildItems>
 				</Page>
 				<Page name="ГруппаВСД" id="252">
@@ -1484,6 +1659,17 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="МногоуровневаяУпаковка" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Многоуровневая упаковка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

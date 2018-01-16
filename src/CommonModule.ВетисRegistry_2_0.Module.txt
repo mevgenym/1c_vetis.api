@@ -17,6 +17,24 @@
 	
 КонецФункции
 
+Функция getBusinessEntityListСледующий(пfiltr = Неопределено, пItem, пПараметры, пОтказ = Ложь, пОшибка = "") Экспорт
+	
+	Если пПараметры = Неопределено ИЛИ НЕ пПараметры.Свойство("Индекс") Тогда
+		пПараметры = ?(пПараметры = Неопределено, Новый Структура, пПараметры);
+		_ИмяСервиса = ВетисEnterpriseService_2_0.ИмяСервиса();
+		_Фабрика = Ветис.ФабрикаWS(_ИмяСервиса);
+		_request = Создать("getBusinessEntityListRequest", _Фабрика);
+		_request.listOptions = ВетисBase_2_0.ListOptions();
+		Если НЕ пfiltr = Неопределено Тогда
+			_request.businessEntity = ВетисDictionary_2_0.BusinessEntity(пfiltr);
+		КонецЕсли;
+		GetListСледующийИнициализация(_ИмяСервиса, _Фабрика, _request, "getBusinessEntityListResponse", "businessEntityList", "businessEntity", , пПараметры);
+	КонецЕсли;
+	
+	Возврат GetListСледующий(пItem, пПараметры, пОтказ, пОшибка);
+	
+КонецФункции
+
 Функция getEnterpriseByGuid(guid, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	_ИмяСервиса = ВетисEnterpriseService_2_0.ИмяСервиса();

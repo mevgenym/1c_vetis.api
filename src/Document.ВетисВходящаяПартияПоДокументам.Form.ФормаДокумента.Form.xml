@@ -72,6 +72,8 @@
 						</InputField>
 						<LabelField name="Статус" id="499">
 							<DataPath>Объект.Статус</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Font height="12" bold="true" underline="true" kind="AutoFont"/>
 							<ContextMenu name="СтатусКонтекстноеМеню" id="500"/>
 							<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="501"/>
 						</LabelField>

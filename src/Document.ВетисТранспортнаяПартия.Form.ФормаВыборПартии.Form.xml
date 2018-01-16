@@ -158,6 +158,13 @@
 					<ContextMenu name="ПартииСписокНомерСтрокиКонтекстноеМеню" id="116"/>
 					<ExtendedTooltip name="ПартииСписокНомерСтрокиРасширеннаяПодсказка" id="117"/>
 				</LabelField>
+				<CheckBoxField name="ПартииСписокОтправлена" id="136">
+					<DataPath>ПартииСписок.Отправлена</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПартииСписокОтправленаКонтекстноеМеню" id="137"/>
+					<ExtendedTooltip name="ПартииСписокОтправленаРасширеннаяПодсказка" id="138"/>
+				</CheckBoxField>
 				<ColumnGroup name="ПартииСписокГруппаВСД" id="14">
 					<Title>
 						<v8:item>

@@ -345,6 +345,12 @@
 						</LabelField>
 					</ChildItems>
 				</ColumnGroup>
+				<InputField name="ПартииСписокВСД" id="139">
+					<DataPath>ПартииСписок.ВСД</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПартииСписокВСДКонтекстноеМеню" id="140"/>
+					<ExtendedTooltip name="ПартииСписокВСДРасширеннаяПодсказка" id="141"/>
+				</InputField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -567,6 +573,17 @@
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
+				<Column name="ВСД" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ВСД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ВетисВетеринарноСопроводительныйДокумент</v8:Type>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ПартииДок" id="2">
@@ -736,6 +753,17 @@
 							<v8:FractionDigits>0</v8:FractionDigits>
 							<v8:AllowedSign>Any</v8:AllowedSign>
 						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВСД" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ВСД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ВетисВетеринарноСопроводительныйДокумент</v8:Type>
 					</Type>
 				</Column>
 			</Columns>
@@ -1037,6 +1065,17 @@
 							<v8:FractionDigits>0</v8:FractionDigits>
 							<v8:AllowedSign>Any</v8:AllowedSign>
 						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВСД" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ВСД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ВетисВетеринарноСопроводительныйДокумент</v8:Type>
 					</Type>
 				</Column>
 			</Columns>

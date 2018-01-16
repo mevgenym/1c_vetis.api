@@ -1312,9 +1312,6 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Save>
-				<Field>ОтборСписокВСДТип</Field>
-			</Save>
 		</Attribute>
 		<Attribute name="ОтборСписокВСДСтатус" id="15">
 			<Title>
@@ -1326,9 +1323,6 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Save>
-				<Field>ОтборСписокВСДСтатус</Field>
-			</Save>
 		</Attribute>
 		<Attribute name="Тестовый" id="16">
 			<Title>
@@ -1417,9 +1411,6 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Save>
-				<Field>ОтборСписокВходящиеПартииСтатус</Field>
-			</Save>
 		</Attribute>
 		<Attribute name="ОтборСписокТранспортныеПартииСтатус" id="22">
 			<Title>
@@ -1431,9 +1422,6 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Save>
-				<Field>ОтборСписокТранспортныеПартииСтатус</Field>
-			</Save>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>

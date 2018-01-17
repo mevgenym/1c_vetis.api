@@ -10,6 +10,10 @@
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
 			<Title>
@@ -23,13 +27,14 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
 		</UsualGroup>
-		<InputField name="СтранаОтбор" id="46">
-			<DataPath>Страна</DataPath>
+		<InputField name="ОтборСтрана" id="46">
+			<DataPath>ОтборСтрана</DataPath>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
-			<ContextMenu name="СтранаОтборКонтекстноеМеню" id="47"/>
-			<ExtendedTooltip name="СтранаОтборРасширеннаяПодсказка" id="48"/>
+			<ContextMenu name="ОтборСтранаКонтекстноеМеню" id="47"/>
+			<ExtendedTooltip name="ОтборСтранаРасширеннаяПодсказка" id="48"/>
 			<Events>
-				<Event name="StartChoice">СтранаОтборНачалоВыбора</Event>
+				<Event name="OnChange">ОтборСтранаПриИзменении</Event>
+				<Event name="StartChoice">ОтборСтранаНачалоВыбора</Event>
 			</Events>
 		</InputField>
 		<Table name="Список" id="3">
@@ -107,6 +112,11 @@
 					<ContextMenu name="ТипКонтекстноеМеню" id="41"/>
 					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="42"/>
 				</LabelField>
+				<LabelField name="guid" id="49">
+					<DataPath>Список.guid</DataPath>
+					<ContextMenu name="guidКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="51"/>
+				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -117,8 +127,22 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	_Таблица.Ссылка,
+	_Таблица.ПометкаУдаления,
+	_Таблица.Наименование,
+	_Таблица.Страна,
+	_Таблица.КодРегиона,
+	_Таблица.Тип,
+	_Соответствие.guid
+ИЗ
+	Справочник.ВетисRegion КАК _Таблица
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Соответствие
+		ПО _Таблица.Ссылка = _Соответствие.Ссылка
+			И (_Соответствие.Ссылка ССЫЛКА Справочник.ВетисRegion)
+</QueryText>
 				<MainTable>Catalog.ВетисRegion</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -138,7 +162,7 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
-		<Attribute name="Страна" id="3">
+		<Attribute name="ОтборСтрана" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -149,7 +173,7 @@
 				<v8:Type>cfg:CatalogRef.КлассификаторСтранМира</v8:Type>
 			</Type>
 			<Save>
-				<Field>Страна</Field>
+				<Field>ОтборСтрана</Field>
 			</Save>
 		</Attribute>
 	</Attributes>

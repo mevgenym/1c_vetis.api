@@ -11,6 +11,7 @@
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -48,6 +49,10 @@
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="ОтборСтранаКонтекстноеМеню" id="34"/>
 					<ExtendedTooltip name="ОтборСтранаРасширеннаяПодсказка" id="35"/>
+					<Events>
+						<Event name="OnChange">ОтборСтранаПриИзменении</Event>
+						<Event name="StartChoice">ОтборСтранаНачалоВыбора</Event>
+					</Events>
 				</InputField>
 				<UsualGroup name="ГруппаОтборРегион" id="36">
 					<Title>
@@ -246,8 +251,6 @@
 	_Таблица.Регион,
 	_Таблица.Район,
 	_Таблица.Представление,
-	_Таблица.Предопределенный,
-	_Таблица.ИмяПредопределенныхДанных,
 	_Соответствие.guid
 ИЗ
 	Справочник.ВетисLocality КАК _Таблица
@@ -380,21 +383,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнить</Action>
-		</Command>
-		<Command name="КомандаУдалитьПомеченные" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить помеченные</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда удалить помеченные</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаУдалитьПомеченные</Action>
 		</Command>
 	</Commands>
 </Form>

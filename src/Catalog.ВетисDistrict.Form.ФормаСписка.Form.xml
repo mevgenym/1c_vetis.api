@@ -10,6 +10,10 @@
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
 			<Title>
@@ -23,15 +27,80 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
 		</UsualGroup>
-		<InputField name="СтранаОтбор" id="25">
-			<DataPath>Страна</DataPath>
-			<AutoMarkIncomplete>true</AutoMarkIncomplete>
-			<ContextMenu name="СтранаОтборКонтекстноеМеню" id="26"/>
-			<ExtendedTooltip name="СтранаОтборРасширеннаяПодсказка" id="27"/>
-			<Events>
-				<Event name="StartChoice">СтранаОтборНачалоВыбора</Event>
-			</Events>
-		</InputField>
+		<UsualGroup name="ГруппаОтбор" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отбор</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отбор</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтборРасширеннаяПодсказка" id="53"/>
+			<ChildItems>
+				<InputField name="СтранаОтбор" id="25">
+					<DataPath>ОтборСтрана</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="СтранаОтборКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="СтранаОтборРасширеннаяПодсказка" id="27"/>
+					<Events>
+						<Event name="OnChange">СтранаОтборПриИзменении</Event>
+						<Event name="StartChoice">ОтборСтранаНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГруппаОтборРегион" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор регион</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор регион</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборРегионРасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборРегионИспользование" id="56">
+							<DataPath>ОтборРегионИспользование</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборРегионИспользованиеКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ОтборРегионИспользованиеРасширеннаяПодсказка" id="58"/>
+							<Events>
+								<Event name="OnChange">ОтборРегионИспользованиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="ОтборРегион" id="59">
+							<DataPath>ОтборРегион</DataPath>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.Страна</xr:Name>
+									<xr:DataPath xsi:type="xs:string">ОтборСтрана</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ContextMenu name="ОтборРегионКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="ОтборРегионРасширеннаяПодсказка" id="61"/>
+							<Events>
+								<Event name="OnChange">ОтборРегионПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
 		<Table name="Список" id="28">
 			<CommandBarLocation>None</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
@@ -95,6 +164,11 @@
 					<ContextMenu name="РегионКонтекстноеМеню" id="48"/>
 					<ExtendedTooltip name="РегионРасширеннаяПодсказка" id="49"/>
 				</LabelField>
+				<LabelField name="guid" id="62">
+					<DataPath>Список.guid</DataPath>
+					<ContextMenu name="guidКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="guidРасширеннаяПодсказка" id="64"/>
+				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -105,8 +179,20 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	_Таблица.Ссылка,
+	_Таблица.ПометкаУдаления,
+	_Таблица.Наименование,
+	_Таблица.Страна,
+	_Таблица.Регион,
+	_Соответствие.guid
+ИЗ
+	Справочник.ВетисDistrict КАК _Таблица
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВетисСоответствие КАК _Соответствие
+		ПО _Таблица.Ссылка = _Соответствие.Ссылка
+			И (_Соответствие.Ссылка ССЫЛКА Справочник.ВетисDistrict)</QueryText>
 				<MainTable>Catalog.ВетисDistrict</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -126,7 +212,7 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
-		<Attribute name="Страна" id="2">
+		<Attribute name="ОтборСтрана" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -137,7 +223,29 @@
 				<v8:Type>cfg:CatalogRef.КлассификаторСтранМира</v8:Type>
 			</Type>
 			<Save>
-				<Field>Страна</Field>
+				<Field>ОтборСтрана</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборРегион" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регион</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВетисRegion</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборРегион</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтборРегионИспользование" id="4">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборРегионИспользование</Field>
 			</Save>
 		</Attribute>
 	</Attributes>

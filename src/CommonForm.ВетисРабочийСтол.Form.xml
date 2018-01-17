@@ -244,79 +244,214 @@
 								<ExtendedTooltip name="СписокВСДУправлениеПоискомРасширеннаяПодсказка" id="17"/>
 							</SearchControlAddition>
 							<ChildItems>
-								<LabelField name="СписокВСДДата" id="124">
-									<DataPath>СписокВСД.Date</DataPath>
-									<Visible>false</Visible>
-									<ContextMenu name="СписокВСДДатаКонтекстноеМеню" id="125"/>
-									<ExtendedTooltip name="СписокВСДДатаРасширеннаяПодсказка" id="126"/>
-								</LabelField>
-								<LabelField name="СписокВСДНомер" id="127">
-									<DataPath>СписокВСД.Number</DataPath>
-									<Visible>false</Visible>
-									<ContextMenu name="СписокВСДНомерКонтекстноеМеню" id="128"/>
-									<ExtendedTooltip name="СписокВСДНомерРасширеннаяПодсказка" id="129"/>
-								</LabelField>
-								<LabelField name="СписокВСДДатаВСД" id="24">
-									<DataPath>СписокВСД.ДатаВСД</DataPath>
-									<ContextMenu name="СписокВСДДатаВСДКонтекстноеМеню" id="25"/>
-									<ExtendedTooltip name="СписокВСДДатаВСДРасширеннаяПодсказка" id="26"/>
-								</LabelField>
-								<LabelField name="СписокВСДНомерВСД" id="27">
-									<DataPath>СписокВСД.НомерВСД</DataPath>
-									<ContextMenu name="СписокВСДНомерВСДКонтекстноеМеню" id="28"/>
-									<ExtendedTooltip name="СписокВСДНомерВСДРасширеннаяПодсказка" id="29"/>
-								</LabelField>
-								<LabelField name="СписокВСДСерияВСД" id="36">
-									<DataPath>СписокВСД.СерияВСД</DataPath>
-									<Visible>false</Visible>
-									<ContextMenu name="СписокВСДСерияВСДКонтекстноеМеню" id="37"/>
-									<ExtendedTooltip name="СписокВСДСерияВСДРасширеннаяПодсказка" id="38"/>
-								</LabelField>
-								<LabelField name="СписокВСДОтправитель" id="30">
-									<DataPath>СписокВСД.Отправитель</DataPath>
-									<ContextMenu name="СписокВСДОтправительКонтекстноеМеню" id="31"/>
-									<ExtendedTooltip name="СписокВСДОтправительРасширеннаяПодсказка" id="32"/>
-								</LabelField>
-								<LabelField name="СписокВСДОтправительПредприятие" id="352">
-									<DataPath>СписокВСД.ОтправительПредприятие</DataPath>
-									<ContextMenu name="СписокВСДОтправительПредприятиеКонтекстноеМеню" id="353"/>
-									<ExtendedTooltip name="СписокВСДОтправительПредприятиеРасширеннаяПодсказка" id="354"/>
-								</LabelField>
-								<LabelField name="СписокВСДПолучатель" id="33">
-									<DataPath>СписокВСД.Получатель</DataPath>
-									<ContextMenu name="СписокВСДПолучательКонтекстноеМеню" id="34"/>
-									<ExtendedTooltip name="СписокВСДПолучательРасширеннаяПодсказка" id="35"/>
-								</LabelField>
-								<LabelField name="СписокВСДПолучательПредприятие" id="445">
-									<DataPath>СписокВСД.ПолучательПредприятие</DataPath>
-									<ContextMenu name="СписокВСДПолучательПредприятиеКонтекстноеМеню" id="446"/>
-									<ExtendedTooltip name="СписокВСДПолучательПредприятиеРасширеннаяПодсказка" id="447"/>
-								</LabelField>
-								<LabelField name="СписокВСДНоменклатурнаяГруппа" id="311">
-									<DataPath>СписокВСД.НоменклатурнаяГруппа</DataPath>
-									<ContextMenu name="СписокВСДНоменклатурнаяГруппаКонтекстноеМеню" id="312"/>
-									<ExtendedTooltip name="СписокВСДНоменклатурнаяГруппаРасширеннаяПодсказка" id="313"/>
-								</LabelField>
-								<LabelField name="СписокВСДНоменклатура" id="248">
-									<DataPath>СписокВСД.Номенклатура</DataPath>
-									<ContextMenu name="СписокВСДНоменклатураКонтекстноеМеню" id="249"/>
-									<ExtendedTooltip name="СписокВСДНоменклатураРасширеннаяПодсказка" id="250"/>
-								</LabelField>
-								<LabelField name="СписокВСДКоличество" id="251">
-									<DataPath>СписокВСД.Количество</DataPath>
-									<ContextMenu name="СписокВСДКоличествоКонтекстноеМеню" id="252"/>
-									<ExtendedTooltip name="СписокВСДКоличествоРасширеннаяПодсказка" id="253"/>
-								</LabelField>
-								<LabelField name="СписокВСДuuid" id="343">
-									<DataPath>СписокВСД.uuid</DataPath>
-									<ContextMenu name="СписокВСДuuidКонтекстноеМеню" id="344"/>
-									<ExtendedTooltip name="СписокВСДuuidРасширеннаяПодсказка" id="345"/>
-								</LabelField>
-								<LabelField name="СписокВСДКомментарий" id="355">
-									<DataPath>СписокВСД.Комментарий</DataPath>
-									<ContextMenu name="СписокВСДКомментарийКонтекстноеМеню" id="356"/>
-									<ExtendedTooltip name="СписокВСДКомментарийРасширеннаяПодсказка" id="357"/>
-								</LabelField>
+								<ColumnGroup name="СписокВСДГруппаДата" id="461">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа дата</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа дата</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокВСДГруппаДатаРасширеннаяПодсказка" id="462"/>
+									<ChildItems>
+										<LabelField name="СписокВСДДата" id="124">
+											<DataPath>СписокВСД.Date</DataPath>
+											<Visible>false</Visible>
+											<ContextMenu name="СписокВСДДатаКонтекстноеМеню" id="125"/>
+											<ExtendedTooltip name="СписокВСДДатаРасширеннаяПодсказка" id="126"/>
+										</LabelField>
+										<LabelField name="СписокВСДНомер" id="127">
+											<DataPath>СписокВСД.Number</DataPath>
+											<Visible>false</Visible>
+											<ContextMenu name="СписокВСДНомерКонтекстноеМеню" id="128"/>
+											<ExtendedTooltip name="СписокВСДНомерРасширеннаяПодсказка" id="129"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокВСДГруппаДатаВетис" id="463">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа дата ветис</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа дата ветис</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокВСДГруппаДатаВетисРасширеннаяПодсказка" id="464"/>
+									<ChildItems>
+										<LabelField name="СписокВСДДатаВСД" id="24">
+											<DataPath>СписокВСД.ДатаВСД</DataPath>
+											<ContextMenu name="СписокВСДДатаВСДКонтекстноеМеню" id="25"/>
+											<ExtendedTooltip name="СписокВСДДатаВСДРасширеннаяПодсказка" id="26"/>
+										</LabelField>
+										<LabelField name="СписокВСДНомерВСД" id="27">
+											<DataPath>СписокВСД.НомерВСД</DataPath>
+											<ContextMenu name="СписокВСДНомерВСДКонтекстноеМеню" id="28"/>
+											<ExtendedTooltip name="СписокВСДНомерВСДРасширеннаяПодсказка" id="29"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокВСДГруппаОтправитель" id="465">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа отправитель</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа отправитель</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокВСДГруппаОтправительРасширеннаяПодсказка" id="466"/>
+									<ChildItems>
+										<LabelField name="СписокВСДОтправитель" id="30">
+											<DataPath>СписокВСД.Отправитель</DataPath>
+											<ContextMenu name="СписокВСДОтправительКонтекстноеМеню" id="31"/>
+											<ExtendedTooltip name="СписокВСДОтправительРасширеннаяПодсказка" id="32"/>
+										</LabelField>
+										<LabelField name="СписокВСДОтправительПредприятие" id="352">
+											<DataPath>СписокВСД.ОтправительПредприятие</DataPath>
+											<ContextMenu name="СписокВСДОтправительПредприятиеКонтекстноеМеню" id="353"/>
+											<ExtendedTooltip name="СписокВСДОтправительПредприятиеРасширеннаяПодсказка" id="354"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокВСДГруппаПолучатель" id="467">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа получатель</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа получатель</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокВСДГруппаПолучательРасширеннаяПодсказка" id="468"/>
+									<ChildItems>
+										<LabelField name="СписокВСДПолучатель" id="33">
+											<DataPath>СписокВСД.Получатель</DataPath>
+											<ContextMenu name="СписокВСДПолучательКонтекстноеМеню" id="34"/>
+											<ExtendedTooltip name="СписокВСДПолучательРасширеннаяПодсказка" id="35"/>
+										</LabelField>
+										<LabelField name="СписокВСДПолучательПредприятие" id="445">
+											<DataPath>СписокВСД.ПолучательПредприятие</DataPath>
+											<ContextMenu name="СписокВСДПолучательПредприятиеКонтекстноеМеню" id="446"/>
+											<ExtendedTooltip name="СписокВСДПолучательПредприятиеРасширеннаяПодсказка" id="447"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокВСДГруппаНоменклатура" id="469">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа номенклатура</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа номенклатура</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокВСДГруппаНоменклатураРасширеннаяПодсказка" id="470"/>
+									<ChildItems>
+										<LabelField name="СписокВСДНоменклатурнаяГруппа" id="311">
+											<DataPath>СписокВСД.НоменклатурнаяГруппа</DataPath>
+											<ContextMenu name="СписокВСДНоменклатурнаяГруппаКонтекстноеМеню" id="312"/>
+											<ExtendedTooltip name="СписокВСДНоменклатурнаяГруппаРасширеннаяПодсказка" id="313"/>
+										</LabelField>
+										<LabelField name="СписокВСДНоменклатура" id="248">
+											<DataPath>СписокВСД.Номенклатура</DataPath>
+											<ContextMenu name="СписокВСДНоменклатураКонтекстноеМеню" id="249"/>
+											<ExtendedTooltip name="СписокВСДНоменклатураРасширеннаяПодсказка" id="250"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокВСДГруппаКоличество" id="473">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа количество</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа количество</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокВСДГруппаКоличествоРасширеннаяПодсказка" id="474"/>
+									<ChildItems>
+										<LabelField name="СписокВСДКоличество" id="251">
+											<DataPath>СписокВСД.Количество</DataPath>
+											<ContextMenu name="СписокВСДКоличествоКонтекстноеМеню" id="252"/>
+											<ExtendedTooltip name="СписокВСДКоличествоРасширеннаяПодсказка" id="253"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокВСДГруппаUuid" id="475">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа uuid</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа uuid</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокВСДГруппаUuidРасширеннаяПодсказка" id="476"/>
+									<ChildItems>
+										<LabelField name="СписокВСДuuid" id="343">
+											<DataPath>СписокВСД.uuid</DataPath>
+											<ContextMenu name="СписокВСДuuidКонтекстноеМеню" id="344"/>
+											<ExtendedTooltip name="СписокВСДuuidРасширеннаяПодсказка" id="345"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокВСДГруппаКомментарий" id="471">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа комментарий</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список ВСДГруппа комментарий</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СписокВСДГруппаКомментарийРасширеннаяПодсказка" id="472"/>
+									<ChildItems>
+										<LabelField name="СписокВСДКомментарий" id="355">
+											<DataPath>СписокВСД.Комментарий</DataPath>
+											<ContextMenu name="СписокВСДКомментарийКонтекстноеМеню" id="356"/>
+											<ExtendedTooltip name="СписокВСДКомментарийРасширеннаяПодсказка" id="357"/>
+										</LabelField>
+										<LabelField name="СписокВСДОтветственныйВетис" id="458">
+											<DataPath>СписокВСД.ОтветственныйВетис</DataPath>
+											<ContextMenu name="СписокВСДОтветственныйВетисКонтекстноеМеню" id="459"/>
+											<ExtendedTooltip name="СписокВСДОтветственныйВетисРасширеннаяПодсказка" id="460"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
 							</ChildItems>
 						</Table>
 					</ChildItems>
@@ -1459,6 +1594,9 @@
 					<dcsset:item>
 						<dcsset:field>СписокВСДКомментарий</dcsset:field>
 					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДОтветственныйВетис</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -1513,6 +1651,9 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДКомментарий</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДОтветственныйВетис</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
@@ -1569,6 +1710,9 @@
 					<dcsset:item>
 						<dcsset:field>СписокВСДКомментарий</dcsset:field>
 					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДОтветственныйВетис</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -1618,6 +1762,9 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>СписокВСДКомментарий</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокВСДОтветственныйВетис</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>

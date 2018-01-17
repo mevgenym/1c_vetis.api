@@ -50,9 +50,15 @@
 						<Event name="OnChange">НоменклатураПриИзменении</Event>
 					</Events>
 				</InputField>
-				<PictureDecoration name="ДекорацияЕстьСвязь1" id="90">
+				<PictureDecoration name="ДекорацияСвязь" id="90">
 					<Width>2</Width>
 					<Height>1</Height>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декорация связь</v8:content>
+						</v8:item>
+					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -64,30 +70,10 @@
 						<xr:Ref>CommonPicture.ВетисЕстьСвязь</xr:Ref>
 						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</Picture>
-					<ContextMenu name="ДекорацияЕстьСвязь1КонтекстноеМеню" id="91"/>
-					<ExtendedTooltip name="ДекорацияЕстьСвязь1РасширеннаяПодсказка" id="92"/>
+					<ContextMenu name="ДекорацияСвязьКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="ДекорацияСвязьРасширеннаяПодсказка" id="92"/>
 					<Events>
 						<Event name="Click">ДекорацияЕстьСвязь1Нажатие</Event>
-					</Events>
-				</PictureDecoration>
-				<PictureDecoration name="ДекорацияЕстьСвязь0" id="93">
-					<Width>2</Width>
-					<Height>1</Height>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Нет связи</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Hyperlink>true</Hyperlink>
-					<Picture>
-						<xr:Ref>CommonPicture.ВетисНетСвязи</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="ДекорацияЕстьСвязь0КонтекстноеМеню" id="94"/>
-					<ExtendedTooltip name="ДекорацияЕстьСвязь0РасширеннаяПодсказка" id="95"/>
-					<Events>
-						<Event name="Click">ДекорацияЕстьСвязь0Нажатие</Event>
 					</Events>
 				</PictureDecoration>
 				<InputField name="Guid" id="1">

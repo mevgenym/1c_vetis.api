@@ -204,11 +204,12 @@
 			<CommonCommand>ВетисВходящаяПартияСводно</CommonCommand>
 			<CommonCommand>ВетисЖурнал</CommonCommand>
 			<CommonCommand>ВетисНастройки</CommonCommand>
+			<CommonCommand>ВетисПользователи</CommonCommand>
 			<CommonCommand>ВетисПредопределенные</CommonCommand>
-			<CommonCommand>ВетисСкладскойЖурналОстатки</CommonCommand>
 			<CommonCommand>ВетисПредприятия</CommonCommand>
 			<CommonCommand>ВетисПредприятияХС</CommonCommand>
 			<CommonCommand>ВетисСкладскойЖурнал</CommonCommand>
+			<CommonCommand>ВетисСкладскойЖурналОстатки</CommonCommand>
 			<CommonCommand>ВетисСоответствие</CommonCommand>
 			<CommonCommand>ВетисТранспортнаяПартия</CommonCommand>
 			<CommonCommand>ВетисУстановкаСоответствияСправочников</CommonCommand>
@@ -240,6 +241,7 @@
 			<Catalog>ВетисRegion</Catalog>
 			<Catalog>ВетисRegionalizationCondition</Catalog>
 			<Catalog>ВетисTransport</Catalog>
+			<Catalog>ВетисUser</Catalog>
 			<Catalog>ВетисПредприятия</Catalog>
 			<Catalog>ЕдиницыИзмерения</Catalog>
 			<Catalog>КлассификаторЕдиницИзмерения</Catalog>

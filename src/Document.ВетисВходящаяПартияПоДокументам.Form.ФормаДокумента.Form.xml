@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<ScalingMode>Compact</ScalingMode>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
@@ -168,6 +169,25 @@
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
+				<PictureDecoration name="ОтправительСвязь" id="659">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправитель связь</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Hyperlink>true</Hyperlink>
+					<Picture>
+						<xr:Ref>CommonPicture.ВетисЕстьСвязь</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="ОтправительСвязьКонтекстноеМеню" id="660"/>
+					<ExtendedTooltip name="ОтправительСвязьРасширеннаяПодсказка" id="661"/>
+					<Events>
+						<Event name="Click">ОтправительСвязьНажатие</Event>
+					</Events>
+				</PictureDecoration>
 				<UsualGroup name="ГруппаПолучатель" id="7">
 					<Title>
 						<v8:item>
@@ -208,6 +228,25 @@
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
+				<PictureDecoration name="ПолучательСвязь" id="662">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Получатель связь</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Hyperlink>true</Hyperlink>
+					<Picture>
+						<xr:Ref>CommonPicture.ВетисЕстьСвязь</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="ПолучательСвязьКонтекстноеМеню" id="663"/>
+					<ExtendedTooltip name="ПолучательСвязьРасширеннаяПодсказка" id="664"/>
+					<Events>
+						<Event name="Click">ПолучательСвязьНажатие</Event>
+					</Events>
+				</PictureDecoration>
 			</ChildItems>
 		</UsualGroup>
 		<Pages name="ГруппаСтраницы" id="27">
@@ -821,6 +860,34 @@
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
+		</Attribute>
+		<Attribute name="ПолучательСвязь" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получатель связь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПолучательСвязь</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтправительСвязь" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправитель связь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтправительСвязь</Field>
+			</Save>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>

@@ -173,6 +173,86 @@
 	
 КонецФункции
 
+Функция User(value) Экспорт
+	
+	Если ТипЗнч(value) = Тип("ОбъектXDTO") Тогда
+		_user = UserСтруктура(value);
+		
+		Если НЕ ЗначениеЗаполнено(_user.firstName) Тогда
+			Возврат Неопределено;
+		КонецЕсли;
+		
+		Запрос = Новый Запрос(
+		"ВЫБРАТЬ
+		|	_Таблица.Ссылка
+		|ИЗ
+		|	Справочник.ВетисUser КАК _Таблица
+		|ГДЕ
+		|	ИСТИНА
+		|	И _Таблица.firstName = &firstName
+		|//m	И _Таблица.middleName = &middleName
+		|//l	И _Таблица.lastName = &lastName");
+		
+		Запрос.УстановитьПараметр("firstName", _user.firstName);
+		Запрос.УстановитьПараметр("middleName", _user.middleName);
+		Запрос.УстановитьПараметр("lastName", _user.lastName);
+		
+		Если ЗначениеЗаполнено(_user.middleName) Тогда
+			Запрос.Текст = СтрЗаменить(Запрос.Текст, "//m", "");
+			Если ЗначениеЗаполнено(_user.lastName) Тогда
+				Запрос.Текст = СтрЗаменить(Запрос.Текст, "//l", "");
+			КонецЕсли;
+		КонецЕсли;
+		
+		Результат = Запрос.Выполнить();
+		Выборка = Результат.Выбрать();
+		
+		Если Выборка.Следующий() Тогда
+			Возврат Выборка.Ссылка;
+		Иначе
+			_ВетисUser = Справочники.ВетисUser.СоздатьЭлемент();
+			//_ВетисUser.Наименование = _u.firstName + ?(_u.middleName = "", "", " " + _u.middleName + ?(_u.lastName = "", "", " " + _u.lastName));
+			ЗаполнитьЗначенияСвойств(_ВетисUser, _user);
+			Попытка
+				_ВетисUser.Записать();
+				Ветис.Журнал_Добавить("+ " + _ВетисUser.firstName, "Ветис.User");
+				Возврат _ВетисUser.Ссылка;
+			Исключение
+				Ветис.Журнал_ДобавитьИнформациюОбОшибке(ИнформацияОбОшибке());
+			КонецПопытки;
+		КонецЕсли;
+		
+	КонецЕсли;
+	
+КонецФункции
+
+Функция UserСтруктура(value) Экспорт
+	
+	_ответ = Новый Структура;
+	
+	Попытка
+		_fio = СокрЛП(value.fio);
+		_pos = Найти(_fio, " ");
+		_ответ.Вставить("firstName", Лев(_fio, _pos-1));
+		_fio = СокрЛ(Сред(_fio, _pos+1));
+		_pos = Найти(_fio, " ");
+		_ответ.Вставить("middleName", Лев(_fio, _pos-1));
+		_ответ.Вставить("lastName", Сред(_fio, _pos+1));
+	Исключение
+		_ответ.Вставить("firstName", value.firstName);
+		_ответ.Вставить("middleName", value.middleName);
+		_ответ.Вставить("lastName", value.lastName);
+	КонецПопытки;
+	
+	_ответ.Вставить("phone", value.phone);
+	_ответ.Вставить("post", value.post);
+	_ответ.Вставить("email", value.email);
+	_ответ.Вставить("login", value.login);
+	
+	Возврат _ответ;
+	
+КонецФункции
+
 Функция UserAuthority(value) Экспорт
 	
 	Если ТипЗнч(value) = Тип("ПеречислениеСсылка.ВетисUserAuthority") Тогда
@@ -443,10 +523,20 @@
 		_всд = value2;
 		
 		//сделать: проверить изменение статуса после гашения
+		_док.statusChange.Очистить();
 		Если _всд.statusChange = Неопределено ИЛИ _всд.statusChange.Количество() = 0 Тогда
 			_док.statusChangeDateTime = Неопределено;
 		Иначе
-			_док.statusChangeDateTime = Ветис.ВремяМестное(_всд.statusChange[_всд.statusChange.Количество()-1].actualDateTime);
+			Для каждого _statusChange Из _всд.statusChange Цикл
+				_строка = _док.statusChange.Добавить();
+				_строка.status = VetDocumentStatus(_statusChange.status);
+				_строка.post = ?(_statusChange.specifiedPerson = Неопределено, "", _statusChange.specifiedPerson.post);
+				_строка.specifiedPerson = User(_statusChange.specifiedPerson);
+				_строка.actualDateTime = Ветис.ВремяМестное(_statusChange.actualDateTime);
+				_строка.reason = _statusChange.reason;
+				_док.statusChangeDateTime = _строка.actualDateTime;
+				_док.ОтветственныйВетис = _строка.specifiedPerson;
+			КонецЦикла;
 		КонецЕсли;
 		
 		_док.uuid     = _всд.uuid;

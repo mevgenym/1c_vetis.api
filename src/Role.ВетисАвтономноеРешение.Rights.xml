@@ -307,6 +307,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.ВетисПользователи</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Configuration.ВетеринарияМеркурийГИС</name>
 		<right>
 			<name>ThinClient</name>

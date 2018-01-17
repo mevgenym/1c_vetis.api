@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<ScalingMode>Compact</ScalingMode>
 	<CommandSet>
 		<ExcludedCommand>PostAndClose</ExcludedCommand>
@@ -46,6 +47,7 @@
 		<Event name="AfterWrite">ПослеЗаписи</Event>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="BeforeWrite">ПередЗаписью</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -152,204 +154,182 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="128"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаЗаголовокКолонки" id="138">
+				<UsualGroup name="ГруппаОтправитель" id="153">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа заголовок колонки</v8:content>
+							<v8:content>Отправитель</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа заголовок колонки</v8:content>
+							<v8:content>Группа отправитель</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>Horizontal</Group>
+					<Group>Vertical</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаЗаголовокКолонкиРасширеннаяПодсказка" id="139"/>
+					<ExtendedTooltip name="ГруппаОтправительРасширеннаяПодсказка" id="154"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаЗаголовокКолонка1" id="140">
-							<Title>
+						<LabelDecoration name="ОтправительСопоставить" id="779">
+							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа заголовок колонка1</v8:content>
+									<v8:content>Отправитель сопоставить</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ОтправительСопоставитьКонтекстноеМеню" id="780"/>
+							<ExtendedTooltip name="ОтправительСопоставитьРасширеннаяПодсказка" id="781"/>
+							<Events>
+								<Event name="Click">СопоставитьНажатие</Event>
+							</Events>
+						</LabelDecoration>
+						<InputField name="Отправитель" id="155">
+							<DataPath>Объект.Отправитель</DataPath>
+							<ContextMenu name="ОтправительКонтекстноеМеню" id="156"/>
+							<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="157"/>
+							<Events>
+								<Event name="OnChange">ОтправительПриИзменении</Event>
+								<Event name="StartChoice">ОтправительНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ОтправительПредприятиеСопоставить" id="782">
+							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа заголовок колонка1</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>Vertical</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаЗаголовокКолонка1РасширеннаяПодсказка" id="141"/>
-							<ChildItems>
-								<UsualGroup name="ГруппаОтправитель" id="153">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отправитель</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа отправитель</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Vertical</Group>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаОтправительРасширеннаяПодсказка" id="154"/>
-									<ChildItems>
-										<LabelDecoration name="ОтправительСопоставить" id="779">
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Отправитель сопоставить</v8:content>
-												</v8:item>
-											</Title>
-											<Hyperlink>true</Hyperlink>
-											<ContextMenu name="ОтправительСопоставитьКонтекстноеМеню" id="780"/>
-											<ExtendedTooltip name="ОтправительСопоставитьРасширеннаяПодсказка" id="781"/>
-											<Events>
-												<Event name="Click">СопоставитьНажатие</Event>
-											</Events>
-										</LabelDecoration>
-										<InputField name="Отправитель" id="155">
-											<DataPath>Объект.Отправитель</DataPath>
-											<ContextMenu name="ОтправительКонтекстноеМеню" id="156"/>
-											<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="157"/>
-											<Events>
-												<Event name="OnChange">ОтправительПриИзменении</Event>
-												<Event name="StartChoice">ОтправительНачалоВыбора</Event>
-											</Events>
-										</InputField>
-										<LabelDecoration name="ОтправительПредприятиеСопоставить" id="782">
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Предприятие сопоставить</v8:content>
-												</v8:item>
-											</Title>
-											<Hyperlink>true</Hyperlink>
-											<ContextMenu name="ОтправительПредприятиеСопоставитьКонтекстноеМеню" id="783"/>
-											<ExtendedTooltip name="ОтправительПредприятиеСопоставитьРасширеннаяПодсказка" id="784"/>
-											<Events>
-												<Event name="Click">СопоставитьНажатие</Event>
-											</Events>
-										</LabelDecoration>
-										<InputField name="ОтправительПредприятие" id="158">
-											<DataPath>Объект.ОтправительПредприятие</DataPath>
-											<DropListButton>false</DropListButton>
-											<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
-											<TextEdit>false</TextEdit>
-											<ContextMenu name="ОтправительПредприятиеКонтекстноеМеню" id="159"/>
-											<ExtendedTooltip name="ОтправительПредприятиеРасширеннаяПодсказка" id="160"/>
-											<Events>
-												<Event name="OnChange">ОтправительПредприятиеПриИзменении</Event>
-												<Event name="StartChoice">ОтправительПредприятиеНачалоВыбора</Event>
-											</Events>
-										</InputField>
-									</ChildItems>
-								</UsualGroup>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаЗаголовокКолонка2" id="142">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа заголовок колонка2</v8:content>
+									<v8:content>Предприятие сопоставить</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа заголовок колонка2</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>Vertical</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаЗаголовокКолонка2РасширеннаяПодсказка" id="143"/>
-							<ChildItems>
-								<UsualGroup name="ГруппаПолучатель" id="161">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Получатель</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа получатель</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Vertical</Group>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаПолучательРасширеннаяПодсказка" id="162"/>
-									<ChildItems>
-										<LabelDecoration name="ПолучательСопоставить" id="785">
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Получатель сопоставить</v8:content>
-												</v8:item>
-											</Title>
-											<Hyperlink>true</Hyperlink>
-											<ContextMenu name="ПолучательСопоставитьКонтекстноеМеню" id="786"/>
-											<ExtendedTooltip name="ПолучательСопоставитьРасширеннаяПодсказка" id="787"/>
-											<Events>
-												<Event name="Click">СопоставитьНажатие</Event>
-											</Events>
-										</LabelDecoration>
-										<InputField name="Получатель" id="163">
-											<DataPath>Объект.Получатель</DataPath>
-											<ContextMenu name="ПолучательКонтекстноеМеню" id="164"/>
-											<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="165"/>
-											<Events>
-												<Event name="OnChange">ПолучательПриИзменении</Event>
-												<Event name="StartChoice">ПолучательНачалоВыбора</Event>
-											</Events>
-										</InputField>
-										<LabelDecoration name="ПолучательПредприятиеСопоставить" id="788">
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Предприятие сопоставить</v8:content>
-												</v8:item>
-											</Title>
-											<Hyperlink>true</Hyperlink>
-											<ContextMenu name="ПолучательПредприятиеСопоставитьКонтекстноеМеню" id="789"/>
-											<ExtendedTooltip name="ПолучательПредприятиеСопоставитьРасширеннаяПодсказка" id="790"/>
-											<Events>
-												<Event name="Click">СопоставитьНажатие</Event>
-											</Events>
-										</LabelDecoration>
-										<InputField name="ПолучательПредприятие" id="166">
-											<DataPath>Объект.ПолучательПредприятие</DataPath>
-											<DropListButton>false</DropListButton>
-											<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
-											<TextEdit>false</TextEdit>
-											<ContextMenu name="ПолучательПредприятиеКонтекстноеМеню" id="167"/>
-											<ExtendedTooltip name="ПолучательПредприятиеРасширеннаяПодсказка" id="168"/>
-											<Events>
-												<Event name="OnChange">ПолучательПредприятиеПриИзменении</Event>
-												<Event name="StartChoice">ПолучательПредприятиеНачалоВыбора</Event>
-											</Events>
-										</InputField>
-									</ChildItems>
-								</UsualGroup>
-							</ChildItems>
-						</UsualGroup>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ОтправительПредприятиеСопоставитьКонтекстноеМеню" id="783"/>
+							<ExtendedTooltip name="ОтправительПредприятиеСопоставитьРасширеннаяПодсказка" id="784"/>
+							<Events>
+								<Event name="Click">СопоставитьНажатие</Event>
+							</Events>
+						</LabelDecoration>
+						<InputField name="ОтправительПредприятие" id="158">
+							<DataPath>Объект.ОтправительПредприятие</DataPath>
+							<DropListButton>false</DropListButton>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ОтправительПредприятиеКонтекстноеМеню" id="159"/>
+							<ExtendedTooltip name="ОтправительПредприятиеРасширеннаяПодсказка" id="160"/>
+							<Events>
+								<Event name="OnChange">ОтправительПредприятиеПриИзменении</Event>
+								<Event name="StartChoice">ОтправительПредприятиеНачалоВыбора</Event>
+							</Events>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
+				<PictureDecoration name="ОтправительСвязь" id="906">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправитель связь</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Hyperlink>true</Hyperlink>
+					<Picture>
+						<xr:Ref>CommonPicture.ВетисЕстьСвязь</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="ОтправительСвязьКонтекстноеМеню" id="907"/>
+					<ExtendedTooltip name="ОтправительСвязьРасширеннаяПодсказка" id="908"/>
+					<Events>
+						<Event name="Click">ОтправительСвязьНажатие</Event>
+					</Events>
+				</PictureDecoration>
+				<UsualGroup name="ГруппаПолучатель" id="161">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Получатель</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа получатель</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПолучательРасширеннаяПодсказка" id="162"/>
+					<ChildItems>
+						<LabelDecoration name="ПолучательСопоставить" id="785">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Получатель сопоставить</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ПолучательСопоставитьКонтекстноеМеню" id="786"/>
+							<ExtendedTooltip name="ПолучательСопоставитьРасширеннаяПодсказка" id="787"/>
+							<Events>
+								<Event name="Click">СопоставитьНажатие</Event>
+							</Events>
+						</LabelDecoration>
+						<InputField name="Получатель" id="163">
+							<DataPath>Объект.Получатель</DataPath>
+							<ContextMenu name="ПолучательКонтекстноеМеню" id="164"/>
+							<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="165"/>
+							<Events>
+								<Event name="OnChange">ПолучательПриИзменении</Event>
+								<Event name="StartChoice">ПолучательНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ПолучательПредприятиеСопоставить" id="788">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Предприятие сопоставить</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ПолучательПредприятиеСопоставитьКонтекстноеМеню" id="789"/>
+							<ExtendedTooltip name="ПолучательПредприятиеСопоставитьРасширеннаяПодсказка" id="790"/>
+							<Events>
+								<Event name="Click">СопоставитьНажатие</Event>
+							</Events>
+						</LabelDecoration>
+						<InputField name="ПолучательПредприятие" id="166">
+							<DataPath>Объект.ПолучательПредприятие</DataPath>
+							<DropListButton>false</DropListButton>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ПолучательПредприятиеКонтекстноеМеню" id="167"/>
+							<ExtendedTooltip name="ПолучательПредприятиеРасширеннаяПодсказка" id="168"/>
+							<Events>
+								<Event name="OnChange">ПолучательПредприятиеПриИзменении</Event>
+								<Event name="StartChoice">ПолучательПредприятиеНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<PictureDecoration name="ПолучательСвязь" id="911">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Получатель связь</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Hyperlink>true</Hyperlink>
+					<Picture>
+						<xr:Ref>CommonPicture.ВетисЕстьСвязь</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="ПолучательСвязьКонтекстноеМеню" id="912"/>
+					<ExtendedTooltip name="ПолучательСвязьРасширеннаяПодсказка" id="913"/>
+					<Events>
+						<Event name="Click">ПолучательСвязьНажатие</Event>
+					</Events>
+				</PictureDecoration>
 			</ChildItems>
 		</UsualGroup>
 		<Pages name="ГруппаСтраницы" id="115">
@@ -1709,6 +1689,97 @@
 						</InputField>
 					</ChildItems>
 				</Page>
+				<Page name="ГруппаStatusChange" id="863">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>statusChange</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа status change</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаStatusChangeРасширеннаяПодсказка" id="864"/>
+					<ChildItems>
+						<Table name="statusChange" id="865">
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.statusChange</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="statusChangeКонтекстноеМеню" id="866"/>
+							<AutoCommandBar name="statusChangeКоманднаяПанель" id="867"/>
+							<ExtendedTooltip name="statusChangeРасширеннаяПодсказка" id="868"/>
+							<SearchStringAddition name="statusChangeСтрокаПоиска" id="869">
+								<AdditionSource>
+									<Item>statusChange</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="statusChangeСтрокаПоискаКонтекстноеМеню" id="870"/>
+								<ExtendedTooltip name="statusChangeСтрокаПоискаРасширеннаяПодсказка" id="871"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="statusChangeСостояниеПросмотра" id="872">
+								<AdditionSource>
+									<Item>statusChange</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="statusChangeСостояниеПросмотраКонтекстноеМеню" id="873"/>
+								<ExtendedTooltip name="statusChangeСостояниеПросмотраРасширеннаяПодсказка" id="874"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="statusChangeУправлениеПоиском" id="875">
+								<AdditionSource>
+									<Item>statusChange</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="statusChangeУправлениеПоискомКонтекстноеМеню" id="876"/>
+								<ExtendedTooltip name="statusChangeУправлениеПоискомРасширеннаяПодсказка" id="877"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="statusChangeНомерСтроки" id="878">
+									<DataPath>Объект.statusChange.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="statusChangeНомерСтрокиКонтекстноеМеню" id="879"/>
+									<ExtendedTooltip name="statusChangeНомерСтрокиРасширеннаяПодсказка" id="880"/>
+								</LabelField>
+								<LabelField name="statusChangestatus" id="881">
+									<DataPath>Объект.statusChange.status</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="statusChangestatusКонтекстноеМеню" id="882"/>
+									<ExtendedTooltip name="statusChangestatusРасширеннаяПодсказка" id="883"/>
+								</LabelField>
+								<LabelField name="statusChangepost" id="893">
+									<DataPath>Объект.statusChange.post</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="statusChangepostКонтекстноеМеню" id="894"/>
+									<ExtendedTooltip name="statusChangepostРасширеннаяПодсказка" id="895"/>
+								</LabelField>
+								<LabelField name="statusChangespecifiedPerson" id="884">
+									<DataPath>Объект.statusChange.specifiedPerson</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="statusChangespecifiedPersonКонтекстноеМеню" id="885"/>
+									<ExtendedTooltip name="statusChangespecifiedPersonРасширеннаяПодсказка" id="886"/>
+								</LabelField>
+								<LabelField name="statusChangeactualDateTime" id="887">
+									<DataPath>Объект.statusChange.actualDateTime</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="statusChangeactualDateTimeКонтекстноеМеню" id="888"/>
+									<ExtendedTooltip name="statusChangeactualDateTimeРасширеннаяПодсказка" id="889"/>
+								</LabelField>
+								<LabelField name="statusChangereason" id="890">
+									<DataPath>Объект.statusChange.reason</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="statusChangereasonКонтекстноеМеню" id="891"/>
+									<ExtendedTooltip name="statusChangereasonРасширеннаяПодсказка" id="892"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 			</ChildItems>
 		</Pages>
 		<InputField name="Комментарий" id="807">
@@ -1716,6 +1787,35 @@
 			<ContextMenu name="КомментарийКонтекстноеМеню" id="808"/>
 			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="809"/>
 		</InputField>
+		<UsualGroup name="ГруппаОтветственный" id="902">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ответственный</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ответственный</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтветственныйРасширеннаяПодсказка" id="903"/>
+			<ChildItems>
+				<InputField name="Ответственный" id="896">
+					<DataPath>Объект.Ответственный</DataPath>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="897"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="898"/>
+				</InputField>
+				<InputField name="ОтветственныйВетис" id="899">
+					<DataPath>Объект.ОтветственныйВетис</DataPath>
+					<ContextMenu name="ОтветственныйВетисКонтекстноеМеню" id="900"/>
+					<ExtendedTooltip name="ОтветственныйВетисРасширеннаяПодсказка" id="901"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -2400,6 +2500,34 @@
 			<Type>
 				<v8:Type>cfg:EnumRef.ВетисTransportType</v8:Type>
 			</Type>
+		</Attribute>
+		<Attribute name="ОтправительСвязь" id="65">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправитель связь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтправительСвязь</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПолучательСвязь" id="66">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получатель связь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПолучательСвязь</Field>
+			</Save>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>

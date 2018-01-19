@@ -817,7 +817,6 @@
 									</ChildItems>
 								</Table>
 								<Table name="Партии" id="190">
-									<Visible>false</Visible>
 									<HeightInTableRows>1</HeightInTableRows>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
@@ -881,18 +880,6 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ContextMenu name="ПартииКоличествоМестКонтекстноеМеню" id="225"/>
 											<ExtendedTooltip name="ПартииКоличествоМестРасширеннаяПодсказка" id="226"/>
-										</InputField>
-										<InputField name="ПартииЕдиницаИзмерения" id="313">
-											<DataPath>Объект.Партии.ЕдиницаИзмерения</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="ПартииЕдиницаИзмеренияКонтекстноеМеню" id="314"/>
-											<ExtendedTooltip name="ПартииЕдиницаИзмеренияРасширеннаяПодсказка" id="315"/>
-										</InputField>
-										<InputField name="ПартииУпаковка" id="316">
-											<DataPath>Объект.Партии.Упаковка</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="ПартииУпаковкаКонтекстноеМеню" id="317"/>
-											<ExtendedTooltip name="ПартииУпаковкаРасширеннаяПодсказка" id="318"/>
 										</InputField>
 									</ChildItems>
 								</Table>

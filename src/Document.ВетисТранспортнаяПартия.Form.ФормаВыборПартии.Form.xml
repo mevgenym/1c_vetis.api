@@ -11,6 +11,8 @@
 	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -151,20 +153,6 @@
 				<ExtendedTooltip name="ПартииСписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<LabelField name="ПартииСписокНомерСтроки" id="115">
-					<DataPath>ПартииСписок.НомерСтроки</DataPath>
-					<Visible>false</Visible>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="ПартииСписокНомерСтрокиКонтекстноеМеню" id="116"/>
-					<ExtendedTooltip name="ПартииСписокНомерСтрокиРасширеннаяПодсказка" id="117"/>
-				</LabelField>
-				<CheckBoxField name="ПартииСписокОтправлена" id="136">
-					<DataPath>ПартииСписок.Отправлена</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="ПартииСписокОтправленаКонтекстноеМеню" id="137"/>
-					<ExtendedTooltip name="ПартииСписокОтправленаРасширеннаяПодсказка" id="138"/>
-				</CheckBoxField>
 				<ColumnGroup name="ПартииСписокГруппаВСД" id="14">
 					<Title>
 						<v8:item>
@@ -205,37 +193,6 @@
 						</LabelField>
 					</ChildItems>
 				</ColumnGroup>
-				<ColumnGroup name="ПартииСписокГруппаНоменклатура" id="22">
-					<Visible>false</Visible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Партии список группа номенклатура</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Партии список группа номенклатура</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Horizontal</Group>
-					<ExtendedTooltip name="ПартииСписокГруппаНоменклатураРасширеннаяПодсказка" id="23"/>
-					<ChildItems>
-						<InputField name="ПартииСписокНоменклатура" id="76">
-							<DataPath>ПартииСписок.Номенклатура</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="ПартииСписокНоменклатураКонтекстноеМеню" id="77"/>
-							<ExtendedTooltip name="ПартииСписокНоменклатураРасширеннаяПодсказка" id="78"/>
-						</InputField>
-						<InputField name="ПартииСписокНоменклатурнаяГруппа" id="79">
-							<DataPath>ПартииСписок.НоменклатурнаяГруппа</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="ПартииСписокНоменклатурнаяГруппаКонтекстноеМеню" id="80"/>
-							<ExtendedTooltip name="ПартииСписокНоменклатурнаяГруппаРасширеннаяПодсказка" id="81"/>
-						</InputField>
-					</ChildItems>
-				</ColumnGroup>
 				<ColumnGroup name="ПартииСписокГруппаКоличество" id="33">
 					<Title>
 						<v8:item>
@@ -249,7 +206,6 @@
 							<v8:content>Партии список группа количество</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>Horizontal</Group>
 					<ExtendedTooltip name="ПартииСписокГруппаКоличествоРасширеннаяПодсказка" id="34"/>
 					<ChildItems>
 						<InputField name="ПартииСписокКоличество" id="82">
@@ -274,6 +230,37 @@
 						</InputField>
 					</ChildItems>
 				</ColumnGroup>
+				<ColumnGroup name="ПартииСписокГруппаКоличествоОтправлено" id="152">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Партии список группа количество отправлено</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Партии список группа количество отправлено</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПартииСписокГруппаКоличествоОтправленоРасширеннаяПодсказка" id="153"/>
+					<ChildItems>
+						<InputField name="ПартииСписокКоличествоОтправлено" id="154">
+							<DataPath>ПартииСписок.КоличествоОтправлено</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>КоличествоОтправленоИтог</FooterDataPath>
+							<ContextMenu name="ПартииСписокКоличествоОтправленоКонтекстноеМеню" id="155"/>
+							<ExtendedTooltip name="ПартииСписокКоличествоОтправленоРасширеннаяПодсказка" id="156"/>
+						</InputField>
+						<InputField name="ПартииСписокКоличествоМестОтправлено" id="157">
+							<DataPath>ПартииСписок.КоличествоМестОтправлено</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>КоличествоМестОтправленоИтог</FooterDataPath>
+							<ContextMenu name="ПартииСписокКоличествоМестОтправленоКонтекстноеМеню" id="158"/>
+							<ExtendedTooltip name="ПартииСписокКоличествоМестОтправленоРасширеннаяПодсказка" id="159"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
 				<ColumnGroup name="ПартииСписокГруппаКоличествоПартии" id="41">
 					<Title>
 						<v8:item>
@@ -287,7 +274,6 @@
 							<v8:content>Партии список группа количество партии</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>Horizontal</Group>
 					<ExtendedTooltip name="ПартииСписокГруппаКоличествоПартииРасширеннаяПодсказка" id="42"/>
 					<ChildItems>
 						<LabelField name="ПартииСписокКоличествоПартии" id="88">
@@ -304,38 +290,20 @@
 						</LabelField>
 					</ChildItems>
 				</ColumnGroup>
-				<ColumnGroup name="ПартииСписокГруппаЕдиница" id="49">
-					<Visible>false</Visible>
+				<ColumnGroup name="ПартииСписокГруппаGuid" id="57">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Партии список группа единица</v8:content>
+							<v8:content>Партии список группа guid</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Партии список группа единица</v8:content>
+							<v8:content>Партии список группа guid</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ExtendedTooltip name="ПартииСписокГруппаЕдиницаРасширеннаяПодсказка" id="50"/>
-					<ChildItems>
-						<InputField name="ПартииСписокУпаковка" id="94">
-							<DataPath>ПартииСписок.Упаковка</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="ПартииСписокУпаковкаКонтекстноеМеню" id="95"/>
-							<ExtendedTooltip name="ПартииСписокУпаковкаРасширеннаяПодсказка" id="96"/>
-						</InputField>
-						<InputField name="ПартииСписокЕдиницаИзмерения" id="97">
-							<DataPath>ПартииСписок.ЕдиницаИзмерения</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="ПартииСписокЕдиницаИзмеренияКонтекстноеМеню" id="98"/>
-							<ExtendedTooltip name="ПартииСписокЕдиницаИзмеренияРасширеннаяПодсказка" id="99"/>
-						</InputField>
-					</ChildItems>
-				</ColumnGroup>
-				<ColumnGroup name="ПартииСписокГруппа1" id="57">
-					<ExtendedTooltip name="ПартииСписокГруппа1РасширеннаяПодсказка" id="58"/>
+					<ExtendedTooltip name="ПартииСписокГруппаGuidРасширеннаяПодсказка" id="58"/>
 					<ChildItems>
 						<LabelField name="ПартииСписокguid" id="100">
 							<DataPath>ПартииСписок.guid</DataPath>
@@ -345,12 +313,6 @@
 						</LabelField>
 					</ChildItems>
 				</ColumnGroup>
-				<InputField name="ПартииСписокВСД" id="139">
-					<DataPath>ПартииСписок.ВСД</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="ПартииСписокВСДКонтекстноеМеню" id="140"/>
-					<ExtendedTooltip name="ПартииСписокВСДРасширеннаяПодсказка" id="141"/>
-				</InputField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -366,28 +328,6 @@
 				<v8:Type>v8:ValueTable</v8:Type>
 			</Type>
 			<Columns>
-				<Column name="Номенклатура" id="1">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Номенклатура</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
-					</Type>
-				</Column>
-				<Column name="НоменклатурнаяГруппа" id="2">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Номенклатурная группа</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:CatalogRef.НоменклатурныеГруппы</v8:Type>
-					</Type>
-				</Column>
 				<Column name="Количество" id="3">
 					<Title>
 						<v8:item>
@@ -400,7 +340,7 @@
 						<v8:NumberQualifiers>
 							<v8:Digits>15</v8:Digits>
 							<v8:FractionDigits>3</v8:FractionDigits>
-							<v8:AllowedSign>Any</v8:AllowedSign>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
@@ -416,7 +356,7 @@
 						<v8:NumberQualifiers>
 							<v8:Digits>15</v8:Digits>
 							<v8:FractionDigits>0</v8:FractionDigits>
-							<v8:AllowedSign>Any</v8:AllowedSign>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
@@ -463,22 +403,6 @@
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
-				<Column name="КлючСвязи" id="9">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Ключ связи</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:decimal</v8:Type>
-						<v8:NumberQualifiers>
-							<v8:Digits>5</v8:Digits>
-							<v8:FractionDigits>0</v8:FractionDigits>
-							<v8:AllowedSign>Any</v8:AllowedSign>
-						</v8:NumberQualifiers>
-					</Type>
-				</Column>
 				<Column name="guid" id="5">
 					<Title>
 						<v8:item>
@@ -489,7 +413,7 @@
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
-							<v8:Length>50</v8:Length>
+							<v8:Length>36</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
 					</Type>
@@ -514,21 +438,6 @@
 					</Title>
 					<Type>
 						<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
-					</Type>
-				</Column>
-				<Column name="SubProductGuid" id="12">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Sub product guid</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>40</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
 					</Type>
 				</Column>
 				<Column name="Отправлена" id="13">
@@ -557,7 +466,82 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="НомерСтроки" id="15">
+				<Column name="ВСД" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ВСД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ВетисВетеринарноСопроводительныйДокумент</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КоличествоОтправлено" id="17">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправлено</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоМестОтправлено" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправлено мест</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоМакс" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Макс</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоМестМакс" id="20">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Макс мест</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="НомерСтроки" id="1">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -573,46 +557,19 @@
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
-				<Column name="ВСД" id="16">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ВСД</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:DocumentRef.ВетисВетеринарноСопроводительныйДокумент</v8:Type>
-					</Type>
-				</Column>
 			</Columns>
 		</Attribute>
-		<Attribute name="ПартииДок" id="2">
+		<Attribute name="ПартииОтправленные" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Партии отправленные</v8:content>
+				</v8:item>
+			</Title>
 			<Type>
 				<v8:Type>v8:ValueTable</v8:Type>
 			</Type>
 			<Columns>
-				<Column name="Номенклатура" id="1">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Номенклатура</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
-					</Type>
-				</Column>
-				<Column name="НоменклатурнаяГруппа" id="2">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Номенклатурная группа</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:CatalogRef.НоменклатурныеГруппы</v8:Type>
-					</Type>
-				</Column>
 				<Column name="Количество" id="3">
 					<Title>
 						<v8:item>
@@ -645,22 +602,6 @@
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
-				<Column name="КлючСвязи" id="9">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Ключ связи</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:decimal</v8:Type>
-						<v8:NumberQualifiers>
-							<v8:Digits>5</v8:Digits>
-							<v8:FractionDigits>0</v8:FractionDigits>
-							<v8:AllowedSign>Any</v8:AllowedSign>
-						</v8:NumberQualifiers>
-					</Type>
-				</Column>
 				<Column name="guid" id="5">
 					<Title>
 						<v8:item>
@@ -671,99 +612,9 @@
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
-							<v8:Length>50</v8:Length>
+							<v8:Length>36</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="Упаковка" id="10">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Упаковка</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:CatalogRef.ВетисPackingForm</v8:Type>
-					</Type>
-				</Column>
-				<Column name="ЕдиницаИзмерения" id="11">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Единица измерения</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
-					</Type>
-				</Column>
-				<Column name="SubProductGuid" id="12">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Sub product guid</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>40</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="Отправлена" id="13">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отправлена</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:boolean</v8:Type>
-					</Type>
-				</Column>
-				<Column name="Представление" id="14">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Представление</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="НомерСтроки" id="15">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Номер строки</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:decimal</v8:Type>
-						<v8:NumberQualifiers>
-							<v8:Digits>10</v8:Digits>
-							<v8:FractionDigits>0</v8:FractionDigits>
-							<v8:AllowedSign>Any</v8:AllowedSign>
-						</v8:NumberQualifiers>
-					</Type>
-				</Column>
-				<Column name="ВСД" id="6">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ВСД</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:DocumentRef.ВетисВетеринарноСопроводительныйДокумент</v8:Type>
 					</Type>
 				</Column>
 			</Columns>
@@ -892,39 +743,17 @@
 				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="ПартииДокДругие" id="13">
+		<Attribute name="ПартииВыбранныеДругие" id="13">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Партии док другие</v8:content>
+					<v8:content>Партии выбранные другие</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
 				<v8:Type>v8:ValueTable</v8:Type>
 			</Type>
 			<Columns>
-				<Column name="Номенклатура" id="1">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Номенклатура</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
-					</Type>
-				</Column>
-				<Column name="НоменклатурнаяГруппа" id="2">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Номенклатурная группа</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:CatalogRef.НоменклатурныеГруппы</v8:Type>
-					</Type>
-				</Column>
 				<Column name="Количество" id="3">
 					<Title>
 						<v8:item>
@@ -957,17 +786,71 @@
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
-				<Column name="КлючСвязи" id="9">
+				<Column name="guid" id="5">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Ключ связи</v8:content>
+							<v8:content>Guid</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>36</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="КоличествоОтправленоИтог" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество итог</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПартииВыбранные" id="15">
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Количество" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
 						</v8:item>
 					</Title>
 					<Type>
 						<v8:Type>xs:decimal</v8:Type>
 						<v8:NumberQualifiers>
-							<v8:Digits>5</v8:Digits>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоМест" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество мест</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
 							<v8:FractionDigits>0</v8:FractionDigits>
 							<v8:AllowedSign>Any</v8:AllowedSign>
 						</v8:NumberQualifiers>
@@ -983,57 +866,9 @@
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
-							<v8:Length>50</v8:Length>
+							<v8:Length>36</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="Упаковка" id="10">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Упаковка</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:CatalogRef.ВетисPackingForm</v8:Type>
-					</Type>
-				</Column>
-				<Column name="ЕдиницаИзмерения" id="11">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Единица измерения</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
-					</Type>
-				</Column>
-				<Column name="SubProductGuid" id="12">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Sub product guid</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>40</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="Отправлена" id="13">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отправлена</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
 				<Column name="Представление" id="14">
@@ -1051,7 +886,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="НомерСтроки" id="15">
+				<Column name="НомерСтроки" id="1">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1067,21 +902,27 @@
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
-				<Column name="ВСД" id="6">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ВСД</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>cfg:DocumentRef.ВетисВетеринарноСопроводительныйДокумент</v8:Type>
-					</Type>
-				</Column>
 			</Columns>
+		</Attribute>
+		<Attribute name="КоличествоМестОтправленоИтог" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество итог</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
+				<dcsset:use>false</dcsset:use>
 				<dcsset:selection>
 					<dcsset:item>
 						<dcsset:field>ПартииСписокИспользовать</dcsset:field>
@@ -1096,9 +937,11 @@
 						<dcsset:field>ПартииСписокНоменклатурнаяГруппа</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
+						<dcsset:use>false</dcsset:use>
 						<dcsset:field>ПартииСписокКоличество</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
+						<dcsset:use>false</dcsset:use>
 						<dcsset:field>ПартииСписокКоличествоМест</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
@@ -1106,6 +949,12 @@
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>ПартииСписокКоличествоМестПартии</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокКоличествоМакс</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокКоличествоМестМакс</dcsset:field>
 					</dcsset:item>
 					<dcsset:item>
 						<dcsset:field>ПартииСписокУпаковка</dcsset:field>
@@ -1116,12 +965,15 @@
 					<dcsset:item>
 						<dcsset:field>ПартииСписокguid</dcsset:field>
 					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокВСД</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">ПартииСписок.Отправлена</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						<dcsset:left xsi:type="dcscor:Field">ПартииСписок.КоличествоОтправлено</dcsset:left>
+						<dcsset:comparisonType>Greater</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 					</dcsset:item>
 				</dcsset:filter>
 				<dcsset:appearance>
@@ -1130,6 +982,38 @@
 						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
 					</dcscor:item>
 					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:use>false</dcsset:use>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокОтправлена</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокКоличество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПартииСписокКоличествоМест</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПартииСписок.КоличествоОтправлено</dcsset:left>
+						<dcsset:comparisonType>Greater</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
 						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
 						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
 					</dcscor:item>

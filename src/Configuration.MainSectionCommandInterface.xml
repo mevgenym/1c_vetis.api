@@ -1,34 +1,254 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <CommandInterface xmlns="http://v8.1c.ru/8.3/xcf/extrnprops" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<CommandsVisibility>
-		<Command name="0:347e5a4b-14b6-4183-8513-7c9d23d3ff14">
+		<Command name="CommonCommand.ВетисВетеринарноСопроводительныйДокумент">
 			<Visibility>
-				<xr:Common>false</xr:Common>
+				<xr:Common>true</xr:Common>
 			</Visibility>
 		</Command>
-		<Command name="0:254442a4-475b-48d8-8097-7d220cd51c1f">
+		<Command name="CommonCommand.ВетисВходящаяПартияПоДокументам">
 			<Visibility>
-				<xr:Common>false</xr:Common>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисВходящаяПартияСводно">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисТранспортнаяПартия">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисAnimalDisease">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисDistrict">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисIncorporationForm">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисPackingForm">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисPurpose">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисRegion">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисRegionalizationCondition">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисAddress">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.КлассификаторЕдиницИзмерения">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.КлассификаторСтранМира">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.Контрагенты">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.Номенклатура">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.Пользователи">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.Транспорт">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисXSD">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисЖурнал">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисНастройки">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисПредопределенные">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисПредприятияХС">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисСкладскойЖурнал">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисСкладскойЖурналОстатки">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисСоответствие">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="CommonCommand.ВетисУстановкаСоответствияСправочников">
+			<Visibility>
+				<xr:Common>true</xr:Common>
 			</Visibility>
 		</Command>
 	</CommandsVisibility>
-	<CommandsOrder>
+	<CommandsPlacement>
+		<Command name="CommonCommand.ВетисВетеринарноСопроводительныйДокумент">
+			<CommandGroup>CommandGroup.ВетисДокументы</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисВходящаяПартияПоДокументам">
+			<CommandGroup>CommandGroup.ВетисДокументы</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисВходящаяПартияСводно">
+			<CommandGroup>CommandGroup.ВетисДокументы</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисТранспортнаяПартия">
+			<CommandGroup>CommandGroup.ВетисДокументы</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисAnimalDisease">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисDistrict">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисIncorporationForm">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
 		<Command name="CommonCommand.ВетисPackingForm">
 			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
 		</Command>
-		<Command name="CommonCommand.Контрагенты">
+		<Command name="CommonCommand.ВетисPurpose">
 			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
-		</Command>
-		<Command name="CommonCommand.Пользователи">
-			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
 		</Command>
 		<Command name="CommonCommand.ВетисRegion">
 			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
 		</Command>
-	</CommandsOrder>
+		<Command name="CommonCommand.ВетисRegionalizationCondition">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисAddress">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.КлассификаторЕдиницИзмерения">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.КлассификаторСтранМира">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.Контрагенты">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.Номенклатура">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.Пользователи">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.Транспорт">
+			<CommandGroup>CommandGroup.ВетисСправочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисXSD">
+			<CommandGroup>CommandGroup.ВетисСервис</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисЖурнал">
+			<CommandGroup>CommandGroup.ВетисСервис</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисНастройки">
+			<CommandGroup>CommandGroup.ВетисСервис</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисПредопределенные">
+			<CommandGroup>CommandGroup.ВетисСервис</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисПредприятияХС">
+			<CommandGroup>CommandGroup.ВетисСервис</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисСкладскойЖурнал">
+			<CommandGroup>CommandGroup.ВетисСервис</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисСкладскойЖурналОстатки">
+			<CommandGroup>CommandGroup.ВетисСервис</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисСоответствие">
+			<CommandGroup>CommandGroup.ВетисСервис</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="CommonCommand.ВетисУстановкаСоответствияСправочников">
+			<CommandGroup>CommandGroup.ВетисСервис</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+	</CommandsPlacement>
 	<GroupsOrder>
 		<Group>NavigationPanelOrdinary</Group>
 		<Group>ActionsPanelTools</Group>
-		<Group>CommandGroup.ВетисСправочники</Group>
 	</GroupsOrder>
 </CommandInterface>

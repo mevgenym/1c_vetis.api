@@ -175,6 +175,9 @@
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисСправочникПродукции</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ВетисUser</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПользователи</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриУстановкеНовогоКода</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриУстановкеНовогоНомера</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ОбщегоНазначения</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

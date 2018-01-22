@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<ScalingMode>Compact</ScalingMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаСинхронизировать" id="63">
@@ -11,11 +12,6 @@
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.КомандаАннулировать</CommandName>
 				<ExtendedTooltip name="ФормаАннулироватьРасширеннаяПодсказка" id="66"/>
-			</Button>
-			<Button name="ФормаУдалитьПомеченные" id="76">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаУдалитьПомеченные</CommandName>
-				<ExtendedTooltip name="ФормаУдалитьПомеченныеРасширеннаяПодсказка" id="77"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -90,11 +86,13 @@
 				</LabelField>
 				<LabelField name="НомерВСД" id="54">
 					<DataPath>Список.НомерВСД</DataPath>
+					<Visible>false</Visible>
 					<ContextMenu name="НомерВСДКонтекстноеМеню" id="55"/>
 					<ExtendedTooltip name="НомерВСДРасширеннаяПодсказка" id="56"/>
 				</LabelField>
 				<LabelField name="ДатаВСД" id="51">
 					<DataPath>Список.ДатаВСД</DataPath>
+					<Visible>false</Visible>
 					<ContextMenu name="ДатаВСДКонтекстноеМеню" id="52"/>
 					<ExtendedTooltip name="ДатаВСДРасширеннаяПодсказка" id="53"/>
 				</LabelField>
@@ -118,17 +116,6 @@
 					<ContextMenu name="ПолучательПредприятиеКонтекстноеМеню" id="43"/>
 					<ExtendedTooltip name="ПолучательПредприятиеРасширеннаяПодсказка" id="44"/>
 				</LabelField>
-				<LabelField name="Тип" id="57">
-					<DataPath>Список.Тип</DataPath>
-					<Visible>false</Visible>
-					<ContextMenu name="ТипКонтекстноеМеню" id="58"/>
-					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="59"/>
-				</LabelField>
-				<LabelField name="Статус" id="45">
-					<DataPath>Список.Статус</DataPath>
-					<ContextMenu name="СтатусКонтекстноеМеню" id="46"/>
-					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="47"/>
-				</LabelField>
 				<LabelField name="НоменклатурнаяГруппа" id="73">
 					<DataPath>Список.НоменклатурнаяГруппа</DataPath>
 					<ContextMenu name="НоменклатурнаяГруппаКонтекстноеМеню" id="74"/>
@@ -143,12 +130,6 @@
 					<DataPath>Список.Количество</DataPath>
 					<ContextMenu name="КоличествоКонтекстноеМеню" id="71"/>
 					<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="72"/>
-				</LabelField>
-				<LabelField name="ФормаВСД" id="48">
-					<DataPath>Список.Форма</DataPath>
-					<Visible>false</Visible>
-					<ContextMenu name="ФормаВСДКонтекстноеМеню" id="49"/>
-					<ExtendedTooltip name="ФормаВСДРасширеннаяПодсказка" id="50"/>
 				</LabelField>
 				<LabelField name="uuid" id="78">
 					<DataPath>Список.uuid</DataPath>
@@ -166,6 +147,7 @@
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
 				<Field>Список.Тип</Field>
+				<Field>Список.Статус</Field>
 				<Field>Список.uuid</Field>
 				<Field>Список.Ref</Field>
 			</UseAlways>
@@ -191,194 +173,6 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
-		<ConditionalAppearance>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>Номер</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Дата</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>НомерВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ДатаВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Отправитель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ОтправительПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Получатель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ПолучательПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Тип</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Статус</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ФормаВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>НоменклатурнаяГруппа</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Номенклатура</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Количество</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>uuid</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">Список.Статус</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВетисVetDocumentStatus.Погашен</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>Номер</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Дата</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>НомерВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ДатаВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Отправитель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ОтправительПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Получатель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ПолучательПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Тип</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Статус</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ФормаВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>НоменклатурнаяГруппа</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Номенклатура</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Количество</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>uuid</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">Список.Статус</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВетисVetDocumentStatus.Оформлен</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">#FFFF99</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>Номер</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Дата</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>НомерВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ДатаВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Отправитель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ОтправительПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Получатель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ПолучательПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Тип</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Статус</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>ФормаВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>НоменклатурнаяГруппа</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Номенклатура</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>Количество</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>uuid</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">Список.Статус</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВетисVetDocumentStatus.Аннулирован</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">web:Pink</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаСинхронизировать" id="1">

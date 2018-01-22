@@ -439,6 +439,9 @@
 									<CheckBoxType>Auto</CheckBoxType>
 									<ContextMenu name="ТоварыНуженВозвратКонтекстноеМеню" id="428"/>
 									<ExtendedTooltip name="ТоварыНуженВозвратРасширеннаяПодсказка" id="429"/>
+									<Events>
+										<Event name="OnChange">ТоварыНуженВозвратПриИзменении</Event>
+									</Events>
 								</CheckBoxField>
 								<InputField name="ТоварыПогашено" id="636">
 									<DataPath>Объект.Товары.guid</DataPath>

@@ -257,23 +257,23 @@
 											<v8:content>Список ВСДГруппа дата</v8:content>
 										</v8:item>
 									</ToolTip>
+									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокВСДГруппаДатаРасширеннаяПодсказка" id="462"/>
 									<ChildItems>
 										<LabelField name="СписокВСДДата" id="124">
 											<DataPath>СписокВСД.Date</DataPath>
-											<Visible>false</Visible>
 											<ContextMenu name="СписокВСДДатаКонтекстноеМеню" id="125"/>
 											<ExtendedTooltip name="СписокВСДДатаРасширеннаяПодсказка" id="126"/>
 										</LabelField>
 										<LabelField name="СписокВСДНомер" id="127">
 											<DataPath>СписокВСД.Number</DataPath>
-											<Visible>false</Visible>
 											<ContextMenu name="СписокВСДНомерКонтекстноеМеню" id="128"/>
 											<ExtendedTooltip name="СписокВСДНомерРасширеннаяПодсказка" id="129"/>
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
 								<ColumnGroup name="СписокВСДГруппаДатаВетис" id="463">
+									<Visible>false</Visible>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -286,6 +286,7 @@
 											<v8:content>Список ВСДГруппа дата ветис</v8:content>
 										</v8:item>
 									</ToolTip>
+									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокВСДГруппаДатаВетисРасширеннаяПодсказка" id="464"/>
 									<ChildItems>
 										<LabelField name="СписокВСДДатаВСД" id="24">
@@ -313,6 +314,7 @@
 											<v8:content>Список ВСДГруппа отправитель</v8:content>
 										</v8:item>
 									</ToolTip>
+									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокВСДГруппаОтправительРасширеннаяПодсказка" id="466"/>
 									<ChildItems>
 										<LabelField name="СписокВСДОтправитель" id="30">
@@ -340,6 +342,7 @@
 											<v8:content>Список ВСДГруппа получатель</v8:content>
 										</v8:item>
 									</ToolTip>
+									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокВСДГруппаПолучательРасширеннаяПодсказка" id="468"/>
 									<ChildItems>
 										<LabelField name="СписокВСДПолучатель" id="33">
@@ -367,6 +370,7 @@
 											<v8:content>Список ВСДГруппа номенклатура</v8:content>
 										</v8:item>
 									</ToolTip>
+									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокВСДГруппаНоменклатураРасширеннаяПодсказка" id="470"/>
 									<ChildItems>
 										<LabelField name="СписокВСДНоменклатурнаяГруппа" id="311">
@@ -394,6 +398,7 @@
 											<v8:content>Список ВСДГруппа количество</v8:content>
 										</v8:item>
 									</ToolTip>
+									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокВСДГруппаКоличествоРасширеннаяПодсказка" id="474"/>
 									<ChildItems>
 										<LabelField name="СписокВСДКоличество" id="251">
@@ -416,6 +421,7 @@
 											<v8:content>Список ВСДГруппа uuid</v8:content>
 										</v8:item>
 									</ToolTip>
+									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокВСДГруппаUuidРасширеннаяПодсказка" id="476"/>
 									<ChildItems>
 										<LabelField name="СписокВСДuuid" id="343">
@@ -438,6 +444,7 @@
 											<v8:content>Список ВСДГруппа комментарий</v8:content>
 										</v8:item>
 									</ToolTip>
+									<Group>Horizontal</Group>
 									<ExtendedTooltip name="СписокВСДГруппаКомментарийРасширеннаяПодсказка" id="472"/>
 									<ChildItems>
 										<LabelField name="СписокВСДКомментарий" id="355">
@@ -1558,230 +1565,6 @@
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
 		</Attribute>
-		<ConditionalAppearance>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>СписокВСДДатаВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНомерВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтправитель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтправительПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДПолучатель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДПолучательПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНоменклатурнаяГруппа</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНоменклатура</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДКоличество</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДuuid</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДКомментарий</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтветственныйВетис</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СписокВСД.Статус</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВетисVetDocumentStatus.Оформлен</dcsset:right>
-					</dcsset:item>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СписокВСД.Тип</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВетисVetDocumentType.Транспортный</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">#FFFF99</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>СписокВСДДатаВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНомерВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтправитель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтправительПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДПолучатель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДПолучательПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНоменклатурнаяГруппа</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНоменклатура</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДКоличество</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДuuid</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДКомментарий</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтветственныйВетис</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СписокВСД.Статус</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВетисVetDocumentStatus.Оформлен</dcsset:right>
-					</dcsset:item>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СписокВСД.Тип</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВетисVetDocumentType.Возвратный</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">#CCFFFF</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>СписокВСДДатаВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНомерВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтправитель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтправительПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДПолучатель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДПолучательПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНоменклатурнаяГруппа</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНоменклатура</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДКоличество</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДuuid</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДКомментарий</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтветственныйВетис</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СписокВСД.Статус</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВетисVetDocumentStatus.Аннулирован</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">web:Pink</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>СписокВСДДатаВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНомерВСД</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтправитель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтправительПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДПолучатель</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДПолучательПредприятие</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНоменклатурнаяГруппа</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДНоменклатура</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДКоличество</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДuuid</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДКомментарий</dcsset:field>
-					</dcsset:item>
-					<dcsset:item>
-						<dcsset:field>СписокВСДОтветственныйВетис</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СписокВСД.Статус</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВетисVetDocumentStatus.Погашен</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаАннулироватьВСД" id="1">

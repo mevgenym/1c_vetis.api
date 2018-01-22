@@ -73,6 +73,7 @@
 				</LabelField>
 				<LabelField name="НомерВСД" id="20">
 					<DataPath>Список.НомерВСД</DataPath>
+					<Visible>false</Visible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -84,6 +85,7 @@
 				</LabelField>
 				<LabelField name="ДатаВСД" id="23">
 					<DataPath>Список.ДатаВСД</DataPath>
+					<Visible>false</Visible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -98,10 +100,20 @@
 					<ContextMenu name="ОтправительКонтекстноеМеню" id="33"/>
 					<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="34"/>
 				</LabelField>
+				<LabelField name="ОтправительПредприятие" id="62">
+					<DataPath>Список.ОтправительПредприятие</DataPath>
+					<ContextMenu name="ОтправительПредприятиеКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="ОтправительПредприятиеРасширеннаяПодсказка" id="64"/>
+				</LabelField>
 				<LabelField name="Получатель" id="38">
 					<DataPath>Список.Получатель</DataPath>
 					<ContextMenu name="ПолучательКонтекстноеМеню" id="39"/>
 					<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="40"/>
+				</LabelField>
+				<LabelField name="ПолучательПредприятие" id="65">
+					<DataPath>Список.ПолучательПредприятие</DataPath>
+					<ContextMenu name="ПолучательПредприятиеКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="ПолучательПредприятиеРасширеннаяПодсказка" id="67"/>
 				</LabelField>
 				<LabelField name="НоменклатурнаяГруппа" id="50">
 					<DataPath>Список.НоменклатурнаяГруппа</DataPath>
@@ -118,6 +130,11 @@
 					<ContextMenu name="КоличествоКонтекстноеМеню" id="54"/>
 					<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="55"/>
 				</LabelField>
+				<LabelField name="uuid" id="68">
+					<DataPath>Список.uuid</DataPath>
+					<ContextMenu name="uuidКонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="uuidРасширеннаяПодсказка" id="70"/>
+				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -127,6 +144,10 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Тип</Field>
+				<Field>Список.Статус</Field>
+			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>

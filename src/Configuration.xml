@@ -188,7 +188,10 @@
 			<CommonModule>ВетисФормы</CommonModule>
 			<CommonModule>ВетисХозяйственныеОперации</CommonModule>
 			<CommonModule>ЗаполнениеДокументов</CommonModule>
+			<CommonModule>ОбщегоНазначения</CommonModule>
 			<CommonModule>Пользователи</CommonModule>
+			<EventSubscription>ВетисПриУстановкеНовогоКода</EventSubscription>
+			<EventSubscription>ВетисПриУстановкеНовогоНомера</EventSubscription>
 			<ScheduledJob>ВетисОчередьЗапросов</ScheduledJob>
 			<CommonCommand>ВетисAddress</CommonCommand>
 			<CommonCommand>ВетисAnimalDisease</CommonCommand>

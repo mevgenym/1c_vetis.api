@@ -1682,11 +1682,6 @@
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
-						<InputField name="statusChangeDateTime" id="860">
-							<DataPath>Объект.statusChangeDateTime</DataPath>
-							<ContextMenu name="statusChangeDateTimeКонтекстноеМеню" id="861"/>
-							<ExtendedTooltip name="statusChangeDateTimeРасширеннаяПодсказка" id="862"/>
-						</InputField>
 					</ChildItems>
 				</Page>
 				<Page name="ГруппаStatusChange" id="863">

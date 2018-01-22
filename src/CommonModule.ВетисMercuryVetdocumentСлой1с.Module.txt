@@ -391,7 +391,7 @@
 	
 КонецФункции
 
-Функция VetDocumentКонвертировать(value1, value2) Экспорт
+Функция VetDocumentКонвертировать(value1, value2, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если ТипЗнч(value1) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент")
 		ИЛИ ТипЗнч(value1) = Тип("ДанныеФормыСтруктура") Тогда
@@ -411,14 +411,14 @@
 		_док.Отправитель = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.consignor.businessEntity);
 		_док.Получатель  = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_всд.consignee.businessEntity);
 		
-		_док.ОтправительGuid = _всд.certifiedConsignment.consignor.businessEntity.guid;
-		_док.ПолучательGuid  = _всд.certifiedConsignment.consignee.businessEntity.guid;
+		_док.ОтправительGuid = _всд.consignor.businessEntity.guid;
+		_док.ПолучательGuid  = _всд.consignee.businessEntity.guid;
 		
 		_док.ОтправительПредприятие = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.consignor.enterprise);
 		_док.ПолучательПредприятие  = ВетисCerberusEnterpriseСлой1с.Enterprise(_всд.consignee.enterprise);
 		
-		_док.ОтправительПредприятиеGuid = _всд.certifiedConsignment.consignor.enterprise.guid;
-		_док.ПолучательПредприятиеGuid  = _всд.certifiedConsignment.consignee.enterprise.guid;
+		_док.ОтправительПредприятиеGuid = _всд.consignor.enterprise.guid;
+		_док.ПолучательПредприятиеGuid  = _всд.consignee.enterprise.guid;
 		
 		_строкаВСД = ?(_док.ВСД.Количество() = 0, _док.ВСД.Добавить(), _док.ВСД[0]);
 		
@@ -456,7 +456,7 @@
 		
 		_строкаСЖ.КлючСтроки = 1;
 		
-		BatchКонвертировать(_строкаСЖ, _всд.batch);
+		BatchКонвертировать(_строкаСЖ, _всд.batch, _док.Упаковка, _док.Маркировка, пОтказ, пОшибка);
 		
 	ИначеЕсли ТипЗнч(value2) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент")
 		ИЛИ ТипЗнч(value2) = Тип("ДанныеФормыСтруктура") Тогда
@@ -504,7 +504,7 @@
 		
 		_всд.batch = ВетисMercuryVetdocument.Batch();
 		
-		BatchКонвертировать(_всд.batch, _СтрокаСЖ);
+		BatchКонвертировать(_всд.batch, _СтрокаСЖ, _док.Упаковка, _док.Маркировка, пОтказ, пОшибка);
 		
 	КонецЕсли;
 	
@@ -641,7 +641,7 @@
 		
 		_СтрокаСЖ.КлючСтроки = 1;
 		
-		BatchКонвертировать_20(_СтрокаСЖ, _всд.certifiedConsignment.batch, _док.Упаковка, _док.Маркировка, пОшибка);
+		BatchКонвертировать_20(_СтрокаСЖ, _всд.certifiedConsignment.batch, _док.Упаковка, _док.Маркировка, пОтказ, пОшибка);
 		
 	ИначеЕсли ТипЗнч(value2) = Тип("ДокументОбъект.ВетисВетеринарноСопроводительныйДокумент")
 		ИЛИ ТипЗнч(value2) = Тип("ДанныеФормыСтруктура") Тогда
@@ -661,7 +661,7 @@
 		
 		_batch = ВетисMercuryVetdocument_2_0.Batch();
 		
-		BatchКонвертировать_20(_batch, _СтрокаСЖ, _док.Упаковка, _док.Маркировка, пОшибка);
+		BatchКонвертировать_20(_batch, _СтрокаСЖ, _док.Упаковка, _док.Маркировка, пОтказ, пОшибка);
 		
 		_всд.issueSeries          = _док.СерияВСД;
 		_всд.issueNumber          = _док.НомерВСД;
@@ -720,7 +720,7 @@
 	
 КонецФункции
 
-Функция BatchКонвертировать(value1, value2) Экспорт
+Функция BatchКонвертировать(value1, value2, пУпаковка, пМаркировка, пОтказ = Ложь, пОшибка = "") Экспорт
 	
 	Если ТипЗнч(value1) = Тип("ДокументТабличнаяЧастьСтрока.ВетисВетеринарноСопроводительныйДокумент.Товары")
 		ИЛИ ТипЗнч(value1) = Тип("ДанныеФормыЭлементКоллекции") Тогда
@@ -743,12 +743,29 @@
 		_строкаСЖ.Собственник          = ВетисCerberusEnterpriseСлой1с.BusinessEntity(_batch.owner);
 		_строкаСЖ.НекачественныйГруз   = _batch.lowGradeCargo;
 		
-		_строкаСЖ.Упаковка             = ВетисArgusCommonСлой1с.PackingForm(_batch.packingList);
-		//_строкаСЖ.КоличествоМест       = _batch.packingAmount;
 		_строкаСЖ.СтранаПроисхождения  = ВетисIkarСлой1с.Country(_batch.countryOfOrigin);
 		_строкаСЖ.ПроизводительПредприятие = ВетисCerberusEnterpriseСлой1с.Producer(_batch.producerList);
 		_строкаСЖ.Номенклатура         = ВетисArgusProductionСлой1с.ProductItem(_batch.productItem, _строкаСЖ.ПроизводительПредприятие);
-		//_строкаСЖ.Маркировка           = ProductMarking(_batch.productMarkingList);
+		
+		//с искажениями адаптировано под метаданные 2.0
+		пУпаковка.Очистить();
+		пМаркировка.Очистить();
+		Если НЕ _batch.packingList = Неопределено Тогда
+			Для каждого _packingForm Из _batch.packingList.packingForm Цикл
+				_СтрокаУпаковка = пУпаковка.Добавить();
+				_СтрокаУпаковка.КлючСтроки = _СтрокаУпаковка.НомерСтроки;
+				_СтрокаУпаковка.Упаковка = ВетисArgusCommonСлой1с.PackingForm(_packingForm);
+				_СтрокаУпаковка.Количество = _batch.packingAmount;
+				Если НЕ _batch.productMarkingList = Неопределено Тогда
+					Для каждого _productMarks Из _batch.productMarkingList.productMarking Цикл
+						_СтрокаМаркировка = пМаркировка.Добавить();
+						_СтрокаМаркировка.КлючСвязи = _СтрокаУпаковка.КлючСтроки;
+						_СтрокаМаркировка.Маркировка = _productMarks.__content;
+						_СтрокаМаркировка.КлассМаркировки = ВетисDictionaryСлой1с.ProductMarkingClass(_productMarks.class);//из 2.0 здесь подойдет
+					КонецЦикла;
+				КонецЕсли;
+			КонецЦикла;
+		КонецЕсли;
 		
 	ИначеЕсли ТипЗнч(value2) = Тип("ДокументТабличнаяЧастьСтрока.ВетисВетеринарноСопроводительныйДокумент.Товары")
 		ИЛИ ТипЗнч(value2) = Тип("ДанныеФормыЭлементКоллекции") Тогда
@@ -816,11 +833,22 @@
 		_batch.owner            = ВетисCerberusEnterprise.BusinessEntity(ВетисCerberusEnterpriseСлой1с.BusinessEntity(_строкаСЖ.Собственник));
 		
 		//_batch.productItem      = ВетисArgusProduction.ProductItem(_productItem.guid, _productItem.name);
-		_batch.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
+		//_batch.packingList      = ВетисArgusCommon.PackingFormList(ВетисArgusCommonСлой1с.PackingForm(_СтрокаСЖ.Упаковка));
 		//_batch.packingAmount    = _СтрокаСЖ.КоличествоМест;
 		_batch.countryOfOrigin  = ВетисIkar.Country(ВетисIkarСлой1с.Country(_СтрокаСЖ.СтранаПроисхождения));
 		_batch.producerList     = ВетисCerberusEnterprise.ProducerList(ВетисCerberusEnterpriseСлой1с.Enterprise(_СтрокаСЖ.ПроизводительПредприятие));
 		//_batch.productMarkingList = ВетисMercuryVetdocument.ProductMarkingList(_СтрокаСЖ.Маркировка);
+		
+		_packageList = Новый Массив;
+		_СтрокиУпаковка = пУпаковка;
+		_МаркировкаСтруктураПоиска = Новый Структура("КлючСвязи");
+		Для каждого _СтрокаУпаковка Из _СтрокиУпаковка Цикл
+			
+			//сделать: дописать конверсию упаковки для 1.4
+			
+		КонецЦикла;
+		
+		_batch.packageList = ВетисArgusCommon.PackingFormList(_packageList);
 		
 	КонецЕсли;
 	

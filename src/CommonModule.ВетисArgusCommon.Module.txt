@@ -34,25 +34,13 @@
 	
 КонецФункции
 
-Функция PackingFormList(uuid = Неопределено) Экспорт
+Функция PackingFormList(packingForm) Экспорт
 	
 	_Объект = Создать("PackingFormList");
 	
-	PackingFormListДобавить(_Объект, uuid);
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, packingForm, "packingForm");
 	
 	Возврат _Объект;
-	
-КонецФункции
-
-Функция PackingFormListДобавить(List, uuid) Экспорт
-	
-	Если ТипЗнч(uuid) = Тип("Массив") Тогда
-		Для каждого _uuid Из uuid Цикл
-			List.packingForm.Добавить(packingForm(_uuid));
-		КонецЦикла;
-	ИначеЕсли ТипЗнч(uuid) = Тип("Строка") Тогда
-		List.packingForm.Добавить(packingForm(uuid));
-	КонецЕсли;
 	
 КонецФункции
 

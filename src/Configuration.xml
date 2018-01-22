@@ -220,6 +220,7 @@
 			<CommonCommand>КлассификаторСтранМира</CommonCommand>
 			<CommonCommand>Контрагенты</CommonCommand>
 			<CommonCommand>Номенклатура</CommonCommand>
+			<CommonCommand>Организации</CommonCommand>
 			<CommonCommand>Пользователи</CommonCommand>
 			<CommonCommand>Транспорт</CommonCommand>
 			<CommandGroup>ВетисДокументы</CommandGroup>
@@ -252,6 +253,7 @@
 			<Catalog>Контрагенты</Catalog>
 			<Catalog>Номенклатура</Catalog>
 			<Catalog>НоменклатурныеГруппы</Catalog>
+			<Catalog>Организации</Catalog>
 			<Catalog>Подразделения</Catalog>
 			<Catalog>Пользователи</Catalog>
 			<Catalog>Склады</Catalog>
@@ -303,6 +305,7 @@
 			<InformationRegister>ВетисСкладскойЖурналОстатки</InformationRegister>
 			<InformationRegister>ВетисСоответствие</InformationRegister>
 			<InformationRegister>ВетисСправочникПродукции</InformationRegister>
+			<InformationRegister>СобственныеКонтрагенты</InformationRegister>
 		</ChildObjects>
 	</Configuration>
 </MetaDataObject>

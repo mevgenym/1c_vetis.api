@@ -32,6 +32,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Document.РеализацияТоваровУслуг</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ЮрФизЛицо</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ОбщегоНазначения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Организации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.СобственныеКонтрагенты</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

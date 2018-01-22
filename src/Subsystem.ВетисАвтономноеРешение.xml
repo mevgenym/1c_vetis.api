@@ -178,6 +178,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриУстановкеНовогоКода</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриУстановкеНовогоНомера</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ОбщегоНазначения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.Организации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.СобственныеКонтрагенты</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

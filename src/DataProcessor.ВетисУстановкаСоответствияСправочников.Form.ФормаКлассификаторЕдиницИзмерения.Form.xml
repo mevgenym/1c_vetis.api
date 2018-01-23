@@ -88,12 +88,21 @@
 								<ContextMenu name="СписокВетисУправлениеПоискомКонтекстноеМеню" id="12"/>
 								<ExtendedTooltip name="СписокВетисУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокВетисВыбор</Event>
+							</Events>
 							<ChildItems>
 								<InputField name="СписокВетисname" id="96">
 									<DataPath>СписокВетис.name</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="СписокВетисnameКонтекстноеМеню" id="97"/>
 									<ExtendedTooltip name="СписокВетисnameРасширеннаяПодсказка" id="98"/>
+								</InputField>
+								<InputField name="СписокВетисguid" id="136">
+									<DataPath>СписокВетис.guid</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВетисguidКонтекстноеМеню" id="137"/>
+									<ExtendedTooltip name="СписокВетисguidРасширеннаяПодсказка" id="138"/>
 								</InputField>
 							</ChildItems>
 						</Table>

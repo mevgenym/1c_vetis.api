@@ -884,6 +884,25 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисДлительностьОпераций</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>InformationRegister.ВетисОчередьЗапросов.Dimension.issuerId</name>
 		<right>
 			<name>Edit</name>
@@ -1658,6 +1677,13 @@
 	</object>
 	<object>
 		<name>CommonCommand.ВетисXSD</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ВетисДлительностьОпераций</name>
 		<right>
 			<name>View</name>
 			<value>true</value>

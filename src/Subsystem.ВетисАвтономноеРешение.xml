@@ -180,6 +180,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ОбщегоНазначения</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.Организации</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.СобственныеКонтрагенты</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисДлительностьОпераций</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисДлительностьОпераций</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

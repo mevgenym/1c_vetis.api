@@ -131,6 +131,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисПользователи</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриУстановкеНовогоКода</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">EventSubscription.ВетисПриУстановкеНовогоНомера</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисДлительностьОпераций</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисДлительностьОпераций</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

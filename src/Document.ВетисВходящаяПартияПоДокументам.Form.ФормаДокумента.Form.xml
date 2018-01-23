@@ -730,6 +730,78 @@
 						</Table>
 					</ChildItems>
 				</Page>
+				<Page name="ГруппаАктНесоответствия" id="654">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Акт несоответствия</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа акт несоответствия</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
+					<ExtendedTooltip name="ГруппаАктНесоответствияРасширеннаяПодсказка" id="655"/>
+					<ChildItems>
+						<Table name="ТоварыАкт" id="667">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Товары</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТоварыАктКонтекстноеМеню" id="668"/>
+							<AutoCommandBar name="ТоварыАктКоманднаяПанель" id="669"/>
+							<ExtendedTooltip name="ТоварыАктРасширеннаяПодсказка" id="670"/>
+							<SearchStringAddition name="ТоварыАктСтрокаПоиска" id="671">
+								<AdditionSource>
+									<Item>ТоварыАкт</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТоварыАктСтрокаПоискаКонтекстноеМеню" id="672"/>
+								<ExtendedTooltip name="ТоварыАктСтрокаПоискаРасширеннаяПодсказка" id="673"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТоварыАктСостояниеПросмотра" id="674">
+								<AdditionSource>
+									<Item>ТоварыАкт</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТоварыАктСостояниеПросмотраКонтекстноеМеню" id="675"/>
+								<ExtendedTooltip name="ТоварыАктСостояниеПросмотраРасширеннаяПодсказка" id="676"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТоварыАктУправлениеПоиском" id="677">
+								<AdditionSource>
+									<Item>ТоварыАкт</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТоварыАктУправлениеПоискомКонтекстноеМеню" id="678"/>
+								<ExtendedTooltip name="ТоварыАктУправлениеПоискомРасширеннаяПодсказка" id="679"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ТоварыАктАктПричина" id="680">
+									<DataPath>Объект.Товары.АктПричина</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТоварыАктАктПричинаКонтекстноеМеню" id="681"/>
+									<ExtendedTooltip name="ТоварыАктАктПричинаРасширеннаяПодсказка" id="682"/>
+								</InputField>
+								<InputField name="ТоварыАктАктОписание" id="683">
+									<DataPath>Объект.Товары.АктОписание</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТоварыАктАктОписаниеКонтекстноеМеню" id="684"/>
+									<ExtendedTooltip name="ТоварыАктАктОписаниеРасширеннаяПодсказка" id="685"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<TextDocumentField name="АктОписание" id="686">
+							<DataPath>АктОписание</DataPath>
+							<ContextMenu name="АктОписаниеКонтекстноеМеню" id="687"/>
+							<ExtendedTooltip name="АктОписаниеРасширеннаяПодсказка" id="688"/>
+						</TextDocumentField>
+					</ChildItems>
+				</Page>
 				<Page name="ГруппаРезультаты" id="603">
 					<Title>
 						<v8:item>
@@ -806,38 +878,9 @@
 									<ContextMenu name="ТоварыРезультатыРешениеОПриемеКонтекстноеМеню" id="625"/>
 									<ExtendedTooltip name="ТоварыРезультатыРешениеОПриемеРасширеннаяПодсказка" id="626"/>
 								</LabelField>
-								<LabelField name="ТоварыРезультатыАктПричина" id="627">
-									<DataPath>Объект.Товары.АктПричина</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыРезультатыАктПричинаКонтекстноеМеню" id="628"/>
-									<ExtendedTooltip name="ТоварыРезультатыАктПричинаРасширеннаяПодсказка" id="629"/>
-								</LabelField>
-								<LabelField name="ТоварыРезультатыАктОписание" id="630">
-									<DataPath>Объект.Товары.АктОписание</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыРезультатыАктОписаниеКонтекстноеМеню" id="631"/>
-									<ExtendedTooltip name="ТоварыРезультатыАктОписаниеРасширеннаяПодсказка" id="632"/>
-								</LabelField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
-				</Page>
-				<Page name="ГруппаАктНесоответствия" id="654">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа акт несоответствия</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа акт несоответствия</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ExtendedTooltip name="ГруппаАктНесоответствияРасширеннаяПодсказка" id="655"/>
 				</Page>
 			</ChildItems>
 		</Pages>
@@ -891,6 +934,21 @@
 			<Save>
 				<Field>ОтправительСвязь</Field>
 			</Save>
+		</Attribute>
+		<Attribute name="АктОписание" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Акт описание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
@@ -1018,6 +1076,20 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаЗаполнитьПоДокументу</Action>
+		</Command>
+		<Command name="АктЗаполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Акт заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Акт заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
 		</Command>
 	</Commands>
 </Form>

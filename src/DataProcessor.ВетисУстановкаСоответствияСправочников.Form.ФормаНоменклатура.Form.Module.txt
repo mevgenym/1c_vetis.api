@@ -338,6 +338,8 @@
 	
 	ПоказатьВопрос(_оо, "Взять """ + _ТекущиеДанные.enterprise + """ в отбор?", РежимДиалогаВопрос.ДаНет);
 	
+	Элементы.СправочникСписок.ТекущаяСтрока = ВетисВызовСервера.Соответствие_ПолучитьСсылку(Элементы.СписокВетис.ТекущиеДанные.guid, "Справочник.Номенклатура");
+	
 КонецПроцедуры
 
 &НаКлиенте
@@ -532,6 +534,8 @@
 		Пока ВетисProductService_2_0.GetProductItemListСледующий(_productType, _product, _subProduct, _businessEntity, _enterprise, _productItem, _параметрыPI) Цикл
 			
 			Если НЕ _productItem.producing = Неопределено И _productItem.producing.Количество() > 0
+				И НЕ _productItem.producing[0].location = Неопределено
+				И НЕ _productItem.producing[0].location.guid = Неопределено
 				И _enterpriseСоответствие.Получить(_productItem.producing[0].location.guid) = Неопределено Тогда
 				_item = ВетисEnterpriseService_2_0.GetEnterpriseByGuid(_productItem.producing[0].location.guid);
 				Если _item = Неопределено Тогда

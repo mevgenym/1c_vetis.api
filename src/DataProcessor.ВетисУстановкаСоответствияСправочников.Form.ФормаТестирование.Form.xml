@@ -24,6 +24,7 @@
 							<v8:content>ХС</v8:content>
 						</v8:item>
 					</Title>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="2"/>
 					<ExtendedTooltip name="ХозяйствующийСубъектРасширеннаяПодсказка" id="3"/>
 					<Events>
@@ -36,6 +37,7 @@
 					<DropListButton>false</DropListButton>
 					<ChoiceButton>true</ChoiceButton>
 					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="6"/>
 					<Events>

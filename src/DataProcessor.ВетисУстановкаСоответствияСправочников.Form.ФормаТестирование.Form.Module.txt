@@ -85,7 +85,7 @@
 				КонецЕсли;
 			КонецЦикла;
 			
-			ОтчетДополнить("GetStockEntryChangesList", ?(_Отказ, _Ошибка, "Ок"));
+			ОтчетДополнить("GetStockEntryChangesList", ?(_Отказ, _Ошибка, "Ок (total:"+_параметры.ListResponse.total+")"));
 		Исключение
 			ОтчетДополнить("GetStockEntryChangesList", ПодробноеПредставлениеОшибки(ИнформацияОбОшибке()));
 		КонецПопытки;
@@ -95,15 +95,16 @@
 		_Ошибка = "";
 		_Item = Неопределено;
 		_параметры = Неопределено;
+		_sp = ВетисMercuryVetdocument_2_0.StockEntrySearchPattern(ВетисКонстанты.StockEntryBlankFilter_NOT_BLANK());
 		
 		Попытка
-			Пока ВетисMercuryApplications_2_0.GetStockEntryListСледующий(_enterpriseGuid, _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
+			Пока ВетисMercuryApplications_2_0.GetStockEntryListСледующий(_enterpriseGuid, _sp, _businessEntityGuid, _Item, _параметры, _Отказ, _Ошибка) Цикл
 				Если _Отказ = Истина Тогда
 					Прервать; 
 				КонецЕсли;
 			КонецЦикла;
 			
-			ОтчетДополнить("GetStockEntryList", ?(_Отказ, _Ошибка, "Ок"));
+			ОтчетДополнить("GetStockEntryList", ?(_Отказ, _Ошибка, "Ок (total:"+_параметры.ListResponse.total+")"));
 		Исключение
 			ОтчетДополнить("GetStockEntryList", ПодробноеПредставлениеОшибки(ИнформацияОбОшибке()));
 		КонецПопытки;
@@ -122,7 +123,7 @@
 				КонецЕсли;
 			КонецЦикла;
 			
-			ОтчетДополнить("GetVetDocumentChangesList", ?(_Отказ, _Ошибка, "Ок"));
+			ОтчетДополнить("GetVetDocumentChangesList", ?(_Отказ, _Ошибка, "Ок (total:"+_параметры.ListResponse.total+")"));
 		Исключение
 			ОтчетДополнить("GetVetDocumentChangesList", ПодробноеПредставлениеОшибки(ИнформацияОбОшибке()));
 		КонецПопытки;
@@ -138,17 +139,17 @@
 				Если _Отказ = Истина Тогда
 					Прервать;
 				КонецЕсли;
-				Если НЕ _Item.certifiedConsignment.batch.packageList = Неопределено Тогда
-					Для каждого _package Из _Item.certifiedConsignment.batch.packageList.package Цикл
-						_тест = _package.Свойства().Получить("name");
-						_тест = _package.Свойства().Получить("uuid");
-						_тест = _package.Свойства().Получить("guid");
-						_тест = _package.Свойства().Получить("globalID");
-					КонецЦикла;
-				КонецЕсли;
+				//Если НЕ _Item.certifiedConsignment.batch.packageList = Неопределено Тогда
+				//	Для каждого _package Из _Item.certifiedConsignment.batch.packageList.package Цикл
+				//		_тест = _package.Свойства().Получить("name");
+				//		_тест = _package.Свойства().Получить("uuid");
+				//		_тест = _package.Свойства().Получить("guid");
+				//		_тест = _package.Свойства().Получить("globalID");
+				//	КонецЦикла;
+				//КонецЕсли;
 			КонецЦикла;
 			
-			ОтчетДополнить("GetVetDocumentList", ?(_Отказ, _Ошибка, "Ок"));
+			ОтчетДополнить("GetVetDocumentList", ?(_Отказ, _Ошибка, "Ок (total:"+_параметры.ListResponse.total+")"));
 		Исключение
 			ОтчетДополнить("GetVetDocumentList", ПодробноеПредставлениеОшибки(ИнформацияОбОшибке()));
 		КонецПопытки;

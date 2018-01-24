@@ -3753,7 +3753,11 @@
 							</Synonym>
 							<Comment>disease {dt:AnimalDisease}</Comment>
 							<Type>
-								<v8:Type>cfg:CatalogRef.ВетисAnimalDisease</v8:Type>
+								<v8:Type>xs:string</v8:Type>
+								<v8:StringQualifiers>
+									<v8:Length>50</v8:Length>
+									<v8:AllowedLength>Variable</v8:AllowedLength>
+								</v8:StringQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -4014,7 +4018,11 @@
 							</Synonym>
 							<Comment>disease {dt:AnimalDisease}</Comment>
 							<Type>
-								<v8:Type>cfg:CatalogRef.ВетисAnimalDisease</v8:Type>
+								<v8:Type>xs:string</v8:Type>
+								<v8:StringQualifiers>
+									<v8:Length>50</v8:Length>
+									<v8:AllowedLength>Variable</v8:AllowedLength>
+								</v8:StringQualifiers>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>

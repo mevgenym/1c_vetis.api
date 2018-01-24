@@ -822,7 +822,7 @@
 	
 	_Request = CheckShipmentRegionalizationRequest(cargoType, shipmentRoute);
 	
-	_Response = Прокси("сheckShipmentRegionalizationRequest", _Request, issuerId, пОтказ, пОшибка);
+	_Response = Прокси("checkShipmentRegionalizationRequest", _Request, issuerId, пОтказ, пОшибка);
 	
 	Если пОтказ = Истина Тогда Возврат Неопределено; КонецЕсли;
 	

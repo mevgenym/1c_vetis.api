@@ -130,7 +130,7 @@
 		
 	КонецЕсли;
 	
-	Ветис.Соответствие_Добавить(_Объект.Ссылка, _Enterprise.guid, _Enterprise.name, _Enterprise.fio);
+	Ветис.Соответствие_Добавить(_Объект.Ссылка, _Enterprise.guid, _Enterprise.name);
 	
 	Возврат _Объект.Ссылка;
 	

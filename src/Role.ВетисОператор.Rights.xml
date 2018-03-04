@@ -26,14 +26,51 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисТранспортнаяПартия</name>
+		<name>InformationRegister.ВетисXSD.Dimension.default</name>
 		<right>
 			<name>View</name>
-			<value>true</value>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.status</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисМаркировка.Dimension.Уровень</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Catalog.ВетисПредприятия.Attribute.Собственник</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.ProductItem</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -242,6 +279,17 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисЖурнал.Resource.Представление</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисTransport.Attribute.ТипТранспорта</name>
 		<right>
 			<name>View</name>
@@ -253,10 +301,25 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисВходящаяПартияПоДокументам</name>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.updateDate</name>
 		<right>
 			<name>View</name>
-			<value>true</value>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Resource.volume</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -370,14 +433,18 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисВходящаяПартияСводно</name>
+		<name>Catalog.Контрагенты.Attribute.ЮрФизЛицо</name>
 		<right>
 			<name>View</name>
-			<value>true</value>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
-		<name>Catalog.Контрагенты.Attribute.ЮрФизЛицо</name>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.entryNumber</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -454,6 +521,28 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисСправочникПродукции.Dimension.ProductType</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.productMarking</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисПредприятия.Attribute.НаселенныйПункт</name>
 		<right>
 			<name>View</name>
@@ -465,14 +554,95 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисXSD</name>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.ProductType</name>
 		<right>
-			<name>Read</name>
-			<value>true</value>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.Resource.КлючДанных</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.country</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисXSD.StandardAttribute.Active</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисXSD.StandardAttribute.LineNumber</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисXSD.StandardAttribute.Recorder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисXSD.StandardAttribute.Period</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
 		<name>Catalog.ВетисAddress.Attribute.Тип</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСправочникПродукции.Dimension.Product</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -494,14 +664,14 @@
 		</right>
 	</object>
 	<object>
-		<name>Constant.ВетисВерсия</name>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.last</name>
 		<right>
-			<name>Read</name>
-			<value>true</value>
+			<name>View</name>
+			<value>false</value>
 		</right>
 		<right>
-			<name>Update</name>
-			<value>true</value>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -667,10 +837,47 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисСправочникПродукции</name>
+		<name>InformationRegister.ВетисСправочникПродукции.StandardAttribute.Active</name>
 		<right>
-			<name>Read</name>
-			<value>true</value>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСправочникПродукции.StandardAttribute.LineNumber</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСправочникПродукции.StandardAttribute.Recorder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСправочникПродукции.StandardAttribute.Period</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -763,6 +970,17 @@
 	</object>
 	<object>
 		<name>Catalog.ВетисAnimalDisease.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Dimension.uuid</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -872,7 +1090,62 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисXSD.Dimension.service</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.producerProductItem</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисМаркировка.Dimension.Упаковка</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.КлассификаторСтранМира.Attribute.КодАльфа2</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.expiryDateFirst</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.Resource.Хранилище</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -1004,6 +1277,17 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисМаркировка.Dimension.Маркировка</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.КлассификаторСтранМира.Attribute.НаименованиеПолное</name>
 		<right>
 			<name>View</name>
@@ -1114,6 +1398,17 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute._active</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.Номенклатура.Attribute.СтранаПроисхождения</name>
 		<right>
 			<name>View</name>
@@ -1125,17 +1420,36 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonCommand.ВетисВетеринарноСопроводительныйДокумент</name>
+		<name>InformationRegister.ВетисЖурнал.Dimension.Объект</name>
 		<right>
 			<name>View</name>
-			<value>true</value>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
-		<name>Subsystem.ВетисИнтеграцияУТ</name>
+		<name>InformationRegister.ВетисXSD.Dimension.pilot</name>
 		<right>
 			<name>View</name>
-			<value>true</value>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.dateOfProductionInformal</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -1172,7 +1486,62 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисЖурнал.Resource.Версия</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисXSD.Dimension.VersionAPI</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.КлассификаторЕдиницИзмерения.Attribute.НаименованиеПолное</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.producerProductItemName</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.ProductItemName</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСправочникПродукции.Resource.ProductName</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -1326,7 +1695,73 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.Unit</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.expiryDateInformal</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисTransport.Attribute.НомерПрицепа</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.Resource.Контекст</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Resource.package</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.SubProduct</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -1401,6 +1836,17 @@
 	</object>
 	<object>
 		<name>Catalog.ВетисPackingForm.Attribute.globalID</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.Product</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -1510,14 +1956,25 @@
 		</right>
 	</object>
 	<object>
-		<name>Constant.ВетисОсновнойХС</name>
+		<name>InformationRegister.ВетисXSD.Resource.offline</name>
 		<right>
-			<name>Read</name>
-			<value>true</value>
+			<name>View</name>
+			<value>false</value>
 		</right>
 		<right>
-			<name>Update</name>
-			<value>true</value>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисXSD.Resource.xsd</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -1683,6 +2140,61 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.expiryDateSecond</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Dimension.ХозяйствующийСубъект</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Resource.packingAmount</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.dateOfProductionFirst</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.vetDocument</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Document.ВетисВетеринарноСопроводительныйДокумент</name>
 		<right>
 			<name>Read</name>
@@ -1746,6 +2258,17 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Dimension.guid</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисRegionalizationCondition.Attribute.Заболевание</name>
 		<right>
 			<name>View</name>
@@ -1773,6 +2296,17 @@
 		<right>
 			<name>Output</name>
 			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисМаркировка.Dimension.КлассМаркировки</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -1886,6 +2420,17 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.dateOfProductionSecond</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисПредприятия.TabularSection.НомераПредприятия</name>
 		<right>
 			<name>View</name>
@@ -1908,14 +2453,80 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисЖурнал</name>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.createDate</name>
 		<right>
-			<name>Read</name>
-			<value>true</value>
+			<name>View</name>
+			<value>false</value>
 		</right>
 		<right>
-			<name>Update</name>
-			<value>true</value>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.producer</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.Dimension.Миллисекунды</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.StandardAttribute.Active</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.StandardAttribute.LineNumber</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.StandardAttribute.Recorder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.StandardAttribute.Period</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -2139,6 +2750,28 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисМаркировка.Dimension.Номенклатура</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисXSD.Dimension.url</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.Номенклатура.Attribute.НаименованиеПолное</name>
 		<right>
 			<name>View</name>
@@ -2271,10 +2904,58 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисМаркировка</name>
+		<name>InformationRegister.ВетисСправочникПродукции.Dimension.SubProduct</name>
 		<right>
-			<name>Read</name>
-			<value>true</value>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисМаркировка.StandardAttribute.Active</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисМаркировка.StandardAttribute.LineNumber</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисМаркировка.StandardAttribute.Recorder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисМаркировка.StandardAttribute.Period</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -2289,14 +2970,47 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисСкладскойЖурналОстатки</name>
-		<right>
-			<name>Read</name>
-			<value>true</value>
-		</right>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.StandardAttribute.Active</name>
 		<right>
 			<name>View</name>
-			<value>true</value>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.StandardAttribute.LineNumber</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.StandardAttribute.Recorder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.StandardAttribute.Period</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
 		</right>
 	</object>
 	<object>
@@ -2389,6 +3103,28 @@
 	</object>
 	<object>
 		<name>Catalog.ВетисDistrict.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Dimension.Предприятие</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.PackingForm</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -2509,6 +3245,39 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисСкладскойЖурналОстатки.Attribute.producerRole</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисXSD.Dimension.uri</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисСправочникПродукции.Resource.SubProductName</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.Контрагенты.Attribute.КПП</name>
 		<right>
 			<name>View</name>
@@ -2521,6 +3290,28 @@
 	</object>
 	<object>
 		<name>Catalog.ВетисПредприятия.Attribute.Район</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.Resource.Пользователь</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.Dimension.Операция</name>
 		<right>
 			<name>View</name>
 			<value>false</value>

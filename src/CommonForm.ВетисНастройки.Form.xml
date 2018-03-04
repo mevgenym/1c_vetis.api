@@ -145,21 +145,25 @@
 								</LabelField>
 								<LabelField name="СписокНастройкиХСЛогин" id="84">
 									<DataPath>СписокНастройкиХС.Логин</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="СписокНастройкиХСЛогинКонтекстноеМеню" id="85"/>
 									<ExtendedTooltip name="СписокНастройкиХСЛогинРасширеннаяПодсказка" id="86"/>
 								</LabelField>
 								<LabelField name="СписокНастройкиХСПароль" id="87">
 									<DataPath>СписокНастройкиХС.Пароль</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="СписокНастройкиХСПарольКонтекстноеМеню" id="88"/>
 									<ExtendedTooltip name="СписокНастройкиХСПарольРасширеннаяПодсказка" id="89"/>
 								</LabelField>
 								<LabelField name="СписокНастройкиХСКлючАПИ" id="90">
 									<DataPath>СписокНастройкиХС.КлючАПИ</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="СписокНастройкиХСКлючАПИКонтекстноеМеню" id="91"/>
 									<ExtendedTooltip name="СписокНастройкиХСКлючАПИРасширеннаяПодсказка" id="92"/>
 								</LabelField>
 								<LabelField name="СписокНастройкиХСЛогинВрача" id="96">
 									<DataPath>СписокНастройкиХС.ЛогинВрача</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="СписокНастройкиХСЛогинВрачаКонтекстноеМеню" id="97"/>
 									<ExtendedTooltip name="СписокНастройкиХСЛогинВрачаРасширеннаяПодсказка" id="98"/>
 								</LabelField>
@@ -257,6 +261,7 @@
 								</LabelField>
 								<LabelField name="СписокПользователиЛогин" id="62">
 									<DataPath>СписокПользователи.Логин</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="СписокПользователиЛогинКонтекстноеМеню" id="63"/>
 									<ExtendedTooltip name="СписокПользователиЛогинРасширеннаяПодсказка" id="64"/>
 								</LabelField>

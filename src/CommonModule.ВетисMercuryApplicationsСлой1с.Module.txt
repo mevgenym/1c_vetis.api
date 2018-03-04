@@ -337,6 +337,11 @@
 			_packageList = Новый Массив;
 			Для каждого _СтрокаУпаковка Из пДокумент.Упаковка.НайтиСтроки(Новый Структура("КлючСвязи", _СтрокаТовары.КлючСтроки)) Цикл
 				
+				//https://github.com/mevgenym/1c_vetis.api/issues/5#issuecomment-369898911
+				Если _СтрокаУпаковка.Количество = 0 Тогда
+					Продолжить;
+				КонецЕсли;
+				
 				_productMarks = Новый Массив;
 				Для каждого _СтрокаМаркировка Из пДокумент.Маркировка.НайтиСтроки(Новый Структура("КлючСвязи", _СтрокаУпаковка.КлючСтроки)) Цикл
 					_productMarks.Добавить(ВетисDictionary_2_0.ProductMarks(_СтрокаМаркировка.Маркировка, ВетисDictionaryСлой1с.ProductMarkingClass(_СтрокаМаркировка.КлассМаркировки)));
@@ -351,7 +356,9 @@
 				
 			КонецЦикла;
 			
-			_Consignment.packageList = ВетисDictionary_2_0.PackageList(_packageList);
+			Если _packageList.Количество() > 0 Тогда
+				_Consignment.packageList = ВетисDictionary_2_0.PackageList(_packageList);
+			КонецЕсли;
 			
 			_ConsignmentСписок.Добавить(_Consignment);
 			

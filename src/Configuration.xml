@@ -139,6 +139,7 @@
 			<CommonPicture>ВетисНетСвязи</CommonPicture>
 			<CommonPicture>ВетисЕстьСвязь</CommonPicture>
 			<SessionParameter>ВетисПеременные</SessionParameter>
+			<SessionParameter>ТекущийПользователь</SessionParameter>
 			<Role>ВетисАвтономноеРешение</Role>
 			<Role>ВетисАдминистратор</Role>
 			<Role>ВетисОператор</Role>

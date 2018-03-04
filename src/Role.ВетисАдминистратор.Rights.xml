@@ -130,7 +130,7 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисЖурнал.Resource.Расшифровка</name>
+		<name>InformationRegister.ВетисЖурнал.Resource.Представление</name>
 		<right>
 			<name>Edit</name>
 			<value>false</value>

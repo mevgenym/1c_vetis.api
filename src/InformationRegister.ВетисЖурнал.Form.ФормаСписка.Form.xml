@@ -26,7 +26,6 @@
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<RowSelectionMode>Row</RowSelectionMode>
-			<Header>false</Header>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
 			<DataPath>Список</DataPath>
@@ -111,7 +110,7 @@
 							<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="53"/>
 							<ChildItems>
 								<LabelField name="Расшифровка" id="22">
-									<DataPath>Список.Расшифровка</DataPath>
+									<DataPath>Список.Представление</DataPath>
 									<DefaultItem>true</DefaultItem>
 									<ContextMenu name="РасшифровкаКонтекстноеМеню" id="23"/>
 									<ExtendedTooltip name="РасшифровкаРасширеннаяПодсказка" id="24"/>

@@ -262,6 +262,7 @@
 			<Document>ВетисВетеринарноСопроводительныйДокумент</Document>
 			<Document>ВетисВходящаяПартияПоДокументам</Document>
 			<Document>ВетисВходящаяПартияСводно</Document>
+			<Document>ВетисИнвентаризация</Document>
 			<Document>ВетисТранспортнаяПартия</Document>
 			<Document>ПоступлениеТоваровУслуг</Document>
 			<Document>ПриходныйОрдерНаТовары</Document>

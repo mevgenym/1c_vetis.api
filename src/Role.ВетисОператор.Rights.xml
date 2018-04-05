@@ -279,6 +279,17 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисЖурнал.Resource.Представление</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Catalog.ВетисTransport.Attribute.ТипТранспорта</name>
 		<right>
 			<name>View</name>
@@ -1399,6 +1410,17 @@
 	</object>
 	<object>
 		<name>Catalog.Номенклатура.Attribute.СтранаПроисхождения</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.Dimension.Объект</name>
 		<right>
 			<name>View</name>
 			<value>false</value>
@@ -3279,6 +3301,17 @@
 	</object>
 	<object>
 		<name>InformationRegister.ВетисЖурнал.Resource.Пользователь</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисЖурнал.Dimension.Операция</name>
 		<right>
 			<name>View</name>
 			<value>false</value>

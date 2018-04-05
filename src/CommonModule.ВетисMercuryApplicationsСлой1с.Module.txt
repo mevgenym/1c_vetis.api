@@ -328,7 +328,7 @@
 			_Consignment = ВетисMercuryVetdocument_2_0.Consignment();
 			_Consignment.id               = "id" + _id;
 			_Consignment.volume           = _СтрокаПартии.Количество;
-			_Consignment.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаПартии.ЕдиницаИзмерения));
+			_Consignment.unit             = ВетисDictionary_2_0.Unit(ВетисDictionaryСлой1с.Unit(_СтрокаТовары.ЕдиницаИзмерения));
 			_Consignment.sourceStockEntry = ВетисMercuryVetdocument_2_0.StockEntry(_СтрокаПартии.guid);
 			
 			//Consignment это одна партия, значит несколько партий одной продукции будут упакованы одинаково

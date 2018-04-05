@@ -182,6 +182,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.СобственныеКонтрагенты</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ВетисДлительностьОпераций</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.ВетисДлительностьОпераций</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВетисИнвентаризация</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

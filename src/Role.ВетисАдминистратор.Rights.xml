@@ -130,6 +130,13 @@
 		</right>
 	</object>
 	<object>
+		<name>InformationRegister.ВетисЖурнал.Resource.Представление</name>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>CommonCommand.ВетисПредопределенные</name>
 		<right>
 			<name>View</name>

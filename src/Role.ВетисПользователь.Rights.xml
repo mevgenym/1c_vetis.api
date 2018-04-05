@@ -702,12 +702,6 @@
 		<right>
 			<name>Read</name>
 			<value>true</value>
-			<restrictionByCondition>
-				<condition>ТекущаяТаблица
-ИЗ
-    #ТекущаяТаблица КАК ТекущаяТаблица
-ГДЕ Пользователь = &amp;ТекущийПользователь</condition>
-			</restrictionByCondition>
 		</right>
 		<right>
 			<name>Update</name>

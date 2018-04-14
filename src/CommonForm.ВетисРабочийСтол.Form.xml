@@ -704,6 +704,91 @@
 						</Table>
 					</ChildItems>
 				</Page>
+				<Page name="ГруппаИнвентаризация" id="477">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Инвентаризация</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа инвентаризация</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаИнвентаризацияРасширеннаяПодсказка" id="478"/>
+					<ChildItems>
+						<Table name="СписокИнвентаризация" id="479">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>СписокИнвентаризация</DataPath>
+							<RowPictureDataPath>СписокИнвентаризация.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СписокИнвентаризацияКонтекстноеМеню" id="480"/>
+							<AutoCommandBar name="СписокИнвентаризацияКоманднаяПанель" id="481"/>
+							<ExtendedTooltip name="СписокИнвентаризацияРасширеннаяПодсказка" id="482"/>
+							<SearchStringAddition name="СписокИнвентаризацияСтрокаПоиска" id="483">
+								<AdditionSource>
+									<Item>СписокИнвентаризация</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокИнвентаризацияСтрокаПоискаКонтекстноеМеню" id="484"/>
+								<ExtendedTooltip name="СписокИнвентаризацияСтрокаПоискаРасширеннаяПодсказка" id="485"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокИнвентаризацияСостояниеПросмотра" id="486">
+								<AdditionSource>
+									<Item>СписокИнвентаризация</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокИнвентаризацияСостояниеПросмотраКонтекстноеМеню" id="487"/>
+								<ExtendedTooltip name="СписокИнвентаризацияСостояниеПросмотраРасширеннаяПодсказка" id="488"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокИнвентаризацияУправлениеПоиском" id="489">
+								<AdditionSource>
+									<Item>СписокИнвентаризация</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокИнвентаризацияУправлениеПоискомКонтекстноеМеню" id="490"/>
+								<ExtendedTooltip name="СписокИнвентаризацияУправлениеПоискомРасширеннаяПодсказка" id="491"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СписокИнвентаризацияДата" id="492">
+									<DataPath>СписокИнвентаризация.Date</DataPath>
+									<ContextMenu name="СписокИнвентаризацияДатаКонтекстноеМеню" id="493"/>
+									<ExtendedTooltip name="СписокИнвентаризацияДатаРасширеннаяПодсказка" id="494"/>
+								</LabelField>
+								<LabelField name="СписокИнвентаризацияНомер" id="495">
+									<DataPath>СписокИнвентаризация.Number</DataPath>
+									<ContextMenu name="СписокИнвентаризацияНомерКонтекстноеМеню" id="496"/>
+									<ExtendedTooltip name="СписокИнвентаризацияНомерРасширеннаяПодсказка" id="497"/>
+								</LabelField>
+								<LabelField name="СписокИнвентаризацияХС" id="498">
+									<DataPath>СписокИнвентаризация.ХС</DataPath>
+									<ContextMenu name="СписокИнвентаризацияХСКонтекстноеМеню" id="499"/>
+									<ExtendedTooltip name="СписокИнвентаризацияХСРасширеннаяПодсказка" id="500"/>
+								</LabelField>
+								<LabelField name="СписокИнвентаризацияПредприятие" id="501">
+									<DataPath>СписокИнвентаризация.Предприятие</DataPath>
+									<ContextMenu name="СписокИнвентаризацияПредприятиеКонтекстноеМеню" id="502"/>
+									<ExtendedTooltip name="СписокИнвентаризацияПредприятиеРасширеннаяПодсказка" id="503"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 				<Page name="ГруппаСкладскойЖурнал" id="130">
 					<Title>
 						<v8:item>
@@ -1579,6 +1664,38 @@
 			<Save>
 				<Field>СохраняемыеНастройки</Field>
 			</Save>
+		</Attribute>
+		<Attribute name="СписокИнвентаризация" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список инвентаризация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Document.ВетисИнвентаризация</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
 		</Attribute>
 	</Attributes>
 	<Commands>

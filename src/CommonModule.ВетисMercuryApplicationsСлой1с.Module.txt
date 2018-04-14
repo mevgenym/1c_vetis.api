@@ -3,30 +3,40 @@
 	
 КонецПроцедуры
 
-Функция ResolveDiscrepancy(пПредприятие, пСтрокаПартии, discrepancyReport = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция ResolveDiscrepancy(пПредприятие, пСтрокаСЖ, пУпаковка, пМаркировка, АктПричина = Неопределено, АктОписание = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	//сделать: тестировать ResolveDiscrepancy
+	_Версия20 = Ветис.Версия_2_0();
+	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary_2_0, ВетисCerberusEnterprise);
+	_ВетисCerberusEnterpriseСлой1с = ?(_Версия20, ВетисDictionaryСлой1с, ВетисCerberusEnterpriseСлой1с);
+	_ВетисMercuryVetdocument = ?(_Версия20, ВетисMercuryVetdocument_2_0, ВетисMercuryVetdocument);
+	_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
+	_ВетисArgusCommon = ?(_Версия20, ВетисMercuryVetdocument_2_0, ВетисArgusCommon);
 	
-	_enterprise = ВетисCerberusEnterprise.Enterprise(ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие));
+	_enterprise = _ВетисCerberusEnterprise.Enterprise(_ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие));
 	
 	_inventoryDate = ТекущаяДата();
 	
-	_responsible = ВетисArgusCommon.User(Ветис.ЛогинХС());
+	_responsible = _ВетисArgusCommon.User(Ветис.ЛогинХС());
 	
-	_stockEntry = ВетисMercuryVetdocument.StockEntry(пСтрокаПартии.guid);
+	_stockEntry = _ВетисMercuryVetdocument.StockEntry();
 	
-	_stockEntry.batch = ВетисMercuryVetdocument.Batch();
+	_stockEntry.uuid = пСтрокаСЖ.uuid;
 	
-	ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_stockEntry.batch, пСтрокаПартии);
+	_stockEntry.batch = _ВетисMercuryVetdocument.Batch();
 	
-	_stockDiscrepancy = ВетисMercuryVetdocument.StockDiscrepancy(_stockEntry);
-	
-	Если discrepancyReport = Неопределено Тогда
-		_discrepancyReport = ВетисMercuryVetdocument.DiscrepancyReport();
+	Если _Версия20 Тогда
+		ВетисMercuryVetdocumentСлой1с.BatchКонвертировать_20(_stockEntry.batch, пСтрокаСЖ, пУпаковка, пМаркировка, пОтказ, пОшибка);
 	Иначе
-		_discrepancyReport = discrepancyReport;
+		ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_stockEntry.batch, пСтрокаСЖ);
 	КонецЕсли;
 	
-	_Response = ВетисMercuryApplications.resolveDiscrepancy(_enterprise, _inventoryDate, _responsible, _stockDiscrepancy, _discrepancyReport, issuerId, пОтказ, пОшибка);
+	_stockDiscrepancy = _ВетисMercuryVetdocument.StockDiscrepancy(_stockEntry);
+	
+	_discrepancyReport = _ВетисMercuryVetdocument.DiscrepancyReport(,,,АктПричина,АктОписание);
+	
+	_Response = _ВетисMercuryApplications.resolveDiscrepancy(_enterprise, _inventoryDate, _responsible, _stockDiscrepancy, _discrepancyReport, issuerId, пОтказ, пОшибка);
+	
+	Возврат _Response;
 	
 КонецФункции
 

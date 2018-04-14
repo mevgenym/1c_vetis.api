@@ -13,6 +13,7 @@
 			<Source>
 				<v8:Type>cfg:DocumentObject.ВетисВетеринарноСопроводительныйДокумент</v8:Type>
 				<v8:Type>cfg:DocumentObject.ВетисТранспортнаяПартия</v8:Type>
+				<v8:Type>cfg:DocumentObject.ВетисИнвентаризация</v8:Type>
 				<v8:Type>cfg:DocumentObject.ВетисВходящаяПартияСводно</v8:Type>
 				<v8:Type>cfg:DocumentObject.ВетисВходящаяПартияПоДокументам</v8:Type>
 			</Source>

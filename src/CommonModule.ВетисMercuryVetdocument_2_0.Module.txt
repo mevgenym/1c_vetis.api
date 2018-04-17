@@ -462,24 +462,10 @@
 // affectedList - Входящие записи для операции. vd:StockEntryList 0..1
 // resultingList - Получаемые в результате операции записи. vd:StockEntryList 0..1
 // reason - Причина несоответствия. xs:string 0..1
-Функция StockDiscrepancy(stockEntry) Экспорт
+Функция StockDiscrepancy(stockEntry = Неопределено) Экспорт
 	
 	_Объект = Создать("StockDiscrepancy");
 	
-	//Если ТипЗнч(resultingList) = Тип("Массив") Тогда
-	//	_resultingList = resultingList;
-	//Иначе
-	//	_resultingList = Новый Массив;
-	//	_resultingList.Добавить(resultingList);
-	//КонецЕсли;
-	
-	//ВетисОбщегоНазначения.УстановитьЗначение(_Объект, affectedList, "affectedList");
-	//ВетисОбщегоНазначения.УстановитьЗначение(_Объект, _resultingList, "resultingList");
-	//ВетисОбщегоНазначения.УстановитьЗначение(_Объект, reason, "reason");
-	
-	//_Объект.count = _Объект.resultingList.Количество();
-	//_Объект.offset = 0;
-	//_Объект.total = 0;
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, StockEntryList(stockEntry), "resultingList");
 	
 	Возврат _Объект;

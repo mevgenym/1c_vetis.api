@@ -3,7 +3,7 @@
 	
 КонецПроцедуры
 
-Функция ResolveDiscrepancy(пПредприятие, пСтрокаСЖ, пУпаковка, пМаркировка, АктПричина = Неопределено, АктОписание = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
+Функция ResolveDiscrepancy(enterpriseGuid, stockEntry, АктПричина = Неопределено, АктОписание = Неопределено, issuerId = Неопределено, пОтказ = Ложь, пОшибка = "") Экспорт
 	//сделать: тестировать ResolveDiscrepancy
 	_Версия20 = Ветис.Версия_2_0();
 	_ВетисCerberusEnterprise = ?(_Версия20, ВетисDictionary_2_0, ВетисCerberusEnterprise);
@@ -12,27 +12,26 @@
 	_ВетисMercuryApplications = ?(_Версия20, ВетисMercuryApplications_2_0, ВетисMercuryApplications);
 	_ВетисArgusCommon = ?(_Версия20, ВетисMercuryVetdocument_2_0, ВетисArgusCommon);
 	
-	_enterprise = _ВетисCerberusEnterprise.Enterprise(_ВетисCerberusEnterpriseСлой1с.Enterprise(пПредприятие));
+	_enterprise = _ВетисCerberusEnterprise.Enterprise(enterpriseGuid);
 	
 	_inventoryDate = ТекущаяДата();
 	
 	_responsible = _ВетисArgusCommon.User(Ветис.ЛогинХС());
 	
-	_stockEntry = _ВетисMercuryVetdocument.StockEntry();
+	_stockDiscrepancy = _ВетисMercuryVetdocument.StockDiscrepancy(stockEntry);
 	
-	_stockEntry.uuid = пСтрокаСЖ.uuid;
+	_stockDiscrepancy.id = "inv1";
 	
-	_stockEntry.batch = _ВетисMercuryVetdocument.Batch();
-	
-	Если _Версия20 Тогда
-		ВетисMercuryVetdocumentСлой1с.BatchКонвертировать_20(_stockEntry.batch, пСтрокаСЖ, пУпаковка, пМаркировка, пОтказ, пОшибка);
-	Иначе
-		ВетисMercuryVetdocumentСлой1с.BatchКонвертировать(_stockEntry.batch, пСтрокаСЖ);
-	КонецЕсли;
-	
-	_stockDiscrepancy = _ВетисMercuryVetdocument.StockDiscrepancy(_stockEntry);
-	
+	//2018-04-17
+	//переданные сведения акта не отображаются через веб
+	//т.е. отображаются, видимо, автоматически сгенерированные сервисом - номер, дата, причина
 	_discrepancyReport = _ВетисMercuryVetdocument.DiscrepancyReport(,,,АктПричина,АктОписание);
+	
+	_discrepancyReport.for = "inv1";
+	
+	//по каждой позиции в маркировке добавляется запись с классом ProductMarkingClass.UNDEFINED
+	//и сборной записью со всех маркировок по тексту
+	//http://vetrf.ru/vetrf-forum/posts/list/7811.page
 	
 	_Response = _ВетисMercuryApplications.resolveDiscrepancy(_enterprise, _inventoryDate, _responsible, _stockDiscrepancy, _discrepancyReport, issuerId, пОтказ, пОшибка);
 	

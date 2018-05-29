@@ -2761,17 +2761,6 @@
 		</right>
 	</object>
 	<object>
-		<name>InformationRegister.ВетисXSD.Dimension.url</name>
-		<right>
-			<name>View</name>
-			<value>false</value>
-		</right>
-		<right>
-			<name>Edit</name>
-			<value>false</value>
-		</right>
-	</object>
-	<object>
 		<name>Catalog.Номенклатура.Attribute.НаименованиеПолное</name>
 		<right>
 			<name>View</name>
@@ -3279,6 +3268,17 @@
 	</object>
 	<object>
 		<name>Catalog.Контрагенты.Attribute.КПП</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ВетисXSD.Dimension.url</name>
 		<right>
 			<name>View</name>
 			<value>false</value>

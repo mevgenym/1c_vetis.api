@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
-	<Enum uuid="ac27f616-92ac-4680-a717-5767f7056ff5">
+	<Enum uuid="2ea6791c-6eb1-468e-ad98-c97b51f15988">
 		<InternalInfo>
-			<xr:GeneratedType name="EnumRef.ВетисСтатусЗапроса" category="Ref">
-				<xr:TypeId>7662c5dc-0db7-4083-bdd2-0e53c902b909</xr:TypeId>
-				<xr:ValueId>3ee069e3-f69e-413c-b25c-b5ef596f4ce1</xr:ValueId>
+			<xr:GeneratedType name="EnumRef.ВетисVeterinaryEventType" category="Ref">
+				<xr:TypeId>de980007-1e5a-4e71-96c1-9ef432c3a17a</xr:TypeId>
+				<xr:ValueId>c92fe388-eebe-4119-a3ad-6f88e2b46c5a</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="EnumManager.ВетисСтатусЗапроса" category="Manager">
-				<xr:TypeId>8d251f7c-46dd-4971-9b7a-0217928e16c1</xr:TypeId>
-				<xr:ValueId>705621a0-29db-4817-b5ba-aac08afc80b1</xr:ValueId>
+			<xr:GeneratedType name="EnumManager.ВетисVeterinaryEventType" category="Manager">
+				<xr:TypeId>b73764f7-5284-4a80-b196-6a4d3b208e39</xr:TypeId>
+				<xr:ValueId>3ba2b277-844f-4931-b23f-bc9e7036c7fa</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="EnumList.ВетисСтатусЗапроса" category="List">
-				<xr:TypeId>33a5426a-0d3b-4d2c-ac57-bcff816d942a</xr:TypeId>
-				<xr:ValueId>4329dbc0-4e7d-476f-9135-fe5ec62eaecb</xr:ValueId>
+			<xr:GeneratedType name="EnumList.ВетисVeterinaryEventType" category="List">
+				<xr:TypeId>ffbc92e5-da82-4101-8375-970561191f60</xr:TypeId>
+				<xr:ValueId>a6f40574-5645-49ca-9020-2c624609ec3b</xr:ValueId>
 			</xr:GeneratedType>
 		</InternalInfo>
 		<Properties>
-			<Name>ВетисСтатусЗапроса</Name>
+			<Name>ВетисVeterinaryEventType</Name>
 			<Synonym>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Ветис статус запроса</v8:content>
+					<v8:content>Ветис veterinary event type</v8:content>
 				</v8:item>
 			</Synonym>
 			<Comment/>
@@ -90,49 +90,73 @@
 			<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
 		</Properties>
 		<ChildObjects>
-			<EnumValue uuid="494650b2-5965-4e3d-bcb4-0ac34a2c46d1">
+			<EnumValue uuid="08f40d9f-196b-45c9-8c83-8d9ef2637282">
 				<Properties>
-					<Name>ACCEPTED</Name>
+					<Name>НеОпределен</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ACCEPTED</v8:content>
+							<v8:content>Не определен</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
 				</Properties>
 			</EnumValue>
-			<EnumValue uuid="4f93fe0f-7150-474e-8ff1-6f46af09094e">
+			<EnumValue uuid="6ba8739b-7880-4835-b97c-76d79bd570f9">
 				<Properties>
-					<Name>IN_PROCESS</Name>
+					<Name>ЛабораторныеИсследования</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>I n PROCESS</v8:content>
+							<v8:content>Лабораторные исследования</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
 				</Properties>
 			</EnumValue>
-			<EnumValue uuid="f49230fc-151a-4592-b97a-77b3912e9870">
+			<EnumValue uuid="8e9b02a6-55d0-4bc8-a86f-0fd0df02ea96">
 				<Properties>
-					<Name>COMPLETED</Name>
+					<Name>ВетеринарноСанитарнаяЭкспертиза</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>COMPLETED</v8:content>
+							<v8:content>Ветеринарно санитарная экспертиза</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
 				</Properties>
 			</EnumValue>
-			<EnumValue uuid="00d8da15-a2cf-437f-857e-20182e36d763">
+			<EnumValue uuid="5e36af11-4c26-4722-b6c3-2b8496953a2a">
 				<Properties>
-					<Name>REJECTED</Name>
+					<Name>ИммунизацияЖивогоЖивотного</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>REJECTED</v8:content>
+							<v8:content>Иммунизация живого животного</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="a27d4fb2-0437-4028-9bb8-3a500d9b3392">
+				<Properties>
+					<Name>ОбработкаЖивогоЖивотного</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обработка живого животного</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="abddacb1-4500-40da-abc0-6d44d098833e">
+				<Properties>
+					<Name>Карантин</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Карантин</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>

@@ -286,6 +286,7 @@
 			<Enum>ВетисVetDocumentForm</Enum>
 			<Enum>ВетисVetDocumentStatus</Enum>
 			<Enum>ВетисVetDocumentType</Enum>
+			<Enum>ВетисVeterinaryEventType</Enum>
 			<Enum>ВетисВерсияAPI</Enum>
 			<Enum>ВетисОперации</Enum>
 			<Enum>ВетисСервис</Enum>

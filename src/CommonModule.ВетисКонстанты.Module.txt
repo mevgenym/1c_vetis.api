@@ -593,38 +593,70 @@
 КонецФункции
 
 
-// Входящий
 Функция VetDocumentType_INCOMING() Экспорт
 	
 	Возврат "INCOMING";
 	
 КонецФункции
 
-// Исходящий
 Функция VetDocumentType_OUTGOING() Экспорт
 	
 	Возврат "OUTGOING";
 	
 КонецФункции
 
-// Производственный
 Функция VetDocumentType_PRODUCTIVE() Экспорт
 	
 	Возврат "PRODUCTIVE";
 	
 КонецФункции
 
-// Возвратный
 Функция VetDocumentType_RETURNABLE() Экспорт
 	
 	Возврат "RETURNABLE";
 	
 КонецФункции
 
-// Транспортный
 Функция VetDocumentType_TRANSPORT() Экспорт
 	
 	Возврат "TRANSPORT";
+	
+КонецФункции
+
+
+Функция VeterinaryEventType_UND() Экспорт
+	
+	Возврат "UND";
+	
+КонецФункции
+
+Функция VeterinaryEventType_LBR() Экспорт
+	
+	Возврат "LBR";
+	
+КонецФункции
+
+Функция VeterinaryEventType_VSE() Экспорт
+	
+	Возврат "VSE";
+	
+КонецФункции
+
+Функция VeterinaryEventType_IMM() Экспорт
+	
+	Возврат "IMM";
+	
+КонецФункции
+
+Функция VeterinaryEventType_MED() Экспорт
+	
+	Возврат "MED";
+	
+КонецФункции
+
+Функция VeterinaryEventType_QRT() Экспорт
+	
+	Возврат "QRT";
 	
 КонецФункции
 

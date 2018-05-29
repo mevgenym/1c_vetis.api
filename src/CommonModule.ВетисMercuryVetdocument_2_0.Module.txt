@@ -359,10 +359,11 @@
 // method - dt:ResearchMethod - Метод исследования.
 // result - dt:ResearchResult - Результат исследования.
 // conclusion - 	bs:Text - Заключение.
-Функция LaboratoryResearchEvent(expertiseID, indicator, disease, method, result, conclusion) Экспорт
+Функция LaboratoryResearchEvent(batchID, expertiseID, indicator, disease, method, result, conclusion) Экспорт
 	
 	_Объект = Создать("LaboratoryResearchEvent");
 	
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, batchID, "batchID");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, expertiseID, "expertiseID");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, indicator, "indicator");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, disease, "disease");
@@ -524,7 +525,17 @@
 // cargoExpertized - dt:ResearchResult - Проводилась ли ветсанэкспертиза.
 // locationProsperity - bs:String255 - Благополучие местности.
 // specialMarks - bs:Text - Особые отметки.
-Функция VeterinaryAuthentication(purpose = Неопределено, cargoInspected = Неопределено, cargoExpertized = Неопределено, locationProsperity = Неопределено, specialMarks = Неопределено, r13nClause = Неопределено) Экспорт
+// r13nClause - vd:RegionalizationClause - Подтверждение соблюдаемых условий перемещения продукции.
+//              Если в соответствии с правилами регионализации перемещение продукции разрешено при выполнении определенных условий,
+//              то условия, которые обязуется выполнить перевозчик передаются в данном поле.
+// laboratoryResearch - vd:LaboratoryResearchEvent - Сведения о проведенных лабораторных исследованиях.
+Функция VeterinaryAuthentication(purpose = Неопределено,
+	cargoInspected = Неопределено,
+	cargoExpertized = Неопределено,
+	locationProsperity = Неопределено,
+	specialMarks = Неопределено,
+	r13nClause = Неопределено,
+	laboratoryResearch = Неопределено) Экспорт
 	
 	_Объект = Создать("VeterinaryAuthentication");
 	
@@ -534,19 +545,13 @@
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, locationProsperity, "locationProsperity");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, specialMarks, "specialMarks");
 	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, r13nClause, "r13nClause");
+	ВетисОбщегоНазначения.УстановитьЗначение(_Объект, laboratoryResearch, "laboratoryResearch");
 	
 	//_Объект.animalSpentPeriod
 	//_Объект.monthsSpent
-	//_Объект.laboratoryResearch = laboratoryResearch;
 	//_Объект.quarantine
 	//_Объект.immunization
 	//_Объект.veterinaryEvent
-	//_Объект.r13nClause = r13nClause;
-	
-	// laboratoryResearch - vd:LaboratoryResearchEvent - Сведения о проведенных лабораторных исследованиях.
-	// r13nClause - vd:RegionalizationClause - Подтверждение соблюдаемых условий перемещения продукции.
-	//              Если в соответствии с правилами регионализации перемещение продукции разрешено при выполнении определенных условий,
-	//              то условия, которые обязуется выполнить перевозчик передаются в данном поле.
 	
 	Возврат _Объект;
 	
